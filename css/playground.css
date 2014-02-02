@@ -59,22 +59,7 @@ i.side-icon {
         position: fixed;
         width: 200px;
         height: 100%;
-    }
-
-    .navbar-top-links .dropdown-messages,
-    .navbar-top-links .dropdown-tasks,
-    .navbar-top-links .dropdown-alerts {
-        margin-left: auto;
-    }
-}
-
-@media(min-width:768px) {
-    .navbar-fixed-side-iconsonly {
-      padding-top: 5%;
-      z-index: 1;
-      position: fixed;
-      width: 50px;
-      height: 100%;
+        background-color: black;
     }
 
     .navbar-top-links .dropdown-messages,

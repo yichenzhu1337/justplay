@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+  
 }
 
 .icon-center {
@@ -60,6 +61,7 @@ i.side-icon {
         width: 200px;
         height: 100%;
         background-color: black;
+
     }
 
     .navbar-top-links .dropdown-messages,

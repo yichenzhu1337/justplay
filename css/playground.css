@@ -1,4 +1,4 @@
-
+@font-face { font-family: manteka; src: url('manteka.ttf'); } 
 
 .body {
   width: 100%;
@@ -6,7 +6,6 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  
 }
 
 .icon-center {
@@ -21,6 +20,7 @@
 i.side-icon {
   margin-right: 20px;
   display: inline-block;
+  color: #C1CfD9;
 }
 
 /* 
@@ -28,8 +28,12 @@ i.side-icon {
     border-bottom: 1px solid #e7e7e7;
 }*/
 
- .sidebar-search {
+.sidebar-search {
     padding: 15px;
+}
+
+.sidebar-right-content {
+  color: #e9F0F4;
 }
 
 .fa-plus-square-o:before {
@@ -46,7 +50,7 @@ i.side-icon {
 }
 
 .nav-second-level li a {
-    padding-left: 37px;
+    padding-left: 45px;
 }
 
 .nav-third-level li a {
@@ -55,13 +59,12 @@ i.side-icon {
 
 @media(min-width:768px) {
     .navbar-fixed-side {
-      padding-top: 5%;
-        z-index: 1;
-        position: fixed;
-        width: 200px;
-        height: 100%;
-        background-color: black;
-
+      padding-top: 10%;
+      z-index: 1;
+      position: fixed;
+      width: 200px;
+      height: 100%;
+      background-color: #232323;
     }
 
     .navbar-top-links .dropdown-messages,
@@ -69,4 +72,20 @@ i.side-icon {
     .navbar-top-links .dropdown-alerts {
         margin-left: auto;
     }
+}
+
+/* Main Body Style */
+.main-content-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding: 15px 15px 15px 215px;
+  background-color: #e5e5e5;
+}
+
+.main-content-area{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
 }

@@ -1,3 +1,8 @@
+/* Constants */
+var ICON_SIDE_BAR_WIDTH= 45;
+var SIDE_BAR_WIDTH=200;
+var MAIN_CONTENT_WRAPPER_PADDING=15;
+
 $(document).ready(function(){
 	$(function(){
 		$('#side-menu').metisMenu();
@@ -11,11 +16,12 @@ $(document).ready(function(){
 		//alert(width);
 		if (shrink){
 			//alert("Shrinkit!");	
-			$(".navbar-fixed-side").css({"width":"50px"});
+			$(".navbar-fixed-side").css({"width":ICON_SIDE_BAR_WIDTH+"px"});
 		} else {
 			//alert("Expandit!");	
-			$(".navbar-fixed-side").css({"width":"200px"});
+			$(".navbar-fixed-side").css({"width":SIDE_BAR_WIDTH+"px"});
 		}
+		$('.main-content-wrapper').css({"padding-left":parseInt($(".navbar-fixed-side").width())+parseInt(MAIN_CONTENT_WRAPPER_PADDING)+"px"});
 		
 	})	
 });

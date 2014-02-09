@@ -13,11 +13,8 @@
     <title>Playground</title>
 
     <!-- Core CSS - Include with every page -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap-3.1.0/dist/css/bootstrap.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">  
-    
-    <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
 
     <link href="css/playground.css" rel="stylesheet">  
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -32,7 +29,7 @@
   
   <body>
     <!-- Top Nav bar -->
-    <!--div class="navbar navbar-inverse navbar-fixed-top" id="testing" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top" id="navbar-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,8 +38,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="http://getbootstrap.com/examples/jumbotron/#">Project name</a>
+          <a class="navbar-brand" href="#">UTSCGymmies</a>
         </div>
+
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
@@ -54,18 +52,19 @@
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
         </div><!--/.navbar-collapse -->
-      <!--/div>
-    </div-->
+      </div>
+    </div>
     <!-- Top Nav Bar -->
     <!--a id="Sidebar-menu-button" href="#"><i class="glyphicon glyphicon-align-justify"></i></a-->
     <nav class="navbar-default navbar-fixed-side" role="navigation">
       <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
-          <li><a id="Sidebar-menu-button" href="#"><i class="fa fa-bars side-icon"></i></a></li>
+          <!--li id = "Sidebar-menu-toggle-wrap"><a id="Sidebar-menu-button" href="#"><i class="glyphicon glyphicon-th"></i></a></li-->
           <li><a href="#"><i class="glyphicon glyphicon-plus side-icon"></i><span class="sidebar-right-content">Create</span></a></li>
           <li><a href="#"><i class="glyphicon glyphicon-search side-icon"></i><span class="sidebar-right-content">Browse</span></a></li>
+          <li><a href="#"><i class="glyphicon glyphicon-saved side-icon"></i><span class="sidebar-right-content">Joined Activities</span></a></li>
           <li><a href="#"><i class="glyphicon glyphicon-user side-icon"></i><span class="sidebar-right-content">Friends</span></a></li>
-          <li><a href="#"><i class="glyphicon glyphicon glyphicon-bell side-icon"></i><span class="sidebar-right-content">Notifications</span></a></li>
+          <!--li><a href="#"><i class="glyphicon glyphicon glyphicon-bell side-icon"></i><span class="sidebar-right-content">Notifications</span></a></li>
           <li>
             <a href="#">
               <i class="glyphicon glyphicon-filter side-icon"></i><span class="sidebar-right-content">Filter<span class="center"><span class="fa fa-plus-square-o"></span></span> 
@@ -80,12 +79,13 @@
             </ul>
           </li>
           <li><a href="#"><i class="glyphicon glyphicon-cog side-icon"></i><span class="sidebar-right-content">Settings</span></a>
+          </li-->
         </ul>
       </div>
     </nav>
     <div class="main-content-wrapper">
       <div class="main-content-area">
-        
+        <span id="Sidebar-menu-button"><a id="Sidebar-menu-button" href="#"><i class="glyphicon glyphicon-th"></i></a></span>
       </div>
     </div>
     <!--div class="row">
@@ -103,10 +103,10 @@
 
     <!-- Core Scripts - Include with every page -->
     <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
     <script src="js/metisMenu/jquery.metisMenu.js"></script>
 
     <!-- SB Admin Scripts - Include with every page -->
     <script src="js/playground.js"></script>
-  </body>
+    </body>
 </html>

@@ -17,6 +17,10 @@
 
 /* Sidebar Menu Styles */
 
+/*#Sidebar-menu-toggle-wrap:hover {
+  background-color: white;
+}*/
+
 i.side-icon {
   margin-right: 20px;
   display: inline-block;
@@ -27,9 +31,12 @@ i.side-icon {
 .navbar-fixed-side ul li {
     border-bottom: 1px solid #e7e7e7;
 }*/
+a#Sidebar-menu-button{
 
-.sidebar-search {
-    padding: 15px;
+}
+
+a#Sidebar-menu-button:hover {
+  background-color: #232323;
 }
 
 .sidebar-right-content {
@@ -59,7 +66,6 @@ i.side-icon {
 
 @media(min-width:768px) {
     .navbar-fixed-side {
-      padding-top: 10%;
       z-index: 1;
       position: fixed;
       width: 200px;
@@ -79,7 +85,7 @@ i.side-icon {
   width: 100%;
   height: 100%;
   position: fixed;
-  padding: 15px 15px 15px 215px;
+  padding: 65px 15px 15px 215px;
   background-color: #e5e5e5;
 }
 

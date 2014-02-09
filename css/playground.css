@@ -22,7 +22,7 @@
 }*/
 
 i.side-icon {
-  margin-right: 20px;
+  margin-right: 15px;
   display: inline-block;
   color: #C1CfD9;
 }
@@ -32,7 +32,7 @@ i.side-icon {
     border-bottom: 1px solid #e7e7e7;
 }*/
 a#Sidebar-menu-button{
-
+  color: #C1CfD9;
 }
 
 a#Sidebar-menu-button:hover {
@@ -85,7 +85,7 @@ a#Sidebar-menu-button:hover {
   width: 100%;
   height: 100%;
   position: fixed;
-  padding: 65px 15px 15px 215px;
+  padding: 100px 15px 15px 215px;
   background-color: #e5e5e5;
 }
 

@@ -9,22 +9,26 @@ $(document).ready(function(){
 
 	/* Side Bar */
 	// Setup Vertical Distribution
-	var sideMenuChildren = $('#side-menu').children().length; // If there's a menu icon do -1.
+	var sideMenuChildren = $('#side-menu').children().length-1; // If there's a menu icon do -1.
 
 	window.onresize = function(){
+		// Center Side-bar
 		if (sideMenuChildren>0)
 		{
 			var halfWindowHeight = $(window).height()/2;
 			var amount = 0;
 			if (sideMenuChildren%2 == 0)
 			{
-				amount = parseInt(halfWindowHeight)-parseInt(sideMenuChildren/2*SIDE_BAR_LIST_ITEM_HEIGHT);
+				amount = parseInt(halfWindowHeight)-parseInt(sideMenuChildren/2*SIDE_BAR_LIST_ITEM_HEIGHT)-SIDE_BAR_LIST_ITEM_HEIGHT;
 			} else {
-				amount = parseInt(halfWindowHeight)-parseInt((sideMenuChildren-1)/2*SIDE_BAR_LIST_ITEM_HEIGHT)-parseInt(SIDE_BAR_LIST_ITEM_HEIGHT/2);
+				amount = parseInt(halfWindowHeight)-parseInt((sideMenuChildren-1)/2*SIDE_BAR_LIST_ITEM_HEIGHT)-parseInt(SIDE_BAR_LIST_ITEM_HEIGHT/2)-SIDE_BAR_LIST_ITEM_HEIGHT;
 			}
-			$('#side-menu').css({"padding-top":amount+"px"});
+			alert(amount);
+			$('#first-item').css({"margin-top":amount+"px"});
 		}
-		
+
+		// Adjust main-content-wrapper margin
+		//$('.main-content-wrapper').css({"margin-top":$('#navbar-top').height()+"px"});
 	}
 	window.onresize();
 	$(function(){

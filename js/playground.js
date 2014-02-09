@@ -3,6 +3,7 @@ var ICON_SIDE_BAR_WIDTH= 45;
 var SIDE_BAR_WIDTH=200;
 var MAIN_CONTENT_WRAPPER_PADDING=15;
 var SIDE_BAR_LIST_ITEM_HEIGHT = 40;
+var ON_MOUSE_OVER_COLOR = "#232323";
 
 $(document).ready(function(){
 	//alert("begin");
@@ -23,7 +24,7 @@ $(document).ready(function(){
 			} else {
 				amount = parseInt(halfWindowHeight)-parseInt((sideMenuChildren-1)/2*SIDE_BAR_LIST_ITEM_HEIGHT)-parseInt(SIDE_BAR_LIST_ITEM_HEIGHT/2)-SIDE_BAR_LIST_ITEM_HEIGHT;
 			}
-			alert(amount);
+			//alert(amount);
 			$('#first-item').css({"margin-top":amount+"px"});
 		}
 
@@ -31,10 +32,15 @@ $(document).ready(function(){
 		//$('.main-content-wrapper').css({"margin-top":$('#navbar-top').height()+"px"});
 	}
 	window.onresize();
+	
+	/*$('#side-menu > li > .sidebar-right-content').mouseover(function(){
+		$('#side-menu > li > .sidebar-right-content').css({"color":ON_MOUSE_OVER_COLOR});
+	});*/
 	$(function(){
 		$('#side-menu').metisMenu();
 	});
 
+	// Toggle show and hide side-bar
 	$("#Sidebar-menu-button").click(function(){
 		
 		$(".sidebar-right-content").toggle();

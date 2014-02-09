@@ -21,9 +21,18 @@
       display: block;
       padding: @nav-link-padding;
       &:hover,
-      &:focus {
+      &:focus,
+      &:active {
         text-decoration: none;
         background-color: @nav-link-hover-bg;
+
+        > i {
+          color: @playground-clouds;
+        }
+
+        > .sidebar-right-content {
+          color: @playground-clouds;
+        }
       }
     }
 

@@ -3469,9 +3469,20 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 10px 15px;
 }
 .nav > li > a:hover,
-.nav > li > a:focus {
+.nav > li > a:focus,
+.nav > li > a:active {
   text-decoration: none;
-  background-color: #eee;
+  background-color: #2980b9;
+}
+.nav > li > a:hover > i,
+.nav > li > a:focus > i,
+.nav > li > a:active > i {
+  color: #ecf0f1;
+}
+.nav > li > a:hover > .sidebar-right-content,
+.nav > li > a:focus > .sidebar-right-content,
+.nav > li > a:active > .sidebar-right-content {
+  color: #ecf0f1;
 }
 .nav > li.disabled > a {
   color: #999;
@@ -3486,7 +3497,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #eee;
+  background-color: #2980b9;
   border-color: #428bca;
 }
 .nav .nav-divider {
@@ -3517,9 +3528,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #555;
+  color: #2980b9;
   cursor: default;
-  background-color: #fff;
+  background-color: #e5e5e5;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
 }

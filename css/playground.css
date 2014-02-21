@@ -1,6 +1,15 @@
-@font-face { font-family: manteka; src: url('manteka.ttf'); } 
+@font-face { 
+  font-family: manteka; 
+  src: url(manteka.ttf); 
+}
 
-.body {
+@font-face{
+  font-family: bla;
+  src: url('OpenSans-ExtraBold.tff');
+}
+
+.body { 
+  font-family: bla;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -88,7 +97,7 @@ i.side-icon {
   width: 100%;
   height: 100%;
   position: fixed;
-  padding: 100px 15px 15px 215px;
+  padding: 15px 15px 15px 215px;
   background-color: #e5e5e5;
 }
 
@@ -97,4 +106,65 @@ i.side-icon {
   width: 100%;
   height: 100%;
   background-color: #FFFFFF;
+}
+
+.row-divider {
+  width: 100%;
+  height:30px;
+}
+
+/* Cards */
+
+.card {
+  background-color: #e74c3c;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.sport-icon-wrapper {
+  padding: 5px 30% 5px 30%; 
+}
+
+.card-content-wrapper {
+  width: 100%;
+  height: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #FFFFFF;
+}
+
+.card-number {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 25px;
+  color: #e74c3c;
+}
+
+.card-free-slot{
+  color: #2ecc71;
+}
+
+.card-needed{
+  color: #f1c40f;
+}
+
+.description-text {
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 11px;
+}
+
+.card-date {
+  font-size: 14px;
+}
+
+
+
+.number {
+
+}
+.sport-stats-wrapper {
+
 }

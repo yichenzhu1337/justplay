@@ -156,11 +156,18 @@ i.side-icon {
   line-height: 11px;
 }
 
-.card-date {
-  font-size: 14px;
+.join-wrapper {
+  width: 100%;
+  height: auto;
 }
 
-
+.btn-join {
+  background-color: #e74c3c;
+  font-weight: bold;
+  font-size: 15px;
+  color: #FFFFFF;
+  border-radius: 0px;
+}
 
 .number {
 

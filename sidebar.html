@@ -17,14 +17,15 @@
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">  
 
     <link href="css/playground.css" rel="stylesheet">  
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
+    <script src="js/metisMenu/jquery.metisMenu.js"></script>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="js/playground.js"></script>
+        <script src="jQuery-Knob-master/js/jquery.knob.js"></script>
+    
   </head>
   
   <body>
@@ -202,8 +203,11 @@
                 </div>
                 <div class="col-md-4">
                   <div class="number">
-                    <div class="card-number">
-                    2
+                    <div class="knob-wrapper">
+                      <input class="knob" data-fgColor="#e74c3c" data-angleOffset=-90 data-angleArc=180 data-width="70%" 
+                      data-thickness=".3" val="27"
+                      data-min="0" data-max="10"
+                      >
                     </div>
                     <div class="description-text">
                       NEEDED
@@ -276,12 +280,6 @@
         
 
 
-    <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
-    <script src="js/metisMenu/jquery.metisMenu.js"></script>
 
-    <!-- SB Admin Scripts - Include with every page -->
-    <script src="js/playground.js"></script>
   </body>
 </html>

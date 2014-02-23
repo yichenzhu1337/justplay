@@ -169,9 +169,7 @@ i.side-icon {
   border-radius: 0px;
 }
 
-.number {
-
-}
-.sport-stats-wrapper {
-
+.knob-wrapper {
+  width:100%;
+  height:100%;
 }

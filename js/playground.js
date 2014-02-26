@@ -145,4 +145,9 @@ $(document).ready(function(){
                                         }
                             });
     });
+
+    // Tooltip setup
+    $(function() {
+        $('.friend-mouseover').tooltip({placement: 'left'});
+    });
 });

@@ -237,34 +237,40 @@ i.side-icon {
 .search-bar .activity {
   width: 30%;
   height: inherit;
-  border-right: 5px;border-left: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
   float: inherit;
+  vertical-align: middle;
 }
 
 .search-bar .from {
-  width: 10%;
+  width: 15%;
   height: inherit;
-  border-right: 5px;border-left: 5px;
+  padding-right: 5px;padding-left: 5px;
   float: inherit;
 }
 .search-bar .to {
-  width: 10%;
+  width: 15%;
   height: inherit;
-  border-right: 5px;border-left: 5px;
+  padding-right: 5px;padding-left: 5px;
   float: inherit;
 }
 .search-bar .skill {
   width: 15%;
   height: inherit;
-  border-right: 5px;border-left: 5px;
+  padding-right: 5px;padding-left: 5px;
   float: inherit;
 
 }
 .search-bar .join {
-  width: 23%;
+  width: 25%;
   height: inherit;
-  border-right: 5px;
-  border-left: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
   float: inherit;
 
+}
+
+.fill {
+  width: 100%;
 }

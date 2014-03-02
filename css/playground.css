@@ -220,17 +220,23 @@ i.side-icon {
 .search-bar-wrapper {
   height: auto;
   width: 100%;
-
-
+  background-color: #232323;
+  margin-bottom: 20px;
 }
 
 .search-bar {
-  height: 100%;
+  height: auto;
   width: 100%;
   float: left;
-  background-color: #232323;
   padding: 5px 2.5px 5px 2.5px;
-  margin: 0px 0px 10px 0px;
+}
+
+.search-bar-wrapper > .filter {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  color: white;
+  font-weight: bold;
 }
 
 .search-title {
@@ -284,6 +290,3 @@ i.side-icon {
   background-color: white;
 }
 
-.portrait {
-  
-}

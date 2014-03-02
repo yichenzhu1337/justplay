@@ -227,11 +227,10 @@ i.side-icon {
 .search-bar {
   height: 100%;
   width: 100%;
-  border-right: 5px;
   float: left;
   background-color: #232323;
   padding: 5px 2.5px 5px 2.5px;
-  margin: 0px 10px 10px 10px;
+  margin: 0px 0px 10px 0px;
 }
 
 .search-title {
@@ -239,14 +238,6 @@ i.side-icon {
   font-weight: bold;
   text-align: center;
   padding-bottom: 5px;
-}
-
-.search-bar .people {
-  width: 20%;
-  height: inherit;
-  padding-right: 2.5px;
-  padding-left: 2.5px;
-  float: inherit;
 }
 
 .search-bar .activity {
@@ -275,7 +266,7 @@ i.side-icon {
 
 }
 .search-bar .join {
-  width: 15%;
+  width: 20%;
   height: inherit;
   padding-right: 2.5px;
   padding-left: 2.5px;
@@ -285,4 +276,14 @@ i.side-icon {
 
 .fill {
   width: 100%;
+}
+
+.portrait-wrapper {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+}
+
+.portrait {
+  
 }

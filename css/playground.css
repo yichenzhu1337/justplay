@@ -117,7 +117,7 @@ i.side-icon {
 
 .card {
   background-color: #c0392b;
-  width: 100%;
+  width: 304px;
   height: auto;
   text-align: center;
 }
@@ -125,7 +125,7 @@ i.side-icon {
 .sport-icon-wrapper {
   padding: 5px 30% 5px 30%; 
   color: #F1EF0F;
-  background-color: #e74c3c;e74c3c
+  background-color: #e74c3c;
 }
 
 .card-star-wrapper {

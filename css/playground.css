@@ -24,7 +24,7 @@
 
 .header-bg{
   background-color: #c0392b;
-  height: 170px;
+  height: 370px;
   width: 100%;
 }
 
@@ -46,7 +46,7 @@
   height: 1000px;
   max-width: 100%;
   box-shadow: 0 0 15px rgba(0,0,0,0.13);
-  margin: -63px 15.29% 0px 15.29%;
+  margin: -263px 15.29% 0px 15.29%;
   background-color: white;
 }
 
@@ -64,10 +64,25 @@
   border-radius: 1px;
 }
 
-.activity-search-bar {
-  width: 500px;
+.activity-chooser-wrapper {
+  padding-top: 60px;
+  padding-bottom: 20px;
+  font-size: 27px;
+  color: white;
 }
 
+.inline li {
+    display: inline;
+}
+
+.glyphicon-filter,
+.glyphicon-bullhorn {
+  font-size: 20px;
+}
+
+.header-search {
+  width: 300px;
+}
 
 /* Sidebar Menu Styles */
 

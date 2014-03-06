@@ -34,17 +34,16 @@
 }
 
 .header-wrapper {
-  padding: 0px 25.87% 0px 25.87%;
   height: inherit;
 }
 
-.header-content {
+.header-content-wrapper { /* 40px each side */
+  width: 980px;
   height: inherit;
 }
 
 .content-wrapper{
   height: 1000px;
-  width: 1060px;
   max-width: 100%;
   box-shadow: 0 0 15px rgba(0,0,0,0.13);
   margin: -63px 15.29% 0px 15.29%;

@@ -46,9 +46,11 @@
   height: 1000px;
   max-width: 100%;
   box-shadow: 0 0 15px rgba(0,0,0,0.13);
-  margin: -263px 15.29% 0px 15.29%;
+  margin-top: -263px;
   background-color: white;
+  padding: 20px 0px 20px 0px;
 }
+
 
 .content {
   background-color: black;

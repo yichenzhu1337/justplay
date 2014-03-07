@@ -24,6 +24,7 @@
 
     <!-- SB Admin Scripts - Include with every page -->
     <script src="js/playground.js"></script>
+    <script src="jQuery-Knob-master/js/jquery.knob.js"></script>
     </head>
   
     <body>
@@ -57,18 +58,39 @@
     <!-- Top Content -->
     <div class="navbar-wrapper">
         <div class="header-bg">
-                <div class="header-wrapper float-right">
-                    <div class="header-content-wrapper">
-                        <div class="activity-chooser-wrapper pull-left">
-                            <div class="input-group header-search">
-                                <input type="text" class="form-control" placeholder="Click to view activities">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">Search</button>
-                                </span>
-                            </div>      
+            <div class="header-wrapper float-right">
+                <div class="header-content-wrapper">
+                    <div class="activity-chooser-wrapper pull-left">
+                        <div class="input-group header-search">
+                            <input type="text" class="form-control" placeholder="Click to view activities">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">Search</button>
+                            </span>
+                        </div>      
+                    </div>
+                    <div class="sort-filter-wrapper pull-right">
+                        <div class="nav nav-pills nav-justified">
+                            <li><a href="">Sort</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                  Filter <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu list-group">
+                                    <li class="list-group-item">
+                                        Skill
+                                    </li>
+                                    <li class="list-group-item">
+                                        Cost
+                                    </li>
+                                    <li class="list-group-item">
+                                        Blacklist
+                                    </li>
+                                </ul>
+                            </li>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
         <div class="page-container">
             <div class="content-wrapper">

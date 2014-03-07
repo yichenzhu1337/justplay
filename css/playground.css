@@ -24,7 +24,7 @@
 
 .header-bg{
   background-color: #c0392b;
-  height: 370px;
+  height: 170px;
   width: 100%;
 }
 
@@ -46,7 +46,7 @@
   height: 1000px;
   max-width: 100%;
   box-shadow: 0 0 15px rgba(0,0,0,0.13);
-  margin-top: -263px;
+  margin-top: -63px;
   background-color: white;
   padding: 20px 0px 20px 0px;
 }
@@ -71,6 +71,13 @@
   padding-bottom: 20px;
   font-size: 27px;
   color: white;
+}
+
+.sort-filter-wrapper {
+  width: 200px;
+  height: 47px;  
+  padding-top: 60px;
+  padding-bottom: 20px;
 }
 
 .inline li {

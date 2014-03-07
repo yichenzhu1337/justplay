@@ -8,6 +8,10 @@
   src: url('OpenSans-ExtraBold.tff');
 }
 
+.fill {
+  width: 100%;
+}
+
 .body { 
   font-family: bla;
   width: 100%;
@@ -192,7 +196,6 @@ i.side-icon {
 .card {
   background-color: #c0392b;
   width: 304px;
-  height: auto;
   text-align: center;
   margin: 18px 18px 18px 18px;
   display: inline-block;

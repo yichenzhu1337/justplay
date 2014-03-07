@@ -5,9 +5,7 @@
 
 @font-face{
   font-family: bla;
-  font-style: normal;
-  font-weight: 400;
-  src: url('/bootstrap-3.1.0/fonts/TTFOpenSans-ExtraBold.tff');
+  src: url('OpenSans-ExtraBold.tff');
 }
 
 .fill {
@@ -267,12 +265,6 @@ i.secondary-icon {
   background-color: #FFFFFF;
 }
 
-.card-join-wrapper {
-  display: inline-block;
-  width: 88%;
-  padding-top: 5px;
-}
-
 .card-number {
   text-align: center;
   font-size: 25px;
@@ -315,9 +307,7 @@ i.secondary-icon {
 }
 
 .progress-wrapper {
-  display: inline-block;
-  margin-top: 5px;
-  width: 88%;
+  width: auto;
   height: auto;
   background-color: #f5f5f5;
 }

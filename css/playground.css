@@ -193,12 +193,21 @@ i.side-icon {
 
 /* Cards */
 
+.card-wrap {
+  width: 304px;
+  margin: 18px 18px 18px 18px;
+  display: inline-block;text-align: center; 
+}
+
+.card-activity {
+  font-size: 18px;
+  font-style: italic;
+}
+
 .card {
   background-color: #c0392b;
-  width: 304px;
-  text-align: center;
-  margin: 18px 18px 18px 18px;
-  display: inline-block;
+  width: 100%; 
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.23);
 }
 
 .sport-icon-wrapper {

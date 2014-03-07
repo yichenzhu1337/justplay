@@ -24,7 +24,7 @@
       &:focus,
       &:active {
         text-decoration: none;
-        background-color: @nav-link-hover-bg;
+        background-color: @alizarin;
 
         > i {
           color: @playground-clouds;
@@ -55,7 +55,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: @nav-link-hover-bg;
+      background-color: @alizarin;
       border-color: @link-color;
     }
   }
@@ -127,9 +127,11 @@
   > li {
     float: left;
 
+
     // Links rendered as pills
     > a {
       border-radius: @nav-pills-border-radius;
+      color: white;
     }
     + li {
       margin-left: 2px;
@@ -140,8 +142,7 @@
       &,
       &:hover,
       &:focus {
-        color: @nav-pills-active-link-hover-color;
-        background-color: @nav-pills-active-link-hover-bg;
+        background-color: @alizarin;
       }
     }
   }
@@ -173,6 +174,7 @@
     float: none;
      > a {
       text-align: center;
+      height: 47px;
       margin-bottom: 5px;
     }
   }

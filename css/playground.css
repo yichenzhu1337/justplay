@@ -48,7 +48,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.13);
   margin-top: -63px;
   background-color: white;
-  padding: 20px 0px 20px 0px;
+  padding: 0px 40px 0px 40px;
 }
 
 
@@ -78,6 +78,11 @@
   height: 47px;  
   padding-top: 60px;
   padding-bottom: 20px;
+  color: white;
+}
+
+.sort-filter {
+  height: 47px;
 }
 
 .inline li {
@@ -189,6 +194,8 @@ i.side-icon {
   width: 304px;
   height: auto;
   text-align: center;
+  margin: 18px 18px 18px 18px;
+  display: inline-block;
 }
 
 .sport-icon-wrapper {

@@ -3472,7 +3472,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:focus,
 .nav > li > a:active {
   text-decoration: none;
-  background-color: #2980b9;
+  background-color: #e74c3c;
 }
 .nav > li > a:hover > i,
 .nav > li > a:focus > i,
@@ -3497,7 +3497,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #2980b9;
+  background-color: #e74c3c;
   border-color: #428bca;
 }
 .nav .nav-divider {
@@ -3542,6 +3542,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: none;
 }
 .nav-tabs.nav-justified > li > a {
+  height: 47px;
   margin-bottom: 5px;
   text-align: center;
 }
@@ -3582,6 +3583,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: left;
 }
 .nav-pills > li > a {
+  color: white;
   border-radius: 4px;
 }
 .nav-pills > li + li {
@@ -3590,8 +3592,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #fff;
-  background-color: #428bca;
+  background-color: #e74c3c;
 }
 .nav-stacked > li {
   float: none;
@@ -3607,6 +3608,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: none;
 }
 .nav-justified > li > a {
+  height: 47px;
   margin-bottom: 5px;
   text-align: center;
 }
@@ -4627,6 +4629,7 @@ a.thumbnail.active {
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
+  color: black;
   background-color: #fff;
   border: 1px solid #ddd;
 }

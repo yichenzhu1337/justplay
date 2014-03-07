@@ -292,6 +292,26 @@ i.side-icon {
   background-color: #f5f5f5;
 }
 
+/* Display date of group of cards.*/
+.date-wrapper {
+  font-size: 27px;
+  height: 63px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.date-day-of-week {
+  font-weight: bold;
+  display: inline-block;
+  line-height: 27px;
+}
+
+.date-dmy {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 20px;
+}
+
 /* Search Bar */
 .search-bar-wrapper {
   height: auto;

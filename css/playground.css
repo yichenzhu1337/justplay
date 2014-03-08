@@ -22,12 +22,23 @@
   background-color: white;
 }
 
-/* Navbar related */
+
+/* Top Navbar */
+i.side-icon {
+  color: white;
+}
+
+i.secondary-icon {
+  color: #7f8c8d;
+}
+/* Top Navbar */
 
 /* Right hand side items */
 .acount-options {
   color: white;
 }
+
+/* Right hand side items */
 
 .navbar-wrapper {
   margin-top: 50px;
@@ -42,6 +53,7 @@
 .page-container {
   padding-left: 20px;
   padding-right: 20px;
+  height: 1100px;
 }
 
 .header-wrapper {
@@ -109,113 +121,31 @@
   width: 300px;
 }
 
-/* Sidebar Menu Styles */
-
-#Sidebar-menu-toggle-wrap {
-  display: inline-block;
-}
-
-#Sidebar-menu-toggle-wrap:hover {
-  color: #3498db;
-  background-color:  #232323;
-}
-
-i.side-icon {
-  color: white;
-}
-
-i.secondary-icon {
-  color: #7f8c8d;
-}
-
-/* 
-.navbar-fixed-side ul li {
-    border-bottom: 1px solid #e7e7e7;
-}*/
-#Sidebar-menu-button: hover{
-  color: #2980b9;
-}
-
-.sidebar-right-content {
-  color: #e9F0F4;
-}
-
-.fa-plus-square-o:before {
-    content: "\f196";
-}   
-
-.active > a > span > span > .fa-plus-square-o:before {
-    content: "\f147";
-}
-
-.nav-second-level li,
-.nav-third-level li {
-    border-bottom: none !important;
-}
-
-.nav-second-level li a {
-    padding-left: 45px;
-}
-
-.nav-third-level li a {
-    padding-left: 52px;
-}
-
-@media(min-width:768px) {
-    .navbar-fixed-side {
-      z-index: 1;
-      position: fixed;
-      width: 200px;
-      height: 100%;
-      background-color: #232323;
-    }
-
-    .navbar-top-links .dropdown-messages,
-    .navbar-top-links .dropdown-tasks,
-    .navbar-top-links .dropdown-alerts {
-        margin-left: auto;
-    }
-}
-
-/* Main Body Style */
-
-.main-content-wrapper {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  padding: 0px 15px 15px 215px;
-  background-color: #e5e5e5;
-}
-
-.main-content-area{
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #FFFFFF;
-}
-
-.row-divider {
-  width: 100%;
-  height:30px;
+/* Footer Style */
+footer {
+  background-color: #303030;  
+  height: 100px;
+  padding-top: 24px;
+  padding-bottom: 10px;
 }
 
 /* Cards */
 
 .card-wrap {
   width: 304px;
-  margin: 18px 18px 18px 18px;
+  margin: 9px 18px 9px 18px;
   display: inline-block;text-align: center; 
 }
 
 .card-activity {
   font-size: 18px;
-  font-style: italic;
+  color: #7f8c8d;
 }
 
 .card {
   background-color: #c0392b;
   width: 100%; 
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.23);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.23);
 }
 
 .sport-icon-wrapper {
@@ -314,10 +244,12 @@ i.secondary-icon {
 
 /* Display date of group of cards.*/
 .date-wrapper {
-  font-size: 27px;
+  color: #7f8c8d;
+  font-size: 20px;
   height: 63px;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  text-align: center;
+  padding-top: 27px;
+  padding-bottom: 9px;
 }
 
 .date-day-of-week {

@@ -148,6 +148,11 @@ footer {
   box-shadow: 0px 0px 10px rgba(0,0,0,0.23);
 }
 
+.card-description-title{
+  font-size: 20px;
+  color: #7f8c8d;
+}
+
 .sport-icon-wrapper {
   padding: 5px 30% 5px 30%; 
   color: #F1EF0F;

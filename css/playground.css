@@ -159,8 +159,7 @@ footer {
   background-color: #e74c3c;
 }
 
-.card-star-wrapper {
-  padding: 0px 30% 0px 30%; 
+.card-star-wrapper { 
   color: #F1EF0F;
   background-color: #c0392b;
 }
@@ -190,6 +189,7 @@ footer {
   margin: 0px 1px 0px 1px;
   line-height: 20px;
   color: #F1E371;
+  text-align: center;
 }
 
 .card-content-wrapper {

@@ -21,13 +21,37 @@
   <script src="js/jquery-1.10.2.js"></script>
   <script src="bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
   <script src="js/metisMenu/jquery.metisMenu.js"></script>
-
-  <!-- SB Admin Scripts - Include with every page -->
-  <script src="js/playground.js"></script>
+  
   <script src="jQuery-Knob-master/js/jquery.knob.js"></script>
+
+  <!-- x-editable -->
+  
+  <link rel="stylesheet" href="x-editable/bootstrap3-editable/css/bootstrap-editable.css">
+  <script src="x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
+  
+  <!-- justPlay JS -->
+  <script src="js/playground.js"></script>
+  <script src="js/popovers.js"></script>
+  <script src="js/x-editable.js"></script>
   </head>
 
   <body>
+    <div id="activity-create-form" class="hide">
+      <form role="form-horizontal">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" id="inputActivity" placeholder="Activity">
+            <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>            
+          </div>
+          <div class="input-group">
+            <input type="text" class="form-control" id="inputActivity" placeholder="Location">
+            <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
+          </div>
+          
+        </div>  
+      </form>
+    </div>
+
     <div class="super-wrapper">
       <!-- Top Nav bar -->
       <div class="navbar navbar-inverse navbar-fixed-top" id="navbar-top" role="navigation">
@@ -41,14 +65,12 @@
             </button>
           </div>
 
-
-
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a class="brand" href="index.html"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href=""><i class="glyphicon glyphicon-plus side-icon"></i></a></li>
+              <li id="suggest-activity"><a href="#" ><i class="glyphicon glyphicon-plus side-icon"></i></a></li>
               <li><a href=""><i class="glyphicon glyphicon-eye-open side-icon"></i></a></li>
               <li><a href=""><i class="glyphicon glyphicon glyphicon-bell side-icon"></i></a></li>
               <li><a href=""><span class="side-icon">Jack Yiu</span></a></li>
@@ -101,6 +123,11 @@
                 <div class="date-day-of-week">
                     TODAY, MAR 7
                 </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <a href="#" id="username" data-type="text" data-placement="bottom" data-title="Enter username" class="editable editable-click" data-original-title="" title="">superuser</a>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-4">

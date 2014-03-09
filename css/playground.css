@@ -151,6 +151,11 @@ footer {
   bottom:0; /* stick to bottom */
 }
 
+/* Activity popover form */
+.activity-create-form {
+  width: 100%;
+}
+
 /* Cards */
 
 .card-wrap {

@@ -133,8 +133,34 @@ footer {
 
 .card-wrap {
   width: 304px;
+  height: 170px;
   margin: 9px 18px 9px 18px;
-  display: inline-block;text-align: center; 
+  display: inline-block;
+}
+
+.card-left {
+  width: 290px;
+  display: inline-block;text-align: center;
+}
+
+.card-expand-icon {
+  color: #ecf0f1;
+}
+
+.expand-wrapper {
+  padding-top: 1.5px;
+  padding-bottom: 1.5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: -21px;
+  width: 21px;
+  height: 21px;
+}
+
+.card-right {
+  padding-top: 25px;
+  width: 14px;
+  display: inline-block;
 }
 
 .card-activity {

@@ -22,6 +22,14 @@ body {
   background-color: white;
 }
 
+.brand {
+  background: url('../img/justPlay.png') no-repeat left center;
+  width: 122px;
+  height: 33px;
+  margin-top: 6px;
+  vertical-align: center;
+}
+
 .super-wrapper {
   height: 100%;
   min-height: 100%;
@@ -157,6 +165,12 @@ footer {
   display: inline-block;text-align: center;
 }
 
+.card-right {
+  padding-top: 25px;
+  width: 14px;
+  display: inline-block;
+}
+
 .card-expand-icon {
   color: #ecf0f1;
 }
@@ -171,11 +185,6 @@ footer {
   height: 21px;
 }
 
-.card-right {
-  padding-top: 25px;
-  width: 14px;
-  display: inline-block;
-}
 
 .card-activity {
   font-size: 18px;

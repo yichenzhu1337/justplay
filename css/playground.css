@@ -1,16 +1,25 @@
-@font-face { 
-  font-family: clear-sans; 
-  src: url('../fonts/TTF/ClearSans-Bold.ttf');
-}
+/* Imported Fonts */
+  @font-face { 
+    font-family: clear-sans; 
+    src: url('../fonts/TTF/ClearSans-Bold.ttf');
+  }
 
-@font-face{
-  font-family: roboto-bold;
-  src: url('../fonts/Roboto/Roboto-Bold.ttf');
-}
+  @font-face{
+    font-family: roboto-bold;
+    src: url('../fonts/Roboto/Roboto-Bold.ttf');
+  }
+/* Imported Fonts */
 
-.fill {
-  width: 100%;
-}
+/* Utility */
+  .fill {
+    width: 100%;
+  }
+
+  .divider {
+    height: 5px;
+    width: 100%;
+  }
+/* Utility */
 
 body { 
   font-family: clear-sans;
@@ -151,7 +160,7 @@ footer {
   bottom:0; /* stick to bottom */
 }
 
-/* Activity popover form */
+/* Activity Form Popover */
   .activity-create-form {
     width: 100%;
   }
@@ -168,7 +177,16 @@ footer {
   #inputDescription {
     width: 120%;
   }
-/* Activity popover form */
+
+/* Activity Search Popover */
+  .activity-chooser-wrapper> .popover{ 
+    min-width: 800px;
+max-width: 800px;
+
+    width: auto;
+  }
+
+/* Activity Search Popover */
 
 /* Cards */
 

@@ -36,107 +36,121 @@
   </head>
 
   <body>
-    <!-- Activity Form -->
-      <div id="activity-create-form" class="hide">
-        <form role="form">
-          <div class="form-group">
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="text" class="form-control" id="inputActivity" placeholder="Activity">
-              <span class="input-group-addon"><icon class="glyphicon glyphicon-heart-empty"></icon></span>            
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="text" class="form-control" id="input" placeholder="Skill">
-              <span class="input-group-addon"><icon class="glyphicon glyphicon-star-empty"></icon></span>
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="datetime" class="form-control" id="inputDate" placeholder="Date/Time">
-              <span class="input-group-addon"><icon class="glyphicon glyphicon-calendar"></icon></span>
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="number" class="form-control" id="inputCapacity" placeholder="Min & Max Capacity">
-              <span class="input-group-addon"><icon class="glyphicon glyphicon-stats"></icon></span>
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="text" class="form-control" id="inputLocation" placeholder="Location">
-              <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <textarea class="form-control" id="inputDescription" rows="3" placeholder="Description"></textarea>
-            </div>
-            <div class="checkbox">
-              <label>
-                <input id="inputPrivate" type="checkbox"> Private (Invite only)
-              </label>
-            </div>
-            <button type="button" class="btn btn-success fill" onclick="$('#suggest-activity').popover('hide');">Suggest</button>
-          </div>  
-        </form>
-      </div>
-      <div id="activity-form-title" class="hide">
-        <span class="text-info">Suggest Activity</span>
-        <button type="button" id="close" class="close" onclick="$('#suggest-activity').popover('hide');">
-          <icon class="glyphicon glyphicon-remove"></icon>
-        </button>
-      </div>
-    <!-- Activity Form -->
+    <!-- Popover (hidden) form -->
+      <!-- Activity Form -->
+        <div id="activity-create-form" class="hide">
+          <form role="form">
+            <div class="form-group">
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="inputActivity" placeholder="Activity">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-heart-empty"></icon></span>            
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="input" placeholder="Skill">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-star-empty"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="datetime" class="form-control" id="inputDate" placeholder="Date/Time">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-calendar"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="number" class="form-control" id="inputCapacity" placeholder="Min & Max Capacity">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-stats"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="inputLocation" placeholder="Location">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <textarea class="form-control" id="inputDescription" rows="3" placeholder="Description"></textarea>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input id="inputPrivate" type="checkbox"> Private (Invite only)
+                </label>
+              </div>
+              <button type="button" class="btn btn-success fill" onclick="$('#suggest-activity').popover('hide');">Suggest</button>
+            </div>  
+          </form>
+        </div>
+        <div id="activity-form-title" class="hide">
+          <span class="text-info">Suggest Activity</span>
+          <button type="button" id="close" class="close" onclick="$('#suggest-activity').popover('hide');">
+            <icon class="glyphicon glyphicon-remove"></icon>
+          </button>
+        </div>
+      <!-- Activity Form -->
 
-    <!-- Notification Form -->
-      <div id="notification-form-title" class="hide">
-        <span class="text-info">Get Notified</span>
-        <button type="button" id="close" class="close" onclick="$('#get-notified').popover('hide');">
-          <icon class="glyphicon glyphicon-remove"></icon>
-        </button>
-      </div>
-      <div id="notification-form" class="hide">
-        <form role="form">
-          <div class="form-group">
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="text" class="form-control" id="NinputActivity" placeholder="Activities">
-              <span class="input-group-addon"><icon class="glyphicon glyphicon-heart-empty"></icon></span>            
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="text" class="form-control" id="NinputSkill" placeholder="Skill Range">
-              <span class="input-group-addon"><icon class="glyphicon glyphicon-star-empty"></icon></span>
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="datetime" class="form-control" id="NinputDate" placeholder="Date/Time">
-              <span class="input-group-addon"><icon class="glyphicon glyphicon-calendar"></icon></span>
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="text" class="form-control" id="NinputLocation" placeholder="Location (Optional)">
-              <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="text" class="form-control" id="NinputSMS" placeholder="Notify (Phone Number)">
-              <span class="input-group-addon">
-                <input id="NradioSMS" name="inputWalls" id="inputWalls" type="radio">
-              </span>            
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-              <input type="text" class="form-control" id="NinputEmail" placeholder="Notify (Email)">
-              <span class="input-group-addon">
-                <input id="NradioEmail" name="inputWalls" id="inputWalls"  type="radio">
-              </span>            
-            </div>
-            <div class="divider"></div>       
-            <button type="button" class="btn btn-success fill" onclick="$('#get-notified').popover('hide');">Suggest</button>
-            </div>
-        </form>
-      </div>
-    <!-- Notification Form -->
+      <!-- Notification Form -->
+        <div id="notification-form-title" class="hide">
+          <span class="text-info">Get Notified</span>
+          <button type="button" id="close" class="close" onclick="$('#get-notified').popover('hide');">
+            <icon class="glyphicon glyphicon-remove"></icon>
+          </button>
+        </div>
+        <div id="notification-form" class="hide">
+          <form role="form">
+            <div class="form-group">
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputActivity" placeholder="Activities">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-heart-empty"></icon></span>            
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputSkill" placeholder="Skill Range">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-star-empty"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="datetime" class="form-control" id="NinputDate" placeholder="Date/Time">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-calendar"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputLocation" placeholder="Location (Optional)">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputSMS" placeholder="Notify (Phone Number)">
+                <span class="input-group-addon">
+                  <input id="NradioSMS" name="inputWalls" id="inputWalls" type="radio">
+                </span>            
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputEmail" placeholder="Notify (Email)">
+                <span class="input-group-addon">
+                  <input id="NradioEmail" name="inputWalls" id="inputWalls"  type="radio">
+                </span>            
+              </div>
+              <div class="divider"></div>       
+              <button type="button" class="btn btn-success fill" onclick="$('#get-notified').popover('hide');">Suggest</button>
+              </div>
+          </form>
+        </div>
+      <!-- Notification Form -->
 
+      <!--Activity Search -->
+        <div id="activity-search-title" class="hide">
+          <span class="text-info">List of Activities</span>
+          <button type="button" id="close" class="close" onclick="$('#activity-search-bar').popover('hide');">
+            <icon class="glyphicon glyphicon-remove"></icon>
+          </button>
+        </div>
+        <div id="activity-search" class="hide">
+          
+        </div>
+
+      <!--Activity Search -->
+    <!-- Popover (hidden) form -->
     <div class="super-wrapper">
       <!-- Top Nav bar -->
         <div class="navbar navbar-inverse navbar-fixed-top" id="navbar-top" role="navigation">
@@ -172,12 +186,12 @@
             <div class="header-wrapper float-right">
               <div class="header-content-wrapper">
                 <div class="activity-chooser-wrapper pull-left">
-                    <div class="input-group header-search">
-                        <input type="text" class="form-control" placeholder="Click to view activities">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button">Search</button>
-                        </span>
-                    </div>      
+                  <div id="activity-search-bar" class="input-group header-search">
+                    <input type="text" class="form-control" placeholder="Click to view activities">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">Search</button>
+                    </span>
+                  </div>      
                 </div>
                 <div class="sort-filter-wrapper pull-right">
                   <div class="nav nav-pills nav-justified">

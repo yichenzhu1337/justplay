@@ -21,4 +21,15 @@ $(document).ready(function(){
 			return $("#notification-form").html();
 		}
 	});
+
+	$('#activity-search-bar').popover({
+		html: 'true',
+		placement: 'bottom',
+		title: function(){
+			return $("#activity-search-title").html();
+		},
+		content: function(){
+			return $("#activity-search").html();
+		}
+	});
 });

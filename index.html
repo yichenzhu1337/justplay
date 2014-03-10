@@ -87,9 +87,52 @@
     <!-- Activity Form -->
 
     <!-- Notification Form -->
+      <div id="notification-form-title" class="hide">
+        <span class="text-info">Get Notified</span>
+        <button type="button" id="close" class="close" onclick="$('#get-notified').popover('hide');">
+          <icon class="glyphicon glyphicon-remove"></icon>
+        </button>
+      </div>
       <div id="notification-form" class="hide">
         <form role="form">
-          .form-group
+          <div class="form-group">
+            <div class="divider"></div>
+            <div class="input-group">
+              <input type="text" class="form-control" id="NinputActivity" placeholder="Activities">
+              <span class="input-group-addon"><icon class="glyphicon glyphicon-heart-empty"></icon></span>            
+            </div>
+            <div class="divider"></div>
+            <div class="input-group">
+              <input type="text" class="form-control" id="NinputSkill" placeholder="Skill Range">
+              <span class="input-group-addon"><icon class="glyphicon glyphicon-star-empty"></icon></span>
+            </div>
+            <div class="divider"></div>
+            <div class="input-group">
+              <input type="datetime" class="form-control" id="NinputDate" placeholder="Date/Time">
+              <span class="input-group-addon"><icon class="glyphicon glyphicon-calendar"></icon></span>
+            </div>
+            <div class="divider"></div>
+            <div class="input-group">
+              <input type="text" class="form-control" id="NinputLocation" placeholder="Location (Optional)">
+              <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
+            </div>
+            <div class="divider"></div>
+            <div class="input-group">
+              <input type="text" class="form-control" id="NinputSMS" placeholder="Notify (Phone Number)">
+              <span class="input-group-addon">
+                <input id="NradioSMS" name="inputWalls" id="inputWalls" type="radio">
+              </span>            
+            </div>
+            <div class="divider"></div>
+            <div class="input-group">
+              <input type="text" class="form-control" id="NinputEmail" placeholder="Notify (Email)">
+              <span class="input-group-addon">
+                <input id="NradioEmail" name="inputWalls" id="inputWalls"  type="radio">
+              </span>            
+            </div>
+            <div class="divider"></div>       
+            <button type="button" class="btn btn-success fill" onclick="$('#get-notified').popover('hide');">Suggest</button>
+            </div>
         </form>
       </div>
     <!-- Notification Form -->
@@ -113,7 +156,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li id="suggest-activity"><a href="#" ><i class="glyphicon glyphicon-plus side-icon"></i></a></li>
-              <li><a href=""><i class="glyphicon glyphicon-eye-open side-icon"></i></a></li>
+              <li id="get-notified"><a href="#"><i class="glyphicon glyphicon-eye-open side-icon"></i></a></li>
               <li><a href=""><i class="glyphicon glyphicon glyphicon-bell side-icon"></i></a></li>
               <li><a href=""><span class="side-icon">Jack Yiu</span></a></li>
               <li><a href=""><i class="glyphicon glyphicon-cog secondary-icon"></i></a></li>

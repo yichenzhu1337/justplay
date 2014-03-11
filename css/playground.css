@@ -180,10 +180,10 @@ footer {
 
 /* Activity Search Popover */
   .activity-chooser-wrapper> .popover{ 
-    min-width: 800px;
-max-width: 800px;
-
+    min-width: 624px;
+    min-width: 624px;
     width: auto;
+    font-size: 12px;
   }
 
 /* Activity Search Popover */

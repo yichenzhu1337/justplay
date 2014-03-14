@@ -142,7 +142,7 @@ $(document).ready(function(){
 
     // Tooltip setup
     $(function() {
-        $('.friend-mouseover').tooltip({placement: 'left'});
+        $('.friend-mouseover').tooltip({placement: 'right'});
         $('.star-mouseover').tooltip({placement: 'top'});
     });
 

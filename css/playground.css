@@ -10,16 +10,7 @@
   }
 /* Imported Fonts */
 
-/* Utility */
-  .fill {
-    width: 100%;
-  }
 
-  .divider {
-    height: 5px;
-    width: 100%;
-  }
-/* Utility */
 
 body { 
   font-family: clear-sans;
@@ -194,190 +185,209 @@ footer {
 /* Activity Search Popover */
 
 /* Cards */
+  .card-metrics {
+    background-color: #ecf0f1;
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 2.5px;
+    padding-bottom: 5px;
 
-.card-wrap {
-  width: 304px;
-  height: 170px;
-  margin: 9px 18px 9px 18px;
-  display: inline-block;
-}
+    height: auto;
+  }
 
-.card-left {
-  width: 290px;
-  display: inline-block;text-align: center;
-}
+  .card-wrap {
+    width: 304px;
+    height: 170px;
+    margin: 9px 18px 9px 18px;
+    display: inline-block;
+  }
 
-.card-right {
-  padding-top: 25px;
-  width: 14px;
-  display: inline-block;
-}
+  .card-left {
+    width: 290px;
+    display: inline-block;text-align: center;
+  }
 
-.card-expand-icon {
-  color: #ecf0f1;
-}
+  .card-right {
+    padding-top: 25px;
+    width: 14px;
+    display: inline-block;
+  }
 
-.expand-wrapper {
-  padding-top: 1.5px;
-  padding-bottom: 1.5px;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-left: -21px;
-  width: 21px;
-  height: 21px;
-}
+  .card-expand-icon {
+    color: #ecf0f1;
+  }
+
+  .card-expand-icon:hover,
+  .card-expand-icon:active {
+    color: #95a5a6;
+  }
+
+  .expand-wrapper {
+    padding-top: 1.5px;
+    padding-bottom: 1.5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: -21px;
+    width: 21px;
+    height: 21px;
+  }
 
 
-.card-activity {
-  font-size: 18px;
-  color: #7f8c8d;
-}
+  .card-activity {
+    font-size: 18px;
+    color: #7f8c8d;
+  }
 
-.card {
-  background-color: #c0392b;
-  width: 100%; 
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.23);
-}
+  .card {
+    background-color: #c0392b;
+    width: 100%; 
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.23);
+  }
 
-.card-description-title{
-  font-size: 20px;
-  color: #7f8c8d;
-}
+  .card-description-title{
+    font-size: 20px;
+    color: #7f8c8d;
+  }
 
-.sport-icon-wrapper {
-  padding: 5px 30% 5px 30%; 
-  color: #F1EF0F;
-  background-color: #e74c3c;
-}
+  .sport-icon-wrapper {
+    padding: 5px 30% 5px 30%; 
+    color: #F1EF0F;
+    background-color: #e74c3c;
+  }
 
-.card-star-wrapper { 
-  color: #F1EF0F;
-  background-color: #c0392b;
-}
+  .card-star-wrapper { 
+    color: #F1EF0F;
+    background-color: #c0392b;
+  }
 
-.card-time-wrapper {
-  padding: 5px 5px 5px 5px;
-  color: white;
-  background-color: #e74c3c;
-}
+  .card-time-wrapper {
+    padding: 5px 5px 5px 5px;
+    color: white;
+    background-color: #e74c3c;
+  }
 
-.card-time-wrapper > .card-number {
-  text-align: center;
-  font-size: 27px;
-  font-weight: bold;
-  line-height: 27px;
-  color: #ecf0f1;
-}
+  .card-time-wrapper > .card-number {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 27px;
+    color: #ecf0f1;
+  }
 
-.card-time-wrapper > .description-text {
-  font-size: 11px;
-  font-weight: bold;
-  line-height: 11px;
-  color: #ecf0f1;
-}
+  .card-time-wrapper > .description-text {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 13px;
+    color: #ecf0f1;
+  }
 
-.card-rating-stars {
-  margin: 0px 1px 0px 1px;
-  line-height: 20px;
-  color: #F1E371;
-  text-align: center;
-}
+  .card-rating-stars {
+    margin: 0px 1px 0px 1px;
+    line-height: 20px;
+    color: #F1E371;
+    text-align: center;
+  }
 
-.card-content-wrapper {
-  width: 100%;
-  height: auto;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #FFFFFF;
-}
-
-.card-number {
-  text-align: center;
-  font-size: 25px;
-  font-weight: bold;
-  line-height: 25px;
-  color: #e74c3c;
-}
-
-.card-free-slot{
-  color: #2ecc71;
-}
-
-.card-needed{
-  color: #f1c40f;
-}
-
-.card-info-wrapper {
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 5px;
-}
-
-.card-info-title {
-  font-size: 15px;
-  color: #7f8c8d;
-}
-
-.card-info {
-  font-size: 12px;
-  color: black;
-  text-align: left;
-} 
-
-/* Cards */
-
-.description-text {
-  font-size: 11px;
-  font-weight: bold;
-  line-height: 11px;
-  color: #7f8c8d;
-}
+  .card-content-wrapper {
+    width: 100%;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #FFFFFF;
+  }
 
 .join-wrapper {
-  width: 100%;
-  height: auto;
+  margin-top: -5px;
+  background-color: white;
 }
 
-.btn-join {
-  background-color: #e74c3c;
-  font-weight: bold;
-  font-size: 15px;
-  color: #FFFFFF;
-  border-radius: 0px;
-}
+  .card-number {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 25px;
+    color: #e74c3c;
+  }
 
-.knob-wrapper {
-  width:100%;
-  height:100%;
-}
+  .card-free-slot{
+    color: #2ecc71;
+  }
 
-.progress-wrapper {
-  width: auto;
-  height: auto;
-  background-color: #f5f5f5;
-}
+  .card-needed{
+    color: #f1c40f;
+  }
 
-/* Display date of group of cards.*/
-.date-wrapper {
-  color: #7f8c8d;
-  font-size: 20px;
-  height: 63px;
-  text-align: center;
-  padding-top: 27px;
-  padding-bottom: 9px;
-}
+  .card-info-wrapper {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+  }
 
-.date-day-of-week {
-  font-weight: bold;
-  display: inline-block;
-  line-height: 27px;
-}
+  .card-info-title {
+    font-size: 15px;
+    color: #7f8c8d;
+  }
 
-.date-dmy {
-  display: inline-block;
-  font-size: 20px;
-  line-height: 20px;
-}
+  .card-info {
+    font-size: 12px;
+    color: black;
+    text-align: left;
+  } 
+
+  .description-text {
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 11px;
+    color: #7f8c8d;
+  }
+
+  .join-wrapper {
+    width: 100%;
+    height: auto;
+  }
+
+  .btn-join {
+    background-color: #e74c3c;
+    font-weight: bold;
+    font-size: 15px;
+    color: #FFFFFF;
+    border-radius: 0px;
+  }
+
+  .knob-wrapper {
+    width:100%;
+    height:100%;
+  }
+
+  .progress-wrapper {
+    width: auto;
+    height: auto;
+    background-color: #f5f5f5;
+  }
+
+  /* Display date of group of cards.*/
+    .date-wrapper {
+      color: #7f8c8d;
+      font-size: 20px;
+      height: 63px;
+      text-align: center;
+      padding-top: 27px;
+      padding-bottom: 9px;
+    }
+
+    .date-day-of-week {
+      font-weight: bold;
+      display: inline-block;
+      line-height: 27px;
+    }
+
+    .date-dmy {
+      display: inline-block;
+      font-size: 20px;
+      line-height: 20px;
+    }
+  /* Display date of group of cards. */
+/* Cards */
 
 /* Search Bar */
 .search-bar-wrapper {
@@ -453,3 +463,17 @@ footer {
   background-color: white;
 }
 
+/* Utility */
+  .fill {
+    width: 100%;
+  }
+
+  .divider {
+    height: 5px;
+    width: 100%;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+/* Utility */

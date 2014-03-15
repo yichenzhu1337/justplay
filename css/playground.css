@@ -232,6 +232,40 @@ footer {
     height: 21px;
   }
 
+  .expand-friend {
+    margin-right: 18px;
+  }
+
+  .expand-comment {
+    margin-left: 15px;
+  }
+
+  #friend-anchor:hover,
+  #friend-anchor:active,
+  #comment-anchor:hover,
+  #comment-anchor:active {
+    text-decoration: none;
+  }
+
+  .comment-trigger {
+    font-size: 10px;
+    line-height: 10px;
+    color: #95a5a6;
+    padding-top: 7px;
+    padding-right: 10px   
+  }
+
+  .friend-trigger {
+    font-size: 10px;
+    line-height: 10px;
+    color: #95a5a6;
+    padding-top: 7px;
+    padding-left: 10px   
+  }
+
+  .expand-friends {
+    margin-right: 15px;
+  }
 
   .card-activity {
     font-size: 18px;
@@ -296,10 +330,10 @@ footer {
     background-color: #FFFFFF;
   }
 
-.join-wrapper {
-  margin-top: -5px;
-  background-color: white;
-}
+  .join-wrapper {
+    margin-top: -5px;
+    background-color: white;
+  }
 
   .card-number {
     text-align: center;

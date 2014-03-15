@@ -302,14 +302,14 @@ footer {
 
   .card-time-wrapper > .card-number {
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     line-height: 27px;
     color: #ecf0f1;
   }
 
   .card-time-wrapper > .description-text {
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
     line-height: 13px;
     color: #ecf0f1;
@@ -363,13 +363,13 @@ footer {
   }
 
   .card-info {
-    font-size: 12px;
+    font-size: 13px;
     color: black;
     text-align: left;
   } 
 
   .description-text {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: bold;
     line-height: 11px;
     color: #7f8c8d;

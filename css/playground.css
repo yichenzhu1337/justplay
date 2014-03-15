@@ -197,9 +197,23 @@ footer {
 
   .card-wrap {
     width: 304px;
-    height: 170px;
     margin: 9px 18px 9px 18px;
     display: inline-block;
+  }
+
+  .card-wrap.friends {
+    height: 257px;
+    width: 304px;
+    padding-top: 22px;
+    display: inline;
+  }
+
+  .card-friends-wrapper {
+    background-color: #e74c3c;
+  }
+
+  .card-info.description {
+    max-height: 80px;
   }
 
   .card-left {

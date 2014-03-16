@@ -209,8 +209,8 @@ footer {
 
     .card-wrap.expanded.friends {
       padding-top: 47px;
-      margin-left: 45px;
-
+      margin-left: 59px;
+      width: 290px;
     }
 
     ul.nav.nav-tabs.nav-justified>li>a {
@@ -248,7 +248,7 @@ footer {
     }
 
     .scroll.friends {
-      max-height: 235px;
+      max-height: 230px;
     }
 
     .header-friends {

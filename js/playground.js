@@ -62,13 +62,32 @@ $(document).ready(function(){
   	// Cards (Minimized) //
 
   	// Cards (Maximized) //
+			// Resize and auto position modals to be at center of screen.
+			$('.modal').on('shown.bs.modal', function() {
+			    $(this).find('.modal-dialog').css({
+			        'margin-top': function () {
+			            return -($(this).outerHeight() / 2);
+			        },
+			        'margin-left': function () {
+			            return -($(this).outerWidth() / 2);
+			        }
+			    });
+			});
+			
+		$('#minimize-card').click(function(){
+			$('#expanded-card').modal('hide');			
+		})
+
+
   	$('#friend-toggle').click(function(){
-  		$('.card-wrap.expanded.side.friends').toggle();
+  		$('.card-wrap.expanded.side.friends').fadeToggle(200);
   	});
 
 		$('#comment-toggle').click(function(){
-  		$('.card-wrap.expanded.side.comments').toggle();
+  		$('.card-wrap.expanded.side.comments').fadeToggle(200);
   	});
+
+
   	// Cards (Maximized) //
   // Expansion //
 });

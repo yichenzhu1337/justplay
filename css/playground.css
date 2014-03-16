@@ -199,6 +199,19 @@ footer {
   }
 
   /* Expanded card */
+    .modal-dialog-center { /* Edited classname 10/03/2014 */
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    @media (max-width: 767px) {
+      .modal-dialog-center { /* Edited classname 10/03/2014 */
+        width: 100%;
+      }
+    } 
+
     .card-wrap.expanded {
       margin-left: 9px;
       margin-right: 9px;
@@ -281,6 +294,11 @@ footer {
       width: 100%;
     }
 
+    .modal-dialog {
+      width: 1000px;
+      vertical-align: middle;
+    }
+
     .content-auto-wrap.active:hover,
     .content-auto-wrap.active:active {
       background-color: #CCD1D9;
@@ -312,6 +330,15 @@ footer {
 
     .header-friends {
       border-color: white;
+    }
+
+    .card-activity.expanded {
+      color: white;
+      font-size: 30px;
+    }
+
+    .card-right.expanded {
+      padding-top: 42px;
     }
 
     /* Comment Box */

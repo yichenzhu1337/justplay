@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-	alert("HI");
-
 	$('#suggest-activity').popover({
 		html: 'true',
 		placement: 'bottom',

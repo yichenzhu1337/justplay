@@ -235,7 +235,8 @@ footer {
     }
 
     .card-info.description {
-      max-height: 80px;
+      max-height: 100px;
+      min-height: 100px;
     }
 
     .card-content-wrapper.friends {
@@ -243,11 +244,11 @@ footer {
       padding-right: 5px;
       background-color: #E6E9ED;
 
-      height: 210px;
+      height: auto;
     }
 
     .scroll.friends {
-      max-height: 200px;
+      max-height: 235px;
     }
 
     .header-friends {

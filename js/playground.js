@@ -51,9 +51,24 @@ $(document).ready(function(){
 		$('.main-content-wrapper').css({"padding-left":parseInt($(".navbar-fixed-side").width())+parseInt(MAIN_CONTENT_WRAPPER_PADDING)+"px"});
 		
 	})
-    // Tooltip setup
-    $(function() {
-        $('.friend-mouseover').tooltip({placement: 'right'});
-        $('.star-mouseover').tooltip({placement: 'top'});
-    });
+  // Tooltip setup
+  $(function() {
+      $('.friend-mouseover').tooltip({placement: 'right'});
+      $('.star-mouseover').tooltip({placement: 'top'});
+  });
+
+  // Expansion //
+  	// Cards (Minimized) //
+  	// Cards (Minimized) //
+
+  	// Cards (Maximized) //
+  	$('#friend-toggle').click(function(){
+  		$('.card-wrap.expanded.side.friends').toggle();
+  	});
+
+		$('#comment-toggle').click(function(){
+  		$('.card-wrap.expanded.side.comments').toggle();
+  	});
+  	// Cards (Maximized) //
+  // Expansion //
 });

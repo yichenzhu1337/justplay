@@ -189,9 +189,6 @@ footer {
     background-color: #ecf0f1;
     width: 100%;
     margin-top: 10px;
-    padding-top: 2.5px;
-    padding-bottom: 5px;
-
     height: auto;
   }
 
@@ -207,16 +204,25 @@ footer {
       margin-right: 9px;
     }
 
-    .card-wrap.expanded.friends {
-      padding-top: 47px;
-      margin-left: 59px;
+    .card-wrap.expanded.side {
+      padding-top: 47px;      
       width: 290px;
+    }
+
+    .card-wrap.expanded.side.friends {
+      margin-left: 59px;
+
+    }
+
+    .card-wrap.expanded.side.comments {
+      margin-left: -42px;
     }
 
     ul.nav.nav-tabs.nav-justified>li>a {
       color: white;
     }
-    ul.nav.nav-tabs.nav-justified>li>a>.badge {
+    
+    .side.badge {
       background-color: white;
       color: #428bca;
     }
@@ -227,11 +233,27 @@ footer {
       padding: 0px 0px 0px 0px;
     }
 
+    .card-header-wrapper.comments {
+      background-color: #3498db;
+      height: 47px;
+      padding: 12.5px 20px 0px 20px;
+    }
+
+    .new-badge {
+      margin-top: 2.5px;
+    }
+
     .card-friends-wrapper {
       background-color: #3498db;
       height: 63px;
       width: auto;
       padding: 5px 5px 5px 5px;
+    }
+
+    .card-metrics > .row > .col-md-4 > .content-auto-wrap {
+      padding-top: 2.5px;
+      padding-bottom: 5px;
+
     }
 
     .card-info.description {
@@ -243,17 +265,74 @@ footer {
       padding-left: 5px;
       padding-right: 5px;
       background-color: #E6E9ED;
-
       height: auto;
+    }
+
+    .card-content-wrapper.comments {
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 0px;
+      background-color: #E6E9ED;
+      height: auto;
+    }  
+      
+    .content-auto-wrap {
+      height: 100%;
+      width: 100%;
+    }
+
+    .content-auto-wrap.active:hover,
+    .content-auto-wrap.active:active {
+      background-color: #CCD1D9;
+    }
+
+    .content-auto-wrap > a {
+      text-decoration: none;
+    }
+
+    .insert-comment-wrapper {
+      background-color: #E6E9ED;
+      padding: 5px 5px 5px 5px;
+      height: auto;
+    }
+
+    .insert-comment-box {
+      background-color: white;
+      height: 100%;
+      width: 100%;
     }
 
     .scroll.friends {
       max-height: 230px;
     }
 
+    .scroll.comments {
+      max-height: 190px;
+    }
+
     .header-friends {
       border-color: white;
     }
+
+    /* Comment Box */
+    .comments > li {
+      width: auto;
+      height: auto;
+      padding: 3px 7px 3px 7px;
+      margin-right: 5px;
+      color: #434A54;
+      background-color: white;
+    }
+
+    .comments > .name{
+margin-top: 5px;
+    }
+
+    .list-group.scroll.comments > .name > a {
+      color:  #7F8C8D;
+            
+    }
+    /* Comment Box */
   /* Expanded card */
 
   .card-left {
@@ -294,11 +373,11 @@ footer {
     margin-left: 15px;
   }
 
-  #friend-anchor:hover,
-  #friend-anchor:active,
+  #friend-toggle:hover,
+  #friend-toggle:active,
   #comment-anchor:hover,
   #comment-anchor:active {
-    text-decoration: none;
+    text-decoration: bold;
   }
 
   .comment-trigger {

@@ -53,8 +53,9 @@ $(document).ready(function(){
 	})
   // Tooltip setup
   $(function() {
-      $('.friend-mouseover').tooltip({placement: 'right'});
+      $('.friend-mouseover').tooltip({placement: 'left'});
       $('.star-mouseover').tooltip({placement: 'top'});
+      $('.nav-tooltip').tooltip({placement: 'bottom', width: '200px'});
   });
 
   // Popover automatically closing upon clicking outside //

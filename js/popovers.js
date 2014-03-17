@@ -32,4 +32,17 @@ $(document).ready(function(){
 			return $("#activity-search").html();
 		}
 	});
+
+	// Ensures that only one popover is open at a time and also
+	// clicking the body will close a popover.
+	$(':not(#anything)').on('click', function (e) {
+    $('#activity-search-bar, #get-notified, #suggest-activity').each(function () {
+        //the 'is' for buttons that trigger popups
+        //the 'has' for icons and other elements within a button that triggers a popup
+        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+            $(this).popover('hide');
+            return;
+        }
+    });
+	});
 });

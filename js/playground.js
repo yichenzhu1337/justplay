@@ -57,6 +57,19 @@ $(document).ready(function(){
       $('.star-mouseover').tooltip({placement: 'top'});
   });
 
+  // Popover automatically closing upon clicking outside //
+	$('body').on('click', function (e) {
+	    $('[data-toggle="popover"]').each(function () {
+	        //the 'is' for buttons that trigger popups
+	        //the 'has' for icons within a button that triggers a popup
+	        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+	            $(this).popover('hide');
+	        }
+	    });
+	});
+
+	
+
   // Expansion //
   	// Cards (Minimized) //
   	// Cards (Minimized) //
@@ -74,20 +87,17 @@ $(document).ready(function(){
 			    });
 			});
 			
-		$('#minimize-card').click(function(){
-			$('#expanded-card').modal('hide');			
-		})
+			$('#minimize-card').click(function(){
+				$('#expanded-card').modal('hide');			
+			})
 
+	  	$('#friend-toggle').click(function(){
+	  		$('.card-wrap.expanded.side.friends').fadeToggle(200);
+	  	});
 
-  	$('#friend-toggle').click(function(){
-  		$('.card-wrap.expanded.side.friends').fadeToggle(200);
-  	});
-
-		$('#comment-toggle').click(function(){
-  		$('.card-wrap.expanded.side.comments').fadeToggle(200);
-  	});
-
-
+			$('#comment-toggle').click(function(){
+	  		$('.card-wrap.expanded.side.comments').fadeToggle(200);
+	  	});
   	// Cards (Maximized) //
   // Expansion //
 });

@@ -135,6 +135,49 @@
   .sort-filter {
     height: 47px;
   }
+
+  #activity-menu {
+    font-size: 16px;
+    margin-top: 36px;
+    width: 647px;
+    height: auto;
+    border-radius: 0px;
+    padding: 18px 9px 18px 9px;
+    background-color: white;
+        box-shadow: 0 0 15px rgba(0,0,0,0.13);
+  }
+
+  #activity-menu > .list-group {
+    width: 206px;
+    height: auto;
+    display: inline-block;
+    padding-right: 5px;
+    border-right: 1px solid #AAB2BD;
+    vertical-align: top;  
+  }
+
+  #activity-menu > .list-group.last {
+    border: none;
+  }
+
+  #activity-menu > .list-group > a { 
+    background-color: transparent;
+    color: #AAB2BD;
+    border: none;
+    border-radius: 0px;
+  }
+
+  #activity-menu > .list-group > .header {
+    padding: 10px 15px 10px 15px;
+    color: #656D78;
+  }
+
+  #activity-menu > .list-group > a:hover,
+  #activity-menu > .list-group > a:active { 
+    background-color: #e74c3c;
+    color: white;
+    border: white;     
+  }
 /* Header */
 
 /* Footer */
@@ -170,8 +213,8 @@
 /* Activity Form Popover */
 
 /* Activity Search Popover */
-  .activity-chooser-wrapper> .popover{ 
-    min-width: 624px;
+  .activity-chooser-wrapper > .popover{ 
+    min-width: 700px;
     min-width: 624px;
     width: auto;
     font-size: 12px;

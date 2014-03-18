@@ -21,7 +21,7 @@ $(document).ready(function(){
 			return $("#notification-form").html();
 		}
 	});
-
+/*
 	$('#activity-search-bar').popover({
 		html: 'true',
 		placement: 'bottom',
@@ -30,8 +30,9 @@ $(document).ready(function(){
 		},
 		content: function(){
 			return $("#activity-search").html();
-		}
-	});
+		},
+
+	});*/
 
 	// Ensures that only one popover is open at a time and also
 	// clicking the body will close a popover.

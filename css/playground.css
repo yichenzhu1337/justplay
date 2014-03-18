@@ -379,25 +379,25 @@
     }
 
       /* Comment Box */
-      .comments > li {
-        width: auto;
-        height: auto;
-        padding: 3px 7px 3px 7px;
-        margin-right: 5px;
-        color: #434A54;
-        background-color: white;
-      }
+        .comments > li {
+          width: auto;
+          height: auto;
+          padding: 3px 7px 3px 7px;
+          margin-right: 5px;
+          color: #434A54;
+          background-color: white;
+        }
 
-      .comments > .name{
-  margin-top: 5px;
-      }
+        .comments > .name{
+          margin-top: 5px;
+        }
 
-      .list-group.scroll.comments > .name > a {
-        color:  #7F8C8D;
-              
-      }
+        .list-group.scroll.comments > .name > a {
+          color:  #7F8C8D;
+                
+        }
       /* Comment Box */
-    /* Expanded card */
+  /* Expanded card */
 
   .card-left {
     width: 290px;

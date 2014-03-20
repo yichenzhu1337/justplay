@@ -73,13 +73,13 @@
       padding-bottom: 150px;
     }
   /* Wrappers */
-  
   .glyphicon-filter,
   .glyphicon-bullhorn {
     font-size: 20px;
   }
 
   .header-search {
+    margin-top: 8px;
     width: 300px;
   }
 
@@ -96,7 +96,7 @@
     width: 122px;
     height: 33px;
     margin-top: 6px;
-    vertical-align: center;
+    
   }
 
   .header-bg{

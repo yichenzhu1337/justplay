@@ -21,17 +21,16 @@ $(document).ready(function(){
 			return $("#notification-form").html();
 		}
 	});
-/*
-	$('#activity-search-bar').popover({
+
+	/*$('.date-day-of-week').popover({
 		html: 'true',
 		placement: 'bottom',
 		title: function(){
-			return $("#activity-search-title").html();
+			return $('#date-pick-title').html();
 		},
 		content: function(){
-			return $("#activity-search").html();
-		},
-
+			return $('#date-pick');
+		}
 	});*/
 
 	// Ensures that only one popover is open at a time and also

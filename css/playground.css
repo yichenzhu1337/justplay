@@ -221,6 +221,25 @@
   }
 /* Activity Search Popover */
 
+/* Date Pick Popover */
+  #date-choose-button {
+    color: #7f8c8d;
+    border-bottom: 1px dotted black;
+  }
+
+  #date-choose-button:hover,
+  #date-choose-button:active {
+    border: none;
+    text-decoration: none;
+    color: #656D78;
+  }
+
+  #date-pick > .popover {
+    min-width: 500px;
+    height: 500px;
+  }
+/* Date Pick Popover */
+
 /* Cards */
   .card-metrics {
     background-color: #ecf0f1;
@@ -609,8 +628,12 @@
     }
 
     .date-day-of-week {
+      display: inline;
+    }
+
+    .date-day-of-week > a {
       font-weight: bold;
-      display: inline-block;
+      display: inline;
       line-height: 27px;
     }
 

@@ -25,10 +25,14 @@
   <script src="jQuery-Knob-master/js/jquery.knob.js"></script>
 
   <!-- x-editable -->
-  
   <link rel="stylesheet" href="x-editable/bootstrap3-editable/css/bootstrap-editable.css">
   <script src="x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
   
+  <!-- Date picker -->
+  <script type="text/javascript" src="bootstrap-daterangepicker-master/moment.js"></script>
+  <script type="text/javascript" src="bootstrap-daterangepicker-master/daterangepicker.js"></script>
+  <link rel="stylesheet" type="text/css" media="all" href="bootstrap-daterangepicker-master/daterangepicker-bs3.css" />
+
   <!-- justPlay JS -->
   <script src="js/playground.js"></script>
   <script src="js/popovers.js"></script>
@@ -139,21 +143,18 @@
           </form>
         </div>
       <!-- Notification Form -->
-
-      <!--Activity Search -->
-        <div id="activity-search-title" class="hide">
-          <span class="text-info">List of Activities</span>
-          <button type="button" id="close" class="close" onclick="$('#activity-search-bar').popover('hide');">
+        
+      <!-- Date-Pick -->
+        <div id="date-pick-title" class="hide">
+          <span class="text-info">Day</span>
+          <button type="button" id="close" class="close" onclick="$('.date-day-of-week').popover('hide');">
             <icon class="glyphicon glyphicon-remove"></icon>
           </button>
         </div>
-        <div id="activity-search" class="hide">
-          <div class="dropdown">
-            
-          </div>
+        <div id="date-pick">
+          
         </div>
-
-      <!--Activity Search -->
+      <!-- Date-Pick -->
     <!-- Popover (hidden) form -->
 
     <!-- Expanded Card -->
@@ -448,7 +449,7 @@
             <!-- Main Content Area -->
               <div class="date-wrapper">
                 <div class="date-day-of-week">
-                    TODAY, MAR 7
+                  <a href="#" id="date-choose-button">TODAY, MAR 7</a>
                 </div>
               </div>
               <div class="row">

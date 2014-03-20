@@ -78,9 +78,18 @@
     font-size: 20px;
   }
 
+  #nav-user:hover, 
+  #nav-user:active,  {
+    color: white;
+  }
+
   .header-search {
     margin-top: 8px;
     width: 300px;
+  }
+
+  i.fa.fa-user.fa-lg {
+    width: 14px;
   }
 
   i.side-icon {
@@ -527,7 +536,7 @@
 
   .card-header-wrapper > .description-text {
     text-align: center;
-    font-size: 15px;
+    font-size: 13.5px;
     font-weight: bold;
     line-height: 13px;
     color: #ecf0f1;
@@ -587,7 +596,7 @@
   } 
 
   .description-text {
-    font-size: 13px;
+    font-size: 11.5px;
     font-weight: bold;
     line-height: 11px;
     color: #7f8c8d;

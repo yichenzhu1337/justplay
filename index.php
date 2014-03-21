@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!-- saved from url=(0043)http://getbootstrap.com/examples/jumbotron/ -->
 <html lang="en">
   <head>
@@ -43,55 +42,7 @@
 
   <body>
     <!-- Popover (hidden) form -->
-      <!-- Activity Form -->
-        <div id="activity-create-form" class="hide">
-          <form role="form">
-            <div class="form-group">
-              <div class="divider"></div>
-              <div class="input-group">
-                <input type="text" class="form-control" id="inputActivity" placeholder="Activity">
-                <span class="input-group-addon"><icon class="glyphicon glyphicon-heart-empty"></icon></span>            
-              </div>
-              <div class="divider"></div>
-              <div class="input-group">
-                <input type="text" class="form-control" id="input" placeholder="Skill">
-                <span class="input-group-addon"><icon class="glyphicon glyphicon-star-empty"></icon></span>
-              </div>
-              <div class="divider"></div>
-              <div class="input-group">
-                <input type="datetime" class="form-control" id="inputDate" placeholder="Date/Time">
-                <span class="input-group-addon"><icon class="glyphicon glyphicon-calendar"></icon></span>
-              </div>
-              <div class="divider"></div>
-              <div class="input-group">
-                <input type="number" class="form-control" id="inputCapacity" placeholder="Min & Max Capacity">
-                <span class="input-group-addon"><icon class="glyphicon glyphicon-stats"></icon></span>
-              </div>
-              <div class="divider"></div>
-              <div class="input-group">
-                <input type="text" class="form-control" id="inputLocation" placeholder="Location">
-                <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
-              </div>
-              <div class="divider"></div>
-              <div class="input-group">
-                <textarea class="form-control" id="inputDescription" rows="3" placeholder="Description"></textarea>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input id="inputPrivate" type="checkbox"> Private (Invite only)
-                </label>
-              </div>
-              <button type="button" class="btn btn-success fill" onclick="$('#suggest-activity').popover('hide');">Suggest</button>
-            </div>  
-          </form>
-        </div>
-        <div id="activity-form-title" class="hide">
-          <span class="text-info">Suggest Activity</span>
-          <button type="button" id="close" class="close" onclick="$('#suggest-activity').popover('hide');">
-            <icon class="glyphicon glyphicon-remove"></icon>
-          </button>
-        </div>
-      <!-- Activity Form -->
+	<?php include 'views/hidden-forms/activity-form.php' ?>
 
       <!-- Notification Form -->
         <div id="notification-form-title" class="hide">
@@ -395,11 +346,11 @@
                 <li><a href="#" class="nav-tooltip" data-toggle="tooltip" data-html="true" data-original-title="Explore"><i class="glyphicon glyphicon-search side-icon"></i></a>
                 </li>
                 <li id="suggest-activity"><a href="#" class="nav-tooltip" data-toggle="tooltip" data-html="true" data-original-title="Suggest"><i class="glyphicon glyphicon-plus side-icon"></i></a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">Jack Yiu</a>
+								<li id="get-notified"><a href="#" class="nav-tooltip" data-toggle="tooltip" data-html="true" data-original-title="Get Notified"><i class="glyphicon glyphicon-eye-open side-icon"></i></a></li>
+                <li class="dropdown" id="nav-user">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Jack Yiu</a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i><span class="hidden text">a</span> Sport Notifications</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-saved"></i><span class="hidden text">a</span> Joined Sports</a></li>
+										<li><a href="#"><i class="glyphicon glyphicon-saved"></i><span class="hidden text">a</span> Joined Sports</a></li>
                     <li class="divider"></li>
                     <li><a href="#"><i class="glyphicon glyphicon-user"></i><span class="hidden text">a</span> Your Profile</a></li>
                     <li><a href="#"><span class="hidden text">laal</span>Friends</a></li>
@@ -675,6 +626,6 @@
     </div>
     <footer>
         hi
-      </footer>    
+    </footer>    
   </body>
 </html>

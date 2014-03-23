@@ -136,9 +136,21 @@
     color: white;
   }
 
-  .sort-button {
-    background-color: transparent;
-    border: none;
+  .sort-select-wrap {
+    color: white;
+    margin-left: 5px;
+    border-bottom: 1px white dotted;
+    display: inline;
+  }
+
+  .sort-select-wrap > a{
+    color: inherit;
+  }
+
+  .sort-select-wrap>a:hover,
+  .sort-select-wrap>a:active {
+    color: #E6E9ED;
+    text-decoration: none;
   }
 
   .sort-filter {

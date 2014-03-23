@@ -439,21 +439,24 @@
                 <div class="activity-chooser-wrapper pull-left">
      
                 </div>
-                <div class="sort-filter-wrapper pull-right">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-danger dropdown-toggle sort-button" data-toggle="dropdown">
-                      Sort By <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Earliest</a></li>
-                      <li><a href="#">Latest</a></li>
-                       <li class="divider"></li>
-                      <li><a href="#">Most Players</a></li>
-                      <li><a href="#">Least Players</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#">Most Friends</a></li>
-                      <li><a href="#">Least Friends</a></li>
-                    </ul>
+                <div class="sort-filter-wrapper pull-right" ng-controller="SortController">
+                  <div class="sort">
+                    Sort by: 
+                    <div class="sort-select-wrap dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        {{currentstrategy}}
+                      </a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Earliest</a></li>
+                        <li><a href="#">Latest</a></li>
+                         <li class="divider"></li>
+                        <li><a href="#">Most Players</a></li>
+                        <li><a href="#">Least Players</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Most Friends</a></li>
+                        <li><a href="#">Least Friends</a></li>
+                      </ul>                      
+                    </div>
                   </div>
                 </div>
               </div>

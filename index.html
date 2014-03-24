@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0043)http://getbootstrap.com/examples/jumbotron/ -->
-<html ng-app>
+<html ng-app="project">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
@@ -439,7 +439,7 @@
                 <div class="activity-chooser-wrapper pull-left">
      
                 </div>
-                <div class="sort-filter-wrapper pull-right" ng-controller="SortController">
+                <div class="sort-filter-wrapper pull-right" ng-controller="strategyController">
                   <div class="sort">
                     Sort by: 
                     <div class="sort-select-wrap dropdown">
@@ -447,14 +447,10 @@
                         {{currentstrategy}}
                       </a>
                       <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Earliest</a></li>
-                        <li><a href="#">Latest</a></li>
-                         <li class="divider"></li>
-                        <li><a href="#">Most Players</a></li>
-                        <li><a href="#">Least Players</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Most Friends</a></li>
-                        <li><a href="#">Least Friends</a></li>
+                        <li ng-repeat="strat in strategies" ng-click="setValue(strat)">
+                          <a href="#" ng-click="select()" ng-model="strategy">{{strat}}</a>
+                          <div class="divider" ng-show="$odd"> </div>
+                        </li>
                       </ul>                      
                     </div>
                   </div>

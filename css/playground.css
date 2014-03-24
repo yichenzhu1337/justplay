@@ -148,7 +148,8 @@
   }
 
   .sort-select-wrap>a:hover,
-  .sort-select-wrap>a:active {
+  .sort-select-wrap>a:active,
+  .sort-select-wrap>a:focus {
     color: #E6E9ED;
     text-decoration: none;
   }

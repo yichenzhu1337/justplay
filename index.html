@@ -449,7 +449,9 @@
                       <ul class="dropdown-menu" role="menu">
                         <li ng-repeat="strat in strategies" ng-click="setValue(strat)">
                           <a href="#" ng-click="select()" ng-model="strategy">{{strat}}</a>
-                          <div class="divider" ng-show="$odd"> </div>
+                          <div ng-hide="$last">
+                            <div class="divider" ng-show="$odd" > </div>
+                          </div>
                         </li>
                       </ul>                      
                     </div>

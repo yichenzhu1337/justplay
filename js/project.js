@@ -13,6 +13,7 @@ var project = angular.module('project', [])
 })
 .factory('sportFactory', function() {
 	var factory = {};
+	// Sports should be arranged in 5s
 	var sports = {
 		'RacquetSports':[['Badminton', 'Tennis', 'Squash', 'Table Tennis']],
 		'TeamSports':
@@ -50,7 +51,14 @@ controllers.sportController = function($scope, sportFactory) {
 	$scope.setValue = function(sport){
 		$scope.currentsport = sport;
 	}
-}
+};
+
+controllers.dateController = function($scope) {
+	init();
+	function init() {
+		$scope.selectedDate = window.moment().format("dddd, MMM Do");
+	};
+};
 
 project.controller(controllers);
 

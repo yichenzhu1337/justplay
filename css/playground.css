@@ -220,6 +220,11 @@
     width: 100%;
   }
 
+  .header {
+    padding-left: 15px;
+    display: inline-block;
+  }
+
   .divider {
     height: 5px;
     width: 100%;

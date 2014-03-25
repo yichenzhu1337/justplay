@@ -10,6 +10,21 @@ var project = angular.module('project', [])
 			return strategies;
 		};
 		return factory;
+})
+.factory('sportFactory', function() {
+	var factory = {};
+	var sports = {
+		'RacquetSports':[['Badminton', 'Tennis', 'Squash', 'Table Tennis']],
+		'TeamSports':
+		[
+			['Basketball','Volleyball','Ultimate Frisbee', 'Soccer', 'Football'], 
+			['Ice Hockey', 'Lacrosse', 'Quidditch', 'Rugby']
+		]
+	};
+	factory.getSports = function () {
+		return sports;
+	};
+	return factory;
 });
 
 var controllers = {};
@@ -25,6 +40,17 @@ controllers.strategyController = function($scope, strategyFactory) {
 		$scope.currentstrategy = strategy;
 	}
 };
+
+controllers.sportController = function($scope, sportFactory) {
+	$scope.sports = {};
+	init();
+	function init() {
+		$scope.sports = sportFactory.getSports();
+	};
+	$scope.setValue = function(sport){
+		$scope.currentsport = sport;
+	}
+}
 
 project.controller(controllers);
 

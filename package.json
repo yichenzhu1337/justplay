@@ -4,16 +4,16 @@
   "repository": "https://github.com/omfgitsjack/gymmies",
   "devDependencies": {
     "phantomjs": "~1.9",
-    "karma": "~0.10.4",
-    "karma-junit-reporter": "~0.1",
-    "karma-jasmine": "~0.1.3",
+    "karma": "^0.12.1",
+    "karma-junit-reporter": "^0.2.1",
+    "karma-jasmine": "^0.1.5",
     "karma-ng-scenario": "~0.1",
-    "karma-chrome-launcher": "~0.1.0",
-    "karma-firefox-launcher": "~0.1.0",
+    "karma-chrome-launcher": "^0.1.2",
+    "karma-firefox-launcher": "^0.1.3",
     "karma-html2js-preprocessor": "~0.1.0",
     "karma-requirejs": "~0.2.0",
     "karma-coffee-preprocessor": "~0.1.0",
     "karma-phantomjs-launcher": "~0.1.0",
-    "karma-script-launcher": "~0.1.0"
+    "karma-script-launcher": "^0.1.0"
   }
 }

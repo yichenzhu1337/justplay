@@ -1,17 +1,7 @@
 'use strict';
 
 /* jasmine specs for controllers go here */
-describe('strategyController', function(){
-	beforeEach(module('strategyController'));
-
-	describe('strategies', function(){
-		it('passbaby', function(){
-			expect(true).toBe(true); 
-		});
-	});
-});
-
-/*describe('justPlay controllers', function() {
+describe('justPlay controllers', function() {
  
   describe('strategyController', function(){
     var scope, ctrl;
@@ -31,4 +21,5 @@ describe('strategyController', function(){
     it('should set the default value to Earliest', function() {
       expect(scope.currentstrategy).toBe('Earliest');
     });
-  });*/
+  });
+});

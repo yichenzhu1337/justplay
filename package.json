@@ -15,5 +15,9 @@
     "karma-coffee-preprocessor": "~0.1.0",
     "karma-phantomjs-launcher": "~0.1.0",
     "karma-script-launcher": "^0.1.0"
+  },
+  "dependencies": {
+    "angular-momentjs": "^0.1.7",
+    "angular-moment": "^0.6.2"
   }
 }

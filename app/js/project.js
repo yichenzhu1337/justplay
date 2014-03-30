@@ -55,6 +55,37 @@ var project = angular.module('project', ['angularMoment'])
 		{
 			enddate: window.moment().add({days: 1, hours: 4}), startdate: window.moment().add({days:1, hours:2}),
 			skill: 1,
+			activity: '4th',
+			location: 'Gym',
+			friends: 1,
+			nonfriends: 2,
+			capacity: 6,
+			minimumrequired: 4,
+		},
+		{
+			enddate: window.moment().add({months: 1, hours: 2}), 
+			startdate: window.moment().add({months: 1}), 
+			skill: 3,
+			activity: '5th',
+			location: 'Gym',
+			friends: 0,
+			nonfriends: 1,
+			capacity: 6,
+			minimumrequired: 2,
+		},
+		{
+			enddate: window.moment().add({months: 0, hours: 4}), startdate: window.moment().add({months: 0}),
+			skill: 2,
+			activity: '6th',
+			location: 'The Valley',
+			friends: 2,
+			nonfriends: 4,
+			capacity: 6,
+			minimumrequired: 3,
+		},
+		{
+			enddate: window.moment().add({days: 1, hours: 4}), startdate: window.moment().add({days:1, hours:2}),
+			skill: 1,
 			activity: 'Badminton',
 			location: 'Gym',
 			friends: 1,
@@ -103,6 +134,9 @@ controllers.dateController = function($scope) {
 };
 
 controllers.cardsController = function($scope, cardFactory) {
+	// Base Set of Activities
+	//$activities =
+
 	init();
 	function init() {
 		$scope.cards = cardFactory.getCards();

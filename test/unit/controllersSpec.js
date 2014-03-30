@@ -22,4 +22,27 @@ describe('justPlay controllers', function() {
       expect(scope.currentstrategy).toBe('Earliest');
     });
   });
+
+  describe('cardsController', function(){
+    var scope, ctrl, cardFactory;
+ 
+    beforeEach(module('project'));
+ 
+    beforeEach(inject(function($controller) {
+      scope = {};
+      cardFactorya = injector.get('cardFactory');
+      ctrl = $controller('cardsController', 
+        {
+          $scope:scope, 
+          cardFactory:cardFactorya
+        }
+
+        );
+    }));
+ 
+    it('should have 6 options', function() {
+      expect(cardFactory.getCards()).toBe(6);
+    });
+
+  });
 });

@@ -6,7 +6,8 @@ module.exports = function(config){
       'app/lib/angular/angular.js',
       'app/lib/angular/angular-*.js',
       'app/js/**/*.js',
-      'test/unit/**/*.js'
+      'test/unit/**/*.js',
+      'app/lib/angular-moment/angular-moment.js'
     ],
 
     exclude : [

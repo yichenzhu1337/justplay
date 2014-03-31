@@ -276,7 +276,7 @@
   }
 
   .card-wrap {
-    width: 304px;
+    width: auto;
     margin: 9px 18px 9px 18px;
     display: inline-block;
   }
@@ -446,7 +446,7 @@
   /* Expanded card */
 
   .card-left {
-    width: 290px;
+    width: 287px;
     display: inline-block;text-align: center;
   }
 

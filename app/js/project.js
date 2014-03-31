@@ -43,7 +43,8 @@ var project = angular.module('project', ['angularMoment'])
 			minimumrequired: 2,
 		},
 		{
-			enddate: window.moment().add({months: 0, hours: 4}), startdate: window.moment().add({months: 0}),
+			enddate: window.moment().add({months: 0, hours: 4}), 
+			startdate: window.moment().add({months: 0}),
 			skill: 2,
 			activity: 'Tennis',
 			location: 'The Valley',
@@ -53,7 +54,8 @@ var project = angular.module('project', ['angularMoment'])
 			minimumrequired: 3,
 		},
 		{
-			enddate: window.moment().add({days: 1, hours: 4}), startdate: window.moment().add({days:1, hours:2}),
+			enddate: window.moment().add({days: 1, hours: 4}), 
+			startdate: window.moment().add({days:1, hours:2}),
 			skill: 1,
 			activity: '4th',
 			location: 'Gym',
@@ -74,7 +76,8 @@ var project = angular.module('project', ['angularMoment'])
 			minimumrequired: 2,
 		},
 		{
-			enddate: window.moment().add({months: 0, hours: 4}), startdate: window.moment().add({months: 0}),
+			enddate: window.moment().add({months: 0, hours: 4}), 
+			startdate: window.moment().add({months: 0}),
 			skill: 2,
 			activity: '6th',
 			location: 'The Valley',
@@ -84,7 +87,8 @@ var project = angular.module('project', ['angularMoment'])
 			minimumrequired: 3,
 		},
 		{
-			enddate: window.moment().add({days: 1, hours: 4}), startdate: window.moment().add({days:1, hours:2}),
+			enddate: window.moment().add({days: 0, hours: 4}), 
+			startdate: window.moment().add({days:0, hours:2}),
 			skill: 1,
 			activity: 'Badminton',
 			location: 'Gym',
@@ -120,7 +124,7 @@ var project = angular.module('project', ['angularMoment'])
 	 * @return {Collection}
 	 */
 	factory.getUnorderedActivityList = function(startDate, endDate) {
-		queryDB(startDate, endDate);
+		return getActivitiesFromDB(startDate, endDate);
 	}
 
 	/**
@@ -192,12 +196,12 @@ controllers.sportController = function($scope, sportFactory) {
 	}
 };
 
-controllers.dateController = function($scope) {
-	init();
-	function init() {
-		$scope.selectedDate = window.moment();
-	};
-};
+// controllers.dateController = function($scope) {
+// 	init();
+// 	function init() {
+// 		$scope.selectedDate = window.moment();
+// 	};
+// };
 
 controllers.cardsController = function($scope, cardFactory) {
 	// Base Set of Activities
@@ -206,7 +210,7 @@ controllers.cardsController = function($scope, cardFactory) {
 	function init() {
 		$baseActivities = cardFactory.getCards();
 		$scope.cards = cardFactory.getCards();
-
+$scope.cardss = cardFactory.getCards();
 	};
 };
 

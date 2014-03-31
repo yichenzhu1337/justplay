@@ -37,6 +37,8 @@
   <link rel="stylesheet" type="text/css" media="all" href="lib/bootstrap-daterangepicker-master/daterangepicker-bs3.css" />
   <script src="lib/angular-moment/angular-moment.js"></script>
   
+  <!-- Angular UI -->
+  <script type="text/javascript" src="lib/ui-utils-0.1.1/ui-utils.js"></script>
 
   
   </head>
@@ -445,169 +447,33 @@
         <!-- Header -->
 
         <div class="page-container">
-          <div class="content-wrapper" ng-controller="cardsController">
+          <div class="content-wrapper" ng-controller="cardsController" >
             <!-- Main Content Area -->
-              <div class="date-wrapper" ng-controller="dateController">
+
+              <div class="date-wrapper" ng-repeat-start="activity in cards" >
                 <div class="date-day-of-week">
-                  <a href="#" id="date-choose-button">{{selectedDate | amDateFormat: 'dddd, MMM Do'}}</a>
+                  <a href="#" id="date-choose-button">{{activity.startdate | amDateFormat: 'dddd, MMM Do'}}</a>
                 </div>
               </div>
-              <!--div class="row">
-                <div class="col-md-4">
-                  <div class="card-wrap">
-                    <div class="card-left pull-left">
-                      <div class="card-activity">
-                          Badminton
-                      </div>
-                      <div class="card">
-                          <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="Amateur">
-                            <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                            <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                          </div>
-                          <div class="card-header-wrapper">
-                            <div class="description-text">
-                              WEDNESDAY, MAR 7
-                            </div>
-                            <div class="card-number">
-                              09:00-12:00
-                            </div>
-                            <div class="description-text">
-                              THE GYM
-                            </div>
-                          </div>
-                          <div class="card-content-wrapper">
-                            <div class="row">
-                              <div class="col-md-4">
-                                <div class="friend-mouseover" data-toggle="tooltip" data-html="true" data-original-title="Jack  <br> Alex <br> Jason">
-                                  <div class="card-number">
-                                    3
-                                  </div>
-                                  <div class="description-text">
-                                    FRIENDS
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="card-number">
-                                  2/4
-                                </div>
-                                <div class="description-text">
-                                  PEOPLE
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="card-number">
-                                  2
-                                </div>
-                                  <div class="description-text">
-                                    SLOTS FREE
-                                  </div>
-                              </div>                              
-                            </div>
-                          </div>
-                          <div class="progress-wrapper">
-                            <div class="progress progress-active">
-                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                              </div>
-                            </div>
-                          </div>
-                      </div>
+              <div ng-controller="cardsController" ng-repeat-end>
+                <div class="card-wrap" ng-repeat="card in cards | orderBy: 'date'">
+                  <div class="card-left pull-left" ng-controller="cardController">
+                    <div class="card-activity">
+                      {{card.activity}}
                     </div>
-                    <div class="card-right pull-right">
-                      <div class="expand-wrapper">
-                        <a href="#" data-toggle="modal" data-target="#expanded-card"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
-                      </div>
-                    </div>
-                  </div>                 
-                </div>
-                <div class="col-md-4">
-                  <div class="card-wrap">
-                    <div class="card-left pull-left">
-                      <div class="card-activity">
-                          Badminton
-                      </div>
-                      <div class="card">
-                          <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="Amateur">
-                            <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                            <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                          </div>
-                          <div class="card-header-wrapper">
-                            <div class="description-text">
-                              WEDNESDAY, MAR 7
-                            </div>
-                            <div class="card-number">
-                              09:00-12:00
-                            </div>
-                            <div class="description-text">
-                              THE GYM
-                            </div>
-                          </div>
-                          <div class="card-content-wrapper">
-                            <div class="row">
-                              <div class="col-md-4">
-                                <div class="friend-mouseover" data-toggle="tooltip" data-html="true" data-original-title="Jack  <br> Alex <br> Jason">
-                                  <div class="card-number">
-                                    3
-                                  </div>
-                                  <div class="description-text">
-                                    FRIENDS
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="card-number">
-                                  2/4
-                                </div>
-                                <div class="description-text">
-                                  PEOPLE
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="card-number">
-                                  2
-                                </div>
-                                  <div class="description-text">
-                                    SLOTS FREE
-                                  </div>
-                              </div>                              
-                            </div>
-                          </div>
-                          <div class="progress-wrapper">
-                            <div class="progress progress-active">
-                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                    <div class="card-right pull-right">
-                      <div class="expand-wrapper">
-                        <a href="#" data-toggle="modal" data-target="#expanded-card"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
-                      </div>
-                    </div>
-                  </div>                 
-                </div>
-                <div class="col-md-4">
-                  <div class="card-wrap">
-                    <div class="card-left pull-left">
-                      <div class="card-activity">
-                          Tennis
-                      </div>
-                      <div class="card">
-                        <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="Adept">
-                          <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                          <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                          <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
+                    <div class="card">
+                        <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="{{skillDescription}}">
+                            <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
                         </div>
                         <div class="card-header-wrapper">
                           <div class="description-text">
-                            WEDNESDAY, MAR 7
+                            {{card.startdate | amDateFormat: 'dddd, MMM Do' | uppercase}}
                           </div>
                           <div class="card-number">
-                            09:00-12:00
+                            {{card.startdate | amDateFormat: 'HH:mm'}}-{{card.enddate | amDateFormat: 'HH:mm'}}
                           </div>
                           <div class="description-text">
-                            THE KEY
+                            {{card.location | uppercase}}
                           </div>
                         </div>
                         <div class="card-content-wrapper">
@@ -615,7 +481,7 @@
                             <div class="col-md-4">
                               <div class="friend-mouseover" data-toggle="tooltip" data-html="true" data-original-title="Jack  <br> Alex <br> Jason">
                                 <div class="card-number">
-                                  3
+                                  {{card.friends}}
                                 </div>
                                 <div class="description-text">
                                   FRIENDS
@@ -624,244 +490,39 @@
                             </div>
                             <div class="col-md-4">
                               <div class="card-number">
-                                1/4
+                                {{ totalparticipants }}/{{card.capacity}}
                               </div>
                               <div class="description-text">
                                 PEOPLE
                               </div>
-                              
                             </div>
                             <div class="col-md-4">
                               <div class="card-number">
-                                2
+                                {{peopleneeded}}
                               </div>
                                 <div class="description-text">
-                                  SLOTS FREE
+                                  {{neededorfree}}
                                 </div>
                             </div>                              
                           </div>
                         </div>
                         <div class="progress-wrapper">
                           <div class="progress progress-active">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+                            <div class="progress-bar progress-bar-{{progressbar}}" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: {{totalparticipants/card.capacity*100}}%">
                             </div>
                           </div>
                         </div>
-                      </div>
                     </div>
-                    <div class="card-right pull-right">
-                      <div class="expand-wrapper">
-                        <a href="#"  data-toggle="modal" data-target="#expanded-card"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
-                      </div>
+                  </div>
+                  <div class="card-right pull-right">
+                    <div class="expand-wrapper">
+                      <a href="#" data-toggle="modal" data-target="#expanded-card"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
                     </div>
-                  </div>                    
-                </div>      
-              </div-->
-              
-              <div class="row" ng-repeat="card in cards | orderBy: 'date' | limitTo: 3">
-                <div class="col-md-4">
-                  <div class="card-wrap">
-                    <div class="card-left pull-left" ng-controller="cardController">
-                      <div class="card-activity">
-                        {{card.activity}}
-                      </div>
-                      <div class="card">
-                          <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="{{skillDescription}}">
-                              <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
-                          </div>
-                          <div class="card-header-wrapper">
-                            <div class="description-text">
-                              {{card.startdate | amDateFormat: 'dddd, MMM Do' | uppercase}}
-                            </div>
-                            <div class="card-number">
-                              {{card.startdate | amDateFormat: 'HH:mm'}}-{{card.enddate | amDateFormat: 'HH:mm'}}
-                            </div>
-                            <div class="description-text">
-                              {{card.location | uppercase}}
-                            </div>
-                          </div>
-                          <div class="card-content-wrapper">
-                            <div class="row">
-                              <div class="col-md-4">
-                                <div class="friend-mouseover" data-toggle="tooltip" data-html="true" data-original-title="Jack  <br> Alex <br> Jason">
-                                  <div class="card-number">
-                                    {{card.friends}}
-                                  </div>
-                                  <div class="description-text">
-                                    FRIENDS
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="card-number">
-                                  {{ totalparticipants }}/{{card.capacity}}
-                                </div>
-                                <div class="description-text">
-                                  PEOPLE
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="card-number">
-                                  {{peopleneeded}}
-                                </div>
-                                  <div class="description-text">
-                                    {{neededorfree}}
-                                  </div>
-                              </div>                              
-                            </div>
-                          </div>
-                          <div class="progress-wrapper">
-                            <div class="progress progress-active">
-                              <div class="progress-bar progress-bar-{{progressbar}}" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: {{totalparticipants/card.capacity*100}}%">
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                    <div class="card-right pull-right">
-                      <div class="expand-wrapper">
-                        <a href="#" data-toggle="modal" data-target="#expanded-card"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
-                      </div>
-                    </div>
-                  </div>                 
-                </div>
-                <div class="col-md-4">
-                  <div class="card-wrap">
-                    <div class="card-left pull-left">
-                      <div class="card-activity">
-                          Badminton
-                      </div>
-                      <div class="card">
-                          <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="Amateur">
-                            <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                            <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                          </div>
-                          <div class="card-header-wrapper">
-                            <div class="description-text">
-                              WEDNESDAY, MAR 7
-                            </div>
-                            <div class="card-number">
-                              09:00-12:00
-                            </div>
-                            <div class="description-text">
-                              THE GYM
-                            </div>
-                          </div>
-                          <div class="card-content-wrapper">
-                            <div class="row">
-                              <div class="col-md-4">
-                                <div class="friend-mouseover" data-toggle="tooltip" data-html="true" data-original-title="Jack  <br> Alex <br> Jason">
-                                  <div class="card-number">
-                                    3
-                                  </div>
-                                  <div class="description-text">
-                                    FRIENDS
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="card-number">
-                                  2/4
-                                </div>
-                                <div class="description-text">
-                                  PEOPLE
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="card-number">
-                                  2
-                                </div>
-                                  <div class="description-text">
-                                    SLOTS FREE
-                                  </div>
-                              </div>                              
-                            </div>
-                          </div>
-                          <div class="progress-wrapper">
-                            <div class="progress progress-active">
-                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                    <div class="card-right pull-right">
-                      <div class="expand-wrapper">
-                        <a href="#" data-toggle="modal" data-target="#expanded-card"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
-                      </div>
-                    </div>
-                  </div>                 
-                </div>
-                <div class="col-md-4">
-                  <div class="card-wrap">
-                    <div class="card-left pull-left">
-                      <div class="card-activity">
-                          Tennis
-                      </div>
-                      <div class="card">
-                        <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="Adept">
-                          <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                          <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                          <icon class="glyphicon glyphicon-star card-rating-stars"></icon>
-                        </div>
-                        <div class="card-header-wrapper">
-                          <div class="description-text">
-                            WEDNESDAY, MAR 7
-                          </div>
-                          <div class="card-number">
-                            09:00-12:00
-                          </div>
-                          <div class="description-text">
-                            THE KEY
-                          </div>
-                        </div>
-                        <div class="card-content-wrapper">
-                          <div class="row">
-                            <div class="col-md-4">
-                              <div class="friend-mouseover" data-toggle="tooltip" data-html="true" data-original-title="Jack  <br> Alex <br> Jason">
-                                <div class="card-number">
-                                  3
-                                </div>
-                                <div class="description-text">
-                                  FRIENDS
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-4">
-                              <div class="card-number">
-                                1/4
-                              </div>
-                              <div class="description-text">
-                                PEOPLE
-                              </div>
-                              
-                            </div>
-                            <div class="col-md-4">
-                              <div class="card-number">
-                                2
-                              </div>
-                                <div class="description-text">
-                                  SLOTS FREE
-                                </div>
-                            </div>                              
-                          </div>
-                        </div>
-                        <div class="progress-wrapper">
-                          <div class="progress progress-active">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-right pull-right">
-                      <div class="expand-wrapper">
-                        <a href="#"  data-toggle="modal" data-target="#expanded-card"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
-                      </div>
-                    </div>
-                  </div>                    
-                </div>      
-              </div>            <!-- Main Content Area -->
+                  </div>
+                </div>                   
+              </div>
+        
+            <!-- Main Content Area -->
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-var project = angular.module('project', ['angularMoment'])
+var project = angular.module('project', ['angularMoment', 'ui.unique'])
 .factory('strategyFactory', function ()	{
 		var factory = {};
 		var strategies = [
@@ -30,77 +30,117 @@ var project = angular.module('project', ['angularMoment'])
 .factory('cardFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
-	var cards = [
+	var cards = 
+	[
 		{
-			enddate: window.moment().add({months: 1, hours: 2}), 
-			startdate: window.moment().add({months: 1}), 
-			skill: 3,
-			activity: 'Basketball',
-			location: 'Gym',
-			friends: 0,
-			nonfriends: 1,
-			capacity: 6,
-			minimumrequired: 2,
+			date: window.moment().add({months: 1}), 
+			obj: 
+			[		
+				{
+					startdate: window.moment().add({months: 1}), 
+					enddate: window.moment().add({months: 1, hours: 2}), 
+					skill: 3,
+					activity: 'Basketball',
+					location: 'Gym',
+					friends: 0,
+					nonfriends: 1,
+					capacity: 6,
+					minimumrequired: 2,
+				},
+				{
+					startdate: window.moment().add({months: 1}), 
+					enddate: window.moment().add({months: 1, hours: 2}), 
+					skill: 3,
+					activity: '5th',
+					location: 'Gym',
+					friends: 0,
+					nonfriends: 1,
+					capacity: 6,
+					minimumrequired: 2,
+				}
+			]
 		},
 		{
-			enddate: window.moment().add({months: 0, hours: 4}), 
-			startdate: window.moment().add({months: 0}),
-			skill: 2,
-			activity: 'Tennis',
-			location: 'The Valley',
-			friends: 2,
-			nonfriends: 4,
-			capacity: 6,
-			minimumrequired: 3,
+			date: window.moment().add({months: 0}),
+			obj:
+			[
+				{
+					startdate: window.moment().add({months: 0}),
+					enddate: window.moment().add({months: 0, hours: 4}), 
+					skill: 2,
+					activity: 'Tennis',
+					location: 'The Valley',
+					friends: 2,
+					nonfriends: 4,
+					capacity: 6,
+					minimumrequired: 3,
+				}, 
+				{
+					startdate: window.moment().add({days:0, hours:2}),
+					enddate: window.moment().add({days: 0, hours: 4}), 
+					skill: 1,
+					activity: 'Badminton',
+					location: 'Gym',
+					friends: 1,
+					nonfriends: 2,
+					capacity: 6,
+					minimumrequired: 4,
+				},
+				{
+					startdate: window.moment().add({months: 0}),
+					enddate: window.moment().add({months: 0, hours: 4}), 
+					skill: 2,
+					activity: '6th',
+					location: 'The Valley',
+					friends: 2,
+					nonfriends: 4,
+					capacity: 6,
+					minimumrequired: 3,
+				},
+				{
+					startdate: window.moment().add({months: 0}),
+					enddate: window.moment().add({months: 0, hours: 4}), 
+					skill: 2,
+					activity: '7th',
+					location: 'The Valley',
+					friends: 2,
+					nonfriends: 4,
+					capacity: 6,
+					minimumrequired: 3,
+				}
+			]
 		},
 		{
-			enddate: window.moment().add({days: 1, hours: 4}), 
-			startdate: window.moment().add({days:1, hours:2}),
-			skill: 1,
-			activity: '4th',
-			location: 'Gym',
-			friends: 1,
-			nonfriends: 2,
-			capacity: 6,
-			minimumrequired: 4,
-		},
-		{
-			enddate: window.moment().add({months: 1, hours: 2}), 
-			startdate: window.moment().add({months: 1}), 
-			skill: 3,
-			activity: '5th',
-			location: 'Gym',
-			friends: 0,
-			nonfriends: 1,
-			capacity: 6,
-			minimumrequired: 2,
-		},
-		{
-			enddate: window.moment().add({months: 0, hours: 4}), 
-			startdate: window.moment().add({months: 0}),
-			skill: 2,
-			activity: '6th',
-			location: 'The Valley',
-			friends: 2,
-			nonfriends: 4,
-			capacity: 6,
-			minimumrequired: 3,
-		},
-		{
-			enddate: window.moment().add({days: 0, hours: 4}), 
-			startdate: window.moment().add({days:0, hours:2}),
-			skill: 1,
-			activity: 'Badminton',
-			location: 'Gym',
-			friends: 1,
-			nonfriends: 2,
-			capacity: 6,
-			minimumrequired: 4,
-		}
+			date: window.moment().add({days: 1}),
+			obj:
+			[
+				{
+					startdate: window.moment().add({days:1, hours:2}),
+					enddate: window.moment().add({days: 1, hours: 4}), 
+					skill: 1,
+					activity: '4th',
+					location: 'Gym',
+					friends: 1,
+					nonfriends: 2,
+					capacity: 6,
+					minimumrequired: 4,
+				}
+			]
+		}		
 	];
+	/*function formatToDate(array){
+		var copy = angular.copy(array);
+		for (var i = 0; i < array.length; i++){
+			copy[i].startdate = window.moment(copy[i].startdate).format('dddd, MMM Do');
+		}
+		return copy;
+	}*/
 	factory.getCards = function () {
 		return cards;
 	};
+	/*factory.getDateCards = function(){
+		return formatToDate(cards);
+	}*/
 	return factory;
 })
 .factory('cardsFactory', function(){
@@ -170,6 +210,16 @@ var project = angular.module('project', ['angularMoment'])
 	return factory;
 });
 
+/*
+angular.module('filters', []).
+	filter('indate', function () {
+		return function (obj, currentdate) {
+	  	var date = window.moment(obj.startdate).format('dddd, MMM Do');
+	    if (date == currentdate){
+	    	return obj;
+	    }
+	  };
+	});*/
 
 var controllers = {};
 
@@ -196,12 +246,13 @@ controllers.sportController = function($scope, sportFactory) {
 	}
 };
 
-// controllers.dateController = function($scope) {
-// 	init();
-// 	function init() {
-// 		$scope.selectedDate = window.moment();
-// 	};
-// };
+/*controllers.dateController = function($scope, cardFactory) {
+	init();
+	function init() {
+		$scope.dateFormatedCards = cardFactory.getDateCards();
+	};
+
+};*/
 
 controllers.cardsController = function($scope, cardFactory) {
 	// Base Set of Activities
@@ -209,10 +260,11 @@ controllers.cardsController = function($scope, cardFactory) {
 	init();
 	function init() {
 		$baseActivities = cardFactory.getCards();
-		$scope.cards = cardFactory.getCards();
-$scope.cardss = cardFactory.getCards();
+		$scope.dates = cardFactory.getCards();
 	};
 };
+
+
 
 controllers.cardController = function($scope) {
 	$scope.totalparticipants;

@@ -450,13 +450,13 @@
           <div class="content-wrapper" ng-controller="cardsController" >
             <!-- Main Content Area -->
 
-              <div class="date-wrapper" ng-repeat-start="activity in cards" >
+              <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date'" >
                 <div class="date-day-of-week">
-                  <a href="#" id="date-choose-button">{{activity.startdate | amDateFormat: 'dddd, MMM Do'}}</a>
+                  <a href="#" id="date-choose-button">{{dateobj.date | amDateFormat: 'dddd, MMM Do'}}</a>
                 </div>
               </div>
-              <div ng-controller="cardsController" ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in cards | orderBy: 'date'">
+              <div ng-repeat-end>
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: 'date'">
                   <div class="card-left pull-left" ng-controller="cardController">
                     <div class="card-activity">
                       {{card.activity}}

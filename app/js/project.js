@@ -1,16 +1,4 @@
-var project = angular.module('project', ['angularMoment', 'ui.unique'])
-.factory('strategyFactory', function ()	{
-		var factory = {};
-		var strategies = [
-			'Earliest', 'Latest',
-			'Most Players', 'Least Players',
-			'Most Friends', 'Least Friends'
-		];
-		factory.getStrategies = function () {
-			return strategies;
-		};
-		return factory;
-})
+var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModule'])
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
@@ -42,6 +30,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique'])
 					skill: 3,
 					activity: 'Basketball',
 					location: 'Gym',
+					participants: 1,
 					friends: 0,
 					nonfriends: 1,
 					capacity: 6,
@@ -53,6 +42,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique'])
 					skill: 3,
 					activity: '5th',
 					location: 'Gym',
+					participants: 1,
 					friends: 0,
 					nonfriends: 1,
 					capacity: 6,
@@ -70,6 +60,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique'])
 					skill: 2,
 					activity: 'Tennis',
 					location: 'The Valley',
+					participants: 6,
 					friends: 2,
 					nonfriends: 4,
 					capacity: 6,
@@ -81,6 +72,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique'])
 					skill: 1,
 					activity: 'Badminton',
 					location: 'Gym',
+					participants: 3,
 					friends: 1,
 					nonfriends: 2,
 					capacity: 6,
@@ -92,6 +84,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique'])
 					skill: 2,
 					activity: '6th',
 					location: 'The Valley',
+					participants: 6,
 					friends: 2,
 					nonfriends: 4,
 					capacity: 6,
@@ -103,6 +96,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique'])
 					skill: 2,
 					activity: '7th',
 					location: 'The Valley',
+					participants: 6,
 					friends: 2,
 					nonfriends: 4,
 					capacity: 6,
@@ -120,6 +114,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique'])
 					skill: 1,
 					activity: '4th',
 					location: 'Gym',
+					participants: 3,
 					friends: 1,
 					nonfriends: 2,
 					capacity: 6,
@@ -223,16 +218,19 @@ angular.module('filters', []).
 
 var controllers = {};
 
-controllers.strategyController = function($scope, strategyFactory) {
+controllers.strategyController = function($scope, cardSortFactory) {
 	$scope.strategies = [];
 	init();
 	function init() {
-		$scope.strategies = strategyFactory.getStrategies();
+		// $scope.strategies = strategyFactory.getStrategies();
+		$scope.strategies = cardSortFactory.getStrategies();
 	};
-	$scope.currentstrategy = $scope.strategies[0];
+	$scope.currentstrategy = $scope.strategies[0].displayAsc.string;
 	$scope.setValue = function(strategy){
 		$scope.currentstrategy = strategy;
-	}
+		// Broadcast to cardcontroller.
+		
+	};
 };
 
 controllers.sportController = function($scope, sportFactory) {
@@ -257,14 +255,15 @@ controllers.sportController = function($scope, sportFactory) {
 controllers.cardsController = function($scope, cardFactory) {
 	// Base Set of Activities
 	var baseActivities;
+	$scope.sortStrategy;
 	init();
 	function init() {
-		$baseActivities = cardFactory.getCards();
 		$scope.dates = cardFactory.getCards();
+		
 	};
+	// Watch for changes in sorting requested.
+	
 };
-
-
 
 controllers.cardController = function($scope) {
 	$scope.totalparticipants;

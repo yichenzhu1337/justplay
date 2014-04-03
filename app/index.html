@@ -29,7 +29,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.3/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.3/angular-resource.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.3/angular-route.min.js"></script>
+
+  <!-- Modules -->
   <script src="js/project.js"></script>
+  <script src="js/sortandfilters.js"></script>
 
   <!-- Date picker & Moment.js-->
   <script type="text/javascript" src="lib/bootstrap-daterangepicker-master/moment.js"></script>
@@ -431,11 +434,10 @@
                         {{currentstrategy}}
                       </a>
                       <ul class="dropdown-menu" role="menu">
-                        <li ng-repeat="strat in strategies" ng-click="setValue(strat)">
-                          <a href="#" ng-model="strategy">{{strat}}</a>
-                          <div ng-hide="$last">
-                            <div class="divider" ng-show="$odd"></div>
-                          </div>
+                        <li ng-repeat="strat in strategies" >
+                          <a href="#" ng-model="strategy" ng-show="strat.displayAsc.display" ng-click="setValue(strat.displayAsc.string)">{{strat.displayAsc.string}}</a>
+                          <a href="#" ng-model="strategy" ng-show="strat.displayDesc.display" ng-click="setValue(strat.displayDesc.string)">{{strat.displayDesc.string}}</a>
+                          <div class="divider" ng-hide="$last"></div>
                         </li>
                       </ul>                      
                     </div>

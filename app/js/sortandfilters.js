@@ -53,4 +53,13 @@ var module = angular.module('sortModule', [])
 		return strategies;
 	};
 	return factory;
+})
+.service('strategyService', function(){
+	var currentSortStrategy = 'date';
+	this.setSortStrategy = function(strat) {
+		currentSortStrategy = strat;
+	};
+	this.getSortStrategy = function() {
+		return currentSortStrategy;
+	}
 });

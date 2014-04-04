@@ -458,7 +458,7 @@
                 </div>
               </div>
               <div ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: 'date'">
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy">
                   <div class="card-left pull-left" ng-controller="cardController">
                     <div class="card-activity">
                       {{card.activity}}

@@ -218,18 +218,21 @@ angular.module('filters', []).
 
 var controllers = {};
 
-controllers.strategyController = function($scope, cardSortFactory) {
+controllers.strategyController = function($scope, cardSortFactory, strategyService) {
 	$scope.strategies = [];
 	init();
 	function init() {
 		// $scope.strategies = strategyFactory.getStrategies();
 		$scope.strategies = cardSortFactory.getStrategies();
+		$scope.currentstrategy = $scope.strategies[0].displayAsc.string;
+		strategyService.setSortStrategy($scope.currentstrategy);
 	};
-	$scope.currentstrategy = $scope.strategies[0].displayAsc.string;
+	
 	$scope.setValue = function(strategy){
 		$scope.currentstrategy = strategy;
 		// Broadcast to cardcontroller.
-		
+		strategyService.setSortStrategy(strategy);
+		$scope.$apply();
 	};
 };
 
@@ -252,17 +255,19 @@ controllers.sportController = function($scope, sportFactory) {
 
 };*/
 
-controllers.cardsController = function($scope, cardFactory) {
+controllers.cardsController = function($scope, cardFactory, strategyService) {
 	// Base Set of Activities
 	var baseActivities;
-	$scope.sortStrategy;
+	
 	init();
 	function init() {
 		$scope.dates = cardFactory.getCards();
-		
+		$scope.sortStrategy = strategyService.getSortStrategy();
 	};
 	// Watch for changes in sorting requested.
-	
+	$scope.$watch('strategyService.getSortStrategy()', function (newVal, oldVal, scope){
+		$scope.sortStrategy = newVal;
+	}, true);
 };
 
 controllers.cardController = function($scope) {

@@ -218,8 +218,16 @@ angular.module('filters', []).
 
 var controllers = {};
 
+/**
+ * Displays strategies provided by factory and sends selected strategies
+ * to strategyService
+ * @param  {scope} 	 $scope          scope
+ * @param  {factory} cardSortFactory Factory containing the strategies we want
+ * @param  {service} strategyService Service that sends selected strategies to cardController
+ * @return {none}                    none
+ */
 controllers.strategyController = function($scope, cardSortFactory, strategyService) {
-	$scope.strategies = [];
+	$scope.strategies = []; // Array containing all strategies
 	init();
 
 	/**
@@ -249,6 +257,10 @@ controllers.strategyController = function($scope, cardSortFactory, strategyServi
 		setSortIcon(defaultOrder);
 	};
 
+	/**
+	 * Sets which icon to use upon switching order
+	 * @param {char} order + or -
+	 */
 	function setSortIcon(order){
 		if (order == '+'){
 			$scope.orderIcon = "plus";
@@ -257,6 +269,11 @@ controllers.strategyController = function($scope, cardSortFactory, strategyServi
 		}
 	};
 
+	/**
+	 * Reverses order of currentOrder and reflects
+	 * this on UI.
+	 * @return {none} none
+	 */
 	$scope.reverseOrder = function(){
 		// Update strategyService as well as scope's currentOrder
 		$scope.currentOrder = strategyService.reverseOrder($scope.currentOrder); 

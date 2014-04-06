@@ -237,11 +237,6 @@
     display: inline-block;
   }
 
-  .divider {
-    height: 5px;
-    width: 100%;
-  }
-
   .close {
     font-size: 16px;
   }

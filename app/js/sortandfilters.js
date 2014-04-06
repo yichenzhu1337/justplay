@@ -6,32 +6,32 @@ var module = angular.module('sortModule', [])
 		time : 
 		{
 			attributeName: 'startdate',
-			displayAsc: {string: 'Earliest', display: true},
-			displayDesc: {string: 'Latest', display: true}
+			displayName: 'Time',
+			defaultOrder: '+'	
 		},
 		friends : 
 		{
 			attributeName: 'friends',
-			displayAsc: {string: 'Most Friends', display: false},
-			displayDesc: {string: 'Most Friends', display: true}
+			displayName: 'Friends',
+			defaultOrder: '-'	
 		},
 		participants : 
 		{
 			attributeName: 'participants',
-			displayAsc: {string: 'Most Participants', display: true},
-			displayDesc: {string: '', display: false}
+			displayName: 'Participants',
+			defaultOrder: '-'
 		},
 		skill : 
 		{
 			attributeName: 'skill',
-			displayAsc: {string: 'Very Skilled', display:true},
-			displayDesc: {string: 'Not Skilled', display:true}
+			displayName: 'Skill',
+			defaultOrder: '+'	
 		},
 		activity : 
 		{
 			attributeName: 'activity',
-			displayAsc: {string: 'Activity', display:true},
-			displayDesc: {string: 'Not Skilled', display:false}
+			displayName: 'Activity',
+			defaultOrder: '+'	
 		}		
 	};
 	factory.getStrategy = function(key){
@@ -61,16 +61,27 @@ var module = angular.module('sortModule', [])
 	return factory;
 })
 .service('strategyService', function(){
-	var currentSortStrategy = new Array();
+	var attributeName;
+	var attributeOrder;
 	this.setSortStrategy = function(strat) {
-			currentSortStrategy.pop();
-			currentSortStrategy.push(strat);
-		//currentSortStrategy = strat;
+		//currentSortStrategy.pop();
+		attributeName = strat;
 	};
 	this.getSortStrategy = function() {
-		return currentSortStrategy[0];
+		return attributeOrder+attributeName;
 	}
-	this.getAttribute = function(strat) {
-
+	this.getOrder = function(){
+		return attributeOrder;
+	}
+	this.setOrder = function(order) {
+		attributeOrder = order;
+	}
+	this.reverseOrder = function(order){
+		if (attributeOrder == '+') {
+			attributeOrder = '-';
+		} else if (attributeOrder =='-') {
+			attributeOrder = '+';
+		}
+		return attributeOrder;
 	}
 });

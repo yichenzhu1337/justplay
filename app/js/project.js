@@ -60,9 +60,9 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					skill: 2,
 					activity: 'Tennis',
 					location: 'The Valley',
-					participants: 6,
+					participants: 5,
 					friends: 2,
-					nonfriends: 4,
+					nonfriends: 3,
 					capacity: 6,
 					minimumrequired: 3,
 				}, 
@@ -221,18 +221,47 @@ var controllers = {};
 controllers.strategyController = function($scope, cardSortFactory, strategyService) {
 	$scope.strategies = [];
 	init();
+
+	/**
+	 * Setups up the current selected strategy and sends the strategy
+	 * to the card.
+	 * @return {none} none
+	 */
 	function init() {
-		// $scope.strategies = strategyFactory.getStrategies();
 		$scope.strategies = cardSortFactory.getStrategies();
-		$scope.currentstrategy = $scope.strategies[0].displayAsc.string;
-		strategyService.setSortStrategy($scope.currentstrategy);
+		$scope.currentstrategy = $scope.strategies[0].displayName;
+		$scope.currentOrder = $scope.strategies[0].defaultOrder;
+		setSortIcon($scope.currentOrder);
+		strategyService.setOrder($scope.currentOrder);
+		strategyService.setSortStrategy($scope.strategies[0].attributeName);
 	};
 	
-	$scope.setValue = function(attributeName, strategy){
-		$scope.currentstrategy = strategy;
-		// Broadcast to cardcontroller.
+	/**
+	 * Sets current strategy as well as passing it to the
+	 * strategy service.
+	 * @param {string} attributeName Actual attribute use to sort.
+	 * @param {string} displayName   Description of the strategy
+	 */
+	$scope.setStrategy = function(attributeName, displayName, defaultOrder){
+		$scope.currentstrategy = displayName;
 		strategyService.setSortStrategy(attributeName);
-		
+		strategyService.setOrder(defaultOrder);
+		setSortIcon(defaultOrder);
+	};
+
+	function setSortIcon(order){
+		if (order == '+'){
+			$scope.orderIcon = "plus";
+		} else {
+			$scope.orderIcon = "minus";
+		}
+	};
+
+	$scope.reverseOrder = function(){
+		// Update strategyService as well as scope's currentOrder
+		$scope.currentOrder = strategyService.reverseOrder($scope.currentOrder); 
+		// Update our sort icon
+		setSortIcon($scope.currentOrder);
 	};
 };
 
@@ -252,20 +281,18 @@ controllers.sportController = function($scope, sportFactory) {
 	function init() {
 		$scope.dateFormatedCards = cardFactory.getDateCards();
 	};
-
 };*/
 
 controllers.cardsController = function($scope, cardFactory, strategyService) {
 	// Base Set of Activities
 	var baseActivities;
-	$scope.test = 'activity';
 	init();
 	function init() {
-		$scope.dates = cardFactory.getCards();
-		$scope.strategyServ = strategyService; // Save the instance of strategyService
-		$scope.sortStrategy = $scope.strategyServ.getSortStrategy();
+		$scope.dates = cardFactory.getCards(); 
+		$scope.strategyServ = strategyService; // Bind instance of strategyService to scope
+		$scope.sortStrategy = $scope.strategyServ.getSortStrategy(); 
 		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
-			//console.log("pop");
+			console.log("newVal:" + newVal +" oldVal:"+oldVal);
 			$scope.sortStrategy = strategyService.getSortStrategy();
 		});
 	};

@@ -136,6 +136,18 @@
     color: white;
   }
 
+  #reverseOrder {
+    color: white;
+    margin-left: 5px;
+    font-size: .8em;
+  }
+
+  #reverseOrder:hover,
+  #reverseOrder:active,
+  #reverseOrder:focus {
+    color: #E6E9ED;
+  }
+
   .sort-select-wrap {
     color: white;
     margin-left: 5px;

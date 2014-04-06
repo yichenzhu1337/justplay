@@ -441,7 +441,7 @@
                       </ul>    
 
                     </div>
-                    <a href="#" id="reverseOrder" ng-click="reverseOrder()"><i class="glyphicon glyphicon-{{orderIcon}}"></i></a>
+                    <a href="#" id="reverseOrder" ng-click="reverseOrder()"><i class="glyphicon glyphicon-arrow-{{orderIcon}}"></i></a>
                   </div>
                 </div>
               </div>
@@ -484,7 +484,7 @@
                             <div class="col-md-4">
                               <div class="friend-mouseover" data-toggle="tooltip" data-html="true" data-original-title="Jack  <br> Alex <br> Jason">
                                 <div class="card-number">
-                                  {{card.friends}}
+                                  {{card.participants.totalFriends}}
                                 </div>
                                 <div class="description-text">
                                   FRIENDS
@@ -493,7 +493,7 @@
                             </div>
                             <div class="col-md-4">
                               <div class="card-number">
-                                {{ totalparticipants }}/{{card.capacity}}
+                                {{ card.participants.totalParticipants }}/{{card.capacity}}
                               </div>
                               <div class="description-text">
                                 PEOPLE

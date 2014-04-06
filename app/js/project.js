@@ -30,23 +30,56 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					skill: 3,
 					activity: 'Basketball',
 					location: 'Gym',
-					participants: 1,
-					friends: 0,
-					nonfriends: 1,
+					participants: {
+							totalParticipants: 6,
+							totalFriends: 3,
+							totalNonFriends: 3,
+							list: [
+								{name: 'Jack Yiu', id: 2, isFriends:true},
+								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
+								{name: 'Jason Zheng', id: 4, isFriends:false},
+								{name: 'Roger Ganesh', id: 5, isFriends: true},
+								{name: 'Suzanne Lim', id: 6, isFriends: true},
+								{name: 'Someoneelse', id: 7, isFriends: false},																
+							]
+					},
 					capacity: 6,
 					minimumrequired: 2,
+					description: "Sample Description, get here on time!",
+					fee: 4,
+					comments: {
+						totalComments: 5,
+						unreadComments: true,
+
+					}	
 				},
 				{
 					startdate: window.moment().add({months: 1}), 
 					enddate: window.moment().add({months: 1, hours: 2}), 
 					skill: 3,
-					activity: '5th',
+					activity: 'Volleyball',
 					location: 'Gym',
-					participants: 1,
-					friends: 0,
-					nonfriends: 1,
+					participants: {
+							totalParticipants: 6,
+							totalFriends: 3,
+							totalnonFriends: 3,
+							list: [
+								{name: 'Jack Yiu', id: 2, isFriends:true},
+								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
+								{name: 'Jason Zheng', id: 4, isFriends:false},
+								{name: 'Roger Ganesh', id: 5, isFriends: true},
+								{name: 'Suzanne Lim', id: 6, isFriends: true},
+								{name: 'Someoneelse', id: 7, isFriends: false},																
+							]
+					},
 					capacity: 6,
 					minimumrequired: 2,
+					description: "Sample Description, get here on time!",
+					fee: 4,
+					comments: {
+						totalComments: 5,
+						unreadComments: true,
+					}	
 				}
 			]
 		},
@@ -60,11 +93,28 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					skill: 2,
 					activity: 'Tennis',
 					location: 'The Valley',
-					participants: 5,
-					friends: 2,
-					nonfriends: 3,
+					participants: {
+							totalParticipants: 6,
+							totalFriends: 3,
+							totalnonFriends: 3,
+							list: [
+								{name: 'Jack Yiu', id: 2, isFriends:true},
+								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
+								{name: 'Jason Zheng', id: 4, isFriends:false},
+								{name: 'Roger Ganesh', id: 5, isFriends: true},
+								{name: 'Suzanne Lim', id: 6, isFriends: true},
+								{name: 'Someoneelse', id: 7, isFriends: false},																
+							]
+					},
 					capacity: 6,
 					minimumrequired: 3,
+					description: "Sample Description, get here on time!",
+					fee: 4,
+					comments: {
+						totalComments: 5,
+						unreadComments: true,
+
+					}	
 				}, 
 				{
 					startdate: window.moment().add({days:0, hours:1}),
@@ -72,35 +122,85 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					skill: 1,
 					activity: 'Badminton',
 					location: 'Gym',
-					participants: 3,
-					friends: 1,
-					nonfriends: 2,
+					participants: {
+							totalParticipants: 6,
+							totalFriends: 3,
+							totalnonFriends: 3,
+							list: [
+								{name: 'Jack Yiu', id: 2, isFriends:true},
+								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
+								{name: 'Jason Zheng', id: 4, isFriends:false},
+								{name: 'Roger Ganesh', id: 5, isFriends: true},
+								{name: 'Suzanne Lim', id: 6, isFriends: true},
+								{name: 'Someoneelse', id: 7, isFriends: false},																
+							]
+					},
 					capacity: 6,
 					minimumrequired: 4,
+					description: "Sample Description, get here on time!",
+					fee: 4,
+					comments: {
+						totalComments: 5,
+						unreadComments: true,
+
+					}	
 				},
 				{
 					startdate: window.moment().add({months: 0, hours:2}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: 2,
 					activity: 'Basketball',
-					location: 'The Valley',
-					participants: 6,
-					friends: 2,
-					nonfriends: 4,
+					location: 'Gym',
+					participants: {
+							totalParticipants: 6,
+							totalFriends: 3,
+							totalnonFriends: 3,
+							list: [
+								{name: 'Jack Yiu', id: 2, isFriends:true},
+								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
+								{name: 'Jason Zheng', id: 4, isFriends:false},
+								{name: 'Roger Ganesh', id: 5, isFriends: true},
+								{name: 'Suzanne Lim', id: 6, isFriends: true},
+								{name: 'Someoneelse', id: 7, isFriends: false},																
+							]
+					},
 					capacity: 6,
 					minimumrequired: 3,
+					description: "Sample Description, get here on time!",
+					fee: 4,
+					comments: {
+						totalComments: 5,
+						unreadComments: true,
+
+					}	
 				},
 				{
 					startdate: window.moment().add({months: 0, hours: 3}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: 3,
 					activity: 'Table Tennis',
-					location: 'The Valley',
-					participants: 6,
-					friends: 4,
-					nonfriends: 2,
+					location: 'The Attic',
+					participants: {
+							totalParticipants: 5,
+							totalFriends: 3,
+							totalnonFriends: 2,
+							list: [
+								{name: 'Jack Yiu', id: 2, isFriends:true},
+								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
+								{name: 'Jason Zheng', id: 4, isFriends:false},
+								{name: 'Roger Ganesh', id: 5, isFriends: true},
+								{name: 'Suzanne Lim', id: 6, isFriends: true},															
+							]
+					},
 					capacity: 6,
 					minimumrequired: 3,
+					description: "Sample Description, get here on time!",
+					fee: 4,
+					comments: {
+						totalComments: 5,
+						unreadComments: true,
+
+					}	
 				}
 			]
 		},
@@ -112,13 +212,25 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					startdate: window.moment().add({days:1, hours:2}),
 					enddate: window.moment().add({days: 1, hours: 4}), 
 					skill: 1,
-					activity: '4th',
-					location: 'Gym',
-					participants: 3,
-					friends: 1,
-					nonfriends: 2,
+					activity: 'Squash',
+					location: 'Squash Courts',
+					participants: {
+							totalParticipants: 1,
+							totalFriends: 1,
+							totalnonFriends: 0,
+							list: [
+								{name: 'Jack Yiu', id: 2, isFriends:true},															
+							]
+					},
 					capacity: 6,
 					minimumrequired: 4,
+					description: "Sample Description, get here on time!",
+					fee: 4,
+					comments: {
+						totalComments: 5,
+						unreadComments: true,
+
+					}	
 				}
 			]
 		}		
@@ -263,9 +375,9 @@ controllers.strategyController = function($scope, cardSortFactory, strategyServi
 	 */
 	function setSortIcon(order){
 		if (order == '+'){
-			$scope.orderIcon = "plus";
+			$scope.orderIcon = "up";
 		} else {
-			$scope.orderIcon = "minus";
+			$scope.orderIcon = "down";
 		}
 	};
 
@@ -318,8 +430,6 @@ controllers.cardsController = function($scope, cardFactory, strategyService) {
 };
 
 controllers.cardController = function($scope) {
-	$scope.totalparticipants;
-
 	$scope.progressbar;
 	$scope.peopleneeded;
 	$scope.neededorfree;
@@ -327,16 +437,15 @@ controllers.cardController = function($scope) {
 	$scope.skillDescription;
 	init();
 	function init() {
-		$scope.totalparticipants = $scope.card.friends+$scope.card.nonfriends;
 		// Determine People needed, description to show and color of progress bar
-		if ($scope.totalparticipants >= $scope.card.minimumrequired) {
+		if ($scope.card.participants.totalParticipants >= $scope.card.minimumrequired) {
 			$scope.progressbar = 'success';
 			$scope.neededorfree = 'SLOTS FREE';
-			$scope.peopleneeded = $scope.card.capacity - $scope.totalparticipants;
+			$scope.peopleneeded = $scope.card.capacity - $scope.card.participants.totalParticipants;
 		} else {
 			$scope.progressbar = 'warning';
 			$scope.neededorfree = 'NEEDED';
-			$scope.peopleneeded = $scope.card.minimumrequired - $scope.totalparticipants;
+			$scope.peopleneeded = $scope.card.minimumrequired  - $scope.card.participants.totalParticipants;
 		}
 		// Determine Skill Description
 		if ($scope.card.skill == 1) {

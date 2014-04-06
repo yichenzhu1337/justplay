@@ -232,7 +232,7 @@ controllers.strategyController = function($scope, cardSortFactory, strategyServi
 		$scope.currentstrategy = strategy;
 		// Broadcast to cardcontroller.
 		strategyService.setSortStrategy(strategy);
-		$scope.$apply();
+		
 	};
 };
 
@@ -255,19 +255,21 @@ controllers.sportController = function($scope, sportFactory) {
 
 };*/
 
-controllers.cardsController = function($scope, cardFactory, strategyService) {
+controllers.cardsController = function($scope, $rootScope, cardFactory, strategyService) {
 	// Base Set of Activities
 	var baseActivities;
 	
 	init();
 	function init() {
 		$scope.dates = cardFactory.getCards();
+		$scope.strategyService = strategyService;
 		$scope.sortStrategy = strategyService.getSortStrategy();
+		$rootScope.$watch('strategyService.currentSortStrategy', function (newVal, oldVal){
+			$scope.sortStrategy = strategyService.getSortStrategy();
+		});
 	};
 	// Watch for changes in sorting requested.
-	$scope.$watch('strategyService.getSortStrategy()', function (newVal, oldVal, scope){
-		$scope.sortStrategy = newVal;
-	}, true);
+
 };
 
 controllers.cardController = function($scope) {

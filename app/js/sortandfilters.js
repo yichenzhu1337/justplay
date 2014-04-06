@@ -55,11 +55,13 @@ var module = angular.module('sortModule', [])
 	return factory;
 })
 .service('strategyService', function(){
-	var currentSortStrategy = 'date';
+	var currentSortStrategy = new Array();
 	this.setSortStrategy = function(strat) {
-		currentSortStrategy = strat;
+			currentSortStrategy.pop();
+			currentSortStrategy.push(strat);
+		//currentSortStrategy = strat;
 	};
 	this.getSortStrategy = function() {
-		return currentSortStrategy;
+		return currentSortStrategy[0];
 	}
 });

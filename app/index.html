@@ -435,8 +435,8 @@
                       </a>
                       <ul class="dropdown-menu" role="menu">
                         <li ng-repeat="strat in strategies" >
-                          <a href="#" ng-model="strategy" ng-show="strat.displayAsc.display" ng-click="setValue(strat.displayAsc.string)">{{strat.displayAsc.string}}</a>
-                          <a href="#" ng-model="strategy" ng-show="strat.displayDesc.display" ng-click="setValue(strat.displayDesc.string)">{{strat.displayDesc.string}}</a>
+                          <a href="#" ng-model="strategy" ng-show="strat.displayAsc.display" ng-click="setValue(strat.attributeName)">{{strat.displayAsc.string}}</a>
+                          <a href="#" ng-model="strategy" ng-show="strat.displayDesc.display" ng-click="setValue('-'+strat.attributeName)">{{strat.displayDesc.string}}</a>
                           <div class="divider" ng-hide="$last"></div>
                         </li>
                       </ul>                      
@@ -458,10 +458,10 @@
                 </div>
               </div>
               <div ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy">
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: 'activity'">
                   <div class="card-left pull-left" ng-controller="cardController">
                     <div class="card-activity">
-                      {{card.activity}}
+                      {{card.activity}}, {{sortStrategy}}
                     </div>
                     <div class="card">
                         <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="{{skillDescription}}">

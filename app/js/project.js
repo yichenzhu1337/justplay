@@ -255,16 +255,17 @@ controllers.sportController = function($scope, sportFactory) {
 
 };*/
 
-controllers.cardsController = function($scope, $rootScope, cardFactory, strategyService) {
+controllers.cardsController = function($scope, cardFactory, strategyService) {
 	// Base Set of Activities
 	var baseActivities;
 	
 	init();
 	function init() {
 		$scope.dates = cardFactory.getCards();
-		$scope.strategyService = strategyService;
-		$scope.sortStrategy = strategyService.getSortStrategy();
-		$rootScope.$watch('strategyService.currentSortStrategy', function (newVal, oldVal){
+		$scope.strategyServ = strategyService;
+		$scope.sortStrategy = $scope.strategyServ.getSortStrategy();
+		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
+			console.log("pop");
 			$scope.sortStrategy = strategyService.getSortStrategy();
 		});
 	};

@@ -64,4 +64,7 @@ var module = angular.module('sortModule', [])
 	this.getSortStrategy = function() {
 		return currentSortStrategy[0];
 	}
+	this.getAttribute = function(strat) {
+		
+	}
 });

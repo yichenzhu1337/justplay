@@ -55,7 +55,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 			obj:
 			[
 				{
-					startdate: window.moment().add({months: 0}),
+					startdate: window.moment().add({months: 0, minutes: 2}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: 2,
 					activity: 'Tennis',
@@ -67,7 +67,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					minimumrequired: 3,
 				}, 
 				{
-					startdate: window.moment().add({days:0, hours:2}),
+					startdate: window.moment().add({days:0, hours:1}),
 					enddate: window.moment().add({days: 0, hours: 4}), 
 					skill: 1,
 					activity: 'Badminton',
@@ -79,10 +79,10 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					minimumrequired: 4,
 				},
 				{
-					startdate: window.moment().add({months: 0}),
+					startdate: window.moment().add({months: 0, hours:2}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: 2,
-					activity: '6th',
+					activity: 'Basketball',
 					location: 'The Valley',
 					participants: 6,
 					friends: 2,
@@ -91,14 +91,14 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					minimumrequired: 3,
 				},
 				{
-					startdate: window.moment().add({months: 0}),
+					startdate: window.moment().add({months: 0, hours: 3}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
-					skill: 2,
-					activity: '7th',
+					skill: 3,
+					activity: 'Table Tennis',
 					location: 'The Valley',
 					participants: 6,
-					friends: 2,
-					nonfriends: 4,
+					friends: 4,
+					nonfriends: 2,
 					capacity: 6,
 					minimumrequired: 3,
 				}
@@ -228,10 +228,10 @@ controllers.strategyController = function($scope, cardSortFactory, strategyServi
 		strategyService.setSortStrategy($scope.currentstrategy);
 	};
 	
-	$scope.setValue = function(strategy){
+	$scope.setValue = function(attributeName, strategy){
 		$scope.currentstrategy = strategy;
 		// Broadcast to cardcontroller.
-		strategyService.setSortStrategy(strategy);
+		strategyService.setSortStrategy(attributeName);
 		
 	};
 };
@@ -258,14 +258,14 @@ controllers.sportController = function($scope, sportFactory) {
 controllers.cardsController = function($scope, cardFactory, strategyService) {
 	// Base Set of Activities
 	var baseActivities;
-	
+	$scope.test = 'activity';
 	init();
 	function init() {
 		$scope.dates = cardFactory.getCards();
-		$scope.strategyServ = strategyService;
+		$scope.strategyServ = strategyService; // Save the instance of strategyService
 		$scope.sortStrategy = $scope.strategyServ.getSortStrategy();
 		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
-			console.log("pop");
+			//console.log("pop");
 			$scope.sortStrategy = strategyService.getSortStrategy();
 		});
 	};

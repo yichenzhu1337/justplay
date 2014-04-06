@@ -26,13 +26,14 @@
   <script src="js/non-angular/popovers.js"></script>
 
   <!-- Angular Js -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.3/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.3/angular-resource.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.3/angular-route.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular/angular-resource.min.js"></script>
+  <script src="lib/angular/angular-route.min.js"></script>
 
   <!-- Modules -->
-  <script src="js/project.js"></script>
   <script src="js/sortandfilters.js"></script>
+  <script src="js/project.js"></script>
+  
 
   <!-- Date picker & Moment.js-->
   <script type="text/javascript" src="lib/bootstrap-daterangepicker-master/moment.js"></script>
@@ -435,8 +436,8 @@
                       </a>
                       <ul class="dropdown-menu" role="menu">
                         <li ng-repeat="strat in strategies" >
-                          <a href="#" ng-model="strategy" ng-show="strat.displayAsc.display" ng-click="setValue(strat.attributeName)">{{strat.displayAsc.string}}</a>
-                          <a href="#" ng-model="strategy" ng-show="strat.displayDesc.display" ng-click="setValue('-'+strat.attributeName)">{{strat.displayDesc.string}}</a>
+                          <a href="#" ng-model="strategy" ng-show="strat.displayAsc.display" ng-click="setValue(strat.attributeName, strat.displayAsc.string)">{{strat.displayAsc.string}}</a>
+                          <a href="#" ng-model="strategy" ng-show="strat.displayDesc.display" ng-click="setValue('-'+strat.attributeName, strat.displayDesc.string)">{{strat.displayDesc.string}}</a>
                           <div class="divider" ng-hide="$last"></div>
                         </li>
                       </ul>                      
@@ -458,10 +459,10 @@
                 </div>
               </div>
               <div ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: 'activity'">
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy">
                   <div class="card-left pull-left" ng-controller="cardController">
                     <div class="card-activity">
-                      {{card.activity}}, {{sortStrategy}}
+                      {{card.activity}}
                     </div>
                     <div class="card">
                         <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="{{skillDescription}}">

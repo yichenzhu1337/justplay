@@ -12,8 +12,8 @@ var module = angular.module('sortModule', [])
 		friends : 
 		{
 			attributeName: 'friends',
-			displayAsc: {string: 'Most Friends', display: true},
-			displayDesc: {string: '', display: false}
+			displayAsc: {string: 'Most Friends', display: false},
+			displayDesc: {string: 'Most Friends', display: true}
 		},
 		participants : 
 		{
@@ -26,6 +26,12 @@ var module = angular.module('sortModule', [])
 			attributeName: 'skill',
 			displayAsc: {string: 'Very Skilled', display:true},
 			displayDesc: {string: 'Not Skilled', display:true}
+		},
+		activity : 
+		{
+			attributeName: 'activity',
+			displayAsc: {string: 'Activity', display:true},
+			displayDesc: {string: 'Not Skilled', display:false}
 		}		
 	};
 	factory.getStrategy = function(key){
@@ -47,7 +53,7 @@ var module = angular.module('sortModule', [])
 	var strategies = [];
 	init();
 	function init(){
-		strategies = baseSortFactory.getStrategies(["time", "friends","participants","skill"]);
+		strategies = baseSortFactory.getStrategies(["time", "friends","participants","skill","activity"]);
 	}
 	factory.getStrategies = function(){
 		return strategies;
@@ -65,6 +71,6 @@ var module = angular.module('sortModule', [])
 		return currentSortStrategy[0];
 	}
 	this.getAttribute = function(strat) {
-		
+
 	}
 });

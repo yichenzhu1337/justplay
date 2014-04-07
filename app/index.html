@@ -279,15 +279,14 @@
         <div class="page-container">
           <div class="content-wrapper" ng-controller="cardsController" >
             <!-- Main Content Area -->
-
               <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date'" >
                 <div class="date-day-of-week">
                   <a href="#" id="date-choose-button">{{dateobj.date | amDateFormat: 'dddd, MMM Do'}}</a>
                 </div>
               </div>
               <div ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy">
-                  <div class="card-left pull-left" ng-controller="cardController">
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy" ng-controller="cardController">
+                  <div class="card-left pull-left" >
                     <div class="card-activity">
                       {{card.activity}}
                     </div>
@@ -383,8 +382,8 @@
                                           {{card.activity}}
                                       </div>
                                       <div class="card">
-                                        <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="Novice">
-                                          <icon class="glyphicon glyphicon-star card-rating-stars"></icon><icon class="glyphicon glyphicon-star card-rating-stars"></icon><icon class="glyphicon glyphicon-star card-rating-stars"></icon>
+                                        <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="{{skillDescription}}">
+                                            <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
                                         </div>
                                         <div class="card-header-wrapper">
                                           <div class="description-text">

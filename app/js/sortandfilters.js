@@ -21,13 +21,13 @@ var module = angular.module('sortModule', [])
 		},
 		friends : 
 		{
-			attributeName: 'friends',
+			attributeName: 'participants.totalFriends',
 			displayName: 'Friends',
 			defaultOrder: '-'	
 		},
 		participants : 
 		{
-			attributeName: 'participants',
+			attributeName: 'participants.totalParticipants',
 			displayName: 'Participants',
 			defaultOrder: '-'
 		},

@@ -290,10 +290,7 @@
 
   /* Expanded card */
     .modal-dialog-center { /* Edited classname 10/03/2014 */
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        margin: 0 auto;
     }
 
     @media (max-width: 767px) {

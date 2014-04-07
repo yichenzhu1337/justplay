@@ -25,6 +25,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 			obj: 
 			[		
 				{
+					id: 1,
 					startdate: window.moment().add({months: 1}), 
 					enddate: window.moment().add({months: 1, hours: 2}), 
 					skill: 3,
@@ -54,6 +55,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					}	
 				},
 				{
+					id: 2,
 					startdate: window.moment().add({months: 1}), 
 					enddate: window.moment().add({months: 1, hours: 2}), 
 					skill: 3,
@@ -88,6 +90,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 			obj:
 			[
 				{
+					id: 3,
 					startdate: window.moment().add({months: 0, minutes: 2}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: 2,
@@ -117,6 +120,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					}	
 				}, 
 				{
+					id: 4,
 					startdate: window.moment().add({days:0, hours:1}),
 					enddate: window.moment().add({days: 0, hours: 4}), 
 					skill: 1,
@@ -146,6 +150,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					}	
 				},
 				{
+					id: 5,
 					startdate: window.moment().add({months: 0, hours:2}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: 2,
@@ -175,6 +180,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 					}	
 				},
 				{
+					id: 6,
 					startdate: window.moment().add({months: 0, hours: 3}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: 3,
@@ -209,6 +215,7 @@ var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModu
 			obj:
 			[
 				{
+					id: 7,
 					startdate: window.moment().add({days:1, hours:2}),
 					enddate: window.moment().add({days: 1, hours: 4}), 
 					skill: 1,

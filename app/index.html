@@ -172,7 +172,7 @@
     <script type="text/ng-template" id="expandedCard.html">
       <div class="modal-dialog modal-dialog-center">
         <div class="row">
-          <div class="col-md-4" ng-controller="friendController">
+          <div class="col-md-4">
             <div class="card-wrap expanded side friends">
               <div class="card-header-wrapper friends">
                 <tabset justified="true">
@@ -285,7 +285,7 @@
                     </div>
                   </div>
                   <div class="join-wrapper">
-                   <button type="button" class="btn btn-danger fill">Play!</button>                          
+                   <button type="button" ng-click="join()" class="btn btn-danger fill">Play!</button>            
                   </div>
                 </div>
               </div>

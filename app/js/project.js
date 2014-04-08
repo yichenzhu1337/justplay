@@ -190,9 +190,12 @@ controllers.expandedCardController = function($scope, $modalInstance, card, acti
 		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
 	};
 
+	$scope.join = function() {
+		$scope.ok();
+	}
 
 	$scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
+    $modalInstance.close();
   };
 
   $scope.cancel = function () {

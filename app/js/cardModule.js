@@ -33,10 +33,43 @@ var project = angular.module('cardModule', [])
 					description: "Sample Description, get here on time!",
 					fee: 4,
 					comments: {
-						totalComments: 5,
+						totalComments: 4,
 						unreadComments: true,
-
-					}	
+						list: [
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "Hey anyone want to play?"
+							}, 
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "We should bring our own racquets too..."
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Yi Chen Zhu",
+								message: "Sure but I just started playing this not too long ago. I'll see you in a bit"
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: 'Roger Ganesh',
+								message: 'Yeah definately'
+							}
+						]
+					}
 				},
 				{
 					id: 2,
@@ -63,9 +96,43 @@ var project = angular.module('cardModule', [])
 					description: "Sample Description, get here on time!",
 					fee: 4,
 					comments: {
-						totalComments: 5,
+						totalComments: 4,
 						unreadComments: true,
-					}	
+						list: [
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "Hey anyone want to play?"
+							}, 
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "We should bring our own racquets too..."
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Yi Chen Zhu",
+								message: "Sure but I just started playing this not too long ago. I'll see you in a bit"
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: 'Roger Ganesh',
+								message: 'Yeah definately'
+							}
+						]
+					}
 				}
 			]
 		},
@@ -96,10 +163,43 @@ var project = angular.module('cardModule', [])
 					description: "Sample Description, get here on time!",
 					fee: 4,
 					comments: {
-						totalComments: 5,
+						totalComments: 4,
 						unreadComments: true,
-
-					}	
+						list: [
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "Hey anyone want to play?"
+							}, 
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "We should bring our own racquets too..."
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Yi Chen Zhu",
+								message: "Sure but I just started playing this not too long ago. I'll see you in a bit"
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: 'Roger Ganesh',
+								message: 'Yeah definitely'
+							}
+						]
+					}
 				}, 
 				{
 					id: 4,
@@ -126,10 +226,43 @@ var project = angular.module('cardModule', [])
 					description: "Sample Description, get here on time!",
 					fee: 4,
 					comments: {
-						totalComments: 5,
+						totalComments: 4,
 						unreadComments: true,
-
-					}	
+						list: [
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "Hey anyone want to play?"
+							}, 
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "We should bring our own racquets too..."
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Yi Chen Zhu",
+								message: "Sure but I just started playing this not too long ago. I'll see you in a bit"
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: 'Roger Ganesh',
+								message: 'Yeah definately'
+							}
+						]
+					}
 				},
 				{
 					id: 5,
@@ -156,10 +289,43 @@ var project = angular.module('cardModule', [])
 					description: "Sample Description, get here on time!",
 					fee: 4,
 					comments: {
-						totalComments: 5,
+						totalComments: 4,
 						unreadComments: true,
-
-					}	
+						list: [
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "Hey anyone want to play?"
+							}, 
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "We should bring our own racquets too..."
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Yi Chen Zhu",
+								message: "Sure but I just started playing this not too long ago. I'll see you in a bit"
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: 'Roger Ganesh',
+								message: 'Yeah definately'
+							}
+						]
+					}
 				},
 				{
 					id: 6,
@@ -185,10 +351,43 @@ var project = angular.module('cardModule', [])
 					description: "Sample Description, get here on time!",
 					fee: 4,
 					comments: {
-						totalComments: 5,
+						totalComments: 4,
 						unreadComments: true,
-
-					}	
+						list: [
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "Hey anyone want to play?"
+							}, 
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "We should bring our own racquets too..."
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Yi Chen Zhu",
+								message: "Sure but I just started playing this not too long ago. I'll see you in a bit"
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: 'Roger Ganesh',
+								message: 'Yeah definately'
+							}
+						]
+					}
 				}
 			]
 		},
@@ -216,10 +415,43 @@ var project = angular.module('cardModule', [])
 					description: "Sample Description, get here on time!",
 					fee: 4,
 					comments: {
-						totalComments: 5,
+						totalComments: 4,
 						unreadComments: true,
-
-					}	
+						list: [
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "Hey anyone want to play?"
+							}, 
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "We should bring our own racquets too..."
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Yi Chen Zhu",
+								message: "Sure but I just started playing this not too long ago. I'll see you in a bit"
+							},
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: 'Roger Ganesh',
+								message: 'Yeah definately'
+							}
+						]
+					}
 				}
 			]
 		}		

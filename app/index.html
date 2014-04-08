@@ -299,40 +299,26 @@
           <div class="col-md-4">
             <div class="card-wrap expanded side comments">
               <div class="card-header-wrapper comments">
-                <span class="side badge">13</span><span class="hidden text">d</span>Comments <span class="label label-success pull-right new-badge">NEW</span>
+                <span class="side badge">{{card.comments.totalComments}}</span><span class="hidden text">d</span>Comments <span class="label label-success pull-right new-badge" ng-show="card.comments.unreadComments">NEW</span>
               </div>
               <div class="card-content-wrapper comments">
                 <ul class="list-group scroll comments">
-                  <div class="name">
-                    <a href="#" class="name">Jack Yiu</a>
+                  <div class="name" ng-repeat-start="commentObj in card.comments.list">
+                    <a href="#" class="name">{{commentObj.senderName}}</a>
                   </div>
-                  <li class="list-group-item">hey wanna play basketball tonight?</li>
-                  <div class="name">
-                    <a href="#" class="name">Jack Yiu</a>
-                  </div>
-                  <li class="list-group-item">I think I can get 3 more guys to join us tonight</li>
-                  <div class="name">
-                    <a href="#" class="name">Eddie Zhou Yiu</a>
-                  </div>       
-                  <li class="list-group-item">whos coming again?
-                  </li>
-                  <div class="name">
-                    <a href="#" class="name">Jack Yiu</a>
-                  </div>
-                  <li class="list-group-item">um check on the participant list</li>
+                  <li class="list-group-item" ng-repeat-end>{{commentObj.message}}</li>
                 </ul>
               </div>
-
               <div class="insert-comment-wrapper">
                 <div class="insert-comment-box">
-                                      <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                  <button class="btn btn-primary" type="button">
-                    <icon class="glyphicon glyphicon-comment"></icon>
-                  </button>
-                </span>
-              </div>
+                  <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-primary" type="button">
+                        <icon class="glyphicon glyphicon-comment"></icon>
+                      </button>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>      

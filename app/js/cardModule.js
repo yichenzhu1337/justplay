@@ -234,74 +234,17 @@ var project = angular.module('cardModule', [])
 	factory.getCards = function () {
 		return cards;
 	};
-	/*factory.getDateCards = function(){
-		return formatToDate(cards);
-	}*/
+
 	return factory;
 })
-.factory('cardsFactory', function(){
-	var factory = {};
-	/**
-	 * Queries DB and returns activities between startDate and endDate
-	 * in JSON Format.
-	 * @param  {Epoch} startDate
-	 * @param  {Epoch} endDate
-	 * @return {Epoch} JSON activities between specified Dates.
-	 */
-	function getActivitiesFromDB(startDate, endDate){
-
+.service('cardService', function(){
+	this.getFriendList = function(list) {
+		var retList = [];
+		for (var i = 0; i < list.length; i ++){
+			if (list[i].isFriends == true) {
+				retList.push(list[i].name);
+			}
+		}
+		return retList;
 	}
-
-	/**
-	 * Gets an unordered, unfiltered list of activities where Date is 
-	 * between specified time period.	
-	 * @param  {Epoch} startDate
-	 * @param  {Epoch} endDate
-	 * @return {Collection}
-	 */
-	factory.getUnorderedActivityList = function(startDate, endDate) {
-		return getActivitiesFromDB(startDate, endDate);
-	}
-
-	/**
-	 * Gets an empty unordered, unfiltered list of activities grouped by
-	 * date.
-	 * @return {Collection}
-	 */
-	function getEmptyActivityList(){
-
-	}
-	
-	/**
-	 * Gets an unordred, unfiltered list of activities grouped by Date
-	 * @param  {Collection} unorderedList
-	 * @return {Collection}
-	 */
-	factory.getActivtyList = function(unorderedList){
-
-	}
-
-	/**
-	 * Orders a list of activity according to a set of strategies.
-	 * These include filtering and ordering.
-	 * @param  {Collection} filterStrategy
-	 * @param  {String} orderStrategy
-	 * @return {Array}
-	 */
-	factory.sortListOfActivity = function(filterStrategy, orderStrategy){
-
-	}
-
-	/**
-	 * Gets an ordered and filtered list of activities grouped by date
-	 * @param  {collection} activityList
-	 * @param  {Collection} filterStrategy
-	 * @param  {String} orderStrategy
-	 * @return {Collection}
-	 */
-	factory.getSortedFilteredActivityList = function(activityList, filterStrategy, orderStrategy){
-
-	}
-
-	return factory;
 });

@@ -476,8 +476,8 @@
                         </div>
                         <div class="card-content-wrapper">
                           <div class="row">
-                            <div class="col-md-4">
-                              <a href="#" tooltip-placement="left" tooltip="{{card.participants.list}}">
+                            <div class="col-md-4 friend-list-tooltip">
+                              <a href="#" tooltip-placement="left" tooltip-html-unsafe="{{getFriendList()}}">
                                 <div class="card-number">
                                   {{card.participants.totalFriends}}
                                 </div>

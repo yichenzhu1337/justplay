@@ -285,6 +285,13 @@
     height: auto;
   }
 
+  .friend-list-tooltip > a:hover,
+  .friend-list-tooltip > a:active {
+    color: #428bca;
+    text-decoration: none;
+  }
+
+
   .card-wrap {
     width: auto;
     margin: 9px 18px 9px 18px;

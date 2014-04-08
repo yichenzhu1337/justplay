@@ -125,8 +125,58 @@ controllers.cardsController = function($scope, cardFactory, strategyService) {
 			$scope.sortStrategy = strategyService.getSortStrategy();
 		});
 	};
-	// Watch for changes in sorting requested.
+};
 
+controllers.cardController = function($scope, $modal, cardService, activitySkillFactory) {
+	$scope.progressbar;
+	$scope.peopleneeded;
+	$scope.neededorfree;
+	$scope.stars = [];
+	$scope.skillDescription;
+	$scope.friendList = [];
+	init();
+	function init() {
+		// Determine People needed, description to show and color of progress bar
+		if ($scope.card.participants.totalParticipants >= $scope.card.minimumrequired) {
+			$scope.progressbar = 'success';
+			$scope.neededorfree = 'SLOTS FREE';
+			$scope.peopleneeded = $scope.card.capacity - $scope.card.participants.totalParticipants;
+		} else {
+			$scope.progressbar = 'warning';
+			$scope.neededorfree = 'NEEDED';
+			$scope.peopleneeded = $scope.card.minimumrequired  - $scope.card.participants.totalParticipants;
+		}
+		// Determine Skill Description
+		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
+		// Determine how many stars to dish out
+		for (var i = 0; i < $scope.card.skill; i++) {
+			$scope.stars.push(i);
+		};
+		// Display Friendlist on mouse over
+	};
+	$scope.open = function(){
+		var modalInstance = $modal.open({
+			templateUrl: 'expandedCard.html',
+			controller: controllers.expandedCardController,
+			resolve: {
+				card: function() {
+					return $scope.card;
+				}
+			}
+		});
+	};
+	$scope.getFriendList = function(){
+		var list = [];
+		var friendListString = "";
+		list = cardService.getFriendList($scope.card.participants.list);
+		for (var i = 0; i < list.length; i++) {
+			friendListString = friendListString + list[i];
+			if (i < list.length-1) {
+				friendListString += "<br>"
+			}
+		}
+		return friendListString;
+	}
 };
 
 controllers.expandedCardController = function($scope, $modalInstance, card, activitySkillFactory) {
@@ -148,44 +198,6 @@ controllers.expandedCardController = function($scope, $modalInstance, card, acti
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
-};
-
-controllers.cardController = function($scope, $modal, activitySkillFactory) {
-	$scope.progressbar;
-	$scope.peopleneeded;
-	$scope.neededorfree;
-	$scope.stars = [];
-	$scope.skillDescription;
-	init();
-	function init() {
-		// Determine People needed, description to show and color of progress bar
-		if ($scope.card.participants.totalParticipants >= $scope.card.minimumrequired) {
-			$scope.progressbar = 'success';
-			$scope.neededorfree = 'SLOTS FREE';
-			$scope.peopleneeded = $scope.card.capacity - $scope.card.participants.totalParticipants;
-		} else {
-			$scope.progressbar = 'warning';
-			$scope.neededorfree = 'NEEDED';
-			$scope.peopleneeded = $scope.card.minimumrequired  - $scope.card.participants.totalParticipants;
-		}
-		// Determine Skill Description
-		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
-		// Determine how many stars to dish out
-		for (var i = 0; i < $scope.card.skill; i++) {
-			$scope.stars.push(i);
-		};
-	};
-	$scope.open = function(){
-		var modalInstance = $modal.open({
-			templateUrl: 'expandedCard.html',
-			controller: controllers.expandedCardController,
-			resolve: {
-				card: function() {
-					return $scope.card;
-				}
-			}
-		});
-	};
 };
 
 project.controller(controllers);

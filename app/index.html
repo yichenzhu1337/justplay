@@ -166,6 +166,166 @@
         </div>
       <!-- Date-Pick -->
     <!-- Popover (hidden) form -->
+    
+    <script type="text/ng-template" id="expandedCard.html">
+      <div class="modal-dialog modal-dialog-center">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card-wrap expanded side friends">
+              <div class="card-header-wrapper friends">
+                <ul class="nav nav-tabs nav-justified">
+                  <li class="active">
+                    <a href="#">
+                    <span class="side badge">{{card.participants.totalParticipants}}</span>
+                    <span class="hidden text">d</span>
+                    Participants</a>
+                  </li>
+                  <li>
+                    <a href="#"><span class="side badge">1</span><span class="hidden text">d</span>Friends</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-content-wrapper friends">
+                <div class="list-group scroll friends">
+                  <a href="#" ng-repeat="participants in card.participants.list" class="list-group-item">
+                    {{participants.name}}
+                    <icon ng-show="!participants.isFriends" class="glyphicon glyphicon-plus pull-right"></icon>                                
+                  </a>
+                </div>
+              </div>
+            </div>      
+          </div> 
+          <div class="col-md-4">
+            <div class="card-wrap expanded">
+              <div class="card-left pull-left">
+                <div class="card-activity expanded">
+                    {{card.activity}}
+                </div>
+                <div class="card">
+                  <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="{{skillDescription}}">
+                      <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
+                  </div>
+                  <div class="card-header-wrapper">
+                    <div class="description-text">
+                      {{skillDescription}}
+                    </div>
+                    <div class="card-number">
+                      {{card.startdate | amDateFormat: 'HH:mm'}}-{{card.enddate | amDateFormat: 'HH:mm'}}
+                    </div>
+                    <div class="description-text">
+                      {{card.startdate | amDateFormat: 'dddd, MMM Do' | uppercase}}
+                    </div>
+                  </div>
+                  <div class="card-content-wrapper">
+                    <div class="card-info-wrapper">
+                      <div class="card-info-title"> Location</div>
+                      <div class="text-center card-info ">
+                        {{card.location}}
+                      </div>
+                    </div>
+                    <div class="card-info-wrapper">
+                      <div class="card-info-title">Description</div>
+                      <div class="card-info description text-center">
+                        {{card.description}}
+                      </div>
+                    </div>
+                    <div class="card-metrics">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="content-auto-wrap active" id ="friend-toggle">
+                            <a href="javascript:">
+                              <div class="card-number expand-friend">
+                                <icon class="glyphicon glyphicon-chevron-left pull-left friend-trigger"></icon> 
+                                {{card.participants.totalFriends}}
+                              </div>
+                              <div class="description-text">
+                                Friends
+                              </div>                                    
+                            </a>
+                          </div>
+                        </div>                            
+                        <div class="col-md-4">
+                          <div class="content-auto-wrap">
+                            <div class="card-number">
+                              {{card.fee}}
+                            </div>
+                            <div class="description-text">
+                              Fee
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="content-auto-wrap active" id="comment-toggle">
+                            <a href="javascript:">
+                              <div class="card-number expand-comment">
+                                {{card.comments.totalComments}} 
+                                <icon ng-show="card.comments.unreadComments" class="glyphicon glyphicon-chevron-right pull-right comment-trigger"></icon>
+                              </div>
+                              <div class="description-text">
+                                Comments
+                              </div>                                   
+                            </a>
+                          </div>
+                        </div>
+                      </div>                            
+                    </div>
+                  </div>
+                  <div class="join-wrapper">
+                   <button type="button" class="btn btn-danger fill">Play!</button>                          
+                  </div>
+                </div>
+              </div>
+              <div class="card-right expanded pull-right">
+                <div class="expand-wrapper" id="minimize-card">
+                  <a href="#"><icon class="glyphicon glyphicon-resize-small card-expand-icon"></icon></a>
+                </div>
+              </div>
+            </div>                      
+          </div>
+          <div class="col-md-4">
+            <div class="card-wrap expanded side comments">
+              <div class="card-header-wrapper comments">
+                <span class="side badge">13</span><span class="hidden text">d</span>Comments <span class="label label-success pull-right new-badge">NEW</span>
+              </div>
+              <div class="card-content-wrapper comments">
+                <ul class="list-group scroll comments">
+                  <div class="name">
+                    <a href="#" class="name">Jack Yiu</a>
+                  </div>
+                  <li class="list-group-item">hey wanna play basketball tonight?</li>
+                  <div class="name">
+                    <a href="#" class="name">Jack Yiu</a>
+                  </div>
+                  <li class="list-group-item">I think I can get 3 more guys to join us tonight</li>
+                  <div class="name">
+                    <a href="#" class="name">Eddie Zhou Yiu</a>
+                  </div>       
+                  <li class="list-group-item">whos coming again?
+                  </li>
+                  <div class="name">
+                    <a href="#" class="name">Jack Yiu</a>
+                  </div>
+                  <li class="list-group-item">um check on the participant list</li>
+                </ul>
+              </div>
+
+              <div class="insert-comment-wrapper">
+                <div class="insert-comment-box">
+                                      <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button">
+                    <icon class="glyphicon glyphicon-comment"></icon>
+                  </button>
+                </span>
+              </div>
+                </div>
+              </div>
+            </div>      
+          </div> 
+        </div>     
+      </div>
+    </script>
 
     <div class="super-wrapper">
       <!-- Top Nav bar -->
@@ -289,8 +449,8 @@
                 </div>
               </div>
               <div ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy" >
-                  <div class="card-left pull-left" ng-controller="cardController">
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy" ng-controller="cardController">
+                  <div class="card-left pull-left" >
                     <div class="card-activity">
                       {{card.activity}}
                     </div>
@@ -300,9 +460,7 @@
                         </div>
                         <div class="card-header-wrapper">
                           <div class="description-text">
-                            {{skillDescription}}
                             {{card.startdate | amDateFormat: 'dddd, MMM Do' | uppercase}}
-                            
                           </div>
                           <div class="card-number">
                             {{card.startdate | amDateFormat: 'HH:mm'}}-{{card.enddate | amDateFormat: 'HH:mm'}}
@@ -351,168 +509,7 @@
                   </div>
                   <div class="card-right pull-right">
                     <div class="expand-wrapper">
-                      <a href="#" data-toggle="modal" ng-click="openCard()" data-target="#activityCardModal{{card.id}}"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
-                        <!-- Expanded Card -->
-                          <div class="modal fade" id="activityCardModal{{card.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-center">
-                              <div class="row">
-                                <div class="col-md-4">
-                                  <div class="card-wrap expanded side friends">
-                                    <div class="card-header-wrapper friends">
-                                      <ul class="nav nav-tabs nav-justified">
-                                        <li class="active">
-                                          <a href="#">
-                                          <span class="side badge">{{card.participants.totalParticipants}}</span>
-                                          <span class="hidden text">d</span>
-                                          Participants</a>
-                                        </li>
-                                        <li>
-                                          <a href="#"><span class="side badge">1</span><span class="hidden text">d</span>Friends</a>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                    <div class="card-content-wrapper friends">
-                                      <div class="list-group scroll friends">
-                                        <a href="#" ng-repeat="participants in card.participants.list" class="list-group-item">
-                                          {{participants.name}}
-                                          <icon ng-show="!participants.isFriends" class="glyphicon glyphicon-plus pull-right"></icon>                                
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>      
-                                </div> 
-                                <div class="col-md-4">
-                                  <div class="card-wrap expanded">
-                                    <div class="card-left pull-left">
-                                      <div class="card-activity expanded">
-                                          {{card.activity}}
-                                      </div>
-                                      <div class="card">
-                                        <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="{{skillDescription}}">
-                                            <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
-                                        </div>
-                                        <div class="card-header-wrapper">
-                                          <div class="description-text">
-                                            {{skillDescription}}
-                                          </div>
-                                          <div class="card-number">
-                                            {{card.startdate | amDateFormat: 'HH:mm'}}-{{card.enddate | amDateFormat: 'HH:mm'}}
-                                          </div>
-                                          <div class="description-text">
-                                            {{card.startdate | amDateFormat: 'dddd, MMM Do' | uppercase}}
-                                          </div>
-                                        </div>
-                                        <div class="card-content-wrapper">
-                                          <div class="card-info-wrapper">
-                                            <div class="card-info-title"> Location</div>
-                                            <div class="text-center card-info ">
-                                              {{card.location}}
-                                            </div>
-                                          </div>
-                                          <div class="card-info-wrapper">
-                                            <div class="card-info-title">Description</div>
-                                            <div class="card-info description text-center">
-                                              {{card.description}}
-                                            </div>
-                                          </div>
-                                          <div class="card-metrics">
-                                            <div class="row">
-                                              <div class="col-md-4">
-                                                <div class="content-auto-wrap active" id ="friend-toggle">
-                                                  <a href="javascript:">
-                                                    <div class="card-number expand-friend">
-                                                      <icon class="glyphicon glyphicon-chevron-left pull-left friend-trigger"></icon> 
-                                                      {{card.participants.totalFriends}}
-                                                    </div>
-                                                    <div class="description-text">
-                                                      Friends
-                                                    </div>                                    
-                                                  </a>
-                                                </div>
-                                              </div>                            
-                                              <div class="col-md-4">
-                                                <div class="content-auto-wrap">
-                                                  <div class="card-number">
-                                                    {{card.fee}}
-                                                  </div>
-                                                  <div class="description-text">
-                                                    Fee
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                <div class="content-auto-wrap active" id="comment-toggle">
-                                                  <a href="javascript:">
-                                                    <div class="card-number expand-comment">
-                                                      {{card.comments.totalComments}} 
-                                                      <icon ng-show="card.comments.unreadComments" class="glyphicon glyphicon-chevron-right pull-right comment-trigger"></icon>
-                                                    </div>
-                                                    <div class="description-text">
-                                                      Comments
-                                                    </div>                                   
-                                                  </a>
-                                                </div>
-                                              </div>
-                                            </div>                            
-                                          </div>
-                                        </div>
-                                        <div class="join-wrapper">
-                                         <button type="button" class="btn btn-danger fill">Play!</button>                          
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="card-right expanded pull-right">
-                                      <div class="expand-wrapper" id="minimize-card">
-                                        <a href="#"><icon class="glyphicon glyphicon-resize-small card-expand-icon"></icon></a>
-                                      </div>
-                                    </div>
-                                  </div>                      
-                                </div>
-                                <div class="col-md-4">
-                                  <div class="card-wrap expanded side comments">
-                                    <div class="card-header-wrapper comments">
-                                      <span class="side badge">13</span><span class="hidden text">d</span>Comments <span class="label label-success pull-right new-badge">NEW</span>
-                                    </div>
-                                    <div class="card-content-wrapper comments">
-                                      <ul class="list-group scroll comments">
-                                        <div class="name">
-                                          <a href="#" class="name">Jack Yiu</a>
-                                        </div>
-                                        <li class="list-group-item">hey wanna play basketball tonight?</li>
-                                        <div class="name">
-                                          <a href="#" class="name">Jack Yiu</a>
-                                        </div>
-                                        <li class="list-group-item">I think I can get 3 more guys to join us tonight</li>
-                                        <div class="name">
-                                          <a href="#" class="name">Eddie Zhou Yiu</a>
-                                        </div>       
-                                        <li class="list-group-item">whos coming again?
-                                        </li>
-                                        <div class="name">
-                                          <a href="#" class="name">Jack Yiu</a>
-                                        </div>
-                                        <li class="list-group-item">um check on the participant list</li>
-                                      </ul>
-                                    </div>
-
-                                    <div class="insert-comment-wrapper">
-                                      <div class="insert-comment-box">
-                                                            <div class="input-group">
-                                      <input type="text" class="form-control">
-                                      <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                          <icon class="glyphicon glyphicon-comment"></icon>
-                                        </button>
-                                      </span>
-                                    </div>
-                                      </div>
-                                    </div>
-                                  </div>      
-                                </div> 
-                              </div>     
-                            </div>
-                          </div>
-                        <!-- Expanded Card -->
+                      <a href="#" data-toggle="modal" ng-click="open()" data-target="#activityCardModal{{card.id}}"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
                     </div>
                   </div>
                 </div>                   

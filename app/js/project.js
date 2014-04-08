@@ -434,7 +434,18 @@ controllers.cardsController = function($scope, cardFactory, strategyService) {
 
 };
 
-controllers.cardController = function($scope, activitySkillFactory) {
+controllers.expandedCardController = function($scope, $modalInstance, card, activitySkillFactory) {
+	$scope.card = card;
+	$scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+};
+
+controllers.cardController = function($scope, $modal, activitySkillFactory) {
 	$scope.progressbar;
 	$scope.peopleneeded;
 	$scope.neededorfree;
@@ -460,11 +471,17 @@ controllers.cardController = function($scope, activitySkillFactory) {
 		}
 	};
 	$scope.open = function(){
-
-	}
-
-
-}
+		var modalInstance = $modal.open({
+			templateUrl: 'expandedCard.html',
+			controller: controllers.expandedCardController,
+			resolve: {
+				card: function() {
+					return $scope.card;
+				}
+			}
+		});
+	};
+};
 
 project.controller(controllers);
 

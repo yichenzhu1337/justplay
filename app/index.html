@@ -202,8 +202,10 @@
                     {{card.activity}}
                 </div>
                 <div class="card">
-                  <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="{{skillDescription}}">
-                      <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
+                  <div class="card-star-wrapper star-mouseover">
+                      <a href="#" tooltip-placement="top" tooltip="{{skillDescription}}">
+                        <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
+                      </a>
                   </div>
                   <div class="card-header-wrapper">
                     <div class="description-text">
@@ -455,8 +457,10 @@
                       {{card.activity}}
                     </div>
                     <div class="card">
-                        <div class="card-star-wrapper star-mouseover" data-toggle="tooltip" data-original-title="{{skillDescription}}">
+                        <div class="card-star-wrapper star-mouseover">
+                          <a href="#" tooltip-placement="top" tooltip="{{skillDescription}}">
                             <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
+                          </a>
                         </div>
                         <div class="card-header-wrapper">
                           <div class="description-text">

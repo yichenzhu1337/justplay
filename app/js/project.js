@@ -435,7 +435,17 @@ controllers.cardsController = function($scope, cardFactory, strategyService) {
 };
 
 controllers.expandedCardController = function($scope, $modalInstance, card, activitySkillFactory) {
-	$scope.card = card;
+	init();
+	function init(){
+		$scope.card = card;
+		$scope.stars = [];
+		for (var i = 0; i < $scope.card.skill; i++) {
+			$scope.stars.push(i);
+		}
+		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
+	};
+
+
 	$scope.ok = function () {
     $modalInstance.close($scope.selected.item);
   };
@@ -468,7 +478,7 @@ controllers.cardController = function($scope, $modal, activitySkillFactory) {
 		// Determine how many stars to dish out
 		for (var i = 0; i < $scope.card.skill; i++) {
 			$scope.stars.push(i);
-		}
+		};
 	};
 	$scope.open = function(){
 		var modalInstance = $modal.open({

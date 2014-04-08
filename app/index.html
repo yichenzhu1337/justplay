@@ -36,6 +36,7 @@
   <!-- Modules -->
   <script src="js/sortandfilters.js"></script>
   <script src="js/skills.js"></script>
+  <script src="js/cardModule.js"></script>
   <script src="js/project.js"></script>
   
 
@@ -476,14 +477,14 @@
                         <div class="card-content-wrapper">
                           <div class="row">
                             <div class="col-md-4">
-                              <div class="friend-mouseover" data-toggle="tooltip" data-html="true" data-original-title="Jack  <br> Alex <br> Jason">
+                              <a href="#" tooltip-placement="left" tooltip="{{card.participants.list}}">
                                 <div class="card-number">
                                   {{card.participants.totalFriends}}
                                 </div>
                                 <div class="description-text">
                                   FRIENDS
                                 </div>
-                              </div>
+                              </a>
                             </div>
                             <div class="col-md-4">
                               <div class="card-number">

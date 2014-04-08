@@ -13,17 +13,17 @@ $(document).ready(function(){
 
 	/* Resizing header and content-wrapper to center */
 	window.onresize = function(){
-        var windowWidth = $(window).width();
-        var halfWindowHeight = $(window).height()/2;
-        var amount = 0;
+      var windowWidth = $(window).width();
+      var halfWindowHeight = $(window).height()/2;
+      var amount = 0;
 
-        // Center content-width
-        amount = ((parseInt(windowWidth)-parseInt(CONTENT_WIDTH))/2)-40;
-        $('.content-wrapper').css({"margin-left":amount+"px","margin-right":amount+"px"});
+      // Center content-width
+      amount = ((parseInt(windowWidth)-parseInt(CONTENT_WIDTH))/2)-40;
+      $('.content-wrapper').css({"margin-left":amount+"px","margin-right":amount+"px"});
 
-        // Center header-content
-        amount = parseInt(parseInt(windowWidth)-parseInt(HEADER_WIDTH))/2;
-        $('.header-wrapper').css({"margin-left":amount+"px","margin-right":amount+"px"});
+      // Center header-content
+      amount = parseInt(parseInt(windowWidth)-parseInt(HEADER_WIDTH))/2;
+      $('.header-wrapper').css({"margin-left":amount+"px","margin-right":amount+"px"});
 	}
 	window.onresize();
 
@@ -43,13 +43,7 @@ $(document).ready(function(){
 		}
 		$('.main-content-wrapper').css({"padding-left":parseInt($(".navbar-fixed-side").width())+parseInt(MAIN_CONTENT_WRAPPER_PADDING)+"px"});
 		
-	})
-  // Tooltip setup
-  $(function() {
-      $('.friend-mouseover').tooltip({placement: 'left'});
-      $('.star-mouseover').tooltip({placement: 'top'});
-      $('.nav-tooltip').tooltip({placement: 'bottom', width: '200px'});
-  });
+	});
 
 	// Date Picker //
 	$('.date-day-of-week').daterangepicker(

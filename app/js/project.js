@@ -1,4 +1,4 @@
-var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap'])
+var project = angular.module('project', ['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap', 'skillModule'])
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
@@ -434,7 +434,7 @@ controllers.cardsController = function($scope, cardFactory, strategyService) {
 
 };
 
-controllers.cardController = function($scope) {
+controllers.cardController = function($scope, activitySkillFactory) {
 	$scope.progressbar;
 	$scope.peopleneeded;
 	$scope.neededorfree;
@@ -453,18 +453,15 @@ controllers.cardController = function($scope) {
 			$scope.peopleneeded = $scope.card.minimumrequired  - $scope.card.participants.totalParticipants;
 		}
 		// Determine Skill Description
-		if ($scope.card.skill == 1) {
-			$scope.skillDescription = "Beginner";
-		} else if ($scope.card.skill == 2) {
-			$scope.skillDescription = "Intermediate";
-		} else if ($scope.card.skill == 3) {
-			$scope.skillDescription = "Advanced";
-		}
+		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
 		// Determine how many stars to dish out
 		for (var i = 0; i < $scope.card.skill; i++) {
 			$scope.stars.push(i);
 		}
 	};
+	$scope.open = function(){
+
+	}
 
 
 }

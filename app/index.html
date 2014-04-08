@@ -35,6 +35,7 @@
 
   <!-- Modules -->
   <script src="js/sortandfilters.js"></script>
+  <script src="js/skills.js"></script>
   <script src="js/project.js"></script>
   
 
@@ -288,8 +289,8 @@
                 </div>
               </div>
               <div ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy" ng-controller="cardController">
-                  <div class="card-left pull-left" >
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy" >
+                  <div class="card-left pull-left" ng-controller="cardController">
                     <div class="card-activity">
                       {{card.activity}}
                     </div>
@@ -299,7 +300,9 @@
                         </div>
                         <div class="card-header-wrapper">
                           <div class="description-text">
+                            {{skillDescription}}
                             {{card.startdate | amDateFormat: 'dddd, MMM Do' | uppercase}}
+                            
                           </div>
                           <div class="card-number">
                             {{card.startdate | amDateFormat: 'HH:mm'}}-{{card.enddate | amDateFormat: 'HH:mm'}}
@@ -348,7 +351,7 @@
                   </div>
                   <div class="card-right pull-right">
                     <div class="expand-wrapper">
-                      <a href="#" data-toggle="modal" data-target="#activityCardModal{{card.id}}"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
+                      <a href="#" data-toggle="modal" ng-click="openCard()" data-target="#activityCardModal{{card.id}}"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
                         <!-- Expanded Card -->
                           <div class="modal fade" id="activityCardModal{{card.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-center">

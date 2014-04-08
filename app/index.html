@@ -34,9 +34,10 @@
   <script src="lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 
   <!-- Modules -->
-  <script src="js/sortandfilters.js"></script>
-  <script src="js/skills.js"></script>
+  <script src="js/sortModule.js"></script>
+  <script src="js/skillModule.js"></script>
   <script src="js/cardModule.js"></script>
+  <script src="js/friendModule.js"></script>
   <script src="js/project.js"></script>
   
 
@@ -171,28 +172,38 @@
     <script type="text/ng-template" id="expandedCard.html">
       <div class="modal-dialog modal-dialog-center">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4" ng-controller="friendController">
             <div class="card-wrap expanded side friends">
               <div class="card-header-wrapper friends">
-                <ul class="nav nav-tabs nav-justified">
-                  <li class="active">
-                    <a href="#">
-                    <span class="side badge">{{card.participants.totalParticipants}}</span>
-                    <span class="hidden text">d</span>
-                    Participants</a>
-                  </li>
-                  <li>
-                    <a href="#"><span class="side badge">1</span><span class="hidden text">d</span>Friends</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="card-content-wrapper friends">
-                <div class="list-group scroll friends">
-                  <a href="#" ng-repeat="participants in card.participants.list" class="list-group-item">
-                    {{participants.name}}
-                    <icon ng-show="!participants.isFriends" class="glyphicon glyphicon-plus pull-right"></icon>                                
-                  </a>
-                </div>
+                <tabset justified="true">
+                  <tab>
+                    <tab-heading>
+                      <span class='side badge'>{{card.participants.totalParticipants}}</span>
+                      <span class='hidden text'>d</span>Participants
+                    </tab-heading>
+                    <div class="card-content-wrapper friends">
+                      <div class="list-group scroll friends">
+                        <a href="#" ng-repeat="participants in card.participants.list" class="list-group-item">
+                          {{participants.name}}
+                          <icon ng-show="!participants.isFriends" class="glyphicon glyphicon-plus pull-right"></icon>
+                        </a>
+                      </div>
+                    </div>
+                  </tab>
+                  <tab>
+                    <tab-heading>
+                      <span class='side badge'>{{card.participants.totalFriends}}</span><span class='hidden text'>d</span>Friends
+                    </tab-heading>
+                    <div class="card-content-wrapper friends">
+                      <div class="list-group scroll friends">
+                        <a href="#" ng-repeat="participants in card.participants.list" ng-show="participants.isFriends" class="list-group-item">
+                          {{participants.name}}
+                          <icon ng-show="!participants.isFriends" class="glyphicon glyphicon-plus pull-right"></icon>
+                        </a>
+                      </div>
+                    </div>
+                  </tab>
+                </tabset>
               </div>
             </div>      
           </div> 
@@ -514,7 +525,7 @@
                   </div>
                   <div class="card-right pull-right">
                     <div class="expand-wrapper">
-                      <a href="#" data-toggle="modal" ng-click="open()" data-target="#activityCardModal{{card.id}}"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
+                      <a href="#" ng-click="open()"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
                     </div>
                   </div>
                 </div>                   

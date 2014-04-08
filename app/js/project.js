@@ -1,5 +1,5 @@
 var project = angular.module('project', 
-	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap', 'skillModule', 'cardModule'])
+	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap', 'skillModule', 'cardModule', 'friendModule'])
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
@@ -127,7 +127,7 @@ controllers.cardsController = function($scope, cardFactory, strategyService) {
 	};
 };
 
-controllers.cardController = function($scope, $modal, cardService, activitySkillFactory) {
+controllers.cardController = function($scope, $modal, friendService, activitySkillFactory) {
 	$scope.progressbar;
 	$scope.peopleneeded;
 	$scope.neededorfree;
@@ -168,7 +168,7 @@ controllers.cardController = function($scope, $modal, cardService, activitySkill
 	$scope.getFriendList = function(){
 		var list = [];
 		var friendListString = "";
-		list = cardService.getFriendList($scope.card.participants.list);
+		list = friendService.getFriendList($scope.card.participants.list);
 		for (var i = 0; i < list.length; i++) {
 			friendListString = friendListString + list[i];
 			if (i < list.length-1) {
@@ -199,6 +199,13 @@ controllers.expandedCardController = function($scope, $modalInstance, card, acti
     $modalInstance.dismiss('cancel');
   };
 };
+
+/*controllers.friendController = function($scope) {
+	$scope.show = true;
+	$scope.showAll = function(bool) {
+		friend = bool;
+	};
+}*/
 
 project.controller(controllers);
 

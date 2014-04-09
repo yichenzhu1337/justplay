@@ -16,5 +16,5 @@ var mod = angular.module('activityModule', [])
 	 */
 	this.getActivity = function() {
 		return activity;
-	}
+	};
 });

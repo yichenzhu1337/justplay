@@ -57,7 +57,7 @@
   <body>
     <!-- Popover (hidden) form -->
       <!-- Activity Form -->
-        <div id="activity-create-form" class="hide">
+        <div id="activity-create-form" class="hide" ng-controller="activityController">
           <form role="form">
             <div class="form-group">
               <div class="divider"></div>
@@ -292,7 +292,7 @@
               </div>
               <div class="card-right expanded pull-right">
                 <div class="expand-wrapper" id="minimize-card">
-                  <a href="#"><icon class="glyphicon glyphicon-resize-small card-expand-icon"></icon></a>
+                  <a href="#" ng-click="cancel()"><icon class="glyphicon glyphicon-resize-small card-expand-icon"></icon></a>
                 </div>
               </div>
             </div>                      

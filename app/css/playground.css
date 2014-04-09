@@ -424,7 +424,7 @@
 
     .scroll.comments {
       max-height: 190px;
-      min-height: 230px;
+      min-height: 190px;
     }
 
     .header-friends {

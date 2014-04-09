@@ -1,5 +1,5 @@
 var project = angular.module('project', 
-	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap', 'skillModule', 'cardModule', 'friendModule'])
+	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap', 'skillModule', 'cardModule', 'friendModule', 'activityModule'])
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
@@ -94,15 +94,17 @@ controllers.strategyController = function($scope, cardSortFactory, strategyServi
 	};
 };
 
-controllers.sportController = function($scope, sportFactory) {
+controllers.sportController = function($scope, sportFactory, activityService) {
 	$scope.sports = {};
 	init();
 	function init() {
 		$scope.sports = sportFactory.getSports();
+		activityService.setActivity("");
 	};
 	$scope.setValue = function(sport){
 		$scope.currentsport = sport;
-	}
+		activityService.setActivity(sport);
+	};
 };
 
 /*controllers.dateController = function($scope, cardFactory) {
@@ -112,17 +114,23 @@ controllers.sportController = function($scope, sportFactory) {
 	};
 };*/
 
-controllers.cardsController = function($scope, cardFactory, strategyService) {
+controllers.cardsController = function($scope, cardFactory, strategyService, activityService) {
 	// Base Set of Activities
 	var baseActivities;
 	init();
 	function init() {
 		$scope.dates = cardFactory.getCards(); 
 		$scope.strategyServ = strategyService; // Bind instance of strategyService to scope
+		$scope.activityServ = activityService;
 		$scope.sortStrategy = $scope.strategyServ.getSortStrategy(); 
+		$scope.activityFilter = $scope.activityServ.getActivity();
 		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
 			console.log("newVal:" + newVal +" oldVal:"+oldVal);
 			$scope.sortStrategy = strategyService.getSortStrategy();
+		});
+		$scope.$watch('activityServ.getActivity()', function (newVal, oldVal){
+			console.log("newVal:" + newVal +" oldVal:"+oldVal);
+			$scope.activityFilter = activityService.getActivity();
 		});
 	};
 };

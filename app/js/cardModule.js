@@ -282,8 +282,8 @@ var project = angular.module('cardModule', [])
 								{name: 'Roger Ganesh', id: 5, isFriends: true},															
 							]
 					},
-					capacity: 6,
-					minimumrequired: 3,
+					capacity: 5,
+					minimumrequired: 5,
 					description: "Sample Description, get here on time!",
 					fee: 4,
 					comments: {
@@ -341,7 +341,7 @@ var project = angular.module('cardModule', [])
 								{name: 'Yi Chen Zhu', id: 3, isFriends:true},										
 							]
 					},
-					capacity: 6,
+					capacity: 4,
 					minimumrequired: 3,
 					description: "Sample Description, get here on time!",
 					fee: 4,

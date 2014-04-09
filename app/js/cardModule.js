@@ -272,16 +272,14 @@ var project = angular.module('cardModule', [])
 					activity: 'Basketball',
 					location: 'UTSC Front Gym',
 					participants: {
-							totalParticipants: 6,
-							totalFriends: 3,
+							totalParticipants: 4,
+							totalFriends: 4,
 							totalnonFriends: 3,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
-								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
-								{name: 'Jason Zheng', id: 4, isFriends:false},
-								{name: 'Roger Ganesh', id: 5, isFriends: true},
-								{name: 'Suzanne Lim', id: 6, isFriends: true},
-								{name: 'Someoneelse', id: 7, isFriends: false},																
+								{name: 'Yi Chen Zhu', id: 3, isFriends:true},
+								{name: 'Jason Zheng', id: 4, isFriends:true},
+								{name: 'Roger Ganesh', id: 5, isFriends: true},															
 							]
 					},
 					capacity: 6,
@@ -335,19 +333,56 @@ var project = angular.module('cardModule', [])
 					activity: 'Table Tennis',
 					location: 'The Attic',
 					participants: {
-							totalParticipants: 5,
-							totalFriends: 3,
-							totalnonFriends: 2,
+							totalParticipants: 2,
+							totalFriends: 2,
+							totalnonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
-								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
-								{name: 'Jason Zheng', id: 4, isFriends:false},
-								{name: 'Roger Ganesh', id: 5, isFriends: true},
-								{name: 'Suzanne Lim', id: 6, isFriends: true},															
+								{name: 'Yi Chen Zhu', id: 3, isFriends:true},										
 							]
 					},
 					capacity: 6,
 					minimumrequired: 3,
+					description: "Sample Description, get here on time!",
+					fee: 4,
+					comments: {
+						totalComments: 1,
+						unreadComments: true,
+						list: [
+							{
+								activityId: 1,
+								messageId: 1,
+								date: 1,
+								senderId: 1,
+								senderName: "Jack Yiu",
+								message: "Hey anyone want to play?"
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			date: window.moment().add({days: 1}),
+			obj:
+			[
+				{
+					id: 7,
+					startdate: window.moment().add({days:1, hours:2}),
+					enddate: window.moment().add({days: 1, hours: 4}), 
+					skill: 1,
+					activity: 'Squash',
+					location: 'Squash Courts',
+					participants: {
+							totalParticipants: 1,
+							totalFriends: 1,
+							totalnonFriends: 0,
+							list: [
+								{name: 'Jack Yiu', id: 2, isFriends:true},															
+							]
+					},
+					capacity: 6,
+					minimumrequired: 4,
 					description: "Sample Description, get here on time!",
 					fee: 4,
 					comments: {
@@ -388,20 +423,14 @@ var project = angular.module('cardModule', [])
 							}
 						]
 					}
-				}
-			]
-		},
-		{
-			date: window.moment().add({days: 1}),
-			obj:
-			[
+				},
 				{
-					id: 7,
+					id: 8,
 					startdate: window.moment().add({days:1, hours:2}),
 					enddate: window.moment().add({days: 1, hours: 4}), 
 					skill: 1,
-					activity: 'Squash',
-					location: 'Squash Courts',
+					activity: 'Basketball',
+					location: 'Utsc Front Gym',
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,

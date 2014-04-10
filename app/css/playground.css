@@ -81,6 +81,29 @@
     font-size: 20px;
   }
 
+  #activitySearchWrapper {
+    display: inline-block;
+  }
+
+  #activitySearchBox {
+    padding: 8px 36px 8px 8px;
+  }
+
+
+  #resetActivity {
+    width: auto;
+    display: inline-block;
+    position: absolute;
+    padding-top: 8px;
+    color: #7f8c8d;
+    margin-left: -24px;
+  }
+
+  #activitySubmitWrap {
+    position: absolute;
+    display: inline-block;
+  }
+
   #nav-user:hover, 
   #nav-user:active,  {
     color: white;
@@ -175,7 +198,6 @@
 
   #activity-menu {
     font-size: 16px;
-    margin-top: 36px;
     width: 647px;
     height: auto;
     border-radius: 0px;

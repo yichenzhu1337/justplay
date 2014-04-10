@@ -15,7 +15,16 @@ var project = angular.module('project',
 		return sports;
 	};
 	return factory;
+})
+.directive('selectOnClick', function () {
+  // Linker function
+	return function (scope, element, attrs) {
+	  element.bind('click', function () {
+	    this.select();
+	  });
+	};
 });
+
 
 /*
 angular.module('filters', []).
@@ -103,20 +112,26 @@ controllers.sportController = function($scope, sportFactory, activityService) {
 		$scope.sports = sportFactory.getSports();
 		activityService.setActivity("");
 		$scope.toggleIcon = false;
+		$scope.savedSport = "";
 	};
 	$scope.setValue = function(sport){
 		$scope.currentsport = sport;
 		activityService.setActivity($scope.currentsport);
-		$scope.toggleIcon = !$scope.toggleIcon;
+		if ($scope.currentsport == ""){
+			$scope.toggleIcon = false;
+		} else {
+			$scope.toggleIcon = true;
+		}
+		
 	};
 	$scope.resetActivity = function(){
 		$scope.setValue("");
 		$scope.submitValue();
-		$scope.toggleIcon = !$scope.toggleIcon;
-	}
+		$scope.toggleIcon = false;
+	};
 	$scope.clickSearchBox = function(curSport){
 		// Make it seem empty
-		$scope.savedSport = savedSport;
+		$scope.savedSport = curSport;
 		$scope.currentsport = "";
 	}
 	

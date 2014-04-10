@@ -96,15 +96,30 @@ controllers.strategyController = function($scope, cardSortFactory, strategyServi
 
 controllers.sportController = function($scope, sportFactory, activityService) {
 	$scope.sports = {};
+	$scope.toggleIcon;
+	$scope.savedSport;
 	init();
 	function init() {
 		$scope.sports = sportFactory.getSports();
 		activityService.setActivity("");
+		$scope.toggleIcon = false;
 	};
 	$scope.setValue = function(sport){
 		$scope.currentsport = sport;
-		activityService.setActivity(sport);
+		activityService.setActivity($scope.currentsport);
+		$scope.toggleIcon = !$scope.toggleIcon;
 	};
+	$scope.resetActivity = function(){
+		$scope.setValue("");
+		$scope.submitValue();
+		$scope.toggleIcon = !$scope.toggleIcon;
+	}
+	$scope.clickSearchBox = function(curSport){
+		// Make it seem empty
+		$scope.savedSport = savedSport;
+		$scope.currentsport = "";
+	}
+	
 };
 
 /*controllers.dateController = function($scope, cardFactory) {
@@ -209,6 +224,10 @@ controllers.expandedCardController = function($scope, $modalInstance, card, acti
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
+};
+
+controllers.activityController = function($scope, activityService) {
+
 };
 
 /*controllers.friendController = function($scope) {

@@ -347,40 +347,7 @@
               </ul>
               
               <ul class="nav navbar-nav navbar-left">
-                <div id="activity-search-bar" class="input-group header-search" ng-controller="sportController">
-                  <form ng-submit="setValue(currentsport)">
-                    <div class="dropdown" id="activitySearchWrapper">
-                      <input select-on-click id="activitySearchBox" type="text" data-toggle="dropdown" class="form-control" placeholder="Click to view activities" ng-model="currentsport">
-                      <div class="dropdown-menu" id='activity-menu'>
-                        <div class="list-group">
-                          <a href="#" class="list-group-item" ng-click="setValue('')"><icon class="glyphicon glyphicon-star"></icon> All Sports</a>
-                          <a href="#" class="list-group-item" ng-click="setValue('')"><icon class="glyphicon glyphicon-star"></icon> Sports with friends</a>
-                          <div class="header">
-                            Racquet Sports
-                          </div>
-                          <a href="#" class="list-group-item" ng-repeat="sport in sports.RacquetSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport}}</a>
-                        </div>
 
-                        <div class="list-group">
-                          <div class="header">
-                            Other Team Sports
-                          </div>
-                            <a href="#" class="list-group-item" ng-repeat="sport in sports.TeamSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport}}</a>
-                        </div>
-
-                        <div class="list-group last">
-                          <a href="#" class="list-group-item" ng-repeat="sport in sports.TeamSports[1] | filter: currentsport" ng-click="setValue(sport)">{{sport}}</a>
-                        </div>
-                      </div> 
-                    </div>
-                    <a href="#" ng-click="resetActivity()" ng-show="toggleIcon" id="resetActivity">
-                      <icon class="glyphicon glyphicon-remove"></icon>
-                    </a>
-                    <a href="#" type="submit" ng-click="setValue(currentsport)" ng-show="!toggleIcon" id="resetActivity">
-                      <icon class="glyphicon glyphicon-search"></icon>
-                    </a>
-                  </form>
-                </div> 
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
@@ -423,7 +390,55 @@
             <div class="header-wrapper float-right">
               <div class="header-content-wrapper">
                 <div class="activity-chooser-wrapper pull-left">
-     
+                  <div id="activity-search-bar" class="input-group header-search" ng-controller="sportController">
+                    <form ng-submit="setValue(currentsport)">
+                      <div class="dropdown" id="activitySearchWrapper">
+                        <input select-on-click id="activitySearchBox" type="text" data-toggle="dropdown" class="form-control" placeholder="Click to view activities" ng-model="currentsport">
+                        <div class="dropdown-menu" id='activity-menu'>
+                          <div class="list-group">
+                            <a href="#" class="list-group-item" ng-click="setValue('')"><icon class="glyphicon glyphicon-star"></icon> All Sports</a>
+                            <a href="#" class="list-group-item" ng-click="setValue('')"><icon class="glyphicon glyphicon-star"></icon> Sports with friends</a>
+                            <div class="header">
+                              Racquet Sports
+                            </div>
+                            <a href="#" class="list-group-item" ng-repeat="sport in sports.RacquetSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport}}</a>
+                          </div>
+
+                          <div class="list-group">
+                            <div class="header">
+                              Other Team Sports
+                            </div>
+                              <a href="#" class="list-group-item" ng-repeat="sport in sports.TeamSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport}}</a>
+                          </div>
+
+                          <div class="list-group last">
+                            <a href="#" class="list-group-item" ng-repeat="sport in sports.TeamSports[1] | filter: currentsport" ng-click="setValue(sport)">{{sport}}</a>
+                          </div>
+                        </div> 
+                      </div>
+                      <a href="#" ng-click="resetActivity()" ng-show="toggleIcon" id="resetActivity">
+                        <icon class="glyphicon glyphicon-remove"></icon>
+                      </a>
+                      <a href="#" type="submit" ng-click="setValue(currentsport)" ng-show="!toggleIcon" id="resetActivity">
+                        <icon class="glyphicon glyphicon-search"></icon>
+                      </a>
+                    </form>
+                  </div> 
+                  <!-- <div class='filter-wrapper'>
+                    Filters: 
+                    <div class="filter">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                          General Availabilty 
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Dropdown link</a></li>
+                          <li><a href="#">Dropdown link</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div> -->
                 </div>
                 <div class="sort-filter-wrapper pull-right" ng-controller="strategyController">
                   <div class="sort">
@@ -529,8 +544,8 @@
         </div>
       </div>
     </div>
-    <footer>
+    <!--footer>
         hi
-      </footer>    
+      </footer-->    
   </body>
 </html>

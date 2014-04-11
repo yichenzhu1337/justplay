@@ -21,7 +21,8 @@
     margin: 0;
     padding: 0;
     min-height: 100%;
-    background-color: white;
+    background-color: #ecf0f1;
+
   }
 
   .super-wrapper {
@@ -94,9 +95,10 @@
     width: auto;
     display: inline-block;
     position: absolute;
-    padding-top: 8px;
+    padding-top: 6px;
     color: #7f8c8d;
-    margin-left: -24px;
+    margin-left: -26px;
+    font-size: 17px;
   }
 
   #activitySubmitWrap {
@@ -135,9 +137,10 @@
   }
 
   .header-bg{
-    background-color: #c0392b;
-    height: 170px;
+    /*background-color: #c0392b;*/
+    height: 270px;
     width: 100%;
+    background-image: url('../img/deeply.jpg');
   }
   /* Right hand side items */
     .acount-options {
@@ -148,18 +151,28 @@
 
 /* Header */
   .activity-chooser-wrapper {
-    padding-top: 60px;
+    padding-top: 141px;
+    width: auto;
     padding-bottom: 20px;
-    font-size: 27px;
+    margin: 0 auto;
     color: white;
   }
 
   .sort-filter-wrapper {
     width: auto;
     height: 47px;  
-    padding-top: 60px;
+    padding-top: 160px;
     padding-bottom: 20px;
     color: white;
+  }
+
+  .filter {
+    display: inline-block;
+    height: 
+  }
+
+  .filter-wrapper{
+    margin-top: 37px;
   }
 
   #reverseOrder {

@@ -372,7 +372,7 @@ var project = angular.module('cardModule', [])
 					enddate: window.moment().add({days: 1, hours: 4}), 
 					skill: 1,
 					activity: 'Squash',
-					location: 'Squash Courts',
+					location: 'Squash Courts Badminton',
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,

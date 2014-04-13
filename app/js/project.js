@@ -1,5 +1,5 @@
 var project = angular.module('project', 
-	['angularMoment', 'ui.unique', 'sortModule', 
+	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap',
 	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap', 'ngAnimate'])
 .factory('sportFactory', function() {
 	var factory = {};
@@ -200,7 +200,7 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 		// Display Friendlist on mouse over
 	};
 	$scope.open = function(){
-		var modalInstance = $modal.open({
+		/*var modalInstance = $modal.open({
 			templateUrl: 'expandedCard.html',
 			controller: controllers.expandedCardController,
 			resolve: {
@@ -208,7 +208,11 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 					return $scope.card;
 				}
 			}
-		});
+		});*/
+		var mod = $modal({
+			template: 'expandedCard.html',
+			html: true
+		})
 	};
 	$scope.getFriendList = function(){
 		var list = [];
@@ -232,7 +236,7 @@ controllers.expandedCardController = function($scope, $modalInstance, card, acti
 		for (var i = 0; i < $scope.card.skill; i++) {
 			$scope.stars.push(i);
 		}
-		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
+		$scope.skillDescription = "activitySkillFactory.getStringValue($scope.card.skill)";
 	};
 
 	$scope.join = function() {

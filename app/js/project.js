@@ -169,10 +169,6 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 			console.log("newVal:" + newVal +" oldVal:"+oldVal);
 			$scope.activityFilter = activityService.getActivity();
 		});
-		$scope.tooltip = {
-  "title": "Hello Tooltip<br />This is a multiline message!",
-  "checked": false
-};
 	};
 };
 

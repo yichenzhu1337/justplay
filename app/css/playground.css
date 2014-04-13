@@ -320,6 +320,10 @@
     height: auto;
   }
 
+  .friend-list-tooltip > a {
+    margin-top: -21px;
+  }
+
   .friend-list-tooltip > a:hover,
   .friend-list-tooltip > a:active {
     color: #428bca;

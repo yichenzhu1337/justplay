@@ -1,5 +1,6 @@
 var project = angular.module('project', 
-	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap', 'skillModule', 'cardModule', 'friendModule', 'activityModule'])
+	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap', 
+	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap'])
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
@@ -38,6 +39,12 @@ angular.module('filters', []).
 	});*/
 
 var controllers = {};
+
+controllers.navbarController = function($scope) {
+	$scope.exploreTooltip = {
+		"title" : "Explore"
+	};
+};
 
 /**
  * Displays strategies provided by factory and sends selected strategies
@@ -162,6 +169,10 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 			console.log("newVal:" + newVal +" oldVal:"+oldVal);
 			$scope.activityFilter = activityService.getActivity();
 		});
+		$scope.tooltip = {
+  "title": "Hello Tooltip<br />This is a multiline message!",
+  "checked": false
+};
 	};
 };
 

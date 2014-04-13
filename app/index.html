@@ -29,6 +29,7 @@
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular/angular-resource.min.js"></script>
   <script src="lib/angular/angular-route.min.js"></script>
+  <script src="lib/angular/angular-animate.min.js"></script>
 
   <!-- Angular UI Bootstrap Directives -->
   <script src="lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
@@ -40,7 +41,6 @@
   <script src="js/friendModule.js"></script>
   <script src="js/activityModule.js"></script>
   <script src="js/project.js"></script>
-  
 
   <!-- Date picker & Moment.js-->
   <script type="text/javascript" src="lib/bootstrap-daterangepicker-master/moment.js"></script>
@@ -51,7 +51,13 @@
   <!-- Angular UI -->
   <script type="text/javascript" src="lib/ui-utils-0.1.1/ui-utils.js"></script>
 
-  
+  <!-- Angular Strap -->
+  <script src="../bower_components/angular-strap/dist/angular-strap.min.js"></script> 
+  <script src="../bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>  
+
+  <!-- Angular Motion -->
+  <link rel="stylesheet" type="text/css" media="all" href="lib/angular-motion-0.3.2/dist/angular-motion.min.css" />
+
   </head>
 
   <body>
@@ -331,7 +337,7 @@
     <div class="super-wrapper">
       <!-- Top Nav bar -->
         <div class="navbar navbar-inverse navbar-fixed-top" id="navbar-top" role="navigation">
-          <div class="container">
+          <div class="container" ng-controller="navbarController">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -350,11 +356,11 @@
 
               </ul>
 
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" tooltip-placement="bottom" tooltip="Explore"><i class="glyphicon glyphicon-search side-icon"></i></a>
+              <ul class="nav navbar-nav navbar-right" >
+                <li><a href data-animation="am-flip-x" data-title="Explore" data-placement="bottom" bs-tooltip><i class="glyphicon glyphicon-search side-icon"></i></a>
                 </li>
-                <li id="suggest-activity"><a href="#" tooltip-placement="bottom" tooltip="Suggest"><i class="glyphicon glyphicon-plus side-icon"></i></a></li>
-                <li id="get-notified"><a href="#" tooltip-placement="bottom" tooltip="Get Notified"><i class="glyphicon glyphicon-eye-open side-icon"></i></a></li>
+                <li id="suggest-activity"><a href data-animation="am-flip-x" data-title="Create" data-placement="bottom" bs-tooltip><i class="glyphicon glyphicon-plus side-icon"></i></a></li>
+                <li id="get-notified"><a href data-animation="am-flip-x" data-title="Get Notified" data-placement="bottom" bs-tooltip><i class="glyphicon glyphicon-eye-open side-icon"></i></a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">Jack Yiu</a>
                   <ul class="dropdown-menu" role="menu">

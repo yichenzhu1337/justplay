@@ -1,6 +1,6 @@
 var project = angular.module('project', 
-	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap', 
-	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap'])
+	['angularMoment', 'ui.unique', 'sortModule', 
+	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap', 'ngAnimate'])
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s

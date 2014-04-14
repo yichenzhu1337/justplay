@@ -436,13 +436,11 @@
                       </a>
                     </form>
                   </div> 
-                  <div class="filter-box" ng-controller="filterController">   
-                    <select ng-model="skillFilters" max-length="{{skillOptions.length -1}}" data-multiple="1" data-placeholder="{{skillPlaceholder}}" ng-options="filter.value as filter.label for filter in skillOptions" bs-select>
-                    </select>
-                    <select ng-model="competitionFilters" max-length="{{competitionOptions.length - 1}}" data-multiple="1" data-placeholder="{{competitionPlaceholder}}" ng-options="filter.value as filter.label for filter in competitionOptions" bs-select>
-                    </select>
-                    <select ng-model="sportFilters" data-max-length="{{sportOptions.length - 1}}" data-multiple="1" data-placeholder="{{sportPlaceholder}}" ng-options="filter.value as filter.label for filter in sportOptions" bs-select>
-                    </select>
+                  <div class="filter-box" ng-controller="filterController">  
+                    <div class="filter-wrap" ng-repeat="bundle in bundles | orderBy: 'id'">                    
+                      <select  ng-model="bundle.selected" max-length="{{bundle.options.length -1}}" data-multiple="1" data-placeholder="{{bundle.placeholder}}" ng-options="filter.value as filter.label for filter in bundle.options" bs-select>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div class="sort-filter-wrapper pull-right" ng-controller="strategyController">
@@ -476,7 +474,7 @@
                 </div>
               </div>
               <div ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in dateobj.obj | property:filterField:valuesField | orderBy: sortStrategy" ng-controller="cardController">
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | filter:{activity:activityFilter}| property:searchFilter | orderBy: sortStrategy" ng-controller="cardController">
                   <div class="card-left pull-left" > 
                     <div class="card-activity">
                       {{card.activity}}

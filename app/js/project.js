@@ -47,7 +47,11 @@ controllers.navbarController = function($scope) {
 	};
 };
 
-controllers.filterController = function($scope, activitySkillFactory) {
+controllers.filterController = function($scope, filterService, filterFactory) {
+	$scope.filterServ = filterService;
+	$scope.bundles = filterFactory.getFilters(['Skill', 'Competition', 'Racquet']);
+
+
 	$scope.skillFilters = [];
 	$scope.competitionFilters = [];
 	$scope.sportFilters = [];
@@ -59,6 +63,11 @@ controllers.filterController = function($scope, activitySkillFactory) {
 	$scope.skillOptions = [{value: "1", label: "Beginner"},{values: "2", label: "Intermediate"},{values: "3", label: "Advanced"}];
 	$scope.competitionOptions = [{value: "Recreational", label: "Recreational"}, {value: "Practice", label: "Practice"},{values: "Competition", label: "Friendly Competition"}];
 	$scope.sportOptions = [{value: "Singles", label: "Singles"},{values: "Doubles", label: "Doubles"}];
+
+	$scope.$watch('bundles', function (newVal, oldVal){
+		console.log("newVal:" + newVal +" oldVal:"+oldVal);
+		$scope.filterServ.setFilters($scope.bundles);
+	});
 };
 
 /**
@@ -174,6 +183,7 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 		$scope.dates = cardFactory.getCards(); 
 		$scope.strategyServ = strategyService; // Bind instance of strategyService to scope
 		$scope.activityServ = activityService;
+		$scope.filterServ = filterService;
 		$scope.sortStrategy = $scope.strategyServ.getSortStrategy(); 
 		$scope.activityFilter = activityService.getActivity();
 
@@ -183,21 +193,11 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 		});
 		$scope.$watch('activityServ.getActivity()', function (newVal, oldVal){
 			console.log("newVal:" + newVal +" oldVal:"+oldVal);
-			$scope.card = filterFilter($scope.card, {activity: activityService.getActivity()});
 			$scope.activityFilter = activityService.getActivity();
-			//window.alert($scope.activityFilter);
 		});
-		$searchFilter = {};
-
-		$scope.filterField = 'activity';
-		$scope.valuesField = ['Table','Squas'];
-		$scope.$watch(function() {
-			return [$scope.filterField, $scope.activityFilter]
-		}, function(){
-			$scope.searchFilter = {};
-			if ($scope.filterField && $scope.activityFilter) {
-				$scope.searchFilter[$scope.filterField] = $scope.activityFilter;
-			}
+		$scope.searchFilter = [];
+		$scope.$watch('filterServ.getFilters()', function(newVal, oldVal){
+			$scope.searchFilter = $scope.filterServ.getFilters();
 		}, true);
 	};
 };

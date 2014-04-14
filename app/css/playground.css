@@ -166,14 +166,15 @@
   .filter-box {
     margin-left: -5px;
     display: inline-block;
-    margin-top: 25px;
-    padding: 5px 5px 5px 5px;
+    margin-top: 15px;
+    padding: 5px 5px 5px 0px;
     background-color: rgba(57,60,61,0.8);
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
   }
 
-  .filter-box > span{
-    margin-right: 5px;
+  .filter-wrap {
+    margin-left: 5px;
+    display: inline-block;
   }
 
   .sort-filter-wrapper {

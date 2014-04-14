@@ -41,6 +41,7 @@
   <script src="js/cardModule.js"></script>
   <script src="js/friendModule.js"></script>
   <script src="js/activityModule.js"></script>
+  <script src="js/filterModule.js"></script>
   <script src="js/project.js"></script>
 
   <!-- Date picker & Moment.js-->
@@ -346,7 +347,7 @@
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>T
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
@@ -430,26 +431,19 @@
                       <a href="#" ng-click="resetActivity()" ng-show="toggleIcon" id="resetActivity">
                         <icon class="glyphicon glyphicon-remove"></icon>
                       </a>
-                      <a href="#" type="submit" ng-click="setValue(currentsport)" ng-show="!toggleIcon" id="resetActivity">
+                      <a href="#" type="submit" ng-click="setValue(currentsport)" ng-animation="am-flip-x" ng-show="!toggleIcon" id="resetActivity">
                         <icon class="glyphicon glyphicon-search"></icon>
                       </a>
                     </form>
                   </div> 
-                  <!-- <div class='filter-wrapper'>
-                    Filters: 
-                    <div class="filter">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                          General Availabilty 
-                          <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Dropdown link</a></li>
-                          <li><a href="#">Dropdown link</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div> -->
+                  <div class="filter-box" ng-controller="filterController">   
+                    <select ng-model="skillFilters" max-length="{{skillOptions.length -1}}" data-multiple="1" data-placeholder="{{skillPlaceholder}}" ng-options="filter.value as filter.label for filter in skillOptions" bs-select>
+                    </select>
+                    <select ng-model="competitionFilters" max-length="{{competitionOptions.length - 1}}" data-multiple="1" data-placeholder="{{competitionPlaceholder}}" ng-options="filter.value as filter.label for filter in competitionOptions" bs-select>
+                    </select>
+                    <select ng-model="sportFilters" data-max-length="{{sportOptions.length - 1}}" data-multiple="1" data-placeholder="{{sportPlaceholder}}" ng-options="filter.value as filter.label for filter in sportOptions" bs-select>
+                    </select>
+                  </div>
                 </div>
                 <div class="sort-filter-wrapper pull-right" ng-controller="strategyController">
                   <div class="sort">
@@ -476,13 +470,13 @@
         <div class="page-container">
           <div class="content-wrapper" ng-controller="cardsController" >
             <!-- Main Content Area -->
-              <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date'" >
+              <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date' " >
                 <div class="date-day-of-week">
                   <a href="#" id="date-choose-button">{{dateobj.date | amDateFormat: 'dddd, MMM Do'}}</a>
                 </div>
               </div>
               <div ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in dateobj.obj | orderBy: sortStrategy | filter:{activity:activityFilter}" ng-controller="cardController">
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | property:filterField:valuesField | orderBy: sortStrategy" ng-controller="cardController">
                   <div class="card-left pull-left" > 
                     <div class="card-activity">
                       {{card.activity}}

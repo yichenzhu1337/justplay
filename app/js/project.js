@@ -1,6 +1,7 @@
 var project = angular.module('project', 
 	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap',
-	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap', 'ngAnimate'])
+	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap', 'ngAnimate'
+	,'filterModule'])
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
@@ -44,6 +45,20 @@ controllers.navbarController = function($scope) {
 	$scope.exploreTooltip = {
 		"title" : "Explore"
 	};
+};
+
+controllers.filterController = function($scope, activitySkillFactory) {
+	$scope.skillFilters = [];
+	$scope.competitionFilters = [];
+	$scope.sportFilters = [];
+
+	$scope.skillPlaceholder = 'Skill';
+	$scope.competitionPlaceholder = 'Competitiveness';
+	$scope.sportPlaceholder = 'Singles or Doubles';
+
+	$scope.skillOptions = [{value: "1", label: "Beginner"},{values: "2", label: "Intermediate"},{values: "3", label: "Advanced"}];
+	$scope.competitionOptions = [{value: "Recreational", label: "Recreational"}, {value: "Practice", label: "Practice"},{values: "Competition", label: "Friendly Competition"}];
+	$scope.sportOptions = [{value: "Singles", label: "Singles"},{values: "Doubles", label: "Doubles"}];
 };
 
 /**
@@ -151,7 +166,7 @@ controllers.sportController = function($scope, sportFactory, activityService) {
 	};
 };*/
 
-controllers.cardsController = function($scope, cardFactory, strategyService, activityService) {
+controllers.cardsController = function($scope, cardFactory, strategyService, activityService, filterService) {
 	// Base Set of Activities
 	var baseActivities;
 	init();
@@ -160,15 +175,30 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 		$scope.strategyServ = strategyService; // Bind instance of strategyService to scope
 		$scope.activityServ = activityService;
 		$scope.sortStrategy = $scope.strategyServ.getSortStrategy(); 
-		$scope.activityFilter = $scope.activityServ.getActivity();
+		$scope.activityFilter = activityService.getActivity();
+
 		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
 			console.log("newVal:" + newVal +" oldVal:"+oldVal);
 			$scope.sortStrategy = strategyService.getSortStrategy();
 		});
 		$scope.$watch('activityServ.getActivity()', function (newVal, oldVal){
 			console.log("newVal:" + newVal +" oldVal:"+oldVal);
+			$scope.card = filterFilter($scope.card, {activity: activityService.getActivity()});
 			$scope.activityFilter = activityService.getActivity();
+			//window.alert($scope.activityFilter);
 		});
+		$searchFilter = {};
+
+		$scope.filterField = 'activity';
+		$scope.valuesField = ['Table','Squas'];
+		$scope.$watch(function() {
+			return [$scope.filterField, $scope.activityFilter]
+		}, function(){
+			$scope.searchFilter = {};
+			if ($scope.filterField && $scope.activityFilter) {
+				$scope.searchFilter[$scope.filterField] = $scope.activityFilter;
+			}
+		}, true);
 	};
 };
 

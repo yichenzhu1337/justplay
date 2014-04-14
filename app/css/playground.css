@@ -82,8 +82,9 @@
     font-size: 20px;
   }
 
-  #activitySearchWrapper {
-    display: inline-block;
+  #activity-search-bar {
+    display: inline;
+    max-width: 300px;
   }
 
   #activitySearchBox {
@@ -102,7 +103,7 @@
   }
 
   #activitySubmitWrap {
-    position: absolute;
+    position: relative;
     display: inline-block;
   }
 
@@ -150,12 +151,29 @@
 /* Top Navbar */
 
 /* Header */
+  #activitySearchWrapper {
+    display: inline-block;
+  }
+
   .activity-chooser-wrapper {
-    padding-top: 141px;
+    padding-top: 94.62px;
     width: auto;
     padding-bottom: 20px;
     margin: 0 auto;
     color: white;
+  }
+
+  .filter-box {
+    margin-left: -5px;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 5px 5px 5px 5px;
+    background-color: rgba(57,60,61,0.8);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
+
+  .filter-box > span{
+    margin-right: 5px;
   }
 
   .sort-filter-wrapper {
@@ -169,6 +187,10 @@
   .filter {
     display: inline-block;
     height: 
+  }
+
+  .filter-box > select {
+    width: 150px;
   }
 
   .filter-wrapper{

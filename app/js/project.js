@@ -48,26 +48,17 @@ controllers.navbarController = function($scope) {
 };
 
 controllers.filterController = function($scope, filterService, filterFactory) {
-	$scope.filterServ = filterService;
-	$scope.bundles = filterFactory.getFilters(['Skill', 'Competition', 'Racquet']);
-
-
-	$scope.skillFilters = [];
-	$scope.competitionFilters = [];
-	$scope.sportFilters = [];
-
-	$scope.skillPlaceholder = 'Skill';
-	$scope.competitionPlaceholder = 'Competitiveness';
-	$scope.sportPlaceholder = 'Singles or Doubles';
-
-	$scope.skillOptions = [{value: "1", label: "Beginner"},{values: "2", label: "Intermediate"},{values: "3", label: "Advanced"}];
-	$scope.competitionOptions = [{value: "Recreational", label: "Recreational"}, {value: "Practice", label: "Practice"},{values: "Competition", label: "Friendly Competition"}];
-	$scope.sportOptions = [{value: "Singles", label: "Singles"},{values: "Doubles", label: "Doubles"}];
-
-	$scope.$watch('bundles', function (newVal, oldVal){
-		console.log("newVal:" + newVal +" oldVal:"+oldVal);
+	init();
+	function init(){
+		$scope.filterServ = filterService;
+		$scope.bundles = filterFactory.getFilters(['Skill', 'Competition', 'Racquet']);
 		$scope.filterServ.setFilters($scope.bundles);
-	});
+		$scope.$watch('bundles', function (newVal, oldVal){
+			console.log("Bundles Set: New Val: " + newVal[0].selected + " Old:" + oldVal[0].selected)
+			if (newVal)
+				$scope.filterServ.setFilters($scope.bundles);
+		}, true);		
+	}
 };
 
 /**
@@ -197,7 +188,10 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 		});
 		$scope.searchFilter = [];
 		$scope.$watch('filterServ.getFilters()', function(newVal, oldVal){
-			$scope.searchFilter = $scope.filterServ.getFilters();
+			if (newVal) {
+				$scope.searchFilter = $scope.filterServ.getFilters();
+				
+			}
 		}, true);
 	};
 };

@@ -179,19 +179,25 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 		$scope.activityFilter = activityService.getActivity();
 
 		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
-			console.log("newVal:" + newVal +" oldVal:"+oldVal);
-			$scope.sortStrategy = strategyService.getSortStrategy();
+			if (newVal === oldVal){
+				return
+			};
+				console.log("newVal:" + newVal +" oldVal:"+oldVal);
+				$scope.sortStrategy = strategyService.getSortStrategy();
 		});
 		$scope.$watch('activityServ.getActivity()', function (newVal, oldVal){
-			console.log("newVal:" + newVal +" oldVal:"+oldVal);
-			$scope.activityFilter = activityService.getActivity();
+			if (newVal === oldVal){
+				return
+			}
+				console.log("newVal:" + newVal +" oldVal:"+oldVal);
+				$scope.activityFilter = activityService.getActivity();
 		});
 		$scope.searchFilter = [];
 		$scope.$watch('filterServ.getFilters()', function(newVal, oldVal){
-			if (newVal) {
-				$scope.searchFilter = $scope.filterServ.getFilters();
-				
+			if (newVal === oldVal){
+				return;
 			}
+				$scope.searchFilter = $scope.filterServ.getFilters();
 		}, true);
 	};
 };

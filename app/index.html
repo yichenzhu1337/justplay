@@ -428,17 +428,17 @@
                           </div>
                         </div> 
                       </div>
-                      <a href="#" ng-click="resetActivity()" ng-show="toggleIcon" id="resetActivity">
-                        <icon class="glyphicon glyphicon-remove"></icon>
-                      </a>
-                      <a href="#" type="submit" ng-click="setValue(currentsport)" ng-animation="am-flip-x" ng-show="!toggleIcon" id="resetActivity">
-                        <icon class="glyphicon glyphicon-search"></icon>
-                      </a>
                     </form>
+                    <a href="#" ng-click="resetActivity()" ng-show="toggleIcon" id="resetActivity">
+                      <icon class="glyphicon glyphicon-remove"></icon>
+                    </a>
+                    <a href="#" type="submit" ng-animation="am-flip-x" ng-show="!toggleIcon" id="resetActivity">
+                      <icon class="glyphicon glyphicon-search"></icon>
+                    </a>
                   </div> 
                   <div class="filter-box" ng-controller="filterController">  
-                    <div class="filter-wrap" ng-repeat="bundle in bundles | orderBy: 'id'">                    
-                      <select  ng-model="bundle.selected" max-length="{{bundle.options.length -1}}" data-multiple="1" data-placeholder="{{bundle.placeholder}}" ng-options="filter.value as filter.label for filter in bundle.options" bs-select>
+                    <div class="filter-wrap" ng-repeat="bundle in bundles | orderBy: 'id'">
+                      <select class="form-control" ng-model="bundle.selected" ng-options="filter.value as filter.label for filter in bundle.options">
                       </select>
                     </div>
                   </div>
@@ -455,7 +455,6 @@
                           <a href="#" ng-model="strategy" ng-click="setStrategy(strat.attributeName, strat.displayName, strat.defaultOrder)">{{strat.displayName}}</a>
                         </li>
                       </ul>    
-
                     </div>
                     <a href="#" id="reverseOrder" ng-click="reverseOrder()"><i class="glyphicon glyphicon-arrow-{{orderIcon}}"></i></a>
                   </div>

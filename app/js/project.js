@@ -1,5 +1,5 @@
 var project = angular.module('project', 
-	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap',
+	['angularMoment', 'ui.unique', 'sortModule',
 	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap', 'ngAnimate'
 	,'filterModule'])
 .factory('sportFactory', function() {
@@ -51,14 +51,16 @@ controllers.filterController = function($scope, filterService, filterFactory) {
 	init();
 	function init(){
 		$scope.filterServ = filterService;
-		$scope.bundles = filterFactory.getFilters(['Skill', 'Competition', 'Racquet']);
-		$scope.filterServ.setFilters($scope.bundles);
-		$scope.$watch('bundles', function (newVal, oldVal){
-			console.log("Bundles Set: New Val: " + newVal[0].selected + " Old:" + oldVal[0].selected)
-			if (newVal)
-				$scope.filterServ.setFilters($scope.bundles);
+		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill']));
+		$scope.filterServ.setFilters(angular.copy($scope.bundles));
+		$scope.$watch('bundles[0].selected', function (newVal, oldVal){
+			console.log("Bundles Set: New Val: " + newVal + " Old:" + oldVal)
+			if (newVal === oldVal)
+				return;
+
+			$scope.filterServ.setFilters(angular.copy($scope.bundles));
 		}, true);		
-	}
+	};
 };
 
 /**

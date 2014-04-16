@@ -84,6 +84,8 @@
 
   #activity-search-bar {
     display: inherit;
+    margin-top: 70.62px;
+    margin-bottom: 24px;
     max-width: 300px;
   }
 
@@ -160,9 +162,7 @@
   }
 
   .activity-chooser-wrapper {
-    padding-top: 94.62px;
     width: auto;
-    padding-bottom: 20px;
     margin: 0 auto;
     color: white;
   }
@@ -170,7 +170,7 @@
   .filter-box {
     margin-left: -5px;
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 5px;
     padding: 5px 5px 5px 0px;
     background-color: rgba(57,60,61,0.8);
     box-shadow: 0 0 5px rgba(0,0,0,0.5);

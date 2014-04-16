@@ -51,7 +51,7 @@ controllers.filterController = function($scope, filterService, filterFactory) {
 	init();
 	function init(){
 		$scope.filterServ = filterService;
-		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill']));
+		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill','Competition']));
 		$scope.filterServ.setFilters(angular.copy($scope.bundles));
 		$scope.$watch('bundles', function (newVal, oldVal){
 			console.log("Bundles New Val: " + newVal[0].selected + " Old:" + oldVal[0].selected)
@@ -60,6 +60,13 @@ controllers.filterController = function($scope, filterService, filterFactory) {
 
 			$scope.filterServ.setFilters(angular.copy($scope.bundles));
 		}, true);		
+		$scope.$watch('filterServ.getFilterFlag()', function (newVal, oldVal){
+			if (newVal === oldVal)
+				return;
+			if (newVal == false) {
+					$scope.bundles = filterFactory.getFilters(['Skill','Competition']);				
+			}
+		}, true);	
 	};
 };
 
@@ -146,11 +153,9 @@ controllers.sportController = function($scope, sportFactory, activityService) {
 		} else {
 			$scope.toggleIcon = true;
 		}
-		
 	};
 	$scope.resetActivity = function(){
 		$scope.setValue("");
-		$scope.submitValue();
 		$scope.toggleIcon = false;
 	};
 	$scope.clickSearchBox = function(curSport){
@@ -179,7 +184,8 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 		$scope.filterServ = filterService;
 		$scope.sortStrategy = $scope.strategyServ.getSortStrategy(); 
 		$scope.activityFilter = activityService.getActivity();
-
+		$scope.filterFlag = $scope.filterServ.getFilterFlag();
+		$scope.searchFilter = [];
 		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
 			if (newVal === oldVal){
 				return
@@ -191,16 +197,31 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 			if (newVal === oldVal){
 				return
 			}
-				console.log("newVal:" + newVal +" oldVal:"+oldVal);
-				$scope.activityFilter = activityService.getActivity();
+			console.log("newVal:" + newVal +" oldVal:"+oldVal);
+			$scope.activityFilter = activityService.getActivity();
+			setFilterFlag(false);
 		});
-		$scope.searchFilter = [];
+		
 		$scope.$watch('filterServ.getFilters()', function(newVal, oldVal){
 			if (newVal === oldVal){
 				return;
 			}
+			filterService.setFilterFlag(true);
+			setFilterFlag(true);
 			$scope.searchFilter = $scope.filterServ.getFilters();
 		}, true);
+
+		$scope.$watch('filterServ.getFilterFlag()', function(newVal, oldVal){
+			if (newVal === oldVal) {
+				return;
+			}
+			$scope.filterFlag = newVal;
+		});
+
+		function setFilterFlag(val) {
+			$scope.filterServ.setFilterFlag(val);
+			$scope.filterFlag = val;
+		}
 	};
 };
 

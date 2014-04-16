@@ -441,11 +441,12 @@
                       <icon class="glyphicon glyphicon-search"></icon>
                     </a>
                   </div> 
-                  <div class="filter-box" ng-controller="filterController">  
+                  <div class="filter-box" ng-controller="filterController"> 
                     <div class="filter-wrap" ng-repeat="bundle in bundles | orderBy: 'id'">
                       <multiselect multiple='true' 
                         ng-model="bundle.selected" 
                         ms-header="{{bundle.placeholder}}"
+                        ms-multiple-string="{{bundle.maxString}}"
                         options="filter.value as filter.label for filter in bundle.options">
                       </select>
                     </div>
@@ -481,7 +482,7 @@
                 </div>
               </div>
               <div ng-repeat-end>
-                <div class="card-wrap" ng-repeat="card in dateobj.obj | filter:{activity:activityFilter}| property:searchFilter | orderBy: sortStrategy" ng-controller="cardController">
+                <div class="card-wrap" ng-repeat="card in dateobj.obj | filter:{activity:activityFilter}| property:searchFilter:filterFlag | orderBy: sortStrategy" ng-controller="cardController">
                   <div class="card-left pull-left" > 
                     <div class="card-activity">
                       {{card.activity}}

@@ -1,35 +1,49 @@
 var mod = angular.module('filterModule', [])
 .filter('property', function(){
-	return function(cards, bundle) {
+	return function(cards, bundle, flag) {
 		var filtered = [];
 		var isInserted = false;
-		angular.forEach(cards, function(card){
-			isInserted = false;
-			for (var i = 0; i < bundle.length; i++) {
-				for (var j = 0; j < bundle[i].selected.length ; j++) {
-					attr = bundle[i].attribute;
-					if (card[attr].toString().indexOf(bundle[i].selected[j].value) > -1) {
-						filtered.push(card);
-						isInserted = true;
+		if (!flag){
+			return cards;
+		} else {
+			angular.forEach(cards, function(card){
+				isInserted = false;
+				for (var i = 0; i < bundle.length; i++) {
+					for (var j = 0; j < bundle[i].selected.length ; j++) {
+						attr = bundle[i].attribute;
+						for (var k = 0; k < card[attr].length ; k++) {
+							if (card[attr][k].toString().indexOf(bundle[i].selected[j].value) > -1) {
+								filtered.push(card);
+								isInserted = true;
+								break;
+							}
+						}
+					}
+					if (isInserted) {
 						break;
 					}
 				}
-				if (isInserted) {
-					break;
-				}
-			}
-		});
-		return filtered;
+			});
+			return filtered;
+		}
 	};
 })
 .service('filterService', function(){
 	var bundles = [];
+	var filterFlag = false;
 	this.getFilters = function(){
 		return bundles;
 	};
 	this.setFilters = function(bundledFilters){
 		bundles = bundledFilters;
 	};
+
+	this.getFilterFlag = function(){
+		return filterFlag;
+	}
+	this.setFilterFlag = function(bool){
+		filterFlag = bool;
+	}
 
 })
 .factory('filterFactory', function(){
@@ -43,7 +57,8 @@ var mod = angular.module('filterModule', [])
 				{value: "3", label: "Advanced"}
 			],
 			selected: [],
-			placeholder: "Skill"
+			placeholder: "Skill",
+			maxString: "skills"
 		},
 		Competition: {
 			attribute: "Competition",
@@ -53,7 +68,8 @@ var mod = angular.module('filterModule', [])
 				{value: "Competition", label: "Friendly Competition"}
 			],
 			selected: [],
-			placeholder: "Competitiveness"
+			placeholder: "Competitiveness",
+			maxString: "levels of competition"
 		},
 		Racquet: {
 			attribute: "typeOfMatch",
@@ -62,19 +78,22 @@ var mod = angular.module('filterModule', [])
 				{value: "Doubles", label: "Doubles"}
 			],
 			selected: [],
-			placeholder: "Singles or Doubles"
+			placeholder: "Singles or Doubles",
+			maxString: "types of match"
 		}
 	};
+
 
 	factory.getFilters = function(keys){
 		var filters = [];
 		for (var i = 0; i < keys.length; i++) {
 			var key = keys[i];
 			bundles[key].id = i;
-			filters.push(bundles[key]);
+			filters.push(angular.copy(bundles[key]));
 		};
 		return filters;
 	};
+
 
 	return factory;
 });

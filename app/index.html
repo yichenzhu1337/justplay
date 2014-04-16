@@ -60,6 +60,11 @@
   <!-- Angular Motion -->
   <link rel="stylesheet" type="text/css" media="all" href="lib/angular-motion-0.3.2/dist/angular-motion.min.css" />
 
+  <!-- Angular multi select -->
+  <link rel="stylesheet" type="text/css" media="all" href="lib/angular-multiselect-master/src/style.css" />
+  <script src="lib/angular-multiselect-master/src/multiselect.js"></script> 
+
+
   </head>
 
   <body>
@@ -438,7 +443,10 @@
                   </div> 
                   <div class="filter-box" ng-controller="filterController">  
                     <div class="filter-wrap" ng-repeat="bundle in bundles | orderBy: 'id'">
-                      <select class="form-control" ng-model="bundle.selected" ng-options="filter.value as filter.label for filter in bundle.options">
+                      <multiselect multiple='true' 
+                        ng-model="bundle.selected" 
+                        ms-header="{{bundle.placeholder}}"
+                        options="filter.value as filter.label for filter in bundle.options">
                       </select>
                     </div>
                   </div>

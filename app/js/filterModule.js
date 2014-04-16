@@ -6,18 +6,17 @@ var mod = angular.module('filterModule', [])
 		angular.forEach(cards, function(card){
 			isInserted = false;
 			for (var i = 0; i < bundle.length; i++) {
-				//for (var j = 0; j < bundle[i].selected.length ; j++) {
+				for (var j = 0; j < bundle[i].selected.length ; j++) {
 					attr = bundle[i].attribute;
-					if (card[attr].toString().indexOf(bundle[i].selected) > -1) {
+					if (card[attr].toString().indexOf(bundle[i].selected[j].value) > -1) {
 						filtered.push(card);
 						isInserted = true;
-						//break;
+						break;
 					}
-				//}
+				}
 				if (isInserted) {
 					break;
 				}
-				// This card definately canno
 			}
 		});
 		return filtered;
@@ -43,7 +42,7 @@ var mod = angular.module('filterModule', [])
 				{value: "2", label: "Intermediate"},
 				{value: "3", label: "Advanced"}
 			],
-			selected: "3",
+			selected: [],
 			placeholder: "Skill"
 		},
 		Competition: {

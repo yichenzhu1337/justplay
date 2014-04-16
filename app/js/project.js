@@ -1,7 +1,7 @@
 var project = angular.module('project', 
 	['angularMoment', 'ui.unique', 'sortModule',
 	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap', 'ngAnimate'
-	,'filterModule'])
+	,'filterModule', 'ui.multiselect'])
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
@@ -53,8 +53,8 @@ controllers.filterController = function($scope, filterService, filterFactory) {
 		$scope.filterServ = filterService;
 		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill']));
 		$scope.filterServ.setFilters(angular.copy($scope.bundles));
-		$scope.$watch('bundles[0].selected', function (newVal, oldVal){
-			console.log("Bundles Set: New Val: " + newVal + " Old:" + oldVal)
+		$scope.$watch('bundles', function (newVal, oldVal){
+			console.log("Bundles New Val: " + newVal[0].selected + " Old:" + oldVal[0].selected)
 			if (newVal === oldVal)
 				return;
 
@@ -199,7 +199,7 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 			if (newVal === oldVal){
 				return;
 			}
-				$scope.searchFilter = $scope.filterServ.getFilters();
+			$scope.searchFilter = $scope.filterServ.getFilters();
 		}, true);
 	};
 };

@@ -47,29 +47,6 @@ controllers.navbarController = function($scope) {
 	};
 };
 
-controllers.filterController = function($scope, filterService, filterFactory) {
-	init();
-	function init(){
-		$scope.filterServ = filterService;
-		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill','Competition']));
-		$scope.filterServ.setFilters(angular.copy($scope.bundles));
-		$scope.$watch('bundles', function (newVal, oldVal){
-			console.log("Bundles New Val: " + newVal[0].selected + " Old:" + oldVal[0].selected)
-			if (newVal === oldVal)
-				return;
-
-			$scope.filterServ.setFilters(angular.copy($scope.bundles));
-		}, true);		
-		$scope.$watch('filterServ.getFilterFlag()', function (newVal, oldVal){
-			if (newVal === oldVal)
-				return;
-			if (newVal == false) {
-					$scope.bundles = filterFactory.getFilters(['Skill','Competition']);				
-			}
-		}, true);	
-	};
-};
-
 /**
  * Displays strategies provided by factory and sends selected strategies
  * to strategyService
@@ -134,20 +111,24 @@ controllers.strategyController = function($scope, cardSortFactory, strategyServi
 	};
 };
 
-controllers.sportController = function($scope, sportFactory, activityService) {
+controllers.sportController = function($scope, sportFactory, activityService, filterService, filterFactory) {
 	$scope.sports = {};
 	$scope.toggleIcon;
 	$scope.savedSport;
+	$scope.filterServ = filterService;
 	init();
 	function init() {
 		$scope.sports = sportFactory.getSports();
 		activityService.setActivity("");
+		$scope.filterServ.setFilter(filterFactory.getFilters(['Skill']));
+		//filterService.resetFilters("");
 		$scope.toggleIcon = false;
 		$scope.savedSport = "";
 	};
 	$scope.setValue = function(sport){
 		$scope.currentsport = sport;
 		activityService.setActivity($scope.currentsport);
+		//filterService.resetFilters(sport);
 		if ($scope.currentsport == ""){
 			$scope.toggleIcon = false;
 		} else {
@@ -163,7 +144,34 @@ controllers.sportController = function($scope, sportFactory, activityService) {
 		$scope.savedSport = curSport;
 		$scope.currentsport = "";
 	}
-	
+};
+
+controllers.filterController = function($scope, filterService, filterFactory) {
+	init();
+	function init(){
+		$scope.filterServ = filterService;
+		$scope.bundles = filterFactory.getFilters(['Skill']);
+		//$scope.filterServ.pushFilter($scope.bundles);
+		$scope.$watch('bundles', function (newVal, oldVal){
+			if (newVal === oldVal) {
+				return;
+			}
+			console.log("Bundles New Val: " + newVal[0].selected + " Old:" + oldVal[0].selected);
+ 			$scope.filterServ.pushFilter(angular.copy($scope.bundles));
+		}, true);		
+
+		$scope.$watch('filterServ.getResetFilterFlag()', function (newVal, oldVal){
+			console.log('outer filterServ.getResetFilterFlag() newVal: '+ newVal + ' oldVal: '+oldVal)
+			if (newVal === oldVal) {
+				return;
+			}
+			if (newVal === true){
+				console.log('inner filterServ.getResetFilterFlag() newVal: '+ newVal + ' oldVal: '+oldVal)
+				$scope.bundles = filterServ.getResetBundle().selected;
+				//$scope.filterServ.setResetBundle(false);
+			}
+		}, true);	
+	};
 };
 
 /*controllers.dateController = function($scope, cardFactory) {
@@ -178,14 +186,16 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 	var baseActivities;
 	init();
 	function init() {
-		$scope.dates = cardFactory.getCards(); 
 		$scope.strategyServ = strategyService; // Bind instance of strategyService to scope
 		$scope.activityServ = activityService;
 		$scope.filterServ = filterService;
-		$scope.sortStrategy = $scope.strategyServ.getSortStrategy(); 
+
+		$scope.dates = cardFactory.getCards(); 
+
+		$scope.sortStrategy = strategyService.getSortStrategy(); 
 		$scope.activityFilter = activityService.getActivity();
-		$scope.filterFlag = $scope.filterServ.getFilterFlag();
 		$scope.searchFilter = [];
+
 		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
 			if (newVal === oldVal){
 				return
@@ -194,34 +204,22 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 				$scope.sortStrategy = strategyService.getSortStrategy();
 		});
 		$scope.$watch('activityServ.getActivity()', function (newVal, oldVal){
-			if (newVal === oldVal){
-				return
-			}
-			console.log("newVal:" + newVal +" oldVal:"+oldVal);
+			console.log("Activity newVal:" + newVal +" oldVal:"+oldVal);
 			$scope.activityFilter = activityService.getActivity();
-			setFilterFlag(false);
 		});
 		
-		$scope.$watch('filterServ.getFilters()', function(newVal, oldVal){
+		$scope.$watch('filterServ.getFilter', function(newVal, oldVal){
+			$scope.searchFilter = $scope.filterServ.getFilter();
+		})
+
+		$scope.$watch('filterServ.getFilterBundle()', function(newVal, oldVal){
+			console.log('outer filterServ.getFilterBundle() newVal: '+ newVal.length + ' oldVal: '+oldVal.length)
 			if (newVal === oldVal){
 				return;
 			}
-			filterService.setFilterFlag(true);
-			setFilterFlag(true);
-			$scope.searchFilter = $scope.filterServ.getFilters();
+			console.log('inner filterServ.getFilterBundle() newVal: '+ newVal.length + ' oldVal: '+oldVal.length)
+			$scope.searchFilter = $scope.filterServ.getFilterBundle();
 		}, true);
-
-		$scope.$watch('filterServ.getFilterFlag()', function(newVal, oldVal){
-			if (newVal === oldVal) {
-				return;
-			}
-			$scope.filterFlag = newVal;
-		});
-
-		function setFilterFlag(val) {
-			$scope.filterServ.setFilterFlag(val);
-			$scope.filterFlag = val;
-		}
 	};
 };
 

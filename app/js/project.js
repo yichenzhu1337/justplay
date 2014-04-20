@@ -51,23 +51,29 @@ controllers.filterController = function($scope, filterService, filterFactory) {
 	init();
 	function init(){
 		$scope.filterServ = filterService;
-		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill','Competition']));
+		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill']));
 		$scope.filterServ.setFilters(angular.copy($scope.bundles));
 		$scope.$watch('bundles', function (newVal, oldVal){
-			console.log("Bundles New Val: " + newVal[0].selected + " Old:" + oldVal[0].selected)
+			console.log("outer Bundles New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length)
 			if (newVal === oldVal)
 				return;
-
+			console.log("inner Bundles New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length)
 			$scope.filterServ.setFilters(angular.copy($scope.bundles));
 		}, true);		
 		$scope.$watch('filterServ.getFilterFlag()', function (newVal, oldVal){
+			console.log("outer FilterFlag New Val: " + newVal + " Old:" + oldVal);
 			if (newVal === oldVal)
 				return;
+			console.log("inner FilterFlag New Val: " + newVal + " Old:" + oldVal);
 			if (newVal == false) {
-					$scope.bundles = filterFactory.getFilters(['Skill','Competition']);				
+					$scope.bundles = filterFactory.getFilters(['Skill']);				
 			}
 		}, true);	
 	};
+
+	$scope.allowFilter = function(){
+		$scope.filterServ.setFilterFlag(true);
+	}
 };
 
 /**
@@ -197,21 +203,22 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 			if (newVal === oldVal){
 				return
 			}
-			console.log("newVal:" + newVal +" oldVal:"+oldVal);
+			console.log("activity newVal:" + newVal +" oldVal:"+oldVal);
 			$scope.activityFilter = activityService.getActivity();
 			setFilterFlag(false);
 		});
 		
 		$scope.$watch('filterServ.getFilters()', function(newVal, oldVal){
+			console.log("outer filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
 			if (newVal === oldVal){
 				return;
 			}
-			filterService.setFilterFlag(true);
-			setFilterFlag(true);
+			console.log("inner filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
 			$scope.searchFilter = $scope.filterServ.getFilters();
 		}, true);
 
 		$scope.$watch('filterServ.getFilterFlag()', function(newVal, oldVal){
+			console.log("outer FilterFlag New Val: " + newVal + " Old:" + oldVal);
 			if (newVal === oldVal) {
 				return;
 			}

@@ -3,7 +3,10 @@ var mod = angular.module('filterModule', [])
 	return function(cards, bundle, flag) {
 		var filtered = [];
 		var isInserted = false;
-		if (!flag){
+		console.log("Filter Method (Flag):" + flag);
+
+		if (!flag){ 
+
 			return cards;
 		} else {
 			angular.forEach(cards, function(card){

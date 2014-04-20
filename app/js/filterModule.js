@@ -1,21 +1,18 @@
 var mod = angular.module('filterModule', [])
 .filter('property', function(){
-	return function(cards, bundle) {
+	return function(cards, bundle, flag) {
 		var filtered = [];
 		var isInserted = false;
-		if (bundle === null){
+		if (!flag){
 			return cards;
 		} else {
 			angular.forEach(cards, function(card){
 				isInserted = false;
-				// Loop through list of attributes to filter
-				for (var i = 0; i < bundle.length; i++) { 
-					// Loop through selected items
-					for (var j = 0; j < bundle[i].selected.length; j++) { 
+				for (var i = 0; i < bundle.length; i++) {
+					for (var j = 0; j < bundle[i].selected.length ; j++) {
 						attr = bundle[i].attribute;
-						// Loop through all of the card's current values for a specific attribute
-						for (var k = 0; k < card[attr].length ; k++) { 
-							if (card[attr][k].toString().indexOf(bundle[i].selected[j]) > -1) {
+						for (var k = 0; k < card[attr].length ; k++) {
+							if (card[attr][k].toString().indexOf(bundle[i].selected[j].value) > -1) {
 								filtered.push(card);
 								isInserted = true;
 								break;
@@ -31,63 +28,23 @@ var mod = angular.module('filterModule', [])
 		}
 	};
 })
-.service('filterService', function(filterFactory){
-	var resetBundle = [];
-	var filterBundle = [];
-	var resetFilterFlag = false;
-	var filter = [];
+.service('filterService', function(){
+	var bundles = [];
+	var filterFlag = false;
+	this.getFilters = function(){
+		return bundles;
+	};
+	this.setFilters = function(bundledFilters){
+		bundles = bundledFilters;
+	};
 
-	this.setFilter = function(f){
-		filter = f;
+	this.getFilterFlag = function(){
+		return filterFlag;
+	}
+	this.setFilterFlag = function(bool){
+		filterFlag = bool;
 	}
 
-	this.getFilter = function() {
-		return filter;
-	}
-
-	/*
-	Getters and setters for variables
-	 */
-	this.getResetBundle = function() {
-		return resetBundle;
-	};
-
-	function setResetBundle(bundle) {
-		resetBundle = bundle;
-	};
-
-	this.getFilterBundle = function() {
-		return filterBundle;
-	};
-
-	function setFilterBundle(bundle){
-		filterBundle = bundle;
-	};
-
-	function getResetFilterFlag(){
-		return resetFilterFlag;
-	};
-
-	function setResetFilterFlag(filterFlag) {
-		resetFilterFlag = filterFlag;
-	};
-
-	// Resets the display of filters to default
-	// Resets the actual display of activities to show all
-	this.resetFilters = function(sport) {
-		setResetFilterFlag(true);
-		setResetBundle(getFiltersForSport(sport));
-	};
-
-	// Interface for Controllers to push a filter to cardsController
-	// Responsible for enabling filter.
-	this.pushFilter = function(bundle) {
-		setFilterBundle(bundle);
-	};
-
-	function getFiltersForSport(sport) {
-		return filterFactory.presetFilters(sport);
-	};
 })
 .factory('filterFactory', function(){
 	factory = {};
@@ -101,7 +58,7 @@ var mod = angular.module('filterModule', [])
 			],
 			selected: [],
 			placeholder: "Skill",
-			maxString: "Any Skill Level"
+			maxString: "skills"
 		},
 		Competition: {
 			attribute: "Competition",
@@ -112,7 +69,7 @@ var mod = angular.module('filterModule', [])
 			],
 			selected: [],
 			placeholder: "Competitiveness",
-			maxString: "Any level of competition"
+			maxString: "levels of competition"
 		},
 		Racquet: {
 			attribute: "typeOfMatch",
@@ -122,33 +79,21 @@ var mod = angular.module('filterModule', [])
 			],
 			selected: [],
 			placeholder: "Singles or Doubles",
-			maxString: "Any type of match"
+			maxString: "types of match"
 		}
 	};
 
-
-	factory.insertDefaults = function(bundle){
-		// Push in the all options as defaults
-		for (var i = 0; i < bundle.options.length; i++){
-			bundle.selected.push(bundle.options[i]);
-		}
-		return bundle;
-	}
 
 	factory.getFilters = function(keys){
 		var filters = [];
 		for (var i = 0; i < keys.length; i++) {
 			var key = keys[i];
 			bundles[key].id = i;
-			var bun = angular.copy(bundles[key]);
-			filters.push(factory.insertDefaults(bun));
+			filters.push(angular.copy(bundles[key]));
 		};
 		return filters;
 	};
 
-	factory.presetFilters = function(sport) {
-		return factory.getFilters(['Skill']);
-	}
 
 	return factory;
 });

@@ -31,6 +31,20 @@ var mod = angular.module('filterModule', [])
 		}
 	};
 })
+.filter('exact', function(){
+	return function(card, bundle) {
+		console.log('I am passing thropugh exact filtering!');
+		for (var j = 0; j < bundle.selected.length ; j++) { // For each filter value selected
+			attr = bundle.attribute;
+			for (var k = 0; k < card[attr].length ; k++) { // For each card property's values
+				if (card[attr][k].toString() === bundle.selected[j].toString()) { // Compare + execute filter
+					return true;
+				}
+			}
+		}
+		return false;
+	};
+})
 .service('filterService', function(){
 	var bundles = [];
 	var filterFlag = false;
@@ -53,6 +67,7 @@ var mod = angular.module('filterModule', [])
 	factory = {};
 	var bundles = {
 		Skill: {
+			filterType: "exact",
 			attribute: "skill",
 			options: [
 				{value: "1", label: "Beginner"},
@@ -64,6 +79,7 @@ var mod = angular.module('filterModule', [])
 			maxString: "skills"
 		},
 		Competition: {
+			filterType: "exact",
 			attribute: "Competition",
 			options: [
 				{value: "Recreational", label: "Recreational"}, 
@@ -75,6 +91,7 @@ var mod = angular.module('filterModule', [])
 			maxString: "levels of competition"
 		},
 		Racquet: {
+			filterType: "exact",
 			attribute: "typeOfMatch",
 			options: [
 				{value: "Singles", label: "Singles"},

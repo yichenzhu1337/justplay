@@ -5,9 +5,8 @@ module.exports = function(config){
     files : [
       'app/lib/angular/angular.js',
       'app/lib/angular/angular-*.js',
-      'app/js/**/*.js',
+      'app/js/*.js',
       'test/unit/**/*.js',
-      'app/lib/angular-moment/angular-moment.js'
     ],
 
     exclude : [
@@ -21,14 +20,15 @@ module.exports = function(config){
 
     frameworks: ['jasmine'],
 
-    browsers : ['Chrome'],
+    browsers : ['PhantomJS'],
 
     plugins : [
             'karma-junit-reporter',
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-script-launcher',
-            'karma-jasmine'
+            'karma-jasmine',
+            'karma-phantomjs-launcher'
             ],
 
     junitReporter : {

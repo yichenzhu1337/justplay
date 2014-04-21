@@ -1,28 +1,17 @@
 var mod = angular.module('filterModule', [])
-.filter('property', function(){
+.filter('property', function($filter){
 	return function(cards, bundle, flag) {
 		var filtered = [];
 		var isInserted = false;
-		console.log("Filter Method (Flag):" + flag);
-
 		if (!flag){ 
-
 			return cards;
 		} else {
 			angular.forEach(cards, function(card){
 				isInserted = false;
-				for (var i = 0; i < bundle.length; i++) {
-					for (var j = 0; j < bundle[i].selected.length ; j++) {
-						attr = bundle[i].attribute;
-						for (var k = 0; k < card[attr].length ; k++) {
-							if (card[attr][k].toString().indexOf(bundle[i].selected[j].value) > -1) {
-								filtered.push(card);
-								isInserted = true;
-								break;
-							}
-						}
-					}
-					if (isInserted) {
+				for (var i = 0; i < bundle.length; i++) { // For each strategy
+					// Only push if we can find the filter to match this + the card matches the filter
+					if ($filter('typeChooser')(card,bundle[i])) {
+						filtered.push(card);
 						break;
 					}
 				}
@@ -31,9 +20,26 @@ var mod = angular.module('filterModule', [])
 		}
 	};
 })
-.filter('exact', function(){
+.filter('typeChooser', function($filter){
+	var allFilters = ['exact'];
+	function filterTypeExists(bundle) {
+		for (var i = 0; i < allFilters.length; i++) {
+			if (bundle.filterType === allFilters[i]) {
+				return true;
+			}
+		}
+		return false;
+	}
 	return function(card, bundle) {
-		console.log('I am passing thropugh exact filtering!');
+		if (filterTypeExists(bundle)) {
+			return $filter(bundle.filterType)(card, bundle);
+		} else {
+			return null;
+		}
+	}
+})
+.filter('exact', function(){
+	return function(card, bundle) { 
 		for (var j = 0; j < bundle.selected.length ; j++) { // For each filter value selected
 			attr = bundle.attribute;
 			for (var k = 0; k < card[attr].length ; k++) { // For each card property's values

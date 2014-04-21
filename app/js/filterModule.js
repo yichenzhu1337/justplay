@@ -82,11 +82,13 @@ var mod = angular.module('filterModule', [])
 			],
 			selected: [],
 			placeholder: "Skill",
-			maxString: "skills"
+			maxString: "skills",
+			maxLength: 3,
+			maxLengthString: "Any skill level"
 		},
 		Competition: {
 			filterType: "exact",
-			attribute: "Competition",
+			attribute: "competition",
 			options: [
 				{value: "Recreational", label: "Recreational"}, 
 				{value: "Practice", label: "Practice"},
@@ -94,7 +96,9 @@ var mod = angular.module('filterModule', [])
 			],
 			selected: [],
 			placeholder: "Competitiveness",
-			maxString: "levels of competition"
+			maxString: "levels of competition",
+			maxLength: 3,
+			maxLengthString: "Any level of competition"
 		},
 		Racquet: {
 			filterType: "exact",
@@ -105,7 +109,9 @@ var mod = angular.module('filterModule', [])
 			],
 			selected: [],
 			placeholder: "Singles or Doubles",
-			maxString: "types of match"
+			maxString: "types of match",
+			maxLength: 2,
+			maxLengthString: "Singles or doubles"
 		}
 	};
 

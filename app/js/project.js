@@ -51,7 +51,7 @@ controllers.filterController = function($scope, filterService, filterFactory) {
 	init();
 	function init(){
 		$scope.filterServ = filterService;
-		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill']));
+		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill','Competition']));
 		$scope.filterServ.setFilters(angular.copy($scope.bundles));
 		$scope.$watch('bundles', function (newVal, oldVal){
 			console.log("outer Bundles New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length)
@@ -66,7 +66,7 @@ controllers.filterController = function($scope, filterService, filterFactory) {
 				return;
 			console.log("inner FilterFlag New Val: " + newVal + " Old:" + oldVal);
 			if (newVal == false) {
-					$scope.bundles = filterFactory.getFilters(['Skill']);				
+					$scope.bundles = filterFactory.getFilters(['Skill','Competition']);				
 			}
 		}, true);	
 	};

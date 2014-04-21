@@ -13,6 +13,7 @@ var project = angular.module('cardModule', [])
 					startdate: window.moment().add({months: 1}), 
 					enddate: window.moment().add({months: 1, hours: 2}), 
 					skill: [3],
+					competition: ['Competition'],
 					activity: 'Basketball',
 					location: 'UTSC Front Gym',
 					participants: {
@@ -76,6 +77,7 @@ var project = angular.module('cardModule', [])
 					startdate: window.moment().add({months: 1}), 
 					enddate: window.moment().add({months: 1, hours: 2}), 
 					skill: [3],
+					competition: ['Recreational'],
 					activity: 'Volleyball',
 					location: 'UTSC Front Gym',
 					participants: {
@@ -145,6 +147,8 @@ var project = angular.module('cardModule', [])
 					startdate: window.moment().add({months: 0, minutes: 2}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: [2],
+					competition: ['Practice'],
+					typeOfMatch: ['Doubles','Singles'],
 					activity: 'Tennis',
 					location: 'The Valley',
 					participants: {
@@ -206,6 +210,8 @@ var project = angular.module('cardModule', [])
 					startdate: window.moment().add({days:0, hours:1}),
 					enddate: window.moment().add({days: 0, hours: 4}), 
 					skill: [1],
+					competition: ['Recreational'],
+					typeOfMatch: ['Singles'],
 					activity: 'Badminton',
 					location: 'UTSC Front Gym',
 					participants: {
@@ -269,6 +275,7 @@ var project = angular.module('cardModule', [])
 					startdate: window.moment().add({months: 0, hours:2}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: [2],
+					competition: ['Recreational'],
 					activity: 'Basketball',
 					location: 'UTSC Front Gym',
 					participants: {
@@ -330,6 +337,8 @@ var project = angular.module('cardModule', [])
 					startdate: window.moment().add({months: 0, hours: 3}),
 					enddate: window.moment().add({months: 0, hours: 4}), 
 					skill: [3],
+					competition: 'Practice',
+					typeOfMatch: ['Singles'],
 					activity: 'Table Tennis',
 					location: 'The Attic',
 					participants: {
@@ -371,6 +380,8 @@ var project = angular.module('cardModule', [])
 					startdate: window.moment().add({days:1, hours:2}),
 					enddate: window.moment().add({days: 1, hours: 4}), 
 					skill: [1],
+					competition: ['Practice'],
+					typeOfMatch: ['Singles'],
 					activity: 'Squash',
 					location: 'Squash Courts',
 					participants: {
@@ -429,6 +440,7 @@ var project = angular.module('cardModule', [])
 					startdate: window.moment().add({days:1, hours:2}),
 					enddate: window.moment().add({days: 1, hours: 4}), 
 					skill: [1],
+					competition: ['Recreational'],
 					activity: 'Basketball',
 					location: 'Utsc Front Gym',
 					participants: {

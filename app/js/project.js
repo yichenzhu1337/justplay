@@ -71,6 +71,10 @@ controllers.filterController = function($scope, filterService, filterFactory) {
 		}, true);	
 	};
 
+	$scope.resetFilters = function(){
+		$scope.filterServ.setFilterFlag(false);
+	}
+
 	$scope.allowFilter = function(){
 		$scope.filterServ.setFilterFlag(true);
 	}
@@ -205,6 +209,12 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 			}
 			console.log("activity newVal:" + newVal +" oldVal:"+oldVal);
 			$scope.activityFilter = activityService.getActivity();
+			setFilterFlag(false);
+		});
+		$scope.$watch('filterServ.getResetFilter()', function(newVal, oldVal){
+			if (newVal === oldVal){
+				return
+			}
 			setFilterFlag(false);
 		});
 		

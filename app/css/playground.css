@@ -140,7 +140,6 @@
     width: 122px;
     height: 33px;
     margin-top: 6px;
-    
   }
 
   .header-bg{
@@ -196,6 +195,11 @@
 
   .filter-box > select {
     width: 150px;
+  }
+
+  .filter-box > .filter-reset {
+    margin-left: 2px;
+    display: inline-block;
   }
 
   .filter-wrapper{

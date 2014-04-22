@@ -1,7 +1,7 @@
 multiselect .dropdown-menu{
     padding-left: 5px; 
     padding-right: 5px;
-    min-width: 185px;
+    min-width: 190px;
 }
 
 multiselect .dropdown-menu > li > a {

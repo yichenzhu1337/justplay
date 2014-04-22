@@ -1,5 +1,5 @@
 var project = angular.module('project', 
-	['angularMoment', 'ui.unique', 'sortModule',
+	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap',
 	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap', 'ngAnimate'
 	,'filterModule', 'ui.multiselect'])
 .factory('sportFactory', function() {

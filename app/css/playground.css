@@ -324,6 +324,11 @@
 /* Activity Search Popover */
 
 /* Date Pick Popover */
+  .datepick .btn-default {
+    border-color: #FFFFFF;
+  }
+
+
   .date-choose-button {
     color: #7f8c8d;
     border-bottom: 1px dotted black;

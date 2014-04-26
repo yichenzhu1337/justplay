@@ -741,7 +741,7 @@
     }
 
     .date-day-of-week {
-      display: inline;
+      display: inline-block;
     }
 
     .date-day-of-week > a {

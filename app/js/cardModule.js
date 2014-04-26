@@ -1,11 +1,13 @@
 var project = angular.module('cardModule', [])
 .factory('cardFactory', function() {
 	var factory = {};
+	var base_date = new Date();
+
 	// Sports should be arranged in 5s
 	var cards = 
 	[
 		{
-			date: window.moment().add({months: 1}), 
+			date: angular.copy(base_date).setMonth(base_date.getMonth() +1), 
 			obj: 
 			[		
 				{
@@ -139,7 +141,7 @@ var project = angular.module('cardModule', [])
 			]
 		},
 		{
-			date: window.moment().add({months: 0}),
+			date: angular.copy(base_date).setMonth(base_date.getMonth()),
 			obj:
 			[
 				{
@@ -372,7 +374,7 @@ var project = angular.module('cardModule', [])
 			]
 		},
 		{
-			date: window.moment().add({days: 1}),
+			date: angular.copy(base_date).setDate(base_date.getDate() +1),
 			obj:
 			[
 				{

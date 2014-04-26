@@ -482,18 +482,16 @@
         <div class="page-container">
           <div class="content-wrapper" ng-controller="cardsController" >
             <!-- Main Content Area -->
-              <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date' " ng-controller="dateController">
-                <input type="text" class="form-control" 
-                datepicker-popup="{{format}}" 
-                ng-model="dt" 
-                is-open="opened" 
-                min="minDate" 
-                datepicker-options="dateOptions" 
-                ng-required="true" 
-                close-text="Close" />
-                <div class="date-day-of-week">
-
-                  <a href="#" id="date-choose-button">{{dateobj.date | amDateFormat: 'dddd, MMM Do'}}</a>
+              <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date' " >
+                <div class="date-day-of-week" ng-controller="dateController">
+                  <a href="#" id="date-choose-button" ng-click="open($event)" 
+                  datepicker-popup="EEEE, MMM d" 
+                  ng-model="dt" 
+                  is-open="opened" 
+                  min="minDate" 
+                  max="maxDate"
+                  ng-required="true" 
+                  close-text="Close">{{dateobj.date | date:'EEEE, MMM d'}}</a>
                 </div>
               </div>
               <div ng-repeat-end>

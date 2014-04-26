@@ -42,11 +42,13 @@ angular.module('filters', []).
 var controllers = {};
 
 controllers.dateController = function($scope) {
-	  $scope.today = function() {
-    $scope.dt = new Date();
+	 $scope.today = function() {
+    $scope.dt = $scope.dateobj.date;
   };
   $scope.today();
   $scope.minDate = new Date();
+  $scope.maxDate = new Date();
+  $scope.maxDate.setDate($scope.maxDate.getDate()+6); // Show a week extra at max.
 
   $scope.clear = function () {
     $scope.dt = null;
@@ -57,27 +59,6 @@ controllers.dateController = function($scope) {
     $event.stopPropagation();
 
     $scope.opened = true;
-  };
-
-  $scope.dateOptions = {
-    'year-format': "'yy'",
-    'starting-day': 1
-  };
-
-  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'shortDate'];
-  $scope.format = $scope.formats[0];
-}
-
-controllers.DatepickerDemoCtrl = function($scope, $http, $locale) {
-  $scope.selectedDate = Date.UTC(2014, 4, 22);
-  $scope.selectedDateAsNumber = Date.UTC(2014, 4, 22);
-  // $scope.fromDate = new Date();
-  // $scope.untilDate = new Date();
-  $scope.getType = function(key) {
-    return Object.prototype.toString.call($scope[key]);
-  };
-  $scope.clearDates = function() {
-    $scope.selectedDate = null;
   };
 };
 

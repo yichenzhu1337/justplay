@@ -49,7 +49,6 @@
   }
 
   .content-wrapper{
-    height: 1000px;
     max-width: 100%;
     min-height: 50%;
     box-shadow: 0 0 15px rgba(0,0,0,0.13);
@@ -325,13 +324,13 @@
 /* Activity Search Popover */
 
 /* Date Pick Popover */
-  #date-choose-button {
+  .date-choose-button {
     color: #7f8c8d;
     border-bottom: 1px dotted black;
   }
 
-  #date-choose-button:hover,
-  #date-choose-button:active {
+  .date-choose-button:hover,
+  .date-choose-button:active {
     border: none;
     text-decoration: none;
     color: #656D78;

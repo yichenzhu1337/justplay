@@ -484,14 +484,17 @@
             <!-- Main Content Area -->
               <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date' " >
                 <div class="date-day-of-week" ng-controller="dateController">
-                  <a href="#" id="date-choose-button" ng-click="open($event)" 
-                  datepicker-popup="EEEE, MMM d" 
+                  <a id="{{dateobj.date | date:filterFormat}}" 
+                  href="" class="date-choose-button" 
+                  ng-click="open($event)" 
+                  datepicker-popup=filterFormat
                   ng-model="dt" 
                   is-open="opened" 
                   min="minDate" 
                   max="maxDate"
                   ng-required="true" 
-                  close-text="Close">{{dateobj.date | date:'EEEE, MMM d'}}</a>
+                  close-text="Close">{{dateobj.date | date:filterFormat}}</a>
+                  <!-- <a ng-click="scrollTo(dt)" >click me nigg</a> -->
                 </div>
               </div>
               <div ng-repeat-end>

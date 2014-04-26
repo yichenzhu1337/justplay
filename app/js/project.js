@@ -2,6 +2,7 @@ var project = angular.module('project',
 	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap',
 	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap', 'ngAnimate'
 	,'filterModule', 'ui.multiselect'])
+.value("filterRegex", 'EEEE, MMM d')
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
@@ -41,10 +42,11 @@ angular.module('filters', []).
 
 var controllers = {};
 
-controllers.dateController = function($scope) {
-	 $scope.today = function() {
+controllers.dateController = function($scope, $location, $anchorScroll, $filter, filterRegex) {
+	$scope.today = function() {
     $scope.dt = $scope.dateobj.date;
   };
+  $scope.filterFormat = filterRegex;
   $scope.today();
   $scope.minDate = new Date();
   $scope.maxDate = new Date();
@@ -53,6 +55,21 @@ controllers.dateController = function($scope) {
   $scope.clear = function () {
     $scope.dt = null;
   };
+
+  function scrollTo(id) {
+  	var formatedId = $filter('date')(id, $scope.filterFormat);
+  	$location.hash(formatedId);
+    console.log($location.hash());
+    $anchorScroll();
+  };
+
+  $scope.$watch('dt', function(newVal, oldVal) {
+  	if (newVal === oldVal) {
+  		return
+  	};
+
+  	scrollTo(newVal);
+  })
 
   $scope.open = function($event) {
     $event.preventDefault();

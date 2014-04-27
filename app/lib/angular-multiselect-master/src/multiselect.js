@@ -253,8 +253,10 @@ angular.module('ui.multiselect', [])
         };
 
         function clickHandler(event) {
-          if (elementMatchesAnyInArray(event.target, element.find(event.target.tagName)))
+          if (elementMatchesAnyInArray(event.target, element.find(event.target.tagName))) {
+            element.addClass('open');
             return;
+          }
           element.removeClass('open');
           $document.unbind('click', clickHandler);
           scope.$apply();

@@ -13,7 +13,7 @@
     font-family: open-sans;
     src: url('../fonts/Open-sans/OpenSans-Regular.ttf');
   }
-/* Imported Fonts */
+/* Imported Fonts */  
 
 /* Dependency on angular ui bootstrap */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

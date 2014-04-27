@@ -8,6 +8,11 @@
     font-family: roboto-bold;
     src: url('../fonts/Roboto/Roboto-Bold.ttf');
   }
+
+  @font-face{
+    font-family: open-sans;
+    src: url('../fonts/Open-sans/OpenSans-Regular.ttf');
+  }
 /* Imported Fonts */
 
 /* Dependency on angular ui bootstrap */
@@ -15,7 +20,7 @@
 
 /* General Layout */
   body { 
-    font-family: clear-sans;
+    font-family: open-sans;
     width: 100%;
     height: 100%;
     margin: 0;

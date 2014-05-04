@@ -6,6 +6,10 @@ var project = angular.module('project',
 .factory('sportFactory', function() {
 	var factory = {};
 	// Sports should be arranged in 5s
+	var allSports = ['Badminton', 'Tennis', 'Squash', 'Table Tennis','Basketball',
+	'Volleyball','Ultimate Frisbee', 'Soccer', 'Football',
+	'Ice Hockey', 'Lacrosse', 'Quidditch', 'Rugby'];
+
 	var sports = {
 		'RacquetSports':[['Badminton', 'Tennis', 'Squash', 'Table Tennis']],
 		'TeamSports':
@@ -17,6 +21,9 @@ var project = angular.module('project',
 	factory.getSports = function () {
 		return sports;
 	};
+	factory.getSportInList = function(){
+		return allSports;
+	}
 	return factory;
 })
 .directive('selectOnClick', function () {
@@ -41,7 +48,6 @@ angular.module('filters', []).
 	});*/
 
 var controllers = {};
-
 controllers.dateController = function($scope, $location, $anchorScroll, $filter, filterRegex) {
 	$scope.today = function() {
     $scope.dt = $scope.dateobj.date;
@@ -69,7 +75,7 @@ controllers.dateController = function($scope, $location, $anchorScroll, $filter,
   	};
 
   	scrollTo(newVal);
-  })
+  });
 
   $scope.open = function($event) {
     $event.preventDefault();
@@ -292,7 +298,7 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 		// Determine People needed, description to show and color of progress bar
 		if ($scope.card.participants.totalParticipants >= $scope.card.minimumrequired) {
 			$scope.progressbar = 'success';
-			$scope.neededorfree = 'SLOTS FREE';
+			$scope.neededorfree = 'SLOTS';
 			$scope.peopleneeded = $scope.card.capacity - $scope.card.participants.totalParticipants;
 		} else {
 			$scope.progressbar = 'warning';
@@ -356,12 +362,13 @@ controllers.expandedCardController = function($scope, $modalInstance, card, acti
   };
 
   $scope.cancel = function () {
+  	console.log('cancel!');
     $modalInstance.dismiss('cancel');
   };
 };
 
-controllers.activityController = function($scope, activityService) {
-
+controllers.activityController = function($scope, sportFactory) {
+	$scope.activities = sportFactory.getSportInList();
 };
 
 /*controllers.friendController = function($scope) {

@@ -1,4 +1,12 @@
-var project = angular.module('cardModule', [])
+var project = angular.module('cardModule', 
+	['angularMoment',
+	'activityModule',
+	'sortModule',
+	'filterModule',
+	'friendModule',
+	'skillModule', 
+	'sportModule',
+	'ui.bootstrap'])
 .factory('cardFactory', function() {
 	var factory = {};
 	var base_date = new Date();
@@ -761,4 +769,145 @@ var project = angular.module('cardModule', [])
 	};
 
 	return factory;
-});
+})
+var controllers = {};
+/**
+ * Gathers sorts and filters and orchestrates the communication 
+ * from sort & filter controllers to card and expandedCard controllers.
+ * @param  {scope} $scope          scope
+ * @param  {factory} cardFactory     Factory that contains the cards to display
+ * @param  {service} strategyService stores and updates the sorting strategy used
+ * @param  {service} activityService stores and updates the activity that's filtered
+ * @param  {service} filterService   stores and updates additional filters
+ * @return {none}                 none
+ */
+controllers.cardsController = function($scope, cardFactory, strategyService, activityService, filterService) {
+	// Base Set of Activities
+	var baseActivities;
+	init();
+	function init() {
+		$scope.dates = cardFactory.getCards(); 
+		$scope.strategyServ = strategyService; // Bind instance of strategyService to scope
+		$scope.activityServ = activityService;
+		$scope.filterServ = filterService;
+		$scope.sortStrategy = $scope.strategyServ.getSortStrategy(); 
+		$scope.activityFilter = activityService.getActivity();
+		$scope.filterFlag = $scope.filterServ.getFilterFlag();
+		$scope.searchFilter = [];
+		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
+			if (newVal === oldVal){
+				return
+			};
+				console.log("newVal:" + newVal +" oldVal:"+oldVal);
+				$scope.sortStrategy = strategyService.getSortStrategy();
+		});
+		$scope.$watch('activityServ.getActivity()', function (newVal, oldVal){
+			if (newVal === oldVal){
+				return
+			}
+			console.log("activity newVal:" + newVal +" oldVal:"+oldVal);
+			$scope.activityFilter = activityService.getActivity();
+			setFilterFlag(false);
+		});
+		$scope.$watch('filterServ.getResetFilter()', function(newVal, oldVal){
+			if (newVal === oldVal){
+				return
+			}
+			setFilterFlag(false);
+		});
+		
+		$scope.$watch('filterServ.getFilters()', function(newVal, oldVal){
+			console.log("outer filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
+			if (newVal === oldVal){
+				return;
+			}
+			console.log("inner filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
+			$scope.searchFilter = $scope.filterServ.getFilters();
+		}, true);
+
+		$scope.$watch('filterServ.getFilterFlag()', function(newVal, oldVal){
+			console.log("outer FilterFlag New Val: " + newVal + " Old:" + oldVal);
+			if (newVal === oldVal) {
+				return;
+			}
+			$scope.filterFlag = newVal;
+		});
+
+		function setFilterFlag(val) {
+			$scope.filterServ.setFilterFlag(val);
+			$scope.filterFlag = val;
+		};
+	};
+};
+
+/**
+ * Displays the view according to details passed in
+ * @param  {scope} $scope               scope
+ * @param  {service} $modal               modal to expand card
+ * @param  {service} friendService        retrieves friend list
+ * @param  {factory} activitySkillFactory returns key values of skill descriptions
+ * @return {none}                      none
+ */
+controllers.cardController = function($scope, $modal, friendService, activitySkillFactory) {
+	$scope.progressbar;
+	$scope.peopleneeded;
+	$scope.neededorfree;
+	$scope.stars = [];
+	$scope.skillDescription;
+	$scope.friendList = [];
+	init();
+	function init() {
+		// Determine People needed, description to show and color of progress bar
+		if ($scope.card.participants.totalParticipants >= $scope.card.minimumrequired) {
+			$scope.progressbar = 'success';
+			$scope.neededorfree = 'SLOTS';
+			$scope.peopleneeded = $scope.card.capacity - $scope.card.participants.totalParticipants;
+		} else {
+			$scope.progressbar = 'warning';
+			$scope.neededorfree = 'NEEDED';
+			$scope.peopleneeded = $scope.card.minimumrequired  - $scope.card.participants.totalParticipants;
+		}
+		// Determine Skill Description
+		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
+		// Determine how many stars to dish out
+		for (var i = 0; i < $scope.card.skill; i++) {
+			$scope.stars.push(i);
+		};
+		// Display Friendlist on mouse over
+	};
+	/**
+	 * Expands the small card to the popover card.
+	 * @return {none} none
+	 */
+	$scope.open = function(){
+		var modalInstance = $modal.open({
+			templateUrl: 'expandedCard.html',
+			controller: controllers.expandedCardController,
+			resolve: {
+				card: function() {
+					return $scope.card;
+				}
+			}
+		});
+	};
+	/**
+	 * Retrieves the friend list (Static)
+	 * @return {none} none
+	 */
+	$scope.getFriendList = function(){
+		var list = [];
+		var friendListString = "";
+		list = friendService.getFriendList($scope.card.participants.list);
+		for (var i = 0; i < list.length; i++) {
+			friendListString = friendListString + list[i];
+			if (i < list.length-1) {
+				friendListString += "<br>"
+			}
+		}
+		return friendListString;
+	}
+};
+
+
+
+project.controller(controllers);

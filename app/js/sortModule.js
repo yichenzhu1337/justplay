@@ -144,4 +144,67 @@ var module = angular.module('sortModule', [])
 		}
 		return attributeOrder;
 	}
+})
+/**
+ * Displays sorting strategies provided by factory and sends selected 
+ * strategies to strategyService
+ * @param  {scope} 	 $scope          scope
+ * @param  {factory} cardSortFactory Factory containing the strategies we want
+ * @param  {service} strategyService Service that sends selected strategies to cardController
+ * @return {none}                    none
+ */
+.controller('sortController', function($scope, cardSortFactory, strategyService) {
+	$scope.strategies = []; // Array containing all strategies
+	init();
+
+	/**
+	 * Setups up the current selected strategy and sends the strategy
+	 * to the card.
+	 * @return {none} none
+	 */
+	function init() {
+		$scope.strategies = cardSortFactory.getStrategies();
+		$scope.currentstrategy = $scope.strategies[0].displayName;
+		$scope.currentOrder = $scope.strategies[0].defaultOrder;
+		setSortIcon($scope.currentOrder);
+		strategyService.setOrder($scope.currentOrder);
+		strategyService.setSortStrategy($scope.strategies[0].attributeName);
+	};
+	
+	/**
+	 * Sets current strategy as well as passing it to the
+	 * strategy service.
+	 * @param {string} attributeName Actual attribute use to sort.
+	 * @param {string} displayName   Description of the strategy
+	 */
+	$scope.setStrategy = function(attributeName, displayName, defaultOrder){
+		$scope.currentstrategy = displayName;
+		strategyService.setSortStrategy(attributeName);
+		strategyService.setOrder(defaultOrder);
+		setSortIcon(defaultOrder);
+	};
+
+	/**
+	 * Sets which icon to use upon switching order
+	 * @param {char} order + or -
+	 */
+	function setSortIcon(order){
+		if (order == '+'){
+			$scope.orderIcon = "up";
+		} else {
+			$scope.orderIcon = "down";
+		}
+	};
+
+	/**
+	 * Reverses order of currentOrder and reflects
+	 * this on UI.
+	 * @return {none} none
+	 */
+	$scope.reverseOrder = function(){
+		// Update strategyService as well as scope's currentOrder
+		$scope.currentOrder = strategyService.reverseOrder($scope.currentOrder); 
+		// Update our sort icon
+		setSortIcon($scope.currentOrder);
+	};
 });

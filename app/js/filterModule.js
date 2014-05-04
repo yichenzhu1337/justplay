@@ -128,4 +128,36 @@ var mod = angular.module('filterModule', [])
 
 
 	return factory;
+})
+.controller('filterController', function($scope, filterService, filterFactory){
+	init();
+	function init(){
+		$scope.filterServ = filterService;
+		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill','Competition']));
+		$scope.filterServ.setFilters(angular.copy($scope.bundles));
+		$scope.$watch('bundles', function (newVal, oldVal){
+			console.log("outer Bundles New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length)
+			if (newVal === oldVal)
+				return;
+			console.log("inner Bundles New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length)
+			$scope.filterServ.setFilters(angular.copy($scope.bundles));
+		}, true);		
+		$scope.$watch('filterServ.getFilterFlag()', function (newVal, oldVal){
+			console.log("outer FilterFlag New Val: " + newVal + " Old:" + oldVal);
+			if (newVal === oldVal)
+				return;
+			console.log("inner FilterFlag New Val: " + newVal + " Old:" + oldVal);
+			if (newVal == false) {
+					$scope.bundles = filterFactory.getFilters(['Skill','Competition']);				
+			}
+		}, true);	
+	};
+
+	$scope.resetFilters = function(){
+		$scope.filterServ.setFilterFlag(false);
+	}
+
+	$scope.allowFilter = function(){
+		$scope.filterServ.setFilterFlag(true);
+	}
 });

@@ -246,7 +246,7 @@
 
   #activity-menu {
     font-size: 16px;
-    width: 647px;
+    min-width: 649px;
     height: auto;
     border-radius: 0px;
     padding: 18px 9px 18px 9px;

@@ -184,12 +184,10 @@
     <!-- Popover (hidden) form -->
     
     <script type="text/ng-template" id="expandedCard.html">
-    <div class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-dialog-center">
-        <div class="modal-content">
           <div class="row">
             <div class="col-md-4">
-              <div class="card-wrap expanded side friends">
+              <div class="card-wrap expanded side friends" ng-show="friendShow">
                 <div class="card-header-wrapper friends">
                   <tabset justified="true">
                     <tab>
@@ -231,7 +229,7 @@
                   </div>
                   <div class="card">
                     <div class="card-star-wrapper star-mouseover">
-                        <a href data-animation="am-flip-x" data-title="{{skillDescription}}" data-placement="top" bs-tooltip>
+                        <a href="#" tooltip-placement="top" tooltip="{{skillDescription}}">
                           <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
                         </a>
                     </div>
@@ -263,7 +261,7 @@
                         <div class="row">
                           <div class="col-md-4">
                             <div class="content-auto-wrap active" id ="friend-toggle">
-                              <a href="javascript:">
+                              <a href="#" ng-click="toggleFriends()">
                                 <div class="card-number expand-friend">
                                   <icon class="glyphicon glyphicon-chevron-left pull-left friend-trigger"></icon> 
                                   {{card.participants.totalFriends}}
@@ -286,7 +284,7 @@
                           </div>
                           <div class="col-md-4">
                             <div class="content-auto-wrap active" id="comment-toggle">
-                              <a href="javascript:">
+                              <a href="#" ng-click="toggleComments()">
                                 <div class="card-number expand-comment">
                                   {{card.comments.totalComments}} 
                                   <icon ng-show="card.comments.unreadComments" class="glyphicon glyphicon-chevron-right pull-right comment-trigger"></icon>
@@ -313,7 +311,7 @@
               </div>                      
             </div>
             <div class="col-md-4">
-              <div class="card-wrap expanded side comments">
+              <div class="card-wrap expanded side comments" ng-show="commentShow">
                 <div class="card-header-wrapper comments">
                   <span class="side badge">{{card.comments.totalComments}}</span><span class="hidden text">d</span>Comments <span class="label label-success pull-right new-badge" ng-show="card.comments.unreadComments">NEW</span>
                 </div>
@@ -340,9 +338,7 @@
               </div>      
             </div> 
           </div>     
-        </div>
       </div>
-    </div>
     </script>
 
     <div class="super-wrapper">
@@ -368,10 +364,10 @@
               </ul>
 
               <ul class="nav navbar-nav navbar-right" >
-                <li><a href data-animation="am-flip-x" data-title="Explore" data-placement="bottom" bs-tooltip><i class="glyphicon glyphicon-search side-icon"></i></a>
+                <li><a href="#" tooltip-placement="bottom" tooltip="Explore"><i class="glyphicon glyphicon-search side-icon"></i></a>
                 </li>
-                <li id="suggest-activity"><a href data-animation="am-flip-x" data-title="Create" data-placement="bottom" bs-tooltip><i class="glyphicon glyphicon-plus side-icon"></i></a></li>
-                <li id="get-notified"><a href data-animation="am-flip-x" data-title="Get Notified" data-placement="bottom" bs-tooltip><i class="glyphicon glyphicon-eye-open side-icon"></i></a></li>
+                <li id="suggest-activity"><a href="#" tooltip-placement="bottom" tooltip="Create"><i class="glyphicon glyphicon-plus side-icon"></i></a></li>
+                <li id="get-notified"><a href="#" tooltip-placement="bottom" tooltip="Get Notified"><i class="glyphicon glyphicon-eye-open side-icon"></i></a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">Jack Yiu</a>
                   <ul class="dropdown-menu" role="menu">
@@ -505,7 +501,7 @@
                     </div>
                     <div class="card">
                         <div class="card-star-wrapper star-mouseover">
-                          <a href data-animation="am-flip-x" data-title="{{skillDescription}}" data-placement="top" bs-tooltip>
+                          <a href="#" tooltip-placement="top" tooltip="{{skillDescription}}">
                             <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
                           </a>
                         </div> 
@@ -523,7 +519,7 @@
                         <div class="card-content-wrapper">
                           <div class="row">
                             <div class="col-md-4 friend-list-tooltip">
-                              <a href  data-title="{{getFriendList()}}" data-html="true" data-placement="left" data-animation="am-flip-x" bs-tooltip>
+                              <a href="#" tooltip-placement="left" tooltip-html-unsafe="{{getFriendList()}}">
                                 <div class="card-number">
                                   {{card.participants.totalFriends}}
                                 </div>
@@ -560,7 +556,7 @@
                   </div>
                   <div class="card-right pull-right">
                     <div class="expand-wrapper">
-                      <a href="#" data-placement="center" data-template="expandedCard.html" bs-modal><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>
+                      <a href="#" ng-click="open()"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>                    
                     </div>
                   </div>
                 </div>                   

@@ -1,6 +1,6 @@
 var project = angular.module('project', 
 	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap',
-	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'mgcrea.ngStrap', 'ngAnimate'
+	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'ngAnimate'
 	,'filterModule', 'ui.multiselect'])
 .value("filterRegex", 'EEEE, MMM d')
 .factory('sportFactory', function() {
@@ -282,7 +282,7 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
 		function setFilterFlag(val) {
 			$scope.filterServ.setFilterFlag(val);
 			$scope.filterFlag = val;
-		}
+		};
 	};
 };
 
@@ -314,7 +314,7 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 		// Display Friendlist on mouse over
 	};
 	$scope.open = function(){
-		/*var modalInstance = $modal.open({
+		var modalInstance = $modal.open({
 			templateUrl: 'expandedCard.html',
 			controller: controllers.expandedCardController,
 			resolve: {
@@ -322,11 +322,7 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 					return $scope.card;
 				}
 			}
-		});*/
-		var mod = $modal({
-			template: 'expandedCard.html',
-			html: true
-		})
+		});
 	};
 	$scope.getFriendList = function(){
 		var list = [];
@@ -347,11 +343,21 @@ controllers.expandedCardController = function($scope, $modalInstance, card, acti
 	function init(){
 		$scope.card = card;
 		$scope.stars = [];
+		$scope.friendShow = true;
+		$scope.commentShow = true;
 		for (var i = 0; i < $scope.card.skill; i++) {
 			$scope.stars.push(i);
 		}
-		$scope.skillDescription = "activitySkillFactory.getStringValue($scope.card.skill)";
+		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
 	};
+
+	$scope.toggleFriends = function(){
+		$scope.friendShow = !$scope.friendShow;
+	}
+
+	$scope.toggleComments = function(){
+		$scope.commentShow = !$scope.commentShow;
+	}
 
 	$scope.join = function() {
 		$scope.ok();

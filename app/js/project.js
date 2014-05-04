@@ -1,6 +1,6 @@
 var project = angular.module('project', 
 	['angularMoment', 'ui.unique', 'sortModule', 'ui.bootstrap',
-	'skillModule', 'cardModule', 'friendModule', 'activityModule', 'ngAnimate'
+	'skillModule', 'cardModule', 'friendModule', 'activityModule'
 	,'filterModule', 'ui.multiselect'])
 .value("filterRegex", 'EEEE, MMM d')
 .factory('sportFactory', function() {
@@ -350,6 +350,10 @@ controllers.expandedCardController = function($scope, $modalInstance, card, acti
 		}
 		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
 	};
+
+	$scope.insertMessage = function(){
+		
+	}
 
 	$scope.toggleFriends = function(){
 		$scope.friendShow = !$scope.friendShow;

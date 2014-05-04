@@ -75,14 +75,6 @@ $(document).ready(function(){
 			        }
 			    });
 			});
-
-	  	$('#friend-toggle').click(function(){
-	  		$('.card-wrap.expanded.side.friends').fadeToggle(200);
-	  	});
-
-			$('#comment-toggle').click(function(){
-	  		$('.card-wrap.expanded.side.comments').fadeToggle(200);
-	  	});
   	// Cards (Maximized) //
   // Expansion //
 });

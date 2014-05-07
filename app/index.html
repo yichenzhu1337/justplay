@@ -61,13 +61,14 @@
   <body ng-app="project">
     <!-- Popover (hidden) form -->
       <!-- Activity Form -->
-        <div id="activity-create-form" class="hide">
+        <div id="activity-create-form" class="hide" ng-controller="activityController">
           <form role="form">
             <div class="form-group">
-              <div class="divider"></div>
-              <div class="input-group">
-                <select ng-model="inActivity" name="activity"></select>        
-              </div>
+              <select 
+              class="form-control"
+              ng-model="activitySelected"
+              ng-options="c.value as c.label group by c.category for c in activities">
+              </select >     
               <div class="divider"></div>
               <div class="input-group">
                 <input type="text" class="form-control" id="input" placeholder="Skill">
@@ -429,7 +430,8 @@
                   </div> 
                   <div class="filter-box" ng-controller="filterController"> 
                     <div class="filter-wrap" ng-repeat="bundle in bundles | orderBy: 'id'">
-                      <multiselect multiple='true' 
+                      <multiselect 
+                        multiple='true' 
                         ng-model="bundle.selected" 
                         ms-header="{{bundle.placeholder}}"
                         ms-multiple-string="{{bundle.maxString}}"

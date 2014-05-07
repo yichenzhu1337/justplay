@@ -1,9 +1,6 @@
 var mod = angular.module('sportModule', ['activityModule'])
-.factory('sportFactory', function() {
-	var factory = {};
-	// Sports should be arranged in 5s
-	
-	var allSports = [
+.value('SportValue', {
+	sports: [
 		{id: 1, category: ['RacquetSports'], label: 'Badminton'},
 		{id: 2, category: ['RacquetSports'], label: 'Tennis'}, 
 		{id: 3, category: ['RacquetSports'], label: 'Squash'}, 
@@ -17,7 +14,13 @@ var mod = angular.module('sportModule', ['activityModule'])
 		{id: 11, category: ['TeamSports'], label: 'Lacrosse'}, 
 		{id: 12, category: ['TeamSports'], label: 'Quidditch'}, 
 		{id: 13, category: ['TeamSports'], label: 'Rugby'}
-	];
+	]
+})
+.factory('sportFactory', function(SportValue) {
+	var factory = {};
+	// Sports should be arranged in 5s
+	
+	var allSports = SportValue.sports;
 
 	var vsports = {
 		'RacquetSports':[['Badminton', 'Tennis', 'Squash', 'Table Tennis']],

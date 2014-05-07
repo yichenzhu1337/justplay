@@ -1,4 +1,4 @@
-var mod = angular.module('activityModule', [])
+var mod = angular.module('activityModule', ['sportModule'])
 .service('activityService', function(){
 	var activity;
 	/**
@@ -17,4 +17,8 @@ var mod = angular.module('activityModule', [])
 	this.getActivity = function() {
 		return activity;
 	};
+})
+.controller('activityController', function($scope, sportFactory){
+	$scope.activities = sportFactory.getSportInList();
+	$scope.activitySelected;
 });

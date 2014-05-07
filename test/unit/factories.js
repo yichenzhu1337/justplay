@@ -33,6 +33,10 @@ describe('factoryModule', function(){
 		});
 
 		describe("initialization", function() {
+			it("should contain 14 sports", function() {
+				expect(factory.getSportInList().length).toEqual(13);
+			});
+
 			it("should contain the correct number of sports in each category", function() {
 					expect(factory.getSports()['RacquetSports'][0].length).toEqual(
 						 4

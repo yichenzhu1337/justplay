@@ -66,8 +66,7 @@
             <div class="form-group">
               <div class="divider"></div>
               <div class="input-group">
-                <input type="text" class="form-control" id="inputActivity" placeholder="Activity">
-                <span class="input-group-addon"><icon class="glyphicon glyphicon-heart-empty"></icon></span>            
+                <select ng-model="inActivity" name="activity"></select>        
               </div>
               <div class="divider"></div>
               <div class="input-group">
@@ -405,18 +404,18 @@
                             <div class="header">
                               Racquet Sports
                             </div>
-                            <a href="#" class="list-group-item" ng-repeat="sport in sports.RacquetSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport}}</a>
+                            <a href="#" class="list-group-item" ng-repeat="sport in sports.RacquetSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport.label}}</a>
                           </div>
 
                           <div class="list-group">
                             <div class="header">
                               Other Team Sports
                             </div>
-                              <a href="#" class="list-group-item" ng-repeat="sport in sports.TeamSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport}}</a>
+                              <a href="#" class="list-group-item" ng-repeat="sport in sports.TeamSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport.label}}</a>
                           </div>
 
                           <div class="list-group last">
-                            <a href="#" class="list-group-item" ng-repeat="sport in sports.TeamSports[1] | filter: currentsport" ng-click="setValue(sport)">{{sport}}</a>
+                            <a href="#" class="list-group-item" ng-repeat="sport in sports.TeamSports[1] | filter: currentsport" ng-click="setValue(sport)">{{sport.label}}</a>
                           </div>
                         </div> 
                       </div>

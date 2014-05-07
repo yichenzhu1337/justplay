@@ -68,7 +68,7 @@ var mod = angular.module('sportModule', ['activityModule'])
 		$scope.savedSport = "";
 	};
 	$scope.setValue = function(sport){
-		$scope.currentsport = sport;
+		$scope.currentsport = sport.label;
 		activityService.setActivity($scope.currentsport);
 		if ($scope.currentsport == ""){
 			$scope.toggleIcon = false;

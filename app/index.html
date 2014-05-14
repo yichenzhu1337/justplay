@@ -66,14 +66,9 @@
             <div class="form-group">
               <select 
               class="form-control"
-              ng-model="activitySelected"
+              ng-model="activityselected"
               ng-options="c.value as c.label group by c.category for c in activities">
               </select >     
-              <div class="divider"></div>
-              <div class="input-group">
-                <input type="text" class="form-control" id="input" placeholder="Skill">
-                <span class="input-group-addon"><icon class="glyphicon glyphicon-star-empty"></icon></span>
-              </div>
               <div class="divider"></div>
               <div class="input-group">
                 <input type="datetime" class="form-control" id="inputDate" placeholder="Date/Time">

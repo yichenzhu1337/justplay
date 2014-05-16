@@ -8,8 +8,18 @@ var project = angular.module('project',
 	'activityModule', 
 	'sportModule',
 	'filterModule', 
-	'ui.multiselect'
+	'ui.multiselect',
+	'ngRoute'
 	])
+.config(['$routeProvider', function($routeProvider) {
+	$routeProvider
+		.when('/activities', {
+			templateUrl: 'views/activities.html'
+		}).
+		otherwise({
+			redirectTo: '/activities'
+		});
+}])
 .value("filterRegex", 'EEEE, MMM d')
 .directive('selectOnClick', function () {
   // Linker function
@@ -19,6 +29,7 @@ var project = angular.module('project',
 	  });
 	};
 });
+
 
 var controllers = {};
 controllers.dateController = function($scope, $location, $anchorScroll, $filter, filterRegex) {

@@ -1,0 +1,11 @@
+laravel resources
+
+book codebright for laravel
+phpacademy authentication
+do to list
+fallend down sentry 2 login register
+blog
+https://www.youtube.com/watch?v=n7aS4MllX8s
+
+phpacdemy create your own mvc
+bootstrap

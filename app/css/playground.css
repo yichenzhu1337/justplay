@@ -435,7 +435,7 @@
       padding: 5px 5px 5px 5px;
     }
 
-    .card-metrics > .row > .col-md-4 > .content-auto-wrap {
+    .card-metrics {
       padding-top: 2.5px;
       padding-bottom: 5px;
 
@@ -614,7 +614,7 @@
 
   .card-description-title{
     font-size: 20px;
-    color: #7f8c8d;
+    color: #48CFAD;
   }
 
   .sport-icon-wrapper {
@@ -666,7 +666,7 @@
     background-color: #FFFFFF;
   }
 
-  .join-wrapper {
+  .primary-button-wrapper {
     margin-top: -5px;
     background-color: white;
   }
@@ -676,7 +676,6 @@
     font-size: 25px;
     font-weight: bold;
     line-height: 25px;
-    color: #e74c3c;
   }
 
   .card-free-slot{
@@ -704,11 +703,17 @@
     text-align: left;
   } 
 
+  .metric.passive {
+    color: #AAB2BD;
+  }
+
+  .metric.active{
+    color: #e74c3c;
+  }
+
   .description-text {
     font-size: 11.5px;
-    font-weight: bold;
     line-height: 11px;
-    color: #7f8c8d;
   }
 
   .join-wrapper {
@@ -727,12 +732,6 @@
   .knob-wrapper {
     width:100%;
     height:100%;
-  }
-
-  .progress-wrapper {
-    width: auto;
-    height: auto;
-    background-color: #f5f5f5;
   }
 
   /* Display date of group of cards.*/

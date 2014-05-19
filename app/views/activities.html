@@ -96,16 +96,16 @@
     </div>
     <div ng-repeat-end>
       <div class="card-wrap" ng-repeat="card in dateobj.obj | filter:{activity:activityFilter}| property:searchFilter:filterFlag | orderBy: sortStrategy" ng-controller="cardController">
-        <div class="card-left pull-left" > 
+        <div class="card-left" > 
           <div class="card-activity">
             {{card.activity}}
           </div>
           <div class="card">
-              <div class="card-star-wrapper star-mouseover">
-                <a href="#" tooltip-placement="top" tooltip="{{skillDescription}}">
-                  <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
-                </a>
-              </div> 
+<!--               <div class="card-star-wrapper star-mouseover">
+  <a href="#" tooltip-placement="top" tooltip="{{skillDescription}}">
+    <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
+  </a>
+</div>  -->
               <div class="card-header-wrapper">
                 <div class="description-text">
                   {{card.startdate | amDateFormat: 'dddd, MMM Do' | uppercase}}
@@ -124,46 +124,40 @@
                     {{card.description}}
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-4 friend-list-tooltip">
-                    <a href="#" tooltip-placement="left" tooltip-html-unsafe="{{getFriendList()}}">
+                <div class="card-metrics">
+                  <div class="row">
+                    <div class="col-md-4 friend-list-tooltip metric active">
+                      <!-- <a href="#" tooltip-placement="left" tooltip-html-unsafe="{{getFriendList()}}"> -->
+                        <div class="card-number">
+                          {{card.participants.totalFriends}}
+                        </div>
+                        <div class="description-text">
+                          FRIENDS
+                        </div>
+                      <!-- </a> -->
+                    </div>
+                    <div class="col-md-4 metric passive">
                       <div class="card-number">
-                        {{card.participants.totalFriends}}
+                        {{ card.participants.totalParticipants }}/{{card.capacity}}
                       </div>
                       <div class="description-text">
-                        FRIENDS
+                        PEOPLE
                       </div>
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card-number">
-                      {{ card.participants.totalParticipants }}/{{card.capacity}}
                     </div>
-                    <div class="description-text">
-                      PEOPLE
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card-number">
-                      {{peopleneeded}}
-                    </div>
-                      <div class="description-text">
-                        {{neededorfree}}
+                    <div class="col-md-4 metric passive">
+                      <div class="card-number">
+                        {{peopleneeded}}
                       </div>
-                  </div>                              
-                </div>
-              </div>
-              <div class="progress-wrapper">
-                <div class="progress progress-active">
-                  <div class="progress-bar progress-bar-{{progressbar}}" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: {{card.participants.totalParticipants/card.capacity*100}}%">
+                        <div class="description-text">
+                          {{neededorfree}}
+                        </div>
+                    </div>                              
                   </div>
                 </div>
               </div>
-          </div>
-        </div>
-        <div class="card-right pull-right">
-          <div class="expand-wrapper">
-            <a href="#" ng-click="open()"><icon class="glyphicon glyphicon-resize-full card-expand-icon"></icon></a>                    
+              <div class="primary-button-wrapper">
+                <button type="button" ng-click="open()" class="btn btn-info fill">More</button>
+              </div>
           </div>
         </div>
       </div>                   

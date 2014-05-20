@@ -48,6 +48,12 @@
     height: inherit;
   }
 
+  /* Wrapper for the main content area */
+  .content-wrapper {
+    width: 1060px;
+    margin: 0 auto;
+  }
+
   .header-content-wrapper { /* 40px each side */
     width: 980px;
     margin: 0 auto;

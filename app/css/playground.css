@@ -50,7 +50,7 @@
 
   .header-content-wrapper { /* 40px each side */
     width: 980px;
-    height: inherit;
+    margin: 0 auto;
   }
 
   .content-wrapper{

@@ -543,8 +543,9 @@
   /* Expanded card */
 
   .card-left {
-    width: 287px;
-    display: inline-block;text-align: center;
+    max-width: 287px;
+    display: inline-block;
+    text-align: center;
   }
 
   .card-right {

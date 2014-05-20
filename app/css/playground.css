@@ -359,6 +359,12 @@
 /* Date Pick Popover */
 
 /* Cards */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }  
+
   .card-metrics {
     background-color: #ecf0f1;
     width: 100%;
@@ -375,7 +381,7 @@
 
   .card-wrap {
     width: auto;
-    margin: 9px 18px 9px 18px;
+    margin: 9px 0px 9px 0px;
     display: inline-block;
   }
 
@@ -543,7 +549,7 @@
   /* Expanded card */
 
   .card-left {
-    max-width: 287px;
+    width: 270px;
     display: inline-block;
     text-align: center;
   }
@@ -767,6 +773,26 @@
       line-height: 20px;
     }
   /* Display date of group of cards. */
+
+  @media screen and (min-width: 992px) {
+    .card-wrap {
+      margin: 9px 0px 9px 0px;
+    }
+
+    .card-left {
+      width: 270px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .card-wrap {
+      margin: 9px 18px 9px 18px;
+    }
+
+    .card-left{
+      width: 290px;
+    }
+  }
 /* Cards */
 
 /* Utility */

@@ -77,7 +77,7 @@ var module = angular.module('sortModule', [])
 	 * @return {none} none
 	 */
 	function init(){
-		strategies = baseSortFactory.getStrategies(["time", "friends","participants","skill","activity"]);
+		strategies = baseSortFactory.getStrategies(["time", "friends","participants"]);
 	}
 
 	/**

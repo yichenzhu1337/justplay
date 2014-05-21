@@ -849,7 +849,6 @@ controllers.cardsController = function($scope, cardFactory, strategyService, act
  * @return {none}                      none
  */
 controllers.cardController = function($scope, $modal, friendService, activitySkillFactory) {
-	$scope.progressbar;
 	$scope.peopleneeded;
 	$scope.neededorfree;
 	$scope.stars = [];
@@ -859,11 +858,9 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 	function init() {
 		// Determine People needed, description to show and color of progress bar
 		if ($scope.card.participants.totalParticipants >= $scope.card.minimumrequired) {
-			$scope.progressbar = 'success';
 			$scope.neededorfree = 'SLOTS';
 			$scope.peopleneeded = $scope.card.capacity - $scope.card.participants.totalParticipants;
 		} else {
-			$scope.progressbar = 'warning';
 			$scope.neededorfree = 'NEEDED';
 			$scope.peopleneeded = $scope.card.minimumrequired  - $scope.card.participants.totalParticipants;
 		}

@@ -22,19 +22,7 @@ $(document).ready(function(){
 		}
 	});
 
-	/*$('.date-day-of-week').popover({
-		html: 'true',
-		placement: 'bottom',
-		title: function(){
-			return $('#date-pick-title').html();
-		},
-		content: function(){
-			return $('#date-pick');
-		}
-	});*/
-
-	// Ensures that only one popover is open at a time and also
-	// clicking the body will close a popover.
+	// Ensures only one pop over can be open at a time.
 	$(':not(#anything)').on('click', function (e) {
     $('#activity-search-bar, #get-notified, #suggest-activity').each(function () {
         //the 'is' for buttons that trigger popups

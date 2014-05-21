@@ -15,8 +15,11 @@ var project = angular.module('project',
 	$routeProvider
 		.when('/activities', {
 			templateUrl: 'views/activities.html'
-		}).
-		otherwise({
+		})
+		.when('/create', {
+			templateUrl: 'views/create.html'
+		})
+		.otherwise({
 			redirectTo: '/activities'
 		});
 }])

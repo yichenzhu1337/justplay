@@ -21,7 +21,6 @@
   <script src="lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
 
   <!-- justPlay JS -->
-  <script src="js/non-angular/playground.js"></script>
   <script src="js/non-angular/popovers.js"></script>
 
   <!-- Angular Js -->
@@ -243,8 +242,8 @@
                       </div>
                       <div class="card-metrics">
                         <div class="row">
-                          <div class="col-md-4">
-                            <div class="content-auto-wrap active" id ="friend-toggle">
+                          <div class="col-md-4 friend-list-tooltip">
+                            <div class="active" id ="friend-toggle">
                               <a href="#" ng-click="toggleFriends()">
                                 <div class="card-number expand-friend">
                                   <icon class="glyphicon glyphicon-chevron-left pull-left friend-trigger"></icon> 
@@ -257,17 +256,15 @@
                             </div>
                           </div>                            
                           <div class="col-md-4">
-                            <div class="content-auto-wrap">
-                              <div class="card-number">
-                                {{card.fee}}
-                              </div>
-                              <div class="description-text">
-                                Fee
-                              </div>
+                            <div class="card-number">
+                              {{card.fee}}
+                            </div>
+                            <div class="description-text">
+                              Fee
                             </div>
                           </div>
                           <div class="col-md-4">
-                            <div class="content-auto-wrap active" id="comment-toggle">
+                            <div class="active" id="comment-toggle">
                               <a href="#" ng-click="toggleComments()">
                                 <div class="card-number expand-comment">
                                   {{card.comments.totalComments}} 
@@ -283,7 +280,7 @@
                       </div>
                     </div>
                     <div class="join-wrapper">
-                     <button type="button" ng-click="join()" class="btn btn-danger fill">Play!</button>            
+                      <button type="button" ng-click="join()" class="btn btn-danger fill">Play!</button>
                     </div>
                   </div>
                 </div>
@@ -332,7 +329,7 @@
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>T
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
@@ -340,7 +337,7 @@
 
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a class="brand" href="index.html"></a></li>
+                <li><a class="brand" href="#/"></a></li>
               </ul>
               
               <ul class="nav navbar-nav navbar-left">
@@ -350,7 +347,7 @@
                 <li><a href="#/activities" tooltip-placement="bottom" tooltip="Explore">
                 <i class="glyphicon glyphicon-eye-open side-icon"></i></a>
                 </li>
-                <li id="suggest-activity"><a href="#" tooltip-placement="bottom" tooltip="Create"><i class="glyphicon glyphicon-plus side-icon"></i> </a></li>
+                <li id="suggest-activity"><a href="#/create" tooltip-placement="bottom" tooltip="Create"><i class="glyphicon glyphicon-plus side-icon"></i> </a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">Jack Yiu</a>
                   <ul class="dropdown-menu" role="menu">

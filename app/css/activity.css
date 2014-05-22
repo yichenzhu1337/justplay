@@ -1,45 +1,62 @@
- #activity-wrap {
- 	height: 154px;
-  position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  text-align: center;
-} 
-/* 
-#activity-wrap {
-	position: relative;
-	text-align: center;
+.deeply {
+  width: 100%;
+  height: 100%;
+	background-image: url('../img/deeply4.jpg');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	background-color: #333;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #333;
+	display: table;
+}
+
+#activity-vertical-center {
+	display: table-cell;
+	vertical-align: middle;
 	width: 100%;
 	height: 100%;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-} */
+	text-align: center;
+} 
 
-#activity-wrap > h2 {
-	color: white;
+
+#activity-vertical-center > h3 {
+	margin: 0 auto;
 	text-align: center;
 	margin-top: 0px;
+	color: #fff;
+	line-height: 1.2;
+	margin-bottom: 20px;
 }
 
-.featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
-}
-
-#activity-wrap > input {
-	margin: 0 auto;
-	margin-top: 5px;
-	margin-bottom: 5px;
+#activity-vertical-center > input {
+	margin: 0 auto 7px;
 	width: 366px;
+	height: 48px;
+	font-size: 18px;
+	background: rgba(255,255,255,.9);
+
 }
 
-#activity-wrap > button {
+#activity-vertical-center > button {
 	width: 366px;
-
 	background: linear-gradient(to bottom,#76d926,#6ac322);
+	height: 50px;
+	font-weight: 700;	
+	font-size: 20px;
+}
+
+.more {
+	color: rgba(255,255,255,.4);
+}
+
+.more > p {
+	font-size: 14px;
+}
+
+.more > p > a {
+	font-weight: 700;
 }
 
 .icon-wrap {
@@ -47,8 +64,10 @@
 	height: auto;
 	margin: 0 auto;
 }
+
 .justPlay {
-  background: url('../img/justPlay.png') no-repeat center;
+  background: url('../img/justplaylog.png') no-repeat center;
   width: 100%;
-  height: 100%; 
+  height: 70px; 
 }
+

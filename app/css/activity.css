@@ -20,14 +20,28 @@
 	text-align: center;
 } 
 
+/* LOGO GOES HERE */
+	.icon-wrap {
+		width: 200px;
+		height: auto;
+		margin: 0 auto;
+	}
 
+	.justPlay {
+	  background: url('../img/justplaylog.png') no-repeat center;
+	  width: 100%;
+	  height: 70px; 
+	}
+/* LOGO GOES HERE */
+
+/* LOGO Description goes here */
 #activity-vertical-center > h3 {
 	margin: 0 auto;
 	text-align: center;
-	margin-top: 0px;
 	color: #fff;
 	line-height: 1.2;
-	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 #activity-vertical-center > input {
@@ -36,7 +50,6 @@
 	height: 48px;
 	font-size: 18px;
 	background: rgba(255,255,255,.9);
-
 }
 
 #activity-vertical-center > button {
@@ -48,26 +61,17 @@
 }
 
 .more {
+	padding-top: 13px;
 	color: rgba(255,255,255,.4);
 }
 
 .more > p {
+	margin-bottom: 0px;
 	font-size: 14px;
 }
 
 .more > p > a {
+	color: rgba(255,255,255,.4);
 	font-weight: 700;
-}
-
-.icon-wrap {
-	width: 200px;
-	height: auto;
-	margin: 0 auto;
-}
-
-.justPlay {
-  background: url('../img/justplaylog.png') no-repeat center;
-  width: 100%;
-  height: 70px; 
 }
 

@@ -35,30 +35,46 @@
 /* LOGO GOES HERE */
 
 /* LOGO Description goes here */
-#activity-vertical-center > h3 {
-	margin: 0 auto;
-	text-align: center;
-	color: #fff;
-	line-height: 1.2;
-	margin-top: 20px;
-	margin-bottom: 30px;
-}
+	#activity-vertical-center > h3 {
+		margin: 0 auto;
+		text-align: center;
+		color: #fff;
+		line-height: 1.2;
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+/* LOGO Description goes here */
 
-#activity-vertical-center > input {
-	margin: 0 auto 7px;
-	width: 366px;
-	height: 48px;
-	font-size: 18px;
-	background: rgba(255,255,255,.9);
-}
+/* SIGN UP Form goes here */
+	form.login,
+	form.signup {
+		max-width: 366px;
+		margin: 0 auto 7px;
+	}
 
-#activity-vertical-center > button {
-	width: 366px;
-	background: linear-gradient(to bottom,#76d926,#6ac322);
-	height: 50px;
-	font-weight: 700;	
-	font-size: 20px;
-}
+	form.login .form-group > input,
+	form.signup .form-group > input {
+		
+		width: 100%;
+		height: 48px;
+		font-size: 18px;
+		background: rgba(255,255,255,.9);
+	}
+
+	form.login > button,
+	form.signup > button {
+		width: 366px;
+		background: linear-gradient(to bottom,#76d926,#6ac322);
+		height: 50px;
+		font-weight: 700;	
+		font-size: 20px;
+	}
+
+	form.login .help-block,
+	form.signup .help-block {
+		color: white;
+	}
+/* SIGN UP Form goes here */
 
 .more {
 	padding-top: 13px;

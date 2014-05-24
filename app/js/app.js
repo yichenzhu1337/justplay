@@ -21,9 +21,29 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 var controllers = {};
 
 controllers.loginCtrl = function($scope, $state){
-	$scope.login = function() {
-		$state.go('activitylist');
+	$scope.registeredEmail = true;
+
+	$scope.submit = function(isValid) {
+		if (isValid) {
+			alert('Valid Login');
+			$state.go('activitylist');
+		} else {
+			alert('invalid Login');
+		}
 	};
 };
+
+controllers.signupCtrl = function($scope) {
+	$scope.submit = function(isValid){
+		if (isValid) {
+			alert('amazing form yo');
+		} else {
+			alert('invalid form yo');
+		}
+	}
+}
+
+var directives = {};
+
 
 app.controller(controllers);

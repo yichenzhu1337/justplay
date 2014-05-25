@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png">
+  
+  <title>justPlay</title>
+
+  <!-- Core CSS - Include with every page -->
+  <link href="lib/bootstrap-3.1.0/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">  
+
+  <link href="css/playground.css" rel="stylesheet"> 
+  <link href="css/activity.css" rel="stylesheet"> 
+  <!-- Core Scripts - Include with every page -->
+  <script src="lib/jquery/jquery-1.10.2.js"></script>
+  <script src="lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
+
+  <!-- justPlay JS -->
+  <script src="js/non-angular/popovers.js"></script>
+
+  <!-- Angular Js -->
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular/angular-resource.min.js"></script>
+  <script src="lib/angular/angular-route.min.js"></script>
+
+  <!-- Angular UI Bootstrap Directives -->
+  <script src="lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+
+  <!-- Modules -->
+  <script src="js/sortModule.js"></script>
+  <script src="js/skillModule.js"></script>
+  <script src="js/cardModule.js"></script>
+  <script src="js/friendModule.js"></script>
+  <script src="js/activityModule.js"></script>
+  <script src="js/filterModule.js"></script>
+  <script src="js/sportModule.js"></script>
+  <script src="js/project.js"></script>
+
+  <!-- Date picker & Moment.js-->
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker-master/moment.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker-master/daterangepicker.js"></script>
+  <link rel="stylesheet" type="text/css" media="all" href="lib/bootstrap-daterangepicker-master/daterangepicker-bs3.css" />
+  <script src="lib/angular-moment/angular-moment.js"></script>
+  
+  <!-- Angular UI -->
+  <script type="text/javascript" src="lib/ui-utils-0.1.1/ui-utils.js"></script>
+
+  <!-- Angular multi select -->
+  <link rel="stylesheet" type="text/css" media="all" href="lib/angular-multiselect-master/src/style.css" />
+  <script src="lib/angular-multiselect-master/src/multiselect.js"></script> 
+  </head>
+
+  <body ng-app="project">
+    <!-- Popover (hidden) form -->
+      <!-- Activity Form -->
+        <div id="activity-create-form" class="hide" ng-controller="activityController">
+          <form role="form">
+            <div class="form-group">
+              <select 
+              class="form-control"
+              ng-model="activityselected"
+              ng-options="c.value as c.label group by c.category for c in activities">
+              </select >     
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="datetime" class="form-control" id="inputDate" placeholder="Date/Time">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-calendar"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group"> 
+                <input type="number" class="form-control" id="inputCapacity" placeholder="Min & Max Capacity">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-stats"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="inputLocation" placeholder="Location">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <textarea class="form-control" id="inputDescription" rows="3" placeholder="Description"></textarea>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input id="inputPrivate" type="checkbox"> Private (Invite only)
+                </label>
+              </div>
+              <button type="button" class="btn btn-success fill" onclick="$('#suggest-activity').popover('hide');">Suggest</button>
+            </div>  
+          </form>
+        </div>
+        <div id="activity-form-title" class="hide">
+          <span class="text-info">Suggest Activity</span>
+          <button type="button" id="close" class="close" onclick="$('#suggest-activity').popover('hide');">
+            <icon class="glyphicon glyphicon-remove"></icon>
+          </button>
+        </div>
+      <!-- Activity Form -->
+
+      <!-- Notification Form -->
+        <div id="notification-form-title" class="hide">
+          <span class="text-info">Get Notified</span>
+          <button type="button" id="close" class="close" onclick="$('#get-notified').popover('hide');">
+            <icon class="glyphicon glyphicon-remove"></icon>
+          </button>
+        </div>
+        <div id="notification-form" class="hide">
+          <form role="form">
+            <div class="form-group">
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputActivity" placeholder="Activities">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-heart-empty"></icon></span>            
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputSkill" placeholder="Skill Range">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-star-empty"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="datetime" class="form-control" id="NinputDate" placeholder="Date/Time">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-calendar"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputLocation" placeholder="Location (Optional)">
+                <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputSMS" placeholder="Notify (Phone Number)">
+                <span class="input-group-addon">
+                  <input id="NradioSMS" name="inputWalls" id="inputWalls" type="radio">
+                </span>            
+              </div>
+              <div class="divider"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="NinputEmail" placeholder="Notify (Email)">
+                <span class="input-group-addon">
+                  <input id="NradioEmail" name="inputWalls" id="inputWalls"  type="radio">
+                </span>            
+              </div>
+              <div class="divider"></div>       
+              <button type="button" class="btn btn-success fill" onclick="$('#get-notified').popover('hide');">Suggest</button>
+              </div>
+          </form>
+        </div>
+      <!-- Notification Form -->
+        
+      <!-- Date-Pick -->
+        <div id="date-pick-title" class="hide">
+          <span class="text-info">Day</span>
+          <button type="button" id="close" class="close" onclick="$('.date-day-of-week').popover('hide');">
+            <icon class="glyphicon glyphicon-remove"></icon>
+          </button>
+        </div>
+        <div id="date-pick">
+          
+        </div>
+      <!-- Date-Pick -->
+    <!-- Popover (hidden) form -->
+    
+    <script type="text/ng-template" id="expandedCard.html">
+      <div class="modal-dialog modal-dialog-center">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card-wrap expanded side friends" ng-show="friendShow">
+                <div class="card-header-wrapper friends">
+                  <tabset justified="true">
+                    <tab>
+                      <tab-heading>
+                        <span class='side badge'>{{card.participants.totalParticipants}}</span>
+                        <span class='hidden text'>d</span>Participants
+                      </tab-heading>
+                      <div class="card-content-wrapper friends">
+                        <div class="list-group scroll friends">
+                          <a href="#" ng-repeat="participants in card.participants.list" class="list-group-item">
+                            {{participants.name}}
+                            <icon ng-show="!participants.isFriends" class="glyphicon glyphicon-plus pull-right"></icon>
+                          </a>
+                        </div>
+                      </div>
+                    </tab>
+                    <tab>
+                      <tab-heading>
+                        <span class='side badge'>{{card.participants.totalFriends}}</span><span class='hidden text'>d</span>Friends
+                      </tab-heading>
+                      <div class="card-content-wrapper friends">
+                        <div class="list-group scroll friends">
+                          <a href="#" ng-repeat="participants in card.participants.list" ng-show="participants.isFriends" class="list-group-item">
+                            {{participants.name}}
+                            <icon ng-show="!participants.isFriends" class="glyphicon glyphicon-plus pull-right"></icon>
+                          </a>
+                        </div>
+                      </div>
+                    </tab>
+                  </tabset>
+                </div>
+              </div>      
+            </div> 
+            <div class="col-md-4">
+              <div class="card-wrap expanded">
+                <div class="card-left pull-left">
+                  <div class="card-activity expanded">
+                      {{card.activity}}
+                  </div>
+                  <div class="card">
+                    <div class="card-star-wrapper star-mouseover">
+                        <a href="#" tooltip-placement="top" tooltip="{{skillDescription}}">
+                          <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
+                        </a>
+                    </div>
+                    <div class="card-header-wrapper">
+                      <div class="description-text">
+                        {{skillDescription}}
+                      </div>
+                      <div class="card-number">
+                        {{card.startdate | amDateFormat: 'HH:mm'}}-{{card.enddate | amDateFormat: 'HH:mm'}}
+                      </div>
+                      <div class="description-text">
+                        {{card.startdate | amDateFormat: 'dddd, MMM Do' | uppercase}}
+                      </div>
+                    </div>
+                    <div class="card-content-wrapper">
+                      <div class="card-info-wrapper">
+                        <div class="card-info-title"> Location</div>
+                        <div class="text-center card-info ">
+                          {{card.location}}
+                        </div>
+                      </div>
+                      <div class="card-info-wrapper">
+                        <div class="card-info-title">Description</div>
+                        <div class="card-info description text-center">
+                          {{card.description}}
+                        </div>
+                      </div>
+                      <div class="card-metrics">
+                        <div class="row">
+                          <div class="col-md-4 friend-list-tooltip">
+                            <div class="active" id ="friend-toggle">
+                              <a href="#" ng-click="toggleFriends()">
+                                <div class="card-number expand-friend">
+                                  <icon class="glyphicon glyphicon-chevron-left pull-left friend-trigger"></icon> 
+                                  {{card.participants.totalFriends}}
+                                </div>
+                                <div class="description-text">
+                                  Friends
+                                </div>                                    
+                              </a>
+                            </div>
+                          </div>                            
+                          <div class="col-md-4">
+                            <div class="card-number">
+                              {{card.fee}}
+                            </div>
+                            <div class="description-text">
+                              Fee
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="active" id="comment-toggle">
+                              <a href="#" ng-click="toggleComments()">
+                                <div class="card-number expand-comment">
+                                  {{card.comments.totalComments}} 
+                                  <icon ng-show="card.comments.unreadComments" class="glyphicon glyphicon-chevron-right pull-right comment-trigger"></icon>
+                                </div>
+                                <div class="description-text">
+                                  Comments
+                                </div>                                   
+                              </a>
+                            </div>
+                          </div>
+                        </div>                            
+                      </div>
+                    </div>
+                    <div class="join-wrapper">
+                      <button type="button" ng-click="join()" class="btn btn-danger fill">Play!</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-right expanded pull-right">
+                  <div class="expand-wrapper" id="minimize-card">
+                    <a href="#" ng-click="cancel()"><icon class="glyphicon glyphicon-resize-small card-expand-icon"></icon></a>
+                  </div>
+                </div>
+              </div>                      
+            </div>
+            <div class="col-md-4">
+              <div class="card-wrap expanded side comments" ng-show="commentShow">
+                <div class="card-header-wrapper comments">
+                  <span class="side badge">{{card.comments.totalComments}}</span><span class="hidden text">d</span>Comments <span class="label label-success pull-right new-badge" ng-show="card.comments.unreadComments">NEW</span>
+                </div>
+                <div class="card-content-wrapper comments">
+                  <ul class="list-group scroll comments">
+                    <div class="name" ng-repeat-start="commentObj in card.comments.list">
+                      <a href="#" class="name">{{commentObj.senderName}}</a>
+                    </div>
+                    <li class="list-group-item" ng-repeat-end>{{commentObj.message}}</li>
+                  </ul>
+                </div>
+                <div class="insert-comment-wrapper">
+                  <div class="insert-comment-box">
+                    <div class="input-group">
+                      <input type="text" class="form-control">
+                      <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">
+                          <icon class="glyphicon glyphicon-comment"></icon>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>      
+            </div> 
+          </div>     
+      </div>
+    </script>
+
+    <div class="super-wrapper">
+      <!-- Top Nav bar -->
+        <div class="navbar navbar-inverse navbar-fixed-top" id="navbar-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a class="brand" href="#/"></a></li>
+              </ul>
+              
+              <ul class="nav navbar-nav navbar-left">
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right" >
+                <li><a href="#/test1" tooltip-placement="bottom" tooltip="Explore">
+                <i class="glyphicon glyphicon-eye-open side-icon"></i></a>
+                </li>
+                <li id="suggest-activity"><a href="#/" tooltip-placement="bottom" tooltip="Create"><i class="glyphicon glyphicon-plus side-icon"></i> </a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">Jack Yiu</a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#"><i class="glyphicon glyphicon-saved"></i><span class="hidden text">a</span> Joined Sports</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-user"></i><span class="hidden text">a</span> Your Profile</a></li>
+                    <li><a href="#"><span class="hidden text">laal</span>Friends</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog secondary-icon"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Profile settings</a></li>
+                    <li><a href="#">Notification settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Privacy settings</a></li>
+                    <li><a href="#">Account settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.navbar-collapse -->
+          </div>
+
+
+        </div>
+      <!-- Top Nav Bar -->
+
+      <div class="navbar-wrapper" ng-view>
+      </div>
+    </div>
+    <!--footer>
+        hi
+      </footer-->    
+  </body>
+</html>

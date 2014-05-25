@@ -5,63 +5,7 @@
 		</div>
 		<h3>The place to find people in UTSC to play with.</h3>
 
-		<!-- SIGNUP FORM -->
-		<form name="signupForm" class="signup" ng-controller="signupCtrl" ng-submit="submit(signupForm.$valid)" novalidate>
-			
-			<!-- NAME -->
-			<div class="form-group" 
-			ng-class="{ 
-			'has-error' : signupForm.name.$invalid && !signupForm.name.$pristine, 
-			'has-success' : !signupForm.name.$invalid && !signupForm.name.$pristine }">	
-				
-				<input type="text" name="name" class="form-control" placeholder="Name" ng-model="signup.name" ng-minlength="2" ng-maxlength="25" required>
-				
-				<!-- Name Validation Messages -->
-					<p ng-show="!signupForm.name.$pristine && signupForm.name.$error.required" class="help-block">Your name is required</p>
-
-					<p ng-show="!signupForm.name.$pristine && signupForm.name.$error.minlength" class="help-block">Your name must contain at least 2 characters</p>
-
-					<p ng-show="signupForm.name.$error.maxlength" class="help-block">Name must contain at most 25 characters</p>
-				<!-- Name Validation Messages -->
-			
-			</div>
-
-			<!-- EMAIL -->
-			<div class="form-group" 
-			ng-class="{ 
-			'has-error' : signupForm.email.$invalid && !signupForm.email.$pristine, 
-			'has-success' : !signupForm.email.$invalid && !signupForm.email.$pristie) }">
-
-				<input type="email" name="email"class="form-control" placeholder="Email" ng-model="signup.email" required>
-
-				<!-- Email Validation Messages -->
-					<p ng-show="!signupForm.email.$pristine && signupForm.email.$error.required"class="help-block">Your utoronto email is required</p>
-	
-					<p ng-show="!signupForm.email.$pristine && signupForm.email.$error.email"class="help-block">Your utoronto email is invalid</p>				
-				<!-- Email Validation Messages -->
-
-			</div>
-			
-			<!-- PASSWORD -->
-			<div class="form-group" ng-class="{ 
-			'has-error' : signupForm.password.$invalid && !signupForm.password.$pristine, 
-			'has-success' : !signupForm.password.$invalid && !signupForm.password.$ristine }">
-
-				<input type="password" name="password" class="form-control" placeholder="Password" ng-model="signup.password" ng-minlength="6" ng-maxlength="25" required>
-
-				<!-- Password Validation Messages -->
-					<p ng-show="!signupForm.password.$pristine && signupForm.password.$error.required" class="help-block">Your password is required</p>
-
-					<p ng-show="!signupForm.password.$pristine && signupForm.password.$error.minlength" class="help-block">Your password must contain at least 6 characters/numbers</p>
-
-					<p ng-show="signupForm.password.$error.maxlength" class="help-block">Your name must contain at most 25 characters/numbers</p>
-				<!-- Password Validation Messages -->
-
-			</div>
-
-			<button type="submit" class="btn btn-primary">Get Started</button>
-
-		</form>
+		<signupform></signupform>
 
 		<div class="more">
 			<p>

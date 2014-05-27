@@ -51,9 +51,11 @@ controllers.dateController = function($scope, $location, $anchorScroll, $filter,
 
   function scrollTo(id) {
   	var formatedId = $filter('date')(id, $scope.filterFormat);
+  	var old = $location.hash();
   	$location.hash(formatedId);
     console.log($location.hash());
     $anchorScroll();
+    $location.hash(old);
   };
 
   $scope.$watch('dt', function(newVal, oldVal) {

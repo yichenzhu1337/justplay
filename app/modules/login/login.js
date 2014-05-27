@@ -17,15 +17,14 @@ controllers.loginCtrl = function($scope, $state){
 			//$state.go('activitylist');
 		} else {
 			console.log(masterLoginCredentials);
-			alert('invalid Login');
 			$scope.registeredEmail = false;
 		}
 	};
 };
 
 directives.loginform = function(){
+	// Runs during compile
 	return {
-		controller: controllers.loginCtrl,
 		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 		templateUrl: 'modules/login/partials/form.html',
 	};

@@ -1,11 +1,10 @@
 var project = angular.module('cardModule', 
 	['angularMoment',
-	'activityModule',
 	'sortModule',
 	'filterModule',
 	'friendModule',
 	'skillModule', 
-	'sportModule',
+	'searchbar',
 	'ui.bootstrap'])
 .factory('cardFactory', function() {
 	var factory = {};
@@ -776,39 +775,44 @@ var controllers = {};
  * from sort & filter controllers to card and expandedCard controllers.
  * @param  {scope} $scope          scope
  * @param  {factory} cardFactory     Factory that contains the cards to display
- * @param  {service} strategyService stores and updates the sorting strategy used
+ * @param  {service} strategyData stores and updates the sorting strategy used
  * @param  {service} activityService stores and updates the activity that's filtered
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = function($scope, cardFactory, strategyService, activityService, filterService) {
+controllers.cardsController = function($scope, cardFactory, strategyData, searchbarData, filterService) {
 	// Base Set of Activities
 	var baseActivities;
 	init();
 	function init() {
 		$scope.dates = cardFactory.getCards(); 
-		$scope.strategyServ = strategyService; // Bind instance of strategyService to scope
-		$scope.activityServ = activityService;
+
+		$scope.strategyData = strategyData; // Bind instance of strategyData to scope
+		$scope.searchbarData = searchbarData;
 		$scope.filterServ = filterService;
-		$scope.sortStrategy = $scope.strategyServ.getSortStrategy(); 
-		$scope.activityFilter = activityService.getActivity();
+
+		$scope.sortStrategy = $scope.strategyData.getSortStrategy(); 
+		$scope.activityFilter = $scope.searchbarData.getData();
 		$scope.filterFlag = $scope.filterServ.getFilterFlag();
+
 		$scope.searchFilter = [];
-		$scope.$watch('strategyServ.getSortStrategy()', function (newVal, oldVal){
+		$scope.$watch('strategyData.getSortStrategy()', function (newVal, oldVal){
 			if (newVal === oldVal){
 				return
 			};
 				console.log("newVal:" + newVal +" oldVal:"+oldVal);
-				$scope.sortStrategy = strategyService.getSortStrategy();
+				$scope.sortStrategy = strategyData.getSortStrategy();
 		});
-		$scope.$watch('activityServ.getActivity()', function (newVal, oldVal){
+
+		$scope.$watch('searchbarData.getData()', function (newVal, oldVal){
 			if (newVal === oldVal){
 				return
 			}
 			console.log("activity newVal:" + newVal +" oldVal:"+oldVal);
-			$scope.activityFilter = activityService.getActivity();
+			$scope.activityFilter = searchbarData.getData();
 			setFilterFlag(false);
 		});
+
 		$scope.$watch('filterServ.getResetFilter()', function(newVal, oldVal){
 			if (newVal === oldVal){
 				return

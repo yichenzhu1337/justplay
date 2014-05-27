@@ -1,4 +1,4 @@
-var mod = angular.module('sportModule', ['activityModule'])
+var module = angular.module('searchbar', [])
 .value('SportValue', {
 	sports: [
 		{id: 1, category: ['RacquetSports'], label: 'Badminton'},
@@ -15,8 +15,13 @@ var mod = angular.module('sportModule', ['activityModule'])
 		{id: 12, category: ['TeamSports'], label: 'Quidditch'}, 
 		{id: 13, category: ['TeamSports'], label: 'Rugby'}
 	]
-})
-.factory('sportFactory', function(SportValue) {
+});
+var factories = {};
+var services = {};
+var controllers = {};
+var directives = {};
+
+factories.sportFactory = function(SportValue) {
 	var factory = {};
 	// Sports should be arranged in 5s
 	
@@ -58,21 +63,42 @@ var mod = angular.module('sportModule', ['activityModule'])
 		return allSports;
 	}
 	return factory;
-})
-.controller('sportController', function($scope, sportFactory, activityService) {
+};
+
+services.searchbarData = function(){
+	var activity;
+	/**
+	 * Sets current activity
+	 * @param {string} act activity
+	 */
+	this.setData = function(act) {
+		//currentSortStrategy.pop();
+		activity = act;
+	};
+
+	/**
+	 * Gets current activity
+	 * @return {string} activity
+	 */
+	this.getData = function() {
+		return activity;
+	};
+}
+
+controllers.sportController = function($scope, sportFactory, searchbarData) {
 	$scope.sports = {};
 	$scope.toggleIcon;
 	$scope.savedSport;
 	init();
 	function init() {
 		$scope.sports = sportFactory.getSports();
-		activityService.setActivity("");
+		searchbarData.setData("");
 		$scope.toggleIcon = false;
 		$scope.savedSport = "";
 	};
 	$scope.setValue = function(sport){
 		$scope.currentsport = sport.label;
-		activityService.setActivity($scope.currentsport);
+		searchbarData.setData($scope.currentsport);
 		if ($scope.currentsport == ""){
 			$scope.toggleIcon = false;
 		} else {
@@ -88,4 +114,16 @@ var mod = angular.module('sportModule', ['activityModule'])
 		$scope.savedSport = curSport;
 		$scope.currentsport = "";
 	}
-});
+};
+
+directives.jpsearchbar = function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'modules/activities/partials/search-bar.tmpl.html'
+	}
+};
+
+module.factory(factories);
+module.controller(controllers);
+module.service(services);
+module.directive(directives);

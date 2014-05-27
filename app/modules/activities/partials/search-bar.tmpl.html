@@ -1,0 +1,49 @@
+<form ng-submit="setValue(currentsport)">
+  <div class="dropdown" id="activitySearchWrapper">
+    <!-- SEARCH BAR -->
+    <input select-on-click id="activitySearchBox" type="text" data-toggle="dropdown" class="form-control" placeholder="Click to view activities" ng-model="currentsport">
+
+    <!-- DROPDOWN MENU -->
+    <div class="dropdown-menu" id='activity-menu'>
+      <div class="list-group">
+
+        <a href="" class="list-group-item" ng-click="setValue('')"><icon class="glyphicon glyphicon-star"></icon> All Sports</a>
+
+        <a href="" class="list-group-item" ng-click="setValue('')"><icon class="glyphicon glyphicon-star"></icon> Sports with friends</a>
+        
+        <div class="header">
+          Racquet Sports
+        </div>
+
+        <a href="" class="list-group-item" ng-repeat="sport in sports.RacquetSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport.label}}</a>
+
+      </div>
+
+      <div class="list-group">
+
+        <div class="header">
+          Other Team Sports
+        </div>
+
+        <a href="" class="list-group-item" ng-repeat="sport in sports.TeamSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport.label}}
+        </a>
+
+      </div>
+
+      <div class="list-group last">
+
+        <a href="" class="list-group-item" ng-repeat="sport in sports.TeamSports[1] | filter: currentsport" ng-click="setValue(sport)">{{sport.label}}</a>
+
+      </div>
+    </div> 
+
+  </div>
+</form>
+
+<a href="" ng-click="resetActivity()" ng-show="toggleIcon">
+  <icon class="glyphicon glyphicon-remove"></icon>
+</a>
+
+<a href="" ng-click="resetActivity()" ng-show="!toggleIcon">
+  <icon class="glyphicon glyphicon-search"></icon>
+</a>

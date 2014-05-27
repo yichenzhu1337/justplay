@@ -1,5 +1,11 @@
-var module = angular.module('sortModule', [])
-.factory('baseSortFactory', function(){
+var module = angular.module('sortModule', []);
+
+var factories = {};
+var services = {};
+var controllers = {};
+var directives = {};
+
+factories.baseSortFactory = function(){
 	var factory = {};
 
 	/* Master list of strategies
@@ -61,13 +67,14 @@ var module = angular.module('sortModule', [])
 	};
 
 	return factory;
-})
+};
 /**
  * Factory that provides strategies for activityCards
  * @param  {factory} baseSortFactory Master Factory that holds all strategies
  * @return {factory}                 Main uses: getStrategies()
  */
-.factory('cardSortFactory', function(baseSortFactory){
+
+factories.cardSortFactory = function(baseSortFactory){
 	var factory = {};
 	var strategies = []; // List of strategies
 	init();
@@ -88,13 +95,13 @@ var module = angular.module('sortModule', [])
 		return strategies.splice(0);
 	};
 	return factory;
-})
+};
 /**
- * Intermediate strategyService to relay attributeName
+ * Intermediate strategyData to relay attributeName
  * and attributeOrder between strategyController and cardsControllers
  * @return {[type]} [description]
  */
-.service('strategyService', function(){
+services.strategyData = function(){
 	var attributeName;
 	var attributeOrder;
 	/**
@@ -144,16 +151,16 @@ var module = angular.module('sortModule', [])
 		}
 		return attributeOrder;
 	}
-})
+};
 /**
  * Displays sorting strategies provided by factory and sends selected 
- * strategies to strategyService
+ * strategies to strategyData
  * @param  {scope} 	 $scope          scope
  * @param  {factory} cardSortFactory Factory containing the strategies we want
- * @param  {service} strategyService Service that sends selected strategies to cardController
+ * @param  {service} strategyData Service that sends selected strategies to cardController
  * @return {none}                    none
  */
-.controller('sortController', function($scope, cardSortFactory, strategyService) {
+controllers.sortController = function($scope, cardSortFactory, strategyData) {
 	$scope.strategies = []; // Array containing all strategies
 	init();
 
@@ -167,23 +174,10 @@ var module = angular.module('sortModule', [])
 		$scope.currentstrategy = $scope.strategies[0].displayName;
 		$scope.currentOrder = $scope.strategies[0].defaultOrder;
 		setSortIcon($scope.currentOrder);
-		strategyService.setOrder($scope.currentOrder);
-		strategyService.setSortStrategy($scope.strategies[0].attributeName);
+		strategyData.setOrder($scope.currentOrder);
+		strategyData.setSortStrategy($scope.strategies[0].attributeName);
 	};
 	
-	/**
-	 * Sets current strategy as well as passing it to the
-	 * strategy service.
-	 * @param {string} attributeName Actual attribute use to sort.
-	 * @param {string} displayName   Description of the strategy
-	 */
-	$scope.setStrategy = function(attributeName, displayName, defaultOrder){
-		$scope.currentstrategy = displayName;
-		strategyService.setSortStrategy(attributeName);
-		strategyService.setOrder(defaultOrder);
-		setSortIcon(defaultOrder);
-	};
-
 	/**
 	 * Sets which icon to use upon switching order
 	 * @param {char} order + or -
@@ -197,14 +191,43 @@ var module = angular.module('sortModule', [])
 	};
 
 	/**
+	 * Sets current strategy as well as passing it to the
+	 * strategy service.
+	 * @param {string} attributeName Actual attribute use to sort.
+	 * @param {string} displayName   Description of the strategy
+	 */
+	$scope.setStrategy = function(attributeName, displayName, defaultOrder){
+		$scope.currentstrategy = displayName;
+		strategyData.setSortStrategy(attributeName);
+		strategyData.setOrder(defaultOrder);
+		setSortIcon(defaultOrder);
+	};
+
+	/**
 	 * Reverses order of currentOrder and reflects
 	 * this on UI.
 	 * @return {none} none
 	 */
 	$scope.reverseOrder = function(){
-		// Update strategyService as well as scope's currentOrder
-		$scope.currentOrder = strategyService.reverseOrder($scope.currentOrder); 
+		// Update strategyData as well as scope's currentOrder
+		$scope.currentOrder = strategyData.reverseOrder($scope.currentOrder); 
 		// Update our sort icon
 		setSortIcon($scope.currentOrder);
 	};
-});
+};
+
+/**
+ * 	Directive that holds sorting for activities
+ * @return {Directive} 	Directive for activity sorting
+ */
+directives.sort = function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'modules/activities/partials/sort.tmpl.html'
+	}
+}
+
+module.factory(factories);
+module.controller(controllers);
+module.service(services);
+module.directive(directives);

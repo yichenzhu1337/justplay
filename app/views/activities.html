@@ -1,84 +1,38 @@
 <!-- Header -->
   <div class="header-bg">
     <div class="header-content-wrapper">
-    <div class="activity-chooser-wrapper pull-left">
-    <!-- SearchBar Controller -->
-      <div id="activity-search-bar" class="input-group header-search" ng-controller="sportController">
-        <form ng-submit="setValue(currentsport)">
-          <div class="dropdown" id="activitySearchWrapper">
-            <input select-on-click id="activitySearchBox" type="text" data-toggle="dropdown" class="form-control" placeholder="Click to view activities" ng-model="currentsport">
-            <div class="dropdown-menu" id='activity-menu'>
-              <div class="list-group">
-                <a href="" class="list-group-item" ng-click="setValue('')"><icon class="glyphicon glyphicon-star"></icon> All Sports</a>
-                <a href="" class="list-group-item" ng-click="setValue('')"><icon class="glyphicon glyphicon-star"></icon> Sports with friends</a>
-                <div class="header">
-                  Racquet Sports
-                </div>
-                <a href="" class="list-group-item" ng-repeat="sport in sports.RacquetSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport.label}}</a>
-              </div>
-
-              <div class="list-group">
-                <div class="header">
-                  Other Team Sports
-                </div>
-                  <a href="" class="list-group-item" ng-repeat="sport in sports.TeamSports[0] | filter: currentsport" ng-click="setValue(sport)">{{sport.label}}</a>
-              </div>
-
-              <div class="list-group last">
-                <a href="" class="list-group-item" ng-repeat="sport in sports.TeamSports[1] | filter: currentsport" ng-click="setValue(sport)">{{sport.label}}</a>
-              </div>
-            </div> 
+      <div class="activity-chooser-wrapper pull-left">
+      <!-- SearchBar Controller -->
+        <jpsearchbar id="activity-search-bar" ng-controller="sportController">
+        </jpsearchbar> 
+      <!-- ENDOF SearchBar Controller -->
+      <!-- Filter Controller -->
+        <div class="filter-box" ng-controller="filterController"> 
+          <div class="filter-wrap" ng-repeat="bundle in bundles | orderBy: 'id'">
+            <multiselect 
+              multiple='true' 
+              ng-model="bundle.selected" 
+              ms-header="{{bundle.placeholder}}"
+              ms-multiple-string="{{bundle.maxString}}"
+              ms-max-length="{{bundle.maxLength}}"
+              ms-max-length-string="{{bundle.maxLengthString}}"
+              ng-change="allowFilter()"
+              options="filter.value as filter.label for filter in bundle.options">
+            </multiselect>
           </div>
-        </form>
-        <a href="" ng-click="resetActivity()" ng-show="toggleIcon" id="resetActivity">
-          <icon class="glyphicon glyphicon-remove"></icon>
-        </a>
-        <a href="" type="submit" ng-animation="am-flip-x" ng-show="!toggleIcon" id="resetActivity">
-          <icon class="glyphicon glyphicon-search"></icon>
-        </a>
-      </div> 
-    <!-- ENDOF SearchBar Controller -->
-    <!-- Filter Controller -->
-      <div class="filter-box" ng-controller="filterController"> 
-        <div class="filter-wrap" ng-repeat="bundle in bundles | orderBy: 'id'">
-          <multiselect 
-            multiple='true' 
-            ng-model="bundle.selected" 
-            ms-header="{{bundle.placeholder}}"
-            ms-multiple-string="{{bundle.maxString}}"
-            ms-max-length="{{bundle.maxLength}}"
-            ms-max-length-string="{{bundle.maxLengthString}}"
-            ng-change="allowFilter()"
-            options="filter.value as filter.label for filter in bundle.options">
-          </select>
-        </div>
-        <div class="filter-reset">
-          <button type="button" ng-click="resetFilters()" class="btn btn-primary fill">Reset Filters</button>            
-        </div>
-      </div>
-    <!--ENDOF Filter Controller -->
-  </div>
-      <!-- Sort Controller -->
-      <div class="sort-filter-wrapper pull-right" ng-controller="sortController">
-        <div class="sort">
-          Sort by: 
-          <div class="sort-select-wrap dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown">
-              {{currentstrategy}}
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li ng-repeat="strat in strategies" >
-                <a href="" ng-model="strategy" ng-click="setStrategy(strat.attributeName, strat.displayName, strat.defaultOrder)">{{strat.displayName}}</a>
-              </li>
-            </ul>    
+          <div class="filter-reset">
+            <button type="button" ng-click="resetFilters()" class="btn btn-primary fill">Reset Filters</button>            
           </div>
-          <a href="" id="reverseOrder" ng-click="reverseOrder()"><i class="glyphicon glyphicon-arrow-{{orderIcon}}"></i></a>
         </div>
+      <!--ENDOF Filter Controller -->
       </div>
-      <!-- ENDOF Sort Controller -->
+
+      <sort class="pull-right sort-filter-wrapper " ng-controller="sortController">
+      </sort>
     </div>
   </div>
 <!-- Header -->
+
 <div class="page-container">
   <div class="content-wrapper" ng-controller="cardsController" >
       <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date' " >

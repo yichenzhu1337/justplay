@@ -2,7 +2,8 @@ var app = angular.module('app',
 	[
 		'ui.router',
 		'jp.login',
-		'jp.signup'
+		'jp.signup',
+		'jp.activitiespage'
 	]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -20,6 +21,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	})
 	.state('activitylist', {
 		url: "/activitylist",
-		templateUrl: "activity-list.html"
-	})
+		templateUrl: "modules/activities/activities_navbar.tmpl.html"
+	});
 }]);

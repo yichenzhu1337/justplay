@@ -23,22 +23,67 @@
 
 		<!-- JS DEPENDENCIES -->
 
+		<!-- Core CSS - Include with every page -->
+	  <link href="lib/bootstrap-3.1.0/dist/css/bootstrap.css" rel="stylesheet">
+	  <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">  
+
+	  <link href="css/playground.css" rel="stylesheet"> 
+	  <link href="css/activity.css" rel="stylesheet"> 
 	  <!-- Core Scripts - Include with every page -->
 	  <script src="lib/jquery/jquery-1.10.2.js"></script>
 	  <script src="lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
 
 	  <!-- justPlay JS -->
-  	<script src="js/non-angular/popovers.js"></script>
+	  <script src="js/non-angular/popovers.js"></script>
 
 	  <!-- Angular Js -->
 	  <script src="lib/angular/angular.min.js"></script>
+	  <script src="lib/angular/angular-resource.min.js"></script>
+	  <script src="lib/angular/angular-route.min.js"></script>
+
+	  <!-- Angular UI Bootstrap Directives -->
+	  <script src="lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+
+	  <!-- Date picker & Moment.js-->
+	  <script type="text/javascript" src="lib/bootstrap-daterangepicker-master/moment.js"></script>
+	  <script type="text/javascript" src="lib/bootstrap-daterangepicker-master/daterangepicker.js"></script>
+	  <link rel="stylesheet" type="text/css" media="all" href="lib/bootstrap-daterangepicker-master/daterangepicker-bs3.css" />
+	  <script src="lib/angular-moment/angular-moment.js"></script>
+	  
+	  <!-- Angular UI -->
+	  <script type="text/javascript" src="lib/ui-utils-0.1.1/ui-utils.js"></script>
+
+	  <!-- Angular multi select -->
+	  <link rel="stylesheet" type="text/css" media="all" href="lib/angular-multiselect-master/src/style.css" />
+	  <script src="lib/angular-multiselect-master/src/multiselect.js"></script> 
 
 	  <!-- Angular ui router -->
 	  <script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
-	  <!-- justPlay AngularModules -->
-	  <script type="text/javascript" src="js/app.js"></script>
+
+	  <!-- Modules -->
+
+	  <!-- justPlay activity Modules -->
+	  <script src="js/sortModule.js"></script>
+	  <script src="js/skillModule.js"></script>
+	  <script src="js/cardModule.js"></script>
+	  <script src="js/friendModule.js"></script>
+	  <script src="js/filterModule.js"></script>
+	  <script src="js/activityModule.js"></script>
+	  <script src="js/searchbar.js"></script>
+	  <script src="js/dateModule.js"></script>
+	  <script src="js/project.js"></script>
+
+		<!-- justplay activities main page -->
+		<script src="modules/activities/activities.js"></script>
+
+
+	  <!-- justPlay login/signup Modules -->
 	  <script type="text/javascript" src="modules/login/login.js"></script>
 		<script type="text/javascript" src="modules/signup/signup.js"></script>
+		
+		<!-- justplay main page -->
+	  <script type="text/javascript" src="js/app.js"></script>
+
 	</body>
 </html>

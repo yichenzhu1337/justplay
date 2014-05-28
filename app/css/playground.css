@@ -153,7 +153,7 @@
     color: white;
   }
 
-  .filter-box {
+  jpactivityfilter {
     margin-left: -5px;
     display: inline-block;
     margin-top: 5px;
@@ -180,11 +180,11 @@
     height: 
   }
 
-  .filter-box > select {
+  jpactivityfilter > select {
     width: 150px;
   }
 
-  .filter-box > .filter-reset {
+  jpactivityfilter > .filter-reset {
     margin-left: 2px;
     display: inline-block;
   }

@@ -169,7 +169,7 @@ controllers.filterController = function($scope, filterService, filterFactory){
 	}
 };
 
-directives.activityfilter = function() {
+directives.jpactivityfilter = function() {
 	return {
 		restrict: 'E',
 		templateUrl: 'modules/activities/components/filters/filters.tmpl.html'

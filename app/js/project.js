@@ -1,6 +1,5 @@
 var project = angular.module('project', 
 	[
-	'angularMoment', 
 	'sortModule',
 	'skillModule', 
 	'cardModule', 

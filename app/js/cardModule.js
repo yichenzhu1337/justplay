@@ -1,5 +1,6 @@
 var project = angular.module('cardModule', 
 	[
+	'angularMoment', 
 	'sortModule',
 	'filterModule',
 	'friendModule',

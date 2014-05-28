@@ -1,5 +1,12 @@
 var mod = angular.module('filterModule', [])
-.filter('property', function($filter){
+
+var factories = {};
+var services = {};
+var controllers = {};
+var directives = {};
+var filters = {};
+
+filters.property = function($filter){
 	return function(cards, bundle, flag) {
 		var filtered = [];
 		var isInserted = false;
@@ -19,8 +26,8 @@ var mod = angular.module('filterModule', [])
 			return filtered;
 		}
 	};
-})
-.filter('typeChooser', function($filter){
+};
+filters.typeChooser = function($filter){
 	var allFilters = ['exact'];
 	function filterTypeExists(bundle) {
 		for (var i = 0; i < allFilters.length; i++) {
@@ -37,8 +44,8 @@ var mod = angular.module('filterModule', [])
 			return null;
 		}
 	}
-})
-.filter('exact', function(){
+};
+filters.exact = function(){
 	return function(card, bundle) { 
 		for (var j = 0; j < bundle.selected.length ; j++) { // For each filter value selected
 			attr = bundle.attribute;
@@ -50,8 +57,8 @@ var mod = angular.module('filterModule', [])
 		}
 		return false;
 	};
-})
-.service('filterService', function(){
+}
+services.filterService = function(){
 	var bundles = [];
 	var filterFlag = false;
 	this.getFilters = function(){
@@ -68,8 +75,8 @@ var mod = angular.module('filterModule', [])
 		filterFlag = bool;
 	}
 
-})
-.factory('filterFactory', function(){
+}
+factories.filterFactory = function(){
 	factory = {};
 	var bundles = {
 		Skill: {
@@ -128,8 +135,8 @@ var mod = angular.module('filterModule', [])
 
 
 	return factory;
-})
-.controller('filterController', function($scope, filterService, filterFactory){
+}
+controllers.filterController = function($scope, filterService, filterFactory){
 	init();
 	function init(){
 		$scope.filterServ = filterService;
@@ -160,4 +167,17 @@ var mod = angular.module('filterModule', [])
 	$scope.allowFilter = function(){
 		$scope.filterServ.setFilterFlag(true);
 	}
-});
+};
+
+directives.activityfilter = function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'modules/activities/components/filters/filters.tmpl.html'
+	}
+};
+
+module.factory(factories);
+module.controller(controllers);
+module.service(services);
+module.directive(directives);
+module.filter(filters);

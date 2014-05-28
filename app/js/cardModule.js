@@ -821,11 +821,11 @@ controllers.cardsController = function($scope, cardFactory, strategyData, search
 		});
 		
 		$scope.$watch('filterServ.getFilters()', function(newVal, oldVal){
-			console.log("outer filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
+			// console.log("outer filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
 			if (newVal === oldVal){
 				return;
 			}
-			console.log("inner filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
+			// console.log("inner filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
 			$scope.searchFilter = $scope.filterServ.getFilters();
 		}, true);
 

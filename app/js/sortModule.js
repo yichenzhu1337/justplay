@@ -220,7 +220,7 @@ controllers.sortController = function($scope, cardSortFactory, strategyData) {
  * 	Directive that holds sorting for activities
  * @return {Directive} 	Directive for activity sorting
  */
-directives.sort = function() {
+directives.jpsort = function() {
 	return {
 		restrict: 'E',
 		templateUrl: 'modules/activities/components/sort/sort.tmpl.html'

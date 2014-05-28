@@ -153,7 +153,7 @@
     color: white;
   }
 
-  jpactivityfilter {
+  .activity-filter-wrapper {
     margin-left: -5px;
     display: inline-block;
     margin-top: 5px;
@@ -167,7 +167,7 @@
     display: inline-block;
   }
 
-  .sort-filter-wrapper {
+  .sort-wrapper {
     width: auto;
     height: 47px;  
     padding-top: 160px;
@@ -227,7 +227,7 @@
     height: 47px;
   }
 
-  jpsearchbar {
+  .searchbar-wrapper {
     display: inherit;
     margin-top: 70.62px;
     margin-bottom: 24px;

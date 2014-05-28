@@ -3,18 +3,14 @@
     <div class="header-content-wrapper">
       <div class="activity-chooser-wrapper pull-left">
       <!-- SearchBar Controller -->
-        <jpsearchbar ng-controller="sportController">
-        </jpsearchbar> 
+        <jpsearchbar ng-controller="sportController" class="searchbar-wrapper" />
       <!-- ENDOF SearchBar Controller -->
       <!-- Filter Controller -->
-        <jpactivityfilter ng-controller="filterController">
-           
-        </jpactivityfilter>
+        <jpactivityfilter ng-controller="filterController" class="activity-filter-wrapper" />
       <!--ENDOF Filter Controller -->
       </div>
 
-      <sort class="pull-right sort-filter-wrapper " ng-controller="sortController">
-      </sort>
+      <jpsort ng-controller="sortController" class="pull-right sort-wrapper" />
     </div>
   </div>
 <!-- Header -->

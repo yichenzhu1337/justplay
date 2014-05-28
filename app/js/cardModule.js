@@ -3,9 +3,9 @@ var project = angular.module('cardModule',
 	'angularMoment', 
 	'sortModule',
 	'filterModule',
+	'searchbar',
 	'friendModule',
 	'skillModule', 
-	'searchbar',
 	'ui.bootstrap'])
 .factory('cardFactory', function() {
 	var factory = {};

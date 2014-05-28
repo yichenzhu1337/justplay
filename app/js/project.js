@@ -1,12 +1,9 @@
 var project = angular.module('project', 
 	[
 	'sortModule',
-	'skillModule', 
-	'cardModule', 
-	'friendModule',  
-	'searchbar',
 	'filterModule', 
-	'ui.multiselect',
+  'searchbar',
+  'cardModule',  
 	'ngRoute',
   'dateModule'
 	])

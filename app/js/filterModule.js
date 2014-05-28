@@ -1,4 +1,6 @@
-var mod = angular.module('filterModule', [])
+var mod = angular.module('filterModule', [
+	'ui.multiselect'
+	])
 
 var factories = {};
 var services = {};

@@ -223,7 +223,7 @@ controllers.sortController = function($scope, cardSortFactory, strategyData) {
 directives.sort = function() {
 	return {
 		restrict: 'E',
-		templateUrl: 'modules/activities/partials/sort.tmpl.html'
+		templateUrl: 'modules/activities/components/sort/sort.tmpl.html'
 	}
 }
 

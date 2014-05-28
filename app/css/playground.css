@@ -554,12 +554,6 @@
     text-align: center;
   }
 
-  .card-right {
-    padding-top: 25px;
-    width: auto;
-    display: inline-block;
-  }
-
   .card-expand-icon {
     color: #ecf0f1;
   }

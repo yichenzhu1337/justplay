@@ -1,5 +1,5 @@
 var project = angular.module('cardModule', 
-	['angularMoment',
+	[
 	'sortModule',
 	'filterModule',
 	'friendModule',
@@ -784,18 +784,23 @@ controllers.cardsController = function($scope, cardFactory, strategyData, search
 	// Base Set of Activities
 	var baseActivities;
 	init();
+
 	function init() {
 		$scope.dates = cardFactory.getCards(); 
+
 
 		$scope.strategyData = strategyData; // Bind instance of strategyData to scope
 		$scope.searchbarData = searchbarData;
 		$scope.filterServ = filterService;
 
+		/* Initialize Items we're watching */
 		$scope.sortStrategy = $scope.strategyData.getSortStrategy(); 
 		$scope.activityFilter = $scope.searchbarData.getData();
 		$scope.filterFlag = $scope.filterServ.getFilterFlag();
 
 		$scope.searchFilter = [];
+
+		/* WATCH FOR ANY CHANGES IN DATA FOR FILTERING */
 		$scope.$watch('strategyData.getSortStrategy()', function (newVal, oldVal){
 			if (newVal === oldVal){
 				return
@@ -837,10 +842,11 @@ controllers.cardsController = function($scope, cardFactory, strategyData, search
 			$scope.filterFlag = newVal;
 		});
 
-		function setFilterFlag(val) {
-			$scope.filterServ.setFilterFlag(val);
-			$scope.filterFlag = val;
-		};
+	};
+
+	function setFilterFlag(val) {
+		$scope.filterServ.setFilterFlag(val);
+		$scope.filterFlag = val;
 	};
 };
 
@@ -881,15 +887,7 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 	 * @return {none} none
 	 */
 	$scope.open = function(){
-		var modalInstance = $modal.open({
-			templateUrl: 'expandedCard.html',
-			controller: controllers.expandedCardController,
-			resolve: {
-				card: function() {
-					return $scope.card;
-				}
-			}
-		});
+
 	};
 	/**
 	 * Retrieves the friend list (Static)
@@ -908,7 +906,5 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 		return friendListString;
 	}
 };
-
-
 
 project.controller(controllers);

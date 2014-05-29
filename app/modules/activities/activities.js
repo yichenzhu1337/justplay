@@ -1,29 +1,24 @@
 var jpactivitiespage = angular.module('jp.activitiespage', 
 	[
+	'ui.router',
 	'sortModule',
 	'filterModule', 
   'searchbar',
   'cardModule',  
-	'ngRoute',
   'dateModule'
 	]);
-/*
-jpactivitiespage.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider
-	.otherwise('/');
 
+jpactivitiespage.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$stateProvider
-	.state("login", {
-		url: "/login",
-		templateUrl: "modules/login/login.html"
+	.state('mainpage.activities', {
+		url: "/mainpage/activities",
+		views: {
+			"header": {
+				templateUrl: "modules/activities/partials/header.tmpl.html"
+			},
+			"body": {
+				templateUrl: "modules/activities/partials/body.tmpl.html"
+			}
+		}
 	})
-	.state('signup',{
-		url: "/signup",
-		templateUrl: "modules/signup/signup.html"	
-	})
-	.state('activitylist', {
-		url: "/activitylist",
-		templateUrl: "modules/activities/activities_navbar.tmpl.html"
-	});
 }]);
-*/

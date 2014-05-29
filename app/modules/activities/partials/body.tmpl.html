@@ -1,22 +1,3 @@
-<!-- Header -->
-  <div class="header-bg">
-    <div class="header-content-wrapper">
-      <div class="activity-chooser-wrapper pull-left">
-
-        <jpsearchbar ng-controller="sportController" class="searchbar-wrapper" />
-
-        <jpactivityfilter ng-controller="filterController" class="activity-filter-wrapper" />
-
-      </div>
-      <div class="pull-right sort-wrapper">
-
-        <jpsort ng-controller="sortController" />
-
-      </div>
-    </div>
-  </div>
-<!-- Header -->
-
 <div class="page-container">
   <div class="content-wrapper" ng-controller="cardsController" >
       <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date' " >

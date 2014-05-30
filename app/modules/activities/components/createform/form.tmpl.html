@@ -1,4 +1,4 @@
-<form role="form" novalidate>
+<form name="createActForm" ng-controller="activityController" ng-submit="submitt(createActForm.$valid)" novalidate>
   <div class="form-group">
     <select 
     class="form-control"
@@ -6,51 +6,52 @@
     ng-options="c.value as c.label group by c.category for c in activities">
     </select >     
     <div class="divider"></div>
+	</div>
 
     <div class="row">
-    	<div class="col-md-6" ng-controller="activityCreateDateController">
-	      <input type="datetime" class="form-control" id="inputDate" placeholder="Date (within a week)"
+    	<div class="col-md-4 form-group" ng-controller="activityCreateDateController">
+	      <input type="datetime" name="date" class="form-control" id="inputDate" placeholder="Date (within a week)"
 	      	datepicker-popup='EEEE, MMM d'
 		      ng-model="dt" 
 		      is-open="opened" 
 		      min="minDate" 
 		      max="maxDate"
 		      ng-required="true" 
-		      close-text="Close"/>
-    	</div>
-    	<div class="col-md-6">
-    		<input type="text" class="form-control" placeholder="Activity Duration">
+		      close-text="Close" required/>
+    	</div>    	
+			<div class="col-md-4 form-group">
+    		<input type="text" name="startingtime" class="form-control" placeholder="Starting Time">
+			</div>
+
+    	<div class="col-md-4 form-group">
+    		<input type="text" name="duration" class="form-control" placeholder="Duration">
     	</div>
     </div>
 
+    
     <div class="divider"></div>
-    <div class="row">
-    	<div class="col-md-6">
-		    <div class="input-group"> 
-		      <input type="number" class="form-control" name="minCap" placeholder="Minimum people to start" disabled>
-		    </div>    		
-    	</div>
-    	<div class="col-md-6">
-		    <div class="input-group"> 
-		      <input type="number" class="form-control" name="maxCap" placeholder="Maximum people that can join">
-		    </div>    
-    	</div>
-    </div>
+    <div class="form-group"> 
+      <input type="number" class="form-control" name="maxCap" placeholder="Number of people you're looking to play with">
+    </div>    
 
     <div class="divider"></div>
-    <div class="input-group">
-      <input type="text" class="form-control" name="location" placeholder="Location" disabled>
-      <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
-    </div>
+   
+   	<div class="form-group">
+	    <div class="input-group">
+	      <input type="text" class="form-control" name="location" placeholder="Location" disabled>
+	      <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
+	    </div>   	
+   	</div> 
+
+
     <div class="divider"></div>
-    <div class="input-group">
-      <textarea class="form-control" id="inputDescription" rows="3" placeholder="Description (I am looking to play with people that enjoy playing some badminton. Would love some friendly competition)"></textarea>
-    </div>
-    <div class="checkbox">
-      <label>
-        <input id="inputPrivate" type="checkbox" disabled> Private (Invite only)
-      </label>
-    </div>
-    <button type="button" class="btn btn-success fill" onclick="$('#suggest-activity').popover('hide');">Continue</button>
+
+		<div class="form-group">
+	    <div class="input-group">
+	      <textarea class="form-control" id="inputDescription" rows="3" placeholder="Description (I am looking to play with people that enjoy playing some badminton. Would love some friendly competition)"></textarea>
+	    </div>			
+		</div>
+
+    <button type="submit" class="btn btn-success fill">Continue</button>
   </div>  
 </form>

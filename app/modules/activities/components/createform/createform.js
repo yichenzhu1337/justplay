@@ -1,4 +1,4 @@
-var module = angular.module('createform', ['searchbar'])
+var module = angular.module('createform', [])
 .value("filterRegex", 'EEEE, MMM d');
 
 var factories = {};
@@ -9,6 +9,15 @@ var directives = {};
 controllers.activityController = function($scope, sportFactory){
 	$scope.activities = sportFactory.getSportInList();
 	$scope.activitySelected;
+
+	$scope.submitt = function(isValid) {
+		$scope.showValidation;
+		if (isValid) {
+			console.log("success: " + isValid);
+		} else {
+			console.log("fail: " + isValid);
+		}
+	}
 };
 
 controllers.activityCreateDateController = function($scope, $filter, filterRegex) {

@@ -3,7 +3,7 @@ var mod = angular.module('dateModule', [])
 
 var controllers = {};
 
-controllers.dateController = function($scope, $location, $anchorScroll, $filter, filterRegex) {
+controllers.activityListDateController = function($scope, $location, $anchorScroll, $filter, filterRegex) {
 	$scope.today = function() {
     $scope.dt = $scope.dateobj.date;
   };

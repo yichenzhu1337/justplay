@@ -5,7 +5,8 @@ var jpactivitiespage = angular.module('jp.activitiespage',
 	'filterModule', 
   'searchbar',
   'cardModule',  
-  'dateModule'
+  'dateModule',
+  'createform'
 	]);
 
 jpactivitiespage.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -24,10 +25,10 @@ jpactivitiespage.config(['$stateProvider', '$urlRouterProvider', function($state
 	.state('mainpage.create', {
 		url: "/activities/create",
 		views: {
-			"header": {
+			"header": {}, 
+			"body": {
 				templateUrl: "modules/activities/partials/createform.tmpl.html"
-			}, 
-			"body": {}
+			}
 		}
 	})
 }]);

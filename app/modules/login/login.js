@@ -9,7 +9,7 @@ controllers.loginCtrl = function($scope, $state){
 	
 	$scope.submit = function(isValid) {
 		$scope.submitted = true;
-		$state.go('mainpage');
+		$state.go('mainpage.activities');
 		if (isValid) {
 			masterLoginCredentials = angular.copy($scope.login);
 			console.log(masterLoginCredentials);

@@ -11,7 +11,7 @@ var jpactivitiespage = angular.module('jp.activitiespage',
 jpactivitiespage.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 	.state('mainpage.activities', {
-		url: "/mainpage/activities",
+		url: "/activities",
 		views: {
 			"header": {
 				templateUrl: "modules/activities/partials/header.tmpl.html"
@@ -19,6 +19,15 @@ jpactivitiespage.config(['$stateProvider', '$urlRouterProvider', function($state
 			"body": {
 				templateUrl: "modules/activities/partials/body.tmpl.html"
 			}
+		}
+	})
+	.state('mainpage.create', {
+		url: "/activities/create",
+		views: {
+			"header": {
+				templateUrl: "modules/activities/partials/createform.tmpl.html"
+			}, 
+			"body": {}
 		}
 	})
 }]);

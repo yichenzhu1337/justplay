@@ -1,57 +1,63 @@
 <form name="createActForm" ng-controller="activityController" ng-submit="submitt(createActForm.$valid)" novalidate>
-  <div class="form-group">
+  
+  <!-- ACTIVITY -->
     <select 
+    name="activityname"
     class="form-control"
-    ng-model="activityselected"
-    ng-options="c.value as c.label group by c.category for c in activities">
-    </select >     
-    <div class="divider"></div>
-	</div>
-
-    <div class="row">
-    	<div class="col-md-4 form-group" ng-controller="activityCreateDateController">
-	      <input type="datetime" name="date" class="form-control" id="inputDate" placeholder="Date (within a week)"
-	      	datepicker-popup='EEEE, MMM d'
-		      ng-model="dt" 
-		      is-open="opened" 
-		      min="minDate" 
-		      max="maxDate"
-		      ng-required="true" 
-		      close-text="Close" required/>
-    	</div>    	
-			<div class="col-md-4 form-group">
-    		<input type="text" name="startingtime" class="form-control" placeholder="Starting Time">
-			</div>
-
-    	<div class="col-md-4 form-group">
-    		<input type="text" name="duration" class="form-control" placeholder="Duration">
-    	</div>
+    ng-model="create.activity"
+    ng-options="c.id as c.label group by c.category for c in activities"
+    required>
+    <option value="">Select Activity</option> 
+    </select >  
+    <span ng-show="!createActForm.activityname.$pristine && createActForm.activityname.$error.required">Select Activity</span>
+  
+  <!-- DATE, TIME, DURATION -->
+  <div class="row">
+    <div class="col-md-4 form-group" ng-controller="activityCreateDateController"> 
+      <input type="datetime" class="form-control"  
+        placeholder="Date (within a week)"
+        datepicker-popup='EEEE, MMM d'
+        name="startdate"
+        ng-model="startdate" 
+        is-open="opened" 
+        min="minDate" 
+        max="maxDate"
+        close-text="Close" required>
+        <span ng-show="!createActForm.startdate.$pristine && createActForm.startdate.$error.required">Select Date</span>
     </div>
 
-    
-    <div class="divider"></div>
-    <div class="form-group"> 
-      <input type="number" class="form-control" name="maxCap" placeholder="Number of people you're looking to play with">
-    </div>    
+    <div class="col-md-4 form-group">
+      <input type="text" name="startingtime" ng-model="create.starttime" class="form-control" placeholder="Starting Time" required>
+      <span ng-show="!createActForm.startingtime.$pristine && createActForm.startingtime.$error.required">Select Time</span>
+    </div>
 
-    <div class="divider"></div>
-   
-   	<div class="form-group">
-	    <div class="input-group">
-	      <input type="text" class="form-control" name="location" placeholder="Location" disabled>
-	      <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
-	    </div>   	
-   	</div> 
+    <div class="col-md-4 form-group">
+      <input type="text" name="duration" ng-model="create.duration" class="form-control" placeholder="Duration" required>
+      <span ng-show="!createActForm.duration.$pristine && createActForm.duration.$error.required">Select Duration</span>
+    </div>
+  </div>
 
+  <!-- MAX CAPACITY -->
+  <div class="form-group"> 
+    <input type="number" name="maxcap" ng-model="create.capacity" class="form-control" placeholder="Number of people you're looking to play with" required>
+    <span ng-show="!createActForm.maxcap.$pristine && createActForm.maxcap.$error.required">Select Capacity</span>
+  </div>    
+ 
+  <!-- LOCATION (Disabled) -->
+ 	<div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" name="location"  ng-model="create.location" placeholder="Location" disabled>
+      <span class="input-group-addon"><icon class="glyphicon glyphicon-map-marker"></icon></span>
+    </div>   	
+ 	</div> 
 
-    <div class="divider"></div>
+  <!-- DESCRIPTION -->
+	<div class="form-group">
+    <div class="input-group">
+      <textarea name="description" ng-model="create.description" class="form-control"  rows="3" placeholder="Description (I am looking to play with people that enjoy playing some badminton. Would love some friendly competition)" required></textarea>
+      <span ng-show="!createActForm.description.$pristine && createActForm.description.$error.required">Select Description</span>
+    </div>
+	</div>
 
-		<div class="form-group">
-	    <div class="input-group">
-	      <textarea class="form-control" id="inputDescription" rows="3" placeholder="Description (I am looking to play with people that enjoy playing some badminton. Would love some friendly competition)"></textarea>
-	    </div>			
-		</div>
-
-    <button type="submit" class="btn btn-success fill">Continue</button>
-  </div>  
+  <button type="submit" class="btn btn-success fill">Continue</button>
 </form>

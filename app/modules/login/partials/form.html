@@ -4,11 +4,13 @@
 	<!-- EMAIL -->
 	<div class="form-group"
 	ng-class="
-	{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
+	{ 'has-error' : submittedLoginForm.email.$invalid && !submittedLoginForm.email.$pristine }">
 		<input name="email" type="email" class="form-control" placeholder="Email" ng-model="login.email" required>
 		
 		<!-- Email Validation Messages -->
-			<p ng-show="!loginForm.email.$pristine && !registeredEmail && submitted" class="help-block">We can't find your email, have you signed up yet?</p>
+			<p ng-show="submittedLoginForm.email.$error.required" class="help-block">Your UT Email please</p>		
+			<p ng-show="!submittedLoginForm.email.$pristine && submittedLoginForm.email.$error.email" class="help-block">Invalid email format</p>
+			<p ng-show="!submittedLoginForm.email.$pristine && !registeredEmail" class="help-block">We can't find your email, have you signed up yet?</p>
 		<!-- Email Validation Messages -->
 
 	</div>
@@ -16,16 +18,16 @@
 	<!-- PASSWORD -->
 	<div class="form-group" 
 	ng-class="{ 
-	'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+	'has-error' : submittedLoginForm.password.$invalid && !submittedLoginForm.password.$pristine }">
 		
 		<input name="password" type="password" class="form-control" placeholder="Password" ng-model="login.password" ng-maxlength="25" ng-minlength="6" required>
 	
 		<!-- Password Validation Messages -->
-		<p ng-show="!loginForm.password.$pristine && loginForm.password.$error.required && submitted" class="help-block">Your password is required</p>
+		<p ng-show="submittedLoginForm.password.$error.required" class="help-block">Your password please :)</p>
 
-		<p ng-show="!loginForm.password.$pristine && loginForm.password.$error.minlength && submitted" class="help-block">Your password should contain at least 6 characters/numbers</p>
+		<p ng-show="!submittedLoginForm.password.$pristine && submittedLoginForm.password.$error.minlength" class="help-block">Your password should contain at least 6 characters/numbers</p>
 
-		<p ng-show="loginForm.password.$error.maxlength && submitted" class="help-block">Your password should contain at most 25 characters/numbers</p>
+		<p ng-show="submittedLoginForm.password.$error.maxlength" class="help-block">Your password should contain at most 25 characters/numbers</p>
 		<!-- Password Validation Messages -->
 
 	</div>

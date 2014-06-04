@@ -6,18 +6,18 @@ var directives = {};
 controllers.loginCtrl = function($scope, $state){
 	var masterLoginCredentials = {};
 	$scope.registeredEmail = true;
-	
+	$scope.submittedLoginForm = {};
+
 	$scope.submit = function(isValid) {
-		$scope.submitted = true;
-		$state.go('mainpage.activities');
+		$scope.submittedLoginForm = angular.copy($scope.loginForm);
+		masterLoginCredentials = angular.copy($scope.login);
+		// console.log(masterLoginCredentials);
+		// $state.go('mainpage.activities');
 		if (isValid) {
-			masterLoginCredentials = angular.copy($scope.login);
-			console.log(masterLoginCredentials);
 			$scope.registeredEmail = true;
 			//$state.go('activitylist');
 		} else {
-			console.log(masterLoginCredentials);
-			$scope.registeredEmail = false;
+			//$scope.registeredEmail = false;
 		}
 	};
 };

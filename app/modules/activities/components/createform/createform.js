@@ -1,4 +1,4 @@
-var module = angular.module('createform', [])
+var module = angular.module('createform', ['utilityDirectives'])
 .value("filterRegex", 'EEEE, MMM d');
 
 var factories = {};
@@ -9,9 +9,11 @@ var directives = {};
 controllers.activityController = function($scope, sportFactory){
 	$scope.activities = sportFactory.getSportInList();
 	$scope.activitySelected;
+  $scope.submitted = {};
 
-	$scope.submitt = function(isValid) {
+	$scope.submit = function(isValid) {
 		$scope.showValidation;
+    $scope.submitted = angular.copy($scope.create);
 		if (isValid) {
 			console.log("success: " + isValid);
 		} else {
@@ -27,8 +29,8 @@ controllers.activityCreateDateController = function($scope, $filter, filterRegex
   $scope.maxDate.setDate($scope.maxDate.getDate()+6); // Show a week extra at max.
 
   $scope.$watch('startdate', function(newVal, oldVal) {
-  	if (newVal === oldVal) {
-  		return
+    if (newVal === oldVal) {
+  		return;
   	};
   	console.log(newVal);
   });
@@ -47,14 +49,6 @@ directives.jpcreateform = function() {
     scope: {},
 		templateUrl: 'modules/activities/components/createform/form.tmpl.html'
 	}
-};
-
-controllers.Ctrl = function($scope) {
-  $scope.services = [
-    {ServiceID: 1, ServiceName: 'Service1'},
-    {ServiceID: 2, ServiceName: 'Service2'},
-    {ServiceID: 3, ServiceName: 'Service3'}
-  ];
 };
 
 module.factory(factories);

@@ -12,6 +12,7 @@ controllers.activityController = function($scope, sportFactory){
   $scope.submitted = {};
 
 	$scope.submit = function(isValid) {
+    console.log("activity");
 		$scope.showValidation;
     $scope.submitted = angular.copy($scope.create);
 		if (isValid) {

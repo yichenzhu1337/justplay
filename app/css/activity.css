@@ -1,16 +1,24 @@
-.deeply {
-  width: 100%;
-  height: 100%;
-	background-image: url('../img/deeply4.jpg');
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	background-color: #333;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-color: #333;
-	display: table;
-}
+/* OVERLAY FOR FORMS */
+	.deeply {
+	  width: 100%;
+	  height: 100%;
+		background-image: url('../img/deeply4.jpg');
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		background-color: #333;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-color: #333;
+		display: table;
+	}
+
+	.createBackdrop {
+	  width: 100%;
+	  height: 100%;
+		display: table;
+	}
+/* OVERLAY FOR FORMS */
 
 #activity-vertical-center {
 	display: table-cell;
@@ -38,14 +46,26 @@
 	#activity-vertical-center > h3 {
 		margin: 0 auto;
 		text-align: center;
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+
+	h3.login,
+	h3.signup {
 		color: #fff;
 		line-height: 1.2;
+	}
+
+	h2.createActivity {
+		line-height: 1.2;
+		margin: 0 auto;
+		text-align: center;
 		margin-top: 20px;
 		margin-bottom: 30px;
 	}
 /* LOGO Description goes here */
 
-/* SIGN UP Form goes here */
+/* SIGN UP, LOGIN Form goes here */
 	form.login,
 	form.signup {
 		max-width: 366px;
@@ -54,7 +74,6 @@
 
 	form.login .form-group > input,
 	form.signup .form-group > input {
-		
 		width: 100%;
 		height: 48px;
 		font-size: 18px;
@@ -74,8 +93,36 @@
 	form.signup .help-block {
 		color: white;
 	}
-/* SIGN UP Form goes here */
+/* SIGN UP, LOGIN Form goes here */
 
+/* CREATE ACTIVITY Form goes here */
+	form.createActForm {
+		max-width: 366px;
+		margin: 0 auto 7px;
+		text-align: left;
+	}
+
+	form.createActForm .form-group {
+		width: 100%;
+		font-size: 18px;
+	}
+
+	form.createActForm .form-group input,
+	form.createActForm .form-group > datepicker,
+	form.createActForm .form-group > select	{
+		height: 48px;
+		background: rgba(255,255,255,.9);
+	}
+
+	form.createActForm > button {
+		max-width: 366px;
+		background: linear-gradient(to bottom,#76d926,#6ac322);
+		height: 50px;
+		font-weight: 700;	
+		font-size: 20px;
+	}
+
+/* CREATE ACTIVITY Form goes here */
 .more {
 	padding-top: 13px;
 	color: rgba(255,255,255,.4);

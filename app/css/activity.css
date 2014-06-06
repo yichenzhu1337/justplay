@@ -97,10 +97,20 @@
 
 /* CREATE ACTIVITY Form goes here */
 	form.createActForm {
+		margin-left: 5px;
+		margin-right: 5px;
+		width: auto;
 		max-width: 366px;
-		margin: 0 auto 7px;
 		text-align: left;
 	}
+
+	@media screen and (min-width: 336px) {
+		form.createActForm {
+			max-width: 366px;
+			margin: 0 auto 7px;
+			text-align: left;
+		}
+  }
 
 	form.createActForm .form-group {
 		width: 100%;

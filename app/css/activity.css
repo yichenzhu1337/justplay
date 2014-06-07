@@ -95,44 +95,6 @@
 	}
 /* SIGN UP, LOGIN Form goes here */
 
-/* CREATE ACTIVITY Form goes here */
-	form.createActForm {
-		margin-left: 5px;
-		margin-right: 5px;
-		width: auto;
-		max-width: 366px;
-		text-align: left;
-	}
-
-	@media screen and (min-width: 336px) {
-		form.createActForm {
-			max-width: 366px;
-			margin: 0 auto 7px;
-			text-align: left;
-		}
-  }
-
-	form.createActForm .form-group {
-		width: 100%;
-		font-size: 18px;
-	}
-
-	form.createActForm .form-group input,
-	form.createActForm .form-group > datepicker,
-	form.createActForm .form-group > select	{
-		height: 48px;
-		background: rgba(255,255,255,.9);
-	}
-
-	form.createActForm > button {
-		max-width: 366px;
-		background: linear-gradient(to bottom,#76d926,#6ac322);
-		height: 50px;
-		font-weight: 700;	
-		font-size: 20px;
-	}
-
-/* CREATE ACTIVITY Form goes here */
 .more {
 	padding-top: 13px;
 	color: rgba(255,255,255,.4);

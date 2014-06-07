@@ -62,7 +62,7 @@
   }
 
   .content-wrapper{
-    max-width: 100%;
+    max-width: 100%; 
     min-height: 50%;
     box-shadow: 0 0 15px rgba(0,0,0,0.13);
     margin-top: -63px;

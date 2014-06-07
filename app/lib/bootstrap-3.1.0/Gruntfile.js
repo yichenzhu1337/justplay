@@ -314,6 +314,10 @@ module.exports = function (grunt) {
       less: {
         files: 'less/*.less',
         tasks: 'less'
+      },
+      jp: {
+        files: 'less/jpComponents/*.less',
+        tasks: 'less'
       }
     },
 

@@ -1,0 +1,91 @@
+<form class="createActForm" name="createActForm" ng-controller="activityController" ng-submit="submit(createActForm.$valid)" novalidate>
+  <!-- ACTIVITY -->
+  <div class="form-group" ng-class="{ 'has-error' : createActForm.activityname.$invalid && !createActForm.activityname.$pristine, 
+	'has-success' : !createActForm.activityname.$invalid && !createActForm.activityname.$pristine }">
+    <label for="activityname">Sport</label>
+		<select 
+    name="activityname"
+    class="form-control"
+    ng-model="create.activity"
+    ng-options="c.id as c.label group by c.category for c in activities"
+    required>
+      <option value="">Select a sport</option>
+    </select>
+
+		<!-- Activity Validation Messages -->
+    <span class="help-block" ng-show="!createActForm.activityname.$pristine && createActForm.activityname.$error.required">Select Activity</span>
+  </div>
+    
+  <!-- LOCATION -->
+  <div class="form-group" ng-class="{ 'has-error' : createActForm.location.$invalid && !createActForm.location.$pristine, 'has-success' : !createActForm.location.$invalid && !createActForm.email.$pristine }" required>
+      <label for="location">Location <a href="" class="text-muted">(Click here to find out how to get there!)</a></label>
+      <input type="text" class="form-control" name="location" ng-model="create.location" placeholder="Location" required>
+
+      <!-- Activity Validation Messages -->
+      <span class="help-block" ng-show="!createActForm.location.$pristine && createActForm.location.$error.required">Select Location</span>   
+  </div> 
+  
+  <!-- DATE, TIME, DURATION -->
+  <div class="form-group" ng-controller="activityCreateDateController"
+  ng-class="{ 'has-error' : createActForm.startdate.$invalid && !createActForm.startdate.$pristine, 'has-success' : !createActForm.startdate.$invalid && !createActForm.startdate.$pristine }"> 
+    <label for="startdate">Date <span class="text-muted">(Within a week)</span></label>
+    <input  
+      name="startdate"
+      type="datetime"
+      class="form-control"
+      placeholder="Date"
+      datepicker-popup='EEEE, MMM d'
+      
+      ng-model="create.startdate" 
+      is-open="opened" 
+      min="minDate" 
+      max="maxDate"
+      close-text="Close" required>
+
+    <!-- Start Date Validation Messages -->
+    <span class="help-block" ng-show="!createActForm.startdate.$pristine && createActForm.startdate.$error.required">Select Date</span>
+    {{create.startdate}}
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : createActForm.startingtime.$invalid && !createActForm.startingtime.$pristine, 'has-success' : !createActForm.startingtime.$invalid && !createActForm.startingtime.$pristine }">
+    <label for="startingtime">From <span class="text-muted">(Use your arrow keys/mousewheel)</span></label>
+    <timepicker name="startingtime" ng-model="create.startingtime" show-meridian="false" minute-step="15" required></timepicker>
+
+    <!-- Start Time Validation Messages -->
+    <span class="help-block" ng-show="!createActForm.startingtime.$pristine && createActForm.startingtime.$error.required">Select Starting Time</span>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : createActForm.endingtime.$invalid && !createActForm.endingtime.$pristine, 'has-success' : !createActForm.endingtime.$invalid && !createActForm.endingtime.$pristine }">
+    <label for="endingtime">To</label>
+
+    <timepicker name="endingtime" ng-model="create.endingtime" minute-step="15" show-meridian="false" required></timepicker>
+
+    <!-- End Time Validation Messages -->
+    <span class="help-block" ng-show="!createActForm.endingtime.$pristine && createActForm.endingtime.$error.required">Select Ending Time</span>
+  </div>
+
+  <!-- MAX CAPACITY -->
+  <div class="form-group"
+  ng-class="{ 'has-error' : createActForm.maxcap.$invalid && !createActForm.maxcap.$pristine, 'has-success' : !createActForm.maxcap.$invalid && !createActForm.maxcap.$pristine }"> 
+    <label for="maxcap">How many people are you looking to play with? <span class="text-muted">(Approximately)</span></label>
+
+    <!-- Note that if characters are inputted, ng-model is an empty string -->
+    <input type="number" toNumber name="maxcap" ng-model="create.capacity" min="1" class="form-control" placeholder="People" required>
+    
+    <!-- Max Capacity Validation Messages -->
+    <span class="help-block" ng-show="!createActForm.maxcap.$pristine && createActForm.maxcap.$error.required">Select Maximum amount of people you want to play with</span>
+  </div>    
+
+  <!-- DESCRIPTION -->
+  <div class="form-group"
+  ng-class="{ 'has-error' : createActForm.description.$invalid && !createActForm.description.$pristine, 'has-success' : !createActForm.description.$invalid && !createActForm.description.$pristine }">
+    <div class="input-group">
+    <label for="description">Description <span class="text-muted">Who is this activity for? Who are you looking to play with? Any particular skill level in mind?</span></label>
+      <textarea name="description" ng-model="create.description" class="form-control"  rows="5" placeholder="i.e. Looking to play with people during midterms! Screw the exams, lets just chill and play." required></textarea>
+      <span class="help-block" ng-show="!createActForm.description.$pristine && createActForm.description.$error.required">Select Description</span>
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-success fill">Continue</button>
+  {{submitted}}
+</form>

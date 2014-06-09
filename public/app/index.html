@@ -1,0 +1,94 @@
+<html>
+  <head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="description" content="">
+	  <meta name="author" content="">
+	  <link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png">
+	  
+	  <title>justPlay</title>
+
+	  <!-- Core CSS - Include with every page -->
+	  <link href="lib/bootstrap-3.1.0/dist/css/bootstrap.css" rel="stylesheet">
+	  <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">  
+
+	  <link href="css/playground.css" rel="stylesheet"> 
+	  <link href="css/activity.css" rel="stylesheet"> 
+  </head>
+
+  <body ng-app="app">
+		<div ui-view></div>
+
+		<!-- JS DEPENDENCIES -->
+
+		<!-- Core CSS - Include with every page -->
+	  <link href="lib/bootstrap-3.1.0/dist/css/bootstrap.css" rel="stylesheet">
+	  <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">  
+
+	  <link href="css/playground.css" rel="stylesheet"> 
+	  <link href="css/activity.css" rel="stylesheet"> 
+	  <!-- Core Scripts - Include with every page -->
+	  <script src="lib/jquery/jquery-1.10.2.js"></script>
+	  <script src="lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
+
+	  <!-- justPlay JS -->
+	  <!-- script src="js/non-angular/popovers.js"></script-->
+
+	  <!-- Angular Js -->
+	  <script src="lib/angular/angular.min.js"></script>
+	  <script src="lib/angular/angular-resource.min.js"></script>
+	  <script src="lib/angular/angular-route.min.js"></script>
+
+	  <!-- Angular UI Bootstrap Directives -->
+	  <script src="lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+
+	  <!-- Date picker & Moment.js-->
+	  <script type="text/javascript" src="lib/bootstrap-daterangepicker-master/moment.js"></script>
+	  <script type="text/javascript" src="lib/bootstrap-daterangepicker-master/daterangepicker.js"></script>
+	  <link rel="stylesheet" type="text/css" media="all" href="lib/bootstrap-daterangepicker-master/daterangepicker-bs3.css" />
+	  <script src="lib/angular-moment/angular-moment.js"></script>
+	  
+	  <!-- Angular UI -->
+	  <script type="text/javascript" src="lib/ui-utils-0.1.1/ui-utils.js"></script>
+
+	  <!-- Angular multi select -->
+	  <link rel="stylesheet" type="text/css" media="all" href="lib/angular-multiselect-master/src/style.css" />
+	  <script src="lib/angular-multiselect-master/src/multiselect.js"></script> 
+
+	  <!-- Angular ui router -->
+	  <script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+
+	  <!-- Modules -->
+
+		<!-- justPlay utility Directives -->
+		<script src="modules/activities/common/commonDirectives.js"></script>
+
+	  <!-- justPlay activity Modules -->
+	  <script src="modules/activities/common/skillModule.js"></script>
+	  <script src="modules/activities/common/friendModule.js"></script>
+	  <script src="modules/activities/common/activityModule.js"></script>
+	  <script src="modules/activities/components/filters/filterModule.js"></script>
+	  <script src="modules/activities/components/sort/sortModule.js"></script>
+	  <script src="modules/activities/components/searchbar/searchbar.js"></script>
+	  <script src="modules/activities/components/cards/cardModule.js"></script>
+	  <script src="modules/activities/components/datepicker/dateModule.js"></script>
+
+		<!-- justPlay activity create module -->
+		<script src="modules/activities/components/createform/createform.js"></script>
+
+		<!-- justplay activities main page -->
+		<script src="modules/activities/activities.js"></script>
+		
+
+	  <!-- justPlay login/signup Modules -->
+	  <script type="text/javascript" src="modules/login/login.js"></script>
+		<script type="text/javascript" src="modules/signup/signup.js"></script>
+		
+		<!-- justplay main page -->
+	  <script type="text/javascript" src="modules/app.js"></script>
+
+	</body>
+</html>

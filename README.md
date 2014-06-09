@@ -15,7 +15,7 @@ More to come :)
 
 <h3> API </h3>
 <p> URL = "http://www.mywebsite.com" </p>
-<ol>
-  <li> URL /<i> api/register </i> </li>
-  <li> URL /<i> api/login </i> </li>
-</ol>
+<ul>
+  <li> URL/<b><i> api/register </i></b></li>
+  <li> URL/<b><i> api/login </i></b></li>
+</ul>

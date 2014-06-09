@@ -17,19 +17,15 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+		return View::make('index');
 	}
 
 	public function getRegister()
 	{
-		return View::make('home.register');
+		//return View::make('home.register');
+		//return a json string
+		return Input::all();
 	}
-
-	public function getLogin()
-	{
-		return View::make('home.login');
-	}
-
 
 	public function postRegister()
 	{
@@ -43,21 +39,25 @@ class HomeController extends BaseController {
 				'activated' => true,
 
 				));
+			return Response::json(array('success' => true));
 		}
 
 		catch (Cartalyst\Sentry\Users\UserExistsException $e)
 		{
-			echo 'User Already Exists';
+			return 'Error in inserting user to the database';
 		}
 	}
 
+	public function getLogin()
+	{
+		//return View::make('home.login');
+	}
 
 	public function postLogin()
 	{
 		$credentials = array(
 			'email' => Input::get('email'),
-			'password' => Input::get('password'),
-
+			'password' => Input::get('password')
 			);
 
 		try{

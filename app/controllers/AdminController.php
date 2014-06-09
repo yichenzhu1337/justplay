@@ -1,6 +1,6 @@
 <?php
 
-class TestController extends BaseController {
+class AdminController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,9 +15,9 @@ class TestController extends BaseController {
 	|
 	*/
 
-	public function getData()
+	public function index()
 	{
-		return "bla";
+		return View::make('admin');
 	}
 
 }

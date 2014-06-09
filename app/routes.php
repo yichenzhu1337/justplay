@@ -10,22 +10,27 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/test', 'HomeController@showWelcome');
-
 Route::get('/', function()
 {
 	return View::make("index");
 });
 
-Route::get('/justplay', function()
-{
-	return View::make("index");
-});
+Route::get('register', 'HomeController@getRegister');
+Route::get('login', 'HomeController@getLogin');
 
-Route::get('justplay/test', 'TestController@getData');
+//////////////////////////////////////////////////////////
+/* 	Use:
+ *	url/api/login
+ *	url/api/register	
+ */
+Route::group(array('prefix' => 'api'), function(){
+	Route::post('login', 'HomeController@postLogin');
+	Route::post('register', 'HomeController@postRegister');	
+})
+//////////////////////////////////////////////////////////
 
+Route::group(array('before' => 'auth'), function(){
+	Route::get('admin', 'AdminController@index');
+	Route::get('logout', 'HomeController@logout');
 
-Route::get('route', function(){
-
-	return 'route test';
 });

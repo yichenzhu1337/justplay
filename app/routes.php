@@ -23,3 +23,9 @@ Route::get('/justplay', function()
 });
 
 Route::get('justplay/test', 'TestController@getData');
+
+
+Route::get('route', function(){
+
+	return 'route test';
+});

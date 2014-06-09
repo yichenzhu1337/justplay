@@ -5,6 +5,7 @@ justPlay is a web application that enables students to play more and plan less. 
 More to come :)
 
 <h3> Update Guide </h3>
+<p> Every time an update has been made in the backend, run these commands </p>
 <ol>
   <li> Install Laravel: "composer install" </li>
   <li> Install Laravel: "composer update" </li>

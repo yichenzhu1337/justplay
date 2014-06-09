@@ -12,3 +12,10 @@ More to come :)
   <li> Migrate your database: "php artisan migrate" </li>
   <li> Seed your database: "php artisan db:seed" </li>
 </ol>
+
+<h3> API </h3>
+<p> URL = "http://www.mywebsite.com" </p>
+<ol>
+  <li> URL /<i> api/register </i> </li>
+  <li> URL /<i> api/login </i> </li>
+</ol>

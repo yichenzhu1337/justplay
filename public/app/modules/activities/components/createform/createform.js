@@ -48,7 +48,7 @@ directives.jpcreateform = function() {
 	return {
 		restrict: 'E',
     scope: {},
-		templateUrl: 'modules/activities/components/createform/form.tmpl.html'
+		templateUrl: 'app/modules/activities/components/createform/form.tmpl.html'
 	}
 };
 

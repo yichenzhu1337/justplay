@@ -9,11 +9,21 @@ controllers.loginCtrl = function($scope, $state, $http){
 	$scope.submittedLoginForm = {};
 
 	$scope.submit = function(isValid) {
-		var url = "http://localhost/laravel_project/public/justplay/test";
+		var url = "http://localhost/justplay/public/api/register";
+		var data = 
+		{
+			'first_name': 'basd',
+			'last_name': 'basd',
+			'email': 'jackinyiu@gmail.com',
+			'password': 'AS123456'
+		};
+		console.log(data);
 
-		$http.get(url).
-		success(function(data, status, headers, config) {
-      console.log("SuccessData: " + data);
+		console.log('posting data');
+
+		$http.post(url, data).
+		success(function(blob, status, headers, config) {
+      console.log("SuccessData: " + blob);
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs

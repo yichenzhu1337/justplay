@@ -174,7 +174,7 @@ controllers.filterController = function($scope, filterService, filterFactory){
 directives.jpactivityfilter = function() {
 	return {
 		restrict: 'E',
-		templateUrl: 'modules/activities/components/filters/filters.tmpl.html'
+		templateUrl: 'app/modules/activities/components/filters/filters.tmpl.html'
 	}
 };
 

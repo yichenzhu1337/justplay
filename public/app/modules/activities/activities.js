@@ -15,10 +15,10 @@ jpactivitiespage.config(['$stateProvider', '$urlRouterProvider', function($state
 		url: "/activities",
 		views: {
 			"header": {
-				templateUrl: "modules/activities/partials/header.tmpl.html"
+				templateUrl: "app/modules/activities/partials/header.tmpl.html"
 			},
 			"body": {
-				templateUrl: "modules/activities/partials/body.tmpl.html"
+				templateUrl: "app/modules/activities/partials/body.tmpl.html"
 			}
 		}
 	})
@@ -27,7 +27,7 @@ jpactivitiespage.config(['$stateProvider', '$urlRouterProvider', function($state
 		views: {
 			"header": {}, 
 			"body": {
-				templateUrl: "modules/activities/partials/createform.tmpl.html"
+				templateUrl: "app/modules/activities/partials/createform.tmpl.html"
 			}
 		}
 	})

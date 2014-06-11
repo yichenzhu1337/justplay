@@ -26,7 +26,7 @@ Route::get('login', 'HomeController@getLogin');
 Route::group(array('prefix' => 'api'), function(){
 	Route::post('login', 'HomeController@postLogin');
 	Route::post('register', 'HomeController@postRegister');	
-})
+});
 //////////////////////////////////////////////////////////
 
 Route::group(array('before' => 'auth'), function(){

@@ -4,7 +4,10 @@ justPlay is a web application that enables students to play more and plan less. 
 
 More to come :)
 
-<h3> Update Guide </h3>
+<h3> Frontend build guide </h3>
+<p> Make sure you have bower installed, go to public and type bower install</p>
+
+<h3> Backend Update Guide </h3>
 <p> Every time an update has been made in the backend, run these commands </p>
 <ol>
   <li> Install Laravel: "composer install" </li>

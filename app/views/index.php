@@ -60,6 +60,7 @@
 		
 
 	  <!-- justPlay login/signup Modules -->
+
 	  <script type="text/javascript" src="app/modules/login/login.js"></script>
 		<script type="text/javascript" src="app/modules/signup/signup.js"></script>
 		

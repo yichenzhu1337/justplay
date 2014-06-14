@@ -8,37 +8,47 @@ controllers.signupCtrl = function($scope, $state, registerSvc) {
 	$scope.submit = function(isValid){
 		if (isValid) {
 			$scope.registeredEmail = true;
-			registerSvc.register($scope.signup.name,"",$scope.signup.email,$scope.signup.password);
+			registerSvc.register($scope.signup.name,"",$scope.signup.email,$scope.signup.password)
+			.then(function(obj){
+				$state.go('login');
+			},
+			function(obj){
+				alert(obj.message);
+			});
 		} else {
 			$scope.registeredEmail = false;
 		}
 	}
 }
 
-services.registerSvc = function($http, $state) {
-	var base_url = "http://localhost/justplay/public/api/";
+services.registerSvc = function($http, $q) {
+	var base_url = "http://localhost/justplay/public/api";
 
 	this.register = function(first_name, last_name, email, password) {
+		var d = $q.defer();
+		var resp = {};
+
+		d.obj = {};
+
 		var data = {
 			'first_name': first_name,
 			'last_name': last_name,
 			'email': email,
 			'password': password
 		};
-		var resp = {};
-		$http.post(base_url+"register", data)
+
+		$http.post(base_url+"/register", data)
 		.success(function(obj, status, headers, config) {
-			alert('Successful Registration');
-			$state.go('login');
-			res.success = true;
-			res.obj = {};
+			resp.message = 'success';
+			d.resolve(resp);
 		})
 		.error(function(obj, status, headers, config) {
-			alert('Bad Registration');
-			res.success = false;
-			res.obj = {};
-			res.obj.errorMessage = "Name is registered already.";
+			resp.message = 'failure';
+			resp.errors = ['noob','haha'];
+			d.reject(resp);
 		});
+
+		return d.promise;
 	}
 }
 

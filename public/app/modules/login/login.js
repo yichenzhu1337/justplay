@@ -1,38 +1,61 @@
 var mod = angular.module('jp.login', []);
 
 var controllers = {};
+var services = {};
 var directives = {};
 
-controllers.loginCtrl = function($scope, $state, $http){
+controllers.loginCtrl = function($scope, $state, loginSvc){
 	var masterLoginCredentials = {};
 	$scope.registeredEmail = true;
 	$scope.submittedLoginForm = {};
 
 	$scope.submit = function(isValid) {
-		var url = "http://localhost/justplay/public/api/register";
-		var data = 
-		{
-			'first_name': 'basd',
-			'last_name': 'basd',
-			'email': 'jackinyiu@gmail.com',
-			'password': 'AS123456'
-		};
-		console.log(data);
+		$scope.submittedLoginForm = angular.copy($scope.loginForm);
+		masterLoginCredentials = angular.copy($scope.login);
 
-		console.log('posting data');
+		if (isValid) {
+			loginSvc.login($scope.login.email,$scope.login.password)
+			.then(function(obj){
+				alert(obj.message);
+			},
+			function(obj){
+				alert(obj.message);
+			});
+		} else {
 
-		$http.post(url, data).
-		success(function(blob, status, headers, config) {
-      console.log("SuccessData: " + blob);
-    }).
-    error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-      console.log("Fail Data: " + data);
-
-    });
+		}
 	};
 };
+
+
+services.loginSvc = function($http, $q) {
+	var base_url = "http://localhost/justplay/public/api";
+
+	this.login = function(email, password) {
+		var d = $q.defer();
+		var resp = {};
+
+		d.obj = {};
+
+		var data = {
+			'email': email,
+			'password': password
+		};
+
+		$http.post(base_url+"/login", data)
+		.success(function(obj, status, headers, config) {
+			resp.message = 'success';
+			d.resolve(resp);
+		})
+		.error(function(obj, status, headers, config) {
+			resp.message = 'failure';
+			resp.errors = ['noob','haha'];
+			d.reject(resp);
+		});
+
+		return d.promise;
+	}
+}
 
 directives.loginform = function(){
 	// Runs during compile
@@ -43,4 +66,5 @@ directives.loginform = function(){
 };
 
 mod.controller(controllers);
+mod.service(services);
 mod.directive(directives);

@@ -22,8 +22,6 @@ controllers.signupCtrl = function($scope, $state, registerSvc) {
 }
 
 services.registerSvc = function($http, $q) {
-	var base_url = "http://localhost/justplay/public/api";
-
 	this.register = function(first_name, last_name, email, password) {
 		var d = $q.defer();
 		var resp = {};
@@ -37,7 +35,7 @@ services.registerSvc = function($http, $q) {
 			'password': password
 		};
 
-		$http.post(base_url+"/register", data)
+		$http.post("api/register", data)
 		.success(function(obj, status, headers, config) {
 			resp.message = 'success';
 			d.resolve(resp);

@@ -16,6 +16,7 @@
 	  <link href="app/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">  
 	  <link href="app/css/playground.css" rel="stylesheet"> 
 	  <link href="app/css/activity.css" rel="stylesheet"> 
+	  <link href="bower_components/angular-growl-v2/build/angular-growl.css" rel="stylesheet">
   </head>
 
   <body ng-app="app">
@@ -26,10 +27,13 @@
 	  <!-- BOWER DEPENDENCIES -->
 	  <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	  <script src="bower_components/angular/angular.min.js"></script>
+	  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 	  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
 	  <script src="bower_components/moment/moment.js"></script>
 	  <script src="bower_components/angular-moment/angular-moment.js"></script>
 	  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	  <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
+	  	  
 
 		<!-- CUSTOM SCRIPTS -->
 	  <script src="app/lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
@@ -58,6 +62,9 @@
 		<!-- justplay activities main page -->
 		<script src="app/modules/activities/activities.js"></script>
 		
+		<!-- Utilities -->
+		<script src="app/utilities/flashService.js"></script>
+
 
 	  <!-- justPlay login/signup Modules -->
 

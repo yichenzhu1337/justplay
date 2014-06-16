@@ -24,13 +24,16 @@ Route::get('login', 'HomeController@getLogin');
  *	url/api/register	
  */
 Route::group(array('prefix' => 'api'), function(){
+
+	Route::group(array('before' => 'auth'), function(){
+		Route::get('admin', 'AdminController@index');
+		Route::get('logout', 'HomeController@logout');
+
+	});
+
 	Route::post('login', 'HomeController@postLogin');
 	Route::post('register', 'HomeController@postRegister');	
+	
 });
 //////////////////////////////////////////////////////////
 
-Route::group(array('before' => 'auth'), function(){
-	Route::get('admin', 'AdminController@index');
-	Route::get('logout', 'HomeController@logout');
-
-});

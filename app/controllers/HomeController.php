@@ -66,7 +66,7 @@ class HomeController extends BaseController {
 
 			if($user)
 			{
-				return Redirect::to('admin');
+				return Response::json(array('success' => true));
 			}
 
 		}
@@ -84,3 +84,8 @@ class HomeController extends BaseController {
 	}
 
 }
+
+
+/*
+{ error: ["error1", "error2" ], obj: { ... } }
+*/

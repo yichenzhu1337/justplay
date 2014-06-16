@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest())
+	if (Auth::guest()) //!Sentry::check()
 	{
 		if (Request::ajax())
 		{
@@ -80,6 +80,15 @@ Route::filter('guest', function()
 | session does not match the one given in this request, we'll bail.
 |
 */
+
+
+Route::filter('json_csrf', function()
+{
+	if (Session::token() != Input::json('csrf_token'))
+	{
+		throw new Illuminate\Session\TokenMismatchException;
+	}
+});
 
 Route::filter('csrf', function()
 {

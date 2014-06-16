@@ -8,3 +8,5 @@ composer.lock
 Thumbs.db
 app/config/database.php
 app/controllers/
+public/bower_components/*
+app/config/database.php

@@ -1,37 +1,97 @@
-var mod = angular.module('jp.login', []);
+var mod = angular.module('jp.login', ['ngSanitize', 'jp.flash']);
 
 var controllers = {};
+var services = {};
+var factories = {};
 var directives = {};
 
-controllers.loginCtrl = function($scope, $state, $http){
+controllers.loginCtrl = function($scope, $state, authenticationService, FlashService){
 	var masterLoginCredentials = {};
 	$scope.registeredEmail = true;
 	$scope.submittedLoginForm = {};
 
 	$scope.submit = function(isValid) {
-		var url = "http://localhost/justplay/public/api/register";
-		var data = 
-		{
-			'first_name': 'basd',
-			'last_name': 'basd',
-			'email': 'jackinyiu@gmail.com',
-			'password': 'AS123456'
-		};
-		console.log(data);
+		$scope.submittedLoginForm = angular.copy($scope.loginForm);
+		masterLoginCredentials = angular.copy($scope.login);
 
-		console.log('posting data');
+		if (isValid) {
+			authenticationService.login(masterLoginCredentials)
+			.success(function(){
+				// Move states
+				//$state.go('mainpage.activities');
+			})
+			.error(function(){
 
-		$http.post(url, data).
-		success(function(blob, status, headers, config) {
-      console.log("SuccessData: " + blob);
-    }).
-    error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-      console.log("Fail Data: " + data);
-
-    });
+			})
+		}
 	};
+};
+
+factories.authenticationService = function($http, $sanitize, SessionService, FlashService, CSRF_TOKEN) {
+
+	var cacheSession = function() {
+		SessionService.set("authenticated", true);
+	}
+
+	var uncacheSession = function(){
+		SessionService.unset("authenticated");
+	}
+
+	var sanitizeCredentials = function(credentials) {
+		return {
+			email: $sanitize(credentials.email),
+			password: $sanitize(credentials.password),
+      csrf_token: CSRF_TOKEN
+		}
+	}
+
+	return {
+		login: function(credentials) {
+			var login = $http.post("api/login", sanitizeCredentials(credentials));
+			login.then(
+				function(resp){
+					cacheSession();
+					FlashService.show('Successful login!', 'success');
+					FlashService.show(resp.data.obj.first_name, 'success');
+				},
+				function(){
+					uncacheSession();
+					FlashService.show('Incorrect Email/Password', 'error');
+				});
+
+			return login;
+		},
+		logout: function() {
+			var logout = $http.get("api/logout");
+			logout.then(
+				function(){
+					uncacheSession();
+					FlashService.show('Successfully logged out!', 'success');
+				},
+				function(){
+
+				});
+
+			return logout;
+		},
+		isLoggedIn: function() {
+			return SessionService.get('authenticated');
+		}
+	}
+}
+
+factories.SessionService = function() {
+  return {
+    get: function(key) {
+      return sessionStorage.getItem(key);
+    },
+    set: function(key, val) {
+      return sessionStorage.setItem(key, val);
+    },
+    unset: function(key) {
+      return sessionStorage.removeItem(key);
+    }
+  }
 };
 
 directives.loginform = function(){
@@ -43,4 +103,6 @@ directives.loginform = function(){
 };
 
 mod.controller(controllers);
+mod.service(services);
+mod.factory(factories);
 mod.directive(directives);

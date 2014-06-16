@@ -25,16 +25,27 @@ Route::get('login', 'HomeController@getLogin');
  */
 Route::group(array('prefix' => 'api'), function(){
 
+	/*
+		csrf
+
+	*/
+	Route::group(array('before' => 'json_csrf'), function(){
+
+		Route::post('login', 'HomeController@postLogin');
+		Route::post('register', 'HomeController@postRegister');	
+
+	});
+
 	Route::group(array('before' => 'auth'), function(){
-		Route::get('admin', 'AdminController@index');
+		Route::get('admin', 'AdminController@index'); //Route::resource('admin', 'AdminController');
 		Route::get('logout', 'HomeController@logout');
 
 	});
 
-	Route::post('login', 'HomeController@postLogin');
-	Route::post('register', 'HomeController@postRegister');	
-	
 });
+//////////////////////////////////////////////////////////
+
+
 //////////////////////////////////////////////////////////
 
 //new line

@@ -49,3 +49,4 @@ app.config(function($httpProvider) {
   $httpProvider.responseInterceptors.push(logsOutUserOn401);
 
 });
+

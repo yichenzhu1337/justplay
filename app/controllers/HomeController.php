@@ -66,14 +66,28 @@ class HomeController extends BaseController {
 
 			if($user)
 			{
-				return Redirect::to('admin');
+				return Response::json(
+					array(
+						'errors' => [],
+						'obj' => array('first_name' => $user->first_name)
+					));
 			}
 
 		}
 		catch (\Exception $e)
 		{
-			return Redirect::to('login')->withErrors(array('login' => $e->getMessages()));
+
+			return Response::json(array(
+					'login' => $e
+					));
+			/*
+			return Response::json(
+				array('object' => array(
+					'errors' => [array('code' => 1, 'msg' => 'bad login'),array('code' => 2, 'msg' => 'bad pass'),3];
+					)));
+			*/
 		}
+
 	}
 
 

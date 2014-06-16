@@ -33,7 +33,7 @@
 	  <script src="bower_components/angular-moment/angular-moment.js"></script>
 	  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	  <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
-	  	  
+
 
 		<!-- CUSTOM SCRIPTS -->
 	  <script src="app/lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
@@ -74,5 +74,9 @@
 		<!-- justplay main page -->
 	  <script type="text/javascript" src="app/modules/app.js"></script>
 
+		<!-- CSRF Token -->
+	  <script>
+	  	angular.module("app").constant("CSRF_TOKEN", '<?php echo csrf_token(); ?>');
+	  </script>
 	</body>
 </html>

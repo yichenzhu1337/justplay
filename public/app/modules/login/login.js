@@ -18,17 +18,16 @@ controllers.loginCtrl = function($scope, $state, authenticationService, FlashSer
 			authenticationService.login(masterLoginCredentials)
 			.success(function(){
 				// Move states
-				// $state.go('login');
+				//$state.go('mainpage.activities');
 			})
 			.error(function(){
 
 			})
 		}
-
 	};
 };
 
-factories.authenticationService = function($http, $sanitize, SessionService, FlashService) {
+factories.authenticationService = function($http, $sanitize, SessionService, FlashService, CSRF_TOKEN) {
 
 	var cacheSession = function() {
 		SessionService.set("authenticated", true);
@@ -38,14 +37,11 @@ factories.authenticationService = function($http, $sanitize, SessionService, Fla
 		SessionService.unset("authenticated");
 	}
 
-	var loginError = function(response){
-		/*FlashService.show(response.flash);*/
-	}
-
 	var sanitizeCredentials = function(credentials) {
 		return {
 			email: $sanitize(credentials.email),
-			password: $sanitize(credentials.password)
+			password: $sanitize(credentials.password),
+      csrf_token: CSRF_TOKEN
 		}
 	}
 
@@ -53,9 +49,10 @@ factories.authenticationService = function($http, $sanitize, SessionService, Fla
 		login: function(credentials) {
 			var login = $http.post("api/login", sanitizeCredentials(credentials));
 			login.then(
-				function(){
+				function(resp){
 					cacheSession();
 					FlashService.show('Successful login!', 'success');
+					FlashService.show(resp.data.obj.first_name, 'success');
 				},
 				function(){
 					uncacheSession();

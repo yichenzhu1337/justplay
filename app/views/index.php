@@ -20,6 +20,7 @@
   </head>
 
   <body ng-app="app">
+  	<div growl></div>
 		<div ui-view></div>
 
 		<!-- JS DEPENDENCIES -->
@@ -43,6 +44,11 @@
 
 	  <!-- Modules -->
 
+		<!-- Utilities -->
+		<script src="app/utilities/flashService.js"></script>
+		<script src="app/utilities/http.js"></script>
+		<script src="app/utilities/authentication.js"></script>
+
 		<!-- justPlay utility Directives -->
 		<script src="app/modules/activities/common/commonDirectives.js"></script>
 
@@ -62,8 +68,6 @@
 		<!-- justplay activities main page -->
 		<script src="app/modules/activities/activities.js"></script>
 		
-		<!-- Utilities -->
-		<script src="app/utilities/flashService.js"></script>
 
 
 	  <!-- justPlay login/signup Modules -->
@@ -76,7 +80,7 @@
 
 		<!-- CSRF Token -->
 	  <script>
-	  	angular.module("app").constant("CSRF_TOKEN", '<?php echo csrf_token(); ?>');
+	  	angular.module("jp.http").constant("CSRF_TOKEN", '<?php echo csrf_token(); ?>');
 	  </script>
 	</body>
 </html>

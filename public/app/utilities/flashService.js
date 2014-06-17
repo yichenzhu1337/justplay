@@ -19,11 +19,9 @@ factories.FlashService = function($rootScope, growl) {
       		options.ttl = 10000;
       		break;
       	case "info":
-
       		break;
 	   	};
 	    growl[style](message, options);
-      
     },
     clear: function() {
       $rootScope.flash = "";

@@ -14,9 +14,6 @@ Route::get('login', 'HomeController@getLogin');
  */
 Route::group(array('prefix' => 'api'), function(){
 
-	/*
-	 * csrf for post login and register
-	*/
 	Route::group(array('before' => 'json_csrf'), function(){
 
 		Route::post('login', 'HomeController@postLogin');
@@ -31,4 +28,5 @@ Route::group(array('prefix' => 'api'), function(){
 	});
 
 });
+
 

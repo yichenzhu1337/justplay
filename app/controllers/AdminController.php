@@ -6,7 +6,7 @@ class AdminController extends BaseController {
 	{
 		$this->beforeFilter('csrf_json', array('on' => 'post'));
 	}
-
+	
 	public function index()
 	{
 		return View::make('admin');

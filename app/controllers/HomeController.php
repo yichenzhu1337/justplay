@@ -20,13 +20,6 @@ class HomeController extends BaseController {
 		return View::make('index');
 	}
 
-	public function getRegister()
-	{
-		//return View::make('home.register');
-		//return a json string
-		return Input::all();
-	}
-
 	public function postRegister()
 	{
 		try
@@ -50,11 +43,6 @@ class HomeController extends BaseController {
 		{
 			return 'Error in inserting user to the database:'+e;
 		}
-	}
-
-	public function getLogin()
-	{
-		//return View::make('home.login');
 	}
 
 	public function postLogin()
@@ -93,7 +81,6 @@ class HomeController extends BaseController {
 		}
 
 	}
-
 
 	public function logout()
 	{

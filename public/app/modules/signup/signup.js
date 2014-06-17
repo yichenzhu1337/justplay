@@ -30,7 +30,6 @@ factories.registerSvc = function($http, PostSvc) {
 			var reg = $http.post("api/register", PostSvc.obj(data));
 			return reg;
 		}
-			csrf_token: CSRF_TOKEN
 	}
 }
 

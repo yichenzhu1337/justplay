@@ -39,12 +39,16 @@ class HomeController extends BaseController {
 				'activated' => true,
 
 				));
-			return Response::json(array('success' => true));
+			return Response::json(
+				array(
+					'errors' => [],
+					'obj' => array('success' => true)
+				));
 		}
 
 		catch (Cartalyst\Sentry\Users\UserExistsException $e)
 		{
-			return 'Error in inserting user to the database';
+			return 'Error in inserting user to the database:'+e;
 		}
 	}
 

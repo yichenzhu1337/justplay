@@ -1,4 +1,4 @@
-var mod = angular.module('jp.login', ['ngSanitize', 'jp.flash']);
+var mod = angular.module('jp.login', ['jp.authentication', 'jp.flash']);
 
 var controllers = {};
 var services = {};
@@ -16,82 +16,16 @@ controllers.loginCtrl = function($scope, $state, authenticationService, FlashSer
 
 		if (isValid) {
 			authenticationService.login(masterLoginCredentials)
-			.success(function(){
+			.success(function(resp){
 				// Move states
 				//$state.go('mainpage.activities');
+				FlashService.show('Successful login.', 'success');
 			})
 			.error(function(){
-
+				FlashService.show('Incorrect Email/Password', 'error');
 			})
 		}
 	};
-};
-
-factories.authenticationService = function($http, $sanitize, SessionService, FlashService, CSRF_TOKEN) {
-
-	var cacheSession = function() {
-		SessionService.set("authenticated", true);
-	}
-
-	var uncacheSession = function(){
-		SessionService.unset("authenticated");
-	}
-
-	var sanitizeCredentials = function(credentials) {
-		return {
-			email: $sanitize(credentials.email),
-			password: $sanitize(credentials.password),
-      csrf_token: CSRF_TOKEN
-		}
-	}
-
-	return {
-		login: function(credentials) {
-			var login = $http.post("api/login", sanitizeCredentials(credentials));
-			login.then(
-				function(resp){
-					cacheSession();
-					FlashService.show('Successful login!', 'success');
-					FlashService.show(resp.data.obj.first_name, 'success');
-				},
-				function(){
-					uncacheSession();
-					FlashService.show('Incorrect Email/Password', 'error');
-				});
-
-			return login;
-		},
-		logout: function() {
-			var logout = $http.get("api/logout");
-			logout.then(
-				function(){
-					uncacheSession();
-					FlashService.show('Successfully logged out!', 'success');
-				},
-				function(){
-
-				});
-
-			return logout;
-		},
-		isLoggedIn: function() {
-			return SessionService.get('authenticated');
-		}
-	}
-}
-
-factories.SessionService = function() {
-  return {
-    get: function(key) {
-      return sessionStorage.getItem(key);
-    },
-    set: function(key, val) {
-      return sessionStorage.setItem(key, val);
-    },
-    unset: function(key) {
-      return sessionStorage.removeItem(key);
-    }
-  }
 };
 
 directives.loginform = function(){

@@ -21,7 +21,7 @@ controllers.signupCtrl = function($scope, $state, registerSvc) {
 	}
 }
 
-services.registerSvc = function($http, $q) {
+services.registerSvc = function($http, $q, CSRF_TOKEN) {
 	this.register = function(first_name, last_name, email, password) {
 		var d = $q.defer();
 		var resp = {};
@@ -32,7 +32,8 @@ services.registerSvc = function($http, $q) {
 			'first_name': first_name,
 			'last_name': last_name,
 			'email': email,
-			'password': password
+			'password': password,
+			csrf_token: CSRF_TOKEN
 		};
 
 		$http.post("api/register", data)

@@ -1,8 +1,8 @@
-var mod = angular.module('jp.authentication', ['jp.http']);
+var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling']);
 
 var factories = {};
 
-factories.authenticationService = function($http, PostSvc, SessionService) {
+factories.authenticationService = function($http, PostSvc, SessionService, errorSvc ) {
 	var cacheSession = function() {
 		SessionService.set("authenticated", true);
 	}
@@ -16,6 +16,8 @@ factories.authenticationService = function($http, PostSvc, SessionService) {
 			var login = $http.post("api/login", PostSvc.obj(credentials));
 			login.then(
 				function(resp){
+					// Handle errors here
+					errorSvc(resp);
 					cacheSession();
 				},
 				function(){

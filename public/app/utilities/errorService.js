@@ -1,34 +1,44 @@
-var mod = angular.module('jp.http', ['ngSanitize']);
+var mod = angular.module('jp.errorHandling', ['jp.flash']);
 
 var factories = {};
 
-factories.SanitizeService = function($sanitize) {
-	return {
-		sanitizeObject: function(obj) {
-			var ret = {};
-			angular.forEach(obj, function(value, key) {
-				ret[key] = $sanitize(value);
-			}, ret);
-			return ret;
-		},
-		sanitizeArray: function(arr) {
-			var ret = [];
-			angular.forEach(arr, function(value, key) {
-				ret[key] = $sanitize(value);
-			}, ret);
-			return ret;		
+factories.errorSvc = function($q, FlashService) {
+
+	var dataHasObj = function(data) {
+		if (angular.isUndefined(data.obj)) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	var dataHasErrors = function(data) {
+		if (angular.isDefined(data.errors) && angular.isArray(data.errors) && data.errors.length > 0) {
+			return true;
+		} else {
+			return false;
 		}
 	}
-}
 
-factories.PostSvc = function(SanitizeService, CSRF_TOKEN) {
 	return {
-		obj: function(obj) {
-			var modObj = angular.copy(obj);
-			if (angular.isUndefined(modObj.csrf_token)) {
-				modObj.csrf_token = CSRF_TOKEN;
-			}
-			return SanitizeService.sanitizeObject(modObj);
+		hasNoErrors: function(obj) {
+			var deferred = $q.defer();
+			obj.then(
+				function(data) {
+					if (dataHasErrors(obj)) {
+						for (var i = 0 ;i < obj.error.length ; i++) {
+							FlashService.show(obj.error[i].message);
+						}
+						deferred.reject();
+					} else if (dataHasObj) {
+						deferred.resolve(obj.data);
+					}
+				},
+				function(data) {
+					// HTTP Error that's uncaught
+				})
+
+			return deferred.promise;
 		}
 	}
 }

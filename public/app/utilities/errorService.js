@@ -21,17 +21,27 @@ factories.errorSvc = function($q, FlashService) {
 	}
 
 	return {
+		/**
+		 * Checks if a HTTP Request has returned an object
+		 * @param  {promise}  obj HTTP Promise
+		 * @return {promise}     promise
+		 */
 		hasNoErrors: function(obj) {
 			var deferred = $q.defer();
 			obj.then(
-				function(data) {
-					if (dataHasErrors(obj)) {
-						for (var i = 0 ;i < obj.error.length ; i++) {
-							FlashService.show(obj.error[i].message);
+				function(resp) {
+					var data = resp.data;
+					if (dataHasErrors(data)) {
+						for (var i = 0 ;i < data.error.length ; i++) {
+							FlashService.show(data.error[i].message, 'error');
 						}
 						deferred.reject();
-					} else if (dataHasObj) {
-						deferred.resolve(obj.data);
+					} else if (dataHasObj(data)) {
+						deferred.resolve(data);
+					} else {
+						FlashService.show('Interal Server Error Problem', 'success');
+						// Redirect to error page.
+						deferred.reject();
 					}
 				},
 				function(data) {

@@ -14,10 +14,10 @@ factories.authenticationService = function($http, PostSvc, SessionService, error
 	return {
 		login: function(credentials) {
 			var login = $http.post("api/login", PostSvc.obj(credentials));
-			login.then(
+			errorSvc.hasNoErrors(login)
+			.then(
 				function(resp){
 					// Handle errors here
-					errorSvc(resp);
 					cacheSession();
 				},
 				function(){

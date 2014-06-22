@@ -6,9 +6,9 @@ factories.errorSvc = function($q, FlashService) {
 
 	var dataHasObj = function(data) {
 		if (angular.isUndefined(data.obj)) {
-			return true;
-		} else {
 			return false;
+		} else {
+			return true;
 		}
 	};
 
@@ -39,7 +39,7 @@ factories.errorSvc = function($q, FlashService) {
 					} else if (dataHasObj(data)) {
 						deferred.resolve(data);
 					} else {
-						FlashService.show('Interal Server Error Problem', 'success');
+						FlashService.show('Interal Server Error Problem', 'error');
 						// Redirect to error page.
 						deferred.reject();
 					}

@@ -5,12 +5,27 @@
 // CONSTANTS FOR JPFORMS
 // --------------------------------------------------
 
-@jp-xs-margin:                  5px;
+@jp-xs-margin:                  10px;
 
 
 
 // Create Activity Form
 // --------------------------------------------------
+
+.more {
+  padding-top: 13px;
+  color: rgba(255,255,255,.4);
+
+  > p {
+    margin-bottom: 0px;
+    font-size: 14px;
+
+    > a {
+      color: rgba(255,255,255,.4);
+      font-weight: 700;
+    }
+  }
+}
 
 form {
   &.createActForm {
@@ -63,14 +78,13 @@ form {
     padding-left: @jp-xs-margin;
     padding-right: @jp-xs-margin;
 
-    > form-group {
+    .form-group {
       > input {
         width: 100%;
         height: 48px;
         font-size: 18px;
         background: rgba(255,255,255,.9);
       }
-
     }
 
     > button {

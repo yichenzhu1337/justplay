@@ -781,43 +781,23 @@ var controllers = {};
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = function($scope, cardFactory, strategyData, searchbarData, filterService) {
+controllers.cardsController = function($scope, cardFactory, watching, filterService) {
 	// Base Set of Activities
-	var baseActivities;
 	init();
 
 	function init() {
 		$scope.dates = cardFactory.getCards(); 
 
-
-		$scope.strategyData = strategyData; // Bind instance of strategyData to scope
-		$scope.searchbarData = searchbarData;
 		$scope.filterServ = filterService;
 
-		/* Initialize Items we're watching */
-		$scope.sortStrategy = $scope.strategyData.getSortStrategy(); 
-		$scope.activityFilter = $scope.searchbarData.getData();
+		/* Initialize & Watch Filter & Sort strategies */
+		$scope.sortStrategy = watching.sort($scope);
+		$scope.activityFilter = watching.activity($scope, setFilterFlag);
 		$scope.filterFlag = $scope.filterServ.getFilterFlag();
 
 		$scope.searchFilter = [];
 
 		/* WATCH FOR ANY CHANGES IN DATA FOR FILTERING */
-		$scope.$watch('strategyData.getSortStrategy()', function (newVal, oldVal){
-			if (newVal === oldVal){
-				return
-			};
-				console.log("newVal:" + newVal +" oldVal:"+oldVal);
-				$scope.sortStrategy = strategyData.getSortStrategy();
-		});
-
-		$scope.$watch('searchbarData.getData()', function (newVal, oldVal){
-			if (newVal === oldVal){
-				return
-			}
-			console.log("activity newVal:" + newVal +" oldVal:"+oldVal);
-			$scope.activityFilter = searchbarData.getData();
-			setFilterFlag(false);
-		});
 
 		$scope.$watch('filterServ.getResetFilter()', function(newVal, oldVal){
 			if (newVal === oldVal){
@@ -835,7 +815,7 @@ controllers.cardsController = function($scope, cardFactory, strategyData, search
 			$scope.searchFilter = $scope.filterServ.getFilters();
 		}, true);
 
-		$scope.$watch('filterServ.getFilterFlag()', function(newVal, oldVal){
+		$scope.$watch('filterServ.getFilterFlag()', function(newVal, oldVal) {
 			console.log("outer FilterFlag New Val: " + newVal + " Old:" + oldVal);
 			if (newVal === oldVal) {
 				return;
@@ -845,11 +825,68 @@ controllers.cardsController = function($scope, cardFactory, strategyData, search
 
 	};
 
-	function setFilterFlag(val) {
+	var setFilterFlag = function(val) {
 		$scope.filterServ.setFilterFlag(val);
 		$scope.filterFlag = val;
 	};
 };
+
+factories.watching = function(strategyData, searchbarData) {
+
+	/**
+	 * Gets the data from a service
+	 * @type {Object}
+	 */
+	var get = {
+		sort: function() {
+			return strategyData.getSortStrategy()
+		},
+		activity: function() {
+			return searchbarData.getData();
+		}
+	}
+
+	/**
+	 * Watches the service for any changes & updates
+	 * scope variable
+	 * @type {Object}
+	 */
+	var watch = {
+		sort: function(scope) {
+			scope.$watch(get.sort, function(newVal, oldVal){
+				if (newVal === oldVal) {
+					return;
+				} else {
+					scope.sortStrategy = strategyData.getSortStrategy();
+				}
+			});
+		},
+		activity: function(scope, setFilterFlag) {
+			scope.$watch(get.activity, function (newVal, oldVal){
+				if (newVal === oldVal){
+					return
+				}
+				console.log("activity newVal:" + newVal +" oldVal:"+oldVal);
+				scope.activityFilter = newVal;
+				setFilterFlag(false);
+			});
+		}
+
+	}
+
+	return {
+		sort: function(scope) {
+			watch.sort(scope);
+			return get.sort();
+		},
+		activity: function(scope, setFilterFlag) {
+			watch.activity(scope, setFilterFlag);
+			return get.activity();
+		}
+	}
+
+}
+
 
 /**
  * Displays the view according to details passed in
@@ -883,13 +920,7 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 		};
 		// Display Friendlist on mouse over
 	};
-	/**
-	 * Expands the small card to the popover card.
-	 * @return {none} none
-	 */
-	$scope.open = function(){
 
-	};
 	/**
 	 * Retrieves the friend list (Static)
 	 * @return {none} none

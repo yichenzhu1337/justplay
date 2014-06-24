@@ -783,7 +783,6 @@ var controllers = {};
  */
 controllers.cardsController = function($scope, cardFactory, watching, filterService) {
 	// Base Set of Activities
-	init();
 
 	function init() {
 		$scope.dates = cardFactory.getCards(); 
@@ -829,6 +828,7 @@ controllers.cardsController = function($scope, cardFactory, watching, filterServ
 		$scope.filterServ.setFilterFlag(val);
 		$scope.filterFlag = val;
 	};
+		init();
 };
 
 factories.watching = function(strategyData, searchbarData) {

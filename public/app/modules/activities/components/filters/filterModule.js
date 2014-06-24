@@ -135,29 +135,40 @@ factories.filterFactory = function(){
 		return filters;
 	};
 
+	factory.getDefault = function() {
+		var keys = ['Skill','Competition'];
+		return factory.getFilters(keys);
+	};
 
 	return factory;
 }
-controllers.filterController = function($scope, filterService, filterFactory){
+controllers.filterController = function($scope, $rootScope, filterService, filterFactory){
 	init();
+
 	function init(){
 		$scope.filterServ = filterService;
-		$scope.bundles = angular.copy(filterFactory.getFilters(['Skill','Competition']));
-		$scope.filterServ.setFilters(angular.copy($scope.bundles));
+
+		// Initializing the filters used
+		if (filterService.getFilters().length == 0) { // Use default if no filters used
+			$scope.bundles = angular.copy(filterFactory.getDefault());
+			$scope.filterServ.setFilters(angular.copy($scope.bundles));
+		} else { // Use the previously used filter
+			$scope.bundles = filterService.getFilters();
+		}
+
 		$scope.$watch('bundles', function (newVal, oldVal){
-			console.log("outer Bundles New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length)
-			if (newVal === oldVal)
+			if (newVal === oldVal) {
 				return;
-			console.log("inner Bundles New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length)
+			}
 			$scope.filterServ.setFilters(angular.copy($scope.bundles));
 		}, true);		
+
 		$scope.$watch('filterServ.getFilterFlag()', function (newVal, oldVal){
-			console.log("outer FilterFlag New Val: " + newVal + " Old:" + oldVal);
-			if (newVal === oldVal)
+			if (newVal === oldVal) {
 				return;
-			console.log("inner FilterFlag New Val: " + newVal + " Old:" + oldVal);
+			}
 			if (newVal == false) {
-					$scope.bundles = filterFactory.getFilters(['Skill','Competition']);				
+					$scope.bundles = filterFactory.getDefault();			
 			}
 		}, true);	
 	};

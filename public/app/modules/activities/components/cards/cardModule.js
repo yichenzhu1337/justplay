@@ -921,8 +921,8 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 		// Display Friendlist on mouse over
 	};
 
-	$scope.open = function(id) {
-		$state.go('activities.detail');
+	$scope.open = function(activityId) {
+		$state.go('activities.detail', { id: activityId});
 	}
 
 	/**

@@ -18,7 +18,7 @@ controllers.loginCtrl = function($scope, $state, authenticationService, FlashSer
 			authenticationService.login(masterLoginCredentials)
 			.success(function(resp){
 				// Move states
-				//$state.go('mainpage.activities');
+				$state.go('activities.list');
 				FlashService.show('Successful login.', 'success');
 			})
 			.error(function(){

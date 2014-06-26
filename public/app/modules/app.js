@@ -19,8 +19,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		url: "/signup",
 		templateUrl: "app/modules/signup/signup.html"	
 	})
-	.state('mainpage', {
-		url: "/mainpage",
+	.state('activities', {
+		url: "/activities",
 		templateUrl: "app/modules/activities/mainpage.tmpl.html"
 	});
 }]);

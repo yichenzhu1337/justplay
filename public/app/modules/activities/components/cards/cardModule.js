@@ -896,7 +896,7 @@ factories.watching = function(strategyData, searchbarData) {
  * @param  {factory} activitySkillFactory returns key values of skill descriptions
  * @return {none}                      none
  */
-controllers.cardController = function($scope, $modal, friendService, activitySkillFactory) {
+controllers.cardController = function($scope, $modal, friendService, activitySkillFactory, $state) {
 	$scope.peopleneeded;
 	$scope.neededorfree;
 	$scope.stars = [];
@@ -920,6 +920,10 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 		};
 		// Display Friendlist on mouse over
 	};
+
+	$scope.open = function(id) {
+		$state.go('activities.detail');
+	}
 
 	/**
 	 * Retrieves the friend list (Static)

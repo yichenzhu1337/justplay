@@ -943,4 +943,20 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 	}
 };
 
+controllers.detailedCardController = function($stateParams){
+
+	init();
+
+	function init() {
+		alert('id:'+$stateParams.id);
+	}
+	
+};
+
+factory('card', ['', function(){
+	return function name(){
+		
+	};
+}])
+
 project.controller(controllers);

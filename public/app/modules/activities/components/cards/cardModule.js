@@ -6,7 +6,8 @@ var project = angular.module('cardModule',
 	'searchbar',
 	'friendModule',
 	'skillModule', 
-	'ui.bootstrap'])
+	'ui.bootstrap',
+	'jp.utilities'])
 .factory('cardFactory', function() {
 	var factory = {};
 	var base_date = new Date();
@@ -953,7 +954,7 @@ controllers.detailedCardController = function($stateParams){
 	
 };
 
-factory('Activity', ['', function(){
+factory('Activity', ['SanitizeService', function(SanitizeService){
 	/**
 	 * Constructor
 	 * @param {[type]} sport       [description]
@@ -1005,15 +1006,17 @@ factory('Activity', ['', function(){
 		if (validateData(data)) {
 			return false;
 		} else {
+			var sanitizedData = SanitizeService.sanitizeObject(data);
+
 			return new Activity(
-				data.sport,
-				data.date,
-				data.starttime,
-				data.endtime,
-				data.peoplegoing,
-				data.location,
-				data.description,
-				data.createdBy
+				sanitizedData.sport,
+				sanitizedData.date,
+				sanitizedData.starttime,
+				sanitizedData.endtime,
+				sanitizedData.peoplegoing,
+				sanitizedData.location,
+				sanitizedData.description,
+				sanitizedData.createdBy
 			);
 			
 		}

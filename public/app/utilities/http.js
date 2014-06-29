@@ -1,26 +1,6 @@
-var mod = angular.module('jp.http', ['ngSanitize']);
+var mod = angular.module('jp.http', ['jp.utilities']);
 
 var services= {};
-
-
-services.SanitizeService = function($sanitize) {
-	this.sanitizeObject = function(obj) {
-			var ret = {};
-			angular.forEach(obj, function(value, key) {
-				ret[key] = $sanitize(value);
-			}, ret);
-			return ret;
-	};
-
-	this.sanitizeArray = function(arr) {
-		var ret = [];
-		angular.forEach(arr, function(value, key) {
-			ret[key] = $sanitize(value);
-		}, ret);
-		return ret;		
-	};
-	
-};
 
 services.PostSvc = function(SanitizeService, CSRF_TOKEN) {
 	this.obj = function(obj) {

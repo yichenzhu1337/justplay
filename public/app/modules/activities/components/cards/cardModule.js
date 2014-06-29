@@ -953,10 +953,88 @@ controllers.detailedCardController = function($stateParams){
 	
 };
 
-factory('card', ['', function(){
-	return function name(){
-		
-	};
+factory('Activity', ['', function(){
+	/**
+	 * Constructor
+	 * @param {[type]} sport       [description]
+	 * @param {[type]} date        [description]
+	 * @param {[type]} starttime   [description]
+	 * @param {[type]} endtime     [description]
+	 * @param {[type]} peoplegoing [description]
+	 * @param {[type]} location    [description]
+	 * @param {[type]} description [description]
+	 */
+	function Activity(sport, date, starttime, endtime, peoplegoing, location, description, createdBy) {
+		// Initialize Values
+		this.sport = sport;
+		this.date = date;
+		this.starttime = starttime;
+		this.endtime = endtime;
+		this.peoplegoing = peoplegoing;
+		this.location = location;
+		this.description = description;
+		this.createdBy = createdBy;
+	}
+
+	// Private Methods
+	function validateData(data) {
+		if (
+			angular.isUndefined(data.sport) ||
+			angular.isUndefined(data.date) ||
+			angular.isUndefined(data.starttime) ||
+			angular.isUndefined(data.endtime) ||
+			angular.isUndefined(data.peoplegoing) ||
+			angular.isUndefined(data.location) ||
+			angular.isUndefined(data.description) ||
+			angular.isUndefined(data.createdBy) ||
+			) 
+		{
+			return false;
+		}
+	}
+
+	// Static Methods
+	/**
+	 * Alternate Activity Constructor that takes in JSON as input
+	 * @param  {JSON} data data containing all of the above.
+	 * @return {Activity}      activity
+	 */
+	Activity.build = function(data) {
+		// Check if each one is defined
+
+		if (validateData(data)) {
+			return false;
+		} else {
+			return new Activity(
+				data.sport,
+				data.date,
+				data.starttime,
+				data.endtime,
+				data.peoplegoing,
+				data.location,
+				data.description,
+				data.createdBy
+			);
+			
+		}
+
+	}
+
+	return Activity;
 }])
+
+factory('ActivitySession', ['$http', function($http){   
+	function ActivitySession(sessionData) {
+		if (sessionData) {
+			this.setData(sessionData);
+		}
+	};
+
+	ActivitySession.prototype = {
+		setData: function(bookData) {
+			angular.extend(this, bookData);
+		}
+	}
+}]);
 
 project.controller(controllers);

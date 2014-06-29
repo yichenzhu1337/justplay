@@ -49,10 +49,11 @@
 		<script src="app/utilities/http.js"></script>
 		<script src="app/utilities/errorService.js"></script>		
 		<script src="app/utilities/authentication.js"></script>
-
+		<script src="app/utilities/utilities.js"></script>
 
 		<!-- justPlay utility Directives -->
 		<script src="app/modules/activities/common/commonDirectives.js"></script>
+		
 
 	  <!-- justPlay activity Modules -->
 	  <script src="app/modules/activities/common/skillModule.js"></script>

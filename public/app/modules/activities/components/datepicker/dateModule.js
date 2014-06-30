@@ -42,5 +42,5 @@ controllers.activityListDateController = function($scope, $location, $anchorScro
   };
 };
 
-project.controller(controllers);
+mod.controller(controllers);
 

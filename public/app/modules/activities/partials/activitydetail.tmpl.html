@@ -1,2 +1,24 @@
-<div ng-controller="detailedCardController">fuck the popo</div>
+<div ng-controller="detailedCardController">
+	<ul class="list-group">
+	  <li class="list-group-item">
+		  <h4 class="list-group-item-heading">
+				{{activity.date | amDateFormat: 'dddd, MMM Do' | uppercase}}	  
+			</h4>
+		  <p class="list-group-item-text">
+	      {{activity.starttime | amDateFormat: 'HH:mm'}}-{{activity.endtime | amDateFormat: 'HH:mm'}}
+		  </p>
+	  </li>
+	  <li class="list-group-item">
+		  <h4 class="list-group-item-heading">
+				{{activity.sport}}	  
+			</h4>
+		  <p class="list-group-item-text">
+	      {{activity.location}}
+		  </p>
+	  </li>
+	</ul>
+	
+</div>
+
+
 

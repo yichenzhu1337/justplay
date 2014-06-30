@@ -98,7 +98,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 6,
 							totalFriends: 3,
-							totalnonFriends: 3,
+							totalNonFriends: 3,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
@@ -169,7 +169,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 4,
 							totalFriends: 1,
-							totalnonFriends: 3,
+							totalNonFriends: 3,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
@@ -232,7 +232,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 6,
 							totalFriends: 3,
-							totalnonFriends: 3,
+							totalNonFriends: 3,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
@@ -296,7 +296,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 4,
 							totalFriends: 4,
-							totalnonFriends: 3,
+							totalNonFriends: 3,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:true},
@@ -359,7 +359,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 2,
 							totalFriends: 2,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:true},										
@@ -402,7 +402,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -461,7 +461,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -527,7 +527,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -586,7 +586,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -652,7 +652,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -711,7 +711,7 @@ factories.cardFactory = function() {
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -962,6 +962,8 @@ controllers.detailedCardController = function($stateParams, $scope, ActivitySvc)
 			function(activity){
 				$scope.activity = activity;
 			});
+		$scope.isFriendsCollapsed = true;
+		$scope.isPeopleCollapsed = true;
 	};
 };
 

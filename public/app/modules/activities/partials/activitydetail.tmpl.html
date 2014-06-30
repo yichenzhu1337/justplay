@@ -16,9 +16,48 @@
 	      {{activity.location}}
 		  </p>
 	  </li>
+	  <li>
+		  <a href="" ng-click="isFriendsCollapsed = !isFriendsCollapsed" class="list-group-item"
+		  ng-class="{active: !isFriendsCollapsed}">
+			  <span class="badge">{{activity.participants.totalFriends}}</span>
+			  <h4 class="list-group-item-heading">
+					Friends
+				</h4>
+		  </a>
+		  <div collapse="isFriendsCollapsed">
+				<div class="list-group">
+				  <a href="" ng-repeat="user in activity.participants.list"  ng-show="user.isFriends" class="list-group-item">
+				    {{user.name}}
+				    <button class="btn btn-primary pull-right" ng-show="!user.isFriends">
+				    	Add Friend
+				    </button>
+				  </a>
+				</div>
+			</div>
+	  </li>
+		<li>
+		  <a href="" ng-click="isPeopleCollapsed = !isPeopleCollapsed" class="list-group-item" ng-class="{active: !isPeopleCollapsed}">
+			  <span class="badge">{{activity.participants.totalNonFriends}}</span>
+			  <h4 class="list-group-item-heading">
+					Other People
+				</h4>
+		  </a>
+		  <div collapse="isPeopleCollapsed">
+				<div class="list-group">
+				  <a href="" ng-repeat="user in activity.participants.list" ng-show="!user.isFriends" class="list-group-item">
+				    {{user.name}}
+				    <button class="btn btn-primary pull-right" ng-show="!user.isFriends">
+				    	Add Friend
+				    </button>
+				  </a>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item">
+			<h4 class="list-group-item-heading">
+				{{activity.description}}
+			</h4>
+		</li>
 	</ul>
-	
-</div>
 
-
-
+      	

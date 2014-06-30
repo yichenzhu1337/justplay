@@ -1,4 +1,4 @@
-var project = angular.module('cardModule', 
+var mod = angular.module('cardModule', 
 	[
 	'angularMoment', 
 	'sortModule',
@@ -7,8 +7,12 @@ var project = angular.module('cardModule',
 	'friendModule',
 	'skillModule', 
 	'ui.bootstrap',
-	'jp.utilities'])
-.factory('cardFactory', function() {
+	'jp.utilities']);
+
+var controllers = {};
+var factories = {};
+
+factories.cardFactory = function() {
 	var factory = {};
 	var base_date = new Date();
 
@@ -770,8 +774,8 @@ var project = angular.module('cardModule',
 	};
 
 	return factory;
-})
-var controllers = {};
+};
+
 /**
  * Gathers sorts and filters and orchestrates the communication 
  * from sort & filter controllers to card and expandedCard controllers.
@@ -782,11 +786,15 @@ var controllers = {};
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = function($scope, cardFactory, watching, filterService) {
+controllers.cardsController = function($scope, ActivitySvc, watching, filterService) {
 	// Base Set of Activities
 
 	function init() {
-		$scope.dates = cardFactory.getCards(); 
+		var promise = ActivitySvc.getList();
+		promise.then(
+			function(data) {
+				$scope.dates = data;
+			});
 
 		$scope.filterServ = filterService;
 
@@ -954,7 +962,7 @@ controllers.detailedCardController = function($stateParams){
 	
 };
 
-factory('Activity', ['SanitizeService', function(SanitizeService){
+factories.Activity = ['SanitizeService', function(SanitizeService){
 	/**
 	 * Constructor
 	 * @param {[type]} sport       [description]
@@ -965,32 +973,38 @@ factory('Activity', ['SanitizeService', function(SanitizeService){
 	 * @param {[type]} location    [description]
 	 * @param {[type]} description [description]
 	 */
-	function Activity(sport, date, starttime, endtime, peoplegoing, location, description, createdBy) {
+	function Activity(sport, date, starttime, endtime, participants, location, description) {
 		// Initialize Values
 		this.sport = sport;
 		this.date = date;
 		this.starttime = starttime;
 		this.endtime = endtime;
-		this.peoplegoing = peoplegoing;
+		this.participants = participants;
 		this.location = location;
 		this.description = description;
-		this.createdBy = createdBy;
 	}
 
 	// Private Methods
+	
+	/**
+	 * Validate Data
+	 * @param  {data} data data
+	 * @return {bool}      true/false
+	 */
 	function validateData(data) {
 		if (
 			angular.isUndefined(data.sport) ||
 			angular.isUndefined(data.date) ||
 			angular.isUndefined(data.starttime) ||
 			angular.isUndefined(data.endtime) ||
-			angular.isUndefined(data.peoplegoing) ||
+			angular.isUndefined(data.participants) ||
 			angular.isUndefined(data.location) ||
-			angular.isUndefined(data.description) ||
-			angular.isUndefined(data.createdBy) ||
-			) 
+			angular.isUndefined(data.description)
+			)
 		{
 			return false;
+		} else {
+			return true;
 		}
 	}
 
@@ -1002,42 +1016,112 @@ factory('Activity', ['SanitizeService', function(SanitizeService){
 	 */
 	Activity.build = function(data) {
 		// Check if each one is defined
-
-		if (validateData(data)) {
+		if (!validateData(data)) {
 			return false;
 		} else {
-			var sanitizedData = SanitizeService.sanitizeObject(data);
-
 			return new Activity(
-				sanitizedData.sport,
-				sanitizedData.date,
-				sanitizedData.starttime,
-				sanitizedData.endtime,
-				sanitizedData.peoplegoing,
-				sanitizedData.location,
-				sanitizedData.description,
-				sanitizedData.createdBy
+				data.sport,
+				data.date,
+				data.starttime,
+				data.endtime,
+				data.participants,
+				data.location,
+				data.description
 			);
 			
 		}
-
 	}
 
 	return Activity;
-}])
+}]
 
-factory('ActivitySession', ['$http', function($http){   
-	function ActivitySession(sessionData) {
-		if (sessionData) {
-			this.setData(sessionData);
-		}
-	};
+factories.DateGrouper = function(){
+	/**
+	 * Constructor for DateGrouper
+	 * @param {date} date date
+	 * @param {Object} obj  Array of objects its holding
+	 */
+	function DateGrouper(date, obj) {
+		this.date = date;
+		this.obj = obj;
+	}
 
-	ActivitySession.prototype = {
-		setData: function(bookData) {
-			angular.extend(this, bookData);
+	DateGrouper.prototype.setObject = function(obj) {
+		// Check if the object is an array first
+		if (angular.isArray(obj)) {
+			this.obj = obj;
 		}
 	}
-}]);
 
-project.controller(controllers);
+	DateGrouper.build = function(objJSON) {
+		if (angular.isDefined(objJSON.date) && angular.isArray(objJSON.obj)) {
+			return new DateGrouper(objJSON.date, objJSON.obj);
+		}
+	}
+
+	return DateGrouper;
+};
+
+factories.ActivitySvc = function($q, $timeout, $http, cardFactory, Activity, DateGrouper) {
+
+	var createActivities = function(array, date) {
+		var activityArray = [];
+		angular.forEach(array, function(val, key) {
+			// Create Activity Obj for each obj.
+			val.date = date;
+			activityArray.push(Activity.build(val));
+		});
+		return activityArray;
+	}
+
+	var createDateObj = function(objJSON) {
+		var params = {};
+		params.date = objJSON.date;
+		params.obj = createActivities(objJSON.obj, objJSON.date);
+		var dateGroup = DateGrouper.build(params);
+
+		return dateGroup;
+	}
+
+	var getAllSports = function(objJSON) {
+		var dateGroupList = [];
+		angular.forEach(objJSON, function(val, key) {
+			dateGroupList.push(createDateObj(val));
+		})
+		return dateGroupList;
+	}
+
+	var getAll = function() {
+		var d = $q.defer();
+		// Uncomment this when integrating with YiChen
+		// $http.get('sampledata/activitylist.json')
+		// .then(
+		// 	function(data) {
+		// 		console.log(data);
+		// 		d.resolve();
+		// 	})
+		var packagedObj = getAllSports(angular.copy(cardFactory.getCards()));
+		// Process the packagedObj.
+		$timeout(
+			d.resolve(packagedObj),
+			2000		
+			);
+		return d.promise;
+	}
+
+	return {
+		getList: function() {
+			var d = getAll();
+			d.then(function(data) {
+				alert('success!');
+			},
+			function(data) {
+				alert('failure!');
+			});
+			return d;
+		}
+	}
+}
+
+mod.controller(controllers);
+mod.factory(factories);

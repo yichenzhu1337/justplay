@@ -17,11 +17,11 @@
       </div>
       <div class="card-container" ng-repeat-end>
         <div class="card-wrap" 
-        ng-repeat="card in dateobj.obj | filter:{activity:activityFilter}| property:searchFilter:filterFlag | orderBy: sortStrategy" 
+        ng-repeat="card in dateobj.obj | filter:{sport:activityFilter}| property:searchFilter:filterFlag | orderBy: sortStrategy" 
         ng-controller="cardController">
           <div class="card-left" > 
             <div class="card-activity">
-              {{card.activity}}
+              {{card.sport}}
             </div>
             <div class="card">
               <div class="card-star-wrapper star-mouseover">
@@ -31,10 +31,10 @@
               </div>
               <div class="card-header-wrapper">
                 <div class="description-text">
-                  {{card.startdate | amDateFormat: 'dddd, MMM Do' | uppercase}}
+                  {{card.date | amDateFormat: 'dddd, MMM Do' | uppercase}}
                 </div>
                 <div class="card-number">
-                  {{card.startdate | amDateFormat: 'HH:mm'}}-{{card.enddate | amDateFormat: 'HH:mm'}}
+                  {{card.starttime | amDateFormat: 'HH:mm'}}-{{card.endtime | amDateFormat: 'HH:mm'}}
                 </div>
                 <div class="description-text">
                   {{card.location | uppercase}}
@@ -61,10 +61,10 @@
                     </div>
                     <div class="col-sm-4 metric passive">
                       <div class="card-number">
-                        {{ card.participants.totalParticipants }}/{{card.capacity}}
+                        {{ card.participants.totalParticipants }}
                       </div>
                       <div class="description-text">
-                        PEOPLE
+                        GOING
                       </div>
                     </div>
                     <div class="col-sm-4 metric passive">
@@ -74,7 +74,7 @@
                         <div class="description-text">
                           {{neededorfree}}
                         </div>
-                    </div>                              
+                    </div>                           
                   </div>
                 </div>
               </div>

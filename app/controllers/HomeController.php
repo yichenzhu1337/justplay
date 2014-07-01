@@ -73,7 +73,7 @@ class HomeController extends BaseController {
 				return Response::json(
 					array(
 						'errors' => [],
-						'obj' => array('first_name' => $user->first_name)
+						'obj' => array('name' => $user->first_name, 'email' => $user->email, 'id' => $user->id)
 					));
 			}
 

@@ -1,4 +1,4 @@
-var mod = angular.module('activityModule', ['searchbar']);
+var mod = angular.module('activityModule', []);
 
 var factories = {};
 

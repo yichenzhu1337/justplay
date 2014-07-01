@@ -1,8 +1,8 @@
-var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling']);
+var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','userModule']);
 
 var factories = {};
 
-factories.authenticationService = function($http, PostSvc, SessionService, errorSvc ) {
+factories.authenticationService = function($http, PostSvc, SessionService, errorSvc, User) {
 	var cacheSession = function() {
 		SessionService.set("authenticated", true);
 	}
@@ -11,14 +11,42 @@ factories.authenticationService = function($http, PostSvc, SessionService, error
 		SessionService.unset("authenticated");
 	}
 
+	var isLoggedIn = function() {
+		return SessionService.get('authenticated');
+	}
+
+	var currentUser;
+
+	var setUser = function(userJSON) {
+		currentUser = User.build(userJSON);
+	}
+
+	var getUser = function() {
+		if (isLoggedIn() && userIsSet()) {
+			return currentUser;
+		} else {
+			return false;
+		}
+	}
+
+	var userIsSet = function() {
+		if (angular.isUndefined(currentUser)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	return {
 		login: function(credentials) {
 			var login = $http.post("api/login", PostSvc.obj(credentials));
 			errorSvc.hasNoErrors(login)
 			.then(
-				function(resp){
+				function(obj){
 					// Handle errors here
 					cacheSession();
+					setUser(obj);
+					var obj = getUser(obj);
 				},
 				function(){
 					uncacheSession();
@@ -40,7 +68,10 @@ factories.authenticationService = function($http, PostSvc, SessionService, error
 			return logout;
 		},
 		isLoggedIn: function() {
-			return SessionService.get('authenticated');
+			return isLoggedIn();
+		},
+		getUser: function() {
+			return getUser();
 		}
 	}
 }
@@ -58,6 +89,5 @@ factories.SessionService = function() {
     }
   }
 };
-
 
 mod.factory(factories);

@@ -2,15 +2,21 @@ var mod = angular.module('userModule', []);
 
 var factories = {};
 
-factories.User = ['', function() {
+factories.User = function() {
 	function User(id, name, email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 	}
 
+	User.build = function(userJSON) {
+		if (angular.isDefined(userJSON.name),angular.isDefined(userJSON.email),angular.isDefined(userJSON.id)) {
+			return new User(userJSON.id, userJSON.name, userJSON.email);
+		}
+	}
+
 	return User;
-}];
+};
 
 factories.UserSvc = ['$q', function($q){
 
@@ -56,5 +62,7 @@ factories.UserSvc = ['$q', function($q){
 		}
 	}
 }]
+
+
 
 mod.factory(factories);

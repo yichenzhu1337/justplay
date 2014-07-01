@@ -37,7 +37,7 @@ factories.errorSvc = function($q, FlashService) {
 						}
 						deferred.reject();
 					} else if (dataHasObj(data)) {
-						deferred.resolve(data);
+						deferred.resolve(data.obj);
 					} else {
 						FlashService.show('Interal Server Error Problem', 'error');
 						// Redirect to error page.
@@ -46,7 +46,7 @@ factories.errorSvc = function($q, FlashService) {
 				},
 				function(data) {
 					// HTTP Error that's uncaught
-				})
+				});
 
 			return deferred.promise;
 		}

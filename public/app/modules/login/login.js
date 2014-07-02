@@ -16,14 +16,13 @@ controllers.loginCtrl = function($scope, $state, authenticationService, FlashSer
 
 		if (isValid) {
 			authenticationService.login(masterLoginCredentials)
-			.success(function(resp){
+			.then(function(){
 				// Move states
 				$state.go('activities.list');
 				FlashService.show('Successful login.', 'success');
-			})
-			.error(function(){
+			},function(){
 				FlashService.show('Incorrect Email/Password', 'error');
-			})
+			});
 		}
 	};
 };

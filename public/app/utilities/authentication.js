@@ -2,7 +2,7 @@ var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','us
 
 var factories = {};
 
-factories.authenticationService = function($http, PostSvc, SessionService, errorSvc, User) {
+factories.authenticationService = function($q, $http, PostSvc, SessionService, errorSvc, User, API) {
 	var cacheSession = function() {
 		SessionService.set("authenticated", true);
 	}
@@ -39,20 +39,23 @@ factories.authenticationService = function($http, PostSvc, SessionService, error
 
 	return {
 		login: function(credentials) {
-			var login = $http.post("api/login", PostSvc.obj(credentials));
-			errorSvc.hasNoErrors(login)
-			.then(
+			var d = $q.defer()
+			var login = API.post('api/login', credentials);
+			login.then(
 				function(obj){
+					console.log('successAuthentication');
 					// Handle errors here
 					cacheSession();
 					setUser(obj);
 					var obj = getUser(obj);
+					d.resolve();
 				},
 				function(){
 					uncacheSession();
+					d.reject();
 				});
 			
-			return login;
+			return d.promise;
 		},
 		logout: function() {
 			var logout = $http.get("api/logout");

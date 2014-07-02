@@ -48,10 +48,10 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 			promise.then(
 				function(response){
 					var data = response.data;
-					if (angular.isDefined(response.xdebug_message)) {
+/*					if (angular.isDefined(response.login.xdebug_message) ) {
 						console.log('Error: '+response.xdebug_message);
 						d.reject('Interal Server Error');
-					} else if (ResponseValidation.hasInvalidDataFormat(data)) {
+					} else */if (ResponseValidation.hasInvalidDataFormat(data)) {
 						d.reject('Invalid Response Format, must contain an error array and obj object');
 					} else {
 						d.resolve(data);

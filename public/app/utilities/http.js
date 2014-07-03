@@ -48,10 +48,7 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 			promise.then(
 				function(response){
 					var data = response.data;
-/*					if (angular.isDefined(response.login.xdebug_message) ) {
-						console.log('Error: '+response.xdebug_message);
-						d.reject('Interal Server Error');
-					} else */if (ResponseValidation.hasInvalidDataFormat(data)) {
+					if (ResponseValidation.hasInvalidDataFormat(data)) {
 						d.reject('Invalid Response Format, must contain an error array and obj object');
 					} else {
 						d.resolve(data);
@@ -109,18 +106,20 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 	}
 
 	var ValidateResponse = function(promise) {
-		//var validationPromise = responseHandler.validateResponse(promise);
-		//return responseHandler.returnObjOrErrors(validationPromise);
-		return responseHandler.validateResponse(promise);
+		var coop = responseHandler.validateResponse(promise);
+		var doop = responseHandler.returnObjOrErrors(coop);
+		return doop;
 	}
 
 	return {
 		post: function(url, data) {
 			data = applyDataTransformations(data);
-			var boop = $http.post(url, data);
-			var coop = responseHandler.validateResponse(boop);
-			var doop = responseHandler.returnObjOrErrors(coop);
-			return doop;
+			var postPromise = $http.post(url, data);
+			var results = validateResponse(postPromise);
+			return results;
+		},
+		get: function(url) {
+			return responseHandler.ValidateResponse($http.get(url));
 		}
 	}
 };

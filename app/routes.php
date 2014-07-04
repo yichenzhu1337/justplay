@@ -16,8 +16,6 @@ Route::group(array('prefix' => 'api'), function(){
 		Route::post('login', 'AuthenticationController@postLogin');
 		Route::post('register', 'AuthenticationController@postRegister');	
 
-		Route::resource('profile', 'UserProfilesController');
-		Route::resource('activity', 'ActivitiesController');
 
 		Route::group(array('before' => 'auth'), function(){
 			Route::get('admin', 'AdminController@index'); //Route::resource('admin', 'AdminController');
@@ -27,6 +25,8 @@ Route::group(array('prefix' => 'api'), function(){
 
 	});
 
+	Route::resource('profile', 'UserProfilesController');
+	Route::resource('activity', 'ActivitiesController');
 });
 
 

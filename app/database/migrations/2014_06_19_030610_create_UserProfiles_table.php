@@ -20,6 +20,8 @@ class CreateUserProfilesTable extends Migration {
 			$table->string('gender');
 			$table->string('bio');
 			$table->integer('age');
+			$table->string('email');
+			$table->string('preferences');
 			$table->timestamps();
 		});
 	}

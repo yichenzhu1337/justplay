@@ -1,13 +1,19 @@
-var project = angular.module('cardModule', 
+var mod = angular.module('cardModule', 
 	[
+	'activityModule',
 	'angularMoment', 
 	'sortModule',
 	'filterModule',
 	'searchbar',
 	'friendModule',
 	'skillModule', 
-	'ui.bootstrap'])
-.factory('cardFactory', function() {
+	'ui.bootstrap',
+	'jp.utilities']);
+
+var controllers = {};
+var factories = {};
+
+factories.cardFactory = function() {
 	var factory = {};
 	var base_date = new Date();
 
@@ -20,11 +26,11 @@ var project = angular.module('cardModule',
 			[		
 				{
 					id: 1,
-					startdate: window.moment().add({months: 1}), 
-					enddate: window.moment().add({months: 1, hours: 2}), 
+					starttime: window.moment().add({months: 1}), 
+					endtime: window.moment().add({months: 1, hours: 2}), 
 					skill: [3],
 					competition: ['Competition'],
-					activity: 'Basketball',
+					sport: 'Basketball',
 					location: 'UTSC Front Gym',
 					participants: {
 							totalParticipants: 6,
@@ -84,16 +90,16 @@ var project = angular.module('cardModule',
 				},
 				{
 					id: 2,
-					startdate: window.moment().add({months: 1}), 
-					enddate: window.moment().add({months: 1, hours: 2}), 
+					starttime: window.moment().add({months: 1}), 
+					endtime: window.moment().add({months: 1, hours: 2}), 
 					skill: [3],
 					competition: ['Recreational'],
-					activity: 'Volleyball',
+					sport: 'Volleyball',
 					location: 'UTSC Front Gym',
 					participants: {
 							totalParticipants: 6,
 							totalFriends: 3,
-							totalnonFriends: 3,
+							totalNonFriends: 3,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
@@ -154,17 +160,17 @@ var project = angular.module('cardModule',
 			[
 				{
 					id: 3,
-					startdate: window.moment().add({months: 0, minutes: 2}),
-					enddate: window.moment().add({months: 0, hours: 4}), 
+					starttime: window.moment().add({months: 0, minutes: 2}),
+					endtime: window.moment().add({months: 0, hours: 4}), 
 					skill: [2],
 					competition: ['Practice'],
 					typeOfMatch: ['Doubles','Singles'],
-					activity: 'Tennis',
+					sport: 'Tennis',
 					location: 'The Valley',
 					participants: {
 							totalParticipants: 4,
 							totalFriends: 1,
-							totalnonFriends: 3,
+							totalNonFriends: 3,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
@@ -217,17 +223,17 @@ var project = angular.module('cardModule',
 				}, 
 				{
 					id: 4,
-					startdate: window.moment().add({days:0, hours:1}),
-					enddate: window.moment().add({days: 0, hours: 4}), 
+					starttime: window.moment().add({days:0, hours:1}),
+					endtime: window.moment().add({days: 0, hours: 4}), 
 					skill: [1],
 					competition: ['Recreational'],
 					typeOfMatch: ['Singles'],
-					activity: 'Badminton',
+					sport: 'Badminton',
 					location: 'UTSC Front Gym',
 					participants: {
 							totalParticipants: 6,
 							totalFriends: 3,
-							totalnonFriends: 3,
+							totalNonFriends: 3,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:false},
@@ -282,16 +288,16 @@ var project = angular.module('cardModule',
 				},
 				{
 					id: 5,
-					startdate: window.moment().add({months: 0, hours:2}),
-					enddate: window.moment().add({months: 0, hours: 4}), 
+					starttime: window.moment().add({months: 0, hours:2}),
+					endtime: window.moment().add({months: 0, hours: 4}), 
 					skill: [2],
 					competition: ['Recreational'],
-					activity: 'Basketball',
+					sport: 'Basketball',
 					location: 'UTSC Front Gym',
 					participants: {
 							totalParticipants: 4,
 							totalFriends: 4,
-							totalnonFriends: 3,
+							totalNonFriends: 3,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:true},
@@ -344,17 +350,17 @@ var project = angular.module('cardModule',
 				},
 				{
 					id: 6,
-					startdate: window.moment().add({months: 0, hours: 3}),
-					enddate: window.moment().add({months: 0, hours: 4}), 
+					starttime: window.moment().add({months: 0, hours: 3}),
+					endtime: window.moment().add({months: 0, hours: 4}), 
 					skill: [3],
 					competition: 'Practice',
 					typeOfMatch: ['Singles'],
-					activity: 'Table Tennis',
+					sport: 'Table Tennis',
 					location: 'The Attic',
 					participants: {
 							totalParticipants: 2,
 							totalFriends: 2,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},
 								{name: 'Yi Chen Zhu', id: 3, isFriends:true},										
@@ -387,17 +393,17 @@ var project = angular.module('cardModule',
 			[
 				{
 					id: 7,
-					startdate: window.moment().add({days:1, hours:2}),
-					enddate: window.moment().add({days: 1, hours: 4}), 
+					starttime: window.moment().add({days:1, hours:2}),
+					endtime: window.moment().add({days: 1, hours: 4}), 
 					skill: [1],
 					competition: ['Practice'],
 					typeOfMatch: ['Singles'],
-					activity: 'Squash',
+					sport: 'Squash',
 					location: 'Squash Courts',
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -447,16 +453,16 @@ var project = angular.module('cardModule',
 				},
 				{
 					id: 8,
-					startdate: window.moment().add({days:1, hours:2}),
-					enddate: window.moment().add({days: 1, hours: 4}), 
+					starttime: window.moment().add({days:1, hours:2}),
+					endtime: window.moment().add({days: 1, hours: 4}), 
 					skill: [1],
 					competition: ['Recreational'],
-					activity: 'Basketball',
+					sport: 'Basketball',
 					location: 'Utsc Front Gym',
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -512,17 +518,17 @@ var project = angular.module('cardModule',
 			[
 				{
 					id: 8,
-					startdate: window.moment().add({days:2, hours:2}),
-					enddate: window.moment().add({days: 2, hours: 4}), 
+					starttime: window.moment().add({days:2, hours:2}),
+					endtime: window.moment().add({days: 2, hours: 4}), 
 					skill: [1],
 					competition: ['Practice'],
 					typeOfMatch: ['Singles'],
-					activity: 'Squash',
+					sport: 'Squash',
 					location: 'Squash Courts',
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -572,16 +578,16 @@ var project = angular.module('cardModule',
 				},
 				{
 					id: 9,
-					startdate: window.moment().add({days:1, hours:2}),
-					enddate: window.moment().add({days: 1, hours: 4}), 
+					starttime: window.moment().add({days:1, hours:2}),
+					endtime: window.moment().add({days: 1, hours: 4}), 
 					skill: [1],
 					competition: ['Recreational'],
-					activity: 'Basketball',
+					sport: 'Basketball',
 					location: 'Utsc Front Gym',
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -637,17 +643,17 @@ var project = angular.module('cardModule',
 			[
 				{
 					id: 10,
-					startdate: window.moment().add({days:3, hours:2}),
-					enddate: window.moment().add({days: 3, hours: 4}), 
+					starttime: window.moment().add({days:3, hours:2}),
+					endtime: window.moment().add({days: 3, hours: 4}), 
 					skill: [1],
 					competition: ['Practice'],
 					typeOfMatch: ['Singles'],
-					activity: 'Squash',
+					sport: 'Squash',
 					location: 'Squash Courts',
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -697,16 +703,16 @@ var project = angular.module('cardModule',
 				},
 				{
 					id: 11,
-					startdate: window.moment().add({days:3, hours:2}),
-					enddate: window.moment().add({days: 3, hours: 4}), 
+					starttime: window.moment().add({days:3, hours:2}),
+					endtime: window.moment().add({days: 3, hours: 4}), 
 					skill: [1],
 					competition: ['Recreational'],
-					activity: 'Basketball',
+					sport: 'Basketball',
 					location: 'Utsc Front Gym',
 					participants: {
 							totalParticipants: 1,
 							totalFriends: 1,
-							totalnonFriends: 0,
+							totalNonFriends: 0,
 							list: [
 								{name: 'Jack Yiu', id: 2, isFriends:true},															
 							]
@@ -769,8 +775,8 @@ var project = angular.module('cardModule',
 	};
 
 	return factory;
-})
-var controllers = {};
+};
+
 /**
  * Gathers sorts and filters and orchestrates the communication 
  * from sort & filter controllers to card and expandedCard controllers.
@@ -781,43 +787,26 @@ var controllers = {};
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = function($scope, cardFactory, strategyData, searchbarData, filterService) {
+controllers.cardsController = function($scope, ActivitySvc, watching, filterService) {
 	// Base Set of Activities
-	var baseActivities;
-	init();
 
 	function init() {
-		$scope.dates = cardFactory.getCards(); 
+		var promise = ActivitySvc.getList();
+		promise.then(
+			function(data) {
+				$scope.dates = data;
+			});
 
-
-		$scope.strategyData = strategyData; // Bind instance of strategyData to scope
-		$scope.searchbarData = searchbarData;
 		$scope.filterServ = filterService;
 
-		/* Initialize Items we're watching */
-		$scope.sortStrategy = $scope.strategyData.getSortStrategy(); 
-		$scope.activityFilter = $scope.searchbarData.getData();
+		/* Initialize & Watch Filter & Sort strategies */
+		$scope.sortStrategy = watching.sort($scope);
+		$scope.activityFilter = watching.activity($scope, setFilterFlag);
 		$scope.filterFlag = $scope.filterServ.getFilterFlag();
 
 		$scope.searchFilter = [];
 
 		/* WATCH FOR ANY CHANGES IN DATA FOR FILTERING */
-		$scope.$watch('strategyData.getSortStrategy()', function (newVal, oldVal){
-			if (newVal === oldVal){
-				return
-			};
-				console.log("newVal:" + newVal +" oldVal:"+oldVal);
-				$scope.sortStrategy = strategyData.getSortStrategy();
-		});
-
-		$scope.$watch('searchbarData.getData()', function (newVal, oldVal){
-			if (newVal === oldVal){
-				return
-			}
-			console.log("activity newVal:" + newVal +" oldVal:"+oldVal);
-			$scope.activityFilter = searchbarData.getData();
-			setFilterFlag(false);
-		});
 
 		$scope.$watch('filterServ.getResetFilter()', function(newVal, oldVal){
 			if (newVal === oldVal){
@@ -835,7 +824,7 @@ controllers.cardsController = function($scope, cardFactory, strategyData, search
 			$scope.searchFilter = $scope.filterServ.getFilters();
 		}, true);
 
-		$scope.$watch('filterServ.getFilterFlag()', function(newVal, oldVal){
+		$scope.$watch('filterServ.getFilterFlag()', function(newVal, oldVal) {
 			console.log("outer FilterFlag New Val: " + newVal + " Old:" + oldVal);
 			if (newVal === oldVal) {
 				return;
@@ -845,11 +834,69 @@ controllers.cardsController = function($scope, cardFactory, strategyData, search
 
 	};
 
-	function setFilterFlag(val) {
+	var setFilterFlag = function(val) {
 		$scope.filterServ.setFilterFlag(val);
 		$scope.filterFlag = val;
 	};
+		init();
 };
+
+factories.watching = function(strategyData, searchbarData) {
+
+	/**
+	 * Gets the data from a service
+	 * @type {Object}
+	 */
+	var get = {
+		sort: function() {
+			return strategyData.getSortStrategy()
+		},
+		activity: function() {
+			return searchbarData.getData();
+		}
+	}
+
+	/**
+	 * Watches the service for any changes & updates
+	 * scope variable
+	 * @type {Object}
+	 */
+	var watch = {
+		sort: function(scope) {
+			scope.$watch(get.sort, function(newVal, oldVal){
+				if (newVal === oldVal) {
+					return;
+				} else {
+					scope.sortStrategy = strategyData.getSortStrategy();
+				}
+			});
+		},
+		activity: function(scope, setFilterFlag) {
+			scope.$watch(get.activity, function (newVal, oldVal){
+				if (newVal === oldVal){
+					return
+				}
+				console.log("activity newVal:" + newVal +" oldVal:"+oldVal);
+				scope.activityFilter = newVal;
+				setFilterFlag(false);
+			});
+		}
+
+	}
+
+	return {
+		sort: function(scope) {
+			watch.sort(scope);
+			return get.sort();
+		},
+		activity: function(scope, setFilterFlag) {
+			watch.activity(scope, setFilterFlag);
+			return get.activity();
+		}
+	}
+
+}
+
 
 /**
  * Displays the view according to details passed in
@@ -859,7 +906,7 @@ controllers.cardsController = function($scope, cardFactory, strategyData, search
  * @param  {factory} activitySkillFactory returns key values of skill descriptions
  * @return {none}                      none
  */
-controllers.cardController = function($scope, $modal, friendService, activitySkillFactory) {
+controllers.cardController = function($scope, friendService, activitySkillFactory, $state) {
 	$scope.peopleneeded;
 	$scope.neededorfree;
 	$scope.stars = [];
@@ -883,13 +930,11 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 		};
 		// Display Friendlist on mouse over
 	};
-	/**
-	 * Expands the small card to the popover card.
-	 * @return {none} none
-	 */
-	$scope.open = function(){
 
-	};
+	$scope.open = function(activityId) {
+		$state.go('main.activities.detail', { id: activityId});
+	}
+
 	/**
 	 * Retrieves the friend list (Static)
 	 * @return {none} none
@@ -908,4 +953,20 @@ controllers.cardController = function($scope, $modal, friendService, activitySki
 	}
 };
 
-project.controller(controllers);
+controllers.detailedCardController = function($stateParams, $scope, ActivitySvc){
+
+	init();
+
+	function init() {
+		console.log($stateParams.id);
+		ActivitySvc.get($stateParams.id).then(
+			function(activity){
+				$scope.activity = activity;
+			});
+		$scope.isFriendsCollapsed = true;
+		$scope.isPeopleCollapsed = true;
+	};
+};
+
+mod.controller(controllers);
+mod.factory(factories);

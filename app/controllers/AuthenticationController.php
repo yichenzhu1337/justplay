@@ -61,7 +61,11 @@ class AuthenticationController extends BaseController {
 				return Response::json(
 					array(
 						'errors' => [],
-						'obj' => array('first_name' => $user->first_name)
+						'obj' => array(
+							'id' => $user->id,
+							'first_name' => $user->first_name,
+							'email' => $user->email
+							)
 					));
 			}
 

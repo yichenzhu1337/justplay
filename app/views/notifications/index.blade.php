@@ -1,0 +1,1 @@
+C:\wamp\www\github\justplay\app/views/notifications/index.blade.php

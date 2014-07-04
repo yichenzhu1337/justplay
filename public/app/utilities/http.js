@@ -115,7 +115,7 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 		post: function(url, data) {
 			data = applyDataTransformations(data);
 			var postPromise = $http.post(url, data);
-			var results = validateResponse(postPromise);
+			var results = ValidateResponse(postPromise);
 			return results;
 		},
 		get: function(url) {

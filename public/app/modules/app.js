@@ -19,9 +19,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		url: "/signup",
 		templateUrl: "app/modules/signup/signup.html"	
 	})
-	.state('activities', {
-		url: "/activities",
+	.state('main', {
+		abstract: true,
 		templateUrl: "app/modules/activities/mainpage.tmpl.html"
+	})
+	.state('main.activities', {
+		abstract: true,
+		url: "/activities",
+		views: {
+			"header": {
+				template: "<div ui-view='header'/>"
+			}, 
+			"body": {
+				template: "<div ui-view='body'/>"
+			}
+		}
 	});
 }]);
 

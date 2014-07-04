@@ -932,7 +932,7 @@ controllers.cardController = function($scope, friendService, activitySkillFactor
 	};
 
 	$scope.open = function(activityId) {
-		$state.go('activities.detail', { id: activityId});
+		$state.go('main.activities.detail', { id: activityId});
 	}
 
 	/**

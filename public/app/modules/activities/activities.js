@@ -12,7 +12,7 @@ var jpactivitiespage = angular.module('jp.activitiespage',
 jpactivitiespage
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$stateProvider
-	.state('activities.list', {
+	.state('main.activities.list', {
 		url: "/",
 		views: {
 			"header": {
@@ -23,7 +23,7 @@ jpactivitiespage
 			}
 		}
 	})
-	.state('activities.create', {
+	.state('main.activities.create', {
 		url: "/create",
 		views: {
 			"header": {}, 
@@ -32,7 +32,7 @@ jpactivitiespage
 			}
 		}
 	})
-	.state('activities.detail', {
+	.state('main.activities.detail', {
 		url: "/:id",
 		views: {
 			"header": {},

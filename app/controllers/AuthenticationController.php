@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class AuthenticationController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -18,13 +18,6 @@ class HomeController extends BaseController {
 	public function showWelcome()
 	{
 		return View::make('index');
-	}
-
-	public function getRegister()
-	{
-		//return View::make('home.register');
-		//return a json string
-		return Input::all();
 	}
 
 	public function postRegister()
@@ -52,11 +45,6 @@ class HomeController extends BaseController {
 		}
 	}
 
-	public function getLogin()
-	{
-		//return View::make('home.login');
-	}
-
 	public function postLogin()
 	{
 		$credentials = array(
@@ -73,7 +61,7 @@ class HomeController extends BaseController {
 				return Response::json(
 					array(
 						'errors' => [],
-						'obj' => array('name' => $user->first_name, 'email' => $user->email, 'id' => $user->id)
+						'obj' => array('first_name' => $user->first_name)
 					));
 			}
 
@@ -94,7 +82,6 @@ class HomeController extends BaseController {
 
 	}
 
-
 	public function logout()
 	{
 		Sentry::logout();
@@ -102,3 +89,8 @@ class HomeController extends BaseController {
 	}
 
 }
+
+
+/*
+{ error: ["error1", "error2" ], obj: { ... } }
+*/

@@ -56,6 +56,7 @@
 		
 		<!-- justPlay user Module -->
 	  <script src="app/modules/users/userModule.js"></script>
+	  <script src="app/modules/social/social.js"></script>
 
 
 	  <!-- justPlay activity Modules -->

@@ -1,0 +1,13 @@
+<div ng-controller="socialController">
+	
+	Model: '{{asyncSelectedUser}}'
+  <input type="text" ng-model="asyncSelectedUser" placeholder="Search for people, friends..." typeahead="user.name for user in searchUser()" typeahead-loading="loadingUsers" class="form-control">
+  <i ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>
+	<!-- <ul class="list-group">
+	  <li class="list-group-item" ng-repeat="user in users">
+		  <h4 class="list-group-item-heading">
+				{{user.name}} 
+			</h4>
+	  </li>
+	</ul> -->
+</div>

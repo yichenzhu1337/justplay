@@ -3,7 +3,8 @@ var app = angular.module('app',
 		'ui.router',
 		'jp.login',
 		'jp.signup',
-		'jp.activitiespage'
+		'jp.activitiespage',
+		'jp.social'
 	]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -34,7 +35,28 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 				template: "<div ui-view='body'/>"
 			}
 		}
-	});
+	})
+	.state('main.social', {
+		abstract: true,
+		url: "/social",
+		views: {
+			"header": {
+				template: "<div ui-view='header'/>"
+			}, 
+			"body": {
+				template: "<div ui-view='body'/>"
+			}
+		}
+	})
+	.state('main.social.list', {
+		url: "/",
+		views: {
+			"header": {}, 
+			"body": {
+				templateUrl: "app/modules/social/social.html"
+			}
+		}
+	});	
 }]);
 
 app.config(function($httpProvider) {

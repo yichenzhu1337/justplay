@@ -12,7 +12,9 @@ class CommentsTableSeeder extends Seeder {
 		foreach(range(1, 10) as $index)
 		{
 			Comment::create([
-
+				'activity_id' => 1 ,
+				'user_id' => 1 ,
+				'description' => $faker->sentence(10)
 			]);
 		}
 	}

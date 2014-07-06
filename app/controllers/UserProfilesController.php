@@ -15,58 +15,16 @@ class UserProfilesController extends \BaseController {
 	}
 
 	/**
-	 * Show the form for creating a new userprofile
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return View::make('userprofiles.create');
-	}
-
-	/**
-	 * Store a newly created userprofile in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		$validator = Validator::make($data = Input::all(), Userprofile::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		Userprofile::create($data);
-
-		return Redirect::route('userprofiles.index');
-	}
-
-	/**
 	 * Display the specified userprofile.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($username)
 	{
-		$userprofile = Userprofile::findOrFail($id);
+		$user_profile = Userprofile::where('username', '=', $username);
 
-		return View::make('userprofiles.show', compact('userprofile'));
-	}
-
-	/**
-	 * Show the form for editing the specified userprofile.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		$userprofile = Userprofile::find($id);
-
-		return View::make('userprofiles.edit', compact('userprofile'));
+		return Response::json($user_profile);
 	}
 
 	/**

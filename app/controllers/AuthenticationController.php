@@ -30,8 +30,11 @@ class AuthenticationController extends BaseController {
 				'email' => Input::get('email'),
 				'password' => Input::get('password'),
 				'activated' => true,
-
 				));
+
+			//insert into userprofilestable
+			//DB::insert('insert into userprofiles (user_id) values (?)', array($user->id));
+
 			return Response::json(
 				array(
 					'errors' => [],

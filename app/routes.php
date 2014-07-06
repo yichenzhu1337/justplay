@@ -25,11 +25,13 @@ Route::group(array('prefix' => 'api'), function(){
 
 	});
 
-	Route::resource('profile', 'UserProfilesController');
+	//Route::resource('profile', 'UserProfilesController');
 	Route::resource('activity', 'ActivitiesController');
 	Route::resource('comment', 'UserProfilesController');
 	Route::resource('friends', 'UserProfilesController');
 	Route::resource('notification', 'UserProfilesController');
+
+	Route::get('/{profile}', 'UserProfilesController@show');
 });
 
 

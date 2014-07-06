@@ -5148,6 +5148,27 @@ form.login > .help-block,
 form.signup > .help-block {
   color: white;
 }
+.jp-user-list {
+  max-width: 366px;
+}
+@media (min-width: 768px) {
+  .jp-user-list {
+    max-width: 560px;
+  }
+}
+@media (min-width: 992px) {
+  .jp-user-list {
+    max-width: 700px;
+  }
+}
+.jp-user-list > ul > li > .row > .pull-left {
+  margin-left: 10px;
+  display: inline-block;
+}
+.right-content {
+  display: inline-block;
+  margin-left: 5px;
+}
 .modal-open {
   overflow: hidden;
 }

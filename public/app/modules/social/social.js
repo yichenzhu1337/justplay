@@ -1,30 +1,63 @@
-var mod = angular.module('jp.social', ['jp.authentication', 'userModule']);
+var mod = angular.module('jp.social', ['jp.authentication', 'userModule','ui.bootstrap']);
 
 var controllers = {};
 
-controllers.socialController = function($scope, UserSvc, authenticationService){
+controllers.socialController = function($scope, $filter, UserSvc, authenticationService){
+
+	// Services
+	$scope.UserSvc = UserSvc;
+
+	// Variables
+	var allUsers;
+	// Search models
+	$scope.asyncSelectedUser;
+	// Pagination models
+	$scope.pageLength;
+	$scope.currentPage;
+	$scope.totalItems;
 	
 
 	function init() {
+		// variables
+		$scope.pageLength = 7; // Pagination
+		$scope.currentPage = 1; // Pagination
 		$scope.UserSvc = UserSvc;
+
 		$scope.UserSvc.ListAll().then(
 			function(data){
-				$scope.users = data;
-				console.log(data);
+				allUsers = data;
+				$scope.users = allUsers; 
+				$scope.totalItems = $scope.users.length;
 			});
-		$scope.asyncSelectedUser;
-		//var nig = $scope.searchUser("asd");
-		console.log();
+	};
+	init();
+
+	/**
+	 * Updates pagination variables
+	 */
+	$scope.updateUsers = function(selectedUser) {
+		// Filter out the users
+		var filteredUsers = $filter("filter")(allUsers, {name:selectedUser});
+
+		// Update Pagination Variables
+		resetPagination(filteredUsers.length);
 	}
 
-	$scope.searchUser = function() {
-		return $scope.UserSvc.ListAll().then(
-			function(data) {
-				console.log(data);
-				return data;
-			});
+	$scope.clear = function(selectedUser) {
+		if (selectedUser) {
+			$scope.asyncSelectedUser = "";
+			$scope.updateUsers($scope.asyncSelectedUser);
+		}
 	}
-	init();
+
+	/**
+	 * Reset Pagination to page 1 & reset number of pages based on the
+	 * number of items
+	 */
+	var resetPagination = function(numberOfItems) {
+		$scope.currentPage = 1;
+		$scope.totalItems = numberOfItems;
+	}
 };
 
 mod.controller(controllers);

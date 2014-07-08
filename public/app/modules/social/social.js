@@ -1,6 +1,8 @@
 var mod = angular.module('jp.social', ['jp.authentication', 'userModule','ui.bootstrap']);
 
 var controllers = {};
+var directives = {};
+
 
 controllers.socialController = function($scope, $filter, UserSvc, authenticationService){
 
@@ -60,4 +62,12 @@ controllers.socialController = function($scope, $filter, UserSvc, authentication
 	}
 };
 
+directives.jpuserlist = function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'app/modules/social/user-list.tmpl.html'
+	}
+};
+
 mod.controller(controllers);
+mod.directive(directives);

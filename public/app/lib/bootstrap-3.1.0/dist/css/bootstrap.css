@@ -5895,7 +5895,9 @@ form.signup > .help-block {
   font-weight: bold;
 }
 .header-content-area > ul > li {
+  padding: 8px;
   border: none;
   background-color: transparent;
+  margin-bottom: 1px;
 }
 /*# sourceMappingURL=bootstrap.css.map */

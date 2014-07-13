@@ -9,7 +9,7 @@ class ActivitiesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$activities = Activity::all();
+		$activities = Activity::with('comment')->get();
 
 		return Response::json($activities);
 	}

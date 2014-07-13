@@ -5069,106 +5069,6 @@ button.close {
   border: 0;
   -webkit-appearance: none;
 }
-.more {
-  padding-top: 13px;
-  color: rgba(255, 255, 255, 0.4);
-}
-.more > p {
-  margin-bottom: 0px;
-  font-size: 14px;
-}
-.more > p > a {
-  color: rgba(255, 255, 255, 0.4);
-  font-weight: 700;
-}
-form.createActForm {
-  max-width: 366px;
-  text-align: left;
-  margin: 0 auto 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-}
-form.createActForm > .form-group {
-  width: 100%;
-  font-size: 18px;
-}
-form.createActForm > .form-group > input,
-form.createActForm > .form-group > datepicker,
-form.createActForm > .form-group > select {
-  height: 48px;
-  background: rgba(255, 255, 255, 0.9);
-}
-@media (min-width: 480px) {
-  form.createActForm > .form-group {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-form.createActForm > button {
-  width: 100%;
-  background: linear-gradient(to bottom, #76d926, #6ac322);
-  height: 50px;
-  font-weight: 700;
-  font-size: 20px;
-}
-@media (min-width: 768px) {
-  form.createActForm {
-    max-width: 560px;
-  }
-}
-@media (min-width: 992px) {
-  form.createActForm {
-    max-width: 700px;
-  }
-}
-form.login,
-form.signup {
-  max-width: 366px;
-  margin: 0 auto 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-form.login .form-group > input,
-form.signup .form-group > input {
-  width: 100%;
-  height: 48px;
-  font-size: 18px;
-  background: rgba(255, 255, 255, 0.9);
-}
-form.login > button,
-form.signup > button {
-  width: 100%;
-  background: linear-gradient(to bottom, #76d926, #6ac322);
-  height: 50px;
-  font-weight: 700;
-  font-size: 20px;
-}
-form.login > .help-block,
-form.signup > .help-block {
-  color: white;
-}
-.jp-user-list {
-  max-width: 366px;
-}
-@media (min-width: 768px) {
-  .jp-user-list {
-    max-width: 560px;
-  }
-}
-@media (min-width: 992px) {
-  .jp-user-list {
-    max-width: 700px;
-  }
-}
-.jp-user-list > ul > li > .row > .pull-left {
-  margin-left: 10px;
-  display: inline-block;
-}
-.right-content {
-  display: inline-block;
-  margin-left: 5px;
-}
 .modal-open {
   overflow: hidden;
 }
@@ -5882,5 +5782,120 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+}
+.more {
+  padding-top: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+.more > p {
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+.more > p > a {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+}
+form.createActForm {
+  max-width: 366px;
+  text-align: left;
+  margin: 0 auto 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}
+form.createActForm > .form-group {
+  width: 100%;
+  font-size: 18px;
+}
+form.createActForm > .form-group > input,
+form.createActForm > .form-group > datepicker,
+form.createActForm > .form-group > select {
+  height: 48px;
+  background: rgba(255, 255, 255, 0.9);
+}
+@media (min-width: 480px) {
+  form.createActForm > .form-group {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+form.createActForm > button {
+  width: 100%;
+  background: linear-gradient(to bottom, #76d926, #6ac322);
+  height: 50px;
+  font-weight: 700;
+  font-size: 20px;
+}
+@media (min-width: 768px) {
+  form.createActForm {
+    max-width: 560px;
+  }
+}
+@media (min-width: 992px) {
+  form.createActForm {
+    max-width: 700px;
+  }
+}
+form.login,
+form.signup {
+  max-width: 366px;
+  margin: 0 auto 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+form.login .form-group > input,
+form.signup .form-group > input {
+  width: 100%;
+  height: 48px;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.9);
+}
+form.login > button,
+form.signup > button {
+  width: 100%;
+  background: linear-gradient(to bottom, #76d926, #6ac322);
+  height: 50px;
+  font-weight: 700;
+  font-size: 20px;
+}
+form.login > .help-block,
+form.signup > .help-block {
+  color: white;
+}
+.jp-user-list {
+  max-width: 366px;
+}
+@media (min-width: 768px) {
+  .jp-user-list {
+    max-width: 560px;
+  }
+}
+@media (min-width: 992px) {
+  .jp-user-list {
+    max-width: 700px;
+  }
+}
+.jp-user-list > ul > li > .row > .pull-left {
+  margin-left: 10px;
+  display: inline-block;
+}
+.right-content {
+  display: inline-block;
+  margin-left: 5px;
+}
+.header-content-area {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.header-content-area > .jp-h1 {
+  font-size: 26px;
+  margin-top: 0px;
+  letter-spacing: -0.75px;
+  font-weight: bold;
+}
+.header-content-area > ul > li {
+  border: none;
+  background-color: transparent;
 }
 /*# sourceMappingURL=bootstrap.css.map */

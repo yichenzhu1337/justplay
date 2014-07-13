@@ -27,7 +27,13 @@ factories.UserSvc = ['$q', '$timeout', 'User', function($q, $timeout, User){
 		{name: 'Jason Zheng', id: 4, isFriends:false, email: 'sampleEmail@email.com'},
 		{name: 'Roger Ganesh', id: 5, isFriends: true, email: 'sampleEmail@email.com'},
 		{name: 'Suzanne Lim', id: 6, isFriends: true, email: 'sampleEmail@email.com'},
-		{name: 'Someoneelse', id: 7, isFriends: false, email: 'sampleEmail@email.com'},																
+		{name: 'Someoneelse', id: 7, isFriends: false, email: 'sampleEmail@email.com'},
+		{name: 'Jack Yiu', id: 2, isFriends:true, email: 'sampleEmail@email.com'},
+		{name: 'Yi Chen Zhu', id: 3, isFriends:false, email: 'sampleEmail@email.com'},
+		{name: 'Jason Zheng', id: 4, isFriends:false, email: 'sampleEmail@email.com'},
+		{name: 'Roger Ganesh', id: 5, isFriends: true, email: 'sampleEmail@email.com'},
+		{name: 'Suzanne Lim', id: 6, isFriends: true, email: 'sampleEmail@email.com'},
+		{name: 'Someoneelse', id: 7, isFriends: false, email: 'sampleEmail@email.com'},												
 	];
 
 	var APIInterceptor = function (data) {

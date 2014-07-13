@@ -1,0 +1,37 @@
+//
+// JP userlist
+// --------------------------------------------------
+
+// CONSTANTS FOR JPFORMS
+// --------------------------------------------------
+
+// User List Directive
+// --------------------------------------------------
+
+.jp-user-list {
+    max-width: 366px;
+
+    @media (min-width: @screen-sm-min) {
+      max-width: 560px;
+    }
+
+    @media (min-width: @screen-md-min) {
+      max-width: 700px;
+    }
+
+    > ul {
+      > li {
+        > .row {
+          > .pull-left {
+            margin-left: 10px;
+            display: inline-block;
+          }
+        } 
+      }
+    }
+}
+
+.right-content {
+  display: inline-block;
+  margin-left: 5px;
+}

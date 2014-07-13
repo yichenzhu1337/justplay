@@ -5891,6 +5891,7 @@ form.signup > .help-block {
 .header-content-area > .jp-h1 {
   font-size: 26px;
   margin-top: 0px;
+  margin-bottom: 5px;
   letter-spacing: -0.75px;
   font-weight: bold;
 }
@@ -5899,5 +5900,35 @@ form.signup > .help-block {
   border: none;
   background-color: transparent;
   margin-bottom: 1px;
+}
+.header-content-area > ul > li > i {
+  font-size: large;
+  color: #e74c3c;
+  padding-right: 5px;
+  margin-right: .3em;
+}
+.header-content-area > ul > li > h4.list-group-item-heading {
+  color: #555555;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.activity-detail-area {
+  background-color: white;
+  height: 100%;
+  padding-top: 10px;
+}
+.activity-detail-area > .tabbable > ul.nav.nav-tabs > li {
+  background-color: #eeeeee;
+}
+.activity-detail-area > .tabbable > ul.nav.nav-tabs > li > a > tab-heading {
+  color: #333333;
+}
+.activity-detail-area > .tabbable > ul.nav.nav-tabs > li.active > a,
+.activity-detail-area > .tabbable > ul.nav.nav-tabs > li.active > a:hover,
+.activity-detail-area > .tabbable > ul.nav.nav-tabs > li.active > a:active {
+  background-color: white;
+}
+.activity-detail-area > .tabbable > .tab-content {
+  padding: 10px;
 }
 /*# sourceMappingURL=bootstrap.css.map */

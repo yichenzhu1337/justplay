@@ -3,31 +3,45 @@
 	<div class="jp-h1">{{activity.sport}}</div>
 	<ul class="list-group">
 	  <li class="list-group-item">
-
-			<i class="glyphicon glyphicon-calendar pull-left"></i>
-		  <h4 class="list-group-item-heading">
-				{{activity.date | amDateFormat: 'dddd, MMM Do' | uppercase}}	  
+			<i class="fa fa-calendar-o pull-left"></i>
+		  <h4 class="list-group-item-heading"> 
+				{{activity.date | amDateFormat: 'dddd, MMM Do'}}	  
 			</h4>
-		  <p class="list-group-item-text">
-	      {{activity.starttime | amDateFormat: 'HH:mm'}}-{{activity.endtime | amDateFormat: 'HH:mm'}}
-		  </p>
 	  </li>
 	  <li class="list-group-item">
-		  <h4 class="list-group-item-heading">
-				{{activity.sport}}	  
+			<i class="fa fa-clock-o pull-left"></i>
+		  <h4 class="list-group-item-heading"> 
+				{{activity.starttime | amDateFormat: 'HH:mm'}}-{{activity.endtime | amDateFormat: 'HH:mm'}}  
 			</h4>
-		  <p class="list-group-item-text">
-	      {{activity.location}}
-		  </p>
 	  </li>
-		<li class="list-group-item">
-			<h4 class="list-group-item-heading">
-				{{activity.description}}
+	  <li class="list-group-item">
+			<i class="glyphicon glyphicon-map-marker pull-left"></i>
+		  <h4 class="list-group-item-heading"> 
+				{{activity.location}}
 			</h4>
-		</li>
+	  </li>
 	</ul>
 </div>
-<button ng-click="join()" class="btn btn-success">Join</button>
+<div class="activity-detail-area">
+	<tabset>
+    <tab heading="Going">
+      <tab-heading>
+        <i class="glyphicon glyphicon-ok"></i>
+        Going
+      </tab-heading>
+    	<jpuserlist>
+			</jpuserlist>
+    </tab>
+    <tab>
+      <tab-heading>
+        <i class="glyphicon glyphicon-align-right"></i>
+        Description
+      </tab-heading>
+      {{activity.description}}
+    </tab>
+  </tabset>
+</div>
+<!-- <button ng-click="join()" class="btn btn-success">Join</button> -->
 
 	 <!--  <li>
 	 		  <a href="" ng-click="isFriendsCollapsed = !isFriendsCollapsed" class="list-group-item"

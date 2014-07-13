@@ -6,8 +6,8 @@
 // --------------------------------------------------
 
 @jp-xs-margin:                  10px;
-
-
+@jp-inner-padding:               5px;
+@primary-color:                 @alizarin;
 
 // Detailed Activity Page
 // --------------------------------------------------
@@ -22,6 +22,7 @@
   {
     font-size: 26px;
     margin-top: 0px;
+    margin-bottom: 5px;
     letter-spacing: -0.75px;
     font-weight: bold;
   }
@@ -32,6 +33,52 @@
       border: none;
       background-color: transparent;
       margin-bottom: 1px;
+
+      > i {
+        font-size: large;
+        color: @primary-color;
+        padding-right: @jp-inner-padding;
+        margin-right: .3em;
+      }
+
+      > h4.list-group-item-heading {
+        color: @gray;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+.activity-detail-area {
+  background-color: white;
+  height: 100%;
+  padding-top: @jp-xs-margin;
+
+  > .tabbable {
+    > ul.nav.nav-tabs {
+      > li {
+        background-color: @gray-lighter;
+
+        > a {
+          > tab-heading {
+            color: @gray-dark;
+          }
+        }
+      }
+
+      > li.active {
+        > a,
+        > a:hover,
+        > a:active {
+          background-color: white;
+
+        }
+      }
+    }
+
+    > .tab-content {
+      padding: @jp-xs-margin;
     }
   }
 }

@@ -5813,12 +5813,6 @@ form.createActForm > .form-group > select {
   height: 48px;
   background: rgba(255, 255, 255, 0.9);
 }
-@media (min-width: 480px) {
-  form.createActForm > .form-group {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
 form.createActForm > button {
   width: 100%;
   background: linear-gradient(to bottom, #76d926, #6ac322);

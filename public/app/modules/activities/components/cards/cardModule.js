@@ -8,7 +8,8 @@ var mod = angular.module('cardModule',
 	'friendModule',
 	'skillModule', 
 	'ui.bootstrap',
-	'jp.utilities']);
+	'jp.utilities',
+	'jp.authentication']);
 
 var controllers = {};
 var factories = {};
@@ -953,11 +954,14 @@ controllers.cardController = function($scope, friendService, activitySkillFactor
 	}
 };
 
-controllers.detailedCardController = function($stateParams, $scope, ActivitySvc){
+controllers.detailedCardController = function($stateParams, $scope, ActivitySvc, UserSvc){
 
 	init();
 
 	function init() {
+		// Services
+		$scope.UserSvc = UserSvc;
+
 		console.log($stateParams.id);
 		ActivitySvc.get($stateParams.id).then(
 			function(activity){
@@ -966,6 +970,17 @@ controllers.detailedCardController = function($stateParams, $scope, ActivitySvc)
 		$scope.isFriendsCollapsed = true;
 		$scope.isPeopleCollapsed = true;
 	};
+
+	$scope.getUsers = function() {
+		return $scope.UserSvc.ListAll().then(
+			function(data){
+				return data;
+			});
+	}
+
+	$scope.join = function() {
+
+	}
 };
 
 mod.controller(controllers);

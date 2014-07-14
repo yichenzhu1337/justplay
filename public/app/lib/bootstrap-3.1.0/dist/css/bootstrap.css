@@ -5875,9 +5875,15 @@ form.signup > .help-block {
     max-width: 700px;
   }
 }
+.jp-user-list > ul {
+  margin-top: -1px;
+}
 .jp-user-list > ul > li > .row > .pull-left {
   margin-left: 10px;
   display: inline-block;
+}
+.jp-user-list > ul.pagination {
+  margin: 10px 0px;
 }
 .right-content {
   display: inline-block;
@@ -5923,6 +5929,10 @@ form.signup > .help-block {
 .activity-detail-area > .tabbable > ul.nav.nav-tabs > li > a > tab-heading {
   color: #333333;
 }
+.activity-detail-area > .tabbable > ul.nav.nav-tabs > li > a:hover,
+.activity-detail-area > .tabbable > ul.nav.nav-tabs > li > a:active {
+  background-color: white;
+}
 .activity-detail-area > .tabbable > ul.nav.nav-tabs > li.active > a,
 .activity-detail-area > .tabbable > ul.nav.nav-tabs > li.active > a:hover,
 .activity-detail-area > .tabbable > ul.nav.nav-tabs > li.active > a:active {
@@ -5930,5 +5940,6 @@ form.signup > .help-block {
 }
 .activity-detail-area > .tabbable > .tab-content {
   padding: 10px;
+  background-color: white;
 }
 /*# sourceMappingURL=bootstrap.css.map */

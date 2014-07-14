@@ -5952,4 +5952,8 @@ form.signup > .help-block {
   margin-top: -5px;
   margin-bottom: 0px;
 }
+.comment > .media-body > button {
+  margin-top: 10px;
+  background: linear-gradient(to bottom, #76d926, #6ac322);
+}
 /*# sourceMappingURL=bootstrap.css.map */

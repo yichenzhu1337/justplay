@@ -1,7 +1,17 @@
 <?php
 
-class ActivitiesController extends \BaseController {
+use Acme\Transformers\ActivityTransformer;
 
+class ActivitiesController extends \ApiController {
+
+	protected $activityTransformer;
+
+	function __construct(ActivityTransformer $activityTransformer) 
+	{
+		$this->activityTransformer = $activityTransformer;
+
+		$this->beforeFilter('auth.basic', ['on' => 'post']);
+	}
 	/**
 	 * Display a listing of activities
 	 *
@@ -11,17 +21,19 @@ class ActivitiesController extends \BaseController {
 	{
 		$activities = Activity::with('comment')->get();
 
-		return Response::json($activities);
-	}
+		return $this->respond([
+			'data' => $this->activityTransformer->transformCollection($activities->all())
+		]);
 
-	/**
-	 * Show the form for creating a new activity
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return View::make('activities.create');
+		/*
+		 * Bad. WHy?
+		 * 1. All is bad, returning all = slow, want paginated result
+		 * 2. no way to attach meta data
+		 * 3. returning everything that mimics my database structure and table, see passwords???
+		 * (do not use hidden in model)
+		 * 4. no way to present errors, headers or reponse codes
+		 */
+
 	}
 
 	/**
@@ -51,22 +63,16 @@ class ActivitiesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$activity = Activity::findOrFail($id);
-
-		return Response::json($activity);
-	}
-
-	/**
-	 * Show the form for editing the specified activity.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
 		$activity = Activity::find($id);
 
-		return View::make('activities.edit', compact('activity'));
+		if (!$activity) {
+			return $this->respondNotFound('activity does not exist');
+			//return $this->respondWithError(404, 'activity not found');
+		}
+
+		return $this->respond([
+			'data' => $this->activityTransformer->transform($activity)
+		]);
 	}
 
 	/**

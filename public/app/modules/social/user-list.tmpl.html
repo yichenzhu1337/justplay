@@ -10,16 +10,14 @@
 	</div>  
 	<ul class="list-group">
 	  <li class="list-group-item" ng-repeat="user in users | filter:{name:asyncSelectedUser} | startFrom: (currentPage-1)*pageLength | limitTo: pageLength">
-		  <div class="row">
-				<div class="pull-left">
-	      	<img src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-				</div>
-				<div class="right-content">
-				  <h4 class="list-group-item-heading">
-						{{user.name}} 
-					</h4>
-				</div>
-		  </div>
+      <div class="media comment">
+			  <a class="pull-left" href="">
+			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+			  </a>
+			  <div class="media-body">
+			    <a href=""><h5 class="media-heading">{{user.name}}</h5></a>
+			  </div> 
+			</div>
 	  </li>
 	</ul>
 	<pagination total-items="totalItems" items-per-page="pageLength" page="currentPage" ng-model="yo"></pagination>

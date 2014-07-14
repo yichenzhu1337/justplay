@@ -4,25 +4,40 @@ var controllers = {};
 var directives = {};
 
 
-controllers.socialController = function($scope, $filter, UserSvc, authenticationService){
+controllers.socialController = function($scope, $filter, UserSvc, authenticationService,$q, $timeout){
 
 	// Services
 	$scope.UserSvc = UserSvc;
 
-	$scope.totalItems;
-
-	function init() {
-		// variables
-		$scope.UserSvc = UserSvc;
-
-		$scope.UserSvc.ListAll().then(
+	$scope.getUsers = function() {
+		return $scope.UserSvc.ListAll().then(
 			function(data){
-				allUsers = data;
-				$scope.userlistz = allUsers; 
-				//$scope.totalItems = $scope.userlistz.length;
+				return data;
 			});
-	};
+	}
 };
+
+directives.testdirective = function() {
+	return {
+		restrict: "E",
+		scope: {
+			done: "&"
+		},
+		template: '<input type="text" ng-model="chore">'+
+		' {{chore}} ' +
+		' <div class="btn btn-default" ng-click="done({chore:chore})">I\'m done!</div>' +
+		' 	<div ng-repeat="peepz in people">' +
+		'{{peepz.name}}' +
+		'</div>',
+		link: function(scope, element, attr) {
+			scope.done().then(
+				function(users) {
+					console.log('post:' + users);
+					scope.people = users;
+				});
+		}
+	}
+}
 
 directives.jpuserlist = function($filter, UserSvc, authenticationService) {
 	return {
@@ -30,7 +45,8 @@ directives.jpuserlist = function($filter, UserSvc, authenticationService) {
 		transclude: true,
 		templateUrl: 'app/modules/social/user-list.tmpl.html',
 		scope: {
-			pageLength: "@"
+			pageLength: "@",
+			getusers: "&"
 			//userlist: "&userList"
 		},
 		link: function($scope, element, attrs) {
@@ -47,17 +63,16 @@ directives.jpuserlist = function($filter, UserSvc, authenticationService) {
 			$scope.totalItems;
 
 			function init() {
-				// variables
-				$scope.currentPage = 1; // Pagination
-				$scope.UserSvc = UserSvc;
-				// Initialize variables from data attributes
-				
-				$scope.UserSvc.ListAll().then(
-					function(data){
-						allUsers = data;
-						$scope.users = allUsers; 
-						$scope.totalItems = $scope.users.length;
+				$scope.getusers().then(
+					function(users) {
+						console.log('post:' + users);
+						// Init variables when all values arrive
+						$scope.currentPage = 1; // Pagination
 						$scope.pageLength = attrs.pagelength;
+
+						//var allUsers = users;
+						$scope.users = users;
+						$scope.totalItems = users.length;
 					});
 			};
 			init();
@@ -67,7 +82,7 @@ directives.jpuserlist = function($filter, UserSvc, authenticationService) {
 			 */
 			$scope.updateUsers = function(selectedUser) {
 				// Filter out the users
-				var filteredUsers = $filter("filter")(allUsers, {name:selectedUser});
+				var filteredUsers = $filter("filter")($scope.users, {name:selectedUser});
 
 				// Update Pagination Variables
 				resetPagination(filteredUsers.length);

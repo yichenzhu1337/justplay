@@ -27,7 +27,7 @@
     <tab heading="Going">
       <tab-heading>
         <i class="glyphicon glyphicon-ok"></i>
-        Going
+        Going (3)
       </tab-heading>
     	<jpuserlist pageLength="6" getUsers="getUsers()">
 			</jpuserlist>
@@ -39,8 +39,54 @@
       </tab-heading>
       {{activity.description}}
     </tab>
+    <tab>
+      <tab-heading>
+        <i class="glyphicon glyphicon-comment"></i>
+        Comments (42)
+      </tab-heading>
+      <div class="media comment">
+			  <a class="pull-left" href="">
+			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+			  </a>
+			  <div class="media-body">
+			    <a href=""><h5 class="media-heading">Jack Yiu</h5></a>
+			    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+			    <p class="text-muted comment-date">March 30 at 10:50pm</p>
+			  </div>
+			</div>
+	    <div class="media comment">
+			  <a class="pull-left" href="">
+			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+			  </a>
+			  <div class="media-body">
+			    <a href=""><h5 class="media-heading">Jack Yiu</h5></a>
+			    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+			    <p class="text-muted">March 30 at 10:51pm</p>
+			  </div>
+			</div>
+    </tab>
   </tabset>
 </div>
+
+<!--       <div class="media" ng-repeat="comment in activity.comments.list">
+			  <a class="pull-left" href="">
+			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+			  </a>
+			  <div class="media-body">
+			    <h4 class="media-heading">{{comment.senderName}}<span class="text-muted"> - 5 days ago </span></h4>
+			    <p>Cras sit amet nibh libero</p>
+    <div class="media">
+					  <a class="pull-left" href="">
+					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+					  </a>
+					  <div class="media-body">
+					    <h4 class="media-heading">Media heading</h4>
+					    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+					  </div>
+					</div>
+			  </div>
+			</div> -->
+
 <!-- <button ng-click="join()" class="btn btn-success">Join</button> -->
 
 	 <!--  <li>

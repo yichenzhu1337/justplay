@@ -5926,6 +5926,9 @@ form.signup > .help-block {
 .activity-detail-area > .tabbable > ul.nav.nav-tabs > li {
   background-color: #eeeeee;
 }
+.activity-detail-area > .tabbable > ul.nav.nav-tabs > li > a {
+  padding: 6px;
+}
 .activity-detail-area > .tabbable > ul.nav.nav-tabs > li > a > tab-heading {
   color: #333333;
 }
@@ -5941,5 +5944,12 @@ form.signup > .help-block {
 .activity-detail-area > .tabbable > .tab-content {
   padding: 10px;
   background-color: white;
+}
+.comment > .media-body > a > h5.media-heading {
+  font-weight: bold;
+}
+.comment > .media-body > .comment-date {
+  margin-top: -5px;
+  margin-bottom: 0px;
 }
 /*# sourceMappingURL=bootstrap.css.map */

@@ -10,6 +10,7 @@ More to come :)
 <h3> Backend Update Guide </h3>
 <p> Every time an update has been made in the backend, run these commands </p>
 <ol>
+  <li> php artisan migrate --package=cartalyst/sentry <li>
   <li> Install Laravel: "composer install" </li>
   <li> Install Laravel: "composer update" </li>
   <li> Migrate your database: "php artisan migrate" </li>

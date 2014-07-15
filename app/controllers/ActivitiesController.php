@@ -4,14 +4,24 @@ use Acme\Transformers\ActivityTransformer;
 
 class ActivitiesController extends \ApiController {
 
+   /**
+	 * Bad. WHy?
+	 * 1. All is bad, returning all = slow, want paginated result
+	 * 2. no way to attach meta data
+	 * 3. returning everything that mimics my database structure and table, see passwords???
+	 * (do not use hidden in model)
+	 * 4. no way to present errors, headers or reponse codes
+	 */
+
 	protected $activityTransformer;
 
 	function __construct(ActivityTransformer $activityTransformer) 
 	{
 		$this->activityTransformer = $activityTransformer;
 
-		$this->beforeFilter('auth.basic', ['on' => 'post']);
+		//$this->beforeFilter('auth.basic', ['on' => 'post']);
 	}
+
 	/**
 	 * Display a listing of activities
 	 *
@@ -25,15 +35,6 @@ class ActivitiesController extends \ApiController {
 			'data' => $this->activityTransformer->transformCollection($activities->all())
 		]);
 
-		/*
-		 * Bad. WHy?
-		 * 1. All is bad, returning all = slow, want paginated result
-		 * 2. no way to attach meta data
-		 * 3. returning everything that mimics my database structure and table, see passwords???
-		 * (do not use hidden in model)
-		 * 4. no way to present errors, headers or reponse codes
-		 */
-
 	}
 
 	/**
@@ -43,16 +44,20 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Activity::$rules);
 
-		if ($validator->fails())
+		if (! Input::get('title') or ! Input::get('body'))
 		{
-			return Redirect::back()->withErrors($validator)->withInput();
+			return $this->setStatusCode(422)
+						->respondWithError('Error validating activity'); //extract this to api controller with readble method
 		}
 
-		Activity::create($data);
 
-		//return Response::json('success' => 'true');
+		Activity::create(Input::all());
+
+		return $this->respondCreated('Activity created success!');
+		// return some response Response::json('success' => 'true'); 
+		// one of these400 bad request failed, 403, 422 unprocessible entity
+		// message
 	}
 
 	/**
@@ -94,7 +99,6 @@ class ActivitiesController extends \ApiController {
 
 		$activity->update($data);
 
-		return Redirect::route('activities.index');
 	}
 
 	/**
@@ -108,4 +112,8 @@ class ActivitiesController extends \ApiController {
 		Activity::destroy($id);
 	}
 
+
+	public function create(){
+		return View::make('activities.create');
+	}
 }

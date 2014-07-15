@@ -108,4 +108,16 @@ class ActivitiesController extends \ApiController {
 		Activity::destroy($id);
 	}
 
+	public function paginated()
+	{
+		//activity-paginated?limit=6
+		$limit = Input::get('limit') ?: 3;
+		$activities = Activity::paginate($limit);
+
+		return $this->respondWithPagination($activities,[
+			'data' => $this->activityTransformer->transformCollection($activities->all()),
+			]);
+	}
+
 }
+

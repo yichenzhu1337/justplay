@@ -23,9 +23,12 @@ Route::group(array('prefix' => 'api'), function(){
 
 		});
 
+
+
 	});
 
-	//Route::resource('profile', 'UserProfilesController');
+	Route::get('activity-paginated', 'ActivitiesController@paginated');
+
 	Route::resource('activity', 'ActivitiesController');
 	Route::resource('comment', 'CommentsController');
 	Route::resource('friends', 'FriendsController');

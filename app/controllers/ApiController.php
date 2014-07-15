@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Pagination\Paginator;
+
 class ApiController extends \BaseController{
 	
 	protected $statusCode = 200; //default 200 success
@@ -16,8 +18,6 @@ class ApiController extends \BaseController{
 		return $this;
 	}
 
-
-
 	public function respondNotFound($message = 'Not Found!')
 	{
 		return $this->setStatusCode(404)->respondWithError($message);
@@ -28,7 +28,19 @@ class ApiController extends \BaseController{
 		return $this->setStatusCode(500)->respondWithError($message);
 	}
 
+	public function respondWithPagination(Paginator $activities, $data){
+		
+		$data = array_merge($data,[
+			'paginator' => [
+				'total_count' => $activities->getTotal(),
+				'total_pages' => ceil($activities->getTotal() / $activities->getPerPage()),
+				'current_page' => $activities->getCurrentPage(),
+				'limit' => $activities->getPerPage()
+			]
+		]);
 
+		return $this->respond($data);
+	}
 
 
 	public function respondWithError($message)

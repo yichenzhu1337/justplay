@@ -4027,11 +4027,19 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #7f8c8d;
   background-color: transparent;
 }
+.navbar-inverse .navbar-nav > li > a > span {
+  margin-left: 5px;
+  color: white;
+}
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #ffffff;
   background-color: #080808;
+}
+.navbar-inverse .navbar-nav > .active > a > span {
+  margin-left: 5px;
+  color: #e74c3c;
 }
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
@@ -5871,6 +5879,9 @@ form.signup > .help-block {
 }
 .jp-user-list > ul {
   margin-top: -1px;
+}
+.jp-user-list > ul > li {
+  padding: 6px 6px;
 }
 .jp-user-list > ul > li > .row > .pull-left {
   margin-left: 10px;

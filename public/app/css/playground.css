@@ -122,10 +122,9 @@
   }
 
   .brand {
-    background: url('../img/justPlay.png') no-repeat left center;
+    /*background: url('../img/justPlay.png') no-repeat left center;*/
     width: 122px;
-    height: 33px;
-    margin-top: 6px;
+    margin-top: -7px;
   }
 
   .header-bg{

@@ -50,31 +50,41 @@
                 <div class="card-metrics">
                   <div class="row">
                     <div class="col-sm-4 friend-list-tooltip">
-                      <div class="metric active">
-                        <div class="card-number">
-                          {{card.participants.totalFriends}}
+                      <a href="">
+                        <div class="metric active">
+                          <div class="card-number">
+                            {{card.participants.totalFriends}}
+                          </div>
+                          <div class="description-text">
+                            FRIENDS
+                          </div>
                         </div>
-                        <div class="description-text">
-                          FRIENDS
+                      </a>
+                    </div>
+                    <div class="col-sm-4">
+                      <a href="">
+                        <div class="metric">                        
+                          <div class="card-number hidden">
+                            1
+                          </div>
+                          <div class="description-text">
+                            OVERVIEW
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4 metric passive">
-                      <div class="card-number">
-                        {{ card.participants.totalParticipants }}
-                      </div>
-                      <div class="description-text">
-                        GOING
-                      </div>
-                    </div>
-                    <div class="col-sm-4 metric passive">
-                      <div class="card-number">
-                        {{peopleneeded}}
-                      </div>
-                      <div class="description-text">
-                        {{neededorfree}}
-                      </div>
+                      </a>
                     </div>                           
+                    <div class="col-sm-4">
+                      <a href="">
+                        <div class="metric">                        
+                          <div class="card-number">
+                            {{ card.participants.totalParticipants }}
+                          </div>
+                          <div class="description-text">
+                            GOING
+                          </div>
+                        </div>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

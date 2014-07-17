@@ -453,8 +453,8 @@
     }
 
     .card-info.description {
-      max-height: 100px;
-      min-height: 100px;
+      max-height: 150px;
+      min-height: 150px;
     }
 
     .card-content-wrapper.friends {
@@ -709,9 +709,22 @@
     text-align: left;
   } 
 
-  .metric.passive {
+  .metric {
     color: #AAB2BD;
   }
+
+  .card-metrics > .row > .col-sm-4 > a:hover,
+  .card-metrics > .row > .col-sm-4 > a:active {
+    text-decoration: none;
+
+  }
+
+  .card-metrics > .row > .col-sm-4 > a:hover > .metric,
+  .card-metrics > .row > .col-sm-4 > a:active > .metric {
+    color: #e74c3c;
+  }
+
+
 
   .metric.active{
     color: #e74c3c;

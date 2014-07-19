@@ -1,0 +1,33 @@
+.jp-btn-link {
+  color: #AAB2BD;
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 0px;
+
+  &,
+  &:active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    .box-shadow(none);
+  }
+  
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: #e74c3c;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}

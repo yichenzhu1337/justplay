@@ -40,50 +40,56 @@
                   {{card.location | uppercase}}
                 </div>
               </div>
-              <div class="card-content-wrapper">
-                <div class="card-info-wrapper">
+              <div class="card-content-wrapper" ng-init="radioModel = 'Middle'">
+                <div class="card-info-wrapper" ng-show="radioModel == 'Left'">
+                  <div class="card-info-title">Friends</div>
+                  <div class="card-info description text-center">
+                    Friends
+                  </div>
+                </div>
+                <div class="card-info-wrapper" ng-show="radioModel == 'Middle'">
                   <div class="card-info-title">Description</div>
                   <div class="card-info description text-center">
                     {{card.description}}
                   </div>
                 </div>
+                <div class="card-info-wrapper" ng-show="radioModel == 'Right'">
+                  <div class="card-info-title">People</div>
+                  <div class="card-info description text-center">
+                    People
+                  </div>
+                </div>
                 <div class="card-metrics">
                   <div class="row">
                     <div class="col-sm-4 friend-list-tooltip">
-                      <a href="">
-                        <div class="metric active">
-                          <div class="card-number">
-                            {{card.participants.totalFriends}}
-                          </div>
-                          <div class="description-text">
-                            FRIENDS
-                          </div>
+                      <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Left'">
+                        <div class="card-number">
+                          {{card.participants.totalFriends}}
                         </div>
-                      </a>
+                        <div class="description-text">
+                          FRIENDS
+                        </div>
+                      </button>
                     </div>
                     <div class="col-sm-4">
-                      <a href="">
-                        <div class="metric">                        
-                          <div class="card-number hidden">
-                            1
-                          </div>
-                          <div class="description-text">
-                            OVERVIEW
-                          </div>
+                      <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Middle'">                        
+                        <div class="card-number hidden">
+                          1
                         </div>
-                      </a>
+                        <div class="description-text">
+                          OVERVIEW
+                        </div>
+                      </button>
                     </div>                           
                     <div class="col-sm-4">
-                      <a href="">
-                        <div class="metric">                        
-                          <div class="card-number">
-                            {{ card.participants.totalParticipants }}
-                          </div>
-                          <div class="description-text">
-                            GOING
-                          </div>
+                      <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Right'">                        
+                        <div class="card-number">
+                          {{ card.participants.totalParticipants }}
                         </div>
-                      </a>
+                        <div class="description-text">
+                          GOING
+                        </div>
+                      </button>
                     </div>
                   </div>
                 </div>

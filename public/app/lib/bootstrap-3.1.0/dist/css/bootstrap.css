@@ -5962,4 +5962,35 @@ form.signup > button {
   margin-top: 10px;
   background: linear-gradient(to bottom, #76d926, #6ac322);
 }
+.jp-btn-link {
+  color: #AAB2BD;
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 0px;
+}
+.jp-btn-link,
+.jp-btn-link:active,
+.jp-btn-link[disabled],
+fieldset[disabled] .jp-btn-link {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.jp-btn-link,
+.jp-btn-link:hover,
+.jp-btn-link:focus,
+.jp-btn-link:active {
+  border-color: transparent;
+}
+.jp-btn-link:hover,
+.jp-btn-link:focus,
+.jp-btn-link:active,
+.jp-btn-link.active {
+  color: #e74c3c;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
 /*# sourceMappingURL=bootstrap.css.map */

@@ -686,14 +686,6 @@
     line-height: 25px;
   }
 
-  .card-free-slot{
-    color: #2ecc71;
-  }
-
-  .card-needed{
-    color: #f1c40f;
-  }
-
   .card-info-wrapper {
     margin-left: 15px;
     margin-right: 15px;
@@ -710,29 +702,6 @@
     color: black;
     text-align: left;
   } 
-
-  .metric {
-    color: #AAB2BD;
-  }
-
-  .card-metrics > .row > .col-sm-4 > a:hover,
-  .card-metrics > .row > .col-sm-4 > a:active {
-    text-decoration: none;
-
-  }
-
-  .card-metrics > .row > .col-sm-4 > a:hover > .metric,
-  .card-metrics > .row > .col-sm-4 > a:active > .metric {
-    color: #e74c3c;
-  }
-
-  .beep {
-    color: white;
-  }
-
-  .metric.active{
-    color: #e74c3c;
-  }
 
   .description-text {
     font-size: 11.5px;

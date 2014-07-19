@@ -724,7 +724,9 @@
     color: #e74c3c;
   }
 
-
+  .beep {
+    color: white;
+  }
 
   .metric.active{
     color: #e74c3c;

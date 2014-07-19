@@ -686,6 +686,13 @@
     line-height: 25px;
   }
 
+  .card-metric-icon {
+    font-size: 20px;
+    line-height: 25px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+  }
+
   .card-info-wrapper {
     margin-left: 15px;
     margin-right: 15px;
@@ -704,8 +711,8 @@
   } 
 
   .description-text {
-    font-size: 11.5px;
-    line-height: 11px;
+    font-size: 13px;
+    line-height: 13px;
   }
 
   .join-wrapper {

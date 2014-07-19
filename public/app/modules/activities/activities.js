@@ -21,6 +21,16 @@ jpactivitiespage
 			"body": {
 				templateUrl: "app/modules/activities/partials/body.tmpl.html"
 			}
+		},
+		resolve: {
+/*			activityList: function($q, $timeout, CardFactory) {
+				var d = $q.defer();
+				var data = CardFactory.getList();
+				$timeout(
+					d.resolve('hi')
+				,1000);
+				return d.promise;
+			}	*/		
 		}
 	})
 	.state('main.activities.create', {

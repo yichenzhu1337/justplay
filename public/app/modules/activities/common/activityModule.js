@@ -1,4 +1,4 @@
-var mod = angular.module('activityModule', []);
+var mod = angular.module('activityModule', ['jp.errorHandling']);
 
 var factories = {};
 
@@ -118,8 +118,15 @@ factories.ActivityCollection = function(){
 	return ActivityCollection;
 };
 
-factories.ActivitySvc = function($q, $timeout, $http, cardFactory, Activity, ActivityCollection) {
+factories.ActivitySvc = ['$q', '$timeout', '$http', 'cardFactory', 'Activity', 'ActivityCollection', 'PostSvc', 
+function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, PostSvc) {
 
+	/**
+	 * Creates an array of Activity Objects
+	 * @param  {[type]} array Array of Activities
+	 * @param  {[type]} date  [description]
+	 * @return {[type]}       [description]
+	 */
 	var createActivities = function(array, date) {
 		var activityArray = [];
 		angular.forEach(array, function(val, key) {
@@ -129,6 +136,7 @@ factories.ActivitySvc = function($q, $timeout, $http, cardFactory, Activity, Act
 		});
 		return activityArray;
 	}
+
 
 	var createDateObj = function(objJSON) {
 		var params = {};
@@ -149,13 +157,6 @@ factories.ActivitySvc = function($q, $timeout, $http, cardFactory, Activity, Act
 
 	var getAll = function() {
 		var d = $q.defer();
-		// Uncomment this when integrating with YiChen
-		// $http.get('sampledata/activitylist.json')
-		// .then(
-		// 	function(data) {
-		// 		console.log(data);
-		// 		d.resolve();
-		// 	})
 		var packagedObj = getAllSports(angular.copy(cardFactory.getCards()));
 		// Process the packagedObj.
 		$timeout(
@@ -204,8 +205,21 @@ factories.ActivitySvc = function($q, $timeout, $http, cardFactory, Activity, Act
 					return false;
 				});
 			return deferred.promise;
+		},
+		submitActivity: function(activityJSON) {
+/*			var copiedActivity = angular.copy(activityJSON);
+			var submission = $http.post('api/activitycreate', PostSvc.obj(copiedActivity));
+			errorSvc.hasNoErrors(submission).then(
+				function(obj) {
+					return Activity.build(activityJSON);
+				},
+				function() {
+					return 
+				});
+
+			return submission.promise;*/
 		}
 	}
-}
+}]
 
 mod.factory(factories);

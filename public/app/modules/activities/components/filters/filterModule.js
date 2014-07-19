@@ -191,6 +191,7 @@ controllers.filterController = function($scope, $rootScope, filterService, filte
 directives.jpactivityfilter = function() {
 	return {
 		restrict: 'E',
+		replace: true,
 		templateUrl: 'app/modules/activities/components/filters/filters.tmpl.html'
 	}
 };

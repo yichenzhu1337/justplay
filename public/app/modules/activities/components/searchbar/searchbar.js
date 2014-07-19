@@ -119,6 +119,7 @@ controllers.sportController = function($scope, sportFactory, searchbarData) {
 directives.jpsearchbar = function() {
 	return {
 		restrict: 'E',
+		replace: true,
 		templateUrl: 'app/modules/activities/components/searchbar/search-bar.tmpl.html'
 	}
 };

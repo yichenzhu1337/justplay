@@ -16,7 +16,7 @@
 /* Imported Fonts */  
 
 /* Dependency on angular ui bootstrap */
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.pagination, .carousel, .panel-title a { cursor: pointer; }
 
 /* General Layout */
   body { 

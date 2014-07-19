@@ -5860,8 +5860,8 @@ form.signup > button {
   font-weight: 700;
   font-size: 20px;
 }
-form.login > .help-block,
-form.signup > .help-block {
+form.login > p,
+form.signup > p {
   color: white;
 }
 .jp-user-list {

@@ -16,8 +16,8 @@ class CreateProfilesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->string('first_name');
-			$table->string('last_name');
+			$table->string('first_name')->nullable();
+			$table->string('last_name')->nullable(); //decide on whcih is nullable and can be empty
 			$table->string('gender');
 			$table->string('bio');
 			$table->integer('age');

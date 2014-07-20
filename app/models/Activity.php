@@ -13,4 +13,8 @@ class Activity extends \Eloquent {
 	public function comment(){
 		return $this->hasMany('Comment');
 	}
+
+	public function activityJoined(){
+		return $this->hasMany('ActivityJoined');
+	}
 }

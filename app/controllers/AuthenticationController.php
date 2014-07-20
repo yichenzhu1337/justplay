@@ -2,22 +2,9 @@
 
 class AuthenticationController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
-	public function showWelcome()
+	public function __construct()
 	{
-		return View::make('index');
+
 	}
 
 	public function postRegister()
@@ -32,8 +19,9 @@ class AuthenticationController extends BaseController {
 				'activated' => true,
 				));
 
-			//insert into userprofilestable
-			//DB::insert('insert into userprofiles (user_id) values (?)', array($user->id));
+			if ($user) {
+				DB::insert('insert into profiles (user_id) values (?)', array($user->id));
+			}
 
 			return Response::json(
 				array(
@@ -79,12 +67,6 @@ class AuthenticationController extends BaseController {
 			return Response::json(array(
 					'login' => $e
 					));
-			/*
-			return Response::json(
-				array('object' => array(
-					'errors' => [array('code' => 1, 'msg' => 'bad login'),array('code' => 2, 'msg' => 'bad pass'),3];
-					)));
-			*/
 		}
 
 	}
@@ -92,12 +74,20 @@ class AuthenticationController extends BaseController {
 	public function logout()
 	{
 		Sentry::logout();
-		return Redirect::to('/');
 	}
 
 }
 
+/*
+return Response::json(
+	array('object' => array(
+		'errors' => [array('code' => 1, 'msg' => 'bad login'),array('code' => 2, 'msg' => 'bad pass'),3];
+		)));
+*/
 
 /*
-{ error: ["error1", "error2" ], obj: { ... } }
+{ 
+error: ["error1", "error2" ], 
+obj: { ... } 
+}
 */

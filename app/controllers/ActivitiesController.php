@@ -29,12 +29,14 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function index()
 	{
-		$activities = Activity::with('comment')->get();
+		$activities = Activity::with('comment')->with('activityJoined')->get();
 
+		return $activities[0]['activityJoined'];
+/*
 		return $this->respond([
 			'data' => $this->activityTransformer->transformCollection($activities->all())
 		]);
-
+*/
 	}
 
 	/**
@@ -88,14 +90,9 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function update($id)
 	{
-		$activity = Activity::findOrFail($id);
+		$activity = Activity::find($id);
 
-		$validator = Validator::make($data = Input::all(), Activity::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
+		$data = Input::all();
 
 		$activity->update($data);
 
@@ -121,10 +118,6 @@ class ActivitiesController extends \ApiController {
 		return $this->respondWithPagination($activities,[
 			'data' => $this->activityTransformer->transformCollection($activities->all()),
 			]);
-	}
-
-	public function create(){
-		return View::make('activities.create');
 	}
 
 }

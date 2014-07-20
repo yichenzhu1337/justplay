@@ -23,16 +23,15 @@ Route::group(array('prefix' => 'api'), function(){
 
 		});
 
-
-
 	});
 
 	Route::get('activity-paginated', 'ActivitiesController@paginated');
+	Route::get('test', 'FriendsController@checkIfFriends');
 
 	Route::resource('activity', 'ActivitiesController');
 	Route::resource('comment', 'CommentsController');
 	Route::resource('friends', 'FriendsController');
-	Route::resource('notification', 'NotificationsController');
+	Route::resource('notifications', 'NotificationsController');
 	Route::resource('profile', 'ProfilesController');
 });
 

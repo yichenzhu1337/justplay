@@ -16,7 +16,7 @@ jpactivitiespage
 		url: "/",
 		views: {
 			"header": {
-				templateUrl: "app/modules/activities/partials/header.tmpl.html"
+				templateUrl: "app/modules/activities/partials/bodyheader.tmpl.html"
 			},
 			"body": {
 				templateUrl: "app/modules/activities/partials/body.tmpl.html"
@@ -45,7 +45,9 @@ jpactivitiespage
 	.state('main.activities.detail', {
 		url: "/:id",
 		views: {
-			"header": {},
+			"header": {
+				templateUrl: "app/modules/activities/partials/detailedheader.tmpl.html"
+			},
 			"body": {
 				templateUrl: "app/modules/activities/partials/activitydetail.tmpl.html"
 			}

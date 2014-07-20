@@ -1,137 +1,85 @@
-<div ng-controller="detailedCardController">
-<div class="header-content-area">
-	<div class="jp-h1">{{activity.sport}}</div>
-	<ul class="list-group">
-	  <li class="list-group-item">
-			<i class="fa fa-calendar-o pull-left"></i>
-		  <h4 class="list-group-item-heading"> 
-				{{activity.date | amDateFormat: 'dddd, MMM Do'}}	  
-			</h4>
-	  </li>
-	  <li class="list-group-item">
-			<i class="fa fa-clock-o pull-left"></i>
-		  <h4 class="list-group-item-heading"> 
-				{{activity.starttime | amDateFormat: 'HH:mm'}}-{{activity.endtime | amDateFormat: 'HH:mm'}}  
-			</h4>
-	  </li>
-	  <li class="list-group-item">
-			<i class="glyphicon glyphicon-map-marker pull-left"></i>
-		  <h4 class="list-group-item-heading"> 
-				{{activity.location}}
-			</h4>
-	  </li>
-	</ul>
-</div>
-<div class="activity-detail-area">
-	<tabset>
-    <tab heading="Going">
-      <tab-heading>
-        <i class="glyphicon glyphicon-ok"></i>
-        Going (3)
-      </tab-heading>
-    	<jpuserlist pageLength="6" getUsers="getUsers()">
-			</jpuserlist>
-    </tab>
-    <tab>
-      <tab-heading>
-        <i class="glyphicon glyphicon-align-right"></i>
-        Description
-      </tab-heading>
-      {{activity.description}}
-    </tab>
-    <tab>
-      <tab-heading>
-        <i class="glyphicon glyphicon-comment"></i>
-        Comments (42)
-      </tab-heading>
-      <div class="media comment">
-			  <a class="pull-left" href="">
-			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-			  </a>
-			  <div class="media-body">
-			    <a href=""><h5 class="media-heading">Jack Yiu</h5></a>
-			    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-			    <p class="text-muted comment-date">March 30 at 10:50pm</p>
-			  </div>
+<div class="page-container">
+  <div class="content-wrapper no-content" ng-controller="cardsController" >
+		<div ng-controller="detailedCardController">
+			<div class="header-content-area">
+				<div class="jp-h1">{{activity.sport}}</div>
+				<ul class="list-group">
+				  <li class="list-group-item">
+						<i class="fa fa-calendar-o pull-left"></i>
+					  <h4 class="list-group-item-heading"> 
+							{{activity.date | amDateFormat: 'dddd, MMM Do'}}	  
+						</h4>
+				  </li>
+				  <li class="list-group-item">
+						<i class="fa fa-clock-o pull-left"></i>
+					  <h4 class="list-group-item-heading"> 
+							{{activity.starttime | amDateFormat: 'HH:mm'}}-{{activity.endtime | amDateFormat: 'HH:mm'}}  
+						</h4>
+				  </li>
+				  <li class="list-group-item">
+						<i class="glyphicon glyphicon-map-marker pull-left"></i>
+					  <h4 class="list-group-item-heading"> 
+							{{activity.location}}
+						</h4>
+				  </li>
+				</ul>
 			</div>
-	    <div class="media comment">
-			  <a class="pull-left" href="">
-			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-			  </a>
-			  <div class="media-body">
-			    <a href=""><h5 class="media-heading">Jack Yiu</h5></a>
-			    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-			    <p class="text-muted comment-date">March 30 at 10:51pm</p>
-			  </div>
+			<div class="activity-detail-area">
+				<tabset>
+			    <tab heading="Going">
+			      <tab-heading>
+			        <i class="glyphicon glyphicon-ok hidden-xs"></i>
+			        Going (3)
+			      </tab-heading>
+			    	<jpuserlist pageLength="6" getUsers="getUsers()">
+						</jpuserlist>
+			    </tab>
+			    <tab>
+			      <tab-heading>
+			        <i class="glyphicon glyphicon-align-right hidden-xs"></i>
+			        Description
+			      </tab-heading>
+			      {{activity.description}}
+			    </tab>
+			    <tab>
+			      <tab-heading>
+			        <i class="glyphicon glyphicon-comment hidden-xs"></i>
+			        Comments (42)
+			      </tab-heading>
+			      <div class="media comment">
+						  <a class="pull-left" href="">
+						    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+						  </a>
+						  <div class="media-body">
+						    <a href=""><h5 class="media-heading">Jack Yiu</h5></a>
+						    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+						    <p class="text-muted comment-date">March 30 at 10:50pm</p>
+						  </div>
+						</div>
+				    <div class="media comment">
+						  <a class="pull-left" href="">
+						    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+						  </a>
+						  <div class="media-body">
+						    <a href=""><h5 class="media-heading">Jack Yiu</h5></a>
+						    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+						    <p class="text-muted comment-date">March 30 at 10:51pm</p>
+						  </div>
+						</div>
+						<div class="media comment">
+						  <a class="pull-left" href="">
+						    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+						  </a>
+						  <div class="media-body">
+								<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment"></textarea>
+						  	<button class="btn btn-success pull-right">comment</button>
+						  </div>
+						</div>
+			    </tab>
+			  </tabset>
 			</div>
-			<div class="media comment">
-			  <a class="pull-left" href="">
-			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-			  </a>
-			  <div class="media-body">
-					<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment"></textarea>
-			  	<button class="btn btn-success pull-right">comment</button>
-			  </div>
-			</div>
-    </tab>
-  </tabset>
-</div>
+		</div>
+          
+  </div>
+</div>  
 
-<!--       <div class="media" ng-repeat="comment in activity.comments.list">
-			  <a class="pull-left" href="">
-			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-			  </a>
-			  <div class="media-body">
-			    <h4 class="media-heading">{{comment.senderName}}<span class="text-muted"> - 5 days ago </span></h4>
-			    <p>Cras sit amet nibh libero</p>
-    <div class="media">
-					  <a class="pull-left" href="">
-					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-					  </a>
-					  <div class="media-body">
-					    <h4 class="media-heading">Media heading</h4>
-					    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-					  </div>
-					</div>
-			  </div>
-			</div> -->
-
-<!-- <button ng-click="join()" class="btn btn-success">Join</button> -->
-
-	 <!--  <li>
-	 		  <a href="" ng-click="isFriendsCollapsed = !isFriendsCollapsed" class="list-group-item"
-	 		  ng-class="{active: !isFriendsCollapsed}">
-	 			  <span class="badge">{{activity.participants.totalFriends}}</span>
-	 			  <h4 class="list-group-item-heading">
-	 					Friends
-	 				</h4>
-	 		  </a>
-	 		  <div collapse="isFriendsCollapsed">
-	 				<div class="list-group">
-	 				  <a href="" ng-repeat="user in activity.participants.list"  ng-show="user.isFriends" class="list-group-item">
-	 				    {{user.name}}
-	 				    <button class="btn btn-primary pull-right" ng-show="!user.isFriends">
-	 				    	Add Friend
-	 				    </button>
-	 				  </a>
-	 				</div>
-	 			</div>
-	 </li>
-	 		<li>
-	 		  <a href="" ng-click="isPeopleCollapsed = !isPeopleCollapsed" class="list-group-item" ng-class="{active: !isPeopleCollapsed}">
-	 			  <span class="badge">{{activity.participants.totalNonFriends}}</span>
-	 			  <h4 class="list-group-item-heading">
-	 					Other People
-	 				</h4>
-	 		  </a>
-	 		  <div collapse="isPeopleCollapsed">
-	 				<div class="list-group">
-	 				  <a href="" ng-repeat="user in activity.participants.list" ng-show="!user.isFriends" class="list-group-item">
-	 				    {{user.name}}
-	 				    <button class="btn btn-primary pull-right" ng-show="!user.isFriends">
-	 				    	Add Friend
-	 				    </button>
-	 				  </a>
-	 				</div>
-	 			</div>
-	 		</li> -->

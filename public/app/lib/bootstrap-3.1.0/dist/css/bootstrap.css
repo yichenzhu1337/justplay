@@ -5865,17 +5865,7 @@ form.signup > button {
   font-size: 20px;
 }
 .jp-user-list {
-  max-width: 366px;
-}
-@media (min-width: 768px) {
-  .jp-user-list {
-    max-width: 560px;
-  }
-}
-@media (min-width: 992px) {
-  .jp-user-list {
-    max-width: 700px;
-  }
+  width: 100%;
 }
 .jp-user-list > ul {
   margin-top: -1px;
@@ -6082,6 +6072,19 @@ fieldset[disabled] .jp-btn-link {
   margin-top: 0px;
   background-color: white;
 }
+@media (min-width: 768px) {
+  .page-container > .content-wrapper.search-content {
+    margin-top: -63px;
+  }
+}
+.page-container > .content-wrapper.no-content {
+  margin-top: -70px;
+}
+@media (min-width: 768px) {
+  .page-container > .content-wrapper.no-content {
+    margin-top: -220px;
+  }
+}
 @media (min-width: 480px) {
   .page-container > .content-wrapper {
     width: 310;
@@ -6092,7 +6095,6 @@ fieldset[disabled] .jp-btn-link {
 @media (min-width: 768px) {
   .page-container > .content-wrapper {
     width: 594;
-    margin-top: -63px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
     background-color: white;
     padding-bottom: 27px;

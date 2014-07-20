@@ -1,5 +1,5 @@
 <div class="page-container">
-  <div class="content-wrapper" ng-controller="cardsController" >
+  <div class="content-wrapper search-content" ng-controller="cardsController" >
       <div class="date-wrapper" ng-repeat-start="dateobj in dates | orderBy: 'date' " >
         <div ng-controller="activityListDateController">
           <a id="{{dateobj.date | date:filterFormat}}" 

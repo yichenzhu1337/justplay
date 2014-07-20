@@ -36,45 +36,11 @@
     position: relative;
   }
 
-  .page-container {
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 100%;
-    min-height: 100%;
-    position: relative;
-  }
-
   .header-wrapper {
     height: inherit;
   }
 
   /* Wrapper for the main content area */
-  .content-wrapper {
-    width: 1060px;
-    margin: 0 auto;
-  }
-
-
-
-  .header-content-wrapper { /* 40px each side */
-    width: 980px;
-    margin: 0 auto;
-  }
-
-  .content-wrapper{
-    max-width: 100%; 
-    min-height: 50%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.13);
-    margin-top: -63px;
-    background-color: white;
-    padding: 0px 20px 27px 20px;
-  }
-
-  @media screen and (min-width: 900px) {
-    .content-wrapper {
-      padding: 0px 40px 27px 40px;
-    }
-  }
   .content {
     background-color: black;
     margin: 0px 40px 0px 40px;
@@ -127,12 +93,12 @@
     margin-top: -7px;
   }
 
-  .header-bg{
-    /*background-color: #c0392b;*/
-    height: 270px;
-    width: 100%;
-    background-image: url('../img/deeply4.jpg');
-  }
+/*   .header-bg{
+  background-color: #c0392b;
+  height: 270px;
+  width: 100%;
+  background-image: url('../img/deeply4.jpg');
+} */
 
   /* Right hand side items */
     .acount-options {
@@ -145,12 +111,6 @@
   #activitySearchWrapper {
     display: inline-block;
     width: 100%;
-  }
-
-  .activity-chooser-wrapper {
-    width: 100%;
-    margin: 0 auto;
-    color: white;
   }
 
   .activity-filter-wrapper {
@@ -227,34 +187,6 @@
     height: 47px;
   }
 
-  .searchbar-wrapper {
-    display: inherit;
-    margin-top: 70.62px;
-    margin-bottom: 24px;
-    max-width: 300px;
-  }
-
-  .searchbar-wrapper form {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-  }
-
-  .searchbar-wrapper .dropdown input {
-    width: 100%;
-    height: 48px;
-    font-size: 18px;
-    background: rgba(255,255,255,.9);
-  }
-  
-  .searchbar-wrapper > form > a {
-    position: absolute;
-    right: 10;
-    top: 14;
-    color: #7f8c8d;
-    font-size: 17px;
-  }
-
   #activity-menu {
     font-size: 16px;
     height: auto;
@@ -328,15 +260,6 @@
   }
 /* Activity Form Popover */
 
-/* Activity Search Popover */
-  .activity-chooser-wrapper > .popover{ 
-    min-width: 700px;
-    min-width: 624px;
-    width: auto;
-    font-size: 12px;
-  }
-/* Activity Search Popover */
-
 /* Date Pick Popover */
   .datepick .btn-default {
     border-color: #FFFFFF;
@@ -362,10 +285,6 @@
 /* Date Pick Popover */
 
 /* Cards */
-  .card-container {
-
-  }  
-
   .card-metrics {
     background-color: #ecf0f1;
     width: 100%;
@@ -377,13 +296,6 @@
   .friend-list-tooltip > a:active {
     color: #428bca;
     text-decoration: none;
-  }
-
-
-  .card-wrap {
-    width: auto;
-    margin: 9px 10px 9px 10px;
-    display: inline-block;
   }
 
   /* Expanded card */
@@ -548,12 +460,6 @@
         }
       /* Comment Box */
   /* Expanded card */
-
-  .card-left {
-    width: 240px;
-    display: inline-block;
-    text-align: center;
-  }
 
   .card-expand-icon {
     color: #ecf0f1;
@@ -759,26 +665,6 @@
       line-height: 20px;
     }
   /* Display date of group of cards. */
-
-  @media screen and (min-width: 992px) {
-    .card-wrap {
-      margin: 9px 12px 9px 12px;
-    }
-
-    .card-left {
-      width: 270px;
-    }
-  }
-
-  @media screen and (min-width: 1150px) {
-    .card-wrap {
-      margin: 9px 18px 9px 18px;
-    }
-
-    .card-left{
-      width: 290px;
-    }
-  }
 /* Cards */
 
 /* Utility */

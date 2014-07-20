@@ -3,25 +3,19 @@
 class NotificationsController extends \BaseController {
 
 	/**
-	 * Display a listing of notifications
+	 * Display a listing of notifications of the authenticated user
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$notifications = Notification::all();
 
-		return View::make('notifications.index', compact('notifications'));
-	}
+		$user_id = Sentry::getUser()->id;
 
-	/**
-	 * Show the form for creating a new notification
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return View::make('notifications.create');
+		$all_my_requests = "SELECT * FROM notifications WHERE to_id = $user_id"; //friend requests
+		$result = DB::select($all_my_requests);
+
+		return $result;
 	}
 
 	/**
@@ -31,42 +25,12 @@ class NotificationsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Notification::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
+		$user_id = Sentry::getUser()->id;
+		$to_id = Input::get('stranger_id');;
+		$request_type = Input::get('request_type'); //friend
 
 		Notification::create($data);
 
-		return Redirect::route('notifications.index');
-	}
-
-	/**
-	 * Display the specified notification.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		$notification = Notification::findOrFail($id);
-
-		return View::make('notifications.show', compact('notification'));
-	}
-
-	/**
-	 * Show the form for editing the specified notification.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		$notification = Notification::find($id);
-
-		return View::make('notifications.edit', compact('notification'));
 	}
 
 	/**
@@ -97,11 +61,16 @@ class NotificationsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		Notification::destroy($id);
-
-		return Redirect::route('notifications.index');
+		//input {from_id: , to_id: }
+		$are_they_friends = "SELECT * FROM notifications";
+		$are_they_friends .= "WHERE ";
+		$are_they_friends.= "from_id = $from_id"; 
+		$are_they_friends .= "AND ";
+		$are_they_friends .= "to_id = $to_id";
+		$notification_sent_query = DB::select($notification_sent);
+		Notification::destroy($notification_sent_query);
 	}
 
 }

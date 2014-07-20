@@ -1,7 +1,8 @@
 <?php
 
-class UserProfile extends \Eloquent {
+class Profile extends \Eloquent {
 
+	protected $table = "profiles";
 	// Add your validation rules here
 	public static $rules = [
 		// 'title' => 'required'

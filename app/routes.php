@@ -25,13 +25,14 @@ Route::group(array('prefix' => 'api'), function(){
 
 	});
 
-	//Route::resource('profile', 'UserProfilesController');
-	Route::resource('activity', 'ActivitiesController');
-	Route::resource('comment', 'UserProfilesController');
-	Route::resource('friends', 'UserProfilesController');
-	Route::resource('notification', 'UserProfilesController');
+	Route::get('activity-paginated', 'ActivitiesController@paginated');
+	Route::get('test', 'FriendsController@checkIfFriends');
 
-	Route::get('/{profile}', 'UserProfilesController@show');
+	Route::resource('activity', 'ActivitiesController');
+	Route::resource('comment', 'CommentsController');
+	Route::resource('friends', 'FriendsController');
+	Route::resource('notifications', 'NotificationsController');
+	Route::resource('profile', 'ProfilesController');
 });
 
 

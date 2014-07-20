@@ -1,6 +1,6 @@
 <?php
 
-class UserProfilesController extends \BaseController {
+class ProfilesController extends \BaseController {
 
 	/**
 	 * Display a listing of userprofiles
@@ -22,9 +22,10 @@ class UserProfilesController extends \BaseController {
 	 */
 	public function show($username)
 	{
-		$user_profile = Userprofile::where('username', '=', $username);
+		$profile = User::with('profile')->whereUsername($username)->firstOrFail();
 
-		return Response::json($user_profile);
+		return Response::json($profile);
+
 	}
 
 	/**

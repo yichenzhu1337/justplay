@@ -1,7 +1,8 @@
 <?php
 
-class Comment extends \Eloquent {
+class ActivityJoined extends \Eloquent {
 
+	protected $table = "activities_joined";
 	// Add your validation rules here
 	public static $rules = [
 		// 'title' => 'required'

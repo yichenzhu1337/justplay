@@ -1,1 +1,10 @@
-C:\wamp\www\github\justplay\app/views/Activities/create.blade.php
+{{ Form::open(array('route' => 'api.activity.store')) }}
+
+
+{{ Form::text('title', 'this is the title') }}
+
+{{ Form::text('body', 'body input') }}
+
+{{ Form::submit('Click Me!') }}
+
+{{ Form::close() }}

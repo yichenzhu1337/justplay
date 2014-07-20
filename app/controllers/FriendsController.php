@@ -3,105 +3,91 @@
 class FriendsController extends \BaseController {
 
 	/**
-	 * Display a listing of friends
+	 * Display a listing of friends of $user_id = Auth::id();
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$friends = Friend::all();
 
-		return View::make('friends.index', compact('friends'));
-	}
+		$all_my_friends = "SELECT * FROM friends WHERE user_id_one = $user_id OR user_id_two = $user_id";
+		$result = DB::select($all_my_friends);
 
-	/**
-	 * Show the form for creating a new friend
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return View::make('friends.create');
+		return $result;
 	}
 
 	/**
 	 * Store a newly created friend in storage.
-	 *
+	 * adds friend iff the notification request is a yes
 	 * @return Response
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Friend::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
+		//data = {from_id = , to_id = }
+		$data = Input::all();
 
 		Friend::create($data);
-
-		return Redirect::route('friends.index');
-	}
-
-	/**
-	 * Display the specified friend.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		$friend = Friend::findOrFail($id);
-
-		return View::make('friends.show', compact('friend'));
-	}
-
-	/**
-	 * Show the form for editing the specified friend.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		$friend = Friend::find($id);
-
-		return View::make('friends.edit', compact('friend'));
-	}
-
-	/**
-	 * Update the specified friend in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		$friend = Friend::findOrFail($id);
-
-		$validator = Validator::make($data = Input::all(), Friend::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		$friend->update($data);
-
-		return Redirect::route('friends.index');
 	}
 
 	/**
 	 * Remove the specified friend from storage.
-	 *
+	 * deletes friend from his personal list
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		Friend::destroy($id);
+		$user_id = Sentry::getUser()->id;
+		$stranger_id = 2; //Input::get('stranger_id')    //COUNT(*) as 
 
-		return Redirect::route('friends.index');
+		$are_they_friends = "SELECT id FROM friends ";
+		$are_they_friends .= "WHERE ";
+		$are_they_friends.= "user1_id = $user_id AND user2_id = $stranger_id "; 
+		$are_they_friends .= "OR ";
+		$are_they_friends .= "user1_id = $stranger_id AND user2_id = $user_id";
+
+		$are_they_friends_query = DB::select($are_they_friends);
+		Friend::destroy($are_they_friends_query);
+	}
+
+	/**
+	 * Remove the specified friend from storage.
+	 * deletes friend from his personal list
+	 * @param  int  $id
+	 * @return Response   get response that returns already friends, not friends, or friend request sent
+	 */
+	public function checkIfFriends()
+	{	
+
+		$user_id = Sentry::getUser()->id;
+		$stranger_id = 2; //Input::get('stranger_id')    //COUNT(*) as 
+
+		$are_they_friends = "SELECT * FROM friends ";
+		$are_they_friends .= "WHERE ";
+		$are_they_friends.= "user1_id = $user_id AND user2_id = $stranger_id "; 
+		$are_they_friends .= "OR ";
+		$are_they_friends .= "user1_id = $stranger_id AND user2_id = $user_id";
+
+		$notification_sent = "SELECT * FROM notifications ";
+		$notification_sent .= "WHERE ";
+		$notification_sent .= "from_id = $user_id ";
+		$notification_sent .= "AND ";
+		$notification_sent .= "to_id = $stranger_id ";
+
+		$are_they_friends_query = DB::select($are_they_friends);
+		$notification_sent_query = DB::select($notification_sent);
+
+		if (count($are_they_friends_query)) {
+			return 'true of they are friends';
+		}
+		elseif ($notification_sent_query) {
+			return 'notification is already sent';
+		}
+		else{
+			return 'they are not friends, add them here';
+		}
+
+		// return {friends: true, notificationsent, false}
 	}
 
 }

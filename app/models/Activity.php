@@ -8,6 +8,13 @@ class Activity extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ['title', 'body'];
 
+	public function comment(){
+		return $this->hasMany('Comment');
+	}
+
+	public function activityJoined(){
+		return $this->hasMany('ActivityJoined');
+	}
 }

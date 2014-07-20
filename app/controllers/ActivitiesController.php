@@ -1,6 +1,26 @@
 <?php
 
-class ActivitiesController extends \BaseController {
+use Acme\Transformers\ActivityTransformer;
+
+class ActivitiesController extends \ApiController {
+
+   /**
+	 * Bad. WHy?
+	 * 1. All is bad, returning all = slow, want paginated result
+	 * 2. no way to attach meta data
+	 * 3. returning everything that mimics my database structure and table, see passwords???
+	 * (do not use hidden in model)
+	 * 4. no way to present errors, headers or reponse codes
+	 */
+
+	protected $activityTransformer;
+
+	function __construct(ActivityTransformer $activityTransformer) 
+	{
+		$this->activityTransformer = $activityTransformer;
+
+		//$this->beforeFilter('auth.basic', ['on' => 'post']);
+	}
 
 	/**
 	 * Display a listing of activities
@@ -9,19 +29,14 @@ class ActivitiesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$activities = Activity::all();
+		$activities = Activity::with('comment')->with('activityJoined')->get();
 
-		return Response::json($activities);
-	}
-
-	/**
-	 * Show the form for creating a new activity
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return View::make('activities.create');
+		return $activities[0]['activityJoined'];
+/*
+		return $this->respond([
+			'data' => $this->activityTransformer->transformCollection($activities->all())
+		]);
+*/
 	}
 
 	/**
@@ -31,16 +46,20 @@ class ActivitiesController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Activity::$rules);
 
-		if ($validator->fails())
+		if (! Input::get('title') or ! Input::get('body'))
 		{
-			return Redirect::back()->withErrors($validator)->withInput();
+			return $this->setStatusCode(422)
+						->respondWithError('Error validating activity'); //extract this to api controller with readble method
 		}
 
-		Activity::create($data);
 
-		//return Response::json('success' => 'true');
+		Activity::create(Input::all());
+
+		return $this->respondCreated('Activity created success!');
+		// return some response Response::json('success' => 'true'); 
+		// one of these400 bad request failed, 403, 422 unprocessible entity
+		// message
 	}
 
 	/**
@@ -51,22 +70,16 @@ class ActivitiesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$activity = Activity::findOrFail($id);
-
-		return Response::json($activity);
-	}
-
-	/**
-	 * Show the form for editing the specified activity.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
 		$activity = Activity::find($id);
 
-		return View::make('activities.edit', compact('activity'));
+		if (!$activity) {
+			return $this->respondNotFound('activity does not exist');
+			//return $this->respondWithError(404, 'activity not found');
+		}
+
+		return $this->respond([
+			'data' => $this->activityTransformer->transform($activity)
+		]);
 	}
 
 	/**
@@ -77,18 +90,12 @@ class ActivitiesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$activity = Activity::findOrFail($id);
+		$activity = Activity::find($id);
 
-		$validator = Validator::make($data = Input::all(), Activity::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
+		$data = Input::all();
 
 		$activity->update($data);
 
-		return Redirect::route('activities.index');
 	}
 
 	/**
@@ -102,4 +109,16 @@ class ActivitiesController extends \BaseController {
 		Activity::destroy($id);
 	}
 
+	public function paginated()
+	{
+		//activity-paginated?limit=6
+		$limit = Input::get('limit') ?: 3;
+		$activities = Activity::paginate($limit);
+
+		return $this->respondWithPagination($activities,[
+			'data' => $this->activityTransformer->transformCollection($activities->all()),
+			]);
+	}
+
 }
+

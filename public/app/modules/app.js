@@ -51,7 +51,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	.state('main.social.list', {
 		url: "/",
 		views: {
-			"header": {}, 
+			"header": {
+				templateUrl: "app/modules/activities/partials/detailedheader.tmpl.html"
+			}, 
 			"body": {
 				templateUrl: "app/modules/social/social.html"
 			}

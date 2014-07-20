@@ -6067,7 +6067,6 @@ fieldset[disabled] .jp-btn-link {
 .page-container > .content-wrapper {
   width: 284;
   margin: 0 auto;
-  max-width: 100%;
   min-height: 50%;
   margin-top: 0px;
   background-color: white;
@@ -6120,5 +6119,9 @@ fieldset[disabled] .jp-btn-link {
   width: 100%;
   display: inline-block;
   text-align: center;
+}
+.social-page {
+  padding-top: 13px;
+  max-width: 594;
 }
 /*# sourceMappingURL=bootstrap.css.map */

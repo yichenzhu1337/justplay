@@ -113,7 +113,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top" id="navbar-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -129,11 +129,11 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right" >
-            <li><a ui-sref="main.activities.list" tooltip-placement="bottom" tooltip="Browse Activities">
+            <li><a ui-sref="main.activities.list" tooltip-placement="bottom" tooltip="Browse Activities" data-toggle="collapse" data-target=".navbar-collapse" >
             <i class="glyphicon glyphicon-list side-icon"></i><span>Activities</span></a>
             </li>
-            <li><a ui-sref="main.activities.create" tooltip-placement="bottom" tooltip="Create"><i class="glyphicon glyphicon-plus side-icon"></i><span>Create Activity</span></a></li>
-            <li><a ui-sref="main.social.list" tooltip-placement="bottom" tooltip="People">
+            <li><a ui-sref="main.activities.create" tooltip-placement="bottom" tooltip="Create" data-toggle="collapse" data-target=".navbar-collapse" ><i class="glyphicon glyphicon-plus side-icon"></i><span>Create Activity</span></a></li>
+            <li><a ui-sref="main.social.list" tooltip-placement="bottom" tooltip="People" data-toggle="collapse" data-target=".navbar-collapse" >
             <i class="fa fa-group side-icon"></i><span>People</span></a>
             </li>
             <li class="dropdown">

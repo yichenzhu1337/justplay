@@ -31,7 +31,7 @@ class ActivitiesController extends \ApiController {
 	{
 		$activities = Activity::with('comment')->with('activityJoined')->get();
 
-		return $activities[0]['activityJoined'];
+		return $activities;
 /*
 		return $this->respond([
 			'data' => $this->activityTransformer->transformCollection($activities->all())

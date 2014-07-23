@@ -8,7 +8,7 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 	}
 
 	var uncacheSession = function(){
-		SessionService.unset("authenticated");
+		SessionService.set("authenticated", false);
 	}
 
 	var isLoggedIn = function() {
@@ -29,6 +29,12 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 		}
 	}
 
+	var unsetUser = function() {
+		if (isLoggedIn() && userIsSet()) {
+			currentUser = undefined;
+		}
+	}
+
 	var userIsSet = function() {
 		if (angular.isUndefined(currentUser)) {
 			return false;
@@ -38,6 +44,9 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 	}
 
 	return {
+		authenticateUser: function() {
+
+		},
 		login: function(credentials) {
 			var d = $q.defer()
 			var login = API.post('api/login', credentials);
@@ -61,6 +70,7 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 			var logout = $http.get("api/logout");
 			logout.then(
 				function(){
+					unsetUser();
 					uncacheSession();
 					FlashService.show('Successfully logged out!', 'success');
 				},

@@ -4,7 +4,8 @@ var app = angular.module('app',
 		'jp.login',
 		'jp.signup',
 		'jp.activitiespage',
-		'jp.social'
+		'jp.social',
+		'jp.masterCtrl'
 	]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

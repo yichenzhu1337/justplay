@@ -3,15 +3,15 @@ var mod = angular.module('userModule', []);
 var factories = {};
 
 factories.User = function() {
-	function User(id, name, email) {
+	function User(id, first_name, email) {
 		this.id = id;
-		this.name = name;
+		this.first_name = first_name;
 		this.email = email;
 	}
 
 	User.build = function(userJSON) {
-		if (angular.isDefined(userJSON.name),angular.isDefined(userJSON.email),angular.isDefined(userJSON.id)) {
-			return new User(userJSON.id, userJSON.name, userJSON.email);
+		if (angular.isDefined(userJSON.first_name),angular.isDefined(userJSON.email),angular.isDefined(userJSON.id)) {
+			return new User(userJSON.id, userJSON.first_name, userJSON.email);
 		}
 	}
 

@@ -50,6 +50,7 @@
 		<script src="app/utilities/errorService.js"></script>		
 		<script src="app/utilities/authentication.js"></script>
 		<script src="app/utilities/utilities.js"></script>
+		<script src="app/modules/masterController.js"></script>
 
 		<!-- justPlay utility Directives -->
 		<script src="app/modules/activities/common/commonDirectives.js"></script>

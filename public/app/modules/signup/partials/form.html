@@ -3,17 +3,17 @@
 	<!-- NAME -->
 	<div class="form-group" 
 	ng-class="{ 
-	'has-error' : signupForm.name.$invalid && !signupForm.name.$pristine, 
-	'has-success' : !signupForm.name.$invalid && !signupForm.name.$pristine }">	
+	'has-error' : signupForm.first_name.$invalid && !signupForm.first_name.$pristine, 
+	'has-success' : !signupForm.first_name.$invalid && !signupForm.first_name.$pristine }">	
 		
-		<input type="text" name="name" class="form-control" placeholder="Name" ng-model="signup.name" ng-minlength="2" ng-maxlength="25" required>
+		<input type="text" name="first_name" class="form-control" placeholder="name" ng-model="signup.first_name" ng-minlength="2" ng-maxlength="25" required>
 		
-		<!-- Name Validation Messages -->
-			<p ng-show="!signupForm.name.$pristine && signupForm.name.$error.required" class="help-block">Your name is required</p>
+		<!-- first_name Validation Messages -->
+			<p ng-show="!signupForm.first_name.$pristine && signupForm.first_name.$error.required" class="help-block">Your first_name is required</p>
 
-			<p ng-show="!signupForm.name.$pristine && signupForm.name.$error.minlength" class="help-block">Your name must contain at least 2 characters</p>
+			<p ng-show="!signupForm.first_name.$pristine && signupForm.first_name.$error.minlength" class="help-block">Your first_name must contain at least 2 characters</p>
 
-			<p ng-show="signupForm.name.$error.maxlength" class="help-block">Name must contain at most 25 characters</p>
+			<p ng-show="signupForm.first_name.$error.maxlength" class="help-block">Name must contain at most 25 characters</p>
 		<!-- Name Validation Messages -->
 	
 	</div>

@@ -108,7 +108,7 @@
   <!-- Date-Pick -->
 <!-- Popover (hidden) form -->
 
-<div class="super-wrapper">
+<div class="super-wrapper" ng-controller="masterCtrl">
   <!-- Top Nav bar -->
     <div class="navbar navbar-inverse navbar-fixed-top" id="navbar-top" role="navigation">
       <div class="container">
@@ -136,22 +136,23 @@
             <li><a ui-sref="main.social.list" tooltip-placement="bottom" tooltip="People" data-toggle="collapse">
             <i class="fa fa-group side-icon"></i><span>People</span></a>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">Jack Yiu</a>
+            <li>
+              <button ui-sref="login" ng-hide="getUser()"class="btn btn-success navbar-btn">Login</button>
+            </li>
+            <li ng-show="getUser()" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">{{user.first_name}}</a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href=""><i class="glyphicon glyphicon-user"></i><span class="hidden text">a</span>Profile</a></li>
                 <li><a href=""><span class="hidden text">laal</span>Friends</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Account settings</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="" ng-click="logout()">Logout</a></li>
               </ul>
             </li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
-
-
     </div>
   <!-- Top Nav Bar -->
 

@@ -5986,7 +5986,7 @@ fieldset[disabled] .jp-btn-link {
   box-shadow: none;
 }
 .header-bg {
-  height: 100px;
+  height: 76px;
   width: 100%;
   background-color: #ecf0f1;
 }
@@ -6001,8 +6001,7 @@ fieldset[disabled] .jp-btn-link {
 }
 .header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper {
   display: inherit;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 14px;
   width: 100%;
 }
 .header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper form {

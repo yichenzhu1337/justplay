@@ -19,7 +19,7 @@ Route::group(array('prefix' => 'api'), function(){
 
 		Route::group(array('before' => 'auth'), function(){
 			Route::get('admin', 'AdminController@index'); //Route::resource('admin', 'AdminController');
-			Route::get('logout', 'HomeController@logout');
+			Route::get('logout', 'AuthenticationController@logout');
 
 		});
 

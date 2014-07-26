@@ -9,7 +9,7 @@ class ProfilesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$userprofiles = Userprofile::all();
+		$userprofiles = Profile::all();
 
 		return Response::json($userprofiles);
 	}

@@ -5,10 +5,6 @@ Route::get('/', function()
 	return View::make("index");
 });
 
-/* 	Use:
- *	url/api/login
- *	url/api/register	
- */
 Route::group(array('prefix' => 'api'), function(){
 
 	Route::group(array('before' => 'json_csrf'), function(){
@@ -16,9 +12,10 @@ Route::group(array('prefix' => 'api'), function(){
 		Route::post('login', 'AuthenticationController@postLogin');
 		Route::post('register', 'AuthenticationController@postRegister');	
 
-
 		Route::group(array('before' => 'auth'), function(){
-			Route::get('admin', 'AdminController@index'); //Route::resource('admin', 'AdminController');
+
+			Route::get('join_activity', 'ActivitiesController@joinActivity');
+			Route::get('get_user_id', 'AuthenticationController@get_user_id');
 			Route::get('logout', 'AuthenticationController@logout');
 
 		});
@@ -28,11 +25,12 @@ Route::group(array('prefix' => 'api'), function(){
 	Route::get('activity-paginated', 'ActivitiesController@paginated');
 	Route::get('test', 'FriendsController@checkIfFriends');
 
-	Route::resource('activity', 'ActivitiesController');
-	Route::resource('comment', 'CommentsController');
+	Route::resource('activities', 'ActivitiesController');
+	Route::resource('comments', 'CommentsController');
 	Route::resource('friends', 'FriendsController');
 	Route::resource('notifications', 'NotificationsController');
-	Route::resource('profile', 'ProfilesController');
+	Route::resource('profiles', 'ProfilesController');
+	
 });
 
 

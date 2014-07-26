@@ -7,9 +7,13 @@ class ActivityTransformer extends Transformer{
 	public function transform($activity)
 	{
 		return [
-			'title' => $activity['title'],
-			'body' => $activity['body'],
-			'detail' => $activity['description']
+			'activity_id' => $activity['id'],
+			'location' => $activity['location'],
+			'start_date' => $activity['start_date'],
+			'start_date' => $activity['start_date'],
+			'start_date' => $activity['start_date'],
+			'capacity' => $activity['capacity'],
+			'description' => $activity['description']
 		];
 	}
 

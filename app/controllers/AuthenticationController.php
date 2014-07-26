@@ -6,6 +6,11 @@ class AuthenticationController extends BaseController {
 	{
 
 	}
+	
+	public function get_user_id()
+	{
+		return Sentry::getUser()->id;
+	}
 
 	public function postRegister()
 	{
@@ -77,17 +82,3 @@ class AuthenticationController extends BaseController {
 	}
 
 }
-
-/*
-return Response::json(
-	array('object' => array(
-		'errors' => [array('code' => 1, 'msg' => 'bad login'),array('code' => 2, 'msg' => 'bad pass'),3];
-		)));
-*/
-
-/*
-{ 
-error: ["error1", "error2" ], 
-obj: { ... } 
-}
-*/

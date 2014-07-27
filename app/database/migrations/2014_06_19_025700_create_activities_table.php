@@ -19,7 +19,9 @@ class CreateActivitiesTable extends Migration {
 			$table->integer('capacity');
 			$table->string('sport');
 			$table->string('location');
-			$table->string('date');
+			$table->dateTime('date');
+			$table->dateTime('date_from');
+			$table->dateTime('date_to');
 			$table->timestamps();
 		});
 	}

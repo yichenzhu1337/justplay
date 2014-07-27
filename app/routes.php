@@ -14,15 +14,14 @@ Route::group(array('prefix' => 'api'), function(){
 
 		Route::group(array('before' => 'auth'), function(){
 
-			Route::get('join_activity', 'ActivitiesController@joinActivity');
-			Route::get('get_user_id', 'AuthenticationController@get_user_id');
-			Route::get('logout', 'AuthenticationController@logout');
+			Route::get('joinActivity', 'ActivitiesController@joinActivity');
+			Route::post('logout', 'AuthenticationController@logout');
 
 		});
 
 	});
 
-	Route::get('activity-paginated', 'ActivitiesController@paginated');
+	//Route::get('activity-paginated', 'ActivitiesController@paginated');
 	Route::get('test', 'FriendsController@checkIfFriends');
 
 	Route::resource('activities', 'ActivitiesController');
@@ -30,7 +29,8 @@ Route::group(array('prefix' => 'api'), function(){
 	Route::resource('friends', 'FriendsController');
 	Route::resource('notifications', 'NotificationsController');
 	Route::resource('profiles', 'ProfilesController');
-	
+
+	Route::get('getUserId', 'AuthenticationController@get_user_id');
 });
 
 

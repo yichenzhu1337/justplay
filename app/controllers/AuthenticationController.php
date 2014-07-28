@@ -24,7 +24,6 @@ class AuthenticationController extends BaseController {
 				));
 
 			if ($user) {
-				//DB::insert('insert into profiles (user_id) values (?)', array($user->id));
 				Profile::create([
 					"user_id" => $user->id,
 					'first_name' => Input::get('first_name')
@@ -59,32 +58,24 @@ class AuthenticationController extends BaseController {
 			{
 				//return 'bs';      
 				//$user->with('profile')->get(); 
+				//return Response::json(User::with('profile')->where('id', '=', $user->id)->get()); //what i want
 
-				return Response::json(User::with('profile')->where('id', '=', $user->id)->get()); //what i want
-				/* 
 				return Response::json(
  					array(
- 						'errors' => [{}],
- 						'obj' => array(
- 							'id' => $user->id,
-							'first_name' => $user->first_name,
- 							'email' => $user->email
- 							)
+ 						'errors' => [],
+ 						'obj' => User::with('profile')->where('id', '=', $user->id)->get()->toArray()
  					));
 
-				*/
 			}
 
 			/*
-{
-"errors":[{
-	"message":"Sorry, that page does not exist",
-	"code":34
-	}]
-}
-
-
-*/
+			{
+			"errors":[{
+				"message":"Sorry, that page does not exist",
+				"code":34
+				}]
+			}
+			*/
 		}
 		catch (\Exception $e)
 		{

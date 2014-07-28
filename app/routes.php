@@ -30,7 +30,7 @@ Route::group(array('prefix' => 'api'), function(){
 	Route::resource('notifications', 'NotificationsController');
 	Route::resource('profiles', 'ProfilesController');
 
-	Route::get('getUserId', 'AuthenticationController@get_user_id');
+	Route::get('getUserId', 'AuthenticationController@getUserId');
 });
 
 

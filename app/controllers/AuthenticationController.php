@@ -60,6 +60,7 @@ class AuthenticationController extends BaseController {
 				//$user->with('profile')->get(); 
 				//return Response::json(User::with('profile')->where('id', '=', $user->id)->get()); //what i want
 
+				return Response::json(
  					array(
  						'errors' => [],
  						'obj' => User::with('profile')->where('id', '=', $user->id)->first()

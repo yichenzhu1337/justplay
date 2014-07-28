@@ -26,19 +26,6 @@ controllers.masterCtrl = function($scope, $state, authenticationService){
 		});
 	}
 
-	$scope.getNotificationCount = function()
-	{
-		var count = 5;
-		if (count == 0)
-		{
-			return false;
-		} 
-		else
-		{
-			return count;
-		}
-	}
-
 	$scope.getUser = function()
 	{
 		var user = $scope.authSvc.getUser();

@@ -113,13 +113,17 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 
 	return {
 		post: function(url, data) {
+			if (!data)
+			{
+				data = {};
+			}
 			data = applyDataTransformations(data);
 			var postPromise = $http.post(url, data);
 			var results = ValidateResponse(postPromise);
 			return results;
 		},
 		get: function(url) {
-			return responseHandler.ValidateResponse($http.get(url));
+			return responseHandler.validateResponse($http.get(url));
 		}
 	}
 };

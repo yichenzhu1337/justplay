@@ -67,7 +67,7 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 			return d.promise;
 		},
 		logout: function() {
-			var logout = $http.get("api/logout");
+			var logout = API.post("api/logout");
 			logout.then(
 				function(){
 					unsetUser();

@@ -6,6 +6,7 @@ services.SanitizeService = function($sanitize) {
 	this.sanitizeObject = function(obj) {
 			var ret = {};
 			angular.forEach(obj, function(value, key) {
+				value = String(value);
 				ret[key] = $sanitize(value);
 			}, ret);
 			return ret;

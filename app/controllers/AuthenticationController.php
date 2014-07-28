@@ -7,7 +7,7 @@ class AuthenticationController extends BaseController {
 
 	}
 	
-	public function get_user_id()
+	public function getUserId()
 	{
 		return Sentry::getUser()->id;
 	}
@@ -17,15 +17,15 @@ class AuthenticationController extends BaseController {
 		try
 		{
 			$user = Sentry::createUser(array(
-				'first_name' => Input::get('first_name'),
-				'last_name' => Input::get('last_name'),
+				'username' => Input::get('username'),
 				'email' => Input::get('email'),
 				'password' => Input::get('password'),
 				'activated' => true,
 				));
 
 			if ($user) {
-				DB::insert('insert into profiles (user_id) values (?)', array($user->id));
+				//DB::insert('insert into profiles (user_id) values (?)', array($user->id));
+				Profile::create(["user_id" => $user->id]);
 			}
 
 			return Response::json(
@@ -54,15 +54,7 @@ class AuthenticationController extends BaseController {
 
 			if($user)
 			{
-				return Response::json(
-					array(
-						'errors' => [],
-						'obj' => array(
-							'id' => $user->id,
-							'first_name' => $user->first_name,
-							'email' => $user->email
-							)
-					));
+				return $user->with('profile')->get();
 			}
 
 		}

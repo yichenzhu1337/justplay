@@ -9,7 +9,7 @@ class Profile extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ['user_id'];
 
 	/**
 	 * A profile belongs to a user

@@ -43,10 +43,25 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 		}
 	}
 
-	return {
-		authenticateUser: function() {
+	var getUserProfile = function(username) {
+		var d = $q.defer();
+		API.get('api/profiles/'+username).then(
+			function(data) {
+				d.resolve(data);
+			});
+		return d.promise;
+	}
 
-		},
+	var setupLocalSession = function(user)
+	{
+		var d = $q.defer();
+
+		cacheSession();
+		setUser(user);
+		return d.resolve();
+	}
+
+	return {
 		login: function(credentials) {
 			var d = $q.defer()
 			var login = API.post('api/login', credentials);
@@ -79,6 +94,11 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 				});
 
 			return logout;
+		},
+		determineAuthState: function() {
+			return API.get('api/getUserId')
+			.then(getUserProfile,function() { console.log('yichen has no error message for getuserId')})
+			.then(setupLocalSession);
 		},
 		isLoggedIn: function() {
 			return isLoggedIn();

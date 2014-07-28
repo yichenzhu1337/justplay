@@ -10,6 +10,7 @@ controllers.masterCtrl = function($scope, $state, authenticationService){
 
 	function init()
 	{
+		authenticationService.determineAuthState();
 		$scope.isLoggedIn = false;
 		$scope.authSvc = authenticationService;
 		$scope.$watch('authSvc.isLoggedIn()', function(newVal, oldVal)

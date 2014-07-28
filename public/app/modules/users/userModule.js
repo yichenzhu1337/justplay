@@ -1,4 +1,4 @@
-var mod = angular.module('userModule', []);
+var mod = angular.module('userModule', ['jp.http']);
 
 var factories = {};
 
@@ -18,7 +18,7 @@ factories.User = function() {
 	return User;
 };
 
-factories.UserSvc = ['$q', '$timeout', 'User', function($q, $timeout, User){
+factories.UserSvc = ['$q', '$timeout', 'User', 'API', function($q, $timeout, User, API){
 
 	var MockUserData = 
 	[
@@ -40,12 +40,6 @@ factories.UserSvc = ['$q', '$timeout', 'User', function($q, $timeout, User){
 
 	}
 
-	var API = {
-		get: function(name) {
-
-		}
-	}
-
 	var buildUserCollection = function(JSONObj) {
 		var array = [];
 		angular.forEach(JSONObj, function(val, key) {
@@ -57,31 +51,21 @@ factories.UserSvc = ['$q', '$timeout', 'User', function($q, $timeout, User){
 	var search = function(name) {
 		if (name === "") {
 			var deferred = $q.defer();
-			var data = MockUserData;
-/*			var res = API.get("");
-			res.then(
+			var res = API.get('api/profiles').then(
 				function(data){
-					// Process the API results with the APIInterceptor
-
-					deferred.resolve();
-				});*/
-
-			$timeout(deferred.resolve(data),2000);			
-
+					deferred.resolve(data);
+				});
 			return deferred.promise;
 		} else {
-			return API.get(name);
+			return API.get('api/profiles');
 		}
 	}
 
 	return {
 		ListAll: function() {
-			
-
 			var searchRes = search("").then(
 				function(data) {
 					var buildData = buildUserCollection(data);
-					console.log(buildData);
 					return buildData;
 				});
 
@@ -89,7 +73,5 @@ factories.UserSvc = ['$q', '$timeout', 'User', function($q, $timeout, User){
 		}
 	}
 }]
-
-
 
 mod.factory(factories);

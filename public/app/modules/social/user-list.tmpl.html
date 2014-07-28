@@ -9,13 +9,13 @@
 		</div>
 	</div>  
 	<ul class="list-group">
-	  <li class="list-group-item" ng-repeat="user in users | filter:{name:asyncSelectedUser} | startFrom: (currentPage-1)*pageLength | limitTo: pageLength">
+	  <li class="list-group-item" ng-repeat="user in users | filter:{first_name:asyncSelectedUser} | startFrom: (currentPage-1)*pageLength | limitTo: pageLength">
       <div class="media comment">
 			  <a class="pull-left" href="">
 			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
 			  </a>
 			  <div class="media-body">
-			    <a href=""><h5 class="media-heading">{{user.name}}</h5></a>
+			    <a href=""><h5 class="media-heading">{{user.first_name}}</h5></a>
 			  </div> 
 			</div>
 	  </li>

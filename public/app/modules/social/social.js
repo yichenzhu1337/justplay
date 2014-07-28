@@ -4,11 +4,10 @@ var controllers = {};
 var directives = {};
 
 
-controllers.socialController = function($scope, $filter, UserSvc, authenticationService,$q, $timeout){
+controllers.socialController = function($scope, $filter, UserSvc, authenticationService ,$q, $timeout){
 
 	// Services
 	$scope.UserSvc = UserSvc;
-
 	$scope.getUsers = function() {
 		return $scope.UserSvc.ListAll().then(
 			function(data){
@@ -16,28 +15,6 @@ controllers.socialController = function($scope, $filter, UserSvc, authentication
 			});
 	}
 };
-
-directives.testdirective = function() {
-	return {
-		restrict: "E",
-		scope: {
-			done: "&"
-		},
-		template: '<input type="text" ng-model="chore">'+
-		' {{chore}} ' +
-		' <div class="btn btn-default" ng-click="done({chore:chore})">I\'m done!</div>' +
-		' 	<div ng-repeat="peepz in people">' +
-		'{{peepz.name}}' +
-		'</div>',
-		link: function(scope, element, attr) {
-			scope.done().then(
-				function(users) {
-					console.log('post:' + users);
-					scope.people = users;
-				});
-		}
-	}
-}
 
 directives.jpuserlist = function($filter, UserSvc, authenticationService) {
 	return {
@@ -82,7 +59,7 @@ directives.jpuserlist = function($filter, UserSvc, authenticationService) {
 			 */
 			$scope.updateUsers = function(selectedUser) {
 				// Filter out the users
-				var filteredUsers = $filter("filter")($scope.users, {name:selectedUser});
+				var filteredUsers = $filter("filter")($scope.users, {first_name:selectedUser});
 
 				// Update Pagination Variables
 				resetPagination(filteredUsers.length);

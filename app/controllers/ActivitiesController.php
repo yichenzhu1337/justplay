@@ -18,8 +18,6 @@ class ActivitiesController extends \ApiController {
 	function __construct(ActivityTransformer $activityTransformer) 
 	{
 		$this->activityTransformer = $activityTransformer;
-
-		//$this->beforeFilter('auth.basic', ['on' => 'post']);
 	}
 
 	/**
@@ -32,11 +30,11 @@ class ActivitiesController extends \ApiController {
 		$activities = Activity::with('comment')->with('activityJoined')->get();
 
 		return $activities;
-/*
+		/*
 		return $this->respond([
 			'data' => $this->activityTransformer->transformCollection($activities->all())
 		]);
-*/
+		*/
 	}
 
 	/**
@@ -46,19 +44,18 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function store()
 	{
-
+/*
 		if (! Input::get('title') or ! Input::get('body'))
 		{
 			return $this->setStatusCode(422)
 						->respondWithError('Error validating activity'); //extract this to api controller with readble method
 		}
-
-
+*/
 		Activity::create(Input::all());
 
-		return $this->respondCreated('Activity created success!');
+		// return $this->respondCreated('Activity created success!');
 		// return some response Response::json('success' => 'true'); 
-		// one of these400 bad request failed, 403, 422 unprocessible entity
+		// one of these 400 bad request failed, 403, 422 unprocessible entity
 		// message
 	}
 
@@ -74,12 +71,18 @@ class ActivitiesController extends \ApiController {
 
 		if (!$activity) {
 			return $this->respondNotFound('activity does not exist');
-			//return $this->respondWithError(404, 'activity not found');
 		}
 
+		
+		$test = Activity::with('comment')->where('id', '=', $id)->with('activityJoined')->get();
+
+		return $test;
+/*
 		return $this->respond([
 			'data' => $this->activityTransformer->transform($activity)
 		]);
+
+		*/
 	}
 
 	/**

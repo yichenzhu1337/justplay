@@ -22,7 +22,7 @@ Route::group(array('prefix' => 'api'), function(){
 	});
 
 	//Route::get('activity-paginated', 'ActivitiesController@paginated');
-	Route::get('test', 'FriendsController@checkIfFriends');
+	Route::post('checkIfFriends', 'FriendsController@checkIfFriends');
 
 	Route::resource('activities', 'ActivitiesController');
 	Route::resource('comments', 'CommentsController');

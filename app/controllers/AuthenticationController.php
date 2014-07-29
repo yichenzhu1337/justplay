@@ -9,7 +9,21 @@ class AuthenticationController extends BaseController {
 	
 	public function getUserId()
 	{
-		return Sentry::getUser()->id;
+
+		if (!Sentry::check()) {
+			
+			return Response::json([
+				'error' => [
+					'message' => 'not logged in bitch',
+					'status_code' => 403 //application error code
+				]
+			]);
+		}
+
+		return Response::json([
+			'id' => Sentry::getUser()->id,
+			'username' => Sentry::getUser()->username
+		]);
 	}
 
 	public function postRegister()

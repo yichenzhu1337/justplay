@@ -1,6 +1,7 @@
 <?php
 
 namespace Acme\Transformers;
+use Comment;
 
 class ActivityTransformer extends Transformer{
 
@@ -9,11 +10,13 @@ class ActivityTransformer extends Transformer{
 		return [
 			'activity_id' => $activity['id'],
 			'location' => $activity['location'],
-			'start_date' => $activity['start_date'],
-			'start_date' => $activity['start_date'],
-			'start_date' => $activity['start_date'],
+			'startdate' => $activity['date'],
+			'startingtime' => $activity['date_from'],
+			'endingtime' => $activity['date_to'],
 			'capacity' => $activity['capacity'],
-			'description' => $activity['description']
+			'description' => $activity['description'],
+
+			//'comments' => Comment::where('id', '=', $activity['id'])->get()
 		];
 	}
 

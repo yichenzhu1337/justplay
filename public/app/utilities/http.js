@@ -63,7 +63,7 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 			promise.then(
 				function(response) {
 					if (ResponseValidation.hasDataErrors(response)) {
-						d.resolve(response.errors);
+						d.reject(response.errors);
 					} else if (ResponseValidation.hasDataObj(response)) {
 						d.resolve(response.obj);
 					}
@@ -123,13 +123,7 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 			return results;
 		},
 		get: function(url) {
-			var d = $q.defer();
-			var get = $http.get(url);
-			get.then(
-				function(obj) {
-					d.resolve(obj.data);
-				})
-			return d.promise;
+			return ValidateResponse($http.get(url));
 		}
 	}
 };

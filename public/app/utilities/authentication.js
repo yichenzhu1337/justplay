@@ -97,7 +97,11 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 		},
 		determineAuthState: function() {
 			return API.get('api/getUserId')
-			.then(getUserProfile,function() { console.log('yichen has no error message for getuserId')})
+			.then(
+				getUserProfile,
+				function(data) { 
+					return $q.reject(data[0].message) 
+				})
 			.then(setupLocalSession);
 		},
 		isLoggedIn: function() {

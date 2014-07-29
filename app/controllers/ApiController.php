@@ -59,10 +59,10 @@ class ApiController extends \BaseController{
 	public function respondWithError($message)
 	{
 		return $this->respond([
-			'error' => [
+			'error' => [[
 				'message' => $message,
 				'status_code' => $this->getStatusCode() //application error code
-			]
+			]]
 		]);
 	}
 

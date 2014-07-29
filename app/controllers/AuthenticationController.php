@@ -13,10 +13,10 @@ class AuthenticationController extends BaseController {
 		if (!Sentry::check()) {
 			
 			return Response::json([
-				'error' => [
+				'error' => [[
 					'message' => 'not logged in bitch',
 					'status_code' => 403 //application error code
-				]
+				]]
 			]);
 		}
 

@@ -43,9 +43,9 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 		}
 	}
 
-	var getUserProfile = function(username) {
+	var getUserProfile = function(obj) {
 		var d = $q.defer();
-		API.get('api/profiles/'+username).then(
+		API.get('api/profiles/'+obj.username).then(
 			function(data) {
 				d.resolve(data);
 			});

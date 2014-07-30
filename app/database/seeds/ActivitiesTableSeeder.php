@@ -16,13 +16,14 @@ class ActivitiesTableSeeder extends Seeder {
 		foreach(range(1, 25) as $index)
 		{
 			Activity::create([
+				'owner_id' => rand(0, 25),
 				'description' => $faker->sentence(rand(10, 20)),
 				'capacity' => rand(2, 20),
-				'sport' => $sports_list[rand(0,5)],
-				'location' => $location_list[rand(0,5)],
-				'date' => $faker->dateTime(),
-				'date_from' => $faker->dateTime(), 
-				'date_to' => $faker->dateTime()
+				'sport' => $sports_list[rand(0, 5)],
+				'location' => $location_list[rand(0, 5)],
+				'date' => $faker->dateTimeThisMonth($max = 'now') ,
+				'date_from' => $faker->dateTimeThisMonth($max = 'now') , 
+				'date_to' => $faker->dateTimeThisMonth($max = 'now') 
 			]);
 		}
 	}

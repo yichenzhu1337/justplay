@@ -32,5 +32,3 @@ Route::group(array('prefix' => 'api'), function(){
 
 	Route::get('getUserId', 'AuthenticationController@getUserId');
 });
-
-

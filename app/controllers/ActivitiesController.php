@@ -94,7 +94,7 @@ class ActivitiesController extends \ApiController {
 			return $this->respondNotFound('activity does not exist');
 		}
 		
-		$test = Activity::with('comment')->where('id', '=', $id)->with('activityJoined')->get();
+		$test = Activity::with('test')->get();//with('comment')->where('id', '=', $id)->with('activityJoined')->get();
 
 		return $test;
 /*

@@ -8,7 +8,7 @@ class Activity extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['title', 'body'];
+	protected $fillable = ['description', 'capacity', 'sport', 'location', 'date', 'date_from', 'date_to'];
 
 	public function comment(){
 		return $this->hasMany('Comment');

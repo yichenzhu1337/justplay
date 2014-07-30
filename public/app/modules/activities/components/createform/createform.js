@@ -14,6 +14,9 @@ controllers.activityController = function($scope, sportFactory, FlashService, AP
 	$scope.submit = function(isValid) {
     if (isValid) {
       $scope.submitted = angular.copy($scope.create);
+      $scope.submitted.date = $scope.submitted.date.toMysqlFormat();
+      $scope.submitted.date_from = $scope.submitted.date_from.toMysqlFormat();
+      $scope.submitted.date_to = $scope.submitted.date_to.toMysqlFormat();
       API.post('api/activities',$scope.submitted).then(
         function(){
           $state.go('main.activities.list');

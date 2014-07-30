@@ -24,7 +24,10 @@
 		<div ui-view></div>
 
 		<!-- JS DEPENDENCIES -->
-		
+		<!-- NON ANGULAR -->
+	  <script src="app/js/non-angular/polyfills.js"></script>
+
+
 	  <!-- BOWER DEPENDENCIES -->
 	  <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	  <script src="bower_components/angular/angular.min.js"></script>

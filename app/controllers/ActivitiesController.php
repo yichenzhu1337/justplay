@@ -27,14 +27,35 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function index()
 	{
+		/*
 		$activities = Activity::with('comment')->with('activityJoined')->get();
 
 		return $activities;
-		/*
+		
 		return $this->respond([
 			'data' => $this->activityTransformer->transformCollection($activities->all())
 		]);
 		*/
+		$activities_array = [];
+		$current_layer = [];
+		$final_activities = [];
+
+		for ($i=0; $i < 7; $i++) { 
+			$thisWeek = Carbon::now('America/Toronto')->subDays($i)->toDateTimeString();
+
+			$sql = "SELECT * FROM activities WHERE date_from >= '$thisWeek'";
+			$activities = DB::select($sql);
+
+			array_push($current_layer, $thisWeek);
+			array_push($current_layer, (object) ['obj' => $activities]);
+			array_push($final_activities, $current_layer);
+
+			$current_layer = [];
+
+		}
+
+		return Response::json($final_activities);
+
 	}
 
 	/**

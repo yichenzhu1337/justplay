@@ -21,9 +21,9 @@ class ActivitiesTableSeeder extends Seeder {
 				'capacity' => rand(2, 20),
 				'sport' => $sports_list[rand(0, 5)],
 				'location' => $location_list[rand(0, 5)],
-				'date' => $faker->dateTime(),
-				'date_from' => $faker->dateTime(), 
-				'date_to' => $faker->dateTime()
+				'date' => $faker->dateTimeThisMonth($max = 'now') ,
+				'date_from' => $faker->dateTimeThisMonth($max = 'now') , 
+				'date_to' => $faker->dateTimeThisMonth($max = 'now') 
 			]);
 		}
 	}

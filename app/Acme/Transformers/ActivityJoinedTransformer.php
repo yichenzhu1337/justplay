@@ -18,7 +18,8 @@ use Activity;
 use ActivityJoined;
 use DB;
 
-class ActivityJoinedTransformer extends TransformerAbstract{
+class ActivityJoinedTransformer extends TransformerAbstract
+{
 
 	public function transform(ActivityJoined $activityJoined)
 	{

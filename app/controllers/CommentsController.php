@@ -4,12 +4,6 @@ use Acme\Transformers\CommentTransformer;
 
 class CommentsController extends \ApiController {
 
-	protected $commentTransformer;
-
-	function __construct(CommentTransformer $commentTransformer) 
-	{
-		$this->commentTransformer = $commentTransformer;
-	}
 	/**
 	 * Display a listing of comments
 	 *
@@ -17,9 +11,9 @@ class CommentsController extends \ApiController {
 	 */
 	public function index()
 	{
-		return $this->respond([
-			'data' => $this->commentTransformer->transformCollection(Activity::all()->toArray())
-		]);
+		//$comments = Comment::where('activity_id', '=', 1)->get()->toArray();
+		$comments = Comment::all();
+		return $comments;
 	}
 
 	/**
@@ -40,17 +34,15 @@ class CommentsController extends \ApiController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($activity_id)
+	public function show($id)
 	{
-		$comments = Comment::where('activity_id', '=', $activity_id);
 
-		//$comments = Comment::find(1);
-		/*
+		$comments = Comment::find($id);
+
 		return $this->respond([
 			'data' => $this->commentTransformer->transform($comments)
 		]);
-		*/
-		return Response::json($comments);
+
 	}
 
 	/**

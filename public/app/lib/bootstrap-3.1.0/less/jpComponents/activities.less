@@ -14,6 +14,9 @@
 @jp-md-width:									878;
 @jp-lg-width:									1162;
 
+@jp-profile-max-width:				400px;
+@jp-profile-padding:					36.25px;
+
 @jp-activity-content-padding:	13px;
 @jp-card-margin:							7px;
 
@@ -87,7 +90,7 @@
 	    max-width: @jp-lg-width;
 	  }
   }
-
+ 
   @media (min-width: @screen-sm-min) {
     height: 270px;
 	  width: 100%;
@@ -104,7 +107,7 @@
   position: relative;
 
   > .content-wrapper {
-  	width: @jp-base-width;
+  	max-width: @jp-base-width;
     margin: 0 auto;
     min-height: 50%;
     margin-top: 0px;
@@ -113,6 +116,33 @@
     &.search-content {
 	    @media (min-width: @screen-sm-min) {
 		    margin-top: -63px;
+	    }
+    }
+
+    &.profile-page {
+    	max-width: @jp-profile-max-width;
+			margin: 0 auto;
+			background-color: transparent;
+    	padding-top: @jp-profile-protrusion-height;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin-top: -50px;
+
+    	> .profile-content-area {
+				background-color: @jp-body-bg-color;
+				height: auto;
+				width: 100%;
+				border: 1px solid #dddddd;
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.13);
+			}
+
+    	@media (min-width: @screen-sm-min) {
+    		margin-top: -180px;
+    	}
+
+    	@media (min-width: @screen-sm-min) {
+		    box-shadow: none;
+		    padding-bottom: 0px;
 	    }
     }
 
@@ -125,24 +155,23 @@
     }
 
     @media (min-width: @screen-xs-min) {
-	    width: @jp-xs-width;
+	    max-width: @jp-xs-width;
 	    padding-left: @jp-activity-content-padding;
 	    padding-right: @jp-activity-content-padding;
 	  }
 
     @media (min-width: @screen-sm-min) {
-    	width: @jp-sm-width;
+    	max-width: @jp-sm-width;
 	    box-shadow: 0 0 15px rgba(0,0,0,0.13);
-	    background-color: white;
 	    padding-bottom: 27px;
     }
 
     @media (min-width: @screen-md-min) {
-    	width: @jp-md-width;
+    	max-width: @jp-md-width;
 	  }
 
 	  @media (min-width: @screen-lg-min) {
-	    width: @jp-lg-width;
+	    max-width: @jp-lg-width;
 	  }
   }
 }

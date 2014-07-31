@@ -1,0 +1,72 @@
+//
+// JP Profile
+// --------------------------------------------------
+
+// CONSTANTS FOR JPFORMS
+// --------------------------------------------------
+
+@jp-profile-protrusion-height: 	36.6px;
+@jp-body-bg-color: 							#F4F4F6;
+
+// Profile BODY PAGE
+// --------------------------------------------------
+
+.img-container {
+	max-width: 110px;
+	margin: 0 auto;
+}
+
+.profile-banner {
+	background-color: white;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.profile-body {
+	margin: 0 auto;
+	background-color: @jp-body-bg-color;
+	padding: @jp-profile-padding;
+
+	> .well {
+		background-color: white;
+	}
+
+	@media (min-width: @screen-xs-min) {
+		padding-left: @jp-profile-padding;
+		padding-right: @jp-profile-padding;
+	}
+}
+
+.profile-pic {
+	margin-top: -@jp-profile-protrusion-height;
+}
+
+h1.profile-header {
+	font-size: 17px;
+	font-weight: bold;
+	line-height: 25px;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: @gray-dark;
+}
+
+h3.profile-header {
+	text-align: center;
+	font-size: 14px;
+	line-height: 14px;
+	color: @gray;
+	margin-top: 3px;
+	margin-bottom: 0px;
+	font-weight: normal;
+}
+
+ul.details {
+	margin-top: 12.5px;
+	> li {
+		> i {
+			margin-right: 5px;
+			color: @alizarin;
+		}
+	}
+}

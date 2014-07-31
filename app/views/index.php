@@ -61,7 +61,7 @@
 		<!-- justPlay user Module -->
 	  <script src="app/modules/users/userModule.js"></script>
 	  <script src="app/modules/social/social.js"></script>
-
+		<script src="app/modules/profile/profile.js"></script>
 
 	  <!-- justPlay activity Modules -->
 	  <script src="app/modules/activities/common/skillModule.js"></script>

@@ -5,6 +5,7 @@ var app = angular.module('app',
 		'jp.signup',
 		'jp.activitiespage',
 		'jp.social',
+		'jp.profile',
 		'jp.masterCtrl'
 	]);
 
@@ -59,7 +60,19 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 				templateUrl: "app/modules/social/social.html"
 			}
 		}
-	});	
+	})
+	.state('main.profile', {
+		url: "/:id",
+		views: {
+			"header": {
+				templateUrl: "app/modules/activities/partials/detailedheader.tmpl.html"
+			},
+			"body": {
+				templateUrl: "app/modules/profile/profilebody.tmpl.html"
+			}
+		}
+	});
+
 }]);
 
 app.config(function($httpProvider) {

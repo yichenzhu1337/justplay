@@ -37,7 +37,7 @@
             <li ng-show="getUser()" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">{{user.first_name}}</a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href=""><i class="glyphicon glyphicon-user"></i><span class="hidden text">a</span>Profile</a></li>
+                <li><a ui-sref="main.profile({username: user.username})"><i class="glyphicon glyphicon-user"></i><span class="hidden text">a</span>Profile</a></li>
                 <li><a href=""><span class="hidden text">laal</span>Friends</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Account settings</a></li>

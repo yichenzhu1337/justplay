@@ -1,20 +1,35 @@
-var mod = angular.module('jp.profile', ['userModule','ui.bootstrap']);
+var mod = angular.module('jp.profile', ['userModule','jp.authentication']);
 
 var controllers = {};
 var directives = {};
 
 
-controllers.profileController = function($scope, $stateParams, UserSvc){
+controllers.profileController = function($scope, $stateParams, UserSvc, authenticationService){
 	init();
+
+	var username;
 
 	function init() {
 		// Services
-		$scope.UserSvc = UserSvc;	
-		
-		$scope.UserSvc.get($stateParams.id).then(
+		$scope.UserSvc = UserSvc;
+		$scope.AuthSvc = authenticationService;
+		username = $stateParams.username;
+		$scope.UserSvc.get($stateParams.username).then(
 			function(userObj) {
 				$scope.user = userObj;
 			});
+	}
+
+	$scope.IsCurrentUser = function()
+	{
+		if ($scope.isLoggedIn && $scope.AuthSvc.getUser().username == username)
+		{
+			return true;
+		} 
+		else
+		{
+			return false;
+		}
 	}
 };
 

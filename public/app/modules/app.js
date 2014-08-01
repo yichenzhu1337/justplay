@@ -62,7 +62,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		}
 	})
 	.state('main.profile', {
-		url: "/:id",
+		url: "/:username",
 		views: {
 			"header": {
 				templateUrl: "app/modules/activities/partials/detailedheader.tmpl.html"

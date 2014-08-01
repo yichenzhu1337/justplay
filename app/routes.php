@@ -24,6 +24,7 @@ Route::group(array('prefix' => 'api'), function(){
 	//Route::get('activity-paginated', 'ActivitiesController@paginated');
 	Route::post('checkIfFriends', 'FriendsController@checkIfFriends');
 
+	Route::resource('users', 'UsersController');
 	Route::resource('activities', 'ActivitiesController');
 	Route::resource('comments', 'CommentsController');
 	Route::resource('friends', 'FriendsController');

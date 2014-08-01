@@ -1,0 +1,54 @@
+<?php
+
+namespace Acme\Transformers;
+
+use League\Fractal;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Item;
+use League\Fractal\Resource\Collection;
+use League\Fractal\TransformerAbstract;
+
+use League\Fractal\Serializer\DataArraySerializer;
+use League\Fractal\Serializer\ArraySerializer;
+use League\Fractal\Serializer\JsonApiSerializer;
+
+use User;
+use Comment;
+use Activity;
+use ActivityJoined;
+use DB;
+
+class ActivityJoinedTransformer extends TransformerAbstract
+{
+
+	public function transform(ActivityJoined $activityJoined)
+	{
+
+		$owner_id = Activity::find($activityJoined['activity_id'])->owner_id;
+		$user_id = $activityJoined['user_id'];
+
+		$are_they_friends = "SELECT * FROM friends ";
+		$are_they_friends .= "WHERE ";
+		$are_they_friends.= "user1_id = $owner_id AND user2_id = $user_id "; 
+		$are_they_friends .= "OR ";
+		$are_they_friends .= "user1_id = $user_id AND user2_id = $owner_id";
+
+		$are_they_friends_query = DB::select($are_they_friends);
+
+		if (count($are_they_friends_query)) {
+			$areFriends	= true;
+		}
+		else{
+			$areFriends	= false;
+		}
+	
+		return [
+			'id' => $activityJoined['id'],
+			'activity_id' => $activityJoined['activity_id'],
+			'user_id' => $activityJoined['user_id'],
+			'username' => User::find($activityJoined['id'])->username,
+			'areFriends' => $areFriends
+		];
+	}
+
+}

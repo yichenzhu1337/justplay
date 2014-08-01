@@ -1,6 +1,8 @@
 <?php
 
-class CommentsController extends \BaseController {
+use Acme\Transformers\CommentTransformer;
+
+class CommentsController extends \ApiController {
 
 	/**
 	 * Display a listing of comments
@@ -9,9 +11,9 @@ class CommentsController extends \BaseController {
 	 */
 	public function index()
 	{
+		//$comments = Comment::where('activity_id', '=', 1)->get()->toArray();
 		$comments = Comment::all();
-
-		return Response::json($comments);
+		return $comments;
 	}
 
 	/**
@@ -32,10 +34,15 @@ class CommentsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($activity_id)
+	public function show($id)
 	{
-		$comments = Comment::where('activity_id', '=', $activity_id);
-		return Response::json($comments);
+
+		$comments = Comment::find($id);
+
+		return $this->respond([
+			'data' => $this->commentTransformer->transform($comments)
+		]);
+
 	}
 
 	/**

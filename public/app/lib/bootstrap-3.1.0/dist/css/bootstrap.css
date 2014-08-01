@@ -6153,10 +6153,30 @@ fieldset[disabled] .jp-btn-link {
   max-width: 110px;
   margin: 0 auto;
 }
+form.editable-textarea > .form-group > textarea {
+  width: 100%;
+}
+form.editable-textarea > .form-group > span.editable-buttons {
+  display: block;
+  float: right;
+  margin-top: 5px;
+}
 .profile-banner {
   background-color: white;
   padding-bottom: 10px;
   border-bottom: 1px solid #dddddd;
+}
+.profile-banner > .profile-header {
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: #333333;
+}
+.profile-banner > .profile-header > a {
+  color: #333333;
 }
 .profile-body {
   margin: 0 auto;
@@ -6170,6 +6190,9 @@ fieldset[disabled] .jp-btn-link {
 .profile-body > ul.list-group {
   margin-bottom: 20px;
 }
+.profile-body > ul.list-group > li.list-group-item {
+  min-height: 42px;
+}
 .profile-body > ul.list-group > li.list-group-item > i {
   margin-right: 10px;
   color: #e74c3c;
@@ -6182,15 +6205,6 @@ fieldset[disabled] .jp-btn-link {
 }
 .profile-pic {
   margin-top: -36.6px;
-}
-h1.profile-header {
-  font-size: 17px;
-  font-weight: bold;
-  line-height: 25px;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 0px;
-  color: #333333;
 }
 h3.profile-header {
   text-align: center;

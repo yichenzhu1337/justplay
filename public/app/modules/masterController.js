@@ -1,4 +1,4 @@
-var mod = angular.module('jp.masterCtrl', ['jp.authentication']);
+var mod = angular.module('jp.masterCtrl', ['jp.authentication', 'xeditable']);
 
 var controllers = {};
 var services = {};
@@ -64,6 +64,12 @@ controllers.masterCtrl = function($scope, $state, authenticationService){
 		$scope.authSvc.logout();
 	}
 };
+
+mod.run(function(editableOptions, editableThemes) {
+  editableThemes.bs3.inputClass = 'input-sm';
+  editableThemes.bs3.buttonsClass = 'btn-sm';
+  editableOptions.theme = 'bs3';
+});
 
 mod.controller(controllers);
 mod.service(services);

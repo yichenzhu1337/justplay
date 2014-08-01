@@ -17,6 +17,7 @@
 	  <link href="app/css/playground.css" rel="stylesheet"> 
 	  <link href="app/css/activity.css" rel="stylesheet"> 
 	  <link href="bower_components/angular-growl-v2/build/angular-growl.css" rel="stylesheet">
+	  <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
   </head>
 
   <body ng-app="app">
@@ -37,14 +38,13 @@
 	  <script src="bower_components/angular-moment/angular-moment.js"></script>
 	  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	  <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
-
+		<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
 
 		<!-- CUSTOM SCRIPTS -->
 	  <script src="app/lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
 	  <script src="app/lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 	  <link href="app/lib/angular-multiselect-master/src/style.css" rel="stylesheet" type="text/css" media="all"  />
 	  <script src="app/lib/angular-multiselect-master/src/multiselect.js"></script> 
-
 	  <!-- Modules -->
 
 		<!-- Utilities -->

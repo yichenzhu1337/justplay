@@ -16,10 +16,39 @@
 	margin: 0 auto;
 }
 
+form.editable-textarea {
+	> .form-group {
+
+		> textarea {
+			width: 100%;
+		}
+
+		> span.editable-buttons {
+			display: block;
+			float: right;
+			margin-top: 5px;
+		}
+	}
+}
+
 .profile-banner {
 	background-color: white;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #dddddd;
+
+	> .profile-header {
+		font-size: 17px;
+		font-weight: bold;
+		line-height: 25px;
+		text-align: center;
+		margin-top: 5px;
+		margin-bottom: 0px;
+		color: @gray-dark;
+
+		> a {
+			color: @gray-dark;
+		}
+	}
 }
 
 .profile-body {
@@ -36,6 +65,7 @@
 		margin-bottom: 20px;
 		> li.list-group-item 
 		{
+			min-height: 42px;
 			> i {
 				margin-right: 10px;
 				color: @alizarin;
@@ -51,16 +81,6 @@
 
 .profile-pic {
 	margin-top: -@jp-profile-protrusion-height;
-}
-
-h1.profile-header {
-	font-size: 17px;
-	font-weight: bold;
-	line-height: 25px;
-	text-align: center;
-	margin-top: 5px;
-	margin-bottom: 0px;
-	color: @gray-dark;
 }
 
 h3.profile-header {

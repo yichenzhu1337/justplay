@@ -15,7 +15,13 @@
 			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
 			  </a>
 			  <div class="media-body">
-			  	<p><a href="">{{user.first_name}}</a></p>
+			  	<p>
+			  		<a ui-sref="main.profile({username:user.username})">{{user.first_name}}</a>
+				  	<span>
+					  	<button id="addfriend" ng-hide="user.areFriends" class="btn btn-sm btn-default pull-right"><i class="glyphicon glyphicon-plus"></i><span class="hidden">a</span>Add Friend</button>
+			  			<button id="addfriend" ng-show="user.areFriends" class="btn btn-sm btn-default pull-right"><i class="glyphicon glyphicon-ok"></i><span class="hidden">a</span>Friends</button>
+		  			</span>
+	  			</p>
 			  </div>
 			</div>
 	  </li>

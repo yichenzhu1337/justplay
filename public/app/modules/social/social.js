@@ -9,7 +9,7 @@ controllers.socialController = function($scope, $filter, UserSvc, authentication
 	// Services
 	$scope.UserSvc = UserSvc;
 	$scope.getUsers = function() {
-		return $scope.UserSvc.ListAll().then(
+		return $scope.UserSvc.getUserIds().then(
 			function(data){
 				return data;
 			});
@@ -59,7 +59,7 @@ directives.jpuserlist = function($filter, UserSvc, authenticationService) {
 			 */
 			$scope.updateUsers = function(selectedUser) {
 				// Filter out the users
-				var filteredUsers = $filter("filter")($scope.users, {first_name:selectedUser});
+				var filteredUsers = $filter("filter")($scope.users, {name:selectedUser});
 
 				// Update Pagination Variables
 				resetPagination(filteredUsers.length);

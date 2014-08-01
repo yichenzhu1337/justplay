@@ -64,6 +64,16 @@ factories.UserSvc = ['$q', '$timeout', 'User', 'API', function($q, $timeout, Use
 		}
 	}
 
+	var getAllUsers = function() {
+		return API.get('api/users').then(
+			function(data) {
+				return data;
+			},
+			function() {
+				return $q.reject();
+			});
+	}
+
 	return {
 		ListAll: function() {
 			var searchRes = search("").then(
@@ -73,6 +83,12 @@ factories.UserSvc = ['$q', '$timeout', 'User', 'API', function($q, $timeout, Use
 				});
 
 			return searchRes;
+		},
+		getUserIds: function() {
+			return getAllUsers().then(
+				function(data) {
+					return data.users;
+				});
 		},
 		get: function(user) {
 			return API.get('api/profiles/'+user).then(

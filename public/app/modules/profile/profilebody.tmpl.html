@@ -11,8 +11,19 @@
 				<h3 class="profile-header">{{user.username}}</h3>
   		</div>
 			<div class="profile-body">
+				<p class="text-muted">Contact Information</p>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<i class="glyphicon glyphicon-envelope"></i><span>{{user.email}}</span>
+					</li>
+					<li class="list-group-item">
+					    <i class="glyphicon glyphicon-phone"></i><span>{{user.phone || 'none'}}</span>
+					</li>
+				</ul>
+
+				<p class="text-muted">What I like playing</p>
 				<div class="well">
-					{{user.profile.bio}}
+					{{user.profile.preferences}}
 				</div>
 			</div>
   	</div>

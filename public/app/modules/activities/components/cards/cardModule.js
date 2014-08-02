@@ -796,6 +796,7 @@ controllers.cardsController = function($scope, ActivitySvc, watching, filterServ
 		promise.then(
 			function(data) {
 				$scope.dates = data;
+				console.log('Dates:' + $scope.dates);
 			});
 
 		$scope.filterServ = filterService;
@@ -839,7 +840,7 @@ controllers.cardsController = function($scope, ActivitySvc, watching, filterServ
 		$scope.filterServ.setFilterFlag(val);
 		$scope.filterFlag = val;
 	};
-		init();
+	init();
 };
 
 factories.watching = function(strategyData, searchbarData) {
@@ -913,24 +914,6 @@ controllers.cardController = function($scope, friendService, activitySkillFactor
 	$scope.stars = [];
 	$scope.skillDescription;
 	$scope.friendList = [];
-	init();
-	function init() {
-		// Determine People needed, description to show and color of progress bar
-		if ($scope.card.participants.totalParticipants >= $scope.card.minimumrequired) {
-			$scope.neededorfree = 'SLOTS';
-			$scope.peopleneeded = $scope.card.capacity - $scope.card.participants.totalParticipants;
-		} else {
-			$scope.neededorfree = 'NEEDED';
-			$scope.peopleneeded = $scope.card.minimumrequired  - $scope.card.participants.totalParticipants;
-		}
-		// Determine Skill Description
-		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
-		// Determine how many stars to dish out
-		for (var i = 0; i < $scope.card.skill; i++) {
-			$scope.stars.push(i);
-		};
-		// Display Friendlist on mouse over
-	};
 
 	$scope.open = function(activityId) {
 		$state.go('main.activities.detail', { id: activityId});

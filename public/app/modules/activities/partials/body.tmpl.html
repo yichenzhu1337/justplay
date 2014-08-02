@@ -17,7 +17,7 @@
       </div>
       <div class="card-container" ng-repeat-end>
         <div class="card-wrap" 
-        ng-repeat="card in dateobj.obj | filter:{sport:activityFilter}| property:searchFilter:filterFlag | orderBy: sortStrategy" 
+        ng-repeat="card in dateobj.obj | filter:{sport:activityFilter} | property:searchFilter:filterFlag" 
         ng-controller="cardController">
           <div class="card-left" > 
             <div class="card-activity">
@@ -119,7 +119,7 @@
                 </div>
               </div>
               <div class="primary-button-wrapper">
-                <button type="button" ng-click="open(card.id)" class="btn btn-info fill">More</button>
+                <button type="button" ng-click="open(card.activity_id)" class="btn btn-info fill">More</button>
               </div>
           </div>
         </div>

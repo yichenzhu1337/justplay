@@ -2,7 +2,7 @@ var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','us
 
 var factories = {};
 
-factories.authenticationService = function($q, $http, PostSvc, SessionService, errorSvc, User, API) {
+factories.authenticationService = function($q, SessionService, User, API) {
 	var cacheSession = function() {
 		SessionService.set("authenticated", true);
 	}

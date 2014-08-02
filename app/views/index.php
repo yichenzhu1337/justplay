@@ -64,9 +64,11 @@
 		<script src="app/modules/profile/profile.js"></script>
 
 	  <!-- justPlay activity Modules -->
+	  <script src="app/modules/activities/common/participantModule.js"></script>
 	  <script src="app/modules/activities/common/skillModule.js"></script>
 	  <script src="app/modules/activities/common/friendModule.js"></script>
 	  <script src="app/modules/activities/common/activityModule.js"></script>
+	  <script src="app/modules/activities/common/commentModule.js"></script>
 	  <script src="app/modules/activities/components/filters/filterModule.js"></script>
 	  <script src="app/modules/activities/components/sort/sortModule.js"></script>
 	  <script src="app/modules/activities/components/searchbar/searchbar.js"></script>

@@ -22,7 +22,7 @@
       <input type="text" class="form-control" name="location" ng-model="create.location" placeholder="Location" required>
 
       <!-- Activity Validation Messages -->
-      <span class="help-block" ng-show="!createActForm.location.$pristine && createActForm.location.$error.required">Select Location</span>   
+      <span class="help-block" ng-show="!createActForm.location.$pristine && createActForm.location.$error.required">Select Location</span>
   </div> 
   
   <!-- DATE, TIME, DURATION -->
@@ -44,7 +44,6 @@
 
     <!-- Start Date Validation Messages -->
     <span class="help-block" ng-show="!createActForm.date.$pristine && createActForm.date.$error.required">Select Date</span>
-    {{create.date}}
   </div>
 
   <div class="form-group" ng-class="{ 'has-error' : createActForm.date_from.$invalid && !createActForm.date_from.$pristine, 'has-success' : !createActForm.date_from.$invalid && !createActForm.date_from.$pristine }">
@@ -87,5 +86,4 @@
   </div>
   
   <button type="submit" class="btn btn-success fill">Continue</button>
-  {{submitted}}
 </form>

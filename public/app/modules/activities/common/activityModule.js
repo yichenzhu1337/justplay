@@ -1,27 +1,16 @@
-var mod = angular.module('activityModule', ['jp.errorHandling']);
+var mod = angular.module('activityModule', ['jp.errorHandling','jp.http','participantModule','commentModule']);
 
 var factories = {};
 
-factories.Activity = ['SanitizeService', function(SanitizeService){
-	/**
-	 * Constructor
-	 * @param {[type]} id       [description]
-	 * @param {[type]} sport       [description]
-	 * @param {[type]} date        [description]
-	 * @param {[type]} starttime   [description]
-	 * @param {[type]} endtime     [description]
-	 * @param {[type]} peoplegoing [description]
-	 * @param {[type]} location    [description]
-	 * @param {[type]} description [description]
-	 */
-	function Activity(id, sport, date, starttime, endtime, participants, location, description) {
+factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, CommentSvc){
+
+	function Activity(activity_id, sport, date, startingtime, endingtime, location, description) {
 		// Initialize Values
-		this.id = id;
+		this.activity_id = activity_id;
 		this.sport = sport;
 		this.date = date;
-		this.starttime = starttime;
-		this.endtime = endtime;
-		this.participants = participants;
+		this.starttime = startingtime;
+		this.endtime = endingtime;
 		this.location = location;
 		this.description = description;
 	}
@@ -33,14 +22,13 @@ factories.Activity = ['SanitizeService', function(SanitizeService){
 	 * @param  {data} data data
 	 * @return {bool}      true/false
 	 */
-	function validateData(data) {
+	function validateActivity(data) {
 		if (
-			angular.isUndefined(data.id) ||
+			angular.isUndefined(data.activity_id) ||
 			angular.isUndefined(data.sport) ||
-			angular.isUndefined(data.date) ||
-			angular.isUndefined(data.starttime) ||
-			angular.isUndefined(data.endtime) ||
-			angular.isUndefined(data.participants) ||
+			angular.isUndefined(data.startdate) ||
+			angular.isUndefined(data.startingtime) ||
+			angular.isUndefined(data.endingtime) ||
 			angular.isUndefined(data.location) ||
 			angular.isUndefined(data.description)
 			)
@@ -59,20 +47,25 @@ factories.Activity = ['SanitizeService', function(SanitizeService){
 	 */
 	Activity.build = function(data) {
 		// Check if each one is defined
-		if (!validateData(data)) {
+		if (!validateActivity(data)) {
 			return false;
 		} else {
-			return new Activity(
-				data.id,
+			var activity = new Activity(
+				data.activity_id,
 				data.sport,
-				data.date,
-				data.starttime,
-				data.endtime,
-				data.participants,
+				data.startdate,
+				data.startingtime,
+				data.endingtime,
 				data.location,
 				data.description
 			);
-			
+			if (angular.isArray(data.activityJoined.data)) {
+				activity.participants = ParticipantSvc.createObj(data.activityJoined.data);
+			}
+			if (angular.isArray(data.comments.data)) {
+				activity.comments = CommentSvc.createObj(data.comments.data);
+			}
+			return activity;
 		}
 	}
 
@@ -118,8 +111,8 @@ factories.ActivityCollection = function(){
 	return ActivityCollection;
 };
 
-factories.ActivitySvc = ['$q', '$timeout', '$http', 'cardFactory', 'Activity', 'ActivityCollection', 'PostSvc', 
-function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, PostSvc) {
+factories.ActivitySvc = ['$q', '$timeout', '$http', 'cardFactory', 'Activity', 'ActivityCollection', 'API', 
+function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 
 	/**
 	 * Creates an array of Activity Objects
@@ -137,11 +130,17 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, PostSvc
 		return activityArray;
 	}
 
+	var replaceDateInstances = function(objJSON) {
+		objJSON.startingtime = new Date(objJSON.startingtime);
+		objJSON.endingtime = new Date(objJSON.endingtime);
+		objJSON.startdate = new Date(objJSON.startdate);
+		return objJSON;
+	}
 
 	var createDateObj = function(objJSON) {
 		var params = {};
-		params.date = objJSON.date;
-		params.obj = createActivities(objJSON.obj, objJSON.date);
+		params.date = new Date(objJSON[0]);
+		params.obj = createActivities(replaceDateInstances(objJSON[1].obj.data), params.date);
 		var activityCollection = ActivityCollection.build(params);
 
 		return activityCollection;
@@ -156,14 +155,11 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, PostSvc
 	}
 
 	var getAll = function() {
-		var d = $q.defer();
-		var packagedObj = getAllSports(angular.copy(cardFactory.getCards()));
-		// Process the packagedObj.
-		$timeout(
-			d.resolve(packagedObj),
-			2000		
-			);
-		return d.promise;
+		return API.get('api/activities?include=comments,activityJoined').then(
+			function(data) {
+				var packagedobj = getAllSports(data);
+				return packagedobj;
+			});
 	}
 
 	/**
@@ -184,27 +180,14 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, PostSvc
 
 	return {
 		getList: function() {
-			var d = getAll();
-			d.then(function(data) {
-
-			},
-			function(data) {
-
-			});
-			return d;
+			return getAll();
 		},
 		get: function(id) {
-			var deferred = $q.defer();
-			getAll().then(
-				function(list){
-					var g = getActivity(list, id);
-					console.log(g);
-					deferred.resolve(g);
-				},
-				function(){
-					return false;
+			return API.get('api/activities/'+id+'?include=comments,activityJoined').then(
+				function(obj) {
+					data = replaceDateInstances(obj.data);
+					return Activity.build(data);
 				});
-			return deferred.promise;
 		},
 		submitActivity: function(activityJSON) {
 /*			var copiedActivity = angular.copy(activityJSON);

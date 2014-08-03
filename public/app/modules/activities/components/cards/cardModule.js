@@ -788,7 +788,8 @@ factories.cardFactory = function() {
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = function($scope, ActivitySvc, watching, filterService) {
+controllers.cardsController = ['$scope', 'ActivitySvc', 'watching', 'filterService',
+function($scope, ActivitySvc, watching, filterService) {
 	// Base Set of Activities
 
 	function init() {
@@ -841,7 +842,7 @@ controllers.cardsController = function($scope, ActivitySvc, watching, filterServ
 		$scope.filterFlag = val;
 	};
 	init();
-};
+}];
 
 factories.watching = function(strategyData, searchbarData) {
 
@@ -937,28 +938,22 @@ controllers.cardController = function($scope, friendService, activitySkillFactor
 	}
 };
 
-controllers.detailedCardController = function($stateParams, $scope, ActivitySvc, UserSvc){
-
+controllers.detailedCardController = function($scope, UserSvc, activity, $timeout, $q){
 	init();
 
 	function init() {
 		// Services
+		// 
 		$scope.UserSvc = UserSvc;
+		$scope.activity = activity;
 
-		console.log($stateParams.id);
-		ActivitySvc.get($stateParams.id).then(
-			function(activity){
-				$scope.activity = activity;
-			});
 		$scope.isFriendsCollapsed = true;
 		$scope.isPeopleCollapsed = true;
 	};
 
 	$scope.getUsers = function() {
-		return $scope.UserSvc.ListAll().then(
-			function(data){
-				return data;
-			});
+		var d = $q.defer();
+		return d.resolve($scope.activity.participants.list);
 	}
 
 	$scope.join = function() {

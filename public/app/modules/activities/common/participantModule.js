@@ -9,6 +9,7 @@ factories.Participant = function(){
 		this.user_id = user_id;
 		this.areFriends = areFriends;
 		this.username = username;
+		this.first_name = username;
 	}
 
 	function isValidParticipant(participant) {

@@ -31,9 +31,9 @@
 
 	  <!-- BOWER DEPENDENCIES -->
 	  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-	  <script src="bower_components/angular/angular.min.js"></script>
+	  <script src="bower_components/angular/angular.js"></script>
 	  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-	  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+	  <script src="bower_components/angular-resource/angular-resource.js"></script>
 	  <script src="bower_components/moment/moment.js"></script>
 	  <script src="bower_components/angular-moment/angular-moment.js"></script>
 	  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>

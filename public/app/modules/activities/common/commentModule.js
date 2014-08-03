@@ -4,17 +4,20 @@ var factories = {};
 
 factories.Comment = function(){
 
-	function Comment(senderName, description, username) {
+	function Comment(senderName, description, username, date) {
 		// Initialize Values
 		this.senderName = senderName;
 		this.message = description;
 		this.username = username;
+		this.first_name = username; 
+		this.date = date;
 	}
 
 	function isValidComment(comment) {
 		if (
 			angular.isUndefined(comment.username) ||
-			angular.isUndefined(comment.description)
+			angular.isUndefined(comment.description) ||
+			angular.isUndefined(comment.date)
 			)
 		{
 			return false;
@@ -25,7 +28,7 @@ factories.Comment = function(){
 
 	Comment.build = function(data) {
 		if (isValidComment(data)) {
-			return new Comment(data.username, data.description, data.username);
+			return new Comment(data.username, data.description, data.username, data.date);
 		} else {
 			return false;
 		}

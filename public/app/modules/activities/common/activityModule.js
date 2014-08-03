@@ -8,9 +8,9 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 		// Initialize Values
 		this.activity_id = activity_id;
 		this.sport = sport;
-		this.date = date;
-		this.starttime = startingtime;
-		this.endtime = endingtime;
+		this.date = new Date(date);
+		this.starttime = new Date(startingtime);
+		this.endtime = new Date(endingtime);
 		this.location = location;
 		this.description = description;
 	}
@@ -79,7 +79,7 @@ factories.ActivityCollection = function(){
 	 * @param {Object} obj  Array of objects its holding
 	 */
 	function ActivityCollection(date, obj) {
-		this.date = date;
+		this.date = new Date(date);
 		this.obj = obj;
 	}
 
@@ -130,17 +130,10 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 		return activityArray;
 	}
 
-	var replaceDateInstances = function(objJSON) {
-		objJSON.startingtime = new Date(objJSON.startingtime);
-		objJSON.endingtime = new Date(objJSON.endingtime);
-		objJSON.startdate = new Date(objJSON.startdate);
-		return objJSON;
-	}
-
 	var createDateObj = function(objJSON) {
 		var params = {};
-		params.date = new Date(objJSON[0]);
-		params.obj = createActivities(replaceDateInstances(objJSON[1].obj.data), params.date);
+		params.date = objJSON[0];
+		params.obj = createActivities(objJSON[1].obj.data, params.date);
 		var activityCollection = ActivityCollection.build(params);
 
 		return activityCollection;
@@ -185,8 +178,7 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 		get: function(id) {
 			return API.get('api/activities/'+id+'?include=comments,activityJoined').then(
 				function(obj) {
-					data = replaceDateInstances(obj.data);
-					return Activity.build(data);
+					return Activity.build(obj.data);
 				});
 		},
 		submitActivity: function(activityJSON) {

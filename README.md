@@ -20,8 +20,7 @@ More to come :)
 </ol>
 
 <h3> API </h3>
-<p> URL = "http://www.mywebsite.com" </p>
 <ul>
-  <li> URL/<b><i> api/register </i></b></li>
-  <li> URL/<b><i> api/login </i></b></li>
+  <li> php artisan serve </li>
+  <li> localhost:8000/api-docs </li>
 </ul>

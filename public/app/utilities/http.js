@@ -2,16 +2,6 @@ var mod = angular.module('jp.http', ['jp.utilities','jp.flash']);
 
 var services= {};
 var factories = {};
-services.PostSvc = function(SanitizeService, CSRF_TOKEN) {
-	this.obj = function(obj) {
-		var modObj = angular.copy(obj);
-		if (angular.isUndefined(modObj.csrf_token)) {
-			modObj.csrf_token = CSRF_TOKEN;
-		}
-		var sanObj = SanitizeService.sanitizeObject(modObj); 
-		return sanObj;
-	}
-};
 
 factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 
@@ -63,7 +53,7 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 			promise.then(
 				function(response) {
 					if (ResponseValidation.hasDataErrors(response)) {
-						d.resolve(response.errors);
+						d.reject(response.errors);
 					} else if (ResponseValidation.hasDataObj(response)) {
 						d.resolve(response.obj);
 					}
@@ -113,13 +103,17 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 
 	return {
 		post: function(url, data) {
+			if (!data)
+			{
+				data = {};
+			}
 			data = applyDataTransformations(data);
 			var postPromise = $http.post(url, data);
 			var results = ValidateResponse(postPromise);
 			return results;
 		},
 		get: function(url) {
-			return responseHandler.ValidateResponse($http.get(url));
+			return ValidateResponse($http.get(url));
 		}
 	}
 };

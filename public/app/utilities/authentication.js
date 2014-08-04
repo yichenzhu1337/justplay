@@ -2,7 +2,7 @@ var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','us
 
 var factories = {};
 
-factories.authenticationService = function($q, $http, PostSvc, SessionService, errorSvc, User, API) {
+factories.authenticationService = function($q, SessionService, User, API) {
 	var cacheSession = function() {
 		SessionService.set("authenticated", true);
 	}
@@ -43,10 +43,25 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 		}
 	}
 
-	return {
-		authenticateUser: function() {
+	var getUserProfile = function(obj) {
+		var d = $q.defer();
+		API.get('api/profiles/'+obj.username).then(
+			function(data) {
+				d.resolve(data);
+			});
+		return d.promise;
+	}
 
-		},
+	var setupLocalSession = function(user)
+	{
+		var d = $q.defer();
+
+		cacheSession();
+		setUser(user);
+		return d.resolve();
+	}
+
+	return {
 		login: function(credentials) {
 			var d = $q.defer()
 			var login = API.post('api/login', credentials);
@@ -67,7 +82,7 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 			return d.promise;
 		},
 		logout: function() {
-			var logout = $http.get("api/logout");
+			var logout = API.post("api/logout");
 			logout.then(
 				function(){
 					unsetUser();
@@ -79,6 +94,15 @@ factories.authenticationService = function($q, $http, PostSvc, SessionService, e
 				});
 
 			return logout;
+		},
+		determineAuthState: function() {
+			return API.get('api/getUserId')
+			.then(
+				getUserProfile,
+				function(data) { 
+					return $q.reject(data[0].message) 
+				})
+			.then(setupLocalSession);
 		},
 		isLoggedIn: function() {
 			return isLoggedIn();

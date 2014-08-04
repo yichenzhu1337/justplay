@@ -13,6 +13,7 @@ var mod = angular.module('cardModule',
 
 var controllers = {};
 var factories = {};
+var directives = {};
 
 factories.cardFactory = function() {
 	var factory = {};
@@ -788,7 +789,8 @@ factories.cardFactory = function() {
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = function($scope, ActivitySvc, watching, filterService) {
+controllers.cardsController = ['$scope', 'ActivitySvc', 'watching', 'filterService',
+function($scope, ActivitySvc, watching, filterService) {
 	// Base Set of Activities
 
 	function init() {
@@ -796,6 +798,7 @@ controllers.cardsController = function($scope, ActivitySvc, watching, filterServ
 		promise.then(
 			function(data) {
 				$scope.dates = data;
+				console.log('Dates:' + $scope.dates);
 			});
 
 		$scope.filterServ = filterService;
@@ -839,8 +842,8 @@ controllers.cardsController = function($scope, ActivitySvc, watching, filterServ
 		$scope.filterServ.setFilterFlag(val);
 		$scope.filterFlag = val;
 	};
-		init();
-};
+	init();
+}];
 
 factories.watching = function(strategyData, searchbarData) {
 
@@ -913,25 +916,7 @@ controllers.cardController = function($scope, friendService, activitySkillFactor
 	$scope.stars = [];
 	$scope.skillDescription;
 	$scope.friendList = [];
-	init();
-	function init() {
-		// Determine People needed, description to show and color of progress bar
-		if ($scope.card.participants.totalParticipants >= $scope.card.minimumrequired) {
-			$scope.neededorfree = 'SLOTS';
-			$scope.peopleneeded = $scope.card.capacity - $scope.card.participants.totalParticipants;
-		} else {
-			$scope.neededorfree = 'NEEDED';
-			$scope.peopleneeded = $scope.card.minimumrequired  - $scope.card.participants.totalParticipants;
-		}
-		// Determine Skill Description
-		$scope.skillDescription = activitySkillFactory.getStringValue($scope.card.skill);
-		// Determine how many stars to dish out
-		for (var i = 0; i < $scope.card.skill; i++) {
-			$scope.stars.push(i);
-		};
-		// Display Friendlist on mouse over
-	};
-
+	
 	$scope.open = function(activityId) {
 		$state.go('main.activities.detail', { id: activityId});
 	}
@@ -954,28 +939,22 @@ controllers.cardController = function($scope, friendService, activitySkillFactor
 	}
 };
 
-controllers.detailedCardController = function($stateParams, $scope, ActivitySvc, UserSvc){
-
+controllers.detailedCardController = function($scope, UserSvc, activity, $timeout, $q){
 	init();
 
 	function init() {
 		// Services
+		// 
 		$scope.UserSvc = UserSvc;
+		$scope.activity = activity;
 
-		console.log($stateParams.id);
-		ActivitySvc.get($stateParams.id).then(
-			function(activity){
-				$scope.activity = activity;
-			});
 		$scope.isFriendsCollapsed = true;
 		$scope.isPeopleCollapsed = true;
 	};
 
 	$scope.getUsers = function() {
-		return $scope.UserSvc.ListAll().then(
-			function(data){
-				return data;
-			});
+		var d = $q.defer();
+		return d.resolve($scope.activity.participants.list);
 	}
 
 	$scope.join = function() {
@@ -983,5 +962,55 @@ controllers.detailedCardController = function($stateParams, $scope, ActivitySvc,
 	}
 };
 
+directives.jppeoplegoingicon = function() {
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'app/modules/activities/components/cards/peoplegoingicon.tmpl.html',
+		scope: {
+			maxitems: "=",
+			maxextras: "=",
+			users: "="
+			//userlist: "&userList"
+		},
+		link: function($scope, element, attrs) {
+			function init(){
+				if ($scope.users.length > $scope.maxitems-1) {
+					$scope.showExtra = true;
+					$scope.extraList = [];
+					$scope.maxShownUsers = $scope.maxitems-1; // make space for the +X
+					var start = $scope.users.length - ($scope.maxitems - 1) -1;
+					for (var i = start; i < $scope.users.length; i++) {
+						$scope.extraList.push($scope.users[i]);
+					}
+					$scope.displayedExtras = "";
+
+					$scope.displayedExtras = $scope.extraList[0].first_name;
+
+					var extraNotListed = $scope.extraList.length - $scope.maxextras
+					for (var i = 1; i < $scope.extraList.length; i++) {
+						if (i >= $scope.maxextras) {
+							$scope.displayedExtras += "</br>" + extraNotListed  + " other";
+							if (extraNotListed > 1) {
+								$scope.displayedExtras += "s";
+							}
+							break;
+						} else {
+							$scope.displayedExtras += "</br>"
+							$scope.displayedExtras += $scope.extraList[i].first_name;
+						}
+					}
+				} else {
+					$scope.maxShownUsers = $scope.maxitems;
+					$scope.showExtra = false;
+					$scope.extraList = [];
+				}
+			}
+			init();
+		}
+	}
+}
+
 mod.controller(controllers);
 mod.factory(factories);
+mod.directive(directives);

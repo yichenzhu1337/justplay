@@ -46,7 +46,7 @@ class ActivityJoinedTransformer extends TransformerAbstract
 			'id' => $activityJoined['id'],
 			'activity_id' => $activityJoined['activity_id'],
 			'user_id' => $activityJoined['user_id'],
-			'username' => User::find($activityJoined['id'])->username,
+			'username' => User::find($activityJoined['user_id'])->username,
 			'areFriends' => $areFriends
 		];
 	}

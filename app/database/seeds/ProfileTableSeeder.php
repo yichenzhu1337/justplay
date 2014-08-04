@@ -9,15 +9,18 @@ class ProfileTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 25) as $index)
+		foreach(range(1, 32) as $index)
 		{
 			Profile::create([
-				"user_id" => $index,
-				"gender" => rand(0, 1),
-				"bio" => $faker->paragraph(rand(2, 5)),
-				"age" => rand(18, 25),
-				"email" => $faker->email,
-				"preferences" => $faker->paragraph(rand(2, 5))
+				'user_id' => $index,
+				'name' => $faker->firstName,
+				'gender' => rand(0, 1),
+				'bio' => $faker->paragraph(rand(2, 5)),
+				'age' => rand(18, 25),
+				'email' => $faker->email,
+				'preferences' => $faker->paragraph(rand(2, 5)),
+				'phone_number' => $faker->phoneNumber ,
+				'social_link' => 'facebook.com/' . $faker->username
 			]);
 		}
 	}

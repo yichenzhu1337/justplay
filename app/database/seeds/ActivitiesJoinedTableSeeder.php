@@ -10,7 +10,7 @@ class ActivitiesJoinedTableSeeder extends Seeder {
 
 		$faker = Faker::create();
 
-		foreach(range(1, 25) as $index)
+		foreach(range(1, 100) as $index)
 		{
 			ActivityJoined::create([
 				'activity_id' => rand(1, 25),

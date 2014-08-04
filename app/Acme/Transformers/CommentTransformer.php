@@ -24,7 +24,8 @@ class CommentTransformer extends TransformerAbstract{
 			'username' => User::find($comment['id'])->username,
 			'activity_id' => $comment['activity_id'],
 			'user_id' => $comment['user_id'],
-			'description' => $comment['description']
+			'description' => $comment['description'],
+			'date' => $comment['created_at']
 		];
 	}
 

@@ -16,6 +16,7 @@ use Acme\Transformers\CommentTransformer;
 use Acme\Transformers\ActivityJoinedTransformer;
 
 use User;
+use Profile;
 use Activity;
 use Comment;
 use ActivityJoined;
@@ -47,6 +48,7 @@ class UserTransformer extends TransformerAbstract
 
 		return [
 			'id' => $user['id'],
+            'name' => Profile::find($user['id'])->name,
             'username' => $user['username'],
             'areFriends' => $areFriends
 		];

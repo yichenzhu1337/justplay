@@ -13,6 +13,7 @@ var mod = angular.module('cardModule',
 
 var controllers = {};
 var factories = {};
+var directives = {};
 
 factories.cardFactory = function() {
 	var factory = {};
@@ -915,7 +916,7 @@ controllers.cardController = function($scope, friendService, activitySkillFactor
 	$scope.stars = [];
 	$scope.skillDescription;
 	$scope.friendList = [];
-
+	
 	$scope.open = function(activityId) {
 		$state.go('main.activities.detail', { id: activityId});
 	}
@@ -961,5 +962,55 @@ controllers.detailedCardController = function($scope, UserSvc, activity, $timeou
 	}
 };
 
+directives.jppeoplegoingicon = function() {
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'app/modules/activities/components/cards/peoplegoingicon.tmpl.html',
+		scope: {
+			maxitems: "=",
+			maxextras: "=",
+			users: "="
+			//userlist: "&userList"
+		},
+		link: function($scope, element, attrs) {
+			function init(){
+				if ($scope.users.length > $scope.maxitems-1) {
+					$scope.showExtra = true;
+					$scope.extraList = [];
+					$scope.maxShownUsers = $scope.maxitems-1; // make space for the +X
+					var start = $scope.users.length - ($scope.maxitems - 1) -1;
+					for (var i = start; i < $scope.users.length; i++) {
+						$scope.extraList.push($scope.users[i]);
+					}
+					$scope.displayedExtras = "";
+
+					$scope.displayedExtras = $scope.extraList[0].first_name;
+
+					var extraNotListed = $scope.extraList.length - $scope.maxextras
+					for (var i = 1; i < $scope.extraList.length; i++) {
+						if (i >= $scope.maxextras) {
+							$scope.displayedExtras += "</br>" + extraNotListed  + " other";
+							if (extraNotListed > 1) {
+								$scope.displayedExtras += "s";
+							}
+							break;
+						} else {
+							$scope.displayedExtras += "</br>"
+							$scope.displayedExtras += $scope.extraList[i].first_name;
+						}
+					}
+				} else {
+					$scope.maxShownUsers = $scope.maxitems;
+					$scope.showExtra = false;
+					$scope.extraList = [];
+				}
+			}
+			init();
+		}
+	}
+}
+
 mod.controller(controllers);
 mod.factory(factories);
+mod.directive(directives);

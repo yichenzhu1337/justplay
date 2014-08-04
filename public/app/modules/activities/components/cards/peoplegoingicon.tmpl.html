@@ -1,0 +1,12 @@
+<div class="going-friend-icons">
+    <div class="person" ng-repeat="user in users | limitTo:maxShownUsers" tooltip-placement="top" tooltip="{{user.username}}">
+        <img class="img-responsive" src="app/img/jack-yiu-dp.jpg" alt="dp" >
+    </div>
+    
+    <div class="more-people" ng-show="showExtra" tooltip-placement="top" tooltip-html-unsafe="{{displayedExtras}}">
+      <div>
+        +{{extraList.length}}
+      </div>
+    </div>
+</div>
+    

@@ -5873,10 +5873,6 @@ form.signup > button {
 .jp-user-list > ul > li {
   padding: 6px 6px;
 }
-.jp-user-list > ul > li > .row > .pull-left {
-  margin-left: 10px;
-  display: inline-block;
-}
 .jp-user-list > ul.pagination {
   margin: 10px 0px;
 }
@@ -5951,6 +5947,29 @@ form.signup > button {
 .comment > .media-body > button {
   margin-top: 10px;
   background: linear-gradient(to bottom, #76d926, #6ac322);
+}
+.going-friend-icons > .person,
+.going-friend-icons .more-people {
+  display: inline-block;
+  float: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  width: 54px;
+}
+.going-friend-icons > .more-people {
+  height: 54px;
+  background-color: #eeeeee;
+  color: #333333;
+  display: table;
+}
+.going-friend-icons > .more-people > div {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 22px;
+  line-height: 15px;
+  font-weight: bold;
+  color: #aaa;
 }
 .jp-btn-link {
   color: #AAB2BD;

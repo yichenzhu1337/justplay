@@ -14,7 +14,7 @@ Route::group(array('prefix' => 'api'), function(){
 
 		Route::group(array('before' => 'auth'), function(){
 
-			Route::get('joinActivity', 'ActivitiesController@joinActivity');
+			Route::post('joinActivity', 'ActivitiesController@joinActivity');
 			Route::post('logout', 'AuthenticationController@logout');
 
 		});

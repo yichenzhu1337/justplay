@@ -187,7 +187,10 @@ class ActivitiesController extends \ApiController {
 		$user_id = Sentry::getUser()->id;
 		$activity_id = Input::get('activity_id');
 
-		ActivityJoined::create($user_id, $activity_id);
+		ActivityJoined::create([
+			'user_id' => $user_id, 
+			'activity_id' => $activity_id
+		]);
 	}
 
 }

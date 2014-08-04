@@ -797,14 +797,14 @@ function($scope, ActivitySvc, watching, filterService) {
 		var promise = ActivitySvc.getList();
 		promise.then(
 			function(data) {
-				$scope.dates = data;
+				$scope.dates = angular.copy(data);
 				console.log('Dates:' + $scope.dates);
 			});
 
 		$scope.filterServ = filterService;
 
 		/* Initialize & Watch Filter & Sort strategies */
-		$scope.sortStrategy = watching.sort($scope);
+		/*$scope.sortStrategy = watching.sort($scope);*/
 		$scope.activityFilter = watching.activity($scope, setFilterFlag);
 		$scope.filterFlag = $scope.filterServ.getFilterFlag();
 
@@ -910,13 +910,19 @@ factories.watching = function(strategyData, searchbarData) {
  * @param  {factory} activitySkillFactory returns key values of skill descriptions
  * @return {none}                      none
  */
-controllers.cardController = function($scope, friendService, activitySkillFactory, $state) {
+controllers.cardController = function($scope, $filter, friendService, activitySkillFactory, $state) {
 	$scope.peopleneeded;
 	$scope.neededorfree;
 	$scope.stars = [];
 	$scope.skillDescription;
 	$scope.friendList = [];
-	
+
+	init();
+	function init() {
+		$scope.friendList = $filter('arrayContains')($scope.card.participants.list,'areFriends',true);
+		$scope.goingList = $filter('arrayContains')($scope.card.participants.list,'areFriends',false);
+	}
+
 	$scope.open = function(activityId) {
 		$state.go('main.activities.detail', { id: activityId});
 	}
@@ -978,7 +984,7 @@ directives.jppeoplegoingicon = function() {
 				if ($scope.users.length > $scope.maxitems-1) {
 					$scope.showExtra = true;
 					$scope.extraList = [];
-					$scope.maxShownUsers = $scope.maxitems-1; // make space for the +X
+					$scope.maxShownUsers = $scope.maxitems -1; // make space for the +X
 					var start = $scope.users.length - ($scope.maxitems - 1) -1;
 					for (var i = start; i < $scope.users.length; i++) {
 						$scope.extraList.push($scope.users[i]);

@@ -44,8 +44,7 @@
                 <div class="card-info-wrapper" ng-show="radioModel == 'Left'">
                   <div class="card-info-title">Friends</div>
                   <div class="card-info description text-center going-friend-icons">
-                    <jppeoplegoingicon maxitems="8" maxextras="10" users="card.participants.list | arrayContains:'areFriends':true">
-                    </jppeoplegoingicon>
+                  <jppeoplegoingicon maxitems="8" maxextras="10" users="friendList"></jppeoplegoingicon> 
                   </div>
                 </div>  
                 <div class="card-info-wrapper" ng-show="radioModel == 'Middle'">
@@ -57,8 +56,7 @@
                 <div class="card-info-wrapper" ng-show="radioModel == 'Right'">
                   <div class="card-info-title">People</div>
                   <div class="card-info description text-center">
-                    <jppeoplegoingicon maxitems="8" maxextras="10" users="card.participants.list | arrayContains:'areFriends':false">
-                    </jppeoplegoingicon>
+                     <jppeoplegoingicon maxitems="8" maxextras="10" users="goingList"></jppeoplegoingicon>
                   </div>
                 </div>
                 <div class="card-metrics">

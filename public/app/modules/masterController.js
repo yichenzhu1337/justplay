@@ -5,33 +5,13 @@ var services = {};
 var factories = {};
 var directives = {};
 
-controllers.masterCtrl = function($scope, $state, authenticationService){
+controllers.masterCtrl = function($scope, $state, authenticationService, loggedIn){
 	init();
 
 	function init()
 	{
-		authenticationService.determineAuthState()
-		.then(
-			function(){
-
-			},
-			function(message){
-				console.log(message);
-			})
-		$scope.isLoggedIn = false;
+		$scope.isLoggedIn = loggedIn;
 		$scope.authSvc = authenticationService;
-		$scope.$watch('authSvc.isLoggedIn()', function(newVal, oldVal)
-		{
-			if (newVal)
-			{
-				// Setup User name
-				$scope.isLoggedIn = true;
-			} 
-			else 
-			{
-				$scope.isLoggedIn = false;
-			}
-		});
 
 		$scope.getNotificationCount = function()
 		{

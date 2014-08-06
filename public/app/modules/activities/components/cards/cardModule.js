@@ -945,26 +945,49 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 	}
 };
 
-controllers.detailedCardController = function($scope, UserSvc, activity, $timeout, $q){
-	init();
+controllers.detailedCardController = function($scope, activity, API, authenticationService){
+	
+
+	var IsParticipant;
+	var IsOwner;
+
+	$scope.currentUserIsParticipant = function(participants) {
+		if (angular.isUndefined(IsParticipant)){
+			for (var i = 0; i < participants.length; i++) {
+				if (participants[i].user_id == $scope.AuthSvc.getUser().id) {
+					IsParticipant = true;
+					return IsParticipant;
+				}
+			}
+			IsParticipant = false;
+		}
+		return IsParticipant;
+	}
+
+	$scope.currentUserIsOwner = function(activity) {
+		if (angular.isUndefined(IsOwner)) {
+			if (activity.owner_id == $scope.AuthSvc.getUser().id) {
+				IsOwner = true;
+				return IsOwner;
+			} else {
+				IsOwner = false;
+			}
+		}
+		return IsOwner;
+	}
 
 	function init() {
-		// Services
-		// 
-		$scope.UserSvc = UserSvc;
 		$scope.activity = activity;
-
+		$scope.AuthSvc = authenticationService;
+		$scope.isParticipant = $scope.currentUserIsParticipant(activity.participants.list);
+		$scope.isOwner = $scope.currentUserIsOwner(activity);
 		$scope.isFriendsCollapsed = true;
 		$scope.isPeopleCollapsed = true;
 	};
-
-	$scope.getUsers = function() {
-		var d = $q.defer();
-		return d.resolve($scope.activity.participants.list);
-	}
+	init();
 
 	$scope.join = function() {
-
+		API.post('api/joinActivity', { activity_id: $scope.activity.activity_id });
 	}
 };
 

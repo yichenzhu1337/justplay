@@ -6,7 +6,8 @@ var jpactivitiespage = angular.module('jp.activitiespage',
   'searchbar',
   'cardModule',  
   'dateModule',
-  'createform'
+  'createform',
+  'activityModule'
 	]);
 
 jpactivitiespage
@@ -21,16 +22,6 @@ jpactivitiespage
 			"body": {
 				templateUrl: "app/modules/activities/partials/body.tmpl.html"
 			}
-		},
-		resolve: {
-/*			activityList: function($q, $timeout, CardFactory) {
-				var d = $q.defer();
-				var data = CardFactory.getList();
-				$timeout(
-					d.resolve('hi')
-				,1000);
-				return d.promise;
-			}	*/		
 		}
 	})
 	.state('main.activities.create', {
@@ -49,7 +40,16 @@ jpactivitiespage
 				templateUrl: "app/modules/activities/partials/detailedheader.tmpl.html"
 			},
 			"body": {
-				templateUrl: "app/modules/activities/partials/activitydetail.tmpl.html"
+				templateUrl: "app/modules/activities/partials/activitydetail.tmpl.html",
+				controller: 'detailedCardController'
+			}
+		},
+		resolve: {
+			activity: function(ActivitySvc, $stateParams) {
+				return ActivitySvc.get($stateParams.id).then(
+					function(data) {
+						return data;
+					});
 			}
 		}
 	});

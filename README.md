@@ -16,12 +16,11 @@ More to come :)
   <li> Install Laravel: "composer update" </li>
   <li> Migrate your database: "php artisan migrate" </li>
   <li> Seed your database: "php artisan db:seed" </li>
-  <li> dump-autload -o </li>
+  <li> composer dump-autoload -o </li>
 </ol>
 
 <h3> API </h3>
-<p> URL = "http://www.mywebsite.com" </p>
 <ul>
-  <li> URL/<b><i> api/register </i></b></li>
-  <li> URL/<b><i> api/login </i></b></li>
+  <li> php artisan serve </li>
+  <li> localhost:8000/api-docs </li>
 </ul>

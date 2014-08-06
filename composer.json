@@ -8,6 +8,7 @@
 		"cartalyst/sentry": "2.1.*",
 		"fzaninotto/faker": "1.5.*@dev",
 		"phpunit/phpunit": "4.1.*",
+		"phpunit/phpunit": "4.1.*",
 		"jlapp/swaggervel": "dev-master"
 	},
 	"autoload": {

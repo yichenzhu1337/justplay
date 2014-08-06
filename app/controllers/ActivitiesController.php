@@ -1,6 +1,18 @@
 <?php
 
+use League\Fractal;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Item;
+use League\Fractal\Resource\Collection;
+use League\Fractal\TransformerAbstract;
+
+use League\Fractal\Serializer\DataArraySerializer;
+use League\Fractal\Serializer\ArraySerializer;
+use League\Fractal\Serializer\JsonApiSerializer;
+
 use Acme\Transformers\ActivityTransformer;
+use Acme\Transformer\PostTransformer;
+use Acme\Transformer\UserTransformer;
 
 class ActivitiesController extends \ApiController {
 
@@ -15,11 +27,10 @@ class ActivitiesController extends \ApiController {
 
 	protected $activityTransformer;
 
-	function __construct(ActivityTransformer $activityTransformer) 
+	function __construct(Activity $activity, ActivityTransformer $activityTransformer ) 
 	{
+		$this->activity = $activity;
 		$this->activityTransformer = $activityTransformer;
-
-		//$this->beforeFilter('auth.basic', ['on' => 'post']);
 	}
 
 	/**
@@ -29,14 +40,47 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function index()
 	{
+		/*
 		$activities = Activity::with('comment')->with('activityJoined')->get();
-
-		return $activities;
-/*
+		
 		return $this->respond([
 			'data' => $this->activityTransformer->transformCollection($activities->all())
 		]);
-*/
+		*/
+
+		$fractal = new Manager();
+		$fractal->setSerializer(new ArraySerializer());
+
+		if (isset($_GET['include'])) {
+		    $fractal->parseIncludes($_GET['include']);
+		}
+
+		$activities_array = [];
+		$current_layer = [];
+		$final_activities = [];
+
+		for ($i = 0; $i < 7; $i++) { 
+
+			($today = Carbon::now('America/Toronto')->addDays($i)->toDateTimeString());
+			$tomorrow = Carbon::now('America/Toronto')->addDays($i + 1)->toDateTimeString();
+
+			$sql = "SELECT * FROM activities WHERE date_from >= '$today'";
+
+			($activities = Activity::whereBetween('date_from', [$today, $tomorrow])->get());
+
+			$resource = new Collection($activities, new ActivityTransformer);
+			$array = $fractal->createData($resource)->toArray();
+
+			array_push($current_layer, $today);
+			array_push($current_layer, (object) ['obj' => $array]);
+			array_push($final_activities, $current_layer);
+
+			$current_layer = [];
+
+		}
+
+		return Response::json($final_activities);
+
 	}
 
 	/**
@@ -46,19 +90,18 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function store()
 	{
-
+/*
 		if (! Input::get('title') or ! Input::get('body'))
 		{
 			return $this->setStatusCode(422)
 						->respondWithError('Error validating activity'); //extract this to api controller with readble method
 		}
-
-
+*/
 		Activity::create(Input::all());
 
-		return $this->respondCreated('Activity created success!');
+		// return $this->respondCreated('Activity created success!');
 		// return some response Response::json('success' => 'true'); 
-		// one of these400 bad request failed, 403, 422 unprocessible entity
+		// one of these 400 bad request failed, 403, 422 unprocessible entity
 		// message
 	}
 
@@ -70,16 +113,33 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function show($id)
 	{
+		/*
 		$activity = Activity::find($id);
 
 		if (!$activity) {
 			return $this->respondNotFound('activity does not exist');
-			//return $this->respondWithError(404, 'activity not found');
 		}
+		
+		//$test = Activity::with('comment')->where('id', '=', $id)->with('activityJoined')->get();
 
 		return $this->respond([
-			'data' => $this->activityTransformer->transform($activity)
+			'obj' => [$this->activityTransformer->transform($activity)]
 		]);
+		*/
+
+		$activity = Activity::findOrFail($id);
+
+		$fractal = new Manager();
+		$fractal->setSerializer(new DataArraySerializer());
+
+		if (isset($_GET['include'])) {
+		    $fractal->parseIncludes($_GET['include']);
+		}
+
+		$resource = new Item($activity, new ActivityTransformer);
+		$array = $fractal->createData($resource)->toArray();
+
+		return Response::json($array);
 	}
 
 	/**
@@ -127,7 +187,10 @@ class ActivitiesController extends \ApiController {
 		$user_id = Sentry::getUser()->id;
 		$activity_id = Input::get('activity_id');
 
-		ActivityJoined::create($user_id, $activity_id);
+		ActivityJoined::create([
+			'user_id' => $user_id, 
+			'activity_id' => $activity_id
+		]);
 	}
 
 }

@@ -17,7 +17,7 @@
       </div>
       <div class="card-container" ng-repeat-end>
         <div class="card-wrap" 
-        ng-repeat="card in dateobj.obj | filter:{sport:activityFilter}| property:searchFilter:filterFlag | orderBy: sortStrategy" 
+        ng-repeat="card in dateobj.obj | filter:{sport:activityFilter} | property:searchFilter:filterFlag" 
         ng-controller="cardController">
           <div class="card-left" > 
             <div class="card-activity">
@@ -43,34 +43,10 @@
               <div class="card-content-wrapper" ng-init="radioModel = 'Middle'">
                 <div class="card-info-wrapper" ng-show="radioModel == 'Left'">
                   <div class="card-info-title">Friends</div>
-                  <div class="card-info description text-center">
-                    <div class="pull-left">
-                      <a class="" href="">
-                        <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-                      </a>
-                    </div>
-                    <div class="pull-left">
-                      <a class="" href="">
-                        <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-                      </a>
-                    </div>
-                    <div class="pull-left">
-                      <a class="" href="">
-                        <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-                      </a>
-                    </div>
-                    <div class="pull-left">
-                      <a class="" href="">
-                        <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-                      </a>
-                    </div>
-                    <div class="pull-left">
-                      <a class="" href="">
-                        <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-                      </a>
-                    </div>
+                  <div class="card-info description text-center going-friend-icons">
+                  <jppeoplegoingicon maxitems="8" maxextras="10" users="friendList"></jppeoplegoingicon> 
                   </div>
-                </div>
+                </div>  
                 <div class="card-info-wrapper" ng-show="radioModel == 'Middle'">
                   <div class="card-info-title">Description</div>
                   <div class="card-info description text-center">
@@ -80,7 +56,7 @@
                 <div class="card-info-wrapper" ng-show="radioModel == 'Right'">
                   <div class="card-info-title">People</div>
                   <div class="card-info description text-center">
-                    People
+                     <jppeoplegoingicon maxitems="8" maxextras="10" users="goingList"></jppeoplegoingicon>
                   </div>
                 </div>
                 <div class="card-metrics">
@@ -119,7 +95,7 @@
                 </div>
               </div>
               <div class="primary-button-wrapper">
-                <button type="button" ng-click="open(card.id)" class="btn btn-info fill">More</button>
+                <button type="button" ng-click="open(card.activity_id)" class="btn btn-info fill">More</button>
               </div>
           </div>
         </div>

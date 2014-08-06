@@ -17,6 +17,7 @@
 	  <link href="app/css/playground.css" rel="stylesheet"> 
 	  <link href="app/css/activity.css" rel="stylesheet"> 
 	  <link href="bower_components/angular-growl-v2/build/angular-growl.css" rel="stylesheet">
+	  <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
   </head>
 
   <body ng-app="app">
@@ -24,24 +25,26 @@
 		<div ui-view></div>
 
 		<!-- JS DEPENDENCIES -->
-		
+		<!-- NON ANGULAR -->
+	  <script src="app/js/non-angular/polyfills.js"></script>
+
+
 	  <!-- BOWER DEPENDENCIES -->
 	  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-	  <script src="bower_components/angular/angular.min.js"></script>
+	  <script src="bower_components/angular/angular.js"></script>
 	  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-	  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+	  <script src="bower_components/angular-resource/angular-resource.js"></script>
 	  <script src="bower_components/moment/moment.js"></script>
 	  <script src="bower_components/angular-moment/angular-moment.js"></script>
 	  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	  <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
-
+		<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
 
 		<!-- CUSTOM SCRIPTS -->
 	  <script src="app/lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
 	  <script src="app/lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 	  <link href="app/lib/angular-multiselect-master/src/style.css" rel="stylesheet" type="text/css" media="all"  />
 	  <script src="app/lib/angular-multiselect-master/src/multiselect.js"></script> 
-
 	  <!-- Modules -->
 
 		<!-- Utilities -->
@@ -58,12 +61,14 @@
 		<!-- justPlay user Module -->
 	  <script src="app/modules/users/userModule.js"></script>
 	  <script src="app/modules/social/social.js"></script>
-
+		<script src="app/modules/profile/profile.js"></script>
 
 	  <!-- justPlay activity Modules -->
+	  <script src="app/modules/activities/common/participantModule.js"></script>
 	  <script src="app/modules/activities/common/skillModule.js"></script>
 	  <script src="app/modules/activities/common/friendModule.js"></script>
 	  <script src="app/modules/activities/common/activityModule.js"></script>
+	  <script src="app/modules/activities/common/commentModule.js"></script>
 	  <script src="app/modules/activities/components/filters/filterModule.js"></script>
 	  <script src="app/modules/activities/components/sort/sortModule.js"></script>
 	  <script src="app/modules/activities/components/searchbar/searchbar.js"></script>

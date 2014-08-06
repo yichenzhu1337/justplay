@@ -28,6 +28,20 @@ class ProfilesController extends \BaseController {
 
 	}
 
+	public function store()
+	{
+		Profile::create(Input::all());
+	}
+
+	public function update($username)
+	{
+		$user = User::whereUsername($username)->firstOrFail();
+		$profile = Profile::where('user_id', '=', $user->id);
+
+		$input = Input::only('age');
+
+		$profile->update($input);
+	}
 	/**
 	 * Remove the specified userprofile from storage.
 	 *

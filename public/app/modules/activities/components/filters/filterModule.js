@@ -8,6 +8,17 @@ var controllers = {};
 var directives = {};
 var filters = {};
 
+filters.arrayContains = function($filter) {
+	return function(arrayOfParticipants, key, value) {
+		var array = [];
+		for (var i = 0; i < arrayOfParticipants.length; i++) {
+			if (arrayOfParticipants[i][key] == value) {
+				array.push(arrayOfParticipants[i]);
+			}
+		}
+		return array;
+	}
+},
 filters.property = function($filter){
 	return function(cards, bundle, flag) {
 		var filtered = [];
@@ -62,8 +73,12 @@ filters.exact = function(){
 };
 filters.startFrom = function($filter){
   return function(input, start) {
+  	if (angular.isDefined(input)) {
       start = +start; //parse to int
       return input.slice(start);
+  	} else {
+  		return [];
+  	}
   }
 };
 services.filterService = function(){

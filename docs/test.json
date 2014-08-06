@@ -1,0 +1,45 @@
+{
+    "basePath": "http://localhost:8000",
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0.0",
+    "resourcePath": "/test",
+    "apis": [
+        {
+            "path": "/test",
+            "description": "Operations about posts",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Find post by ID",
+                    "nickname": "getpostById",
+                    "type": "post",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "postId",
+                            "type": "string",
+                            "description": "ID of post that needs to be fetched"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Post not found"
+                        }
+                    ],
+                    "notes": "Returns a post based on ID"
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/plain",
+        "text/html"
+    ]
+}

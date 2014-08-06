@@ -122,7 +122,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-		'Cartalyst\Sentry\SentryServiceProvider'
+		'Cartalyst\Sentry\SentryServiceProvider',
+		'Jlapp\Swaggervel\SwaggervelServiceProvider'
 	),
 
 	/*
@@ -189,8 +190,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
-		'Carbon' => 'Carbon\Carbon',
+		'Sentry' 		  => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Carbon' 		  => 'Carbon\Carbon',
 	),
 
 );

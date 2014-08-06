@@ -7,6 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
-    'League\\Fractal\\' => array($vendorDir . '/league/fractal/src'),
     'Acme\\' => array($baseDir . '/app/Acme'),
 );

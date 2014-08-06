@@ -1,0 +1,37 @@
+<?php
+
+class Profile extends \Eloquent {
+
+	protected $table = "profiles";
+	// Add your validation rules here
+	public static $rules = [
+		// 'title' => 'required'
+	];
+
+	// Don't forget to fill this array
+<<<<<<< HEAD
+	protected $fillable = ['user_id'];
+
+=======
+	protected $fillable = [
+				'user_id', 
+				'name',
+				'gender',
+				'bio"',
+				'age',
+				'email',
+				'preferences',
+				'phone_number',
+				'social_link'
+				];
+>>>>>>> 0e033dd2acba92a3b00ffcf79d4c70847c5f7217
+	/**
+	 * A profile belongs to a user
+	 *
+	 * @return mixed
+	 */
+	public function user()
+	{
+		return $this->belongsTo('User');
+	}
+}

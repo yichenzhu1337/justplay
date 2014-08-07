@@ -23,6 +23,7 @@
 			  </li>
 			</ul>
 		</div>
+		<button class="btn btn-success" ng-click="join()" ng-show="isLoggedIn && !isParticipant">Join</button>
 		<div class="activity-detail-area">
 			<tabset>
 		    <tab heading="Going">
@@ -50,9 +51,18 @@
 					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
 					  </a>
 					  <div class="media-body">
-					    <a ui-sref="main.profile({username:comment.username})"><h5 class="media-heading">{{comment.first_name}}</h5></a>
+				    	<a class="media-name" ui-sref="main.profile({username:comment.username})"><h5 class="media-heading">{{comment.first_name}}</h5></a>
 					    <p>{{comment.message}}</p>
 					    <p class="text-muted comment-date">{{comment.date | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}</p>
+					  </div>
+					</div>
+					<div class="media comment" ng-show="getUser()">
+					  <a class="pull-left" href="">
+					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+					  </a>
+					  <div class="media-body">
+							<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment"></textarea>
+					  	<button class="btn btn-success pull-right">comment</button>
 					  </div>
 					</div>
 		    </tab>

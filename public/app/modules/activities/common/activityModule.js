@@ -4,9 +4,10 @@ var factories = {};
 
 factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, CommentSvc){
 
-	function Activity(activity_id, sport, date, startingtime, endingtime, location, description) {
+	function Activity(activity_id, owner_id, sport, date, startingtime, endingtime, location, description) {
 		// Initialize Values
 		this.activity_id = activity_id;
+		this.owner_id = owner_id;
 		this.sport = sport;
 		this.date = new Date(date);
 		this.starttime = new Date(startingtime);
@@ -25,6 +26,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 	function validateActivity(data) {
 		if (
 			angular.isUndefined(data.activity_id) ||
+			angular.isUndefined(data.owner_id) ||
 			angular.isUndefined(data.sport) ||
 			angular.isUndefined(data.startdate) ||
 			angular.isUndefined(data.startingtime) ||
@@ -52,6 +54,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 		} else {
 			var activity = new Activity(
 				data.activity_id,
+				data.owner_id,
 				data.sport,
 				data.startdate,
 				data.startingtime,

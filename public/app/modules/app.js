@@ -25,7 +25,19 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	})
 	.state('main', {
 		abstract: true,
-		templateUrl: "app/modules/activities/mainpage.tmpl.html"
+		templateUrl: "app/modules/activities/mainpage.tmpl.html",
+		controller: "masterCtrl",
+		resolve: {
+			loggedIn: function(authenticationService) {
+				return authenticationService.determineAuthState()
+					.then(function(){
+						return true;
+					},
+					function(){
+						return false;
+					})
+				}
+		}
 	})
 	.state('main.activities', {
 		abstract: true,

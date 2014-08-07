@@ -1,13 +1,10 @@
-<?php
-
-namespace Acme\Transformers;
+<?php namespace Acme\Transformers;
 
 use League\Fractal;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
 use League\Fractal\Resource\Collection;
 use League\Fractal\TransformerAbstract;
-
 use League\Fractal\Serializer\DataArraySerializer;
 use League\Fractal\Serializer\ArraySerializer;
 use League\Fractal\Serializer\JsonApiSerializer;
@@ -20,21 +17,7 @@ use Activity;
 use Comment;
 use ActivityJoined;
 
-class ActivityTransformer extends TransformerAbstract
-{
-	/*
-	protected $commentTransformer;
-	protected $activityJoinedTransformer;
-
-	function __construct(CommentTransformer $commentTransformer, ActivityJoinedTransformer $activityJoinedTransformer) 
-	{
-		$this->commentTransformer = $commentTransformer;
-		$this->activityJoinedTransformer = $activityJoinedTransformer;
-	}
-
-	$activityJoined = ActivityJoined::where('activity_id', '=', $activity['id'])->get()->toArray();
-	$transformActivityJoined = $this->activityJoinedTransformer->transformCollection($activityJoined);
-	*/
+class ActivityTransformer extends TransformerAbstract {
 
 	public function transform(Activity $activity)
 	{
@@ -42,7 +25,6 @@ class ActivityTransformer extends TransformerAbstract
 			'activity_id' => $activity['id'],
 			'owner_id' => $activity['owner_id'],
 			'location' => $activity['location'],
-			'startdate' => $activity['date'],
 			'startingtime' => $activity['date_from'],
 			'endingtime' => $activity['date_to'],
 			'capacity' => $activity['capacity'],
@@ -72,7 +54,7 @@ class ActivityTransformer extends TransformerAbstract
     // ....
 
     /**
-     * Include Author
+     * Include Comment
      *
      * @return League\Fractal\ItemResource
      */
@@ -84,7 +66,7 @@ class ActivityTransformer extends TransformerAbstract
     }
 
     /**
-     * Include Author
+     * Include Comment
      *
      * @return League\Fractal\ItemResource
      */

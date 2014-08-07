@@ -8,7 +8,7 @@ class Comment extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ['activity_id', 'user_id', 'description'];
 
 	public function activity(){
 		return $this->belongsTo('Activity');

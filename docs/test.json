@@ -32,6 +32,131 @@
                         }
                     ],
                     "notes": "Returns a post based on ID"
+                },
+                {
+                    "method": "GET",
+                    "summary": "Find post by ID",
+                    "nickname": "getpostById",
+                    "type": "post",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "postId",
+                            "type": "string",
+                            "description": "ID of post that needs to be fetched"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Post not found"
+                        }
+                    ],
+                    "notes": "Returns a post based on ID"
+                },
+                {
+                    "method": "GET",
+                    "summary": "Find post by ID",
+                    "nickname": "getpostById",
+                    "type": "post",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "postId",
+                            "type": "string",
+                            "description": "ID of post that needs to be fetched"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Post not found"
+                        }
+                    ],
+                    "notes": "Returns a post based on ID"
+                },
+                {
+                    "method": "GET",
+                    "summary": "Find post by ID",
+                    "nickname": "getpostById",
+                    "type": "post",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "postId",
+                            "type": "string",
+                            "description": "ID of post that needs to be fetched"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Post not found"
+                        }
+                    ],
+                    "notes": "Returns a post based on ID"
+                },
+                {
+                    "method": "GET",
+                    "summary": "Find post by ID",
+                    "nickname": "getpostById",
+                    "type": "post",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "postId",
+                            "type": "string",
+                            "description": "ID of post that needs to be fetched"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Post not found"
+                        }
+                    ],
+                    "notes": "Returns a post based on ID"
+                },
+                {
+                    "method": "GET",
+                    "summary": "Find post by ID",
+                    "nickname": "getpostById",
+                    "type": "post",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "postId",
+                            "type": "string",
+                            "description": "ID of post that needs to be fetched"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Post not found"
+                        }
+                    ],
+                    "notes": "Returns a post based on ID"
                 }
             ]
         }

@@ -14,20 +14,14 @@ use Acme\Transformers\ActivityTransformer;
 use Acme\Transformer\PostTransformer;
 use Acme\Transformer\UserTransformer;
 
+use Acme\Interfaces\ActivityRepositoryInterface;
+
 class ActivitiesController extends \ApiController {
 
-   /**
-	 * Bad. WHy?
-	 * 1. All is bad, returning all = slow, want paginated result
-	 * 2. no way to attach meta data
-	 * 3. returning everything that mimics my database structure and table, see passwords???
-	 * (do not use hidden in model)
-	 * 4. no way to present errors, headers or reponse codes
-	 */
-
+	protected $activity;
 	protected $activityTransformer;
 
-	function __construct(Activity $activity, ActivityTransformer $activityTransformer ) 
+	function __construct(ActivityRepositoryInterface $activity, ActivityTransformer $activityTransformer) 
 	{
 		$this->activity = $activity;
 		$this->activityTransformer = $activityTransformer;
@@ -40,13 +34,6 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function index()
 	{
-		/*
-		$activities = Activity::with('comment')->with('activityJoined')->get();
-		
-		return $this->respond([
-			'data' => $this->activityTransformer->transformCollection($activities->all())
-		]);
-		*/
 
 		$fractal = new Manager();
 		$fractal->setSerializer(new ArraySerializer());
@@ -90,21 +77,24 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function store()
 	{
-/*
+		/*
 		if (! Input::get('title') or ! Input::get('body'))
 		{
 			return $this->setStatusCode(422)
 						->respondWithError('Error validating activity'); //extract this to api controller with readble method
 		}
-*/
-		Activity::create(Input::all());
+		*/
 
 		// return $this->respondCreated('Activity created success!');
 		// return some response Response::json('success' => 'true'); 
 		// one of these 400 bad request failed, 403, 422 unprocessible entity
 		// message
-	}
 
+		//Activity::create(Input::only('sport'));
+
+		$this->activity->store(Input::all());
+	}
+		
 	/**
 	 * Display the specified activity.
 	 *
@@ -113,22 +103,12 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function show($id)
 	{
-		/*
-		$activity = Activity::find($id);
+		$activity = $this->activity->getById($id);
 
 		if (!$activity) {
 			return $this->respondNotFound('activity does not exist');
 		}
 		
-		//$test = Activity::with('comment')->where('id', '=', $id)->with('activityJoined')->get();
-
-		return $this->respond([
-			'obj' => [$this->activityTransformer->transform($activity)]
-		]);
-		*/
-
-		$activity = Activity::findOrFail($id);
-
 		$fractal = new Manager();
 		$fractal->setSerializer(new DataArraySerializer());
 
@@ -178,19 +158,6 @@ class ActivitiesController extends \ApiController {
 		return $this->respondWithPagination($activities,[
 			'data' => $this->activityTransformer->transformCollection($activities->all()),
 			]);
-	}
-
-	public function joinActivity()
-	{
-		// post request
-
-		$user_id = Sentry::getUser()->id;
-		$activity_id = Input::get('activity_id');
-
-		ActivityJoined::create([
-			'user_id' => $user_id, 
-			'activity_id' => $activity_id
-		]);
 	}
 
 }

@@ -26,7 +26,6 @@ class ActivitiesTableSeeder extends Seeder {
 				'capacity' => rand(2, 20),
 				'sport' => $sports_list[rand(0, 3)],
 				'location' => $location_list[rand(0, 5)],
-				'date' => Carbon::now()->addDays(rand(1, 3)),
 				'date_from' => $start_date, 
 				'date_to' => $end_date
 			]);

@@ -1,1 +1,0 @@
-C:\wamp\www\github\justplay\app/views/Activities/show.blade.php

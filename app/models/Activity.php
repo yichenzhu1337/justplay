@@ -15,6 +15,6 @@ class Activity extends \Eloquent {
 	}
 
 	public function activityJoined(){
-		return $this->hasMany('ActivityJoined');
+		return $this->hasMany('ActivityJoin');
 	}
 }

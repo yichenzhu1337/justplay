@@ -14,7 +14,6 @@ Route::group(array('prefix' => 'api'), function(){
 
 		Route::group(array('before' => 'auth'), function(){
 
-			Route::post('joinActivity', 'ActivitiesController@joinActivity');
 			Route::post('logout', 'AuthenticationController@logout');
 
 		});
@@ -26,6 +25,7 @@ Route::group(array('prefix' => 'api'), function(){
 
 	Route::resource('users', 'UsersController');
 	Route::resource('activities', 'ActivitiesController');
+	Route::resource('activity-join', 'ActivityJoinController', ['only' => ['index', 'show', 'store', 'destroy']]);
 	Route::resource('comments', 'CommentsController');
 	Route::resource('friends', 'FriendsController');
 	Route::resource('notifications', 'NotificationsController');

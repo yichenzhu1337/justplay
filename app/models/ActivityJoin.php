@@ -1,6 +1,6 @@
 <?php
 
-class ActivityJoined extends \Eloquent {
+class ActivityJoin extends \Eloquent {
 
 	protected $table = "activities_joined";
 	// Add your validation rules here
@@ -9,7 +9,7 @@ class ActivityJoined extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ['user_id', 'activity_id'];
 
 	public function activity(){
 		return $this->belongsTo('Activity');

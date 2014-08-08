@@ -4,12 +4,12 @@ var factories = {};
 
 factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, CommentSvc){
 
-	function Activity(activity_id, owner_id, sport, date, startingtime, endingtime, location, description) {
+	function Activity(activity_id, owner_id, sport, startingtime, endingtime, location, description) {
 		// Initialize Values
 		this.activity_id = activity_id;
 		this.owner_id = owner_id;
 		this.sport = sport;
-		this.date = new Date(date);
+		this.date = new Date(startingtime);
 		this.starttime = new Date(startingtime);
 		this.endtime = new Date(endingtime);
 		this.location = location;
@@ -28,7 +28,6 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 			angular.isUndefined(data.activity_id) ||
 			angular.isUndefined(data.owner_id) ||
 			angular.isUndefined(data.sport) ||
-			angular.isUndefined(data.startdate) ||
 			angular.isUndefined(data.startingtime) ||
 			angular.isUndefined(data.endingtime) ||
 			angular.isUndefined(data.location) ||
@@ -56,7 +55,6 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 				data.activity_id,
 				data.owner_id,
 				data.sport,
-				data.startdate,
 				data.startingtime,
 				data.endingtime,
 				data.location,
@@ -151,7 +149,7 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 	}
 
 	var getAll = function() {
-		return API.get('api/activities?include=comments,activityJoined').then(
+		return API.get('api/activities-all-this-week?include=comments,activityJoined').then(
 			function(data) {
 				var packagedobj = getAllSports(data);
 				return packagedobj;

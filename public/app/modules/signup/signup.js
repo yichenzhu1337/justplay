@@ -11,23 +11,23 @@ controllers.signupCtrl = function($scope, $state, registerSvc, FlashService) {
 
 		if (isValid) {
 			registerSvc.register(copyObj)
-			.success(function(resp){
-				FlashService.show('Successful Registration: ' + resp.obj.success, 'success');
-				$state.go('login');
-			})
-			.error(function(resp){
-				FlashService.show('Incorrect', 'error');		
-			});
+				.then(function(resp){
+					FlashService.show('Successful Registration', 'success');
+					$state.go('login');
+				},
+				function(resp) {
+					FlashService.show('Incorrect', 'error');		
+				});
 		} else {
 			$scope.registeredEmail = false;
 		}
 	}
 }
 
-factories.registerSvc = function($http, PostSvc) {
+factories.registerSvc = function(API) {
 	return {
 		register: function(data) {
-			var reg = $http.post("api/register", PostSvc.obj(data));
+			var reg = API.post("api/register", data);
 			return reg;
 		}
 	}

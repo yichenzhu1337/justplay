@@ -59,7 +59,11 @@ class ActivitiesController extends \ApiController {
 		$resource = new Item($activity, new ActivityTransformer);
 		$array = $fractal->createData($resource)->toArray();
 
-		return Response::json($array);
+		return Response::json(
+			array(
+				'errors' => [],
+				'obj' => $array
+			));
 	}
 
 	/**
@@ -128,7 +132,11 @@ class ActivitiesController extends \ApiController {
 
 		}
 
-		return Response::json($final_activities);	
+		return Response::json(
+			array(
+				'errors' => [],
+				'obj' => $final_activities
+			));
 	}
 
 	public function getAllAuthActivitiesThisWeek()
@@ -179,7 +187,11 @@ class ActivitiesController extends \ApiController {
 
 		}
 
-		return Response::json($final_activities);	
+		return Response::json(
+			array(
+				'errors' => [],
+				'obj' => $final_activities
+			));
 
 	}
 

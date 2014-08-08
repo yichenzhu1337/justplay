@@ -10,4 +10,6 @@ interface ActivityJoinRepositoryInterface {
 
 	public function destroy($user_id, $activity_id);
 
+	public function getJoinedActivites($auth_id);
+
 }

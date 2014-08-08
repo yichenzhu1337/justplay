@@ -1,8 +1,11 @@
 <?php
 
-use Acme\Transformers\CommentTransformer;
-
 class CommentsController extends \ApiController {
+
+	function __construct()
+	{
+
+	}
 
 	/**
 	 * Display a listing of comments
@@ -11,21 +14,8 @@ class CommentsController extends \ApiController {
 	 */
 	public function index()
 	{
-		//$comments = Comment::where('activity_id', '=', 1)->get()->toArray();
 		$comments = Comment::all();
 		return $comments;
-	}
-
-	/**
-	 * Store a newly created comment in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		$data = Input::all();
-
-		Comment::create($data);
 	}
 
 	/**
@@ -46,6 +36,18 @@ class CommentsController extends \ApiController {
 	}
 
 	/**
+	 * Store a newly created comment in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$data = Input::all();
+
+		Comment::create($data);
+	}
+
+	/**
 	 * Remove the specified comment from storage.
 	 *
 	 * @param  int  $id
@@ -54,8 +56,6 @@ class CommentsController extends \ApiController {
 	public function destroy($id)
 	{
 		Comment::destroy($id);
-
-		return Redirect::route('comments.index');
 	}
 
 }

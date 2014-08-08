@@ -8,6 +8,12 @@ Interface ActivityRepositoryInterface {
 
 	public function store($input);
 
-	public function update();
+	public function update($id, $input);
+
+	public function destroy($id);
+
+	public function activitiesBetweenTodayAndTomorrow($date_from, $today, $tomorrow);
+
+	public function getAllAuthActivities($auth_id);
 
 }

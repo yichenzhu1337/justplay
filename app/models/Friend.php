@@ -8,6 +8,6 @@ class Friend extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ['user1_id', 'user2_id'];
 
 }

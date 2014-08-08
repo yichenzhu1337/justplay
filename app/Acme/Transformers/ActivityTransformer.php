@@ -15,7 +15,7 @@ use Acme\Transformers\ActivityJoinedTransformer;
 use User;
 use Activity;
 use Comment;
-use ActivityJoined;
+use ActivityJoin;
 
 class ActivityTransformer extends TransformerAbstract {
 
@@ -72,7 +72,7 @@ class ActivityTransformer extends TransformerAbstract {
      */
     public function includeActivityJoined(Activity $activity)
     {
-        $activityJoined = ActivityJoined::where('activity_id', '=', $activity['id'])->get();
+        $activityJoined = ActivityJoin::where('activity_id', '=', $activity['id'])->get();
 
         return $this->collection($activityJoined, new ActivityJoinedTransformer);
     }

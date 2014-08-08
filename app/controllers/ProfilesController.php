@@ -1,6 +1,16 @@
-<?php
+<?php 
+
+use Acme\Interfaces\ProfileRepositoryInterface;
+
 
 class ProfilesController extends \BaseController {
+
+	protected $profile;
+
+	function __construct(ProfileRepositoryInterface $profile)
+	{
+		$this->profile = $profile;
+	}
 
 	/**
 	 * Display a listing of userprofiles
@@ -22,15 +32,7 @@ class ProfilesController extends \BaseController {
 	 */
 	public function show($username)
 	{
-		$profile = User::with('profile')->whereUsername($username)->firstOrFail();
-
-		return Response::json($profile);
-
-	}
-
-	public function store()
-	{
-		Profile::create(Input::all());
+		return Response::json($this->profile->show($username));
 	}
 
 	public function update($username)
@@ -38,20 +40,9 @@ class ProfilesController extends \BaseController {
 		$user = User::whereUsername($username)->firstOrFail();
 		$profile = Profile::where('user_id', '=', $user->id);
 
-		$input = Input::only('age');
+		$input = Input::only('name', 'gender', 'bio"', 'age', 'email', 'preferences', 'phone_number', 'social_link');
 
 		$profile->update($input);
-	}
-	/**
-	 * Remove the specified userprofile from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		Profile::destroy($id);
-
 	}
 
 }

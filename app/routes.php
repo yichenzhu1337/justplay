@@ -21,15 +21,20 @@ Route::group(array('prefix' => 'api'), function(){
 	});
 
 	//Route::get('activity-paginated', 'ActivitiesController@paginated');
-	Route::post('checkIfFriends', 'FriendsController@checkIfFriends');
-
+	
 	Route::resource('users', 'UsersController');
-	Route::resource('activities', 'ActivitiesController');
+	Route::resource('activities', 'ActivitiesController', ['only' => ['index', 'show', 'store', 'update','destroy']]);
+	Route::get('activities-all-this-week', 'ActivitiesController@getAllActivitiesThisWeek');
+	Route::get('activities-all-auth-this-week', 'ActivitiesController@getAllAuthActivitiesThisWeek');
+	Route::get('activities-all-auth', 'ActivitiesController@getAllAuthActivities');
 	Route::resource('activity-join', 'ActivityJoinController', ['only' => ['index', 'show', 'store', 'destroy']]);
-	Route::resource('comments', 'CommentsController');
-	Route::resource('friends', 'FriendsController');
+	Route::resource('comments', 'CommentsController', ['only' => ['index', 'show', 'store', 'update','destroy']]);
+	Route::resource('friends', 'FriendsController', ['only' => ['index', 'store','destroy']]);
+	Route::post('check-if-friends', 'FriendsController@checkIfFriends');
 	Route::resource('notifications', 'NotificationsController');
-	Route::resource('profiles', 'ProfilesController');
+	Route::resource('profiles', 'ProfilesController', ['only' => ['index', 'show', 'update']]);
 
-	Route::get('getUserId', 'AuthenticationController@getUserId');
+	Route::get('get-auth-info', 'AuthenticationController@getUserId');
+
 });
+

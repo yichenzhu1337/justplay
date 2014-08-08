@@ -1,43 +1,93 @@
 <?php namespace Acme\Repositories;
 
-/**
- * @package
- * @category
- * @subpackage
- *
- * @SWG\Resource(
- *   apiVersion="1.0.0",
- *   swaggerVersion="1.2",
- *   basePath="http://localhost:8000",
- *   resourcePath="/test",
- *   description="Operations about posts",
- *   produces="['application/json','application/xml','text/plain','text/html']"
- * )
- */
+use Acme\Interfaces\FriendRepositoryInterface;
 
-/**
- *
- * @SWG\Api(
- *   path="/test",
- *   description="Operations about posts",
- *   @SWG\Operation(
- *     method="GET", 
- *	   summary="Find post by ID", 
- *     notes="Returns a post based on ID",
- *     type="post",
- *     nickname="getpostById",
- *     @SWG\Parameter(
- *     	 name="postId",
- *       description="ID of post that needs to be fetched",
- *       paramType="path",
- *       type="string"
- *	   ),
- *     @SWG\ResponseMessage(code=400, message="Invalid ID supplied"),
- *     @SWG\ResponseMessage(code=404, message="Post not found")
- *   )
- * )
- */
+use Friend;
+use DB;
+use Response;
 
-class DbTestRepo{
+class DbFriendRepository extends DbBaseRepository implements FriendRepositoryInterface {
 
-}
+	protected $model;
+
+	function __construct(Friend $model)
+	{
+		$this->model = $model;
+	}
+
+	public function store($input)
+	{
+		$this->model->create($input);
+	}
+
+	public function destroy($auth_id, $stranger_id)
+	{
+		$are_they_friends = "SELECT id FROM friends ";
+		$are_they_friends .= "WHERE ";
+		$are_they_friends.= "user1_id = $auth_id AND user2_id = $stranger_id "; 
+		$are_they_friends .= "OR ";
+		$are_they_friends .= "user1_id = $stranger_id AND user2_id = $auth_id";
+		$are_they_friends_query = DB::select($are_they_friends);
+
+		$this->model->destroy($are_they_friends_query[0]->id);
+	}
+
+	public function getAllAuthFriends($auth_id)
+	{
+		$all_my_friends = $this->model->where('user1_id', '=', $auth_id)
+									  ->orWhere('user2_id', '=', $auth_id)
+									  ->get();
+
+		return $all_my_friends;		
+	}
+
+	public function checkIfFriends($user_id, $stranger_id)
+	{
+		$are_they_friends = "SELECT * FROM friends ";
+		$are_they_friends .= "WHERE ";
+		$are_they_friends.= "user1_id = $user_id AND user2_id = $stranger_id "; 
+		$are_they_friends .= "OR ";
+		$are_they_friends .= "user1_id = $stranger_id AND user2_id = $user_id";
+
+		$notification_sent = "SELECT * FROM notifications ";
+		$notification_sent .= "WHERE ";
+		$notification_sent .= "from_id = $user_id ";
+		$notification_sent .= "AND ";
+		$notification_sent .= "to_id = $stranger_id ";
+
+		$notification_received = "SELECT * FROM notifications ";
+		$notification_received .= "WHERE ";
+		$notification_received .= "from_id = $stranger_id ";
+		$notification_received .= "AND ";
+		$notification_received .= "to_id = $user_id ";
+
+		$are_they_friends_query = DB::select($are_they_friends);
+		$notification_sent_query = DB::select($notification_sent);
+		$notification_received_query = DB::select($notification_received);
+
+		if (count($are_they_friends_query)) {
+			return Response::json([
+				'status' => 'friends'
+			]);
+	
+		}
+		elseif ($notification_sent_query) {
+			return Response::json([
+				'status' => 'notification_sent'
+			]);
+
+		}
+		elseif($notification_received_query){
+			return Response::json([
+				'status' => 'notification_received'
+			]);
+
+		}
+		else{
+			return Response::json([
+				'status' => 'not_friends'
+			]);
+		}
+	}
+
+}	

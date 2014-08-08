@@ -15,13 +15,13 @@ use League\Fractal\Serializer\JsonApiSerializer;
 use User;
 use Comment;
 use Activity;
-use ActivityJoined;
+use ActivityJoin;
 use DB;
 
 class ActivityJoinedTransformer extends TransformerAbstract
 {
 
-	public function transform(ActivityJoined $activityJoined)
+	public function transform(ActivityJoin $activityJoined)
 	{
 
 		$owner_id = Activity::find($activityJoined['activity_id'])->owner_id;

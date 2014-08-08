@@ -25,4 +25,8 @@ class DbActivityJoinRepository extends DbBaseRepository implements ActivityJoinR
 					->delete();
 	}
 
+	public function getJoinedActivites($auth_id)
+	{
+		return $this->model->where('user_id', '=', $auth_id)->get();
+	}
 }

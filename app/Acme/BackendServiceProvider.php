@@ -17,6 +17,30 @@ class BackendServiceProvider extends ServiceProvider {
             'Acme\Repositories\DbActivityJoinRepository'
         );
 
+        $this->app->bind(
+            'Acme\Interfaces\CommentRepositoryInterface', 
+            'Acme\Repositories\DbCommentRepository'
+        );
+
+        $this->app->bind(
+            'Acme\Interfaces\FriendRepositoryInterface', 
+            'Acme\Repositories\DbFriendRepository'
+        );
+
+        $this->app->bind(
+            'Acme\Interfaces\ProfileRepositoryInterface', 
+            'Acme\Repositories\DbProfileRepository'
+        );
+
+        $this->app->bind(
+            'Acme\Interfaces\NotificationRepositoryInterface', 
+            'Acme\Repositories\DbNotificationRepository'
+        );
+
+        $this->app->bind(
+            'Acme\Interfaces\UserRepositoryInterface', 
+            'Acme\Repositories\DbUserRepository'
+        );
     }
 
 }

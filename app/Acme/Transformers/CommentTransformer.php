@@ -25,7 +25,7 @@ class CommentTransformer extends TransformerAbstract{
 			'activity_id' => $comment['activity_id'],
 			'user_id' => $comment['user_id'],
 			'description' => $comment['description'],
-			'date' => $comment['created_at']
+			'date' => substr(json_encode($comment['created_at']), 9, 19)
 		];
 	}
 

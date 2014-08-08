@@ -1,43 +1,29 @@
 <?php namespace Acme\Repositories;
 
-/**
- * @package
- * @category
- * @subpackage
- *
- * @SWG\Resource(
- *   apiVersion="1.0.0",
- *   swaggerVersion="1.2",
- *   basePath="http://localhost:8000",
- *   resourcePath="/test",
- *   description="Operations about posts",
- *   produces="['application/json','application/xml','text/plain','text/html']"
- * )
- */
+use Acme\Interfaces\ProfileRepositoryInterface;
 
-/**
- *
- * @SWG\Api(
- *   path="/test",
- *   description="Operations about posts",
- *   @SWG\Operation(
- *     method="GET", 
- *	   summary="Find post by ID", 
- *     notes="Returns a post based on ID",
- *     type="post",
- *     nickname="getpostById",
- *     @SWG\Parameter(
- *     	 name="postId",
- *       description="ID of post that needs to be fetched",
- *       paramType="path",
- *       type="string"
- *	   ),
- *     @SWG\ResponseMessage(code=400, message="Invalid ID supplied"),
- *     @SWG\ResponseMessage(code=404, message="Post not found")
- *   )
- * )
- */
+use Profile;
+use User;
 
-class DbTestRepo{
+class DbProfileRepository extends DbBaseRepository implements ProfileRepositoryInterface {
+
+	protected $model;
+
+	function __construct(Profile $model)
+	{
+		$this->model = $model;
+	}
+
+	public function show($username)
+	{
+		$profile = User::with('profile')->whereUsername($username)->firstOrFail();
+
+		return $profile;
+	}
+		
+	public function update($user_id)
+	{
+
+	}
 
 }

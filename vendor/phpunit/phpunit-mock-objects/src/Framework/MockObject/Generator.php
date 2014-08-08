@@ -42,8 +42,6 @@
  * @since      File available since Release 1.0.0
  */
 
-use Instantiator\Instantiator;
-
 if (!function_exists('trait_exists')) {
     function trait_exists($traitname, $autoload = true)
     {
@@ -188,25 +186,6 @@ class PHPUnit_Framework_MockObject_Generator
             throw new InvalidArgumentException;
         }
 
-        if ($type === 'Traversable' || $type === '\\Traversable') {
-            $type = 'Iterator';
-        }
-
-        if (is_array($type)) {
-            $type = array_unique(array_map(
-              function ($type) {
-                  if ($type === 'Traversable' ||
-                      $type === '\\Traversable' ||
-                      $type === '\\Iterator') {
-                      return 'Iterator';
-                  }
-
-                  return $type;
-              },
-              $type
-            ));
-        }
-
         if (NULL !== $methods) {
             foreach ($methods as $method) {
                 if (!preg_match('~[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*~', $method)) {
@@ -289,8 +268,23 @@ class PHPUnit_Framework_MockObject_Generator
                 $object = $class->newInstanceArgs($arguments);
             }
         } else {
-            $instantiator = new Instantiator;
-            $object       = $instantiator->instantiate($className);
+            $class = new ReflectionClass('ReflectionClass');
+            $hasNewInstanceWithoutConstructor = $class->hasMethod('newInstanceWithoutConstructor');;
+
+            $class      = new ReflectionClass($className);
+            $isInternal = $this->isInternalClass($class);
+
+            if ($isInternal || !$hasNewInstanceWithoutConstructor) {
+                $object = unserialize(
+                    sprintf('%s:%d:"%s":0:{}',
+                        (version_compare(PHP_VERSION, '5.4', '>') && $class->implementsInterface("Serializable") ? "C" : "O"),
+                        strlen($className),
+                        $className
+                    )
+                );
+            } else {
+                $object = $class->newInstanceWithoutConstructor();
+            }
         }
 
         if ($callOriginalMethods) {
@@ -895,20 +889,12 @@ class PHPUnit_Framework_MockObject_Generator
 
         if ($isInterface) {
             $buffer .= sprintf(
-              "%s implements %s",
+              "%s implements %s, %s%s",
               $mockClassName['className'],
-              $interfaces
+              $interfaces,
+              !empty($mockClassName['namespaceName']) ? $mockClassName['namespaceName'] . '\\' : '',
+              $mockClassName['originalClassName']
             );
-
-            if (!in_array($mockClassName['originalClassName'], $additionalInterfaces)) {
-                $buffer .= ', ';
-
-                if (!empty($mockClassName['namespaceName'])) {
-                    $buffer .= $mockClassName['namespaceName'] . '\\';
-                }
-
-                $buffer .= $mockClassName['originalClassName'];
-            }
         } else {
             $buffer .= sprintf(
               "%s extends %s%s implements %s",

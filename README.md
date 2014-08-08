@@ -21,7 +21,7 @@ More to come :)
 
 <h3> Testing with PHPUnit </h3>
 <ul>
-  <li> Windows Aliasing: Set@DOSKEY phpunit=vendor\bin\phpunit </li>
+  <li> Windows Aliasing: @DOSKEY phpunit=vendor\bin\phpunit </li>
   <li> Linux Aliasing: alias phpunit=vendor\bin\phpunit </li>
   <li> phpunit </li>
 </ul>

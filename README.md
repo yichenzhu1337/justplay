@@ -11,13 +11,20 @@ More to come :)
 <p> first time install -> php artisan migrate --package=cartalyst/sentry </p>
 <p> Every time an update has been made in the backend, run these commands </p>
 <ol>
-  <li> php artisan migrate --package=cartalyst/sentry </li>
+  <li> Import Sentry Authentication Package: "php artisan migrate --package=cartalyst/sentry" </li>
   <li> Install Laravel: "composer install" </li>
   <li> Install Laravel: "composer update" </li>
   <li> Migrate your database: "php artisan migrate" </li>
   <li> Seed your database: "php artisan db:seed" </li>
-  <li> composer dump-autoload -o </li>
+  <li> Autoload All files: "composer dump-autoload -o" </li>
 </ol>
+
+<h3> Testing with PHPUnit </h3>
+<ul>
+  <li> Windows Aliasing: Set@DOSKEY phpunit=vendor\bin\phpunit </li>
+  <li> Linux Aliasing: alias phpunit=vendor\bin\phpunit </li>
+  <li> phpunit </li>
+</ul>
 
 <h3> API </h3>
 <ul>

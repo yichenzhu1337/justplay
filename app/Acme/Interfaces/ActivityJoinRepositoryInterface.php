@@ -1,7 +1,8 @@
 <?php namespace Acme\Interfaces;
 
-interface ActivityJoinRepositoryInterface {
-	
+
+Interface ActivityJoinRepositoryInterface {
+
 	public function getAll();
 
 	public function getById($id);

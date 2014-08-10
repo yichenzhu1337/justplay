@@ -1,5 +1,6 @@
 <?php namespace Acme\Interfaces;
 
+
 Interface ProfileRepositoryInterface {
 
 	public function getAll();

@@ -1,6 +1,4 @@
-<?php
-
-namespace Acme\Transformers;
+<?php namespace Acme\Transformers;
 
 abstract class Transformer{
 	// phil stirgeon "fractal" transofmration package

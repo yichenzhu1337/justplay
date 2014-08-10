@@ -32,10 +32,9 @@ class FriendsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//data = {from_id = , to_id = }
-		$data = Input::all();
+		$input = Input::only('from_id', 'to_id');
 
-		Friend::create($data);
+		$this->friend->store($input);
 	}
 
 	/**

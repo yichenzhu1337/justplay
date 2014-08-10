@@ -1,0 +1,143 @@
+{
+    "basePath": "http://localhost:8000",
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0.0",
+    "resourcePath": "/friends",
+    "apis": [
+        {
+            "path": "/api/v1/friends",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Gets all of authenticated user's friends",
+                    "nickname": "getAllAuthFriends",
+                    "type": "Friend",
+                    "notes": "Returns all of authenticated user's friends"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Person A and B become friends",
+                    "nickname": "postFriend",
+                    "type": "Friend",
+                    "parameters": [
+                        {
+                            "paramType": "body",
+                            "name": "user1_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "user1_id",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "user2_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "user2_id",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Creates a relationship between two people"
+                }
+            ]
+        },
+        {
+            "path": "/friends/check-if-friends",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Checks to see if two people are friends",
+                    "nickname": "checkIfFriends",
+                    "type": "Friend",
+                    "parameters": [
+                        {
+                            "paramType": "body",
+                            "name": "auth_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "auth_id should already be provided in the backend",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "stranger_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "user2_id",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns a status as ['friends', 'notification_sent', 'notification_received', 'not_friends']"
+                }
+            ]
+        },
+        {
+            "path": "/friends/{friend_id}",
+            "operations": [
+                {
+                    "method": "DELETE",
+                    "summary": "Delete {friend_id}",
+                    "nickname": "deleteFriendById",
+                    "type": "Friend",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "friend_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "friend_id is person the authenticated user wants to terminate the relationship with",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Deletes a friend with {friend_id}"
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/plain",
+        "text/html"
+    ]
+}

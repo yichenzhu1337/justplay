@@ -1,6 +1,6 @@
 <?php namespace Acme\Repositories;
 
 
-class DbTestRepo{
+class DbCommentRepository {
 
 }

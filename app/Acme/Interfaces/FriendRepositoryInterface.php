@@ -1,6 +1,7 @@
 <?php namespace Acme\Interfaces;
 
-interface FriendRepositoryInterface {
+
+Interface FriendRepositoryInterface {
 
 	public function getAll();
 
@@ -13,4 +14,5 @@ interface FriendRepositoryInterface {
 	public function getAllAuthFriends($auth_id);
 
 	public function checkIfFriends($user_id, $stranger_id);
+	
 }

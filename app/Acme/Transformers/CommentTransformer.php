@@ -1,6 +1,4 @@
-<?php
-
-namespace Acme\Transformers;
+<?php namespace Acme\Transformers;
 
 use League\Fractal;
 use League\Fractal\Manager;

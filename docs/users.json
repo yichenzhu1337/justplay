@@ -1,0 +1,48 @@
+{
+    "basePath": "http://localhost:8000/api/v1/",
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0.0",
+    "resourcePath": "/users",
+    "apis": [
+        {
+            "path": "/get-auth-info",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Gets the information of the authenticated user",
+                    "nickname": "getAuthInfo",
+                    "type": "User",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns the currently authenticated user's id and username"
+                }
+            ]
+        },
+        {
+            "path": "/users",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Gets every single user",
+                    "nickname": "getAllUsers",
+                    "type": "User",
+                    "notes": "Returns all users Not transformed"
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/plain",
+        "text/html"
+    ]
+}

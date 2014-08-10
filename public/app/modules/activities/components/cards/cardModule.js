@@ -945,9 +945,7 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 	}
 };
 
-controllers.detailedCardController = function($scope, activity, API, authenticationService){
-	
-
+controllers.detailedCardController = function($scope, activity, API, authenticationService, Comment){
 	var IsParticipant;
 	var IsOwner;
 
@@ -987,7 +985,20 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 	init();
 
 	$scope.join = function() {
-		API.post('api/joinActivity', { activity_id: $scope.activity.activity_id });
+		API.post('api/activity-join', { activity_id: $scope.activity.activity_id });
+	}
+
+	$scope.postComment = function(comment) {
+		var commentData = {
+			activity_id: $scope.activity.activity_id, 
+			user_id: $scope.AuthSvc.getUser().id,
+			username: $scope.AuthSvc.getUser().username,
+			description: comment,
+			date: moment.tz(new Date(), 'America/Detroit')
+		}
+		API.post('api/comments', commentData);
+		$scope.activity.comments.list.push(Comment.build(commentData));
+		$scope.newcomment = "";
 	}
 };
 

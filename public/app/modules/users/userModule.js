@@ -3,10 +3,14 @@ var mod = angular.module('userModule', ['jp.http']);
 var factories = {};
 
 factories.User = function() {
-	function User(id, username, first_name, email, last_login, created_at, profile) {
+	function User(id, username, name, email, last_login, created_at, profile) {
 		this.id = id;
 		this.username = username;
-		this.first_name = first_name;
+		if (name == null) {
+			this.first_name = username;
+		} else {
+			this.first_name = name;		
+		}
 		this.email = email;
 		if (last_login == null) {
 			this.last_login = new Date(created_at);
@@ -17,15 +21,36 @@ factories.User = function() {
 	}
 
 	User.build = function(userJSON) {
-		if (angular.isDefined(userJSON.first_name),angular.isDefined(userJSON.email),angular.isDefined(userJSON.id),angular.isDefined(angular.isObject(userJSON.profile))) {
-			return new User(userJSON.id, userJSON.username, userJSON.first_name, userJSON.email, userJSON.last_login, userJSON.created_at, userJSON.profile);
+		if (angular.isDefined(userJSON.email),angular.isDefined(userJSON.id),angular.isDefined(angular.isObject(userJSON.profile)),angular.isDefined(userJSON.profile.name)) {
+			return new User(userJSON.id, userJSON.username, userJSON.profile.name, userJSON.email, userJSON.last_login, userJSON.created_at, userJSON.profile);
 		}
 	}
 
 	return User;
 };
 
-factories.UserSvc = ['$q', '$timeout', 'User', 'API', function($q, $timeout, User, API){
+factories.MinimalUser = function()
+{
+	function MinimalUser(id, name, username, areFriends) {
+		this.id = id;
+		if (name == null) {
+			this.first_name = username;
+		} else {
+			this.first_name = name;
+		}
+		this.username = username;
+		this.areFriends = areFriends;
+	}
+
+	MinimalUser.build = function(userJSON) {
+		if (angular.isDefined(userJSON.name) && angular.isDefined(userJSON.username) && (userJSON.areFriends == true || userJSON.areFriends == false)) {
+			return new MinimalUser(userJSON.id,userJSON.name,userJSON.username,userJSON.areFriends);
+		}
+	}
+	return MinimalUser;
+}
+
+factories.UserSvc = ['$q', '$timeout', 'User', 'MinimalUser', 'API', function($q, $timeout, User, MinimalUser, API){
 
 	var MockUserData = 
 	[
@@ -67,7 +92,12 @@ factories.UserSvc = ['$q', '$timeout', 'User', 'API', function($q, $timeout, Use
 	var getAllUsers = function() {
 		return API.get('api/users').then(
 			function(data) {
-				return data;
+				var users = [];
+				for (var i = 0; i < data.users.length; i++)
+				{
+					users.push(MinimalUser.build(data.users[i]));
+				}
+				return users;
 			},
 			function() {
 				return $q.reject();
@@ -86,8 +116,8 @@ factories.UserSvc = ['$q', '$timeout', 'User', 'API', function($q, $timeout, Use
 		},
 		getUserIds: function() {
 			return getAllUsers().then(
-				function(data) {
-					return data.users;
+				function(users) {
+					return users;
 				});
 		},
 		get: function(user) {

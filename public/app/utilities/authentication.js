@@ -96,7 +96,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 			return logout;
 		},
 		determineAuthState: function() {
-			return API.get('api/getUserId')
+			return API.get('api/get-auth-info')
 			.then(
 				getUserProfile,
 				function(data) { 

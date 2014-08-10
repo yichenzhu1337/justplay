@@ -6,7 +6,8 @@ var app = angular.module('app',
 		'jp.activitiespage',
 		'jp.social',
 		'jp.profile',
-		'jp.masterCtrl'
+		'jp.masterCtrl',
+		'angularMoment'
 	]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -120,6 +121,10 @@ app.config(function($httpProvider) {
 
   $httpProvider.responseInterceptors.push(logsOutUserOn401);
 
+});
+
+app.constant('angularMomentConfig', {
+	timezone: 'America/Detroit'
 });
 
 app.run(['$rootScope', '$state', function($rootScope, $state){

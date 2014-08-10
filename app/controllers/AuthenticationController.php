@@ -20,10 +20,14 @@ class AuthenticationController extends BaseController {
 			]);
 		}
 
-		return Response::json([
-			'id' => Sentry::getUser()->id,
-			'username' => Sentry::getUser()->username
-		]);
+		return Response::json(
+ 					array(
+ 						'errors' => [],
+ 						'obj' => [
+							'id' => Sentry::getUser()->id,
+							'username' => Sentry::getUser()->username
+						]
+ 					));
 	}
 
 	public function postRegister()

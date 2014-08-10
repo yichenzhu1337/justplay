@@ -2,7 +2,7 @@ var mod = angular.module('commentModule', []);
 
 var factories = {};
 
-factories.Comment = function(){
+factories.Comment = function($filter){
 
 	function Comment(senderName, description, username, date) {
 		// Initialize Values
@@ -10,7 +10,7 @@ factories.Comment = function(){
 		this.message = description;
 		this.username = username;
 		this.first_name = username; 
-		this.date = date;
+		this.date = moment.tz(date, 'Etc/UTC').tz('America/Detroit');
 	}
 
 	function isValidComment(comment) {

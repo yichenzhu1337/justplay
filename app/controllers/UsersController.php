@@ -41,7 +41,11 @@ class UsersController extends \BaseController {
 
 		$array = $fractal->createData($resource)->toArray();
 
-		return Response::json($array);
+		return Response::json(
+			array(
+				'errors' => [],
+				'obj' => $array
+			));
 	}
 
 	/**

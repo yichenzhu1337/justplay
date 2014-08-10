@@ -53,7 +53,7 @@
 					  <div class="media-body">
 				    	<a class="media-name" ui-sref="main.profile({username:comment.username})"><h5 class="media-heading">{{comment.first_name}}</h5></a>
 					    <p>{{comment.message}}</p>
-					    <p class="text-muted comment-date">{{comment.date | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}</p>
+					    <p class="text-muted comment-date"><span am-time-ago="comment.date"></span></p>
 					  </div>
 					</div>
 					<div class="media comment" ng-show="getUser()">
@@ -62,7 +62,7 @@
 					  </a>
 					  <div class="media-body">
 							<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment"></textarea>
-					  	<button class="btn btn-success pull-right">comment</button>
+					  	<button class="btn btn-success pull-right" ng-click="postComment(newcomment)">comment</button>
 					  </div>
 					</div>
 		    </tab>

@@ -11,7 +11,7 @@ use Swagger\Annotations as SWG;
  * @SWG\Resource(
  *   apiVersion="1.0.0",
  *   swaggerVersion="1.2",
- *   basePath="http://localhost:8000/api/v1/",
+ *   basePath="http://localhost:8000",
  *   resourcePath="/activity-join",
  *   description="Activitiy Join Endpoints",
  *   produces="['application/json','application/xml','text/plain','text/html']"
@@ -22,35 +22,20 @@ use Swagger\Annotations as SWG;
 
 /**
  * @SWG\Api(
- *   path="/activity-join",
- *   @SWG\Operation(
- *     method="GET",
- *     summary="Gets All activities in the database",
- *     notes="Returns all activities Not transformed",
- *     type="Activity",
- *     nickname="getAllActivities"
- *   )
- * )
- */
-
-/* --------------------------------------------------------------------- */
-
-/**
- * @SWG\Api(
- *   path="/activity-join/{activity_id}",
+ *   path="/api/v1/activity-join/{activity_id}",
  *   @SWG\Operation(
  *     method="POST",
- *     summary="Find an activity by activity_id",
- *     notes="Returns an activity based on activity_id",
- *     type="Activity",
- *     nickname="getActivityById",
+ *     summary="Join an activity with an id of {activity_id}",
+ *     notes="The authenticated user will join an activity with an id of {activity_id}",
+ *     type="ActivityJoin",
+ *     nickname="postActivityJoinByActivityId",
  *     @SWG\Parameter(
  *       name="activity_id",
  *       description="id of activity that needs to be fetched",
  *       required=true,
  *       type="integer",
  *       format="int64",
- *       paramType="path",
+ *       paramType="body",
  *       minimum="1.0",
  *       maximum="100000.0"
  *     ),
@@ -64,16 +49,16 @@ use Swagger\Annotations as SWG;
 
 /**
  * @SWG\Api(
- *   path="/activity-join/{activity_id}",
+ *   path="/api/v1/activity-join/{activity_id}",
  *   @SWG\Operation(
  *     method="DELETE",
- *     summary="Find an activity by activity_id",
- *     notes="Returns an activity based on activity_id",
- *     type="Activity",
- *     nickname="getActivityById",
+ *     summary="Unjoins the activity by activity_id",
+ *     notes="The authenticated user will unjoin the activity based on activity_id",
+ *     type="ActivityJoin",
+ *     nickname="deleteActivityByActivityId",
  *     @SWG\Parameter(
  *       name="activity_id",
- *       description="id of activity that needs to be fetched",
+ *       description="id of activity that the authenticated user will unjoin from",
  *       required=true,
  *       type="integer",
  *       format="int64",

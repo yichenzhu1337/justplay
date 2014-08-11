@@ -32,7 +32,12 @@
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
-			"php artisan optimize"
+			"php artisan optimize",
+			"php artisan migrate:reset --force",
+			"php artisan migrate --package=cartalyst/sentry --force",
+			"php artisan migrate --force",
+			"php artisan db:seed --force",
+			"composer dump-autoload -o"
 		],
 		"post-create-project-cmd": [
 			"php artisan key:generate"

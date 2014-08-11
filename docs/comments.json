@@ -1,62 +1,82 @@
 {
-    "basePath": "http://localhost:8000/api/v1/",
+    "basePath": "http://localhost:8000",
     "swaggerVersion": "1.2",
     "apiVersion": "1.0.0",
     "resourcePath": "/comments",
     "apis": [
         {
-            "path": "/comments",
+            "path": "/api/v1/comments",
             "operations": [
                 {
                     "method": "GET",
-                    "summary": "Gets All activities in the database",
-                    "nickname": "getAllActivities",
-                    "type": "Activity",
-                    "notes": "Returns all activities Not transformed"
+                    "summary": "Gets all comments",
+                    "nickname": "getAllComment",
+                    "type": "Comment",
+                    "notes": "Returns all comments in the current database"
+                },
+                {
+                    "method": "POST",
+                    "summary": "A comment is created by a user",
+                    "nickname": "postComment",
+                    "type": "Comment",
+                    "parameters": [
+                        {
+                            "paramType": "body",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "user_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "description",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "A comment is created by a user, most likely it will be the authenticated user posting a comment"
                 }
             ]
         },
         {
-            "path": "/comments/{comment_id}",
+            "path": "/api/v1/comments/{comment_id}",
             "operations": [
                 {
-                    "method": "POST",
-                    "summary": "Find an activity by activity_id",
-                    "nickname": "getActivityById",
-                    "type": "Activity",
-                    "parameters": [
-                        {
-                            "paramType": "path",
-                            "name": "activity_id",
-                            "type": "integer",
-                            "required": true,
-                            "description": "id of activity that needs to be fetched",
-                            "format": "int64",
-                            "minimum": "1.0",
-                            "maximum": "100000.0"
-                        }
-                    ],
-                    "responseMessages": [
-                        {
-                            "code": 400,
-                            "message": "Invalid activity_id supplied"
-                        },
-                        {
-                            "code": 404,
-                            "message": "Activity not found"
-                        }
-                    ],
-                    "notes": "Returns an activity based on activity_id"
-                },
-                {
                     "method": "DELETE",
-                    "summary": "Find an activity by activity_id",
-                    "nickname": "getActivityById",
-                    "type": "Activity",
+                    "summary": "Deletes a comment by the comment_id",
+                    "nickname": "deleteCommentById",
+                    "type": "Comment",
                     "parameters": [
                         {
                             "paramType": "path",
-                            "name": "activity_id",
+                            "name": "comment_id",
                             "type": "integer",
                             "required": true,
                             "description": "id of activity that needs to be fetched",
@@ -75,60 +95,11 @@
                             "message": "Activity not found"
                         }
                     ],
-                    "notes": "Returns an activity based on activity_id"
+                    "notes": "Deletes a comment based on comment_id"
                 }
             ]
         }
     ],
-    "models": {
-        "Activity": {
-            "id": "Activity",
-            "properties": {
-                "id": {
-                    "description": "Unique identifier for the Pet",
-                    "type": "integer",
-                    "format": "int64",
-                    "minimum": "0.0",
-                    "maximum": "100.0"
-                },
-                "name": {
-                    "description": "Friendly name of the pet",
-                    "type": "string"
-                },
-                "category": {
-                    "description": "Category the pet is in",
-                    "$ref": "Category"
-                },
-                "photoUrls": {
-                    "description": "Image URLs",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "tags": {
-                    "description": "Tags assigned to this pet",
-                    "type": "array",
-                    "items": {
-                        "$ref": "Tag"
-                    }
-                },
-                "status": {
-                    "description": "pet status in the store",
-                    "type": "string",
-                    "enum": [
-                        "available",
-                        "pending",
-                        "sold"
-                    ]
-                }
-            },
-            "required": [
-                "id",
-                "name"
-            ]
-        }
-    },
     "produces": [
         "application/json",
         "application/xml",

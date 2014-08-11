@@ -245,47 +245,56 @@
             "id": "Activity",
             "properties": {
                 "id": {
-                    "description": "Unique identifier for the Pet",
+                    "description": "Unique identifier for the Activity.",
                     "type": "integer",
                     "format": "int64",
                     "minimum": "0.0",
                     "maximum": "100.0"
                 },
-                "name": {
-                    "description": "Friendly name of the pet",
+                "owner_id": {
+                    "description": "Unique identifier for the owner who created the Activity.",
+                    "type": "integer",
+                    "format": "int64",
+                    "minimum": "0.0",
+                    "maximum": "100.0"
+                },
+                "location": {
+                    "description": "The location at which the Activity will be held at.",
                     "type": "string"
                 },
-                "category": {
-                    "description": "Category the pet is in",
-                    "$ref": "Category"
+                "startingtime": {
+                    "description": "The starting time for the Activity.",
+                    "$ref": "date-format"
                 },
-                "photoUrls": {
-                    "description": "Image URLs",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                "endingtime": {
+                    "description": "The ending time for the Activity.",
+                    "$ref": "date-format"
                 },
-                "tags": {
-                    "description": "Tags assigned to this pet",
-                    "type": "array",
-                    "items": {
-                        "$ref": "Tag"
-                    }
+                "capacity": {
+                    "description": "The maximum participants that can join the Activity",
+                    "type": "integer",
+                    "format": "int64",
+                    "minimum": "0.0",
+                    "maximum": "100.0"
                 },
-                "status": {
-                    "description": "pet status in the store",
-                    "type": "string",
-                    "enum": [
-                        "available",
-                        "pending",
-                        "sold"
-                    ]
+                "description": {
+                    "description": "The description of the Activity an owner makes and edits.",
+                    "type": "string"
+                },
+                "sport": {
+                    "description": "All the sports that can be selected when played",
+                    "type": "string"
                 }
             },
             "required": [
+                "capacity",
+                "description",
+                "endingtime",
                 "id",
-                "name"
+                "location",
+                "owner_id",
+                "sport",
+                "startingtime"
             ]
         }
     },

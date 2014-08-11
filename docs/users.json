@@ -5,7 +5,19 @@
     "resourcePath": "/users",
     "apis": [
         {
-            "path": "/api/v1/get-auth-info",
+            "path": "/api/v1/users",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Gets every single user",
+                    "nickname": "getAllUsers",
+                    "type": "User",
+                    "notes": "Returns all users Not transformed"
+                }
+            ]
+        },
+        {
+            "path": "/api/v1/users/get-auth-info",
             "operations": [
                 {
                     "method": "GET",
@@ -23,18 +35,6 @@
                         }
                     ],
                     "notes": "Returns the currently authenticated user's id and username"
-                }
-            ]
-        },
-        {
-            "path": "/api/v1/users",
-            "operations": [
-                {
-                    "method": "GET",
-                    "summary": "Gets every single user",
-                    "nickname": "getAllUsers",
-                    "type": "User",
-                    "notes": "Returns all users Not transformed"
                 }
             ]
         }

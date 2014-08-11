@@ -32,11 +32,10 @@ class ProfilesController extends \BaseController {
 	 */
 	public function show($username)
 	{
-		return Response::json(
- 					array(
- 						'errors' => [],
- 						'obj' => $this->profile->show($username)
- 					));
+		return Response::json([
+ 					'errors' => [],
+ 					'obj' => $this->profile->show($username)
+ 				]);
 	}
 
 	public function update($username)

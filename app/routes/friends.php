@@ -13,7 +13,7 @@ use Swagger\Annotations as SWG;
  *   swaggerVersion="1.2",
  *   basePath="http://localhost:8000",
  *   resourcePath="/friends",
- *   description="Comments Endpoints",
+ *   description="Friends Endpoints",
  *   produces="['application/json','application/xml','text/plain','text/html']"
  * )
  */
@@ -76,7 +76,7 @@ use Swagger\Annotations as SWG;
 
 /**
  * @SWG\Api(
- *   path="/friends/{friend_id}",
+ *   path="/api/v1/friends/{friend_id}",
  *   @SWG\Operation(
  *     method="DELETE",
  *     summary="Delete {friend_id}",
@@ -102,7 +102,7 @@ Route::resource('friends', 'FriendsController', ['only' => ['index', 'store','de
 
 /**
  * @SWG\Api(
- *   path="/friends/check-if-friends",
+ *   path="/api/v1/friends/check-if-friends",
  *   @SWG\Operation(
  *     method="POST",
  *     summary="Checks to see if two people are friends",

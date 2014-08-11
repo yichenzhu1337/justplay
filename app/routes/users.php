@@ -22,6 +22,24 @@ use Swagger\Annotations as SWG;
 
 /**
  * @SWG\Api(
+ *   path="/api/v1/users/get-auth-info",
+ *   @SWG\Operation(
+ *     method="GET",
+ *     summary="Gets the information of the authenticated user",
+ *     notes="Returns the currently authenticated user's id and username",
+ *     type="User",
+ *     nickname="getAuthInfo",
+ *     @SWG\ResponseMessage(code=400, message="Invalid activity_id supplied"),
+ *     @SWG\ResponseMessage(code=404, message="Activity not found")
+ *   )
+ * )
+ */
+Route::get('users/get-auth-info', 'AuthenticationController@getUserId');
+
+/* --------------------------------------------------------------------- */
+
+/**
+ * @SWG\Api(
  *   path="/api/v1/users",
  *   @SWG\Operation(
  *     method="GET",
@@ -34,18 +52,3 @@ use Swagger\Annotations as SWG;
  */
 Route::resource('users', 'UsersController');
 
-/**
- * @SWG\Api(
- *   path="/api/v1/get-auth-info",
- *   @SWG\Operation(
- *     method="GET",
- *     summary="Gets the information of the authenticated user",
- *     notes="Returns the currently authenticated user's id and username",
- *     type="User",
- *     nickname="getAuthInfo",
- *     @SWG\ResponseMessage(code=400, message="Invalid activity_id supplied"),
- *     @SWG\ResponseMessage(code=404, message="Activity not found")
- *   )
- * )
- */
-Route::get('get-auth-info', 'AuthenticationController@getUserId');

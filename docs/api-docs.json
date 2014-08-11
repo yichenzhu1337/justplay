@@ -16,7 +16,7 @@
         },
         {
             "path": "/friends.{format}",
-            "description": "Comments Endpoints"
+            "description": "Friends Endpoints"
         },
         {
             "path": "/notifications.{format}",

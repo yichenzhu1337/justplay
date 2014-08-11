@@ -32,7 +32,6 @@ class CommentsController extends \ApiController {
 	public function show($id)
 	{
 		$comment = Comment::find($id);
-
 		return $comment;
 	}
 
@@ -44,7 +43,6 @@ class CommentsController extends \ApiController {
 	public function store()
 	{
 		$input = Input::all();
-
 		$this->comment->store($input);
 	}
 

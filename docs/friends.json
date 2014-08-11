@@ -56,7 +56,7 @@
             ]
         },
         {
-            "path": "/friends/check-if-friends",
+            "path": "/api/v1/friends/check-if-friends",
             "operations": [
                 {
                     "method": "POST",
@@ -100,7 +100,7 @@
             ]
         },
         {
-            "path": "/friends/{friend_id}",
+            "path": "/api/v1/friends/{friend_id}",
             "operations": [
                 {
                     "method": "DELETE",

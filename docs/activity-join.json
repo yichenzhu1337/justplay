@@ -1,32 +1,20 @@
 {
-    "basePath": "http://localhost:8000/api/v1/",
+    "basePath": "http://localhost:8000",
     "swaggerVersion": "1.2",
     "apiVersion": "1.0.0",
     "resourcePath": "/activity-join",
     "apis": [
         {
-            "path": "/activity-join",
-            "operations": [
-                {
-                    "method": "GET",
-                    "summary": "Gets All activities in the database",
-                    "nickname": "getAllActivities",
-                    "type": "Activity",
-                    "notes": "Returns all activities Not transformed"
-                }
-            ]
-        },
-        {
-            "path": "/activity-join/{activity_id}",
+            "path": "/api/v1/activity-join/{activity_id}",
             "operations": [
                 {
                     "method": "POST",
-                    "summary": "Find an activity by activity_id",
-                    "nickname": "getActivityById",
-                    "type": "Activity",
+                    "summary": "Join an activity with an id of {activity_id}",
+                    "nickname": "postActivityJoinByActivityId",
+                    "type": "ActivityJoin",
                     "parameters": [
                         {
-                            "paramType": "path",
+                            "paramType": "body",
                             "name": "activity_id",
                             "type": "integer",
                             "required": true,
@@ -46,20 +34,20 @@
                             "message": "Activity not found"
                         }
                     ],
-                    "notes": "Returns an activity based on activity_id"
+                    "notes": "The authenticated user will join an activity with an id of {activity_id}"
                 },
                 {
                     "method": "DELETE",
-                    "summary": "Find an activity by activity_id",
-                    "nickname": "getActivityById",
-                    "type": "Activity",
+                    "summary": "Unjoins the activity by activity_id",
+                    "nickname": "deleteActivityByActivityId",
+                    "type": "ActivityJoin",
                     "parameters": [
                         {
                             "paramType": "path",
                             "name": "activity_id",
                             "type": "integer",
                             "required": true,
-                            "description": "id of activity that needs to be fetched",
+                            "description": "id of activity that the authenticated user will unjoin from",
                             "format": "int64",
                             "minimum": "1.0",
                             "maximum": "100000.0"
@@ -75,60 +63,11 @@
                             "message": "Activity not found"
                         }
                     ],
-                    "notes": "Returns an activity based on activity_id"
+                    "notes": "The authenticated user will unjoin the activity based on activity_id"
                 }
             ]
         }
     ],
-    "models": {
-        "Activity": {
-            "id": "Activity",
-            "properties": {
-                "id": {
-                    "description": "Unique identifier for the Pet",
-                    "type": "integer",
-                    "format": "int64",
-                    "minimum": "0.0",
-                    "maximum": "100.0"
-                },
-                "name": {
-                    "description": "Friendly name of the pet",
-                    "type": "string"
-                },
-                "category": {
-                    "description": "Category the pet is in",
-                    "$ref": "Category"
-                },
-                "photoUrls": {
-                    "description": "Image URLs",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "tags": {
-                    "description": "Tags assigned to this pet",
-                    "type": "array",
-                    "items": {
-                        "$ref": "Tag"
-                    }
-                },
-                "status": {
-                    "description": "pet status in the store",
-                    "type": "string",
-                    "enum": [
-                        "available",
-                        "pending",
-                        "sold"
-                    ]
-                }
-            },
-            "required": [
-                "id",
-                "name"
-            ]
-        }
-    },
     "produces": [
         "application/json",
         "application/xml",

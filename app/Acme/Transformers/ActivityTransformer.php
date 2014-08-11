@@ -23,44 +23,90 @@ use Swagger\Annotations as SWG;
  * @category
  * @subpackage
  *
- * @SWG\Model(id="Activity",required="id, name")
+ * @SWG\Model(
+ *   id="Activity",
+ *   required="id, owner_id, location, startingtime, endingtime, capacity, description, sport"
+ * )
  */
 class ActivityTransformer extends TransformerAbstract {
 
     /**
-     * @SWG\Property(name="id",type="integer",format="int64",description="Unique identifier for the Pet",minimum="0.0",maximum="100.0")
+     * @SWG\Property(
+     *   name="id",
+     *   type="integer",
+     *   format="int64",
+     *   description="Unique identifier for the Activity.",
+     *   minimum="0.0",
+     *   maximum="100.0"
+     * )
      */
-    public $id;
 
     /**
-     * @SWG\Property(name="name",type="string",description="Friendly name of the pet")
+     * @SWG\Property(
+     *   name="owner_id",
+     *   type="integer",
+     *   format="int64",
+     *   description="Unique identifier for the owner who created the Activity.",
+     *   minimum="0.0",
+     *   maximum="100.0"
+     * )
      */
-    public $name;
 
     /**
-     * @SWG\Property(name="category",type="Category",description="Category the pet is in")
+     * @SWG\Property(
+     *   name="location",
+     *   type="string",
+     *   description="The location at which the Activity will be held at."
+     * )
      */
-    public $category;
 
     /**
-     * @SWG\Property(name="photoUrls",type="array",@SWG\Items("string"),description="Image URLs")
+     * @SWG\Property(
+     *   name="startingtime",
+     *   type="date-format",
+     *   description="The starting time for the Activity."
+     * )
      */
-    public $photos;
 
     /**
-     * @SWG\Property(name="tags",type="array",@SWG\Items("Tag"),description="Tags assigned to this pet")
+     * @SWG\Property(
+     *   name="endingtime",
+     *   type="date-format",
+     *   description="The ending time for the Activity."
+     * )
      */
-    public $tags;
 
     /**
-     * @SWG\Property(name="status",type="string",description="pet status in the store",enum="['available','pending','sold']")
+     * @SWG\Property(
+     *   name="capacity",
+     *   type="integer",
+     *   format="int64",
+     *   description="The maximum participants that can join the Activity",
+     *   minimum="0.0",
+     *   maximum="100.0"
+     * )
      */
-    public $status;
+
+    /**
+     * @SWG\Property(
+     *   name="description",
+     *   type="string",
+     *   description="The description of the Activity an owner makes and edits."
+     * )
+     */
+
+    /**
+     * @SWG\Property(
+     *   name="sport",
+     *   type="string",
+     *   description="All the sports that can be selected when played"
+     * )
+     */
 
 	public function transform(Activity $activity)
 	{
 		return [
-			'activity_id' => $activity['id'],
+			'id' => $activity['id'],
 			'owner_id' => $activity['owner_id'],
 			'location' => $activity['location'],
 			'startingtime' => $activity['date_from'],
@@ -88,8 +134,6 @@ class ActivityTransformer extends TransformerAbstract {
     protected $defaultIncludes = [
         //'comments', 'activityJoined'
     ];
-
-    // ....
 
     /**
      * Include Comment

@@ -7,7 +7,9 @@ var app = angular.module('app',
 		'jp.social',
 		'jp.profile',
 		'jp.masterCtrl',
-		'angularMoment'
+		'angularMoment',
+		'restangular',
+		'jp.http'
 	]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -126,6 +128,13 @@ app.config(function($httpProvider) {
 app.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
 });
+
+app.run(function(Restangular, API) {
+	Restangular.setBaseUrl('http://localhost/justplay/public/api/v1');
+	Restangular.addResponseInterceptor(function(data,operation,what,response,deferred){
+		return data.obj;
+	});
+})
 
 app.run(['$rootScope', '$state', function($rootScope, $state){
 	$rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){

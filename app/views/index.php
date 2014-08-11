@@ -41,7 +41,8 @@
 	  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	  <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
 		<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
-
+		<script src="bower_components/lodash/dist/lodash.js"></script>
+		<script src="bower_components/restangular/src/restangular.js"></script>
 
 		<!-- CUSTOM SCRIPTS -->
 	  <script src="app/lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>

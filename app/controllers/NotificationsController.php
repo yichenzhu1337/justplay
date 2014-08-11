@@ -1,7 +1,16 @@
 <?php
 
+use Acme\Interfaces\NotificationRepositoryInterface;
+
+
 class NotificationsController extends \BaseController {
 
+	protected $notification;
+
+	function __construct(NotificationRepositoryInterface $notification)
+	{
+		$this->notification = $notification;
+	}
 	/**
 	 * Display a listing of notifications of the authenticated user
 	 *
@@ -9,13 +18,9 @@ class NotificationsController extends \BaseController {
 	 */
 	public function index()
 	{
-
-		$user_id = Sentry::getUser()->id;
-
-		$all_my_requests = "SELECT * FROM notifications WHERE to_id = $user_id"; //friend requests
-		$result = DB::select($all_my_requests);
-
-		return $result;
+		// return $this->notification->getAll();
+		$auth_id = Sentry::getUser()->id;
+		return $this->notification->getAllAuthNotifications($auth_id);
 	}
 
 	/**
@@ -25,34 +30,17 @@ class NotificationsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$user_id = Sentry::getUser()->id;
-		$to_id = Input::get('stranger_id');;
-		$request_type = Input::get('request_type'); //friend
+		$user_id = Input::get('from_id');
+		$to_id = Input::get('to_id');
+		$request_type = Input::get('request_type');
+		$input = [
+			'from_id' => $user_id,
+			'to_id' => $to_id,
+			'type' => $request_type
+		];
 
-		Notification::create($data);
-
-	}
-
-	/**
-	 * Update the specified notification in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		$notification = Notification::findOrFail($id);
-
-		$validator = Validator::make($data = Input::all(), Notification::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		$notification->update($data);
-
-		return Redirect::route('notifications.index');
+		var_dump($input);
+		//$this->notification->store($input);
 	}
 
 	/**
@@ -61,16 +49,9 @@ class NotificationsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy()
+	public function destroy($id)
 	{
-		//input {from_id: , to_id: }
-		$are_they_friends = "SELECT * FROM notifications";
-		$are_they_friends .= "WHERE ";
-		$are_they_friends.= "from_id = $from_id"; 
-		$are_they_friends .= "AND ";
-		$are_they_friends .= "to_id = $to_id";
-		$notification_sent_query = DB::select($notification_sent);
-		Notification::destroy($notification_sent_query);
+		$this->notification->delete($id);
 	}
 
 }

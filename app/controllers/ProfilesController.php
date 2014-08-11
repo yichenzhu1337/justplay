@@ -42,11 +42,8 @@ class ProfilesController extends \BaseController {
 	public function update($username)
 	{
 		$user = User::whereUsername($username)->firstOrFail();
-		$profile = Profile::where('user_id', '=', $user->id);
-
-		$input = Input::only('name', 'gender', 'bio"', 'age', 'email', 'preferences', 'phone_number', 'social_link');
-
-		$profile->update($input);
+		$input = Input::only('name', 'gender', 'bio', 'age', 'email', 'preferences', 'phone_number', 'social_link');
+		$this->profile->update($user->id, $input);
 	}
 
 }

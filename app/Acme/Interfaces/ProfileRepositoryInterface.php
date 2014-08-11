@@ -9,6 +9,6 @@ Interface ProfileRepositoryInterface {
 
 	public function show($username);
 	
-	public function update($user_id);
+	public function update($user_id, $input);
 
 }

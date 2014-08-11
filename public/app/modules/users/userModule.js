@@ -79,18 +79,18 @@ factories.UserSvc = ['$q', '$timeout', 'User', 'MinimalUser', 'API', function($q
 	var search = function(name) {
 		if (name === "") {
 			var deferred = $q.defer();
-			var res = API.get('api/profiles').then(
+			var res = API.get('api/v1/profiles').then(
 				function(data){
 					deferred.resolve(data);
 				});
 			return deferred.promise;
 		} else {
-			return API.get('api/profiles');
+			return API.get('api/v1/profiles');
 		}
 	}
 
 	var getAllUsers = function() {
-		return API.get('api/users').then(
+		return API.get('api/v1/users').then(
 			function(data) {
 				var users = [];
 				for (var i = 0; i < data.users.length; i++)
@@ -121,7 +121,7 @@ factories.UserSvc = ['$q', '$timeout', 'User', 'MinimalUser', 'API', function($q
 				});
 		},
 		get: function(user) {
-			return API.get('api/profiles/'+user).then(
+			return API.get('api/v1/profiles/'+user).then(
 				function(obj) {
 					return User.build(obj);
 				});

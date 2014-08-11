@@ -11,9 +11,9 @@ use Swagger\Annotations as SWG;
  * @SWG\Resource(
  *   apiVersion="1.0.0",
  *   swaggerVersion="1.2",
- *   basePath="http://localhost:8000/api/v1/",
+ *   basePath="http://localhost:8000",
  *   resourcePath="/users",
- *   description="Profiles Endpoints",
+ *   description="Users Endpoints",
  *   produces="['application/json','application/xml','text/plain','text/html']"
  * )
  */
@@ -22,7 +22,7 @@ use Swagger\Annotations as SWG;
 
 /**
  * @SWG\Api(
- *   path="/users",
+ *   path="/api/v1/users",
  *   @SWG\Operation(
  *     method="GET",
  *     summary="Gets every single user",
@@ -36,7 +36,7 @@ Route::resource('users', 'UsersController');
 
 /**
  * @SWG\Api(
- *   path="/get-auth-info",
+ *   path="/api/v1/get-auth-info",
  *   @SWG\Operation(
  *     method="GET",
  *     summary="Gets the information of the authenticated user",

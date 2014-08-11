@@ -45,7 +45,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 
 	var getUserProfile = function(obj) {
 		var d = $q.defer();
-		API.get('api/profiles/'+obj.username).then(
+		API.get('api/v1/profiles/'+obj.username).then(
 			function(data) {
 				d.resolve(data);
 			});
@@ -64,7 +64,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 	return {
 		login: function(credentials) {
 			var d = $q.defer()
-			var login = API.post('api/login', credentials);
+			var login = API.post('api/v1/login', credentials);
 			login.then(
 				function(obj){
 					console.log('successAuthentication');
@@ -82,7 +82,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 			return d.promise;
 		},
 		logout: function() {
-			var logout = API.post("api/logout");
+			var logout = API.post("api/v1/logout");
 			logout.then(
 				function(){
 					unsetUser();
@@ -96,7 +96,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 			return logout;
 		},
 		determineAuthState: function() {
-			return API.get('api/get-auth-info')
+			return API.get('api/v1/get-auth-info')
 			.then(
 				getUserProfile,
 				function(data) { 

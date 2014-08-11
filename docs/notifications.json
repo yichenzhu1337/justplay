@@ -1,34 +1,51 @@
 {
-    "basePath": "http://localhost:8000/api/v1/",
+    "basePath": "http://localhost:8000",
     "swaggerVersion": "1.2",
     "apiVersion": "1.0.0",
     "resourcePath": "/notifications",
     "apis": [
         {
-            "path": "/notifications",
+            "path": "/api/v1/notifications",
             "operations": [
                 {
                     "method": "GET",
-                    "summary": "Gets All activities in the database",
-                    "nickname": "getAllActivities",
-                    "type": "Activity",
-                    "notes": "Returns all activities Not transformed"
+                    "summary": "Gets All notifications",
+                    "nickname": "getAllNotification",
+                    "type": "Notification",
+                    "notes": "Returns all of the authenticated user"
                 },
                 {
                     "method": "POST",
-                    "summary": "Find an activity by activity_id",
-                    "nickname": "getActivityById",
-                    "type": "Activity",
+                    "summary": "A notification is created",
+                    "nickname": "postNotification",
+                    "type": "Notification",
                     "parameters": [
                         {
-                            "paramType": "path",
-                            "name": "activity_id",
+                            "paramType": "body",
+                            "name": "from_id",
                             "type": "integer",
                             "required": true,
-                            "description": "id of activity that needs to be fetched",
+                            "description": "id of the the person sending the request, most likely an authenticated user",
                             "format": "int64",
                             "minimum": "1.0",
                             "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "to_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of the person receiving the request",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "request_type",
+                            "type": "string",
+                            "required": true,
+                            "description": "type of request is either a friend, activity, or message request"
                         }
                     ],
                     "responseMessages": [
@@ -41,25 +58,25 @@
                             "message": "Activity not found"
                         }
                     ],
-                    "notes": "Returns an activity based on activity_id"
+                    "notes": "A notification is created from the send to a receiver with a request type (friend, activty, message)"
                 }
             ]
         },
         {
-            "path": "/notifications{stranger_id}",
+            "path": "/api/v1/notifications/{id}",
             "operations": [
                 {
                     "method": "DELETE",
-                    "summary": "Find an activity by activity_id",
-                    "nickname": "getActivityById",
-                    "type": "Activity",
+                    "summary": "Deletes the notification by id",
+                    "nickname": "deleteNotificationById",
+                    "type": "Notification",
                     "parameters": [
                         {
                             "paramType": "path",
-                            "name": "activity_id",
+                            "name": "id",
                             "type": "integer",
                             "required": true,
-                            "description": "id of activity that needs to be fetched",
+                            "description": "id of the notification that will be deleted",
                             "format": "int64",
                             "minimum": "1.0",
                             "maximum": "100000.0"
@@ -75,60 +92,11 @@
                             "message": "Activity not found"
                         }
                     ],
-                    "notes": "Returns an activity based on activity_id"
+                    "notes": "Deletes the notification based on id"
                 }
             ]
         }
     ],
-    "models": {
-        "Activity": {
-            "id": "Activity",
-            "properties": {
-                "id": {
-                    "description": "Unique identifier for the Pet",
-                    "type": "integer",
-                    "format": "int64",
-                    "minimum": "0.0",
-                    "maximum": "100.0"
-                },
-                "name": {
-                    "description": "Friendly name of the pet",
-                    "type": "string"
-                },
-                "category": {
-                    "description": "Category the pet is in",
-                    "$ref": "Category"
-                },
-                "photoUrls": {
-                    "description": "Image URLs",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "tags": {
-                    "description": "Tags assigned to this pet",
-                    "type": "array",
-                    "items": {
-                        "$ref": "Tag"
-                    }
-                },
-                "status": {
-                    "description": "pet status in the store",
-                    "type": "string",
-                    "enum": [
-                        "available",
-                        "pending",
-                        "sold"
-                    ]
-                }
-            },
-            "required": [
-                "id",
-                "name"
-            ]
-        }
-    },
     "produces": [
         "application/json",
         "application/xml",

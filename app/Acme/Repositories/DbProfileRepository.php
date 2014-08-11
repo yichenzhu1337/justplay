@@ -21,9 +21,9 @@ class DbProfileRepository extends DbBaseRepository implements ProfileRepositoryI
 		return $profile;
 	}
 		
-	public function update($user_id)
+	public function update($user_id, $input)
 	{
-
+		$this->model->where('user_id', '=', $user_id)->update($input);
 	}
 
 }

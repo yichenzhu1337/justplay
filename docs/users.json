@@ -1,11 +1,11 @@
 {
-    "basePath": "http://localhost:8000/api/v1/",
+    "basePath": "http://localhost:8000",
     "swaggerVersion": "1.2",
     "apiVersion": "1.0.0",
     "resourcePath": "/users",
     "apis": [
         {
-            "path": "/get-auth-info",
+            "path": "/api/v1/get-auth-info",
             "operations": [
                 {
                     "method": "GET",
@@ -27,7 +27,7 @@
             ]
         },
         {
-            "path": "/users",
+            "path": "/api/v1/users",
             "operations": [
                 {
                     "method": "GET",

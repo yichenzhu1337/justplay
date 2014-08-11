@@ -15,14 +15,14 @@ class CreateNotificationsTable extends Migration {
 		Schema::create('notifications', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('from_id');
-			$table->integer('to_id');
-			$table->string('type');
-			$table->string('details');
-			$table->boolean('is_read');
-			$table->boolean('response');
-			$table->string('date');
-			$table->integer('activity_id');
+			$table->integer('from_id')->nullable();
+			$table->integer('to_id')->nullabl();
+			$table->string('type')->nullable();
+			$table->string('details')->nullable();
+			$table->boolean('is_read')->nullable();
+			$table->boolean('response')->nullable();
+			$table->string('date')->nullable();
+			$table->integer('activity_id')->nullable();
 			$table->timestamps();
 		});
 	}

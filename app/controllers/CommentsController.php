@@ -1,10 +1,15 @@
 <?php
 
+use Acme\Interfaces\CommentRepositoryInterface;
+
+
 class CommentsController extends \ApiController {
 
-	function __construct()
-	{
+	protected $comment;
 
+	function __construct(CommentRepositoryInterface $comment)
+	{
+		$this->comment = $comment;
 	}
 
 	/**
@@ -26,13 +31,9 @@ class CommentsController extends \ApiController {
 	 */
 	public function show($id)
 	{
+		$comment = Comment::find($id);
 
-		$comments = Comment::find($id);
-
-		return $this->respond([
-			'data' => $this->commentTransformer->transform($comments)
-		]);
-
+		return $comment;
 	}
 
 	/**
@@ -42,9 +43,9 @@ class CommentsController extends \ApiController {
 	 */
 	public function store()
 	{
-		$data = Input::all();
+		$input = Input::all();
 
-		Comment::create($data);
+		$this->comment->store($input);
 	}
 
 	/**
@@ -55,7 +56,7 @@ class CommentsController extends \ApiController {
 	 */
 	public function destroy($id)
 	{
-		Comment::destroy($id);
+		$this->comment->delete($id);
 	}
 
 }

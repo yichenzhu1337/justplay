@@ -149,7 +149,7 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 	}
 
 	var getAll = function() {
-		return API.get('api/activities-all-this-week?include=comments,activityJoined').then(
+		return API.get('api/v1/activities-all-this-week?include=comments,activityJoined').then(
 			function(data) {
 				var packagedobj = getAllSports(data);
 				return packagedobj;
@@ -177,7 +177,7 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 			return getAll();
 		},
 		get: function(id) {
-			return API.get('api/activities/'+id+'?include=comments,activityJoined').then(
+			return API.get('api/v1/activities/'+id+'?include=comments,activityJoined').then(
 				function(obj) {
 					return Activity.build(obj.data);
 				});

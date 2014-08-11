@@ -28,7 +28,7 @@
         },
         {
             "path": "/users.{format}",
-            "description": "Profiles Endpoints"
+            "description": "Users Endpoints"
         }
     ]
 }

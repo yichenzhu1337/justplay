@@ -129,11 +129,26 @@ app.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
 });
 
-app.run(function(Restangular, API) {
+app.run(function(Restangular, API, CSRF_TOKEN) {
 	Restangular.setBaseUrl('http://localhost/justplay/public/api/v1');
 	Restangular.addResponseInterceptor(function(data,operation,what,response,deferred){
 		return data.obj;
 	});
+	Restangular.addRequestInterceptor(function(element,operation,what,url){
+		if (what == 'profiles' && operation == 'put') {
+			element = element.profile;
+		}
+		console.log(element);
+		return element;
+	});
+	Restangular.addElementTransformer('profiles',false, function(element) {
+		if (angular.isDefined(element.username)) {
+			element.numeric_id = element.id;
+			element.id = element.username;
+		}
+		return element;
+	})
+	//Restangular.setDefaultRequestParams({csrf_token:CSRF_TOKEN});
 })
 
 app.run(['$rootScope', '$state', function($rootScope, $state){

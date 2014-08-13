@@ -1,17 +1,17 @@
 <div class="page-container">
-  <div class="content-wrapper profile-page" ng-controller="profileController">
+  <div class="content-wrapper profile-page">
   	<div class="profile-content-area">
   		<div class="profile-banner">
 				<div class="img-container">
 					<img class="img-thumbnail profile-pic" src="app/img/jack-yiu-dp.jpg" alt="dp">
 				</div>
 				<div class="profile-header">
-					<a href="#" ng-show="IsCurrentUser()" e-required editable-text="user.first_name">
-						{{ user.first_name }}
+					<a href="#" ng-show="IsCurrentUser()" e-required editable-text="user.profile.name">
+						{{ user.profile.name }}
 					</a>
 				</div>
-				<h1 ng-hide="IsCurrentUser()" class="profile-header" e-form="formName" editable-text="user.first_name" e-required e-placeholder="Name">
-					{{user.first_name}}
+				<h1 ng-hide="IsCurrentUser()" class="profile-header" e-form="formName" editable-text="user.profile.name" e-required e-placeholder="Name">
+					{{ user.profile.name }}
 				</h1>
 				<h3 class="profile-header">{{user.username}}</h3>
   		</div>
@@ -21,7 +21,7 @@
 					<li class="list-group-item">
 						<span class="text-muted" ng-show="formEmail.$visible">Email</span>
 						<i class="glyphicon glyphicon-envelope" ng-hide="formEmail.$visible"></i>
-						<span editable-email="user.email" e-required e-form="formEmail" e-placeholder="Email">{{user.email}}</span>
+						<span editable-email="user.profile.email" e-required e-form="formEmail" e-placeholder="Email">{{user.profile.email}}</span>
 						<span ng-show="IsCurrentUser()">
 							<button 
 							class="btn-link pull-right"
@@ -33,7 +33,7 @@
 					<li class="list-group-item">
 						<span class="text-muted" ng-show="formPhone.$visible">Phone</span>
 						<i class="glyphicon glyphicon-phone" ng-hide="formPhone.$visible"></i>
-						<span editable-tel="user.phone" e-form="formPhone" e-placeholder="Phone">{{user.phone}}</span>
+						<span editable-tel="user.profile.phone" e-form="formPhone" e-placeholder="Phone">{{user.profile.phone}}</span>
 						<span ng-show="IsCurrentUser()">
 							<button 
 							class="btn-link pull-right"

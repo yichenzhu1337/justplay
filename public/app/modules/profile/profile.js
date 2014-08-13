@@ -4,32 +4,28 @@ var controllers = {};
 var directives = {};
 
 
-controllers.profileController = function($scope, $stateParams, UserSvc, authenticationService){
+controllers.profileController = function($scope, authenticationService, user){
 	init();
 
 	var username;
 
 	function init() {
 		// Services
-		$scope.UserSvc = UserSvc;
 		$scope.AuthSvc = authenticationService;
-		username = $stateParams.username;
-		$scope.UserSvc.get($stateParams.username).then(
-			function(userObj) {
-				$scope.user = userObj;
-			});
+		username = user.username;
+		$scope.user = user;
+
+		// Watch for puts
+		$scope.$watch(function() { return $scope.user }, function(newVal, oldVal) {
+			if (newVal != oldVal) {
+				$scope.user.save();
+			}
+		}, true);
 	}
 
 	$scope.IsCurrentUser = function()
 	{
-		if ($scope.isLoggedIn && $scope.AuthSvc.getUser().username == username)
-		{
-			return true;
-		} 
-		else
-		{
-			return false;
-		}
+		return $scope.isLoggedIn && $scope.AuthSvc.getUser().username == username
 	}
 };
 

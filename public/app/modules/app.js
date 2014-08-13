@@ -9,7 +9,9 @@ var app = angular.module('app',
 		'jp.masterCtrl',
 		'angularMoment',
 		'restangular',
-		'jp.http'
+		'jp.http',
+		'jp.utilities',
+		'jp.authentication'
 	]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -93,7 +95,17 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 				templateUrl: "app/modules/activities/partials/detailedheader.tmpl.html"
 			},
 			"body": {
-				templateUrl: "app/modules/profile/profilebody.tmpl.html"
+				templateUrl: "app/modules/profile/profilebody.tmpl.html",
+				controller: "profileController"
+			}
+		},
+		resolve: {
+			user: function($stateParams, Restangular, authenticationService) {
+				if (authenticationService.getUser().username == $stateParams.username) {
+					return authenticationService.getUser();
+				} else {
+					return Restangular.one('profiles',$stateParams.username).get();
+				}
 			}
 		}
 	});
@@ -129,41 +141,34 @@ app.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
 });
 
-app.run(function(Restangular, API, CSRF_TOKEN) {
+app.run(function(Restangular, API, Interceptors) {
 	Restangular.setBaseUrl('http://localhost/justplay/public/api/v1');
-	Restangular.addResponseInterceptor(function(data,operation,what,response,deferred){
-		return data.obj;
-	});
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
 		if (what == 'profiles' && operation == 'put') {
 			element = element.profile;
 		}
-		console.log(element);
+		// Pass element through request transformer
+		element = Interceptors.Request(element);
 		return element;
 	});
+	Restangular.addResponseInterceptor(function(data,operation,what,response,deferred){
+		return data.obj;
+	});
 	Restangular.addElementTransformer('profiles',false, function(element) {
-		if (angular.isDefined(element.username)) {
+		if (element.fromServer)
+		{
+			// Augment object
 			element.numeric_id = element.id;
 			element.id = element.username;
+			if (element.last_login == null) {
+				element.last_active = new Date(element.created_at);
+			} else {
+				element.last_active = new Date(element.last_login);		
+			}
 		}
 		return element;
 	})
-	//Restangular.setDefaultRequestParams({csrf_token:CSRF_TOKEN});
 })
-
-app.run(['$rootScope', '$state', function($rootScope, $state){
-	$rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-/*    if (sessionStorage.restorestate == "true") {
- 	    $rootScope.$broadcast('restorestate'); //let everything know we need to restore state
-  	  sessionStorage.restorestate = false;
-    }*/
-	});
-
-	//let everthing know that we need to save state now.
-	window.onbeforeunload = function (event) {
-	    $rootScope.$broadcast('savestate');
-	};
-}]);
 
 app.directive('navCollapse', function () {
     return {

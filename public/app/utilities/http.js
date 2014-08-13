@@ -118,5 +118,37 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 	}
 };
 
+factories.Interceptors = function(CSRF_TOKEN, SanitizeService) {
+
+	var dataTransformations = 
+	{
+		copyObject: function(postObj) {
+			return angular.copy(postObj);
+		},
+		appendCSRFToken: function(postObj) {
+			if (angular.isUndefined(postObj.csrf_token)) {
+				postObj.csrf_token = CSRF_TOKEN;
+			}		
+			return postObj; // Might not be neccessary.
+		},
+		appendLoginId: function(postObj) {
+			return postObj;
+		},
+		sanitizeObject: function(postObj) {
+			return SanitizeService.sanitizeObject(postObj);
+		}
+	};
+
+	return {
+		Request: function(param) {
+			var modifiedParams;
+			modifiedParams = dataTransformations.copyObject(param);
+			modifiedParams = dataTransformations.appendCSRFToken(param);
+			modifiedParams = dataTransformations.sanitizeObject(param);
+			return modifiedParams;
+		}
+	}
+}
+
 mod.factory(factories);
 mod.service(services);

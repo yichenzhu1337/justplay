@@ -1,6 +1,7 @@
 var app = angular.module('app', 
 	[
 		'ui.router',
+		'jp.config',
 		'jp.login',
 		'jp.signup',
 		'jp.activitiespage',
@@ -141,8 +142,8 @@ app.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
 });
 
-app.run(function(Restangular, API, Interceptors) {
-	Restangular.setBaseUrl('http://localhost/justplay/public/api/v1');
+app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors) {
+	Restangular.setBaseUrl(BASE_URL+BASE_API_ROUTE);
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
 		if (what == 'profiles' && operation == 'put') {
 			element = element.profile;

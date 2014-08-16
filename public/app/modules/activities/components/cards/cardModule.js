@@ -789,17 +789,12 @@ factories.cardFactory = function() {
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = ['$scope', 'ActivitySvc', 'watching', 'filterService',
-function($scope, ActivitySvc, watching, filterService) {
+controllers.cardsController = ['$scope', 'watching', 'filterService', 'activityList',
+function($scope, watching, filterService, activityList) {
 	// Base Set of Activities
 
 	function init() {
-		var promise = ActivitySvc.getList();
-		promise.then(
-			function(data) {
-				$scope.dates = angular.copy(data);
-				console.log('Dates:' + $scope.dates);
-			});
+		$scope.dates = activityList;
 
 		$scope.filterServ = filterService;
 
@@ -976,6 +971,19 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 
 	function init() {
 		$scope.activity = activity;
+		var commentData = {
+			activity_id: 1, 
+			user_id: 2,
+			username: 'jack',
+			description: 'testgzxcxzc',
+			date: moment.tz(new Date(), 'America/Detroit')
+		}
+		API.post('api/v1/comments', commentData).then(
+			function(d) {
+					console.log(d);
+			});
+		//$scope.activity.comments.data.getList();
+		$scope.activity.comments.data.push({activity_id: 1, user_id: 2, username: 'jack', description: 'testinghaha', date: moment.tz(new Date(), 'America/Detroit')});
 		$scope.AuthSvc = authenticationService;
 		$scope.isParticipant = $scope.currentUserIsParticipant(activity.participants.list);
 		$scope.isOwner = $scope.currentUserIsOwner(activity);
@@ -985,7 +993,7 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 	init();
 
 	$scope.join = function() {
-		API.post('api/activity-join', { activity_id: $scope.activity.activity_id });
+		API.post('api/v1/activity-join', { activity_id: $scope.activity.activity_id });
 	}
 
 	$scope.postComment = function(comment) {
@@ -996,7 +1004,7 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 			description: comment,
 			date: moment.tz(new Date(), 'America/Detroit')
 		}
-		API.post('api/comments', commentData);
+		API.post('api/v1/comments', commentData);
 		$scope.activity.comments.list.push(Comment.build(commentData));
 		$scope.newcomment = "";
 	}

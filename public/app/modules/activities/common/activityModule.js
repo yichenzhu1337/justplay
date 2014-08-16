@@ -1,4 +1,5 @@
-var mod = angular.module('activityModule', ['jp.errorHandling','jp.http','participantModule','commentModule']);
+var mod = angular.module('activityModule', 
+	['jp.errorHandling','jp.http','participantModule','commentModule','restangular','jp.api.config']);
 
 var factories = {};
 
@@ -112,8 +113,8 @@ factories.ActivityCollection = function(){
 	return ActivityCollection;
 };
 
-factories.ActivitySvc = ['$q', '$timeout', '$http', 'cardFactory', 'Activity', 'ActivityCollection', 'API', 
-function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
+factories.ActivitySvc = ['$q', '$timeout', '$http', 'cardFactory', 'Activity', 'ActivityCollection', 'API', 'Restangular', 'api_const',
+function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Restangular, api_const) {
 
 	/**
 	 * Creates an array of Activity Objects
@@ -177,9 +178,9 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 			return getAll();
 		},
 		get: function(id) {
-			return API.get('api/v1/activities/'+id+'?include=comments,activityJoined').then(
+			return Restangular.one(api_const.activities, id).get({include: 'comments,activityJoined'}).then(
 				function(obj) {
-					return Activity.build(obj.data);
+					return obj;
 				});
 		},
 		submitActivity: function(activityJSON) {

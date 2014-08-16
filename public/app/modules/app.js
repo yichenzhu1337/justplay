@@ -12,7 +12,8 @@ var app = angular.module('app',
 		'restangular',
 		'jp.http',
 		'jp.utilities',
-		'jp.authentication'
+		'jp.authentication',
+		'jp.api.config'
 	]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -142,8 +143,9 @@ app.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
 });
 
-app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors) {
+app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_const) {
 	Restangular.setBaseUrl(BASE_URL+BASE_API_ROUTE);
+	Restangular.setParentless(false,[api_const.comments]);
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
 		if (what == 'profiles' && operation == 'put') {
 			element = element.profile;
@@ -153,6 +155,9 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors) {
 		return element;
 	});
 	Restangular.addResponseInterceptor(function(data,operation,what,response,deferred){
+		if (what == api_const.activities) {
+			return data.obj.data;
+		}
 		return data.obj;
 	});
 	Restangular.addElementTransformer('profiles',false, function(element) {
@@ -166,6 +171,19 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors) {
 			} else {
 				element.last_active = new Date(element.last_login);		
 			}
+		}
+		return element;
+	});
+	Restangular.addElementTransformer('activities', false, function(element) {
+		if (element.fromServer)
+		{
+			var comment = element.comments.data;
+
+			Restangular.restangularizeCollection(
+				element,
+				element.comments.data,
+				api_const.comments, 
+				{include:'comments,activitiesJoined'});
 		}
 		return element;
 	})

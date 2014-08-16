@@ -20,7 +20,13 @@ jpactivitiespage
 				templateUrl: "app/modules/activities/partials/bodyheader.tmpl.html"
 			},
 			"body": {
-				templateUrl: "app/modules/activities/partials/body.tmpl.html"
+				templateUrl: "app/modules/activities/partials/body.tmpl.html",
+				controller: "cardsController"
+			}
+		},
+		resolve: {
+			activityList: function(ActivitySvc) {
+				return ActivitySvc.getList();
 			}
 		}
 	})

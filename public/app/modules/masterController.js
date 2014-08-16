@@ -25,26 +25,6 @@ controllers.masterCtrl = function($scope, $state, authenticationService, loggedI
 				return count;
 			}
 		}
-
-		var j = $http.get('api/v1/profiles/jack').then(
-			function(data) {
-				console.log(data);
-				var user = $scope.authSvc.getUser();
-/*				var copyUser = Restangular.copy(user);
-				copyUser.age = 1337;
-				copyUser.put();*/
-				user.profile.age = 1233333;
-				user.save();
-
-/*				$http.put('api/v1/profiles/jack', {age: 123}).then(function(datata) {
-					console.log(datata);
-				})*/
-			});
-
-		/*var p = $http.put('api/v1/profiles/yichen', {'age':45}).then(
-			function(data){
-				console.log(data);
-			});*/
 	}
 
 	$scope.getUser = function()

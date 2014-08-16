@@ -25,7 +25,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 	 */
 	function validateActivity(data) {
 		if (
-			angular.isUndefined(data.activity_id) ||
+			angular.isUndefined(data.id) ||
 			angular.isUndefined(data.owner_id) ||
 			angular.isUndefined(data.sport) ||
 			angular.isUndefined(data.startingtime) ||
@@ -52,7 +52,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 			return false;
 		} else {
 			var activity = new Activity(
-				data.activity_id,
+				data.id,
 				data.owner_id,
 				data.sport,
 				data.startingtime,
@@ -149,7 +149,7 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 	}
 
 	var getAll = function() {
-		return API.get('api/v1/activities-all-this-week?include=comments,activityJoined').then(
+		return API.get('api/v1/activities/activities-all-this-week?include=comments,activityJoined').then(
 			function(data) {
 				var packagedobj = getAllSports(data);
 				return packagedobj;

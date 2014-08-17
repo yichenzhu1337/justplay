@@ -6,11 +6,11 @@
 					<img class="img-thumbnail profile-pic" src="app/img/jack-yiu-dp.jpg" alt="dp">
 				</div>
 				<div class="profile-header">
-					<a href="#" ng-show="IsCurrentUser()" e-required editable-text="user.profile.name">
+					<a href="#" ng-show="IsCurrentUser(user.username)" e-required editable-text="user.profile.name">
 						{{ user.profile.name }}
 					</a>
 				</div>
-				<h1 ng-hide="IsCurrentUser()" class="profile-header" e-form="formName" editable-text="user.profile.name" e-required e-placeholder="Name">
+				<h1 ng-hide="IsCurrentUser(user.username)" class="profile-header" e-form="formName" editable-text="user.profile.name" e-required e-placeholder="Name">
 					{{ user.profile.name }}
 				</h1>
 				<h3 class="profile-header">{{user.username}}</h3>
@@ -22,11 +22,11 @@
 						<span class="text-muted" ng-show="formEmail.$visible">Email</span>
 						<i class="glyphicon glyphicon-envelope" ng-hide="formEmail.$visible"></i>
 						<span editable-email="user.profile.email" e-required e-form="formEmail" e-placeholder="Email">{{user.profile.email}}</span>
-						<span ng-show="IsCurrentUser()">
+						<span ng-show="IsCurrentUser(user.username)">
 							<button 
 							class="btn-link pull-right"
 							ng-click="formEmail.$show()" ng-hide="formEmail.$visible" >
-								<i class="glyphicon glyphicon-wrench pull-right"></i>
+								<i class="glyphicon glyphicon-pencil pull-right"></i>
 							</button>
 						</span>
 					</li>
@@ -34,22 +34,22 @@
 						<span class="text-muted" ng-show="formPhone.$visible">Phone</span>
 						<i class="glyphicon glyphicon-phone" ng-hide="formPhone.$visible"></i>
 						<span editable-tel="user.profile.phone" e-form="formPhone" e-placeholder="Phone">{{user.profile.phone}}</span>
-						<span ng-show="IsCurrentUser()">
+						<span ng-show="IsCurrentUser(user.username)">
 							<button 
 							class="btn-link pull-right"
 							ng-click="formPhone.$show()" ng-hide="formPhone.$visible" >
-								<i class="glyphicon glyphicon-wrench pull-right"></i>
+								<i class="glyphicon glyphicon-pencil pull-right"></i>
 							</button>
 						</span>
 					</li>
 				</ul>
 
 				<p class="text-muted">What I like playing
-					<span ng-show="IsCurrentUser()">
+					<span ng-show="IsCurrentUser(user.username)">
 						<button 
 						class="btn-link pull-right"
 						ng-click="formPreferences.$show()" ng-hide="formPreferences.$visible" >
-							<i class="glyphicon glyphicon-wrench pull-right"></i>
+							<i class="glyphicon glyphicon-pencil pull-right"></i>
 						</button>
 					</span>
 				</p>

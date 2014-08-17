@@ -104,6 +104,9 @@ factories.authenticationService = function($q, SessionService, User, API, Restan
 		},
 		getUser: function() {
 			return getUser();
+		},
+		isCurrentUser: function(username) {
+			return isLoggedIn() && getUser().username == username
 		}
 	}
 }

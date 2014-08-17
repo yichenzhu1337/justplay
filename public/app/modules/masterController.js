@@ -27,6 +27,10 @@ controllers.masterCtrl = function($scope, $state, authenticationService, loggedI
 		}
 	}
 
+	$scope.IsCurrentUser = function(username) {
+		return $scope.authSvc.isCurrentUser(username);
+	}
+
 	$scope.getUser = function()
 	{
 		var user = $scope.authSvc.getUser();

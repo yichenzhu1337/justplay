@@ -22,11 +22,6 @@ controllers.profileController = function($scope, authenticationService, user){
 			}
 		}, true);
 	}
-
-	$scope.IsCurrentUser = function()
-	{
-		return $scope.isLoggedIn && $scope.AuthSvc.getUser().username == username
-	}
 };
 
 mod.controller(controllers);

@@ -978,12 +978,12 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 			description: 'testgzxcxzc',
 			date: moment.tz(new Date(), 'America/Detroit')
 		}
-		API.post('api/v1/comments', commentData).then(
+/*		API.post('api/v1/comments', commentData).then(
 			function(d) {
 					console.log(d);
-			});
+			});*/
 		//$scope.activity.comments.data.getList();
-		$scope.activity.comments.data.push({activity_id: 1, user_id: 2, username: 'jack', description: 'testinghaha', date: moment.tz(new Date(), 'America/Detroit')});
+		$scope.activity.comments.data.post({activity_id: 1, user_id: 2, username: 'jack', description: 'testinghaha', date: moment.tz(new Date(), 'America/Detroit')});
 		$scope.AuthSvc = authenticationService;
 		$scope.isParticipant = $scope.currentUserIsParticipant(activity.participants.list);
 		$scope.isOwner = $scope.currentUserIsOwner(activity);

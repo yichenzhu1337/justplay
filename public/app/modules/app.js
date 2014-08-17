@@ -145,7 +145,7 @@ app.constant('angularMomentConfig', {
 
 app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_const) {
 	Restangular.setBaseUrl(BASE_URL+BASE_API_ROUTE);
-	Restangular.setParentless(false,[api_const.comments]);
+	Restangular.setParentless([api_const.comments, api_const.activities]);
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
 		if (what == 'profiles' && operation == 'put') {
 			element = element.profile;
@@ -160,7 +160,7 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		}
 		return data.obj;
 	});
-	Restangular.addElementTransformer('profiles',false, function(element) {
+	Restangular.addElementTransformer(api_const.profiles,false, function(element) {
 		if (element.fromServer)
 		{
 			// Augment object
@@ -174,7 +174,7 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		}
 		return element;
 	});
-	Restangular.addElementTransformer('activities', false, function(element) {
+	Restangular.addElementTransformer(api_const.activities, false, function(element) {
 		if (element.fromServer)
 		{
 			var comment = element.comments.data;
@@ -182,8 +182,12 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 			Restangular.restangularizeCollection(
 				element,
 				element.comments.data,
-				api_const.comments, 
-				{include:'comments,activitiesJoined'});
+				api_const.comments);
+
+			Restangular.restangularizeCollection(
+				element,
+				element.activityJoined.data,
+				api_const.participants);
 		}
 		return element;
 	})
@@ -194,7 +198,7 @@ app.directive('navCollapse', function () {
         restrict: 'A',
         link: function (scope, element, attrs) {
             var visible = false;
-
+ 
             element.on('show.bs.collapse', function () {
                 visible = true;
             });

@@ -10,6 +10,7 @@ angular.module('jp.api.config', [])
 				base_api_route: 'api/v1',
 				activities: 'activities',
 				profiles: 'profiles',
-				comments: 'comments'
+				comments: 'comments',
+				participants: 'activity-join'
 			};
 		});

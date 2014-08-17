@@ -212,9 +212,7 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 
 		var i;
 		for (i = 0; i < element.length; i++){
-			//element[i].date = moment.tz(element[i].date, 'Etc/UTC').tz('America/Detroit');
 			Restangular.restangularizeElement(element, element[i], api_const.comments);
-			console.log(i);
 		}
 
 		return element;

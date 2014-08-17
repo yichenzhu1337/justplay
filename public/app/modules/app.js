@@ -147,11 +147,11 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 	Restangular.setBaseUrl(BASE_URL+BASE_API_ROUTE);
 	Restangular.setParentless([api_const.comments]);
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
-		if (operation == 'post' || operation == 'put') {
-			element = Interceptors.Request(element);
-		}
 		if (what == 'profiles' && operation == 'put') {
 			element = element.profile;
+		}
+		if (operation == 'post' || operation == 'put') {
+			element = Interceptors.Request(element);
 		}
 		// Pass element through request transformer
 		return element;

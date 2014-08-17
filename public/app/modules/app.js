@@ -197,12 +197,28 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		}
 		return element;
 	});
+	// COLLECTION ACTIVITY.PARTICIPANTS
 	Restangular.addElementTransformer(api_const.participants, true, function(element) {
-		element.total_comment = element.length;
+
+	});
+	// ACTIVITY.COMMENTS
+	Restangular.addElementTransformer(api_const.comments, false, function(element) {
+		element.date = moment.tz(element.date, 'Etc/UTC').tz('America/Detroit');
+
+		return element;
 	})
+	// COLLECTION ACTIVITY.COMMENTS
 	Restangular.addElementTransformer(api_const.comments, true, function(element) {
-		element.total_comment = element.length;
-	})
+
+		var i;
+		for (i = 0; i < element.length; i++){
+			//element[i].date = moment.tz(element[i].date, 'Etc/UTC').tz('America/Detroit');
+			Restangular.restangularizeElement(element, element[i], api_const.comments);
+			console.log(i);
+		}
+
+		return element;
+	});
 })
 
 app.directive('navCollapse', function () {

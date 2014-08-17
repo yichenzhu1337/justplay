@@ -971,21 +971,8 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 
 	function init() {
 		$scope.activity = activity;
-		var commentData = {
-			activity_id: 1, 
-			user_id: 2,
-			username: 'jack',
-			description: 'testgzxcxzc',
-			date: moment.tz(new Date(), 'America/Detroit')
-		}
-/*		API.post('api/v1/comments', commentData).then(
-			function(d) {
-					console.log(d);
-			});*/
-		//$scope.activity.comments.data.getList();
-		$scope.activity.comments.data.post({activity_id: 1, user_id: 2, username: 'jack', description: 'testinghaha', date: moment.tz(new Date(), 'America/Detroit')});
 		$scope.AuthSvc = authenticationService;
-		$scope.isParticipant = $scope.currentUserIsParticipant(activity.participants.list);
+		//$scope.activity.comments.data.getList();
 		$scope.isOwner = $scope.currentUserIsOwner(activity);
 		$scope.isFriendsCollapsed = true;
 		$scope.isPeopleCollapsed = true;
@@ -996,16 +983,16 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 		API.post('api/v1/activity-join', { activity_id: $scope.activity.activity_id });
 	}
 
-	$scope.postComment = function(comment) {
+	$scope.postComment = function(parent, comment) {
 		var commentData = {
-			activity_id: $scope.activity.activity_id, 
-			user_id: $scope.AuthSvc.getUser().id,
+			activity_id: $scope.activity.id, 
+			user_id: $scope.AuthSvc.getUser().numeric_id,
 			username: $scope.AuthSvc.getUser().username,
 			description: comment,
 			date: moment.tz(new Date(), 'America/Detroit')
 		}
-		API.post('api/v1/comments', commentData);
-		$scope.activity.comments.list.push(Comment.build(commentData));
+		parent.post(commentData);
+		parent.push(commentData);
 		$scope.newcomment = "";
 	}
 };

@@ -6,13 +6,13 @@
 			  <li class="list-group-item">
 					<i class="fa fa-calendar-o pull-left"></i>
 				  <h4 class="list-group-item-heading"> 
-						{{activity.date | amDateFormat: 'dddd, MMM Do'}}	  
+						{{activity.startingtime | amDateFormat: 'dddd, MMM Do'}}	  
 					</h4>
 			  </li>
 			  <li class="list-group-item">
 					<i class="fa fa-clock-o pull-left"></i>
 				  <h4 class="list-group-item-heading"> 
-						{{activity.starttime | amDateFormat: 'HH:mm'}}-{{activity.endtime | amDateFormat: 'HH:mm'}}  
+						{{activity.startingtime | amDateFormat: 'HH:mm'}}-{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 					</h4>
 			  </li>
 			  <li class="list-group-item">
@@ -29,9 +29,9 @@
 		    <tab heading="Going">
 		      <tab-heading>
 		        <i class="glyphicon glyphicon-ok hidden-xs"></i>
-		        Going ({{activity.participants.totalParticipants}})
+		        Going ({{activity.activityJoined.data.length}})
 		      </tab-heading>
-		    	<jpuserlist pageLength="6" getUsers="activity.participants.list">
+		    	<jpuserlist pageLength="6" getUsers="activity.activityJoined.data">
 					</jpuserlist> 
 		    </tab>
 		    <tab>
@@ -44,15 +44,15 @@
 		    <tab>
 		      <tab-heading>
 		        <i class="glyphicon glyphicon-comment hidden-xs"></i>
-		        Comments ({{activity.comments.totalComments}})
+		        Comments ({{activity.comments.data.length}})
 		      </tab-heading>
-		      <div class="media comment" ng-repeat="comment in activity.comments.list">
+		      <div class="media comment" ng-repeat="comment in activity.comments.data">
 					  <a class="pull-left" href="">
 					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
 					  </a>
 					  <div class="media-body">
-				    	<a class="media-name" ui-sref="main.profile({username:comment.username})"><h5 class="media-heading">{{comment.first_name}}</h5></a>
-					    <p>{{comment.message}}</p>
+				    	<a class="media-name" ui-sref="main.profile({username:comment.username})"><h5 class="media-heading">{{comment.username}}</h5></a>
+					    <p>{{comment.description}}</p>
 					    <p class="text-muted comment-date"><span am-time-ago="comment.date"></span></p>
 					  </div>
 					</div>
@@ -62,7 +62,7 @@
 					  </a>
 					  <div class="media-body">
 							<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment"></textarea>
-					  	<button class="btn btn-success pull-right" ng-click="postComment(newcomment)">comment</button>
+					  	<button class="btn btn-success pull-right" ng-click="postComment(activity.comments.data, newcomment)">comment</button>
 					  </div>
 					</div>
 		    </tab>

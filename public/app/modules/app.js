@@ -145,13 +145,15 @@ app.constant('angularMomentConfig', {
 
 app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_const) {
 	Restangular.setBaseUrl(BASE_URL+BASE_API_ROUTE);
-	Restangular.setParentless([api_const.comments, api_const.activities]);
+	Restangular.setParentless([api_const.comments]);
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
+		if (operation == 'post' || operation == 'put') {
+			element = Interceptors.Request(element);
+		}
 		if (what == 'profiles' && operation == 'put') {
 			element = element.profile;
 		}
 		// Pass element through request transformer
-		element = Interceptors.Request(element);
 		return element;
 	});
 	Restangular.addResponseInterceptor(function(data,operation,what,response,deferred){
@@ -160,6 +162,7 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		}
 		return data.obj;
 	});
+	// PROFILES
 	Restangular.addElementTransformer(api_const.profiles,false, function(element) {
 		if (element.fromServer)
 		{
@@ -174,22 +177,31 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		}
 		return element;
 	});
+	// ACTIVITIES
 	Restangular.addElementTransformer(api_const.activities, false, function(element) {
 		if (element.fromServer)
 		{
 			var comment = element.comments.data;
 
+			// COMMENTS
 			Restangular.restangularizeCollection(
 				element,
 				element.comments.data,
 				api_const.comments);
 
+			// PARTICIPANTS
 			Restangular.restangularizeCollection(
 				element,
 				element.activityJoined.data,
 				api_const.participants);
 		}
 		return element;
+	});
+	Restangular.addElementTransformer(api_const.participants, true, function(element) {
+		element.total_comment = element.length;
+	})
+	Restangular.addElementTransformer(api_const.comments, true, function(element) {
+		element.total_comment = element.length;
 	})
 })
 

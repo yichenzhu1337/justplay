@@ -178,10 +178,7 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Re
 			return getAll();
 		},
 		get: function(id) {
-			return Restangular.one(api_const.activities, id).get({include: 'comments,activityJoined'}).then(
-				function(obj) {
-					return obj;
-				});
+			return Restangular.one(api_const.activities, id).get({include: 'comments,activityJoined'});
 		},
 		submitActivity: function(activityJSON) {
 /*			var copiedActivity = angular.copy(activityJSON);

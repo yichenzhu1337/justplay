@@ -52,6 +52,7 @@
 	  <!-- Modules -->
 
 		<!-- Utilities -->
+
 		<script src="app/utilities/flashService.js"></script>
 		<script src="app/utilities/http.js"></script>
 		<script src="app/utilities/errorService.js"></script>		
@@ -93,7 +94,8 @@
 		<script type="text/javascript" src="app/modules/signup/signup.js"></script>
 		
 		<!-- justplay main page -->
-	  <script type="text/javascript" src="app/modules/app.js"></script>
+		<script src="app/modules/config.js"></script>
+	  <script src="app/modules/app.js"></script>
 
 		<!-- CSRF Token -->
 	  <script>

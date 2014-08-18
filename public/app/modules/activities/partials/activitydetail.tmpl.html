@@ -46,16 +46,8 @@
 		        <i class="glyphicon glyphicon-comment hidden-xs"></i>
 		        Comments ({{activity.comments.data.length}})
 		      </tab-heading>
-					<jpcommentlist></jpcommentlist>
-					<div class="media comment" ng-show="getUser()">
-					  <a class="pull-left" href="">
-					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-					  </a>
-					  <div class="media-body">
-							<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment"></textarea>
-					  	<button class="btn btn-success pull-right" ng-click="postComment(activity.comments.data, newcomment)">comment</button>
-					  </div>
-					</div>
+					<jpcommentlist list='activity.comments.data' page-length='11'></jpcommentlist>
+					<jpcommentbox list='activity.comments.data' activity-id='activity.id' ng-show="getUser()"></jpcommentbox>
 		    </tab>
 		  </tabset>
 		</div>

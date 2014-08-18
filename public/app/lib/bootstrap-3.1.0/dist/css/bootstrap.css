@@ -5911,7 +5911,7 @@ form.signup > button {
 }
 .activity-detail-area {
   background-color: white;
-  height: 100%;
+  height: auto;
   padding-top: 10px;
 }
 .activity-detail-area > .tabbable > ul.nav.nav-tabs > li {
@@ -5968,6 +5968,9 @@ form.signup > button {
   position: absolute;
   top: 0;
   right: 0;
+}
+jpcommentlist > .pagination {
+  margin-bottom: 0px;
 }
 .going-friend-icons > .person,
 .going-friend-icons .more-people {
@@ -6099,14 +6102,15 @@ fieldset[disabled] .jp-btn-link {
   }
 }
 .page-container {
-  height: 100%;
+  height: auto;
   min-height: 100%;
   position: relative;
 }
 .page-container > .content-wrapper {
   max-width: 284;
   margin: 0 auto;
-  min-height: 50%;
+  min-height: 100%;
+  height: auto;
   margin-top: 0px;
   background-color: white;
 }
@@ -6161,7 +6165,6 @@ fieldset[disabled] .jp-btn-link {
   .page-container > .content-wrapper {
     max-width: 594;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
-    padding-bottom: 27px;
   }
 }
 @media (min-width: 992px) {

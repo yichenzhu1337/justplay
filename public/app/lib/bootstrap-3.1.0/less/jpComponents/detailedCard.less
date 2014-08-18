@@ -52,7 +52,7 @@
 
 .activity-detail-area {
   background-color: white;
-  height: 100%;
+  height: auto;
   padding-top: @jp-xs-margin;
 
   > .tabbable {
@@ -91,6 +91,9 @@
     }
   }
 }
+
+// Coment Components
+// --------------------------------------------------
 
 .comment {
   position: relative;
@@ -133,6 +136,12 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+}
+
+jpcommentlist {
+  > .pagination {
+    margin-bottom: 0px;
   }
 }
 

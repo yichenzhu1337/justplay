@@ -947,29 +947,9 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 	function init() {
 		$scope.activity = activity;
 		$scope.AuthSvc = authenticationService;
-		//$scope.activity.comments.data.getList();
 		$scope.isOwner = $scope.currentUserIsOwner(activity);
 		$scope.isFriendsCollapsed = true;
 		$scope.isPeopleCollapsed = true;
-
-		// Binds function to val
-		var helper = function(val)
-		{
-			return function() {
-				return val;
-			}
-		}
-
-		// Watch for comment puts
-		for (var i = 0; i < $scope.activity.comments.data.length; i++)
-		{
-			$scope.$watchCollection(helper($scope.activity.comments.data[i]), function(newVal, oldVal) {
-				if (newVal != oldVal) {
-					// newVal.save();
-					//$http.put('api/v1/comments/24', $scope.activity.comments.data[i]);
-				}
-			});
-		}
 	};
 
 	$scope.currentUserIsParticipant = function(participants) {
@@ -999,19 +979,6 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 
 	$scope.join = function() {
 		API.post('api/v1/activity-join', { activity_id: $scope.activity.activity_id });
-	}
-
-	$scope.postComment = function(parent, comment) {
-		var commentData = {
-			activity_id: $scope.activity.id, 
-			user_id: $scope.AuthSvc.getUser().numeric_id,
-			username: $scope.AuthSvc.getUser().username,
-			description: comment,
-			date: moment.tz(new Date(), 'America/Detroit')
-		}
-		parent.post(commentData);
-		parent.push(commentData);
-		$scope.newcomment = "";
 	}
 
 	init();

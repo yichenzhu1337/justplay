@@ -940,9 +940,37 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 	}
 };
 
-controllers.detailedCardController = function($scope, activity, API, authenticationService, Comment){
+controllers.detailedCardController = function($scope, $http, activity, API, authenticationService, Comment){
 	var IsParticipant;
 	var IsOwner;
+
+	function init() {
+		$scope.activity = activity;
+		$scope.AuthSvc = authenticationService;
+		//$scope.activity.comments.data.getList();
+		$scope.isOwner = $scope.currentUserIsOwner(activity);
+		$scope.isFriendsCollapsed = true;
+		$scope.isPeopleCollapsed = true;
+
+		// Binds function to val
+		var helper = function(val)
+		{
+			return function() {
+				return val;
+			}
+		}
+
+		// Watch for comment puts
+		for (var i = 0; i < $scope.activity.comments.data.length; i++)
+		{
+			$scope.$watchCollection(helper($scope.activity.comments.data[i]), function(newVal, oldVal) {
+				if (newVal != oldVal) {
+					newVal.save();
+					//$http.put('api/v1/comments/24', $scope.activity.comments.data[i]);
+				}
+			});
+		}
+	};
 
 	$scope.currentUserIsParticipant = function(participants) {
 		if (angular.isUndefined(IsParticipant)){
@@ -969,16 +997,6 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 		return IsOwner;
 	}
 
-	function init() {
-		$scope.activity = activity;
-		$scope.AuthSvc = authenticationService;
-		//$scope.activity.comments.data.getList();
-		$scope.isOwner = $scope.currentUserIsOwner(activity);
-		$scope.isFriendsCollapsed = true;
-		$scope.isPeopleCollapsed = true;
-	};
-	init();
-
 	$scope.join = function() {
 		API.post('api/v1/activity-join', { activity_id: $scope.activity.activity_id });
 	}
@@ -995,6 +1013,8 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 		parent.push(commentData);
 		$scope.newcomment = "";
 	}
+
+	init();
 };
 
 directives.jppeoplegoingicon = function() {

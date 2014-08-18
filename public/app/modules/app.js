@@ -200,7 +200,20 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 	// COLLECTION ACTIVITY.PARTICIPANTS
 	Restangular.addElementTransformer(api_const.participants, true, function(element) {
 
+		for (var i = 0; i < element.length; i++)
+		{
+			Restangular.restangularizeElement(element, element[i], api_const.participants);
+		}
+
+		return element;
 	});
+	// ACTIVITY.PARTICIPANTS
+	Restangular.addElementTransformer(api_const.participants, false, function(element) {
+
+		element.first_name = element.username;
+		
+		return element;
+	})
 	// ACTIVITY.COMMENTS
 	Restangular.addElementTransformer(api_const.comments, false, function(element) {
 		element.date = moment.tz(element.date, 'Etc/UTC').tz('America/Detroit');

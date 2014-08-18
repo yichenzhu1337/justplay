@@ -46,24 +46,7 @@
 		        <i class="glyphicon glyphicon-comment hidden-xs"></i>
 		        Comments ({{activity.comments.data.length}})
 		      </tab-heading>
-		      <div class="media comment" ng-repeat="comment in activity.comments.data">
-					  <a class="pull-left" ui-sref="main.profile({username:comment.username})">
-					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-					  </a>
-					  <div class="media-body">
-				    	<a class="media-name" ui-sref="main.profile({username:comment.username})"><h5 class="media-heading">{{comment.username}}</h5></a>
-					    <div class='comment-text' editable-textarea="comment.description" e-form="formDescription" e-placeholder="Edit your comment">{{comment.description}}</div>
-
-					    <p class="text-muted comment-date"><span am-time-ago="comment.date"></span></p>
-					  </div>
-					  <span ng-show="true"> <!-- IsCurrentUser(comment.username) -->
-							<button 
-							class="btn-link edit"
-							ng-click="formDescription.$show()" ng-hide="formDescription.$visible">
-								<i class="glyphicon glyphicon-pencil pull-right"></i>
-							</button>
-					  </span>
-					</div>
+					<jpcommentlist></jpcommentlist>
 					<div class="media comment" ng-show="getUser()">
 					  <a class="pull-left" href="">
 					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">

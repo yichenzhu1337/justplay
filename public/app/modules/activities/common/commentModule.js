@@ -58,4 +58,27 @@ factories.CommentSvc = ['Comment', function(Comment) {
 	}
 }]
 
+mod.directive('jpcomment', [function(){
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'app/modules/activities/components/comment/comment.tmpl.html',
+		scope: {
+			commentobj: '='
+		},
+		replace: true,
+		link: function($scope, element, attrs) {
+			console.log($scope.commentobj);
+		}
+	}
+}]);
+
+mod.directive('jpcommentlist', [function(){
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'app/modules/activities/components/comment/commentlist.tmpl.html',
+	}
+}]);
+
 mod.factory(factories);

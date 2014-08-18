@@ -965,7 +965,7 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 		{
 			$scope.$watchCollection(helper($scope.activity.comments.data[i]), function(newVal, oldVal) {
 				if (newVal != oldVal) {
-					newVal.save();
+					// newVal.save();
 					//$http.put('api/v1/comments/24', $scope.activity.comments.data[i]);
 				}
 			});

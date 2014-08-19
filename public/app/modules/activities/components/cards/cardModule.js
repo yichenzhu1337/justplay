@@ -789,17 +789,12 @@ factories.cardFactory = function() {
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = ['$scope', 'ActivitySvc', 'watching', 'filterService',
-function($scope, ActivitySvc, watching, filterService) {
+controllers.cardsController = ['$scope', 'watching', 'filterService', 'activityList',
+function($scope, watching, filterService, activityList) {
 	// Base Set of Activities
 
 	function init() {
-		var promise = ActivitySvc.getList();
-		promise.then(
-			function(data) {
-				$scope.dates = angular.copy(data);
-				console.log('Dates:' + $scope.dates);
-			});
+		$scope.dates = activityList;
 
 		$scope.filterServ = filterService;
 
@@ -945,9 +940,17 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 	}
 };
 
-controllers.detailedCardController = function($scope, activity, API, authenticationService, Comment){
+controllers.detailedCardController = function($scope, $http, activity, API, authenticationService, Comment){
 	var IsParticipant;
 	var IsOwner;
+
+	function init() {
+		$scope.activity = activity;
+		$scope.AuthSvc = authenticationService;
+		$scope.isOwner = $scope.currentUserIsOwner(activity);
+		$scope.isFriendsCollapsed = true;
+		$scope.isPeopleCollapsed = true;
+	};
 
 	$scope.currentUserIsParticipant = function(participants) {
 		if (angular.isUndefined(IsParticipant)){
@@ -974,32 +977,11 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 		return IsOwner;
 	}
 
-	function init() {
-		$scope.activity = activity;
-		$scope.AuthSvc = authenticationService;
-		$scope.isParticipant = $scope.currentUserIsParticipant(activity.participants.list);
-		$scope.isOwner = $scope.currentUserIsOwner(activity);
-		$scope.isFriendsCollapsed = true;
-		$scope.isPeopleCollapsed = true;
-	};
-	init();
-
 	$scope.join = function() {
-		API.post('api/activity-join', { activity_id: $scope.activity.activity_id });
+		API.post('api/v1/activity-join', { activity_id: $scope.activity.activity_id });
 	}
 
-	$scope.postComment = function(comment) {
-		var commentData = {
-			activity_id: $scope.activity.activity_id, 
-			user_id: $scope.AuthSvc.getUser().id,
-			username: $scope.AuthSvc.getUser().username,
-			description: comment,
-			date: moment.tz(new Date(), 'America/Detroit')
-		}
-		API.post('api/comments', commentData);
-		$scope.activity.comments.list.push(Comment.build(commentData));
-		$scope.newcomment = "";
-	}
+	init();
 };
 
 directives.jppeoplegoingicon = function() {

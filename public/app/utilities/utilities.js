@@ -6,8 +6,13 @@ services.SanitizeService = function($sanitize) {
 	this.sanitizeObject = function(obj) {
 			var ret = {};
 			angular.forEach(obj, function(value, key) {
-				value = String(value);
-				ret[key] = $sanitize(value);
+				if (!(angular.isDefined(value) && angular.isFunction(value)))
+				{
+					value = String(value);
+					ret[key] = $sanitize(value);
+				} else {
+					ret[key] = value;
+				}
 			}, ret);
 			return ret;
 	};
@@ -15,7 +20,12 @@ services.SanitizeService = function($sanitize) {
 	this.sanitizeArray = function(arr) {
 		var ret = [];
 		angular.forEach(arr, function(value, key) {
-			ret[key] = $sanitize(value);
+			if (angular.isDefined(ret[key]) && (angular.isObject(ret[key]) || angular.isArray(ret[key])))
+			{
+				ret[key] = $sanitize(value);
+			} else {
+				ret[key] = value;
+			}
 		}, ret);
 		return ret;		
 	};

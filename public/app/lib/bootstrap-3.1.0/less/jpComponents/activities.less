@@ -102,14 +102,15 @@
 // --------------------------------------------------
 
 .page-container {
-  height: 100%;
+  height: auto;
   min-height: 100%;
   position: relative;
 
   > .content-wrapper {
   	max-width: @jp-base-width;
     margin: 0 auto;
-    min-height: 50%;
+    min-height: 100%;
+    height: auto;
     margin-top: 0px;
     background-color: white;
 
@@ -163,7 +164,6 @@
     @media (min-width: @screen-sm-min) {
     	max-width: @jp-sm-width;
 	    box-shadow: 0 0 15px rgba(0,0,0,0.13);
-	    padding-bottom: 27px;
     }
 
     @media (min-width: @screen-md-min) {

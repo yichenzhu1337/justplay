@@ -1,0 +1,4 @@
+<jpcomment 
+ng-repeat="comment in list | startFrom: (currentPage-1)*pageLength | limitTo: pageLength" 
+commentobj='comment'/>
+<pagination total-items="totalComments" items-per-page="pageLength" page="currentPage" ng-model="yo"></pagination>

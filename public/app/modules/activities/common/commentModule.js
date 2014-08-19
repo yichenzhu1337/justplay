@@ -58,4 +58,91 @@ factories.CommentSvc = ['Comment', function(Comment) {
 	}
 }]
 
+// Single Comment
+mod.directive('jpcomment', [function(){
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'app/modules/activities/components/comment/comment.tmpl.html',
+		scope: {
+			commentobj: '='
+		},
+		replace: true,
+		link: function($scope, element, attrs) {
+			function init() {
+				$scope.$watchCollection(function () { return $scope.commentobj }, function(newVal,oldVal) {
+					if (newVal!=oldVal)
+					{
+						console.log('yeye');
+					}
+				});
+			}
+
+			init();
+		}
+	}
+}]);
+
+// List of Paginated Comments 
+mod.directive('jpcommentlist', [function(){
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'app/modules/activities/components/comment/commentlist.tmpl.html',
+		scope: {
+			list: '=',
+			pageLength: '='
+		},
+		link: function($scope, element, attrs) {
+			function init()
+			{
+				$scope.currentPage = 1;
+				$scope.totalComments = $scope.list.length;
+
+				$scope.$watch(function() { return $scope.list.length }, function(newVal, oldVal) {
+					if (newVal!=oldVal)
+					{
+						$scope.totalComments = newVal;
+					}
+				});
+			}
+			init();
+		}
+	}
+}]);
+
+// Comment Box
+mod.directive('jpcommentbox', ['authenticationService', function(AuthSvc){
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'app/modules/activities/components/comment/commentbox.tmpl.html',
+		replace: true,
+		scope: {
+			list: '=',
+			activityId: '=',
+		},
+		link: function($scope, element, attrs) {
+			function init() {
+				$scope.AuthSvc = AuthSvc;
+			}
+
+			$scope.postComment = function(parent, comment) {
+				var commentData = {
+					activity_id: $scope.activityId, 
+					user_id: $scope.AuthSvc.getUser().numeric_id,
+					username: $scope.AuthSvc.getUser().username,
+					description: comment,
+					date: moment.tz(new Date(), 'America/Detroit')
+				}
+				parent.post(commentData);
+				parent.push(commentData);
+				$scope.newcomment = "";
+			}
+
+			init();
+		}
+	}
+}]);
+
 mod.factory(factories);

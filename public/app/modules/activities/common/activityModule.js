@@ -1,4 +1,5 @@
-var mod = angular.module('activityModule', ['jp.errorHandling','jp.http','participantModule','commentModule']);
+var mod = angular.module('activityModule', 
+	['jp.errorHandling','jp.http','participantModule','commentModule','restangular','jp.api.config']);
 
 var factories = {};
 
@@ -25,7 +26,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 	 */
 	function validateActivity(data) {
 		if (
-			angular.isUndefined(data.activity_id) ||
+			angular.isUndefined(data.id) ||
 			angular.isUndefined(data.owner_id) ||
 			angular.isUndefined(data.sport) ||
 			angular.isUndefined(data.startingtime) ||
@@ -52,7 +53,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 			return false;
 		} else {
 			var activity = new Activity(
-				data.activity_id,
+				data.id,
 				data.owner_id,
 				data.sport,
 				data.startingtime,
@@ -112,8 +113,8 @@ factories.ActivityCollection = function(){
 	return ActivityCollection;
 };
 
-factories.ActivitySvc = ['$q', '$timeout', '$http', 'cardFactory', 'Activity', 'ActivityCollection', 'API', 
-function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
+factories.ActivitySvc = ['$q', '$timeout', '$http', 'cardFactory', 'Activity', 'ActivityCollection', 'API', 'Restangular', 'api_const',
+function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Restangular, api_const) {
 
 	/**
 	 * Creates an array of Activity Objects
@@ -149,7 +150,7 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 	}
 
 	var getAll = function() {
-		return API.get('api/v1/activities-all-this-week?include=comments,activityJoined').then(
+		return API.get('api/v1/activities/activities-all-this-week?include=comments,activityJoined').then(
 			function(data) {
 				var packagedobj = getAllSports(data);
 				return packagedobj;
@@ -177,10 +178,7 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API) {
 			return getAll();
 		},
 		get: function(id) {
-			return API.get('api/v1/activities/'+id+'?include=comments,activityJoined').then(
-				function(obj) {
-					return Activity.build(obj.data);
-				});
+			return Restangular.one(api_const.activities, id).get({include: 'comments,activityJoined'});
 		},
 		submitActivity: function(activityJSON) {
 /*			var copiedActivity = angular.copy(activityJSON);

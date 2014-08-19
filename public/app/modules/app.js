@@ -1,13 +1,19 @@
 var app = angular.module('app', 
 	[
 		'ui.router',
+		'jp.config',
 		'jp.login',
 		'jp.signup',
 		'jp.activitiespage',
 		'jp.social',
 		'jp.profile',
 		'jp.masterCtrl',
-		'angularMoment'
+		'angularMoment',
+		'restangular',
+		'jp.http',
+		'jp.utilities',
+		'jp.authentication',
+		'jp.api.config'
 	]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -91,7 +97,17 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 				templateUrl: "app/modules/activities/partials/detailedheader.tmpl.html"
 			},
 			"body": {
-				templateUrl: "app/modules/profile/profilebody.tmpl.html"
+				templateUrl: "app/modules/profile/profilebody.tmpl.html",
+				controller: "profileController"
+			}
+		},
+		resolve: {
+			user: function($stateParams, Restangular, authenticationService) {
+				if (authenticationService.getUser().username == $stateParams.username) {
+					return authenticationService.getUser();
+				} else {
+					return Restangular.one('profiles',$stateParams.username).get();
+				}
 			}
 		}
 	});
@@ -127,26 +143,88 @@ app.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
 });
 
-app.run(['$rootScope', '$state', function($rootScope, $state){
-	$rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-/*    if (sessionStorage.restorestate == "true") {
- 	    $rootScope.$broadcast('restorestate'); //let everything know we need to restore state
-  	  sessionStorage.restorestate = false;
-    }*/
+app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_const) {
+	Restangular.setBaseUrl(BASE_URL+BASE_API_ROUTE);
+	Restangular.setParentless([api_const.comments]);
+	Restangular.addRequestInterceptor(function(element,operation,what,url){
+		if (what == 'profiles' && operation == 'put') {
+			element = element.profile;
+		}
+		if (operation == 'post' || operation == 'put') {
+			element = Interceptors.Request(element);
+		}
+		// Pass element through request transformer
+		return element;
 	});
+	Restangular.addResponseInterceptor(function(data,operation,what,response,deferred){
+		if (what == api_const.activities) {
+			return data.obj.data;
+		}
+		return data.obj;
+	});
+	// PROFILES
+	Restangular.addElementTransformer(api_const.profiles,false, function(element) {
+		if (element.fromServer)
+		{
+			// Augment object
+			element.numeric_id = element.id;
+			element.id = element.username;
+			if (element.last_login == null) {
+				element.last_active = new Date(element.created_at);
+			} else {
+				element.last_active = new Date(element.last_login);		
+			}
+		}
+		return element;
+	});
+	// ACTIVITIES
+	Restangular.addElementTransformer(api_const.activities, false, function(element) {
+		if (element.fromServer)
+		{
+			var comment = element.comments.data;
 
-	//let everthing know that we need to save state now.
-	window.onbeforeunload = function (event) {
-	    $rootScope.$broadcast('savestate');
-	};
-}]);
+			// COMMENTS
+			Restangular.restangularizeCollection(
+				element,
+				element.comments.data,
+				api_const.comments);
+
+			// PARTICIPANTS
+			Restangular.restangularizeCollection(
+				element,
+				element.activityJoined.data,
+				api_const.participants);
+		}
+		return element;
+	});
+	// COLLECTION ACTIVITY.PARTICIPANTS
+	Restangular.addElementTransformer(api_const.participants, true, function(element) {
+
+	});
+	// ACTIVITY.COMMENTS
+	Restangular.addElementTransformer(api_const.comments, false, function(element) {
+		element.date = moment.tz(element.date, 'Etc/UTC').tz('America/Detroit');
+
+		return element;
+	})
+	// COLLECTION ACTIVITY.COMMENTS
+	Restangular.addElementTransformer(api_const.comments, true, function(element) {
+
+		var i;
+		for (i = 0; i < element.length; i++){
+			Restangular.restangularizeElement(element, element[i], api_const.comments);
+		}
+
+		return element;
+	});
+})
 
 app.directive('navCollapse', function () {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
             var visible = false;
-
+ 
             element.on('show.bs.collapse', function () {
                 visible = true;
             });

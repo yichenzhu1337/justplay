@@ -1,8 +1,8 @@
-var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','userModule']);
+var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','userModule','restangular']);
 
 var factories = {};
 
-factories.authenticationService = function($q, SessionService, User, API) {
+factories.authenticationService = function($q, SessionService, User, API, Restangular) {
 	var cacheSession = function() {
 		SessionService.set("authenticated", true);
 	}
@@ -18,7 +18,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 	var currentUser;
 
 	var setUser = function(userJSON) {
-		currentUser = User.build(userJSON);
+		currentUser = userJSON;
 	}
 
 	var getUser = function() {
@@ -44,12 +44,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 	}
 
 	var getUserProfile = function(obj) {
-		var d = $q.defer();
-		API.get('api/v1/profiles/'+obj.username).then(
-			function(data) {
-				d.resolve(data);
-			});
-		return d.promise;
+		return Restangular.one('profiles',obj.username).get();
 	}
 
 	var setupLocalSession = function(user)
@@ -96,7 +91,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 			return logout;
 		},
 		determineAuthState: function() {
-			return API.get('api/v1/get-auth-info')
+			return API.get('api/v1/users/get-auth-info')
 			.then(
 				getUserProfile,
 				function(data) { 
@@ -109,6 +104,9 @@ factories.authenticationService = function($q, SessionService, User, API) {
 		},
 		getUser: function() {
 			return getUser();
+		},
+		isCurrentUser: function(username) {
+			return isLoggedIn() && getUser().username == username
 		}
 	}
 }

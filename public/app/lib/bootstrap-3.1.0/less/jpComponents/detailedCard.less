@@ -52,7 +52,7 @@
 
 .activity-detail-area {
   background-color: white;
-  height: 100%;
+  height: auto;
   padding-top: @jp-xs-margin;
 
   > .tabbable {
@@ -92,7 +92,12 @@
   }
 }
 
+// Coment Components
+// --------------------------------------------------
+
 .comment {
+  position: relative;
+
   > .media-body {
 
     > a {
@@ -106,10 +111,37 @@
       margin-bottom: 0px;
     }
 
+    > .comment-text {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    > form {
+      width: 100%;
+      > .form-group {
+        width: 100%;
+        > textarea {
+          width: 100%;
+        }
+      }
+    }
+
     > button {
       margin-top: 10px;
       background: linear-gradient(to bottom, #76d926, #6ac322);
     }
+  }
+
+  > span > button.edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+jpcommentlist {
+  > .pagination {
+    margin-bottom: 0px;
   }
 }
 

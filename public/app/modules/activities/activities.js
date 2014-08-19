@@ -4,10 +4,10 @@ var jpactivitiespage = angular.module('jp.activitiespage',
 	'sortModule',
 	'filterModule', 
   'searchbar',
-  'cardModule',  
-  'dateModule',
-  'createform',
-  'activityModule'
+        'cardModule',
+        'dateModule',
+        'createform',
+        'activityModule'
 	]);
 
 jpactivitiespage

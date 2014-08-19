@@ -19,7 +19,7 @@ class CommentTransformer extends TransformerAbstract{
 	{
 		return [
 			'id' => $comment['id'],
-			'username' => User::find($comment['id'])->username,
+			'username' => User::find($comment['user_id'])->username,
 			'activity_id' => $comment['activity_id'],
 			'user_id' => $comment['user_id'],
 			'description' => $comment['description'],

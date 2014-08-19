@@ -145,7 +145,7 @@ app.constant('angularMomentConfig', {
 
 app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_const) {
 	Restangular.setBaseUrl(BASE_URL+BASE_API_ROUTE);
-	Restangular.setParentless([api_const.comments]);
+	Restangular.setParentless([api_const.comments,api_const.participants]);
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
 		if (what == 'profiles' && operation == 'put') {
 			element = element.profile;

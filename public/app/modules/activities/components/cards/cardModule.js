@@ -948,14 +948,19 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 		$scope.activity = activity;
 		$scope.AuthSvc = authenticationService;
 		$scope.isOwner = $scope.currentUserIsOwner(activity);
+		$scope.isParticipant = $scope.currentUserIsParticipant(activity.activityJoined.data);
 		$scope.isFriendsCollapsed = true;
 		$scope.isPeopleCollapsed = true;
+
+	  $scope.minDate = new Date();
+	  $scope.maxDate = new Date();
+	  $scope.maxDate.setDate($scope.maxDate.getDate()+6); // Show a week extra at max.
 	};
 
 	$scope.currentUserIsParticipant = function(participants) {
 		if (angular.isUndefined(IsParticipant)){
 			for (var i = 0; i < participants.length; i++) {
-				if (participants[i].user_id == $scope.AuthSvc.getUser().id) {
+				if (participants[i].user_id == $scope.AuthSvc.getUser().numeric_id) {
 					IsParticipant = true;
 					return IsParticipant;
 				}
@@ -967,7 +972,7 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 
 	$scope.currentUserIsOwner = function(activity) {
 		if (angular.isUndefined(IsOwner)) {
-			if (activity.owner_id == $scope.AuthSvc.getUser().id) {
+			if (activity.owner_id == $scope.AuthSvc.getUser().numeric_id) {
 				IsOwner = true;
 				return IsOwner;
 			} else {
@@ -978,8 +983,9 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 	}
 
 	$scope.join = function() {
-		API.post('api/v1/activity-join', { activity_id: $scope.activity.activity_id });
-	}
+		$scope.activity.activityJoined.data.post({activity_id: $scope.activity.id });
+/*		API.post('api/v1/activity-join', { activity_id: $scope.activity.id });
+*/	}
 
 	init();
 };

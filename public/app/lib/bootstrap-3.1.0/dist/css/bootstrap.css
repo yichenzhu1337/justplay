@@ -5909,6 +5909,10 @@ form.signup > button {
   font-size: 16px;
   line-height: 1.4;
 }
+.header-content-area > ul > li > h4.list-group-item-heading:active,
+.header-content-area > ul > li h4.list-group-item-heading:hover {
+  color: #2a6496;
+}
 .activity-detail-area {
   background-color: white;
   height: auto;
@@ -5994,6 +5998,15 @@ jpcommentlist > .pagination {
   line-height: 15px;
   font-weight: bold;
   color: #aaa;
+}
+.inline-edit {
+  display: inline-block;
+}
+.inline-edit:hover,
+.inline-edit:active {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #428bca;
 }
 .jp-btn-link {
   color: #AAB2BD;

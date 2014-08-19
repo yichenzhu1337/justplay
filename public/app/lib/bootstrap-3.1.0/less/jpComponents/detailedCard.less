@@ -46,6 +46,11 @@
         font-size: 16px;
         line-height: 1.4;
       }
+
+      > h4.list-group-item-heading:active,
+      h4.list-group-item-heading:hover {
+        color: #2a6496;
+      }
     }
   }
 }
@@ -171,4 +176,15 @@ jpcommentlist {
       color: #aaa;
     }
   }
+}
+
+.inline-edit {
+  display: inline-block;
+}
+
+.inline-edit:hover,
+.inline-edit:active {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #428bca;
 }

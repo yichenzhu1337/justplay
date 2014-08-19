@@ -5,19 +5,29 @@
 			<ul class="list-group">
 			  <li class="list-group-item">
 					<i class="fa fa-calendar-o pull-left"></i>
-				  <h4 class="list-group-item-heading"> 
-						{{activity.startingtime | amDateFormat: 'dddd, MMM Do'}}	  
+				  <h4 class="list-group-item-heading inline-edit" 
+ 				  editable-bsdate="activity.startingtime | amDateFormat: 'dddd, MMM Do'" 
+				  e-datepicker-popup="EEEE, MMM d"
+				  e-min='minDate'
+				  e-max='maxDate'> 
+						{{activity.startingtime | amDateFormat: 'dddd, MMM Do'}}
 					</h4>
 			  </li>
 			  <li class="list-group-item">
 					<i class="fa fa-clock-o pull-left"></i>
-				  <h4 class="list-group-item-heading"> 
-						{{activity.startingtime | amDateFormat: 'HH:mm'}}-{{activity.endingtime | amDateFormat: 'HH:mm'}}  
+				  <h4 class="list-group-item-heading inline-edit"
+				  editable-bstime="activity.startingtime" e-show-meridian="false" e-minute-step="10"> 
+						{{activity.startingtime | amDateFormat: 'HH:mm'}}
+					</h4>
+					<span>-</span>
+					<h4 class="list-group-item-heading inline-edit"
+				  editable-bstime="activity.endingtime" e-show-meridian="false" e-minute-step="10">
+						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 					</h4>
 			  </li>
 			  <li class="list-group-item">
 					<i class="glyphicon glyphicon-map-marker pull-left"></i>
-				  <h4 class="list-group-item-heading"> 
+				  <h4 class="list-group-item-heading inline-edit" editable-text="activity.location"> 
 						{{activity.location}}
 					</h4>
 			  </li>

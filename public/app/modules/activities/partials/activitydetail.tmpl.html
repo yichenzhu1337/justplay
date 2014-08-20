@@ -6,11 +6,12 @@
 			  <li class="list-group-item">
 					<i class="fa fa-calendar-o pull-left"></i>
 				  <h4 class="list-group-item-heading inline-edit" 
- 				  editable-bsdate="activity.startingtime | amDateFormat: 'dddd, MMM Do'" 
+ 				  editable-bsdate="activity.startingtime" 
+ 				  e-type='datetime'
 				  e-datepicker-popup="EEEE, MMM d"
 				  e-min='minDate'
 				  e-max='maxDate'> 
-						{{activity.startingtime | amDateFormat: 'dddd, MMM Do'}}
+						{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
 					</h4>
 			  </li>
 			  <li class="list-group-item">

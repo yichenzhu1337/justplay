@@ -922,6 +922,8 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 		$state.go('main.activities.detail', { id: activityId});
 	}
 
+
+
 	/**
 	 * Retrieves the friend list (Static)
 	 * @return {none} none
@@ -955,6 +957,16 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 	  $scope.minDate = new Date();
 	  $scope.maxDate = new Date();
 	  $scope.maxDate.setDate($scope.maxDate.getDate()+6); // Show a week extra at max.
+
+	  $scope.$watchCollection(function() { return $scope.activity},function(newVal,oldVal) {
+	  	console.log('newVal: ' +newVal);
+	  	console.log('oldVal: ' +oldVal);
+	  	if (newVal != oldVal) {
+	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
+
+	  		$scope.activity.save();
+	  	}
+	  });
 	};
 
 	$scope.currentUserIsParticipant = function(participants) {

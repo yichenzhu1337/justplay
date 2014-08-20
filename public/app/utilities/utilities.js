@@ -32,4 +32,26 @@ services.SanitizeService = function($sanitize) {
 	
 };
 
+services.DateTimeService = function()
+{
+	this.SerializeMomentsToUTC = function(element) 
+	{
+		// Deserialize Moments and Dates into MySqlFormat
+		for (var key in element)
+		{
+			console.log('Key: ' + key +' element: ' + element[key]);
+			if (element[key] instanceof Date)
+			{
+				element[key] = moment(element[key]);
+			} 
+			if (angular.isDefined(element[key]._isAMomentObject) && element[key]._isAMomentObject)
+			{
+				element[key] = moment.tz(element[key], 'Etc/UTC').toDate().toMysqlFormat();
+			}
+		}
+		
+		return element;
+	} 
+}
+
 mod.service(services);

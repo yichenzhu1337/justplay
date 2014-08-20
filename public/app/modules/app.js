@@ -143,12 +143,40 @@ app.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
 });
 
-app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_const) {
+app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, Interceptors, api_const) {
 	Restangular.setBaseUrl(BASE_URL+BASE_API_ROUTE);
 	Restangular.setParentless([api_const.comments,api_const.participants]);
+	// REQUEST INTERCEPTOR
+	// ----------------------------------------------------------------------------
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
-		if (what == 'profiles' && operation == 'put') {
-			element = element.profile;
+		if (operation == 'put') {
+			switch (what) {
+				case api_const.profiles:
+					element = element.profile
+					break;
+				case api_const.activities:			
+					// Replace all time into UTC Moments
+					for (var key in newVal)
+					{
+						console.log('Key: ' + key +' element: ' + newVal[key]);
+						if (newVal[key] instanceof Date)
+						{
+							newVal[key] = moment(newVal[key]);
+						} 
+						if (angular.isDefined(newVal[key]._isAMomentObject) && newVal[key]._isAMomentObject)
+						{
+							newVal[key] = moment.tz(newVal[key], 'Etc/UTC');
+						}
+					}
+					// Set endingtime date to be the same as startingtime
+					newVal.endingtime.set('date',newVal.startingtime.date());
+					newVal.endingtime.set('month',newVal.startingtime.month());
+					newVal.endingtime.set('year',newVal.startingtime.year());
+
+					// Serialize Moments and Dates into MySqlFormat
+					element = DateTimeService.SerializeMomentsToUTC(element);
+					break;
+			}
 		}
 		if (operation == 'post' || operation == 'put') {
 			element = Interceptors.Request(element);
@@ -156,6 +184,8 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		// Pass element through request transformer
 		return element;
 	});
+	// RESPONSE INTERCEPTOR
+	// ----------------------------------------------------------------------------
 	Restangular.addResponseInterceptor(function(data,operation,what,response,deferred){
 		if (what == api_const.activities) {
 			return data.obj.data;
@@ -163,6 +193,7 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		return data.obj;
 	});
 	// PROFILES
+	// ----------------------------------------------------------------------------
 	Restangular.addElementTransformer(api_const.profiles,false, function(element) {
 		if (element.fromServer)
 		{
@@ -178,10 +209,13 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		return element;
 	});
 	// ACTIVITIES
+	// ----------------------------------------------------------------------------
 	Restangular.addElementTransformer(api_const.activities, false, function(element) {
 		if (element.fromServer)
 		{
-			var comment = element.comments.data;
+			// Deserialize Sql Time format to moments
+			element.startingtime = moment.tz(element.startingtime, 'Etc/UTC').tz('America/Detroit');
+			element.endingtime = moment.tz(element.endingtime, 'Etc/UTC').tz('America/Detroit');
 
 			// COMMENTS
 			Restangular.restangularizeCollection(
@@ -198,6 +232,7 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		return element;
 	});
 	// COLLECTION ACTIVITY.PARTICIPANTS
+	// ----------------------------------------------------------------------------
 	Restangular.addElementTransformer(api_const.participants, true, function(element) {
 
 		for (var i = 0; i < element.length; i++)
@@ -208,6 +243,7 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		return element;
 	});
 	// ACTIVITY.PARTICIPANTS
+	// ----------------------------------------------------------------------------
 	Restangular.addElementTransformer(api_const.participants, false, function(element) {
 
 		element.first_name = element.username;
@@ -215,12 +251,14 @@ app.run(function(Restangular, API, BASE_URL, BASE_API_ROUTE, Interceptors, api_c
 		return element;
 	})
 	// ACTIVITY.COMMENTS
+	// ----------------------------------------------------------------------------
 	Restangular.addElementTransformer(api_const.comments, false, function(element) {
 		element.date = moment.tz(element.date, 'Etc/UTC').tz('America/Detroit');
 
 		return element;
 	})
 	// COLLECTION ACTIVITY.COMMENTS
+	// ----------------------------------------------------------------------------
 	Restangular.addElementTransformer(api_const.comments, true, function(element) {
 
 		var i;

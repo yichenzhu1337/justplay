@@ -149,40 +149,31 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 	// REQUEST INTERCEPTOR
 	// ----------------------------------------------------------------------------
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
+		var payload;
+
 		if (operation == 'put') {
 			switch (what) {
 				case api_const.profiles:
-					element = element.profile
+					payload = angular.copy(element.profile);
 					break;
-				case api_const.activities:			
-					// Replace all time into UTC Moments
-					for (var key in newVal)
-					{
-						console.log('Key: ' + key +' element: ' + newVal[key]);
-						if (newVal[key] instanceof Date)
-						{
-							newVal[key] = moment(newVal[key]);
-						} 
-						if (angular.isDefined(newVal[key]._isAMomentObject) && newVal[key]._isAMomentObject)
-						{
-							newVal[key] = moment.tz(newVal[key], 'Etc/UTC');
-						}
-					}
+				case api_const.activities:
+					payload = angular.copy(element);
 					// Set endingtime date to be the same as startingtime
-					newVal.endingtime.set('date',newVal.startingtime.date());
-					newVal.endingtime.set('month',newVal.startingtime.month());
-					newVal.endingtime.set('year',newVal.startingtime.year());
+					var momentStartTime = moment.tz(payload.startingtime, 'Etc/UTC');
+					payload.endingtime.set('date',momentStartTime.date());
+					payload.endingtime.set('month',momentStartTime.month());
+					payload.endingtime.set('year',momentStartTime.year());
 
 					// Serialize Moments and Dates into MySqlFormat
-					element = DateTimeService.SerializeMomentsToUTC(element);
+					payload = DateTimeService.SerializeMomentsToUTC(payload);
 					break;
 			}
 		}
 		if (operation == 'post' || operation == 'put') {
-			element = Interceptors.Request(element);
+			payload = Interceptors.Request(element);
 		}
 		// Pass element through request transformer
-		return element;
+		return payload;
 	});
 	// RESPONSE INTERCEPTOR
 	// ----------------------------------------------------------------------------

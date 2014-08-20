@@ -958,7 +958,7 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 	  $scope.maxDate = new Date();
 	  $scope.maxDate.setDate($scope.maxDate.getDate()+6); // Show a week extra at max.
 
-	  $scope.$watchCollection(function() { return $scope.activity},function(newVal,oldVal) {
+	  $scope.$watch(function() { return $scope.activity},function(newVal,oldVal) {
 	  	console.log('newVal: ' +newVal);
 	  	console.log('oldVal: ' +oldVal);
 	  	if (newVal != oldVal) {
@@ -966,7 +966,7 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 
 	  		$scope.activity.save();
 	  	}
-	  });
+	  }, true);
 	};
 
 	$scope.currentUserIsParticipant = function(participants) {

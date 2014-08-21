@@ -9,7 +9,8 @@ var mod = angular.module('cardModule',
 	'skillModule', 
 	'ui.bootstrap',
 	'jp.utilities',
-	'jp.authentication']);
+	'jp.authentication',
+	'jp.utilities']);
 
 var controllers = {};
 var factories = {};
@@ -942,21 +943,22 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 	}
 };
 
-controllers.detailedCardController = function($scope, $http, activity, API, authenticationService, Comment){
+controllers.detailedCardController = function($scope, DateTimeService, $http, activity, API, authenticationService, Comment){
 	var IsParticipant;
 	var IsOwner;
 
 	function init() {
 		$scope.activity = activity;
 		$scope.AuthSvc = authenticationService;
+		$scope.DTSvc = DateTimeService;
 		$scope.isOwner = $scope.currentUserIsOwner(activity);
 		$scope.isParticipant = $scope.currentUserIsParticipant(activity.activityJoined.data);
+		$scope.isEditable = $scope.isBeforeCurrentDate(activity);
 		$scope.isFriendsCollapsed = true;
 		$scope.isPeopleCollapsed = true;
 
-	  $scope.minDate = new Date();
-	  $scope.maxDate = new Date();
-	  $scope.maxDate.setDate($scope.maxDate.getDate()+6); // Show a week extra at max.
+	  $scope.minDate = moment(new Date());
+	  $scope.maxDate = $scope.DTSvc.getDefaultDateRange().endRange;
 
 	  $scope.$watch(function() { return $scope.activity},function(newVal,oldVal) {
 	  	console.log('newVal: ' +newVal);
@@ -964,7 +966,7 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 	  	if (newVal != oldVal) {
 	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
 
-	  		$scope.activity.save();
+	  		$scope.activity.put();
 	  	}
 	  }, true);
 	};
@@ -992,6 +994,15 @@ controllers.detailedCardController = function($scope, $http, activity, API, auth
 			}
 		}
 		return IsOwner;
+	}
+
+	$scope.isBeforeCurrentDate = function(activity) {
+		if (activity.startingtime.isBefore(moment(new Date())))
+		{
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	$scope.join = function() {

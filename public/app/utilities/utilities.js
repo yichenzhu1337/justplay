@@ -51,7 +51,29 @@ services.DateTimeService = function()
 		}
 		
 		return element;
-	} 
+	}
+
+	this.getDefaultDateRange = function()
+	{
+		var dates = {};
+		dates.startRange = moment(new Date()).tz('America/Detroit').startOf('week');
+		dates.endRange = moment(new Date()).tz('America/Detroit').add('weeks',1).endOf('week');
+		return dates;
+	}
+
+	this.isWithinDateRange = function(startRange, endRange, curMoment)
+	{
+		var comparisonUnit = 'day';
+		// Check Edge Cases
+		if (startRange.isSame(curMoment, comparisonUnit) || endRange.isSame(curMoment, comparisonUnit))
+		{
+			return true;
+		} else if (startRange.isBefore(curMoment, comparisonUnit) && endRange.isAfter(curMoment, comparisonUnit)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 mod.service(services);

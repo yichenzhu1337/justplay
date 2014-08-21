@@ -10,31 +10,45 @@
  				  e-type='datetime'
 				  e-datepicker-popup="EEEE, MMM d"
 				  e-min='minDate'
-				  e-max='maxDate'> 
+				  e-max='maxDate'
+				  ng-show="isOwner"> 
+						{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
+					</h4>
+					<h4 class="list-group-item-heading" ng-show="!isOwner">
 						{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
 					</h4>
 			  </li>
 			  <li class="list-group-item">
 					<i class="fa fa-clock-o pull-left"></i>
 				  <h4 class="list-group-item-heading inline-edit"
-				  editable-bstime="activity.startingtime" e-show-meridian="false" e-minute-step="10"> 
+				  editable-bstime="activity.startingtime" e-show-meridian="false" e-minute-step="10" ng-show="isOwner"> 
+						{{activity.startingtime | amDateFormat: 'HH:mm'}}
+					</h4>
+				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
 						{{activity.startingtime | amDateFormat: 'HH:mm'}}
 					</h4>
 					<span>-</span>
 					<h4 class="list-group-item-heading inline-edit"
-				  editable-bstime="activity.endingtime" e-show-meridian="false" e-minute-step="10">
+				  editable-bstime="activity.endingtime" e-show-meridian="false" e-minute-step="10" ng-show="isOwner">
+						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
+					</h4>
+					<h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner">
 						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 					</h4>
 			  </li>
 			  <li class="list-group-item">
 					<i class="glyphicon glyphicon-map-marker pull-left"></i>
-				  <h4 class="list-group-item-heading inline-edit" editable-text="activity.location"> 
+				  <h4 class="list-group-item-heading inline-edit" editable-text="activity.location" ng-show="isOwner"> 
+						{{activity.location}}
+					</h4>
+				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
 						{{activity.location}}
 					</h4>
 			  </li>
 			</ul>
 		</div>
 		<button class="btn btn-success" ng-click="join()" ng-show="isLoggedIn && !isParticipant">Join</button>
+		<button class="btn btn-success" ng-click="unjoin(activity.id)" ng-show="isLoggedIn && isParticipant">Leave</button>
 		<div class="activity-detail-area">
 			<tabset>
 		    <tab heading="Going">

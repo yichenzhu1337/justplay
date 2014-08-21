@@ -10,7 +10,8 @@ var mod = angular.module('cardModule',
 	'ui.bootstrap',
 	'jp.utilities',
 	'jp.authentication',
-	'jp.utilities']);
+	'jp.utilities',
+	'jp.flash']);
 
 var controllers = {};
 var factories = {};
@@ -943,7 +944,7 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 	}
 };
 
-controllers.detailedCardController = function($scope, DateTimeService, $http, activity, API, authenticationService, Comment){
+controllers.detailedCardController = function($scope, $state, DateTimeService, FlashService, $http, activity, API, authenticationService, Comment){
 	var IsParticipant;
 	var IsOwner;
 
@@ -951,6 +952,7 @@ controllers.detailedCardController = function($scope, DateTimeService, $http, ac
 		$scope.activity = activity;
 		$scope.AuthSvc = authenticationService;
 		$scope.DTSvc = DateTimeService;
+		$scope.FlashService = FlashService;
 		$scope.isOwner = $scope.currentUserIsOwner(activity);
 		$scope.isParticipant = $scope.currentUserIsParticipant(activity.activityJoined.data);
 		$scope.isEditable = $scope.isBeforeCurrentDate(activity);
@@ -960,12 +962,12 @@ controllers.detailedCardController = function($scope, DateTimeService, $http, ac
 	  $scope.minDate = moment(new Date());
 	  $scope.maxDate = $scope.DTSvc.getDefaultDateRange().endRange;
 
+	  // Watch for change in Location
 	  $scope.$watch(function() { return $scope.activity},function(newVal,oldVal) {
 	  	console.log('newVal: ' +newVal);
 	  	console.log('oldVal: ' +oldVal);
 	  	if (newVal != oldVal) {
 	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
-
 	  		$scope.activity.put();
 	  	}
 	  }, true);
@@ -1006,9 +1008,18 @@ controllers.detailedCardController = function($scope, DateTimeService, $http, ac
 	}
 
 	$scope.join = function() {
-		$scope.activity.activityJoined.data.post({activity_id: $scope.activity.id });
-/*		API.post('api/v1/activity-join', { activity_id: $scope.activity.id });
-*/	}
+		$scope.activity.activityJoined.data.post({activity_id: $scope.activity.id }).then(
+			function() {
+				FlashService.show('You have joined the activity', 'success');
+			});
+	}
+
+  $scope.unjoin = function(actId) {
+  	API.delete('api/v1/activity-join/'+actId).then(
+  		function() {
+  			FlashService.show('You have left the activity', 'success');
+  		});
+  }
 
 	init();
 };

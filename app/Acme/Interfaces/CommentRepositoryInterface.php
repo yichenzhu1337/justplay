@@ -11,4 +11,6 @@ Interface CommentRepositoryInterface {
 	
 	public function delete($id);
 
+    public function update($id, $input);
+
 }

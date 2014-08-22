@@ -26,8 +26,8 @@ class ActivitiesTableSeeder extends Seeder {
 				'capacity' => rand(2, 20),
 				'sport' => $sports_list[rand(0, 3)],
 				'location' => $location_list[rand(0, 5)],
-				'date_from' => $start_date, 
-				'date_to' => $end_date
+				'startingtime' => $start_date,
+				'endingtime' => $end_date
 			]);
 		}
 	}

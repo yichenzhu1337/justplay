@@ -24,4 +24,10 @@ class DbCommentRepository extends DbBaseRepository implements CommentRepositoryI
 		$this->model->destroy($id);
 	}
 
+    public function update($id, $input)
+    {
+        $this->model->find($id)->update($input);
+    }
+
+
 }

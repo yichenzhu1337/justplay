@@ -376,12 +376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "c48f30549b1ec508a74141a833757ca1e0d9ca53"
+                "reference": "4d60fc4b20c7da4f6646be4da6a72460c96b55f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/c48f30549b1ec508a74141a833757ca1e0d9ca53",
-                "reference": "c48f30549b1ec508a74141a833757ca1e0d9ca53",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4d60fc4b20c7da4f6646be4da6a72460c96b55f9",
+                "reference": "4d60fc4b20c7da4f6646be4da6a72460c96b55f9",
                 "shasum": ""
             },
             "require": {
@@ -418,7 +418,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-07-17 07:25:43"
+            "time": "2014-08-22 14:04:52"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -513,12 +513,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/slampenny/Swaggervel.git",
-                "reference": "d2b68480f2977e26c3976c2fdb01be03f22a5c91"
+                "reference": "40017712671187797c1206bfc6ca37f68d6dc042"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slampenny/Swaggervel/zipball/d2b68480f2977e26c3976c2fdb01be03f22a5c91",
-                "reference": "d2b68480f2977e26c3976c2fdb01be03f22a5c91",
+                "url": "https://api.github.com/repos/slampenny/Swaggervel/zipball/40017712671187797c1206bfc6ca37f68d6dc042",
+                "reference": "40017712671187797c1206bfc6ca37f68d6dc042",
                 "shasum": ""
             },
             "require": {
@@ -549,7 +549,7 @@
                 "laravel",
                 "swagger"
             ],
-            "time": "2014-08-01 17:18:21"
+            "time": "2014-08-19 21:20:55"
         },
         {
             "name": "laravel/framework",
@@ -1353,16 +1353,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.1.5",
+            "version": "4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e0de628ff849e1804c7d644cbaa16d0a5504807a"
+                "reference": "241116219bb7e3b8111a36ffd8f37546888738d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e0de628ff849e1804c7d644cbaa16d0a5504807a",
-                "reference": "e0de628ff849e1804c7d644cbaa16d0a5504807a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/241116219bb7e3b8111a36ffd8f37546888738d6",
+                "reference": "241116219bb7e3b8111a36ffd8f37546888738d6",
                 "shasum": ""
             },
             "require": {
@@ -1423,7 +1423,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-08-07 05:43:51"
+            "time": "2014-08-17 08:07:02"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

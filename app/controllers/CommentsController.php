@@ -46,6 +46,17 @@ class CommentsController extends \ApiController {
 		$this->comment->store($input);
 	}
 
+    /**
+     * Updates the comment in storage.
+     *
+     * @return Response
+     */
+    public function update($id)
+    {
+        $input = Input::all();
+        $this->comment->update($id, $input);
+    }
+
 	/**
 	 * Remove the specified comment from storage.
 	 *

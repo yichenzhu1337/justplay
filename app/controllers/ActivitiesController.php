@@ -74,6 +74,7 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function store()
 	{
+        $input = [];
 		$this->activity->store(Input::all());
 	}
 

@@ -27,16 +27,16 @@
 		<!-- JS DEPENDENCIES -->
 		<!-- NON ANGULAR -->
 	  <script src="app/js/non-angular/polyfills.js"></script>
-	  
+	  <script src="bower_components/moment/moment.js"></script>
+	  <script src="app/js/non-angular/moment.config.js"></script>
+		<script src="bower_components/moment-timezone/moment-timezone.js"></script>
+		<script src="app/lib/moment-timezone-data.js"></script>	
 
 	  <!-- BOWER DEPENDENCIES -->
 	  <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	  <script src="bower_components/angular/angular.js"></script>
 	  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 	  <script src="bower_components/angular-resource/angular-resource.js"></script>
-	  <script src="bower_components/moment/moment.js"></script>
-		<script src="bower_components/moment-timezone/moment-timezone.js"></script>
-		<script src="app/lib/moment-timezone-data.js"></script>	
 	  <script src="bower_components/angular-moment/angular-moment.js"></script>
 	  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	  <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>

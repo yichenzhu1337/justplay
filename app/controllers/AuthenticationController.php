@@ -108,6 +108,13 @@ class AuthenticationController extends BaseController {
 	public function logout()
 	{
 		Sentry::logout();
+
+		return Response::json(
+			array(
+				'errors' => [],
+				'obj' => ""
+			));
+
 	}
 
 }

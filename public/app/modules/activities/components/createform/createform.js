@@ -1,4 +1,4 @@
-var module = angular.module('createform', ['utilityDirectives','jp.http','jp.flash'])
+var module = angular.module('createform', ['utilityDirectives','jp.http','jp.flash','jp.utilities'])
 .value("filterRegex", 'EEEE, MMM d');
 
 var factories = {};
@@ -17,7 +17,7 @@ controllers.activityController = function($scope, sportFactory, FlashService, AP
       $scope.submitted.date = $scope.submitted.date.toMysqlFormat();
       $scope.submitted.date_from = $scope.submitted.date_from.toMysqlFormat();
       $scope.submitted.date_to = $scope.submitted.date_to.toMysqlFormat();
-      API.post('api/activities',$scope.submitted).then(
+      API.post('api/v1/activities',$scope.submitted).then(
         function(){
           $state.go('main.activities.list');
           FlashService.show('You have succesfully created an activity!', 'success');
@@ -34,11 +34,10 @@ controllers.activityController = function($scope, sportFactory, FlashService, AP
 	}
 };
 
-controllers.activityCreateDateController = function($scope, $filter, filterRegex) {
+controllers.activityCreateDateController = function($scope, $filter, filterRegex, DateTimeService) {
   $scope.filterFormat = filterRegex;
-  $scope.minDate = new Date();
-  $scope.maxDate = new Date();
-  $scope.maxDate.setDate($scope.maxDate.getDate()+6); // Show a week extra at max.
+  $scope.minDate = moment(new Date());
+  $scope.maxDate = DateTimeService.getDefaultDateRange().endRange;
 
   $scope.$watch('startdate', function(newVal, oldVal) {
     if (newVal === oldVal) {

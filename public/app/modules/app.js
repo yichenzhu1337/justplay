@@ -13,10 +13,12 @@ var app = angular.module('app',
 		'jp.http',
 		'jp.utilities',
 		'jp.authentication',
-		'jp.api.config'
+		'jp.api.config',
+		'jp.route.config',
+		'jp.flash'
 	]);
 
-app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', 'access', function($stateProvider, $urlRouterProvider, access) {
 	$urlRouterProvider
 	.otherwise('/login');
 
@@ -88,6 +90,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 						return data;
 					});
 			}
+		},
+		data: {
+			access: access.auth
 		}
 	})
 	.state('main.profile', {
@@ -150,7 +155,7 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 	// ----------------------------------------------------------------------------
 	Restangular.addRequestInterceptor(function(element,operation,what,url){
 		var payload;
-
+		var dates = DateTimeService.getDefaultDateRange();
 		if (operation == 'put') {
 			switch (what) {
 				case api_const.profiles:
@@ -261,7 +266,36 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 	});
 })
 
-app.directive('navCollapse', function () {
+app.run(['$rootScope','$state','authenticationService', 'access', 'FlashService', 
+	function($rootScope, $state, AuthSvc, access){
+  $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+  	if (fromState.name == 'login')
+  	{
+  		var prop = angular.copy(AuthSvc.getAttemptStateAndParams());
+  		if (prop) {
+  			event.preventDefault()
+  			AuthSvc.clearAttemptStateAndParams();
+  			var poop = AuthSvc.getAttemptStateAndParams();
+  			$state.go(prop.state, prop.params)
+  		} else {
+  			// Login's default state transition
+  			return;
+  		}
+  	}
+		if (angular.isDefined(toState.data) && toState.data.access == access.auth) {
+			if (AuthSvc.isLoggedIn()) {
+				// Proceed with default state transition
+				return;
+			} else {
+				event.preventDefault()
+				AuthSvc.saveAttemptStateAndParams(toState.name, toParams);
+				$state.go('login');
+			}
+		}
+	});
+}])
+
+app.directive('navCollapse', function() {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {

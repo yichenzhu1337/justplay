@@ -1,8 +1,8 @@
-var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','userModule','restangular']);
+var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','userModule','restangular', 'jp.flash']);
 
 var factories = {};
 
-factories.authenticationService = function($q, SessionService, User, API, Restangular) {
+factories.authenticationService = function($q, SessionService, User, API, Restangular, FlashService, $state) {
 	var cacheSession = function() {
 		SessionService.set("authenticated", true);
 	}
@@ -56,6 +56,43 @@ factories.authenticationService = function($q, SessionService, User, API, Restan
 		return d.resolve();
 	}
 
+	var state = '';
+	var params = '';
+
+	var setState = function(curState)
+	{
+		state = curState;
+	}
+	var getState = function()
+	{
+		return state;
+	}
+	var setParams = function(curParams)
+	{
+		params = curParams;
+	}
+	var getParams = function()
+	{
+		return params;
+	}
+
+	var isSetState = function()
+	{
+		if (getState() == '') {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	var isSetParams = function()
+	{
+		if (getParams() == '') {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	return {
 		login: function(credentials) {
 			var d = $q.defer()
@@ -83,6 +120,7 @@ factories.authenticationService = function($q, SessionService, User, API, Restan
 					unsetUser();
 					uncacheSession();
 					FlashService.show('Successfully logged out!', 'success');
+					$state.go('login');
 				},
 				function(){
 
@@ -95,9 +133,31 @@ factories.authenticationService = function($q, SessionService, User, API, Restan
 			.then(
 				getUserProfile,
 				function(data) { 
-					return $q.reject(data[0].message) 
+					return $q.reject(data[0].message);
 				})
 			.then(setupLocalSession);
+		},
+		saveAttemptStateAndParams: function(state, params) {
+			setState(state);
+			setParams(params);
+		},
+		getAttemptStateAndParams: function() {
+			var ret = {};
+			if (isSetState() && isSetParams())
+			{
+				ret.state = getState();
+				ret.params = getParams();
+			}
+			else
+			{
+				ret = false;
+			}
+			return ret;
+		},
+		clearAttemptStateAndParams: function()
+		{
+			setState('');
+			setParams('');
 		},
 		isLoggedIn: function() {
 			return isLoggedIn();

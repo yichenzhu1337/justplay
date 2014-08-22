@@ -14,3 +14,11 @@ angular.module('jp.api.config', [])
 				participants: 'activity-join'
 			};
 		});
+
+angular.module('jp.route.config', [])
+		.factory('access', function(){
+			return {
+					auth: 'auth',
+					anon: 'anon'
+			}
+		});

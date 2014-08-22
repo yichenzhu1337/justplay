@@ -6,8 +6,13 @@ services.SanitizeService = function($sanitize) {
 	this.sanitizeObject = function(obj) {
 			var ret = {};
 			angular.forEach(obj, function(value, key) {
-				value = String(value);
-				ret[key] = $sanitize(value);
+				if (!(angular.isDefined(value) && angular.isFunction(value)))
+				{
+					value = String(value);
+					ret[key] = $sanitize(value);
+				} else {
+					ret[key] = value;
+				}
 			}, ret);
 			return ret;
 	};
@@ -15,11 +20,60 @@ services.SanitizeService = function($sanitize) {
 	this.sanitizeArray = function(arr) {
 		var ret = [];
 		angular.forEach(arr, function(value, key) {
-			ret[key] = $sanitize(value);
+			if (angular.isDefined(ret[key]) && (angular.isObject(ret[key]) || angular.isArray(ret[key])))
+			{
+				ret[key] = $sanitize(value);
+			} else {
+				ret[key] = value;
+			}
 		}, ret);
 		return ret;		
 	};
 	
 };
+
+services.DateTimeService = function()
+{
+	this.SerializeMomentsToUTC = function(element) 
+	{
+		// Deserialize Moments and Dates into MySqlFormat
+		for (var key in element)
+		{
+			console.log('Key: ' + key +' element: ' + element[key]);
+			if (element[key] instanceof Date)
+			{
+				element[key] = moment(element[key]);
+			} 
+			if (angular.isDefined(element[key]._isAMomentObject) && element[key]._isAMomentObject)
+			{
+				element[key] = moment.tz(element[key], 'Etc/UTC').toDate().toMysqlFormat();
+			}
+		}
+		
+		return element;
+	}
+
+	this.getDefaultDateRange = function()
+	{
+		var dates = {};
+		dates.startRange = moment(new Date()).tz('America/Detroit').startOf('week');
+		dates.endRange = moment(new Date()).tz('America/Detroit').add('weeks',1).endOf('week');
+		return dates;
+	}
+
+	this.isWithinDateRange = function(startRange, endRange, curMoment)
+	{
+		var comparisonUnit = 'day';
+		// Check Edge Cases
+		if (startRange.isSame(curMoment, comparisonUnit) || endRange.isSame(curMoment, comparisonUnit))
+		{
+			return true;
+		} else if (startRange.isBefore(curMoment, comparisonUnit) && endRange.isAfter(curMoment, comparisonUnit)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
 
 mod.service(services);

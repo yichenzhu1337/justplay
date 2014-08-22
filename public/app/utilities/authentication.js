@@ -1,8 +1,8 @@
-var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','userModule']);
+var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','userModule','restangular', 'jp.flash']);
 
 var factories = {};
 
-factories.authenticationService = function($q, SessionService, User, API) {
+factories.authenticationService = function($q, SessionService, User, API, Restangular, FlashService, $state) {
 	var cacheSession = function() {
 		SessionService.set("authenticated", true);
 	}
@@ -18,7 +18,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 	var currentUser;
 
 	var setUser = function(userJSON) {
-		currentUser = User.build(userJSON);
+		currentUser = userJSON;
 	}
 
 	var getUser = function() {
@@ -44,12 +44,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 	}
 
 	var getUserProfile = function(obj) {
-		var d = $q.defer();
-		API.get('api/v1/profiles/'+obj.username).then(
-			function(data) {
-				d.resolve(data);
-			});
-		return d.promise;
+		return Restangular.one('profiles',obj.username).get();
 	}
 
 	var setupLocalSession = function(user)
@@ -59,6 +54,43 @@ factories.authenticationService = function($q, SessionService, User, API) {
 		cacheSession();
 		setUser(user);
 		return d.resolve();
+	}
+
+	var state = '';
+	var params = '';
+
+	var setState = function(curState)
+	{
+		state = curState;
+	}
+	var getState = function()
+	{
+		return state;
+	}
+	var setParams = function(curParams)
+	{
+		params = curParams;
+	}
+	var getParams = function()
+	{
+		return params;
+	}
+
+	var isSetState = function()
+	{
+		if (getState() == '') {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	var isSetParams = function()
+	{
+		if (getParams() == '') {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	return {
@@ -88,6 +120,7 @@ factories.authenticationService = function($q, SessionService, User, API) {
 					unsetUser();
 					uncacheSession();
 					FlashService.show('Successfully logged out!', 'success');
+					$state.go('login');
 				},
 				function(){
 
@@ -96,19 +129,44 @@ factories.authenticationService = function($q, SessionService, User, API) {
 			return logout;
 		},
 		determineAuthState: function() {
-			return API.get('api/v1/get-auth-info')
+			return API.get('api/v1/users/get-auth-info')
 			.then(
 				getUserProfile,
 				function(data) { 
-					return $q.reject(data[0].message) 
+					return $q.reject(data[0].message);
 				})
 			.then(setupLocalSession);
+		},
+		saveAttemptStateAndParams: function(state, params) {
+			setState(state);
+			setParams(params);
+		},
+		getAttemptStateAndParams: function() {
+			var ret = {};
+			if (isSetState() && isSetParams())
+			{
+				ret.state = getState();
+				ret.params = getParams();
+			}
+			else
+			{
+				ret = false;
+			}
+			return ret;
+		},
+		clearAttemptStateAndParams: function()
+		{
+			setState('');
+			setParams('');
 		},
 		isLoggedIn: function() {
 			return isLoggedIn();
 		},
 		getUser: function() {
 			return getUser();
+		},
+		isCurrentUser: function(username) {
+			return isLoggedIn() && getUser().username == username
 		}
 	}
 }

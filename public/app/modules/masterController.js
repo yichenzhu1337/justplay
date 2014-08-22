@@ -1,11 +1,11 @@
-var mod = angular.module('jp.masterCtrl', ['jp.authentication', 'xeditable']);
+var mod = angular.module('jp.masterCtrl', ['jp.authentication', 'xeditable', 'restangular']);
 
 var controllers = {};
 var services = {};
 var factories = {};
 var directives = {};
 
-controllers.masterCtrl = function($scope, $state, authenticationService, loggedIn){
+controllers.masterCtrl = function($scope, $state, authenticationService, loggedIn, Restangular, $http){
 	init();
 
 	function init()
@@ -25,6 +25,10 @@ controllers.masterCtrl = function($scope, $state, authenticationService, loggedI
 				return count;
 			}
 		}
+	}
+
+	$scope.IsCurrentUser = function(username) {
+		return $scope.authSvc.isCurrentUser(username);
 	}
 
 	$scope.getUser = function()

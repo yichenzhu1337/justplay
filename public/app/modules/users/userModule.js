@@ -52,22 +52,6 @@ factories.MinimalUser = function()
 
 factories.UserSvc = ['$q', '$timeout', 'User', 'MinimalUser', 'API', function($q, $timeout, User, MinimalUser, API){
 
-	var MockUserData = 
-	[
-		{first_name: 'Jack Yiu', id: 2, isFriends:true, email: 'sampleEmail@email.com'},
-		{first_name: 'Yi Chen Zhu', id: 3, isFriends:false, email: 'sampleEmail@email.com'},
-		{first_name: 'Jason Zheng', id: 4, isFriends:false, email: 'sampleEmail@email.com'},
-		{first_name: 'Roger Ganesh', id: 5, isFriends: true, email: 'sampleEmail@email.com'},
-		{first_name: 'Suzanne Lim', id: 6, isFriends: true, email: 'sampleEmail@email.com'},
-		{first_name: 'Someoneelse', id: 7, isFriends: false, email: 'sampleEmail@email.com'},
-		{first_name: 'Jack Yiu', id: 2, isFriends:true, email: 'sampleEmail@email.com'},
-		{first_name: 'Yi Chen Zhu', id: 3, isFriends:false, email: 'sampleEmail@email.com'},
-		{first_name: 'Jason Zheng', id: 4, isFriends:false, email: 'sampleEmail@email.com'},
-		{first_name: 'Roger Ganesh', id: 5, isFriends: true, email: 'sampleEmail@email.com'},
-		{first_name: 'Suzanne Lim', id: 6, isFriends: true, email: 'sampleEmail@email.com'},
-		{first_name: 'Someoneelse', id: 7, isFriends: false, email: 'sampleEmail@email.com'},												
-	];
-
 	var buildUserCollection = function(JSONObj) {
 		var array = [];
 		angular.forEach(JSONObj, function(val, key) {

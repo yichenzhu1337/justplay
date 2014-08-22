@@ -9,7 +9,9 @@ var mod = angular.module('cardModule',
 	'skillModule', 
 	'ui.bootstrap',
 	'jp.utilities',
-	'jp.authentication']);
+	'jp.authentication',
+	'jp.utilities',
+	'jp.flash']);
 
 var controllers = {};
 var factories = {};
@@ -789,17 +791,12 @@ factories.cardFactory = function() {
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = ['$scope', 'ActivitySvc', 'watching', 'filterService',
-function($scope, ActivitySvc, watching, filterService) {
+controllers.cardsController = ['$scope', 'watching', 'filterService', 'activityList',
+function($scope, watching, filterService, activityList) {
 	// Base Set of Activities
 
 	function init() {
-		var promise = ActivitySvc.getList();
-		promise.then(
-			function(data) {
-				$scope.dates = angular.copy(data);
-				console.log('Dates:' + $scope.dates);
-			});
+		$scope.dates = activityList;
 
 		$scope.filterServ = filterService;
 
@@ -927,6 +924,8 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 		$state.go('main.activities.detail', { id: activityId});
 	}
 
+
+
 	/**
 	 * Retrieves the friend list (Static)
 	 * @return {none} none
@@ -945,14 +944,39 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 	}
 };
 
-controllers.detailedCardController = function($scope, activity, API, authenticationService, Comment){
+controllers.detailedCardController = function($scope, $state, DateTimeService, FlashService, $http, activity, API, authenticationService, Comment){
 	var IsParticipant;
 	var IsOwner;
+
+	function init() {
+		$scope.activity = activity;
+		$scope.AuthSvc = authenticationService;
+		$scope.DTSvc = DateTimeService;
+		$scope.FlashService = FlashService;
+		$scope.isOwner = $scope.currentUserIsOwner(activity);
+		$scope.isParticipant = $scope.currentUserIsParticipant(activity.activityJoined.data);
+		$scope.isEditable = $scope.isBeforeCurrentDate(activity);
+		$scope.isFriendsCollapsed = true;
+		$scope.isPeopleCollapsed = true;
+
+	  $scope.minDate = moment(new Date());
+	  $scope.maxDate = $scope.DTSvc.getDefaultDateRange().endRange;
+
+	  // Watch for change in Location
+	  $scope.$watch(function() { return $scope.activity},function(newVal,oldVal) {
+	  	console.log('newVal: ' +newVal);
+	  	console.log('oldVal: ' +oldVal);
+	  	if (newVal != oldVal) {
+	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
+	  		$scope.activity.put();
+	  	}
+	  }, true);
+	};
 
 	$scope.currentUserIsParticipant = function(participants) {
 		if (angular.isUndefined(IsParticipant)){
 			for (var i = 0; i < participants.length; i++) {
-				if (participants[i].user_id == $scope.AuthSvc.getUser().id) {
+				if (participants[i].user_id == $scope.AuthSvc.getUser().numeric_id) {
 					IsParticipant = true;
 					return IsParticipant;
 				}
@@ -964,7 +988,7 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 
 	$scope.currentUserIsOwner = function(activity) {
 		if (angular.isUndefined(IsOwner)) {
-			if (activity.owner_id == $scope.AuthSvc.getUser().id) {
+			if (activity.owner_id == $scope.AuthSvc.getUser().numeric_id) {
 				IsOwner = true;
 				return IsOwner;
 			} else {
@@ -974,32 +998,30 @@ controllers.detailedCardController = function($scope, activity, API, authenticat
 		return IsOwner;
 	}
 
-	function init() {
-		$scope.activity = activity;
-		$scope.AuthSvc = authenticationService;
-		$scope.isParticipant = $scope.currentUserIsParticipant(activity.participants.list);
-		$scope.isOwner = $scope.currentUserIsOwner(activity);
-		$scope.isFriendsCollapsed = true;
-		$scope.isPeopleCollapsed = true;
-	};
-	init();
+	$scope.isBeforeCurrentDate = function(activity) {
+		if (activity.startingtime.isBefore(moment(new Date())))
+		{
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 	$scope.join = function() {
-		API.post('api/activity-join', { activity_id: $scope.activity.activity_id });
+		$scope.activity.activityJoined.data.post({activity_id: $scope.activity.id }).then(
+			function() {
+				FlashService.show('You have joined the activity', 'success');
+			});
 	}
 
-	$scope.postComment = function(comment) {
-		var commentData = {
-			activity_id: $scope.activity.activity_id, 
-			user_id: $scope.AuthSvc.getUser().id,
-			username: $scope.AuthSvc.getUser().username,
-			description: comment,
-			date: moment.tz(new Date(), 'America/Detroit')
-		}
-		API.post('api/comments', commentData);
-		$scope.activity.comments.list.push(Comment.build(commentData));
-		$scope.newcomment = "";
-	}
+  $scope.unjoin = function(actId) {
+  	API.delete('api/v1/activity-join/'+actId).then(
+  		function() {
+  			FlashService.show('You have left the activity', 'success');
+  		});
+  }
+
+	init();
 };
 
 directives.jppeoplegoingicon = function() {

@@ -27,21 +27,22 @@
 		<!-- JS DEPENDENCIES -->
 		<!-- NON ANGULAR -->
 	  <script src="app/js/non-angular/polyfills.js"></script>
-	  
+	  <script src="bower_components/moment/moment.js"></script>
+	  <script src="app/js/non-angular/moment.config.js"></script>
+		<script src="bower_components/moment-timezone/moment-timezone.js"></script>
+		<script src="app/lib/moment-timezone-data.js"></script>	
 
 	  <!-- BOWER DEPENDENCIES -->
 	  <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	  <script src="bower_components/angular/angular.js"></script>
 	  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 	  <script src="bower_components/angular-resource/angular-resource.js"></script>
-	  <script src="bower_components/moment/moment.js"></script>
-		<script src="bower_components/moment-timezone/moment-timezone.js"></script>
-		<script src="app/lib/moment-timezone-data.js"></script>	
 	  <script src="bower_components/angular-moment/angular-moment.js"></script>
 	  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	  <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
 		<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
-
+		<script src="bower_components/lodash/dist/lodash.js"></script>
+		<script src="bower_components/restangular/src/restangular.js"></script>
 
 		<!-- CUSTOM SCRIPTS -->
 	  <script src="app/lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
@@ -51,6 +52,7 @@
 	  <!-- Modules -->
 
 		<!-- Utilities -->
+
 		<script src="app/utilities/flashService.js"></script>
 		<script src="app/utilities/http.js"></script>
 		<script src="app/utilities/errorService.js"></script>		
@@ -92,7 +94,8 @@
 		<script type="text/javascript" src="app/modules/signup/signup.js"></script>
 		
 		<!-- justplay main page -->
-	  <script type="text/javascript" src="app/modules/app.js"></script>
+		<script src="app/modules/config.js"></script>
+	  <script src="app/modules/app.js"></script>
 
 		<!-- CSRF Token -->
 	  <script>

@@ -5,33 +5,58 @@
 			<ul class="list-group">
 			  <li class="list-group-item">
 					<i class="fa fa-calendar-o pull-left"></i>
-				  <h4 class="list-group-item-heading"> 
-						{{activity.date | amDateFormat: 'dddd, MMM Do'}}	  
+				  <h4 class="list-group-item-heading inline-edit" 
+ 				  editable-bsdate="activity.startingtime" 
+ 				  e-type='datetime'
+				  e-datepicker-popup="EEEE, MMM d"
+				  e-min='minDate'
+				  e-max='maxDate'
+				  ng-show="isOwner"> 
+						{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
+					</h4>
+					<h4 class="list-group-item-heading" ng-show="!isOwner">
+						{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
 					</h4>
 			  </li>
 			  <li class="list-group-item">
 					<i class="fa fa-clock-o pull-left"></i>
-				  <h4 class="list-group-item-heading"> 
-						{{activity.starttime | amDateFormat: 'HH:mm'}}-{{activity.endtime | amDateFormat: 'HH:mm'}}  
+				  <h4 class="list-group-item-heading inline-edit"
+				  editable-bstime="activity.startingtime" e-show-meridian="false" e-minute-step="10" ng-show="isOwner"> 
+						{{activity.startingtime | amDateFormat: 'HH:mm'}}
+					</h4>
+				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
+						{{activity.startingtime | amDateFormat: 'HH:mm'}}
+					</h4>
+					<span>-</span>
+					<h4 class="list-group-item-heading inline-edit"
+				  editable-bstime="activity.endingtime" e-show-meridian="false" e-minute-step="10" ng-show="isOwner">
+						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
+					</h4>
+					<h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner">
+						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 					</h4>
 			  </li>
 			  <li class="list-group-item">
 					<i class="glyphicon glyphicon-map-marker pull-left"></i>
-				  <h4 class="list-group-item-heading"> 
+				  <h4 class="list-group-item-heading inline-edit" editable-text="activity.location" ng-show="isOwner"> 
+						{{activity.location}}
+					</h4>
+				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
 						{{activity.location}}
 					</h4>
 			  </li>
 			</ul>
 		</div>
 		<button class="btn btn-success" ng-click="join()" ng-show="isLoggedIn && !isParticipant">Join</button>
+		<button class="btn btn-success" ng-click="unjoin(activity.id)" ng-show="isLoggedIn && isParticipant">Leave</button>
 		<div class="activity-detail-area">
 			<tabset>
 		    <tab heading="Going">
 		      <tab-heading>
 		        <i class="glyphicon glyphicon-ok hidden-xs"></i>
-		        Going ({{activity.participants.totalParticipants}})
+		        Going ({{activity.activityJoined.data.length}})
 		      </tab-heading>
-		    	<jpuserlist pageLength="6" getUsers="activity.participants.list">
+		    	<jpuserlist pageLength="6" getUsers="activity.activityJoined.data">
 					</jpuserlist> 
 		    </tab>
 		    <tab>
@@ -44,27 +69,10 @@
 		    <tab>
 		      <tab-heading>
 		        <i class="glyphicon glyphicon-comment hidden-xs"></i>
-		        Comments ({{activity.comments.totalComments}})
+		        Comments ({{activity.comments.data.length}})
 		      </tab-heading>
-		      <div class="media comment" ng-repeat="comment in activity.comments.list">
-					  <a class="pull-left" href="">
-					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-					  </a>
-					  <div class="media-body">
-				    	<a class="media-name" ui-sref="main.profile({username:comment.username})"><h5 class="media-heading">{{comment.first_name}}</h5></a>
-					    <p>{{comment.message}}</p>
-					    <p class="text-muted comment-date"><span am-time-ago="comment.date"></span></p>
-					  </div>
-					</div>
-					<div class="media comment" ng-show="getUser()">
-					  <a class="pull-left" href="">
-					    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
-					  </a>
-					  <div class="media-body">
-							<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment"></textarea>
-					  	<button class="btn btn-success pull-right" ng-click="postComment(newcomment)">comment</button>
-					  </div>
-					</div>
+					<jpcommentlist list='activity.comments.data' page-length='11'></jpcommentlist>
+					<jpcommentbox list='activity.comments.data' activity-id='activity.id' ng-show="getUser()"></jpcommentbox>
 		    </tab>
 		  </tabset>
 		</div>

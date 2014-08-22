@@ -18,7 +18,13 @@ var app = angular.module('app',
 		'jp.flash'
 	]);
 
-app.config(['$stateProvider', '$urlRouterProvider', 'access', function($stateProvider, $urlRouterProvider, access) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+	var access = 
+	{
+		auth: 'auth',
+		anon: 'anon'
+	}
+
 	$urlRouterProvider
 	.otherwise('/login');
 
@@ -269,13 +275,27 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 app.run(['$rootScope','$state','authenticationService', 'access', 'FlashService', 
 	function($rootScope, $state, AuthSvc, access){
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+  	if (toState.name == 'login')
+  	{
+  		var prop = angular.copy(AuthSvc.getAttemptStateAndParams());
+  		if (prop) 
+  		{
+  			// No need to store the property
+  			return;
+  		}
+  		else 
+  		{
+  			AuthSvc.saveAttemptStateAndParams(fromState.name, fromParams);
+  			return;
+  		}
+  	}
   	if (fromState.name == 'login')
   	{
   		var prop = angular.copy(AuthSvc.getAttemptStateAndParams());
   		if (prop) {
   			event.preventDefault()
   			AuthSvc.clearAttemptStateAndParams();
-  			var poop = AuthSvc.getAttemptStateAndParams();
+  			AuthSvc.getAttemptStateAndParams();
   			$state.go(prop.state, prop.params)
   		} else {
   			// Login's default state transition

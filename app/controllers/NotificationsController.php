@@ -39,8 +39,7 @@ class NotificationsController extends \BaseController {
 			'type' => $request_type
 		];
 
-		var_dump($input);
-		//$this->notification->store($input);
+		$this->notification->store($input);
 	}
 
 	/**

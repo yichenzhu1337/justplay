@@ -25,7 +25,7 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
 
 	public function getAllAuthNotifications($auth_id)
 	{
-		$this->model->where('to_id', '=', $auth_id)->get();
+		return $this->model->where('to_id', '=', $auth_id)->get();
 	}
 
 }

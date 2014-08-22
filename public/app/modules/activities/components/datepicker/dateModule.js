@@ -1,17 +1,16 @@
-var mod = angular.module('dateModule', [])
+var mod = angular.module('dateModule', ['jp.utilities'])
 .value("filterRegex", 'EEEE, MMM d');
 
 var controllers = {};
 
-controllers.activityListDateController = function($scope, $location, $anchorScroll, $filter, filterRegex) {
+controllers.activityListDateController = function($scope, $location, $anchorScroll, $filter, filterRegex, DateTimeService) {
 	$scope.today = function() {
     $scope.dt = $scope.dateobj.date;
   };
   $scope.filterFormat = filterRegex;
   $scope.today();
-  $scope.minDate = new Date();
-  $scope.maxDate = new Date();
-  $scope.maxDate.setDate($scope.maxDate.getDate()+6); // Show a week extra at max.
+  $scope.minDate = moment(new Date());
+  $scope.maxDate = DateTimeService.getDefaultDateRange().endRange;
 
   $scope.clear = function () {
     $scope.dt = null;

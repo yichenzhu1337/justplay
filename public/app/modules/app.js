@@ -29,6 +29,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	.otherwise('/login');
 
 	$stateProvider
+	.state("landing", {
+		url: "/landing",
+		templateUrl: "app/modules/landing/landing.html"
+	})
 	.state("login", {
 		url: "/login",
 		templateUrl: "app/modules/login/login.html",

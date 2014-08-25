@@ -5909,6 +5909,12 @@ form.signup > button {
   font-size: 16px;
   line-height: 1.4;
 }
+.header-content-area > .call-to-action {
+  width: 100%;
+}
+.header-content-area > .call-to-action > button {
+  width: 100%;
+}
 .activity-detail-area {
   background-color: white;
   height: auto;

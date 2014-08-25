@@ -16,10 +16,11 @@
 			  </a>
 			  <div class="media-body">
 		  		<a class="media-name" ><h5 class="media-heading">{{user.first_name}}</h5></a>
-			  	<span>
-				  	<button id="addfriend" ng-hide="user.areFriends" class="btn btn-sm btn-default pull-right"><i class="glyphicon glyphicon-plus"></i><span class="hidden">a</span>Add Friend</button>
-		  			<button id="addfriend" ng-show="user.areFriends" class="btn btn-sm btn-default pull-right"><i class="glyphicon glyphicon-ok"></i><span class="hidden">a</span>Friends</button>
-	  			</span>
+				  	
+				  <div class="user-action-box">
+					  <button id="addfriend" ng-hide="user.areFriends" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-plus"></i><span class="hidden">a</span>Add Friend</button>
+			  		<button id="addfriend" ng-show="user.areFriends" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-ok"></i><span class="hidden">a</span>Friends</button>
+				  </div>
 		  </div>
 			</div>
 	  </li>

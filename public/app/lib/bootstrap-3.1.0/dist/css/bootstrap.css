@@ -6258,9 +6258,32 @@ form.editable-textarea > .form-group > span.editable-buttons {
 .profile-body > ul.list-group > li.list-group-item {
   min-height: 42px;
 }
-.profile-body > ul.list-group > li.list-group-item > i {
+.profile-body > ul.list-group > li.list-group-item > .list-group-item-field {
+  position: relative;
+}
+.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-icon {
+  position: absolute;
+  left: 0;
+  width: 25px;
+}
+.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-icon > i {
   margin-right: 10px;
+  margin-top: 3px;
   color: #e74c3c;
+}
+.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-field {
+  position: relative;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 100%;
+}
+.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-field > span {
+  word-wrap: break-word;
+}
+.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .edit-icon {
+  position: absolute;
+  top: 0;
+  right: -10px;
 }
 @media (min-width: 480px) {
   .profile-body {

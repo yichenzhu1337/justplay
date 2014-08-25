@@ -5,8 +5,10 @@
 // CONSTANTS FOR JPFORMS
 // --------------------------------------------------
 
-@jp-profile-protrusion-height: 	36.6px;
-@jp-body-bg-color: 							#F4F4F6;
+@jp-profile-protrusion-height: 				36.6px;
+@jp-body-bg-color: 										#F4F4F6;
+@jp-profile-field-icon-width:					25px;
+@jp-profile-field-edit-icon-width:		30px;
 
 // Profile BODY PAGE
 // --------------------------------------------------
@@ -63,12 +65,41 @@ form.editable-textarea {
 
 	> ul.list-group {
 		margin-bottom: 20px;
-		> li.list-group-item 
-		{
+		
+		> li.list-group-item {
 			min-height: 42px;
-			> i {
-				margin-right: 10px;
-				color: @alizarin;
+
+			> .list-group-item-field {
+				position: relative;
+
+				> .form-icon {
+					position: absolute;
+					left: 0;
+					width: @jp-profile-field-icon-width;
+
+					> i {
+						margin-right: 10px;
+						margin-top: 3px;
+						color: @alizarin;
+					}
+				}
+
+				> .form-field {
+					position: relative;
+					padding-left: @jp-profile-field-icon-width;
+					padding-right: @jp-profile-field-icon-width;
+					width: 100%;
+
+					> span {
+						word-wrap: break-word;
+					}
+				}
+
+				> .edit-icon {
+					position: absolute;
+					top: 0;
+					right: -10px;
+				}
 			}
 		}
 	}

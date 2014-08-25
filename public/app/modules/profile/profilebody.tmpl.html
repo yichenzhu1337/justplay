@@ -19,28 +19,40 @@
 				<p class="text-muted">Contact Information</p>
 				<ul class="list-group">
 					<li class="list-group-item">
-						<span class="text-muted" ng-show="formEmail.$visible">Email</span>
-						<i class="glyphicon glyphicon-envelope" ng-hide="formEmail.$visible"></i>
-						<span editable-email="user.profile.email" e-required e-form="formEmail" e-placeholder="Email">{{user.profile.email}}</span>
-						<span ng-show="IsCurrentUser(user.username)">
-							<button 
-							class="btn-link pull-right"
-							ng-click="formEmail.$show()" ng-hide="formEmail.$visible" >
-								<i class="glyphicon glyphicon-pencil pull-right"></i>
-							</button>
-						</span>
+						<div class="list-group-item-field">
+							<span class="text-muted" ng-show="formEmail.$visible">Email</span>
+							<div class="form-icon">
+								<i class="glyphicon glyphicon-envelope" ng-hide="formEmail.$visible"></i>
+							</div>
+							<div class="form-field"editable-email="user.profile.email" e-required e-form="formEmail" e-placeholder="Email">
+								<span>
+									{{user.profile.email}}
+								</span>
+							</div>
+							<div class="edit-icon pull-right" ng-show="IsCurrentUser(user.username)">
+								<button class="btn-link" ng-click="formEmail.$show()" ng-hide="formEmail.$visible">
+									<i class="glyphicon glyphicon-pencil"></i>
+								</button>
+							</div>
+						</div>
 					</li>
 					<li class="list-group-item">
-						<span class="text-muted" ng-show="formPhone.$visible">Phone</span>
-						<i class="glyphicon glyphicon-phone" ng-hide="formPhone.$visible"></i>
-						<span editable-tel="user.profile.phone" e-form="formPhone" e-placeholder="Phone">{{user.profile.phone}}</span>
-						<span ng-show="IsCurrentUser(user.username)">
-							<button 
-							class="btn-link pull-right"
-							ng-click="formPhone.$show()" ng-hide="formPhone.$visible" >
-								<i class="glyphicon glyphicon-pencil pull-right"></i>
-							</button>
-						</span>
+						<div class="list-group-item-field">
+							<span class="text-muted" ng-show="formPhone.$visible">Phone</span>
+							<div class="form-icon">
+								<i class="glyphicon glyphicon-phone" ng-hide="formPhone.$visible"></i>
+							</div>
+							<div class="form-field" editable-tel="user.profile.phone" e-form="formPhone" e-placeholder="Phone">
+								<span>
+									{{user.profile.phone}}
+								</span>
+							</div>
+							<div class="edit-icon pull-right" ng-show="IsCurrentUser(user.username)">
+								<button class="btn-link" ng-click="formPhone.$show()" ng-hide="formPhone.$visible">
+									<i class="glyphicon glyphicon-pencil"></i>
+								</button>
+							</div>
+						</div>
 					</li>
 				</ul>
 

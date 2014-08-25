@@ -6218,10 +6218,24 @@ fieldset[disabled] .jp-btn-link {
   max-width: 110px;
   margin: 0 auto;
 }
-form.editable-textarea > .form-group > textarea {
+form[class^='editable'],
+form[class*='editable'] {
   width: 100%;
 }
-form.editable-textarea > .form-group > span.editable-buttons {
+form[class^='editable'] > .form-group,
+form[class*='editable'] > .form-group {
+  width: 100%;
+}
+form[class^='editable'] > .form-group > textarea,
+form[class*='editable'] > .form-group > textarea {
+  width: 100%;
+}
+form[class^='editable'] > .form-group > input,
+form[class*='editable'] > .form-group > input {
+  width: 100%;
+}
+form[class^='editable'] > .form-group > span.editable-buttons,
+form[class*='editable'] > .form-group > span.editable-buttons {
   display: block;
   float: right;
   margin-top: 5px;

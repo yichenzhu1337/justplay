@@ -18,10 +18,18 @@
 	margin: 0 auto;
 }
 
-form.editable-textarea {
+form[class^='editable'],
+form[class*='editable'] {
+	width: 100%;
+
 	> .form-group {
+		width: 100%;
 
 		> textarea {
+			width: 100%;
+		}
+		
+		> input {
 			width: 100%;
 		}
 
@@ -65,7 +73,7 @@ form.editable-textarea {
 
 	> ul.list-group {
 		margin-bottom: 20px;
-		
+
 		> li.list-group-item {
 			min-height: 42px;
 

@@ -5940,6 +5940,9 @@ form.signup > button {
 .comment {
   position: relative;
 }
+.comment > .media-body > a {
+  cursor: pointer;
+}
 .comment > .media-body > a > h5.media-heading {
   font-weight: bold;
 }

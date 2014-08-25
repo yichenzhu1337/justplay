@@ -15,7 +15,8 @@
 			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
 			  </a>
 			  <div class="media-body">
-		  		<a class="media-name" ><h5 class="media-heading">{{user.first_name}}</h5></a>
+		  		<a class="media-name" ui-sref="main.profile({username:user.username})">
+		  		<h5 class="media-heading">{{user.first_name}}</h5></a>
 				  	
 				  <div class="user-action-box">
 					  <button id="addfriend" ng-hide="user.areFriends" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-plus"></i><span class="hidden">a</span>Add Friend</button>

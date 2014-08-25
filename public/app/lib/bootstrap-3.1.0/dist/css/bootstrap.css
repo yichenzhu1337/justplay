@@ -5809,6 +5809,7 @@ form.createActForm {
   margin: 0 auto 0px;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 10px;
   width: 100%;
 }
 form.createActForm > .form-group {

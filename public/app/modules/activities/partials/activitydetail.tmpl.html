@@ -28,6 +28,7 @@
 					<label ng-show="formEndingTime.$visible"> Ending Time</label>
 					<span ng-show='isOwner'>
 					  <h4 
+					  ng-hide="formEndingTime.$visible" 
 					  class="list-group-item-heading inline-edit editable-click"
 					  editable-bstime="activity.startingtime" 
 					  e-show-meridian="false" 
@@ -43,6 +44,7 @@
 					<span ng-hide="formStartingTime.$visible || formEndingTime.$visible">-</span>
 					<span ng-show='isOwner'>
 						<h4 
+						ng-hide="formStartingTime.$visible" 
 						class="list-group-item-heading inline-edit editable-click"
 					  editable-bstime="activity.endingtime" 
 					  e-show-meridian="false" 

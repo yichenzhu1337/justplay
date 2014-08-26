@@ -19,8 +19,40 @@
 		  		<h5 class="media-heading">{{user.first_name}}</h5></a>
 				  	
 				  <div class="user-action-box">
-					  <button id="addfriend" ng-hide="user.areFriends" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-plus"></i><span class="hidden">a</span>Add Friend</button>
-			  		<button id="addfriend" ng-show="user.areFriends" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-ok"></i><span class="hidden">a</span>Friends</button>
+					  <button 
+					  ng-show="user.areFriends == friend_statuses.not_friends" 
+					  ng-click="sendFriendRequest(user.id)"
+					  class="btn btn-sm btn-default">
+					  <i class="glyphicon glyphicon-plus"></i><span class="hidden">a</span>Add Friend
+					  </button>
+			  		<button 
+			  		ng-show="user.areFriends == friend_statuses.friend_request_sent" 
+			  		ng-click='checkFriendStatus(user.id)' 
+			  		class="btn btn-sm btn-default"
+			  		disabled="true"
+			  		><span class="hidden">a</span>Friend Request Sent
+			  		</button>
+			  		<button 
+			  		ng-show="user.areFriends == friend_statuses.friend_request_received" 
+			  		ng-click='acceptFriendRequest(user.id)' 
+			  		class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-ok"></i><span class="hidden">a</span>Accept
+			  		</button>
+			  		<button 
+			  		ng-show="user.areFriends == friend_statuses.friend_request_received" 
+			  		ng-click='checkFriendStatus(user.id)' 
+			  		class="btn btn-sm btn-default"><i class="glyphicon glyphicon-remove"></i><span class="hidden">a</span>Delete
+			  		</button>
+			  		<div class="btn-group" dropdown>
+				  		<button 
+				  		type="button"
+				  		ng-show="user.areFriends == friend_statuses.friends" 
+				  		class="btn btn-sm btn-default dropdown-toggle"
+				  		><i class="glyphicon glyphicon-ok"></i><span class="hidden">a</span>Friends <span class="caret"></span>
+				  		</button>
+			  			<ul class="dropdown-menu" role="menu">
+			  				<li><a href="" ng-click="unFriend(user.id)">Unfriend</a></li>
+			  			</ul>
+			  		</div>
 				  </div>
 		  </div>
 			</div>

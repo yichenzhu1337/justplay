@@ -11,7 +11,9 @@ angular.module('jp.api.config', [])
 				activities: 'activities',
 				profiles: 'profiles',
 				comments: 'comments',
-				participants: 'activity-join'
+				participants: 'activity-join',
+				friends: 'friends',
+				notifications: 'notifications'
 			};
 		});
 
@@ -20,5 +22,15 @@ angular.module('jp.route.config', [])
 			return {
 					auth: 'auth',
 					anon: 'anon'
+			}
+		});
+
+angular.module('jp.friend.status.config', [])
+		.factory('friend_statuses', function(){
+			return {
+				friends: 'friends',
+				friend_request_sent: 'notification_sent',
+				friend_request_received: 'notification_received',
+				not_friends: 'not_friends'
 			}
 		});

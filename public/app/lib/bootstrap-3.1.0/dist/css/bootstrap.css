@@ -6390,6 +6390,24 @@ a.media-name {
   color: white;
   font-size: 24px;
 }
+.media,
+.media-body {
+  overflow: visible;
+}
+.media .media-body {
+  display: table-cell;
+  width: 10000px;
+  *width: auto;
+  *zoom: 1;
+}
+.media:before,
+.media:after {
+  content: "";
+  display: table;
+}
+.media:after {
+  clear: both;
+}
 .dp-text-muted {
   color: #333333;
 }

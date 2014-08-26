@@ -73,7 +73,7 @@ mod.directive('jpcomment', [function(){
 				$scope.$watchCollection(function () { return $scope.commentobj }, function(newVal,oldVal) {
 					if (newVal!=oldVal)
 					{
-						console.log('yeye');
+						$scope.commentobj.put();
 					}
 				});
 			}

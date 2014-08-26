@@ -233,7 +233,7 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 		  		$scope.activity.put();
 		  		$scope.FlashService.show('You have successfully edited the activity', 'success');
 	  		} else {
-	  			$scope.FlashService.show('Your Start Time must be before the end time', 'error');
+	  			$scope.FlashService.show('Your Starting Time must be before the end time to save changes', 'error');
 	  		}
 	  	}
 	  });
@@ -243,7 +243,7 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 		  		$scope.activity.put();
 		  		$scope.FlashService.show('You have successfully edited the activity', 'success');
 	  		} else {
-	  			$scope.FlashService.show('Your Start Time must be before the end time', 'error');
+	  			$scope.FlashService.show('Your Starting Time must be before the end time to save changes', 'error');
 	  		}
 	  	}
 	  });

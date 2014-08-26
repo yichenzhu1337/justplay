@@ -1,44 +1,66 @@
 <div class="page-container">
   <div class="content-wrapper no-content" >
-		<div class="header-content-area">
+		<div class="header-content-area activity-detail-info-box">
 			<div class="jp-h1">{{activity.sport}}</div>
 			<ul class="list-group">
 			  <li class="list-group-item">
 					<i class="fa fa-calendar-o pull-left"></i>
-				  <h4 class="list-group-item-heading inline-edit" 
+					<label ng-show="formDate.$visible"> Date <span class="text-muted">(Now -> End of next week)</span></label>
+				  <h4 class="list-group-item-heading inline-edit editable-click" 
  				  editable-bsdate="activity.startingtime" 
  				  e-type='datetime'
 				  e-datepicker-popup="EEEE, MMM d"
 				  e-min='minDate'
 				  e-max='maxDate'
-				  ng-show="isOwner"> 
+				  ng-show="isOwner"
+				  e-form="formDate"
+				  ng-click='formDate.$show()'> 
 						{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
 					</h4>
 					<h4 class="list-group-item-heading" ng-show="!isOwner">
 						{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
 					</h4>
 			  </li>
+			  <!-- STARTING AND ENDING TIME -->
 			  <li class="list-group-item">
 					<i class="fa fa-clock-o pull-left"></i>
-				  <h4 class="list-group-item-heading inline-edit"
-				  editable-bstime="activity.startingtime" e-show-meridian="false" e-minute-step="10" ng-show="isOwner"> 
+					<label ng-show="formStartingTime.$visible"> Starting Time</label>
+					<label ng-show="formEndingTime.$visible"> Ending Time</label>
+				  <h4 
+				  ng-hide="formEndingTime.$visible" 
+				  class="list-group-item-heading inline-edit editable-click"
+				  editable-bstime="activity.startingtime" 
+				  e-show-meridian="false" 
+				  e-minute-step="10" 
+				  ng-show="isOwner" 
+				  e-form="formStartingTime" 
+				  ng-click='formStartingTime.$show()'> 
 						{{activity.startingtime | amDateFormat: 'HH:mm'}}
 					</h4>
 				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
 						{{activity.startingtime | amDateFormat: 'HH:mm'}}
 					</h4>
-					<span>-</span>
-					<h4 class="list-group-item-heading inline-edit"
-				  editable-bstime="activity.endingtime" e-show-meridian="false" e-minute-step="10" ng-show="isOwner">
+					<span ng-hide="formStartingTime.$visible || formEndingTime.$visible">-</span>
+					<h4 
+					ng-hide="formStartingTime.$visible" 
+					class="list-group-item-heading inline-edit editable-click"
+				  editable-bstime="activity.endingtime" 
+				  e-show-meridian="false" 
+				  e-minute-step="10" 
+				  ng-show="isOwner" 
+				  e-form="formEndingTime" 
+				  ng-click='formEndingTime.$show()'>
 						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 					</h4>
 					<h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner">
 						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 					</h4>
 			  </li>
+			  <!-- LOCATION -->
 			  <li class="list-group-item">
 					<i class="glyphicon glyphicon-map-marker pull-left"></i>
-				  <h4 class="list-group-item-heading inline-edit" editable-text="activity.location" ng-show="isOwner"> 
+					<label ng-show="formLocation.$visible"> Location</label>
+				  <h4 class="shows-up list-group-item-heading inline-edit editable-click" editable-text="activity.location" ng-show="isOwner" e-form="formLocation" ng-click='formLocation.$show()'> 
 						{{activity.location}}
 					</h4>
 				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 

@@ -1,0 +1,54 @@
+
+// CSS STYLING FOR XEDTIABLE PLUGIN
+// --------------------------------
+
+form[class^='editable'],
+form[class*='editable'] {
+	width: 100%;
+
+	> .form-group {
+		width: 100%;
+
+		> textarea {
+			width: 100%;
+		}
+		
+		> input {
+			width: 100%;
+		}
+
+		> span.editable-buttons {
+			display: block;
+			float: right;
+			margin-top: 5px;
+		}
+	}
+}
+
+.activity-detail-info-box * form[class^='editable'],
+.activity-detail-info-box * form[class*='editable'] {
+	width: 100%;
+
+	> .form-group {
+		width: 100%;
+
+		> textarea {
+			width: 100%;
+		}
+		
+		> input {
+			width: 100%;
+			margin-left: 5px; // To align it with the tick box
+		}
+
+		> .ng-valid-time {
+			display: inline-block;
+		}
+
+		> span.editable-buttons {
+			display: block;
+			float: none;
+			margin-top: 5px;
+		}
+	}
+}

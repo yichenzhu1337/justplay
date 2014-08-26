@@ -5865,6 +5865,55 @@ form.signup > button {
   font-weight: 700;
   font-size: 20px;
 }
+form[class^='editable'],
+form[class*='editable'] {
+  width: 100%;
+}
+form[class^='editable'] > .form-group,
+form[class*='editable'] > .form-group {
+  width: 100%;
+}
+form[class^='editable'] > .form-group > textarea,
+form[class*='editable'] > .form-group > textarea {
+  width: 100%;
+}
+form[class^='editable'] > .form-group > input,
+form[class*='editable'] > .form-group > input {
+  width: 100%;
+}
+form[class^='editable'] > .form-group > span.editable-buttons,
+form[class*='editable'] > .form-group > span.editable-buttons {
+  display: block;
+  float: right;
+  margin-top: 5px;
+}
+.activity-detail-info-box * form[class^='editable'],
+.activity-detail-info-box * form[class*='editable'] {
+  width: 100%;
+}
+.activity-detail-info-box * form[class^='editable'] > .form-group,
+.activity-detail-info-box * form[class*='editable'] > .form-group {
+  width: 100%;
+}
+.activity-detail-info-box * form[class^='editable'] > .form-group > textarea,
+.activity-detail-info-box * form[class*='editable'] > .form-group > textarea {
+  width: 100%;
+}
+.activity-detail-info-box * form[class^='editable'] > .form-group > input,
+.activity-detail-info-box * form[class*='editable'] > .form-group > input {
+  width: 100%;
+  margin-left: 5px;
+}
+.activity-detail-info-box * form[class^='editable'] > .form-group > .ng-valid-time,
+.activity-detail-info-box * form[class*='editable'] > .form-group > .ng-valid-time {
+  display: inline-block;
+}
+.activity-detail-info-box * form[class^='editable'] > .form-group > span.editable-buttons,
+.activity-detail-info-box * form[class*='editable'] > .form-group > span.editable-buttons {
+  display: block;
+  float: none;
+  margin-top: 5px;
+}
 .jp-user-list {
   width: 100%;
 }
@@ -6227,28 +6276,6 @@ fieldset[disabled] .jp-btn-link {
 .img-container {
   max-width: 110px;
   margin: 0 auto;
-}
-form[class^='editable'],
-form[class*='editable'] {
-  width: 100%;
-}
-form[class^='editable'] > .form-group,
-form[class*='editable'] > .form-group {
-  width: 100%;
-}
-form[class^='editable'] > .form-group > textarea,
-form[class*='editable'] > .form-group > textarea {
-  width: 100%;
-}
-form[class^='editable'] > .form-group > input,
-form[class*='editable'] > .form-group > input {
-  width: 100%;
-}
-form[class^='editable'] > .form-group > span.editable-buttons,
-form[class*='editable'] > .form-group > span.editable-buttons {
-  display: block;
-  float: right;
-  margin-top: 5px;
 }
 .profile-banner {
   background-color: white;

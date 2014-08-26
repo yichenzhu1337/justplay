@@ -1,8 +1,12 @@
 .dp-text-muted {
-	color: #cccccc;
+	color: #333333; // Same as normal unmuted
 }
 
 .dp-disabled {
-	opacity: .30;
+	>	.dp-text-muted {
+		color: #cccccc; // Same as normal unmuted
+	}
+}
+.dp-disabled {
 	color: #cccccc
 }

@@ -6364,10 +6364,12 @@ a.media-name {
   font-size: 24px;
 }
 .dp-text-muted {
+  color: #333333;
+}
+.dp-disabled > .dp-text-muted {
   color: #cccccc;
 }
 .dp-disabled {
-  opacity: .30;
   color: #cccccc;
 }
 /*

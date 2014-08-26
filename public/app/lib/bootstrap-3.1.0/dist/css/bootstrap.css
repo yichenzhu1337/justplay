@@ -5914,6 +5914,18 @@ form[class*='editable'] > .form-group > span.editable-buttons {
   float: none;
   margin-top: 5px;
 }
+.inline-edit-disabled {
+  display: inline-block;
+}
+.inline-edit {
+  display: inline-block;
+}
+.inline-edit:hover,
+.inline-edit:active {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #428bca;
+}
 .jp-user-list {
   width: 100%;
 }
@@ -5930,39 +5942,39 @@ form[class*='editable'] > .form-group > span.editable-buttons {
   display: inline-block;
   margin-left: 5px;
 }
-.header-content-area {
+.activity-detail-info-box {
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }
-.header-content-area > .jp-h1 {
+.activity-detail-info-box > .jp-h1 {
   font-size: 26px;
   margin-top: 0px;
   margin-bottom: 5px;
   letter-spacing: -0.75px;
   font-weight: bold;
 }
-.header-content-area > ul > li {
+.activity-detail-info-box > ul > li {
   padding: 8px;
   border: none;
   background-color: transparent;
   margin-bottom: 1px;
 }
-.header-content-area > ul > li > i {
+.activity-detail-info-box > ul > li > i {
   font-size: large;
   color: #e74c3c;
   padding-right: 5px;
   margin-right: .3em;
 }
-.header-content-area > ul > li > h4.list-group-item-heading {
+.activity-detail-info-box > ul > li > h4.list-group-item-heading {
   color: #555555;
   font-size: 16px;
   line-height: 1.4;
 }
-.header-content-area > .call-to-action {
+.activity-detail-info-box > .call-to-action {
   width: 100%;
 }
-.header-content-area > .call-to-action > div > button {
+.activity-detail-info-box > .call-to-action > div > button {
   width: 100%;
 }
 .activity-detail-area {
@@ -6057,18 +6069,6 @@ jpcommentlist > .pagination {
   line-height: 15px;
   font-weight: bold;
   color: #aaa;
-}
-.inline-edit-disabled {
-  display: inline-block;
-}
-.inline-edit {
-  display: inline-block;
-}
-.inline-edit:hover,
-.inline-edit:active {
-  text-decoration: underline;
-  cursor: pointer;
-  color: #428bca;
 }
 .jp-btn-link {
   color: #AAB2BD;
@@ -6197,6 +6197,9 @@ fieldset[disabled] .jp-btn-link {
     margin-top: -63px;
   }
 }
+.page-container > .content-wrapper.activity-detail-main-body-wrapper {
+  background-color: none;
+}
 .page-container > .content-wrapper.profile-page {
   max-width: 400px;
   margin: 0 auto;
@@ -6216,10 +6219,6 @@ fieldset[disabled] .jp-btn-link {
 @media (min-width: 768px) {
   .page-container > .content-wrapper.profile-page {
     margin-top: -180px;
-  }
-}
-@media (min-width: 768px) {
-  .page-container > .content-wrapper.profile-page {
     box-shadow: none;
     padding-bottom: 0px;
   }

@@ -301,6 +301,8 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 
   $scope.cancel = function(actId) {
   	// Delete Activity
+  	API.delete('api/v1/activities/'+actId);
+  	$state.go('main.activities.list');
   }
 
 	init();

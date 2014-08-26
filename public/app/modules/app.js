@@ -175,6 +175,7 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 					payload = angular.copy(element);
 					// Set endingtime date to be the same as startingtime
 					var momentStartTime = moment.tz(payload.startingtime, 'Etc/UTC');
+					payload.endingtime = moment.tz(payload.endingtime, 'Etc/UTC');
 					payload.endingtime.set('date',momentStartTime.date());
 					payload.endingtime.set('month',momentStartTime.month());
 					payload.endingtime.set('year',momentStartTime.year());

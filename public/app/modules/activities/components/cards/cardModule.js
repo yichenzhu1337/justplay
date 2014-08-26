@@ -212,14 +212,35 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 	  $scope.maxDate = $scope.DTSvc.getDefaultDateRange().endRange;
 
 	  // Watch for changes in Date, Start/End Time, Location and Description
-	  $scope.$watch(function() { return $scope.activity},function(newVal,oldVal) {
-	  	console.log('newVal: ' +newVal);
-	  	console.log('oldVal: ' +oldVal);
+	  // Since we're still on Angular 1.2.x, theres no watchGroup.
+	  $scope.$watch(function() { return $scope.activity.description},function(newVal,oldVal){
 	  	if (newVal != oldVal) {
 	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
 	  		$scope.activity.put();
+	  		$scope.FlashService.show('You have successfully edited the activity', 'success');
 	  	}
-	  }, true);
+	  });
+	  $scope.$watch(function() { return $scope.activity.location},function(newVal,oldVal){
+	  	if (newVal != oldVal) {
+	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
+	  		$scope.activity.put();
+	  		$scope.FlashService.show('You have successfully edited the activity', 'success');
+	  	}
+	  });
+	  $scope.$watch(function() { return $scope.activity.startingtime},function(newVal,oldVal){
+	  	if (newVal != oldVal) {
+	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
+	  		$scope.activity.put();
+	  		$scope.FlashService.show('You have successfully edited the activity', 'success');
+	  	}
+	  });
+	  $scope.$watch(function() { return $scope.activity.endingtime},function(newVal,oldVal){
+	  	if (newVal != oldVal) {
+	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
+	  		$scope.activity.put();
+	  		$scope.FlashService.show('You have successfully edited the activity', 'success');
+	  	}
+	  });
 	};
 
 	$scope.currentUserIsParticipant = function(participants) {

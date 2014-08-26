@@ -5944,6 +5944,10 @@ form.signup > button {
   padding: 10px;
   background-color: white;
 }
+.activity-description-box {
+  word-wrap: break-word;
+  display: block;
+}
 .comment {
   position: relative;
 }
@@ -6049,6 +6053,9 @@ fieldset[disabled] .jp-btn-link {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+.glyphicon.glyphicon-pencil {
+  color: #bdc3c7;
 }
 .header-bg {
   height: 76px;

@@ -71,7 +71,18 @@
 		        <i class="glyphicon glyphicon-align-right hidden-xs"></i>
 		        Description
 		      </tab-heading>
-		      {{activity.description}}
+		      <div class="activity-detail-description">
+		      	<span ng-show="isOwner">
+							<button 
+								class="btn-link pull-right"
+								ng-click="formDescription.$show()" ng-hide="formDescription.$visible">
+									<i class="glyphicon glyphicon-pencil pull-right"></i>
+							</button>
+		      	</span>
+						<span class="activity-description-box" editable-textarea="activity.description" e-form="formDescription" e-placeholder="Activity Description" e-rows="5" e-cols="30">
+			      	{{activity.description}}
+						</span>
+		      </div>
 		    </tab>
 		    <tab>
 		      <tab-heading>

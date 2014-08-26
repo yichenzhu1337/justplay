@@ -192,6 +192,11 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 	var IsParticipant;
 	var IsOwner;
 
+	var refreshPage = function()
+	{
+		$state.go($state.$current, null, { reload: true });
+	}
+
 	function init() {
 		$scope.activity = activity;
 		$scope.AuthSvc = authenticationService;
@@ -255,6 +260,7 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 		$scope.activity.activityJoined.data.post({activity_id: actId }).then(
 			function() {
 				FlashService.show('You have joined the activity', 'success');
+				refreshPage();
 			});
 	}
 
@@ -262,6 +268,7 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
   	API.delete('api/v1/activity-join/'+actId).then(
   		function() {
   			FlashService.show('You have left the activity', 'success');
+  			refreshPage();
   		});
   }
 

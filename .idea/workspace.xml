@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05f752a8-d065-4be0-93ea-4ca68724e840" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/comments.json" afterPath="$PROJECT_DIR$/docs/comments.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/comments.php" afterPath="$PROJECT_DIR$/app/routes/comments.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ActivitiesController.php" afterPath="$PROJECT_DIR$/app/controllers/ActivitiesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php" afterPath="$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/autoload.php" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="justplay.iws" />
@@ -26,44 +31,7 @@
     <favorites_list name="justplay" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="CommentRepositoryInterface.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/CommentRepositoryInterface.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="462">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DbCommentRepository.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="39" selection-start="457" selection-end="457" vertical-scroll-proportion="-17.032259" vertical-offset="0" max-vertical-offset="792">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comments.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/routes/comments.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="22" selection-start="3556" selection-end="3556" vertical-scroll-proportion="0.47894737" vertical-offset="2562" max-vertical-offset="3784">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentsController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="30" selection-start="878" selection-end="878" vertical-scroll-proportion="-14.193548" vertical-offset="770" max-vertical-offset="1694">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -80,6 +48,13 @@
         <option value="$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php" />
         <option value="$PROJECT_DIR$/app/controllers/CommentsController.php" />
         <option value="$PROJECT_DIR$/app/routes/comments.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_07_04_223740_create_comments_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_07_20_052332_create_activities_joined_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ActivitiesController.php" />
       </list>
     </option>
   </component>
@@ -300,6 +275,68 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="seeds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -441,15 +478,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15773197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25051546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.184375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -481,12 +518,38 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/CommentRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="39" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/comments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="22" selection-start="3556" selection-end="3556" vertical-scroll-proportion="0.0" vertical-offset="2562" max-vertical-offset="3784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="30" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0" vertical-offset="770" max-vertical-offset="1694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
-          <folding>
-            <marker date="1407631892426" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..friends..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -500,9 +563,7 @@
     <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
-          <folding>
-            <marker date="1407631892426" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..friends..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -580,19 +641,9 @@
         <state line="73" column="40" selection-start="3584" selection-end="3592" vertical-scroll-proportion="1.1296296" vertical-offset="204" max-vertical-offset="1870" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/ActivityRepositoryInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="33" selection-start="134" selection-end="134" vertical-scroll-proportion="0.12962963" vertical-offset="0" max-vertical-offset="918" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/ActivityJoinRepositoryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="33" selection-start="138" selection-end="138" vertical-scroll-proportion="0.12962963" vertical-offset="0" max-vertical-offset="918" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3468" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes/activities.php">
@@ -615,11 +666,6 @@
         <state line="28" column="1" selection-start="545" selection-end="545" vertical-scroll-proportion="0.46296296" vertical-offset="0" max-vertical-offset="918" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbActivityRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="37" selection-start="401" selection-end="401" vertical-scroll-proportion="0.22222222" vertical-offset="51" max-vertical-offset="969" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbBaseRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="944" />
@@ -635,9 +681,35 @@
     <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="944">
-          <folding>
-            <marker date="1407631892426" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..friends..." />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="30" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0" vertical-offset="770" max-vertical-offset="1694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="184" selection-end="184" vertical-scroll-proportion="-8.5161295" vertical-offset="0" max-vertical-offset="836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/comments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="22" selection-start="3556" selection-end="3556" vertical-scroll-proportion="0.54901963" vertical-offset="2562" max-vertical-offset="3784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="39" selection-start="457" selection-end="457" vertical-scroll-proportion="0.60181" vertical-offset="129" max-vertical-offset="792">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -648,23 +720,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_20_052332_create_activities_joined_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="30" selection-start="878" selection-end="878" vertical-scroll-proportion="-14.193548" vertical-offset="770" max-vertical-offset="1694">
+        <state line="21" column="76" selection-start="509" selection-end="509" vertical-scroll-proportion="-14.193548" vertical-offset="0" max-vertical-offset="902">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_04_223740_create_comments_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="39" selection-start="457" selection-end="457" vertical-scroll-proportion="-17.032259" vertical-offset="0" max-vertical-offset="792">
+        <state line="14" column="61" selection-start="278" selection-end="278" vertical-scroll-proportion="0.47508305" vertical-offset="0" max-vertical-offset="946">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/comments.php">
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/CommentsTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="22" selection-start="3556" selection-end="3556" vertical-scroll-proportion="0.47894737" vertical-offset="2562" max-vertical-offset="3784">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/ActivitiesJoinTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbActivityRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="37" selection-start="401" selection-end="401" vertical-scroll-proportion="0.36144578" vertical-offset="0" max-vertical-offset="1254">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/ActivityRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="33" selection-start="134" selection-end="134" vertical-scroll-proportion="0.16867469" vertical-offset="0" max-vertical-offset="913">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="46" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.39759037" vertical-offset="1749" max-vertical-offset="3322">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="37" selection-start="545" selection-end="545" vertical-scroll-proportion="0.45783132" vertical-offset="66" max-vertical-offset="1034">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="24" selection-start="789" selection-end="789" vertical-scroll-proportion="-19.870968" vertical-offset="0" max-vertical-offset="902">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="21" selection-start="2219" selection-end="2219" vertical-scroll-proportion="0.9658385" vertical-offset="1314" max-vertical-offset="5038">
           <folding />
         </state>
       </provider>

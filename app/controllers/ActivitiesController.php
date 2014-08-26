@@ -74,8 +74,20 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function store()
 	{
-        $input = [];
-		$this->activity->store(Input::all());
+        $input = Input::all();
+
+        $data = [
+            'id' => $input[''],
+            'owner_id' => $input['owner_id'],
+            'location' => $input['location'],
+            'date_from' => $input['startingtime'],
+            'date_to' => $input['endingtime'],
+            'capacity' => $input['capacity'],
+            'description' => $input['description'],
+            'sport' => $input['sport']
+        ];
+
+		$this->activity->store($data);
 	}
 
 	/**
@@ -86,9 +98,21 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function update($id)
 	{
-		$data = Input::all();
+        $input = Input::all();
 
-		$this->activity->update($id, $data);
+        //dd($input);
+        $data = [
+            'id' => $id,
+            'owner_id' => $input['owner_id'],
+            'location' => $input['location'],
+            'date_from' => $input['startingtime'],
+            'date_to' => $input['endingtime'],
+            'capacity' => $input['capacity'],
+            'description' => $input['description'],
+            'sport' => $input['sport']
+        ];
+
+        $this->activity->update($id, $data);
 	}
 
 	/**

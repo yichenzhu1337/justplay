@@ -15,14 +15,16 @@ class CreateActivitiesTable extends Migration {
 		Schema::create('activities', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('owner_id');
+			$table->integer('owner_id')->unsigned();
 			$table->text('description');
 			$table->integer('capacity');
 			$table->string('sport');
 			$table->string('location');
-			$table->dateTime('startingtime');
-			$table->dateTime('endingtime');
+			$table->dateTime('date_from');
+			$table->dateTime('date_to');
 			$table->timestamps();
+
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
 		});
 	}
 

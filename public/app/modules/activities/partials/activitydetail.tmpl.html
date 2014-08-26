@@ -46,9 +46,14 @@
 					</h4>
 			  </li>
 			</ul>
-			<div class="call-to-action">
-				<button class="btn btn-success" ng-click="join()" ng-show="isLoggedIn && !isParticipant">Join</button>
-				<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isLoggedIn && isParticipant">Leave</button>
+			<div class="call-to-action" ng-show="isLoggedIn">
+				<div ng-show='!isOwner'>
+					<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant">Join</button>
+					<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant">Leave</button>
+				</div>
+				<div ng-show="isOwner">
+					<button class="btn btn-danger" ng-click="cancel(activity.id)">Cancel Activity</button>
+				</div>
 			</div>
 		</div>
 		<div class="activity-detail-area">

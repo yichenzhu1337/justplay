@@ -206,7 +206,7 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 	  $scope.minDate = moment(new Date());
 	  $scope.maxDate = $scope.DTSvc.getDefaultDateRange().endRange;
 
-	  // Watch for change in Location
+	  // Watch for changes in Date, Start/End Time, Location and Description
 	  $scope.$watch(function() { return $scope.activity},function(newVal,oldVal) {
 	  	console.log('newVal: ' +newVal);
 	  	console.log('oldVal: ' +oldVal);
@@ -251,8 +251,8 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 		}
 	}
 
-	$scope.join = function() {
-		$scope.activity.activityJoined.data.post({activity_id: $scope.activity.id }).then(
+	$scope.join = function(actId) {
+		$scope.activity.activityJoined.data.post({activity_id: actId }).then(
 			function() {
 				FlashService.show('You have joined the activity', 'success');
 			});
@@ -263,6 +263,10 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
   		function() {
   			FlashService.show('You have left the activity', 'success');
   		});
+  }
+
+  $scope.cancel = function(actId) {
+  	// Delete Activity
   }
 
 	init();

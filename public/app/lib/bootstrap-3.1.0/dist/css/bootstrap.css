@@ -5913,7 +5913,7 @@ form.signup > button {
 .header-content-area > .call-to-action {
   width: 100%;
 }
-.header-content-area > .call-to-action > button {
+.header-content-area > .call-to-action > div > button {
   width: 100%;
 }
 .activity-detail-area {
@@ -6213,6 +6213,9 @@ fieldset[disabled] .jp-btn-link {
 .social-page {
   padding-top: 13px;
   max-width: 594;
+}
+.social-page > h4 {
+  font-size: 30px;
 }
 .img-container {
   max-width: 110px;

@@ -5966,7 +5966,8 @@ form[class*='editable'] > .form-group > span.editable-buttons {
   padding-right: 5px;
   margin-right: .3em;
 }
-.activity-detail-info-box > ul > li > h4.list-group-item-heading {
+.activity-detail-info-box > ul > li > span h4.list-group-item-heading,
+.activity-detail-info-box > ul > li h4.list-group-item-heading {
   color: #555555;
   font-size: 16px;
   line-height: 1.4;

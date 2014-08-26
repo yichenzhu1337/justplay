@@ -26,32 +26,32 @@
 					<i class="fa fa-clock-o pull-left"></i>
 					<label ng-show="formStartingTime.$visible"> Starting Time</label>
 					<label ng-show="formEndingTime.$visible"> Ending Time</label>
-				  <h4 
-				  ng-hide="formEndingTime.$visible" 
-				  class="list-group-item-heading inline-edit editable-click"
-				  editable-bstime="activity.startingtime" 
-				  e-show-meridian="false" 
-				  e-minute-step="10" 
-				  ng-show="isOwner" 
-				  e-form="formStartingTime" 
-				  ng-click='formStartingTime.$show()'> 
-						{{activity.startingtime | amDateFormat: 'HH:mm'}}
-					</h4>
+					<span ng-show='isOwner'>
+					  <h4 
+					  class="list-group-item-heading inline-edit editable-click"
+					  editable-bstime="activity.startingtime" 
+					  e-show-meridian="false" 
+					  e-minute-step="10" 
+					  e-form="formStartingTime" 
+					  ng-click='formStartingTime.$show()'> 
+							{{activity.startingtime | amDateFormat: 'HH:mm'}}
+						</h4>
+					</span>
 				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
 						{{activity.startingtime | amDateFormat: 'HH:mm'}}
 					</h4>
 					<span ng-hide="formStartingTime.$visible || formEndingTime.$visible">-</span>
-					<h4 
-					ng-hide="formStartingTime.$visible" 
-					class="list-group-item-heading inline-edit editable-click"
-				  editable-bstime="activity.endingtime" 
-				  e-show-meridian="false" 
-				  e-minute-step="10" 
-				  ng-show="isOwner" 
-				  e-form="formEndingTime" 
-				  ng-click='formEndingTime.$show()'>
+					<span ng-show='isOwner'>
+						<h4 
+						class="list-group-item-heading inline-edit editable-click"
+					  editable-bstime="activity.endingtime" 
+					  e-show-meridian="false" 
+					  e-minute-step="10" 
+					  e-form="formEndingTime" 
+					  ng-click='formEndingTime.$show()'>
 						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 					</h4>
+					</span>
 					<h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner">
 						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 					</h4>
@@ -60,7 +60,7 @@
 			  <li class="list-group-item">
 					<i class="glyphicon glyphicon-map-marker pull-left"></i>
 					<label ng-show="formLocation.$visible"> Location</label>
-				  <h4 class="shows-up list-group-item-heading inline-edit editable-click" editable-text="activity.location" ng-show="isOwner" e-form="formLocation" ng-click='formLocation.$show()'> 
+				  <h4 class="list-group-item-heading inline-edit editable-click" editable-text="activity.location" ng-show="isOwner" e-form="formLocation" ng-click='formLocation.$show()'> 
 						{{activity.location}}
 					</h4>
 				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 

@@ -96,6 +96,62 @@
                         }
                     ],
                     "notes": "Deletes a comment based on comment_id"
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a comment by the comment_id",
+                    "nickname": "updateCommentById",
+                    "type": "Comment",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "comment_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of the comment that needs to be update",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of the activity",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "user_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id the user who has made the comment",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "description",
+                            "type": "string",
+                            "required": true,
+                            "description": "description that the user has made a comment about"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Updates a comment based on comment_id"
                 }
             ]
         }

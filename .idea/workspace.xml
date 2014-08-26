@@ -2,44 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05f752a8-d065-4be0-93ea-4ca68724e840" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/modules/activities/components/comment/comment.tmpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/modules/activities/components/comment/commentbox.tmpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/modules/activities/components/comment/commentlist.tmpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/modules/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/less/jpComponents/datepicker.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/non-angular/moment.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AuthenticationController.php" afterPath="$PROJECT_DIR$/app/controllers/AuthenticationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php" afterPath="$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/activities/activities.js" afterPath="$PROJECT_DIR$/public/app/modules/activities/activities.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/less/jpComponents/activities.less" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/less/jpComponents/activities.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/activities/common/activityModule.js" afterPath="$PROJECT_DIR$/public/app/modules/activities/common/activityModule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/activities/partials/activitydetail.tmpl.html" afterPath="$PROJECT_DIR$/public/app/modules/activities/partials/activitydetail.tmpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/app.js" afterPath="$PROJECT_DIR$/public/app/modules/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/utilities/authentication.js" afterPath="$PROJECT_DIR$/public/app/utilities/authentication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/activities/partials/body.tmpl.html" afterPath="$PROJECT_DIR$/public/app/modules/activities/partials/body.tmpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap-theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap-theme.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/docs/dist/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/docs/dist/css/bootstrap.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap.css" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/less/bootstrap.less" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/less/bootstrap.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/docs/dist/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/docs/dist/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/bower.json" afterPath="$PROJECT_DIR$/public/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/activities/components/cards/cardModule.js" afterPath="$PROJECT_DIR$/public/app/modules/activities/components/cards/cardModule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/activities/common/commentModule.js" afterPath="$PROJECT_DIR$/public/app/modules/activities/common/commentModule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/less/jpComponents/detailedCard.less" afterPath="$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/less/jpComponents/detailedCard.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/utilities/http.js" afterPath="$PROJECT_DIR$/public/app/utilities/http.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.php" afterPath="$PROJECT_DIR$/app/views/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/activities/mainpage.tmpl.html" afterPath="$PROJECT_DIR$/public/app/modules/activities/mainpage.tmpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/masterController.js" afterPath="$PROJECT_DIR$/public/app/modules/masterController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/moment-timezone-data.js" afterPath="$PROJECT_DIR$/public/app/lib/moment-timezone-data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/profile/profile.js" afterPath="$PROJECT_DIR$/public/app/modules/profile/profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/profile/profilebody.tmpl.html" afterPath="$PROJECT_DIR$/public/app/modules/profile/profilebody.tmpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js" afterPath="$PROJECT_DIR$/public/app/lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/social/user-list.tmpl.html" afterPath="$PROJECT_DIR$/public/app/modules/social/user-list.tmpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/modules/users/userModule.js" afterPath="$PROJECT_DIR$/public/app/modules/users/userModule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/utilities/utilities.js" afterPath="$PROJECT_DIR$/public/app/utilities/utilities.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/comments.json" afterPath="$PROJECT_DIR$/docs/comments.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/comments.php" afterPath="$PROJECT_DIR$/app/routes/comments.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="justplay.iws" />
@@ -63,19 +27,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ActivityJoinedTransformer.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
+      <file leaf-file-name="CommentRepositoryInterface.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/CommentRepositoryInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="462">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentTransformer.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php">
+      <file leaf-file-name="DbCommentRepository.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="52" selection-start="555" selection-end="555" vertical-scroll-proportion="0.47930282" vertical-offset="0" max-vertical-offset="528">
+            <state line="26" column="39" selection-start="457" selection-end="457" vertical-scroll-proportion="-17.032259" vertical-offset="0" max-vertical-offset="792">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comments.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/routes/comments.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="133" column="22" selection-start="3556" selection-end="3556" vertical-scroll-proportion="0.47894737" vertical-offset="2562" max-vertical-offset="3784">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommentsController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="30" selection-start="878" selection-end="878" vertical-scroll-proportion="-14.193548" vertical-offset="770" max-vertical-offset="1694">
               <folding />
             </state>
           </provider>
@@ -96,6 +78,8 @@
       <list>
         <option value="$PROJECT_DIR$/public/app/modules/activities/activities.js" />
         <option value="$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php" />
+        <option value="$PROJECT_DIR$/app/controllers/CommentsController.php" />
+        <option value="$PROJECT_DIR$/app/routes/comments.php" />
       </list>
     </option>
   </component>
@@ -103,8 +87,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -412,6 +396,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -456,11 +441,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32899868" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15773197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -472,11 +457,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -499,7 +484,25 @@
     <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
+          <folding>
+            <marker date="1407631892426" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..friends..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="52" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="462" max-vertical-offset="528">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
+          <folding>
+            <marker date="1407631892426" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..friends..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -544,9 +547,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3706">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3706" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes/activities.php">
@@ -591,9 +592,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3468">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3468" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes/activities.php">
@@ -626,9 +625,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="944" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="510">
+        <state line="21" column="52" selection-start="555" selection-end="555" vertical-scroll-proportion="-7.096774" vertical-offset="0" max-vertical-offset="528">
           <folding />
         </state>
       </provider>
@@ -636,13 +635,36 @@
     <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="944">
+          <folding>
+            <marker date="1407631892426" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..friends..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/CommentRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="791">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="52" selection-start="555" selection-end="555" vertical-scroll-proportion="0.47930282" vertical-offset="0" max-vertical-offset="528">
+        <state line="55" column="30" selection-start="878" selection-end="878" vertical-scroll-proportion="-14.193548" vertical-offset="770" max-vertical-offset="1694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="39" selection-start="457" selection-end="457" vertical-scroll-proportion="-17.032259" vertical-offset="0" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/comments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="22" selection-start="3556" selection-end="3556" vertical-scroll-proportion="0.47894737" vertical-offset="2562" max-vertical-offset="3784">
           <folding />
         </state>
       </provider>

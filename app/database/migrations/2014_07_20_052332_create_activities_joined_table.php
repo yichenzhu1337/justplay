@@ -15,11 +15,11 @@ class CreateActivitiesJoinedTable extends Migration {
 		Schema::create('activities_joined', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('activity_id');
+			$table->integer('activity_id')->unsigned();
 			$table->integer('user_id');
 			$table->timestamps();
 
-			//$table->foreign('activity_id')->references('id')->on('activities')
+            $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
 		});
 	}
 

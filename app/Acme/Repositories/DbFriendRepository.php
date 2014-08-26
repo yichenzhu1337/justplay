@@ -66,27 +66,32 @@ class DbFriendRepository extends DbBaseRepository implements FriendRepositoryInt
 		$notification_received_query = DB::select($notification_received);
 
 		if (count($are_they_friends_query)) {
-			return Response::json([
-				'status' => 'friends'
-			]);
-	
+			return Response::json(
+				array(
+					'errors' => [],
+					'obj' => ['status' => 'friends']
+				));
 		}
 		elseif ($notification_sent_query) {
-			return Response::json([
-				'status' => 'notification_sent'
-			]);
-
+			return Response::json(
+				array(
+					'errors' => [],
+					'obj' => ['status' => 'notification_sent']
+				));
 		}
-		elseif($notification_received_query){
-			return Response::json([
-				'status' => 'notification_received'
-			]);
-
+		elseif ($notification_received_query){
+			return Response::json(
+				array(
+					'errors' => [],
+					'obj' => ['status' => 'notification_received']
+				));
 		}
-		else{
-			return Response::json([
-				'status' => 'not_friends'
-			]);
+		else {
+			return Response::json(
+				array(
+					'errors' => [],
+					'obj' => ['status' => 'not_friends']
+				));
 		}
 	}
 

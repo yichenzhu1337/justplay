@@ -32,7 +32,7 @@ class FriendsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::only('from_id', 'to_id');
+		$input = Input::only('user1_id', 'user2_id');
 
 		$this->friend->store($input);
 	}

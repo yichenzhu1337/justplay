@@ -74,6 +74,30 @@ services.DateTimeService = function()
 			return false;
 		}
 	}
+
+	this.isValidTimeRange = function(startRange, endRange)
+	{
+		startRange = moment(startRange);
+		endRange = moment(endRange);
+		var t1 = moment({
+			h: startRange.hour(), 
+			m: startRange.minute(), 
+			s: startRange.second(), 
+			ms: startRange.millisecond()});
+		var t2 = moment({
+			h: endRange.hour(), 
+			m: endRange.minute(), 
+			s: endRange.second(), 
+			ms: endRange.millisecond()});
+		if (t1.isBefore(endRange))
+		{
+			return true;
+		} 
+		else
+		{
+			return false;
+		}
+	}
 }
 
 mod.service(services);

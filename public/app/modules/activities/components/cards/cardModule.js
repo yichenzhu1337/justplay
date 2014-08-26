@@ -229,16 +229,22 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 	  });
 	  $scope.$watch(function() { return $scope.activity.startingtime},function(newVal,oldVal){
 	  	if (newVal != oldVal) {
-	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
-	  		$scope.activity.put();
-	  		$scope.FlashService.show('You have successfully edited the activity', 'success');
+	  		if ($scope.DTSvc.isValidTimeRange($scope.activity.startingtime,$scope.activity.endingtime)) {
+		  		$scope.activity.put();
+		  		$scope.FlashService.show('You have successfully edited the activity', 'success');
+	  		} else {
+	  			$scope.FlashService.show('Your Start Time must be before the end time', 'error');
+	  		}
 	  	}
 	  });
 	  $scope.$watch(function() { return $scope.activity.endingtime},function(newVal,oldVal){
 	  	if (newVal != oldVal) {
-	  		//$http.put('api/v1/activities/'+$scope.activity.id, newVal);
-	  		$scope.activity.put();
-	  		$scope.FlashService.show('You have successfully edited the activity', 'success');
+	  		if ($scope.DTSvc.isValidTimeRange($scope.activity.startingtime,$scope.activity.endingtime)) {
+		  		$scope.activity.put();
+		  		$scope.FlashService.show('You have successfully edited the activity', 'success');
+	  		} else {
+	  			$scope.FlashService.show('Your Start Time must be before the end time', 'error');
+	  		}
 	  	}
 	  });
 	};

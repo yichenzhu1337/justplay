@@ -12,7 +12,15 @@ factories.authenticationService = function($q, SessionService, User, API, Restan
 	}
 
 	var isLoggedIn = function() {
-		return SessionService.get('authenticated');
+		var val = SessionService.get('authenticated');
+		if (val === 'true')
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+		}
 	}
 
 	var currentUser;

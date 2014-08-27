@@ -144,6 +144,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 				}
 				return d.promise;
 			}
+		},
+		data: {
+			access: access.auth
 		}
 	});
 
@@ -298,7 +301,7 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 })
 
 app.run(['$rootScope','$state','authenticationService', 'access', 'FlashService', 
-	function($rootScope, $state, AuthSvc, access){
+	function($rootScope, $state, AuthSvc, access, FlashService){
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
   	if (toState.name == 'login')
   	{
@@ -334,6 +337,7 @@ app.run(['$rootScope','$state','authenticationService', 'access', 'FlashService'
 			} else {
 				event.preventDefault()
 				AuthSvc.saveAttemptStateAndParams(toState.name, toParams);
+				FlashService.show('You need to login first', "info");
 				$state.go('login');
 			}
 		}

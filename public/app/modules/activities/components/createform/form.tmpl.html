@@ -67,7 +67,8 @@
 
   <!-- MAX CAPACITY -->
   <div class="form-group"
-  ng-class="{ 'has-error' : createActForm.capacity.$invalid && !createActForm.capacity.$pristine, 'has-success' : !createActForm.capacity.$invalid && !createActForm.capacity.$pristine }"> 
+  ng-class="{ 'has-error' : createActForm.capacity.$invalid && !createActForm.capacity.$pristine, 'has-success' : !createActForm.capacity.$invalid && !createActForm.capacity.$pristine }"
+  ng-show='false'> 
     <label for="capacity">How many people are you looking to play with? <span class="text-muted">(Approximately)</span></label>
 
     <!-- Note that if characters are inputted, ng-model is an empty string -->
@@ -75,7 +76,7 @@
     
     <!-- Max Capacity Validation Messages -->
     <span class="help-block" ng-show="!createActForm.capacity.$pristine && createActForm.capacity.$error.required">Select Maximum amount of people you want to play with</span>
-  </div>    
+  </div>
 
   <!-- DESCRIPTION -->
   <div class="form-group"

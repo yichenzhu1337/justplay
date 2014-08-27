@@ -261,27 +261,7 @@
 /* Activity Form Popover */
 
 /* Date Pick Popover */
-  .datepick .btn-default {
-    border-color: #FFFFFF;
-  }
 
-
-  .date-choose-button {
-    color: #7f8c8d;
-    border-bottom: 1px dotted black;
-  }
-
-  .date-choose-button:hover,
-  .date-choose-button:active {
-    border: none;
-    text-decoration: none;
-    color: #656D78;
-  }
-
-  #date-pick > .popover {
-    min-width: 500px;
-    height: 500px;
-  }
 /* Date Pick Popover */
 
 /* Cards */
@@ -638,33 +618,6 @@
     width:100%;
     height:100%;
   }
-
-  /* Display date of group of cards.*/
-    .date-wrapper {
-      color: #7f8c8d;
-      font-size: 20px;
-      height: 63px;
-      text-align: center;
-      padding-top: 27px;
-      padding-bottom: 9px;
-    }
-
-    .date-day-of-week {
-      display: inline-block;
-    }
-
-    .date-day-of-week > a {
-      font-weight: bold;
-      display: inline;
-      line-height: 27px;
-    }
-
-    .date-dmy {
-      display: inline-block;
-      font-size: 20px;
-      line-height: 20px;
-    }
-  /* Display date of group of cards. */
 /* Cards */
 
 /* Utility */

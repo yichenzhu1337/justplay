@@ -13,6 +13,8 @@ controllers.activityController = function($scope, sportFactory, FlashService, Da
     $scope.activities = sportFactory.getSportInList();
     $scope.activitySelected;
     $scope.submitted = {};
+    $scope.create = {};
+    $scope.create.capacity = 1; // Hardcoded because we're not using it atm 27/08/2014
   }
 
   $scope.isValidTimeRange = function(startTime, endTime)

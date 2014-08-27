@@ -41,6 +41,20 @@
 	   		display: inherit;
 	   		margin-top: 14px;
 		    width: 100%;
+				max-width: 600;
+				width: 100%;
+				margin-left: 0;
+				margin-right: 0;
+				margin: auto;
+
+		    > h2 {
+		    	text-align: center;
+		    	color: black;
+
+		    	@media (min-width: @screen-sm-min) {
+		    		color: #ecf0f1;
+		    	}
+		    }
 
 		    form {
 		    	display: inline-block;
@@ -69,7 +83,7 @@
 		    }
 
 	      @media (min-width: @screen-sm-min) {
-			    margin-top: 70.62px;
+			    margin-top: 90.62px;
 			  }
 	   	}
 	  }
@@ -111,13 +125,33 @@
     margin: 0 auto;
     min-height: 100%;
     height: auto;
-    margin-top: 0px;
+    margin-top: 50px;
     background-color: white;
 
     &.search-content {
 	    @media (min-width: @screen-sm-min) {
 		    margin-top: -63px;
 	    }
+
+      > .date-wrapper {
+	      color: #7f8c8d;
+	      font-size: 25px;
+	      height: auto;
+	      text-align: center;
+	      padding-top: 27px;
+	      padding-bottom: 9px;
+
+	      	> * .date-choose-button {
+				    color: #7f8c8d;
+				    border-bottom: 1px dotted black;
+				  }
+
+				  > * .date-choose-button:hover, * date-choose-button:active {
+				    border: none;
+				    text-decoration: none;
+				    color: #656D78;
+				  }
+      }
     }
 
     &.activity-detail-main-body-wrapper {

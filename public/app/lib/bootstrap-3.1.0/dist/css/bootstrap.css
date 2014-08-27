@@ -6124,7 +6124,20 @@ fieldset[disabled] .jp-btn-link {
 .header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper {
   display: inherit;
   margin-top: 14px;
+  max-width: 600;
   width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin: auto;
+}
+.header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper > h2 {
+  text-align: center;
+  color: black;
+}
+@media (min-width: 768px) {
+  .header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper > h2 {
+    color: #ecf0f1;
+  }
 }
 .header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper form {
   display: inline-block;
@@ -6150,7 +6163,7 @@ fieldset[disabled] .jp-btn-link {
 }
 @media (min-width: 768px) {
   .header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper {
-    margin-top: 70.62px;
+    margin-top: 90.62px;
   }
 }
 @media (min-width: 480px) {
@@ -6190,13 +6203,31 @@ fieldset[disabled] .jp-btn-link {
   margin: 0 auto;
   min-height: 100%;
   height: auto;
-  margin-top: 0px;
+  margin-top: 50px;
   background-color: white;
 }
 @media (min-width: 768px) {
   .page-container > .content-wrapper.search-content {
     margin-top: -63px;
   }
+}
+.page-container > .content-wrapper.search-content > .date-wrapper {
+  color: #7f8c8d;
+  font-size: 25px;
+  height: auto;
+  text-align: center;
+  padding-top: 27px;
+  padding-bottom: 9px;
+}
+.page-container > .content-wrapper.search-content > .date-wrapper > * .date-choose-button {
+  color: #7f8c8d;
+  border-bottom: 1px dotted black;
+}
+.page-container > .content-wrapper.search-content > .date-wrapper > * .date-choose-button:hover,
+.page-container > .content-wrapper.search-content > .date-wrapper * date-choose-button:active {
+  border: none;
+  text-decoration: none;
+  color: #656D78;
 }
 .page-container > .content-wrapper.activity-detail-main-body-wrapper {
   background-color: none;
@@ -6416,6 +6447,9 @@ a.media-name {
 }
 .dp-disabled {
   color: #cccccc;
+}
+.datepick .btn-default {
+  border-color: #FFFFFF;
 }
 /*
  * Social Buttons for Bootstrap

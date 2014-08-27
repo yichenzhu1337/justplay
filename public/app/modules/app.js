@@ -118,7 +118,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			}
 		},
 		resolve: {
-			payload: function($stateParams, Restangular, authenticationService, FriendService, $q) {
+			payload: function($stateParams, $state, FlashService, Restangular, authenticationService, FriendService, $q) {
 				var d = $q.defer();
 				var payload = {};
 				if (authenticationService.getUser().username == $stateParams.username) {
@@ -126,14 +126,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 					d.resolve(payload);
 				} else {
 					Restangular.one('profiles',$stateParams.username).get()
-					.then(function(data) {
-						payload.user = data;
-						FriendService.getFriendStatus(data.numeric_id)
-						.then(function(data) {
-							payload.friendStatus = data;
-							d.resolve(payload);
-						});
-					});
+					.then(
+						function(data) {
+							payload.user = data;
+							FriendService.getFriendStatus(data.numeric_id)
+							.then(function(data) {
+								payload.friendStatus = data;
+								d.resolve(payload);
+							});
+						},
+						function() {
+							FlashService.show('User cannot be found', 'error');
+							$state.go('main.social.list');
+							d.reject;
+						}
+					);
 				}
 				return d.promise;
 			}

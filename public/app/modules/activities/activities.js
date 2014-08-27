@@ -4,10 +4,11 @@ var jpactivitiespage = angular.module('jp.activitiespage',
 	'sortModule',
 	'filterModule', 
   'searchbar',
-        'cardModule',
-        'dateModule',
-        'createform',
-        'activityModule'
+  'cardModule',
+  'dateModule',
+  'createform',
+  'activityModule',
+  'jp.flash'
 	]);
 
 jpactivitiespage
@@ -51,10 +52,14 @@ jpactivitiespage
 			}
 		},
 		resolve: {
-			activity: function(ActivitySvc, $stateParams) {
+			activity: function(ActivitySvc, $stateParams, $state, FlashService) {
 				return ActivitySvc.get($stateParams.id).then(
 					function(data) {
 						return data;
+					},
+					function() {
+						FlashService.show("Activity doesn't exist anymore", 'error');
+						$state.go('main.activities.list');
 					});
 			}
 		}

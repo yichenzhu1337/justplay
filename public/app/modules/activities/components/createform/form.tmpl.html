@@ -46,7 +46,8 @@
     <span class="help-block" ng-show="!createActForm.date.$pristine && createActForm.date.$error.required">Select Date</span>
   </div>
 
-  <div class="form-group" ng-class="{ 'has-error' : createActForm.date_from.$invalid && !createActForm.date_from.$pristine, 'has-success' : !createActForm.date_from.$invalid && !createActForm.date_from.$pristine }">
+  <div class="form-group" ng-class="{ 'has-error' : (createActForm.date_from.$invalid && !createActForm.date_from.$pristine) || ((!createActForm.date_from.$pristine && !createActForm.date_to.$pristine) && !isValidTimeRange(create.date_from,create.date_to))
+, 'has-success' : !createActForm.date_from.$invalid && !createActForm.date_from.$pristine }">
     <label for="date_from">From <span class="text-muted">(Use your arrow keys/mousewheel)</span></label>
     <timepicker name="date_from" ng-model="create.date_from" show-meridian="false" minute-step="15" required></timepicker>
 
@@ -54,13 +55,14 @@
     <span class="help-block" ng-show="!createActForm.date_from.$pristine && createActForm.date_from.$error.required">Select Starting Time</span>
   </div>
 
-  <div class="form-group" ng-class="{ 'has-error' : createActForm.date_to.$invalid && !createActForm.date_to.$pristine, 'has-success' : !createActForm.date_to.$invalid && !createActForm.date_to.$pristine }">
+  <div class="form-group" ng-class="{ 'has-error' : (createActForm.date_to.$invalid && !createActForm.date_to.$pristine) || ((!createActForm.date_from.$pristine && !createActForm.date_to.$pristine) && !isValidTimeRange(create.date_from,create.date_to)), 'has-success' : !createActForm.date_to.$invalid && !createActForm.date_to.$pristine }">
     <label for="date_to">To</label>
 
     <timepicker name="date_to" ng-model="create.date_to" minute-step="15" show-meridian="false" required></timepicker>
 
     <!-- End Time Validation Messages -->
     <span class="help-block" ng-show="!createActForm.date_to.$pristine && createActForm.date_to.$error.required">Select Ending Time</span>
+    <span class="help-block" ng-show="!createActForm.date_to.$pristine && !isValidTimeRange(create.date_from,create.date_to)">Ending Time must be after start time</span>
   </div>
 
   <!-- MAX CAPACITY -->

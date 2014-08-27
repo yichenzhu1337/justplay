@@ -1,4 +1,4 @@
-var module = angular.module('createform', ['utilityDirectives','jp.http','jp.flash','jp.utilities'])
+var module = angular.module('createform', ['utilityDirectives','jp.http','jp.flash','jp.utilities','restangular','jp.api.config'])
 .value("filterRegex", 'EEEE, MMM d');
 
 var factories = {};
@@ -6,32 +6,37 @@ var services = {};
 var controllers = {};
 var directives = {};
 
-controllers.activityController = function($scope, sportFactory, FlashService, API, $state){
-	$scope.activities = sportFactory.getSportInList();
-	$scope.activitySelected;
-  $scope.submitted = {};
+controllers.activityController = function($scope, sportFactory, FlashService, DateTimeService, Restangular, api_const, API, $state){
+  function init()
+  {
+    $scope.DTSvc = DateTimeService;
+    $scope.activities = sportFactory.getSportInList();
+    $scope.activitySelected;
+    $scope.submitted = {};
+  }
+
+  $scope.isValidTimeRange = function(startTime, endTime)
+  {
+    return $scope.DTSvc.isValidTimeRange(startTime, endTime, true);
+  }
 
 	$scope.submit = function(isValid) {
-    if (isValid) {
+    if (isValid && $scope.isValidTimeRange($scope.create.date_from,$scope.create.date_to)) {
       $scope.submitted = angular.copy($scope.create);
       $scope.submitted.date = $scope.submitted.date.toMysqlFormat();
-      $scope.submitted.date_from = $scope.submitted.date_from.toMysqlFormat();
-      $scope.submitted.date_to = $scope.submitted.date_to.toMysqlFormat();
-      API.post('api/v1/activities',$scope.submitted).then(
-        function(){
-          $state.go('main.activities.list');
+      $scope.submitted.startingtime = $scope.submitted.date_from.toMysqlFormat();
+      $scope.submitted.endingtime = $scope.submitted.date_to.toMysqlFormat();
+
+      Restangular.all(api_const.activities).post($scope.submitted).then(
+        function() {
           FlashService.show('You have succesfully created an activity!', 'success');
-        })
+          $state.go('main.activities.list');
+        });
     } else {
       FlashService.show('There were errors with your input', 'error');
     }
-    
-		if (isValid) {
-			console.log("success: " + isValid);
-		} else {
-			console.log("fail: " + isValid);
-		}
 	}
+  init();
 };
 
 controllers.activityCreateDateController = function($scope, $filter, filterRegex, DateTimeService) {

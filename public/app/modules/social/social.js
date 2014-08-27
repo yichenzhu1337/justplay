@@ -4,11 +4,11 @@ var controllers = {};
 var directives = {};
 
 
-controllers.socialController = function($scope, peopleusers){
+controllers.socialController = function($scope, peopleusers, UserSvc){
 	init();
 
 	function init() {
-		$scope.users = peopleusers;
+		$scope.users = UserSvc.removeLoggedInUserFromList(peopleusers);
 	}
 };
 
@@ -39,7 +39,6 @@ directives.jpuserlist = function($filter, UserSvc, FriendService, $state) {
 				$scope.users = $scope.getusers;
 				$scope.totalItems = $scope.users.length;
 			};
-			init();
 
 			/// PAGINATION FUNCTIONS
 			/// ---------------------------
@@ -66,6 +65,8 @@ directives.jpuserlist = function($filter, UserSvc, FriendService, $state) {
 				$scope.currentPage = 1;
 				$scope.totalItems = numberOfItems;
 			}
+
+			init();
 		}
 	}
 };

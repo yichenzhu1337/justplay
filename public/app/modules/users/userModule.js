@@ -1,4 +1,4 @@
-var mod = angular.module('userModule', ['jp.http']);
+var mod = angular.module('userModule', ['jp.http','jp.authentication']);
 
 var factories = {};
 
@@ -50,7 +50,8 @@ factories.MinimalUser = function()
 	return MinimalUser;
 }
 
-factories.UserSvc = ['$q', '$timeout', 'User', 'MinimalUser', 'API', function($q, $timeout, User, MinimalUser, API){
+factories.UserSvc = ['$q', '$timeout', 'User', 'MinimalUser', 'API', 'authenticationService', 
+function($q, $timeout, User, MinimalUser, API, AuthSvc){
 
 	var buildUserCollection = function(JSONObj) {
 		var array = [];
@@ -109,8 +110,20 @@ factories.UserSvc = ['$q', '$timeout', 'User', 'MinimalUser', 'API', function($q
 				function(obj) {
 					return User.build(obj);
 				});
+		},
+		removeLoggedInUserFromList: function(list)
+		{
+			var filteredList = [];
+			for (var i = 0; i < list.length; i++)
+			{
+				if (AuthSvc.getUser().username !== list[i].username)
+				{
+					filteredList.push(list[i]);
+				}
+			}
+			return filteredList;
 		}
 	}
-}]
+}];
 
 mod.factory(factories);

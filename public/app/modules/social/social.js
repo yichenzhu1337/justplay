@@ -1,4 +1,4 @@
-var mod = angular.module('jp.social', ['jp.authentication', 'userModule','ui.bootstrap', 'jp.friend','jp.friend.status.config']);
+var mod = angular.module('jp.social', ['jp.authentication', 'userModule','ui.bootstrap', 'jp.friend']);
 
 var controllers = {};
 var directives = {};
@@ -12,7 +12,7 @@ controllers.socialController = function($scope, peopleusers){
 	}
 };
 
-directives.jpuserlist = function($filter, UserSvc, authenticationService, FriendService, friend_statuses, $state) {
+directives.jpuserlist = function($filter, UserSvc, FriendService, $state) {
 	return {
 		restrict: 'E',
 		transclude: true,
@@ -26,8 +26,6 @@ directives.jpuserlist = function($filter, UserSvc, authenticationService, Friend
 			// Services
 			$scope.UserSvc = UserSvc;
 			$scope.FriendSvc = FriendService;
-			$scope.AuthSvc = authenticationService;
-			$scope.friend_statuses = friend_statuses;
 
 			// Variables
 			// Search models
@@ -46,35 +44,6 @@ directives.jpuserlist = function($filter, UserSvc, authenticationService, Friend
 			var refreshPage = function()
 			{
 				$state.go($state.$current, null, { reload: true });
-			}
-
-			/// USER-RELATIONSHIP FUNCTIONS
-			/// ---------------------------
-			$scope.checkFriendStatus = function(id) {
-				$scope.FriendSvc.getFriendStatus(id).then(function(data)
-				{
-					console.log(data);
-				});
-			};
-
-			$scope.sendFriendRequest = function(toId) {
-				$scope.FriendSvc.sendFriendRequest($scope.AuthSvc.getUser().numeric_id, toId);
-				refreshPage();
-			}
-
-			$scope.acceptFriendRequest = function(toId) {
-				$scope.FriendSvc.acceptFriendRequest($scope.AuthSvc.getUser().numeric_id, toId);
-				refreshPage();
-			}
-
-			$scope.rejectFriendRequest = function(toId) {
-				$scope.FriendSvc.rejectFriendRequest($scope.AuthSvc.getUser().numeric_id, toId);
-				refreshPage();
-			}
-
-			$scope.unFriend = function(toId) {
-				$scope.FriendSvc.unFriend(toId);
-				refreshPage();
 			}
 
 			/// PAGINATION FUNCTIONS

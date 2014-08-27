@@ -1,34 +1,34 @@
 <button 
-ng-show="user.areFriends == friend_statuses.not_friends" 
-ng-click="sendFriendRequest(user.id)"
+ng-show="status == friend_status_const.not_friends" 
+ng-click="sendFriendRequest(uid)"
 class="btn btn-sm btn-default">
 <i class="glyphicon glyphicon-plus"></i><span class="hidden">a</span>Add Friend
 </button>
 <button 
-ng-show="user.areFriends == friend_statuses.friend_request_sent" 
-ng-click='checkFriendStatus(user.id)' 
+ng-show="status == friend_status_const.friend_request_sent" 
+ng-click='checkFriendStatus(uid)' 
 class="btn btn-sm btn-default"
 disabled="true"
 ><span class="hidden">a</span>Friend Request Sent
 </button>
 <button 
-ng-show="user.areFriends == friend_statuses.friend_request_received" 
-ng-click='acceptFriendRequest(user.id)' 
+ng-show="status == friend_status_const.friend_request_received" 
+ng-click='acceptFriendRequest(uid)' 
 class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-ok"></i><span class="hidden">a</span>Accept
 </button>
 <button 
-ng-show="user.areFriends == friend_statuses.friend_request_received" 
-ng-click='checkFriendStatus(user.id)' 
+ng-show="status == friend_status_const.friend_request_received" 
+ng-click='checkFriendStatus(uid)' 
 class="btn btn-sm btn-default"><i class="glyphicon glyphicon-remove"></i><span class="hidden">a</span>Delete
 </button>
 <div class="btn-group" dropdown>
 	<button 
 	type="button"
-	ng-show="user.areFriends == friend_statuses.friends" 
+	ng-show="status == friend_status_const.friends" 
 	class="btn btn-sm btn-default dropdown-toggle"
 	><i class="glyphicon glyphicon-ok"></i><span class="hidden">a</span>Friends <span class="caret"></span>
 	</button>
 	<ul class="dropdown-menu" role="menu">
-		<li><a href="" ng-click="unFriend(user.id)">Unfriend</a></li>
+		<li><a href="" ng-click="unFriend(uid)">Unfriend</a></li>
 	</ul>
 </div>

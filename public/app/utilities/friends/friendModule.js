@@ -40,8 +40,6 @@ services.FriendService = function(friend_statuses, api_const, API) {
 	}
 };
 
-///	Shows friend's actions such as Add Friend, Remove Friend, Accept Friend etc.
-///	----------------------------------------------------------------------------
 directives.friendactions = function(FriendService, authenticationService, friend_statuses)
 {
 	return {

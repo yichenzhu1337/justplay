@@ -58,7 +58,7 @@
 		<script src="app/utilities/errorService.js"></script>		
 		<script src="app/utilities/authentication.js"></script>
 		<script src="app/utilities/utilities.js"></script>
-		<script src="app/utilities/friendModule.js"></script>
+		<script src="app/utilities/friends/friendModule.js"></script>
 		<script src="app/modules/masterController.js"></script>
 
 		<!-- justPlay utility Directives -->

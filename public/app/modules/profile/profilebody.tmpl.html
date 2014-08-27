@@ -13,9 +13,13 @@
 				<h1 ng-hide="IsCurrentUser(user.username)" class="profile-header" e-form="formName" editable-text="user.profile.name" e-required e-placeholder="Name">
 					{{ user.profile.name }}
 				</h1>
-				<h3 class="profile-header">{{user.username}}</h3>
   		</div>
 			<div class="profile-body">
+				<div ng-hide="IsCurrentUser(user.username)">
+					<p class="text-muted">Friend Status</p>
+					<friendactions user-id='user.numeric_id' friend-status='friendStatus'/>
+					<p> </p>
+				</div>
 				<p class="text-muted">Contact Information</p>
 				<ul class="list-group">
 					<li class="list-group-item">

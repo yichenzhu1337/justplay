@@ -15,13 +15,7 @@ services.FriendService = function(friend_statuses, api_const, API) {
 
 	this.sendFriendRequest = function(curId, targetId)
 	{
-		return API.post(base_notification_url, {from_id: curId, to_id: targetId, request_type: 'friend'})
-		.then(function() {
-			this.getFriendStatus(targetId).then(
-				function(status){
-					console.log(status)
-				});
-		});
+		API.post(base_notification_url, {from_id: curId, to_id: targetId, request_type: 'friend'});
 	};
 
 	this.acceptFriendRequest = function(curId, targetId)
@@ -55,9 +49,16 @@ directives.friendactions = function(FriendService, authenticationService, friend
 		link: function($scope, element, attrs)
 		{
 			function init() {
+				$scope.FriendSvc = FriendService;
+
 				$scope.uid = $scope.userId;
 				$scope.status = $scope.friendStatus;
 				$scope.friend_status_const = friend_statuses;
+			}
+
+			var refreshPage = function()
+			{
+				$state.go($state.$current, null, { reload: true });
 			}
 
 			/// USER-RELATIONSHIP FUNCTIONS

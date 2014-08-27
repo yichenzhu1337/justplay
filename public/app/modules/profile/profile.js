@@ -1,10 +1,10 @@
-var mod = angular.module('jp.profile', ['userModule','jp.authentication']);
+var mod = angular.module('jp.profile', ['userModule','jp.authentication','jp.friend']);
 
 var controllers = {};
 var directives = {};
 
 
-controllers.profileController = function($scope, authenticationService, user){
+controllers.profileController = function($scope, authenticationService, FriendService, payload){
 	init();
 
 	var username;
@@ -12,8 +12,15 @@ controllers.profileController = function($scope, authenticationService, user){
 	function init() {
 		// Services
 		$scope.AuthSvc = authenticationService;
-		username = user.username;
-		$scope.user = user;
+		$scope.FriendService = FriendService;
+		$scope.user = payload.user;
+		username = $scope.user.username;
+
+		// Get the Friend status if this is not our account
+		if (angular.isDefined(payload.friendStatus))
+		{
+			$scope.friendStatus = payload.friendStatus;
+		}
 
 		// Watch for puts
 		$scope.$watch(function() { return $scope.user }, function(newVal, oldVal) {

@@ -41,11 +41,6 @@ directives.jpuserlist = function($filter, UserSvc, FriendService, $state) {
 			};
 			init();
 
-			var refreshPage = function()
-			{
-				$state.go($state.$current, null, { reload: true });
-			}
-
 			/// PAGINATION FUNCTIONS
 			/// ---------------------------
 			$scope.updateUsers = function(selectedUser) {

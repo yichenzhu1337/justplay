@@ -8,6 +8,7 @@ var app = angular.module('app',
 		'jp.social',
 		'jp.profile',
 		'jp.masterCtrl',
+		'jp.friend',
 		'angularMoment',
 		'restangular',
 		'jp.http',
@@ -117,12 +118,24 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			}
 		},
 		resolve: {
-			user: function($stateParams, Restangular, authenticationService) {
+			payload: function($stateParams, Restangular, authenticationService, FriendService, $q) {
+				var d = $q.defer();
+				var payload = {};
 				if (authenticationService.getUser().username == $stateParams.username) {
-					return authenticationService.getUser();
+					payload.user = authenticationService.getUser();
+					d.resolve(payload);
 				} else {
-					return Restangular.one('profiles',$stateParams.username).get();
+					Restangular.one('profiles',$stateParams.username).get()
+					.then(function(data) {
+						payload.user = data;
+						FriendService.getFriendStatus(data.numeric_id)
+						.then(function(data) {
+							payload.friendStatus = data;
+							d.resolve(payload);
+						});
+					});
 				}
+				return d.promise;
 			}
 		}
 	});

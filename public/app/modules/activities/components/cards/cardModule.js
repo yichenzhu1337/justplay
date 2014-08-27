@@ -243,12 +243,14 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 		  		$scope.activity.put();
 		  		$scope.FlashService.show('You have successfully edited the activity', 'success');
 	  		} else {
-	  			$scope.FlashService.show('Your Starting Time must be before the end time to save changes', 'error');
+	  			$scope.FlashService.show('Your Starting Time must be before the Ending Time to save changes', 'error');
 	  		}
 	  	}
 	  });
 	};
 
+	/// Helper functions
+	/// --------------------------------------------------------------------
 	$scope.currentUserIsParticipant = function(participants) {
 		if (angular.isUndefined(IsParticipant)){
 			for (var i = 0; i < participants.length; i++) {
@@ -283,6 +285,8 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 		}
 	}
 
+	/// User actions
+	/// --------------------------------------------------------------------
 	$scope.join = function(actId) {
 		$scope.activity.activityJoined.data.post({activity_id: actId }).then(
 			function() {
@@ -299,8 +303,9 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
   		});
   }
 
+  // Delete an activity as an owner.
   $scope.cancel = function(actId) {
-  	// Delete Activity
+  	FlashService.show('You have successfully deleted the activity', 'success');
   	API.delete('api/v1/activities/'+actId);
   	$state.go('main.activities.list');
   }

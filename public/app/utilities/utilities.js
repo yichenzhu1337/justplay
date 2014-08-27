@@ -75,7 +75,7 @@ services.DateTimeService = function()
 		}
 	}
 
-	this.isValidTimeRange = function(startRange, endRange)
+	this.isValidTimeRange = function(startRange, endRange, excludeEquality)
 	{
 		startRange = moment(startRange);
 		endRange = moment(endRange);
@@ -89,7 +89,11 @@ services.DateTimeService = function()
 			m: endRange.minute(), 
 			s: endRange.second(), 
 			ms: endRange.millisecond()});
-		if (t1.isBefore(endRange))
+		if (angular.isDefined(excludeEquality) && excludeEquality && startRange.isSame(endRange,'minute'))
+		{
+			return false
+		}
+		if (t1.isBefore(t2))
 		{
 			return true;
 		} 

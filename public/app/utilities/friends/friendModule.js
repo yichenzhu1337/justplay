@@ -1,4 +1,4 @@
-var mod = angular.module('jp.friend', ['jp.friend.status.config','jp.api.config','jp.http','jp.authentication']);
+var mod = angular.module('jp.friend', ['jp.friend.status.config','jp.api.config','jp.http','jp.authentication','ui.router']);
 var services= {};
 var directives = {};
 
@@ -15,13 +15,7 @@ services.FriendService = function(friend_statuses, api_const, API) {
 
 	this.sendFriendRequest = function(curId, targetId)
 	{
-		return API.post(base_notification_url, {from_id: curId, to_id: targetId, request_type: 'friend'})
-		.then(function() {
-			this.getFriendStatus(targetId).then(
-				function(status){
-					console.log(status)
-				});
-		});
+		API.post(base_notification_url, {from_id: curId, to_id: targetId, request_type: 'friend'});
 	};
 
 	this.acceptFriendRequest = function(curId, targetId)
@@ -40,7 +34,9 @@ services.FriendService = function(friend_statuses, api_const, API) {
 	}
 };
 
-directives.friendactions = function(FriendService, authenticationService, friend_statuses)
+///	Shows friend's actions such as Add Friend, Remove Friend, Accept Friend etc.
+///	----------------------------------------------------------------------------
+directives.friendactions = function(FriendService, authenticationService, friend_statuses, $state)
 {
 	return {
 		restrict: 'E',
@@ -53,9 +49,16 @@ directives.friendactions = function(FriendService, authenticationService, friend
 		link: function($scope, element, attrs)
 		{
 			function init() {
+				$scope.FriendSvc = FriendService; 
+ 				$scope.AuthSvc = authenticationService;
 				$scope.uid = $scope.userId;
 				$scope.status = $scope.friendStatus;
 				$scope.friend_status_const = friend_statuses;
+			}
+
+			var refreshPage = function()
+			{
+				$state.go($state.$current, null, { reload: true });
 			}
 
 			/// USER-RELATIONSHIP FUNCTIONS

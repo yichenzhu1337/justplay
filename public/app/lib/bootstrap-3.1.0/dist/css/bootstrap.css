@@ -6286,6 +6286,17 @@ fieldset[disabled] .jp-btn-link {
     max-width: 1162;
   }
 }
+.card-container > .call-to-action {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+  color: #7f8c8d;
+}
+.card-container > .call-to-action > button {
+  height: 50px;
+  font-weight: 700;
+  font-size: 20px;
+}
 .card-container > .card-wrap {
   max-width: 270px;
   width: 100%;

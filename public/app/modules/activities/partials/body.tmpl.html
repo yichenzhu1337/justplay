@@ -16,6 +16,11 @@
         </div>
       </div>
       <div class="card-container" ng-repeat-end>
+        <div class='call-to-action' ng-show='dateobj.obj.length == 0'>
+          <p>Hey, there doesn't seem to be anyone playing yet.</p>
+          <p>Want to try hosting an activity?</p>
+          <button ui-sref="main.activities.create" class='btn btn-primary'>Host Activity</button>
+        </div>
         <div class="card-wrap" 
         ng-repeat="card in dateobj.obj | filter:{sport:activityFilter} | property:searchFilter:filterFlag" 
         ng-controller="cardController">

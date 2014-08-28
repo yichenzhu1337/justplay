@@ -39,8 +39,18 @@ controllers.activityController = function($scope, sportFactory, FlashService, Ac
     if (isValid && $scope.isValidTimeRange($scope.create.date_from,$scope.create.date_to)) {
 
       // Map it to the correct fieldname
-      $scope.create.startingtime = $scope.create.date_from;
-      $scope.create.endingtime = $scope.create.date_to;
+      var m_date = moment($scope.create.date);
+      var m_startingtime = moment($scope.create.date_from);
+      var m_endingtime = moment($scope.create.date_to);
+      m_startingtime.set('date',m_date.date());
+      m_startingtime.set('month',m_date.month());
+      m_startingtime.set('year',m_date.year());
+      m_endingtime.set('date',m_date.date());
+      m_endingtime.set('month',m_date.month());
+      m_endingtime.set('year',m_date.year());
+       
+      $scope.create.startingtime = m_startingtime.tz("Etc/UTC").toDate();
+      $scope.create.endingtime = m_endingtime.tz("Etc/UTC").toDate();
 
       $scope.ActivitySvc.post($scope.create).then(
         function() {

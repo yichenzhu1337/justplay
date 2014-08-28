@@ -1,0 +1,80 @@
+<div class="card-left" > 
+  <div class="card-activity">
+    {{activity.sport}}
+  </div>
+  <div class="card">
+    <div class="card-star-wrapper star-mouseover">
+      <a href="" tooltip-placement="top" tooltip="{{skillDescription}}">
+        <icon ng-repeat="i in stars" class="glyphicon glyphicon-star card-rating-stars"></icon>
+      </a>
+    </div>
+    <div class="card-header-wrapper">
+      <div class="description-text">
+        {{activity.date | amDateFormat: 'dddd, MMM Do' | uppercase}}
+      </div>
+      <div class="card-number">
+        {{activity.starttime | amDateFormat: 'HH:mm'}}-{{activity.endtime | amDateFormat: 'HH:mm'}}
+      </div>
+      <div class="description-text">
+        {{activity.location | uppercase}}
+      </div>
+    </div>
+    <div class="card-content-wrapper" ng-init="radioModel = 'Middle'">
+      <div class="card-info-wrapper" ng-show="radioModel == 'Left'">
+        <div class="card-info-title">Friends</div>
+        <div class="card-info description text-center going-friend-icons">
+        <jppeoplegoingicon maxitems="8" maxextras="10" users="friendList"></jppeoplegoingicon> 
+        </div>
+      </div>  
+      <div class="card-info-wrapper" ng-show="radioModel == 'Middle'">
+        <div class="card-info-title">Description</div>
+        <div class="card-info description text-center">
+          {{activity.description}}
+        </div>
+      </div>
+      <div class="card-info-wrapper" ng-show="radioModel == 'Right'">
+        <div class="card-info-title">People</div>
+        <div class="card-info description text-center">
+           <jppeoplegoingicon maxitems="8" maxextras="10" users="goingList"></jppeoplegoingicon>
+        </div>
+      </div>
+      <div class="card-metrics">
+        <div class="row">
+          <div class="col-xs-4 friend-list-tooltip">
+            <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Left'">
+              <div class="card-number">
+                {{activity.participants.totalFriends}}
+              </div>
+              <div class="description-text">
+                FRIENDS
+              </div>
+            </button>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Middle'">                        
+              <div class="card-metric-icon">
+                <i class="glyphicon glyphicon-align-center"></i>
+              </div>
+              <div class="description-text">
+                OVERVIEW
+              </div>
+            </button>
+          </div>                           
+          <div class="col-xs-4">
+            <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Right'">                        
+              <div class="card-number">
+                {{ activity.participants.totalParticipants }}
+              </div>
+              <div class="description-text">
+                GOING
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="primary-button-wrapper">
+      <button type="button" ng-click="open(activity.activity_id)" class="btn btn-info fill">More</button>
+    </div>
+  </div>
+</div>

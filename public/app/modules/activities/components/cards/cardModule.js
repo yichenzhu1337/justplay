@@ -149,15 +149,7 @@ factories.watching = function(strategyData, searchbarData) {
 
 }
 
-
-/**
- * Displays the view according to details passed in
- * @param  {scope} $scope               scope
- * @param  {service} $modal               modal to expand card
- * @param  {service} friendService        retrieves friend list
- * @param  {factory} activitySkillFactory returns key values of skill descriptions
- * @return {none}                      none
- */
+/// CONTROLER FOR DIRECTIVE:activitycard
 controllers.cardController = function($scope, $filter, friendService, activitySkillFactory, $state) {
 	$scope.peopleneeded;
 	$scope.neededorfree;
@@ -167,8 +159,8 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 
 	init();
 	function init() {
-		$scope.friendList = $filter('arrayContains')($scope.card.participants.list,'areFriends',true);
-		$scope.goingList = $filter('arrayContains')($scope.card.participants.list,'areFriends',false);
+		$scope.friendList = $filter('arrayContains')($scope.activity.participants.list,'areFriends',true);
+		$scope.goingList = $filter('arrayContains')($scope.activity.participants.list,'areFriends',false);
 	}
 
 	$scope.open = function(activityId) {
@@ -182,7 +174,7 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 	$scope.getFriendList = function(){
 		var list = [];
 		var friendListString = "";
-		list = friendService.getFriendList($scope.card.participants.list);
+		list = friendService.getFriendList($scope.activity.participants.list);
 		for (var i = 0; i < list.length; i++) {
 			friendListString = friendListString + list[i];
 			if (i < list.length-1) {
@@ -317,6 +309,18 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 
 	init();
 };
+
+directives.activitycard = function() {
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'app/modules/activities/partials/activitycard.tmpl.html',
+		scope: {
+			activity: "="
+		},
+		controller: 'cardController'
+	}
+}
 
 directives.jppeoplegoingicon = function() {
 	return {

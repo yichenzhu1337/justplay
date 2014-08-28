@@ -32,7 +32,7 @@ jpactivitiespage
 		}
 	})
 	.state('main.activities.create', {
-		url: "/create",
+		url: "/create?sport&startingtime",
 		views: {
 			"header": {}, 
 			"body": {

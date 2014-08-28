@@ -37,8 +37,8 @@ factories.cardFactory = function() {
  * @param  {service} filterService   stores and updates additional filters
  * @return {none}                 none
  */
-controllers.cardsController = ['$scope', 'watching', 'filterService', 'activityList',
-function($scope, watching, filterService, activityList) {
+controllers.cardsController = ['$scope', 'watching', 'filterService', 'activityList', '$state',
+function($scope, watching, filterService, activityList, $state) {
 	// Base Set of Activities
 
 	function init() {
@@ -80,6 +80,11 @@ function($scope, watching, filterService, activityList) {
 		});
 
 	};
+
+	$scope.createActivity = function(date, sport)
+	{
+		$state.go('main.activities.create', {startingtime: date, sport: sport});
+	}
 
 	var setFilterFlag = function(val) {
 		$scope.filterServ.setFilterFlag(val);

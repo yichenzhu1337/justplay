@@ -1,7 +1,7 @@
 <form class="createActForm" name="createActForm" ng-controller="activityController" ng-submit="submit(createActForm.$valid)" novalidate>
   <!-- ACTIVITY -->
   <div class="form-group" ng-class="{ 'has-error' : createActForm.sport.$invalid && !createActForm.sport.$pristine, 
-	'has-success' : !createActForm.sport.$invalid && !createActForm.sport.$pristine }">
+	'has-success' : !createActForm.sport.$invalid || angular.isDefined(create.sport) }">
     <label for="sport">Sport</label>
 		<select 
     name="sport"
@@ -27,7 +27,7 @@
   
   <!-- DATE, TIME, DURATION -->
   <div class="form-group" ng-controller="activityCreateDateController"
-  ng-class="{ 'has-error' : createActForm.date.$invalid && !createActForm.date.$pristine, 'has-success' : !createActForm.date.$invalid && !createActForm.date.$pristine }"> 
+  ng-class="{ 'has-error' : createActForm.date.$invalid && !createActForm.date.$pristine, 'has-success' : !createActForm.date.$invalid || angular.isDefined(create.date)}"> 
     <label for="date">Date <span class="text-muted">(Within a week)</span></label>
     <input  
       name="date"

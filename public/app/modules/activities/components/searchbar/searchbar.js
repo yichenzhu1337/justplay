@@ -1,19 +1,19 @@
 var module = angular.module('searchbar', [])
 .value('SportValue', {
 	sports: [
-		{id: 1, category: ['RacquetSports'], label: 'Badminton'},
-		{id: 2, category: ['RacquetSports'], label: 'Tennis'}, 
-		{id: 3, category: ['RacquetSports'], label: 'Squash'}, 
-		{id: 4, category: ['RacquetSports'], label: 'Table Tennis'},
-		{id: 5, category: ['TeamSports'], label: 'Basketball'},
-		{id: 6, category: ['TeamSports'], label: 'Volleyball'},
-		{id: 7, category: ['TeamSports'], label: 'Ultimate Frisbee'}, 
-		{id: 8, category: ['TeamSports'], label: 'Soccer'}, 
-		{id: 9, category: ['TeamSports'], label: 'Football'},
-		{id: 10, category: ['TeamSports'], label: 'Ice Hockey'}, 
-		{id: 11, category: ['TeamSports'], label: 'Lacrosse'}, 
-		{id: 12, category: ['TeamSports'], label: 'Quidditch'}, 
-		{id: 13, category: ['TeamSports'], label: 'Rugby'}
+		{id: 'Badminton', category: ['RacquetSports'], label: 'Badminton'},
+		{id: 'Tennis', category: ['RacquetSports'], label: 'Tennis'}, 
+		{id: 'Squash', category: ['RacquetSports'], label: 'Squash'}, 
+		{id: 'Table Tennis', category: ['RacquetSports'], label: 'Table Tennis'},
+		{id: 'Basketball', category: ['TeamSports'], label: 'Basketball'},
+		{id: 'Volleyball', category: ['TeamSports'], label: 'Volleyball'},
+		{id: 'Ultimate Frisbee', category: ['TeamSports'], label: 'Ultimate Frisbee'}, 
+		{id: 'Soccer', category: ['TeamSports'], label: 'Soccer'}, 
+		{id: 'Football', category: ['TeamSports'], label: 'Football'},
+		{id: 'Ice Hockey', category: ['TeamSports'], label: 'Ice Hockey'}, 
+		{id: 'Lacrosse', category: ['TeamSports'], label: 'Lacrosse'}, 
+		{id: 'Quidditch', category: ['TeamSports'], label: 'Quidditch'}, 
+		{id: 'Rugby', category: ['TeamSports'], label: 'Rugby'}
 	]
 });
 var factories = {};

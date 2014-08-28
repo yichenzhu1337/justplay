@@ -19,6 +19,14 @@ controllers.activityController = function($scope, sportFactory, FlashService, Ac
 
     // Fill our form object.
     $scope.create = {};
+    if ($state.params.startingtime !== null)
+    {
+      $scope.create.date = new Date($state.params.startingtime);    
+    }
+    if ($scope.create.sport !== '' && $state.params.sport !== null)
+    {
+      $scope.create.sport = $state.params.sport;
+    }
     $scope.create.capacity = 1; // Hardcoded because we're not using it atm 27/08/2014
   }
 

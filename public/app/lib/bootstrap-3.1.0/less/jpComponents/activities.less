@@ -14,9 +14,6 @@
 @jp-md-width:									878;
 @jp-lg-width:									1162;
 
-@jp-profile-max-width:				400px;
-@jp-profile-padding:					36.25px;
-
 @jp-activity-content-padding:	13px;
 @jp-card-margin:							7px;
 
@@ -126,69 +123,16 @@
     min-height: 100%;
     height: auto;
     margin-top: 50px;
-    background-color: white;
+    background-color: transparent;
 
     &.search-content {
 	    @media (min-width: @screen-sm-min) {
 		    margin-top: -63px;
 	    }
-
-      > .date-wrapper {
-	      color: #7f8c8d;
-	      font-size: 25px;
-	      height: auto;
-	      text-align: center;
-	      padding-top: 27px;
-	      padding-bottom: 9px;
-
-	      	> * .date-choose-button {
-				    color: #7f8c8d;
-				    border-bottom: 1px dotted black;
-				  }
-
-				  > * .date-choose-button:hover, * date-choose-button:active {
-				    border: none;
-				    text-decoration: none;
-				    color: #656D78;
-				  }
-      }
-    }
-
-    &.activity-detail-main-body-wrapper {
-    	background-color: none;
-
-    	> .activity-detail-main-body {
-    	
-    	}
-    }
-
-    &.profile-page {
-    	max-width: @jp-profile-max-width;
-			margin: 0 auto;
-			background-color: transparent;
-    	padding-top: @jp-profile-protrusion-height;
-			padding-left: 10px;
-			padding-right: 10px;
-			margin-top: -50px;
-
-    	> .profile-content-area {
-				background-color: @jp-body-bg-color;
-				height: auto;
-				width: 100%;
-				border: 1px solid #dddddd;
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.13);
-			}
-
-    	@media (min-width: @screen-sm-min) {
-    		margin-top: -180px;
-    		box-shadow: none;
-		    padding-bottom: 0px;
-    	}
     }
 
     &.no-content {
-    	margin-top: -70px;
-
+    	margin-top: -55px;
 	    @media (min-width: @screen-sm-min) {
 		    margin-top: -220px;
 	    }
@@ -196,13 +140,10 @@
 
     @media (min-width: @screen-xs-min) {
 	    max-width: @jp-xs-width;
-	    padding-left: @jp-activity-content-padding;
-	    padding-right: @jp-activity-content-padding;
 	  }
 
     @media (min-width: @screen-sm-min) {
     	max-width: @jp-sm-width;
-	    box-shadow: 0 0 15px rgba(0,0,0,0.13);
     }
 
     @media (min-width: @screen-md-min) {
@@ -215,30 +156,69 @@
   }
 }
 
-.card-container {
+.activity-day-wrapper {
+	width: 100%;
+	background-color: white;
+	margin-bottom: 20px;
+
+  @media (min-width: @screen-xs-min) {
+    padding-left: @jp-activity-content-padding;
+    padding-right: @jp-activity-content-padding;
+    padding-bottom: @jp-activity-content-padding;
+		margin-bottom: 40px;
+  }
+
+  @media (min-width: @screen-sm-min) {
+    box-shadow: 0 0 15px rgba(0,0,0,0.13);
+  }
+
+  > .date-wrapper {
+    color: #7f8c8d;
+    font-size: 25px;
+    height: auto;
+    text-align: center;
+    padding-top: 27px;
+    padding-bottom: 9px;
+
+    	> * .date-choose-button {
+		    color: #7f8c8d;
+		    border-bottom: 1px dotted black;
+		  }
+
+		  > * .date-choose-button:hover, * date-choose-button:active {
+		    border: none;
+		    text-decoration: none;
+		    color: #656D78;
+		  }
+  }
+
 	> .call-to-action {
 		font-size: 16px;
 		text-align: center;
-		margin-top: 20px;
+		margin-top: 10px;
 		color: #7f8c8d;
 
 		> button {
+			margin-top: 10px;
+			margin-bottom: 10px;
 			height: 50px;
 			font-weight: 700;
 			font-size: 20px;
 		}
 	}
 
-	> .card-wrap {
-		max-width: 270px;
-		width: 100%;
-    display: inline-block;
-    margin: 9px @jp-card-margin 9px @jp-card-margin;
+	> .card-container {
+		> .card-wrap {
+			max-width: 270px;
+			width: 100%;
+	    display: inline-block;
+	    margin: 9px @jp-card-margin 9px @jp-card-margin;
 
-    > .card-left {
-    	width: 100%;
-    	display: inline-block;
-    	text-align: center;
-    }
+	    > .card-left {
+	    	width: 100%;
+	    	display: inline-block;
+	    	text-align: center;
+	    }
+		}
 	}
 }

@@ -1,122 +1,126 @@
 <div class="page-container">
-  <div class="content-wrapper no-content activity-detail-main-body-wrapper" >
-		<div class="activity-detail-info-box">
-			<div class="jp-h1">{{activity.sport}}</div>
-			<ul class="list-group">
-			  <li class="list-group-item">
-					<i class="fa fa-calendar-o pull-left"></i>
-					<label ng-show="formDate.$visible"> Date <span class="text-muted">(Now -> End of next week)</span></label>
-				  <h4 class="list-group-item-heading inline-edit editable-click" 
- 				  editable-bsdate="activity.startingtime" 
- 				  e-type='datetime'
-				  e-datepicker-popup="EEEE, MMM d"
-				  e-min='minDate'
-				  e-max='maxDate'
-				  ng-show="isOwner"
-				  e-form="formDate"
-				  ng-click='formDate.$show()'> 
-						{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
-					</h4>
-					<h4 class="list-group-item-heading" ng-show="!isOwner">
-						{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
-					</h4>
-			  </li>
-			  <!-- STARTING AND ENDING TIME -->
-			  <li class="list-group-item">
-					<i class="fa fa-clock-o pull-left"></i>
-					<label ng-show="formStartingTime.$visible"> Starting Time</label>
-					<label ng-show="formEndingTime.$visible"> Ending Time</label>
-					<span ng-show='isOwner'>
-					  <h4 
-					  ng-hide="formEndingTime.$visible" 
-					  class="list-group-item-heading inline-edit editable-click"
-					  editable-bstime="activity.startingtime" 
-					  e-show-meridian="false" 
-					  e-minute-step="10" 
-					  e-form="formStartingTime" 
-					  ng-click='formStartingTime.$show()'> 
-							{{activity.startingtime | amDateFormat: 'HH:mm'}}
-						</h4>
-					</span>
-				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
-						{{activity.startingtime | amDateFormat: 'HH:mm'}}
-					</h4>
-					<span ng-hide="formStartingTime.$visible || formEndingTime.$visible">-</span>
-					<span ng-show='isOwner'>
-						<h4 
-						ng-hide="formStartingTime.$visible" 
-						class="list-group-item-heading inline-edit editable-click"
-					  editable-bstime="activity.endingtime" 
-					  e-show-meridian="false" 
-					  e-minute-step="10" 
-					  e-form="formEndingTime" 
-					  ng-click='formEndingTime.$show()'>
-						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
-					</h4>
-					</span>
-					<h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner">
-						{{activity.endingtime | amDateFormat: 'HH:mm'}}  
-					</h4>
-			  </li>
-			  <!-- LOCATION -->
-			  <li class="list-group-item">
-					<i class="glyphicon glyphicon-map-marker pull-left"></i>
-					<label ng-show="formLocation.$visible"> Location</label>
-				  <h4 class="list-group-item-heading inline-edit editable-click" editable-text="activity.location" ng-show="isOwner" e-form="formLocation" ng-click='formLocation.$show()'> 
-						{{activity.location}}
-					</h4>
-				  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
-						{{activity.location}}
-					</h4>
-			  </li>
-			</ul>
-			<div class="call-to-action" ng-show="isLoggedIn">
-				<div ng-show='!isOwner'>
-					<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant">Join</button>
-					<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant">Leave</button>
+  <div class="content-wrapper no-content">
+		<div class="activity-detail-main-body-wrapper">
+			<div class="activity-detail-main-body">
+				<div class="activity-detail-info-box">
+					<div class="jp-h1">{{activity.sport}}</div>
+					<ul class="list-group">
+					  <li class="list-group-item">
+							<i class="fa fa-calendar-o pull-left"></i>
+							<label ng-show="formDate.$visible"> Date <span class="text-muted">(Now -> End of next week)</span></label>
+						  <h4 class="list-group-item-heading inline-edit editable-click" 
+		 				  editable-bsdate="activity.startingtime" 
+		 				  e-type='datetime'
+						  e-datepicker-popup="EEEE, MMM d"
+						  e-min='minDate'
+						  e-max='maxDate'
+						  ng-show="isOwner"
+						  e-form="formDate"
+						  ng-click='formDate.$show()'> 
+								{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
+							</h4>
+							<h4 class="list-group-item-heading" ng-show="!isOwner">
+								{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
+							</h4>
+					  </li>
+					  <!-- STARTING AND ENDING TIME -->
+					  <li class="list-group-item">
+							<i class="fa fa-clock-o pull-left"></i>
+							<label ng-show="formStartingTime.$visible"> Starting Time</label>
+							<label ng-show="formEndingTime.$visible"> Ending Time</label>
+							<span ng-show='isOwner'>
+							  <h4 
+							  ng-hide="formEndingTime.$visible" 
+							  class="list-group-item-heading inline-edit editable-click"
+							  editable-bstime="activity.startingtime" 
+							  e-show-meridian="false" 
+							  e-minute-step="10" 
+							  e-form="formStartingTime" 
+							  ng-click='formStartingTime.$show()'> 
+									{{activity.startingtime | amDateFormat: 'HH:mm'}}
+								</h4>
+							</span>
+						  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
+								{{activity.startingtime | amDateFormat: 'HH:mm'}}
+							</h4>
+							<span ng-hide="formStartingTime.$visible || formEndingTime.$visible">-</span>
+							<span ng-show='isOwner'>
+								<h4 
+								ng-hide="formStartingTime.$visible" 
+								class="list-group-item-heading inline-edit editable-click"
+							  editable-bstime="activity.endingtime" 
+							  e-show-meridian="false" 
+							  e-minute-step="10" 
+							  e-form="formEndingTime" 
+							  ng-click='formEndingTime.$show()'>
+								{{activity.endingtime | amDateFormat: 'HH:mm'}}  
+							</h4>
+							</span>
+							<h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner">
+								{{activity.endingtime | amDateFormat: 'HH:mm'}}  
+							</h4>
+					  </li>
+					  <!-- LOCATION -->
+					  <li class="list-group-item">
+							<i class="glyphicon glyphicon-map-marker pull-left"></i>
+							<label ng-show="formLocation.$visible"> Location</label>
+						  <h4 class="list-group-item-heading inline-edit editable-click" editable-text="activity.location" ng-show="isOwner" e-form="formLocation" ng-click='formLocation.$show()'> 
+								{{activity.location}}
+							</h4>
+						  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
+								{{activity.location}}
+							</h4>
+					  </li>
+					</ul>
+					<div class="call-to-action" ng-show="isLoggedIn">
+						<div ng-show='!isOwner'>
+							<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant">Join</button>
+							<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant">Leave</button>
+						</div>
+						<div ng-show="isOwner">
+							<button class="btn btn-danger" ng-click="cancel(activity.id)">Cancel Activity</button>
+						</div>
+					</div>
 				</div>
-				<div ng-show="isOwner">
-					<button class="btn btn-danger" ng-click="cancel(activity.id)">Cancel Activity</button>
+				<div class="activity-detail-area">
+					<tabset>
+				    <tab heading="Going">
+				      <tab-heading>
+				        <i class="glyphicon glyphicon-ok hidden-xs"></i>
+				        Going ({{activity.activityJoined.data.length}})
+				      </tab-heading>
+				    	<jpuserlist pageLength="6" getUsers="activity.activityJoined.data">
+							</jpuserlist> 
+				    </tab>
+				    <tab>
+				      <tab-heading>
+				        <i class="glyphicon glyphicon-align-right hidden-xs"></i>
+				        Description
+				      </tab-heading>
+				      <div class="activity-detail-description">
+				      	<span ng-show="isOwner">
+									<button 
+										class="btn-link pull-right"
+										ng-click="formDescription.$show()" ng-hide="formDescription.$visible">
+											<i class="glyphicon glyphicon-pencil pull-right"></i>
+									</button>
+				      	</span>
+								<span class="activity-description-box" editable-textarea="activity.description" e-form="formDescription" e-placeholder="Activity Description" e-rows="5" e-cols="30">
+					      	{{activity.description}}
+								</span>
+				      </div>
+				    </tab>
+				    <tab>
+				      <tab-heading>
+				        <i class="glyphicon glyphicon-comment hidden-xs"></i>
+				        Comments ({{activity.comments.data.length}})
+				      </tab-heading>
+							<jpcommentlist list='activity.comments.data' page-length='11'></jpcommentlist>
+							<jpcommentbox list='activity.comments.data' activity-id='activity.id' ng-show="getUser()"></jpcommentbox>
+				    </tab>
+				  </tabset>
 				</div>
 			</div>
-		</div>
-		<div class="activity-detail-area">
-			<tabset>
-		    <tab heading="Going">
-		      <tab-heading>
-		        <i class="glyphicon glyphicon-ok hidden-xs"></i>
-		        Going ({{activity.activityJoined.data.length}})
-		      </tab-heading>
-		    	<jpuserlist pageLength="6" getUsers="activity.activityJoined.data">
-					</jpuserlist> 
-		    </tab>
-		    <tab>
-		      <tab-heading>
-		        <i class="glyphicon glyphicon-align-right hidden-xs"></i>
-		        Description
-		      </tab-heading>
-		      <div class="activity-detail-description">
-		      	<span ng-show="isOwner">
-							<button 
-								class="btn-link pull-right"
-								ng-click="formDescription.$show()" ng-hide="formDescription.$visible">
-									<i class="glyphicon glyphicon-pencil pull-right"></i>
-							</button>
-		      	</span>
-						<span class="activity-description-box" editable-textarea="activity.description" e-form="formDescription" e-placeholder="Activity Description" e-rows="5" e-cols="30">
-			      	{{activity.description}}
-						</span>
-		      </div>
-		    </tab>
-		    <tab>
-		      <tab-heading>
-		        <i class="glyphicon glyphicon-comment hidden-xs"></i>
-		        Comments ({{activity.comments.data.length}})
-		      </tab-heading>
-					<jpcommentlist list='activity.comments.data' page-length='11'></jpcommentlist>
-					<jpcommentbox list='activity.comments.data' activity-id='activity.id' ng-show="getUser()"></jpcommentbox>
-		    </tab>
-		  </tabset>
 		</div>
   </div>
 </div>  

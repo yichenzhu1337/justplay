@@ -1,93 +1,81 @@
 <div class="page-container">
-  <div class="content-wrapper profile-page">
-  	<div class="profile-content-area">
-  		<div class="profile-banner">
-				<div class="img-container">
-					<img class="img-thumbnail profile-pic" src="app/img/jack-yiu-dp.jpg" alt="dp">
-				</div>
-				<div class="profile-header">
-					<a href="#" ng-show="IsCurrentUser(user.username)" e-required editable-text="user.profile.name">
+  <div class="content-wrapper">
+  	<div class="profile-page">
+	  	<div class="profile-content-area">
+	  		<div class="profile-banner">
+					<div class="img-container">
+						<img class="img-thumbnail profile-pic" src="app/img/jack-yiu-dp.jpg" alt="dp">
+					</div>
+					<div class="profile-header">
+						<a href="#" ng-show="IsCurrentUser(user.username)" e-required editable-text="user.profile.name">
+							{{ user.profile.name }}
+						</a>
+					</div>
+					<h1 ng-hide="IsCurrentUser(user.username)" class="profile-header" e-form="formName" editable-text="user.profile.name" e-required e-placeholder="Name">
 						{{ user.profile.name }}
-					</a>
-				</div>
-				<h1 ng-hide="IsCurrentUser(user.username)" class="profile-header" e-form="formName" editable-text="user.profile.name" e-required e-placeholder="Name">
-					{{ user.profile.name }}
-				</h1>
-  		</div>
-			<div class="profile-body">
-				<div ng-hide="IsCurrentUser(user.username)">
-					<p class="text-muted">Friend Status</p>
-					<friendactions user-id='user.numeric_id' friend-status='friendStatus'/>
-					<p> </p>
-				</div>
-				<p class="text-muted">Contact Information</p>
-				<ul class="list-group">
-					<li class="list-group-item">
-						<div class="list-group-item-field">
-							<span class="text-muted" ng-show="formEmail.$visible">Email</span>
-							<div class="form-icon">
-								<i class="glyphicon glyphicon-envelope" ng-hide="formEmail.$visible"></i>
+					</h1>
+	  		</div>
+				<div class="profile-body">
+					<div ng-hide="IsCurrentUser(user.username)">
+						<p class="text-muted">Friend Status</p>
+						<friendactions user-id='user.numeric_id' friend-status='friendStatus'/>
+						<p> </p>
+					</div>
+					<p class="text-muted">Contact Information</p>
+					<ul class="list-group">
+						<li class="list-group-item">
+							<div class="list-group-item-field">
+								<span class="text-muted" ng-show="formEmail.$visible">Email</span>
+								<div class="form-icon">
+									<i class="glyphicon glyphicon-envelope" ng-hide="formEmail.$visible"></i>
+								</div>
+								<div class="form-field" editable-email="user.profile.email" e-required e-form="formEmail" e-placeholder="Email">
+									<span>
+										{{user.profile.email}}
+									</span>
+								</div>
+								<div class="edit-icon pull-right" ng-show="IsCurrentUser(user.username)">
+									<button class="btn-link" ng-click="formEmail.$show()" ng-hide="formEmail.$visible">
+										<i class="glyphicon glyphicon-pencil"></i>
+									</button>
+								</div>
 							</div>
-							<div class="form-field" editable-email="user.profile.email" e-required e-form="formEmail" e-placeholder="Email">
-								<span>
-									{{user.profile.email}}
-								</span>
+						</li>
+						<li class="list-group-item">
+							<div class="list-group-item-field">
+								<span class="text-muted" ng-show="formPhone.$visible">Phone</span>
+								<div class="form-icon">
+									<i class="glyphicon glyphicon-phone" ng-hide="formPhone.$visible"></i>
+								</div>
+								<div class="form-field" editable-tel="user.profile.phone" e-form="formPhone" e-placeholder="Phone">
+									<span>
+										{{user.profile.phone}}
+									</span>
+								</div>
+								<div class="edit-icon pull-right" ng-show="IsCurrentUser(user.username)">
+									<button class="btn-link" ng-click="formPhone.$show()" ng-hide="formPhone.$visible">
+										<i class="glyphicon glyphicon-pencil"></i>
+									</button>
+								</div>
 							</div>
-							<div class="edit-icon pull-right" ng-show="IsCurrentUser(user.username)">
-								<button class="btn-link" ng-click="formEmail.$show()" ng-hide="formEmail.$visible">
-									<i class="glyphicon glyphicon-pencil"></i>
-								</button>
-							</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="list-group-item-field">
-							<span class="text-muted" ng-show="formPhone.$visible">Phone</span>
-							<div class="form-icon">
-								<i class="glyphicon glyphicon-phone" ng-hide="formPhone.$visible"></i>
-							</div>
-							<div class="form-field" editable-tel="user.profile.phone" e-form="formPhone" e-placeholder="Phone">
-								<span>
-									{{user.profile.phone}}
-								</span>
-							</div>
-							<div class="edit-icon pull-right" ng-show="IsCurrentUser(user.username)">
-								<button class="btn-link" ng-click="formPhone.$show()" ng-hide="formPhone.$visible">
-									<i class="glyphicon glyphicon-pencil"></i>
-								</button>
-							</div>
-						</div>
-					</li>
-				</ul>
+						</li>
+					</ul>
 
-				<p class="text-muted">What I like playing
-					<span ng-show="IsCurrentUser(user.username)">
-						<button 
-						class="btn-link pull-right"
-						ng-click="formPreferences.$show()" ng-hide="formPreferences.$visible" >
-							<i class="glyphicon glyphicon-pencil pull-right"></i>
-						</button>
-					</span>
-				</p>
+					<p class="text-muted">What I like playing
+						<span ng-show="IsCurrentUser(user.username)">
+							<button 
+							class="btn-link pull-right"
+							ng-click="formPreferences.$show()" ng-hide="formPreferences.$visible" >
+								<i class="glyphicon glyphicon-pencil pull-right"></i>
+							</button>
+						</span>
+					</p>
 
-				<div class="well" editable-textarea="user.profile.preferences" e-form="formPreferences" e-placeholder="Activity Preferences" e-rows="5" e-cols="30">
-					{{user.profile.preferences}}
+					<div class="well" editable-textarea="user.profile.preferences" e-form="formPreferences" e-placeholder="Activity Preferences" e-rows="5" e-cols="30">
+						{{user.profile.preferences}}
+					</div>
 				</div>
-			</div>
+	  	</div>
   	</div>
-<!-- 	  <div class="media comment">
-		  <a class="pull-left" href="">
-		    
-		  </a>
-		  <div class="media-body profile-header">
-		    <h1 class="media-heading">{{user.first_name}}</h1>
-		    <h3 class="text-muted">{{user.username}}</h3>
-		    <ul class="list-group details">
-<li>
-	<i class="glyphicon glyphicon-time"></i><span>Last login: {{user.last_login | date:'MMM d, y'}}</span
-></li>
-		    </ul>
-		  </div>
-		</div> -->
   </div>
 </div>

@@ -5942,6 +5942,12 @@ form[class*='editable'] > .form-group > span.editable-buttons {
   display: inline-block;
   margin-left: 5px;
 }
+.activity-detail-main-body-wrapper > .activity-detail-main-body {
+  padding-left: 13px;
+  padding-right: 13px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
+}
 .activity-detail-info-box {
   padding-top: 10px;
   padding-left: 10px;
@@ -6204,59 +6210,15 @@ fieldset[disabled] .jp-btn-link {
   min-height: 100%;
   height: auto;
   margin-top: 50px;
-  background-color: white;
+  background-color: transparent;
 }
 @media (min-width: 768px) {
   .page-container > .content-wrapper.search-content {
     margin-top: -63px;
   }
 }
-.page-container > .content-wrapper.search-content > .date-wrapper {
-  color: #7f8c8d;
-  font-size: 25px;
-  height: auto;
-  text-align: center;
-  padding-top: 27px;
-  padding-bottom: 9px;
-}
-.page-container > .content-wrapper.search-content > .date-wrapper > * .date-choose-button {
-  color: #7f8c8d;
-  border-bottom: 1px dotted black;
-}
-.page-container > .content-wrapper.search-content > .date-wrapper > * .date-choose-button:hover,
-.page-container > .content-wrapper.search-content > .date-wrapper * date-choose-button:active {
-  border: none;
-  text-decoration: none;
-  color: #656D78;
-}
-.page-container > .content-wrapper.activity-detail-main-body-wrapper {
-  background-color: none;
-}
-.page-container > .content-wrapper.profile-page {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: transparent;
-  padding-top: 36.6px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: -50px;
-}
-.page-container > .content-wrapper.profile-page > .profile-content-area {
-  background-color: #f4f4f6;
-  height: auto;
-  width: 100%;
-  border: 1px solid #dddddd;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.13);
-}
-@media (min-width: 768px) {
-  .page-container > .content-wrapper.profile-page {
-    margin-top: -180px;
-    box-shadow: none;
-    padding-bottom: 0px;
-  }
-}
 .page-container > .content-wrapper.no-content {
-  margin-top: -70px;
+  margin-top: -55px;
 }
 @media (min-width: 768px) {
   .page-container > .content-wrapper.no-content {
@@ -6266,14 +6228,11 @@ fieldset[disabled] .jp-btn-link {
 @media (min-width: 480px) {
   .page-container > .content-wrapper {
     max-width: 310;
-    padding-left: 13px;
-    padding-right: 13px;
   }
 }
 @media (min-width: 768px) {
   .page-container > .content-wrapper {
     max-width: 594;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
   }
 }
 @media (min-width: 992px) {
@@ -6286,45 +6245,114 @@ fieldset[disabled] .jp-btn-link {
     max-width: 1162;
   }
 }
-.card-container > .call-to-action {
+.activity-day-wrapper {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 20px;
+}
+@media (min-width: 480px) {
+  .activity-day-wrapper {
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-bottom: 13px;
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 768px) {
+  .activity-day-wrapper {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
+  }
+}
+.activity-day-wrapper > .date-wrapper {
+  color: #7f8c8d;
+  font-size: 25px;
+  height: auto;
+  text-align: center;
+  padding-top: 27px;
+  padding-bottom: 9px;
+}
+.activity-day-wrapper > .date-wrapper > * .date-choose-button {
+  color: #7f8c8d;
+  border-bottom: 1px dotted black;
+}
+.activity-day-wrapper > .date-wrapper > * .date-choose-button:hover,
+.activity-day-wrapper > .date-wrapper * date-choose-button:active {
+  border: none;
+  text-decoration: none;
+  color: #656D78;
+}
+.activity-day-wrapper > .call-to-action {
   font-size: 16px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   color: #7f8c8d;
 }
-.card-container > .call-to-action > button {
+.activity-day-wrapper > .call-to-action > button {
+  margin-top: 10px;
+  margin-bottom: 10px;
   height: 50px;
   font-weight: 700;
   font-size: 20px;
 }
-.card-container > .card-wrap {
+.activity-day-wrapper > .card-container > .card-wrap {
   max-width: 270px;
   width: 100%;
   display: inline-block;
   margin: 9px 7px 9px 7px;
 }
-.card-container > .card-wrap > .card-left {
+.activity-day-wrapper > .card-container > .card-wrap > .card-left {
   width: 100%;
   display: inline-block;
   text-align: center;
 }
 .social-page {
   padding-top: 13px;
+  padding-left: 13px;
+  padding-right: 13px;
+  background-color: white;
   max-width: 594;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
 }
 .social-page > h4 {
   font-size: 30px;
 }
-.img-container {
-  max-width: 110px;
+.profile-page {
+  max-width: 400px;
+  width: 100%;
   margin: 0 auto;
+  margin-top: -100px;
+  padding-top: 36.6px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-.profile-banner {
+@media (min-width: 768px) {
+  .profile-page {
+    margin-top: -230px;
+    box-shadow: none;
+    padding-bottom: 0px;
+  }
+}
+.profile-page > .profile-content-area {
+  background-color: #f4f4f6;
+  height: auto;
+  border: 1px solid #dddddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.13);
+}
+.profile-page > .profile-content-area > .profile-banner {
   background-color: white;
   padding-bottom: 10px;
   border-bottom: 1px solid #dddddd;
 }
-.profile-banner > .profile-header {
+.profile-page > .profile-content-area > .profile-banner .img-container {
+  max-width: 110px;
+  margin: 0 auto;
+}
+.profile-page > .profile-content-area > .profile-banner .img-container > .profile-pic {
+  margin-top: -36.6px;
+}
+.profile-page > .profile-content-area > .profile-banner > .profile-header {
   font-size: 17px;
   font-weight: bold;
   line-height: 25px;
@@ -6333,75 +6361,56 @@ fieldset[disabled] .jp-btn-link {
   margin-bottom: 0px;
   color: #333333;
 }
-.profile-banner > .profile-header > a {
+.profile-page > .profile-content-area > .profile-banner > .profile-header > a {
   color: #333333;
 }
-.profile-body {
+.profile-page > .profile-content-area > .profile-body {
   margin: 0 auto;
   background-color: #f4f4f6;
   padding: 36.25px;
 }
-.profile-body > .well {
+.profile-page > .profile-content-area > .profile-body > .well {
   background-color: white;
   margin-bottom: 0px;
 }
-.profile-body > ul.list-group {
+.profile-page > .profile-content-area > .profile-body > ul.list-group {
   margin-bottom: 20px;
 }
-.profile-body > ul.list-group > li.list-group-item {
+.profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item {
   min-height: 42px;
 }
-.profile-body > ul.list-group > li.list-group-item > .list-group-item-field {
+.profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item > .list-group-item-field {
   position: relative;
 }
-.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-icon {
+.profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-icon {
   position: absolute;
   left: 0;
   width: 25px;
 }
-.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-icon > i {
+.profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-icon > i {
   margin-right: 10px;
   margin-top: 3px;
   color: #e74c3c;
 }
-.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-field {
+.profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-field {
   position: relative;
   padding-left: 25px;
   padding-right: 25px;
   width: 100%;
 }
-.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-field > span {
+.profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-field > span {
   word-wrap: break-word;
 }
-.profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .edit-icon {
+.profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .edit-icon {
   position: absolute;
   top: 0;
   right: -10px;
 }
 @media (min-width: 480px) {
-  .profile-body {
+  .profile-page > .profile-content-area > .profile-body {
     padding-left: 36.25px;
     padding-right: 36.25px;
   }
-}
-.profile-pic {
-  margin-top: -36.6px;
-}
-h3.profile-header {
-  text-align: center;
-  font-size: 14px;
-  line-height: 14px;
-  color: #555555;
-  margin-top: 3px;
-  margin-bottom: 5px;
-  font-weight: normal;
-}
-ul.details {
-  margin-top: 12.5px;
-}
-ul.details > li > i {
-  margin-right: 5px;
-  color: #e74c3c;
 }
 a.media-name {
   display: inline-block;

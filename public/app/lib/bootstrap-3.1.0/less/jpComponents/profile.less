@@ -10,111 +10,119 @@
 @jp-profile-field-icon-width:					25px;
 @jp-profile-field-edit-icon-width:		30px;
 
+@jp-profile-max-width:				400px;
+@jp-profile-padding:					36.25px;
+
 // Profile BODY PAGE
 // --------------------------------------------------
 
-.img-container {
-	max-width: 110px;
+
+.profile-page {
+	max-width: @jp-profile-max-width;
+	width: 100%;
 	margin: 0 auto;
-}
+	margin-top: -100px;
+	padding-top: @jp-profile-protrusion-height;
+	padding-left: 10px;
+	padding-right: 10px;
 
-.profile-banner {
-	background-color: white;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #dddddd;
-
-	> .profile-header {
-		font-size: 17px;
-		font-weight: bold;
-		line-height: 25px;
-		text-align: center;
-		margin-top: 5px;
-		margin-bottom: 0px;
-		color: @gray-dark;
-
-		> a {
-			color: @gray-dark;
-		}
-	}
-}
-
-.profile-body {
-	margin: 0 auto;
-	background-color: @jp-body-bg-color;
-	padding: @jp-profile-padding;
-
-	> .well {
-		background-color: white;
-		margin-bottom: 0px;
+	@media (min-width: @screen-sm-min) {
+		margin-top: -230px;
+		box-shadow: none;
+    padding-bottom: 0px;
 	}
 
-	> ul.list-group {
-		margin-bottom: 20px;
+	> .profile-content-area {
+		background-color: @jp-body-bg-color;
+		height: auto;
+		border: 1px solid #dddddd;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.13);
 
-		> li.list-group-item {
-			min-height: 42px;
+		> .profile-banner {
+			background-color: white;
+			padding-bottom: 10px;
+			border-bottom: 1px solid #dddddd;
 
-			> .list-group-item-field {
-				position: relative;
+			.img-container {
+				max-width: 110px;
+				margin: 0 auto;
 
-				> .form-icon {
-					position: absolute;
-					left: 0;
-					width: @jp-profile-field-icon-width;
-
-					> i {
-						margin-right: 10px;
-						margin-top: 3px;
-						color: @alizarin;
-					}
+				> .profile-pic {
+					margin-top: -@jp-profile-protrusion-height;
 				}
+			}
 
-				> .form-field {
-					position: relative;
-					padding-left: @jp-profile-field-icon-width;
-					padding-right: @jp-profile-field-icon-width;
-					width: 100%;
+			> .profile-header {
+				font-size: 17px;
+				font-weight: bold;
+				line-height: 25px;
+				text-align: center;
+				margin-top: 5px;
+				margin-bottom: 0px;
+				color: @gray-dark;
 
-					> span {
-						word-wrap: break-word;
-					}
-				}
-
-				> .edit-icon {
-					position: absolute;
-					top: 0;
-					right: -10px;
+				> a {
+					color: @gray-dark;
 				}
 			}
 		}
-	}
 
-	@media (min-width: @screen-xs-min) {
-		padding-left: @jp-profile-padding;
-		padding-right: @jp-profile-padding;
-	}
-}
+		> .profile-body {
+			margin: 0 auto;
+			background-color: @jp-body-bg-color;
+			padding: @jp-profile-padding;
 
-.profile-pic {
-	margin-top: -@jp-profile-protrusion-height;
-}
+			> .well {
+				background-color: white;
+				margin-bottom: 0px;
+			}
 
-h3.profile-header {
-	text-align: center;
-	font-size: 14px;
-	line-height: 14px;
-	color: @gray;
-	margin-top: 3px;
-	margin-bottom: 5px;
-	font-weight: normal;
-}
+			> ul.list-group {
+				margin-bottom: 20px;
 
-ul.details {
-	margin-top: 12.5px;
-	> li {
-		> i {
-			margin-right: 5px;
-			color: @alizarin;
+				> li.list-group-item {
+					min-height: 42px;
+
+					> .list-group-item-field {
+						position: relative;
+
+						> .form-icon {
+							position: absolute;
+							left: 0;
+							width: @jp-profile-field-icon-width;
+
+							> i {
+								margin-right: 10px;
+								margin-top: 3px;
+								color: @alizarin;
+							}
+						}
+
+						> .form-field {
+							position: relative;
+							padding-left: @jp-profile-field-icon-width;
+							padding-right: @jp-profile-field-icon-width;
+							width: 100%;
+
+							> span {
+								word-wrap: break-word;
+							}
+						}
+
+						> .edit-icon {
+							position: absolute;
+							top: 0;
+							right: -10px;
+						}
+					}
+				}
+			}
+
+			@media (min-width: @screen-xs-min) {
+				padding-left: @jp-profile-padding;
+				padding-right: @jp-profile-padding;
+			}
 		}
 	}
 }
+

@@ -1,4 +1,4 @@
-var module = angular.module('createform', ['utilityDirectives','jp.http','jp.flash','jp.utilities','restangular','jp.api.config'])
+var module = angular.module('createform', ['activityModule','utilityDirectives','jp.http','jp.flash','jp.utilities','restangular','jp.api.config'])
 .value("filterRegex", 'EEEE, MMM d');
 
 var factories = {};
@@ -6,13 +6,18 @@ var services = {};
 var controllers = {};
 var directives = {};
 
-controllers.activityController = function($scope, sportFactory, FlashService, DateTimeService, Restangular, api_const, API, $state){
+controllers.activityController = function($scope, sportFactory, FlashService, ActivitySvc, DateTimeService, Restangular, api_const, API, $state){
   function init()
   {
+    // Services
     $scope.DTSvc = DateTimeService;
+    $scope.ActivitySvc = ActivitySvc;
+
     $scope.activities = sportFactory.getSportInList();
     $scope.activitySelected;
     $scope.submitted = {};
+
+    // Fill our form object.
     $scope.create = {};
     $scope.create.capacity = 1; // Hardcoded because we're not using it atm 27/08/2014
   }
@@ -24,16 +29,17 @@ controllers.activityController = function($scope, sportFactory, FlashService, Da
 
 	$scope.submit = function(isValid) {
     if (isValid && $scope.isValidTimeRange($scope.create.date_from,$scope.create.date_to)) {
-      $scope.submitted = angular.copy($scope.create);
-      $scope.submitted.date = $scope.submitted.date.toMysqlFormat();
-      $scope.submitted.startingtime = $scope.submitted.date_from.toMysqlFormat();
-      $scope.submitted.endingtime = $scope.submitted.date_to.toMysqlFormat();
 
-      Restangular.all(api_const.activities).post($scope.submitted).then(
+      // Map it to the correct fieldname
+      $scope.create.startingtime = $scope.create.date_from;
+      $scope.create.endingtime = $scope.create.date_to;
+
+      $scope.ActivitySvc.post($scope.create).then(
         function() {
           FlashService.show('You have succesfully created an activity!', 'success');
           $state.go('main.activities.list');
-        });
+        });;
+      
     } else {
       FlashService.show('There were errors with your input', 'error');
     }

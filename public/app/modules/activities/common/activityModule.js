@@ -180,18 +180,16 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Re
 		get: function(id) {
 			return Restangular.one(api_const.activities, id).get({include: 'comments,activityJoined'});
 		},
-		submitActivity: function(activityJSON) {
-/*			var copiedActivity = angular.copy(activityJSON);
-			var submission = $http.post('api/activitycreate', PostSvc.obj(copiedActivity));
-			errorSvc.hasNoErrors(submission).then(
-				function(obj) {
-					return Activity.build(activityJSON);
-				},
-				function() {
-					return 
-				});
+		post: function(activityForm) {
+			var payload = {};
 
-			return submission.promise;*/
+			// Prepare/Serialize into correct format
+      payload = angular.copy(activityForm);
+      payload.date = payload.date.toMysqlFormat();
+      payload.startingtime = payload.startingtime.toMysqlFormat();
+      payload.endingtime = payload.endingtime.toMysqlFormat();
+
+      return Restangular.all(api_const.activities).post(payload);
 		}
 	}
 }]

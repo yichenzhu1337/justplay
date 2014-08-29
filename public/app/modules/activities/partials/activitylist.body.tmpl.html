@@ -1,7 +1,7 @@
 <div class="page-container">
   <div class="content-wrapper search-content">
     <div class="activity-day-wrapper" ng-repeat="dateobj in dates | orderBy: 'date'" >
-      <div class="date-wrapper" >
+      <div class="card-header-text date-wrapper" >
         <div ng-controller="activityListDateController">
           <a id="{{dateobj.date | date:filterFormat}}" 
           href="" class="date-choose-button" 

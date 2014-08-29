@@ -1,0 +1,40 @@
+.searchbar-wrapper {
+	display: inherit;
+	margin-top: 14px;
+  width: 100%;
+	max-width: 600;
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	margin: auto;
+
+  @media (min-width: @screen-sm-min) {
+    margin-top: 90.62px;
+  }
+
+  form {
+  	display: inline-block;
+    position: relative;
+    width: 100%;
+
+    .dropdown input {
+    	width: 100%;
+	    height: 48px;
+	    font-size: 18px;
+	    background: white;
+    }
+
+    > a {
+      position: absolute;
+	    right: 10;
+	    top: 14;
+	    color: #7f8c8d;
+	    font-size: 17px;
+    }
+
+    > a:hover,
+    > a:active {
+    	color: @brand-primary;
+    }
+  }
+}

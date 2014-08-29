@@ -1,0 +1,15 @@
+<div class="page-container">
+  <div class="content-wrapper search-content">
+    <div class="activity-day-wrapper">
+      <div class="card-container">
+        <div class="card-header-text">
+          Upcoming Activities
+        </div>
+        <activitycard class="card-wrap" 
+        ng-repeat="activityobj in activities | orderBy: 'starttime'" 
+        activity="activityobj">
+        </activitycard>
+      </div>
+    </div>
+  </div>
+</div>  

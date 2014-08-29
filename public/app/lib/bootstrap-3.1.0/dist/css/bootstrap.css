@@ -6127,49 +6127,13 @@ fieldset[disabled] .jp-btn-link {
   margin: 0 auto;
   color: white;
 }
-.header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper {
-  display: inherit;
-  margin-top: 14px;
-  max-width: 600;
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  margin: auto;
-}
-.header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper > h2 {
+.header-bg > .header-content-wrapper > .activity-chooser-wrapper > * h2 {
   text-align: center;
   color: black;
 }
 @media (min-width: 768px) {
-  .header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper > h2 {
+  .header-bg > .header-content-wrapper > .activity-chooser-wrapper > * h2 {
     color: #ecf0f1;
-  }
-}
-.header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper form {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-}
-.header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper form .dropdown input {
-  width: 100%;
-  height: 48px;
-  font-size: 18px;
-  background: white;
-}
-.header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper form > a {
-  position: absolute;
-  right: 10;
-  top: 14;
-  color: #7f8c8d;
-  font-size: 17px;
-}
-.header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper form > a:hover,
-.header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper form > a:active {
-  color: #428bca;
-}
-@media (min-width: 768px) {
-  .header-bg > .header-content-wrapper > .activity-chooser-wrapper > .searchbar-wrapper {
-    margin-top: 90.62px;
   }
 }
 @media (min-width: 480px) {
@@ -6250,6 +6214,14 @@ fieldset[disabled] .jp-btn-link {
   background-color: white;
   margin-bottom: 20px;
 }
+.activity-day-wrapper .card-header-text {
+  color: #7f8c8d;
+  font-size: 25px;
+  height: auto;
+  text-align: center;
+  padding-top: 27px;
+  padding-bottom: 9px;
+}
 @media (min-width: 480px) {
   .activity-day-wrapper {
     padding-left: 13px;
@@ -6262,14 +6234,6 @@ fieldset[disabled] .jp-btn-link {
   .activity-day-wrapper {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
   }
-}
-.activity-day-wrapper > .date-wrapper {
-  color: #7f8c8d;
-  font-size: 25px;
-  height: auto;
-  text-align: center;
-  padding-top: 27px;
-  padding-bottom: 9px;
 }
 .activity-day-wrapper > .date-wrapper > * .date-choose-button {
   color: #7f8c8d;
@@ -6440,6 +6404,56 @@ a.media-name {
 .landing-hero > .landing-hero-inner .header-info > p.subhead-bold {
   color: white;
   font-size: 24px;
+}
+.searchbar-wrapper {
+  display: inherit;
+  margin-top: 14px;
+  max-width: 600;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .searchbar-wrapper {
+    margin-top: 90.62px;
+  }
+}
+.searchbar-wrapper form {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+.searchbar-wrapper form .dropdown input {
+  width: 100%;
+  height: 48px;
+  font-size: 18px;
+  background: white;
+}
+.searchbar-wrapper form > a {
+  position: absolute;
+  right: 10;
+  top: 14;
+  color: #7f8c8d;
+  font-size: 17px;
+}
+.searchbar-wrapper form > a:hover,
+.searchbar-wrapper form > a:active {
+  color: #428bca;
+}
+.timeline-header-wrapper {
+  display: inherit;
+  margin-top: 14px;
+  max-width: 600;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .timeline-header-wrapper {
+    margin-top: 75.62px;
+  }
 }
 .media,
 .media-body {

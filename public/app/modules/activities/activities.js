@@ -5,6 +5,7 @@ var jpactivitiespage = angular.module('jp.activitiespage',
 	'filterModule', 
   'searchbar',
   'cardModule',
+  'timelineModule',
   'dateModule',
   'createform',
   'activityModule',
@@ -18,10 +19,10 @@ jpactivitiespage
 		url: "/",
 		views: {
 			"header": {
-				templateUrl: "app/modules/activities/partials/bodyheader.tmpl.html"
+				templateUrl: "app/modules/activities/partials/activitylist.header.tmpl.html"
 			},
 			"body": {
-				templateUrl: "app/modules/activities/partials/body.tmpl.html",
+				templateUrl: "app/modules/activities/partials/activitylist.body.tmpl.html",
 				controller: "cardsController"
 			}
 		},
@@ -37,6 +38,23 @@ jpactivitiespage
 			"header": {}, 
 			"body": {
 				templateUrl: "app/modules/activities/partials/createform.tmpl.html"
+			}
+		}
+	})
+	.state('main.activities.timeline', {
+		url: "/timeline",
+		views: {
+			"header": {
+				templateUrl: "app/modules/activities/partials/timeline.header.tmpl.html"
+			},
+			"body": {
+				templateUrl: "app/modules/activities/partials/timeline.body.tmpl.html",
+				controller: 'timelineController'
+			}
+		},
+		resolve: {
+			activityList: function(ActivitySvc) {
+				return ActivitySvc.getList();
 			}
 		}
 	})

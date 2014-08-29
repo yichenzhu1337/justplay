@@ -18,14 +18,14 @@ services.activityManagerService = [function() {
 }];
 
 controllers.activityManagerBodyController = 
-['$scope', 'pastActList', 'upcomingActList', 'hostedActList', 'activityManagerService', 
-function($scope, pastActList, upcomingActList, hostedActList, activityManagerService) {
+['$scope', 'pastActList', 'upcomingActList', 'hostedActList', 'activityManagerService', '$filter', 
+function($scope, pastActList, upcomingActList, hostedActList, activityManagerService, $filter) {
 	function init() {
 		$scope.activities = 
 		{
-			Past: constructOneArray(pastActList),
-			Upcoming: constructOneArray(upcomingActList),
-			Hosted: constructOneArray(hostedActList)
+			Past: $filter('orderBy')(constructOneArray(pastActList),'-starttime'),
+			Upcoming: $filter('orderBy')(constructOneArray(upcomingActList),'+starttime'),
+			Hosted: $filter('orderBy')(constructOneArray(hostedActList),'+starttime')
 		};
 		$scope.activityManagerSvc = activityManagerService;
 		$scope.selectedCat = 'Upcoming';

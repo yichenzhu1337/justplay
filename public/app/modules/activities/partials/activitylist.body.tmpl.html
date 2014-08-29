@@ -25,7 +25,7 @@
       </div>
       <div class="card-container">
         <activitycard class="card-wrap" 
-        ng-repeat="card in dateobj.obj | filter:{sport:activityFilter} | property:searchFilter:filterFlag" 
+        ng-repeat="card in dateobj.obj | filter:{sport:activityFilter} | property:searchFilter:filterFlag | orderBy: 'starttime'" 
         activity="card">
         </activitycard>
       </div>

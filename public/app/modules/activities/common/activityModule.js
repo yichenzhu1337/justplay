@@ -10,9 +10,9 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 		this.activity_id = activity_id;
 		this.owner_id = owner_id;
 		this.sport = sport;
-		this.date = new Date(startingtime);
-		this.starttime = new Date(startingtime);
-		this.endtime = new Date(endingtime);
+		this.date = moment(new Date(startingtime)).tz('America/Detroit').toDate();
+		this.starttime = moment(new Date(startingtime)).tz('America/Detroit').toDate();
+		this.endtime = moment(new Date(endingtime)).tz('America/Detroit').toDate();
 		this.location = location;
 		this.description = description;
 	}

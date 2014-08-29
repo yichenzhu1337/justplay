@@ -6113,6 +6113,26 @@ fieldset[disabled] .jp-btn-link {
 .glyphicon.glyphicon-pencil {
   color: #bdc3c7;
 }
+.btn-call-to-action {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 50px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.btn-holo {
+  color: #ffffff;
+  background-color: transparent;
+  border-color: #ffffff;
+  border-width: medium;
+}
+.btn-holo:hover,
+.btn-holo:active,
+.btn-holo:focus,
+.btn-holo.active {
+  color: #ffffff;
+  border-color: #e74c3c;
+}
 .header-bg {
   height: 76px;
   width: 100%;
@@ -6250,13 +6270,6 @@ fieldset[disabled] .jp-btn-link {
   text-align: center;
   margin-top: 10px;
   color: #7f8c8d;
-}
-.activity-day-wrapper > .call-to-action > button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  height: 50px;
-  font-weight: 700;
-  font-size: 20px;
 }
 .activity-day-wrapper > .card-container > .card-wrap {
   max-width: 270px;
@@ -6444,16 +6457,24 @@ a.media-name {
 .activitymanager-header-wrapper {
   display: inherit;
   margin-top: 14px;
-  max-width: 600;
+  max-width: 700;
   width: 100%;
   margin-left: 0;
   margin-right: 0;
   margin: auto;
+  text-align: center;
 }
 @media (min-width: 768px) {
   .activitymanager-header-wrapper {
     margin-top: 75.62px;
   }
+}
+.activitymanager-header-wrapper > .btn-wrapper {
+  display: inline-block;
+}
+.activitymanager-header-wrapper > .btn-wrapper > button {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .media,
 .media-body {

@@ -2,11 +2,11 @@
   <div class="content-wrapper search-content">
     <div class="activity-day-wrapper">
       <div class="card-container">
-        <div class="card-header-text">
-          Upcoming Activities
+        <div class="card-header-text" >
+          {{selectedCat}}
         </div>
         <activitycard class="card-wrap" 
-        ng-repeat="activityobj in activities | orderBy: 'starttime'" 
+        ng-repeat="activityobj in activeActList[selectedCat] | orderBy: 'starttime'" 
         activity="activityobj">
         </activitycard>
       </div>

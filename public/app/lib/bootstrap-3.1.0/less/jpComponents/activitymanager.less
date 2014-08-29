@@ -2,13 +2,23 @@
 	display: inherit;
 	margin-top: 14px;
   width: 100%;
-	max-width: 600;
+	max-width: 700;
 	width: 100%;
 	margin-left: 0;
 	margin-right: 0;
 	margin: auto;
+	text-align: center;
 
   @media (min-width: @screen-sm-min) {
     margin-top: 75.62px;
+  }
+
+  > .btn-wrapper {
+  	display: inline-block;
+  	
+  	> button {
+  		margin-left: 5px;
+  		margin-right: 5px;
+  	}
   }
 }

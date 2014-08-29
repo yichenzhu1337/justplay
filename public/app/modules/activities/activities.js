@@ -45,15 +45,22 @@ jpactivitiespage
 		url: "/manager",
 		views: {
 			"header": {
-				templateUrl: "app/modules/activities/partials/activitymanager.header.tmpl.html"
+				templateUrl: "app/modules/activities/partials/activitymanager.header.tmpl.html",
+				controller: 'activityManagerHeaderController'
 			},
 			"body": {
 				templateUrl: "app/modules/activities/partials/activitymanager.body.tmpl.html",
-				controller: 'activityManagerController'
+				controller: 'activityManagerBodyController'
 			}
 		},
 		resolve: {
-			activityList: function(ActivitySvc) {
+			pastActList: function(ActivitySvc) {
+				return ActivitySvc.getList();
+			},
+			upcomingActList: function(ActivitySvc) {
+				return ActivitySvc.getList();
+			},
+			hostedActList: function(ActivitySvc) {
 				return ActivitySvc.getList();
 			}
 		}

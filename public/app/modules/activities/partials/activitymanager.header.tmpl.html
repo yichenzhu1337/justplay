@@ -3,6 +3,17 @@
     <div class="activity-chooser-wrapper pull-left">
       <div class="activitymanager-header-wrapper">
 				<h2>Browse your</h2>
+				<div class="btn-wrapper" ng-init="radioModel = 'Upcoming'">
+					<button class="btn btn-holo btn-call-to-action" ng-model="radioModel" btn-radio="'Past'">
+						Past Activities
+					</button>
+					<button class="btn btn-holo btn-call-to-action" ng-model="radioModel" btn-radio="'Upcoming'">
+						Upcoming Activities
+					</button>
+					<button class="btn btn-holo btn-call-to-action" ng-model="radioModel" btn-radio="'Hosted'">
+						Hosted Activities
+					</button>
+				</div>
 			</div>
     </div>
   </div>

@@ -6441,7 +6441,7 @@ a.media-name {
 .searchbar-wrapper form > a:active {
   color: #428bca;
 }
-.timeline-header-wrapper {
+.activitymanager-header-wrapper {
   display: inherit;
   margin-top: 14px;
   max-width: 600;
@@ -6451,7 +6451,7 @@ a.media-name {
   margin: auto;
 }
 @media (min-width: 768px) {
-  .timeline-header-wrapper {
+  .activitymanager-header-wrapper {
     margin-top: 75.62px;
   }
 }

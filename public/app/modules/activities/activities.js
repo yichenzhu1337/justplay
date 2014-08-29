@@ -5,7 +5,7 @@ var jpactivitiespage = angular.module('jp.activitiespage',
 	'filterModule', 
   'searchbar',
   'cardModule',
-  'timelineModule',
+  'activityManagerModule',
   'dateModule',
   'createform',
   'activityModule',
@@ -41,15 +41,15 @@ jpactivitiespage
 			}
 		}
 	})
-	.state('main.activities.timeline', {
-		url: "/timeline",
+	.state('main.activities.manager', {
+		url: "/manager",
 		views: {
 			"header": {
-				templateUrl: "app/modules/activities/partials/timeline.header.tmpl.html"
+				templateUrl: "app/modules/activities/partials/activitymanager.header.tmpl.html"
 			},
 			"body": {
-				templateUrl: "app/modules/activities/partials/timeline.body.tmpl.html",
-				controller: 'timelineController'
+				templateUrl: "app/modules/activities/partials/activitymanager.body.tmpl.html",
+				controller: 'activityManagerController'
 			}
 		},
 		resolve: {

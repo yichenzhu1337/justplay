@@ -1,10 +1,10 @@
-var mod = angular.module('timelineModule', []);
+var mod = angular.module('activityManagerModule', []);
 
 var controllers = {};
 var factories = {};
 var directives = {};
 
-controllers.timelineController = ['$scope', 'activityList', function($scope, activityList) {
+controllers.activityManagerController = ['$scope', 'activityList', function($scope, activityList) {
 	function init() {
 		$scope.activities = constructOneArray(activityList);
 	}

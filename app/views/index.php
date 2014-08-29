@@ -80,6 +80,7 @@
 	  <script src="app/modules/activities/components/searchbar/searchbar.js"></script>
 	  <script src="app/modules/activities/components/cards/cardModule.js"></script>
 	  <script src="app/modules/activities/components/datepicker/dateModule.js"></script>
+	  <script src="app/modules/activities/components/activitymanager/activityManagerModule.js"></script>
 
 		<!-- justPlay activity create module -->
 		<script src="app/modules/activities/components/createform/createform.js"></script>

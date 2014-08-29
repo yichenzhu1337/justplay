@@ -14,6 +14,12 @@ var jpactivitiespage = angular.module('jp.activitiespage',
 
 jpactivitiespage
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+		var access = 
+	{
+		auth: 'auth',
+		anon: 'anon'
+	}
+	
 	$stateProvider
 	.state('main.activities.list', {
 		url: "/",
@@ -63,6 +69,9 @@ jpactivitiespage
 			hostedActList: function(ActivitySvc) {
 				return ActivitySvc.getList();
 			}
+		},
+		data: {
+			access: access.auth
 		}
 	})
 	.state('main.activities.detail', {

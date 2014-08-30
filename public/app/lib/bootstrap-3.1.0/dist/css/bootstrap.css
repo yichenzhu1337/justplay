@@ -6265,12 +6265,6 @@ fieldset[disabled] .jp-btn-link {
   text-decoration: none;
   color: #656D78;
 }
-.activity-day-wrapper > .call-to-action {
-  font-size: 16px;
-  text-align: center;
-  margin-top: 10px;
-  color: #7f8c8d;
-}
 .activity-day-wrapper > .card-container > .card-wrap {
   max-width: 270px;
   width: 100%;
@@ -6281,6 +6275,12 @@ fieldset[disabled] .jp-btn-link {
   width: 100%;
   display: inline-block;
   text-align: center;
+}
+.call-to-action {
+  font-size: 16px;
+  text-align: center;
+  padding-top: 20px;
+  color: #7f8c8d;
 }
 .social-page {
   padding-top: 13px;

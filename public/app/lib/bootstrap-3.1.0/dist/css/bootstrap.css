@@ -6476,6 +6476,19 @@ a.media-name {
   margin-left: 5px;
   margin-right: 5px;
 }
+.activitymanager-body-wrapper {
+  margin-top: 200px;
+}
+@media (min-width: 768px) {
+  .activitymanager-body-wrapper {
+    margin-top: 80px;
+  }
+}
+@media (min-width: 992px) {
+  .activitymanager-body-wrapper {
+    margin-top: 0px;
+  }
+}
 .media,
 .media-body {
   overflow: visible;

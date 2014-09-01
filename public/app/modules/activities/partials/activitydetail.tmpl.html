@@ -170,16 +170,16 @@
 					<div class="col-md-12 section-wrap" ng-show='isLoggedIn'>
 						<div class="content-area">
 							<label class='text-muted'>
-								FRIENDS GOING
+								{{friendList.length}} FRIENDS GOING
 							</label>
-				    	<jpuserlist pageLength="6" getUsers="friendList">
+				    	<jpuserlist pageLength="6" getUsers="friendList" ng-hide='friendList.length == 0'>
 							</jpuserlist> 					
 						</div>
 					</div>
 					<div class="col-md-12 section-wrap" ng-show='isLoggedIn'>
 						<div class="content-area">
 							<label class='text-muted'>
-								PEOPLE GOING
+								{{goingList.length}} PEOPLE GOING
 							</label>
 				    	<jpuserlist pageLength="6" getUsers="goingList">
 							</jpuserlist> 					
@@ -188,9 +188,9 @@
 					<div class="col-md-12 section-wrap" ng-show='!isLoggedIn'>
 						<div class="content-area">
 							<label class='text-muted'>
-								PEOPLE GOING
+								{{activity.activityJoined.data.length}} PEOPLE GOING
 							</label>
-				    	<jpuserlist pageLength="6" getUsers="activity.activityJoined.data">
+				    	<jpuserlist pageLength="6" getUsers="activity.activityJoined.data" ng-hide='activity.activityJoined.data.length == 0'>
 							</jpuserlist> 					
 						</div>
 					</div>

@@ -195,18 +195,21 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 	}
 
 	function init() {
-		$scope.activity = activity;
+		// SERVICES
 		$scope.AuthSvc = authenticationService;
 		$scope.DTSvc = DateTimeService;
 		$scope.FlashService = FlashService;
+
+		// CONSTANTS
+		$scope.activity = activity;
 		$scope.isOwner = $scope.currentUserIsOwner(activity);
 		$scope.isParticipant = $scope.currentUserIsParticipant(activity.activityJoined.data);
 		$scope.isEditable = $scope.isBeforeCurrentDate(activity);
 		$scope.isFriendsCollapsed = true;
 		$scope.isPeopleCollapsed = true;
-
 	  $scope.minDate = moment(new Date());
 	  $scope.maxDate = $scope.DTSvc.getDefaultDateRange().endRange;
+	  $scope.tabs = [{active: false}, {active: true}, {active: false}];
 
 	  // Watch for changes in Date, Start/End Time, Location and Description
 	  // Since we're still on Angular 1.2.x, theres no watchGroup.

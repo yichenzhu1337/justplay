@@ -121,6 +121,7 @@ mod.directive('jpcommentbox', ['authenticationService', function(AuthSvc){
 		scope: {
 			list: '=',
 			activityId: '=',
+			enabled: '='
 		},
 		link: function($scope, element, attrs) {
 			function init() {

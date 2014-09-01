@@ -5962,6 +5962,7 @@ form[class*='editable'] > .form-group > span.editable-buttons {
 }
 .activity-detail-main-body-wrapper > .activity-detail-main-body > * .call-to-action {
   width: 100%;
+  font-size: 14px;
 }
 .activity-detail-main-body-wrapper > .activity-detail-main-body > * .call-to-action > div > button {
   width: 100%;
@@ -6129,7 +6130,6 @@ fieldset[disabled] .jp-btn-link {
   margin-top: 10px;
   margin-bottom: 10px;
   height: 50px;
-  font-weight: 700;
   font-size: 20px;
 }
 .btn-holo {

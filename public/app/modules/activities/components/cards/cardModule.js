@@ -185,7 +185,7 @@ controllers.cardController = function($scope, $filter, friendService, activitySk
 	}
 };
 
-controllers.detailedCardController = function($scope, $state, DateTimeService, FlashService, $http, activity, API, authenticationService, Comment){
+controllers.detailedCardController = function($scope, $state, DateTimeService, FlashService, $http, $filter, activity, API, authenticationService, Comment){
 	var IsParticipant;
 	var IsOwner;
 
@@ -210,6 +210,9 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 	  $scope.minDate = moment(new Date());
 	  $scope.maxDate = $scope.DTSvc.getDefaultDateRange().endRange;
 	  $scope.tabs = [{active: false}, {active: true}, {active: false}];
+		$scope.friendList = $filter('arrayContains')($scope.activity.activityJoined.data,'areFriends',true);
+		$scope.goingList = $filter('arrayContains')($scope.activity.activityJoined.data,'areFriends',false);
+
 
 	  // Watch for changes in Date, Start/End Time, Location and Description
 	  // Since we're still on Angular 1.2.x, theres no watchGroup.

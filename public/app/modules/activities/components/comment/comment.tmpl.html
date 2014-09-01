@@ -8,7 +8,7 @@
 
     <p class="text-muted comment-date"><span am-time-ago="commentobj.date"></span></p>
   </div>
-  <span ng-show="true"> <!-- IsCurrentUser(comment.username) -->
+  <span ng-show="IsCurrentUser(comment.username)">
 		<button 
 		class="btn-link edit"
 		ng-click="formDescription.$show()" ng-hide="formDescription.$visible">

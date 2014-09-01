@@ -3,7 +3,13 @@
     <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
   </a>
   <div class="media-body">
-		<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment"></textarea>
-  	<button class="btn btn-success pull-right" ng-click="postComment(list, newcomment)">comment</button>
+		<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment here" ng-disabled='!enabled'></textarea>
+  	<button class="btn btn-success pull-right" ng-click="postComment(list, newcomment)" ng-show='enabled'>
+  		comment
+			<span ng-show='!enabled'>login to comment</span>
+  	</button>
+  	<button class="btn btn-success pull-right" ui-sref='login' ng-show='!enabled'>
+  		login to comment
+  	</button>
   </div>
 </div>

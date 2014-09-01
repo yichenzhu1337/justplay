@@ -98,7 +98,7 @@
 								<button class="btn btn-danger" ng-click="cancel(activity.id)">Cancel Activity</button>
 							</div>
 						</div>
-				</div>
+					</div>
 					<div class="activity-detail-area" >
 						<tabset>
 					    <tab class='hidden-md hidden-lg' active='tabs[0].active' heading="Going">
@@ -133,7 +133,7 @@
 					        Discussion ({{activity.comments.data.length}})
 					      </tab-heading>
 								<jpcommentlist list='activity.comments.data' page-length='11'></jpcommentlist>
-								<jpcommentbox list='activity.comments.data' activity-id='activity.id' ng-show="getUser()"></jpcommentbox>
+								<jpcommentbox list='activity.comments.data' activity-id='activity.id' enabled='isLoggedIn'></jpcommentbox>
 					    </tab>
 					  </tabset>
 					</div>					
@@ -167,12 +167,30 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-12 section-wrap">
+					<div class="col-md-12 section-wrap" ng-show='isLoggedIn'>
 						<div class="content-area">
-							<label>
+							<label class='text-muted'>
+								FRIENDS GOING
+							</label>
+				    	<jpuserlist pageLength="6" getUsers="friendList">
+							</jpuserlist> 					
+						</div>
+					</div>
+					<div class="col-md-12 section-wrap" ng-show='isLoggedIn'>
+						<div class="content-area">
+							<label class='text-muted'>
 								PEOPLE GOING
 							</label>
-				    	<jpuserlist  pageLength="6" getUsers="activity.activityJoined.data">
+				    	<jpuserlist pageLength="6" getUsers="goingList">
+							</jpuserlist> 					
+						</div>
+					</div>
+					<div class="col-md-12 section-wrap" ng-show='!isLoggedIn'>
+						<div class="content-area">
+							<label class='text-muted'>
+								PEOPLE GOING
+							</label>
+				    	<jpuserlist pageLength="6" getUsers="activity.activityJoined.data">
 							</jpuserlist> 					
 						</div>
 					</div>

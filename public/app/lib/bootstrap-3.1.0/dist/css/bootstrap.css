@@ -5942,11 +5942,29 @@ form[class*='editable'] > .form-group > span.editable-buttons {
   display: inline-block;
   margin-left: 5px;
 }
-.activity-detail-main-body-wrapper > .activity-detail-main-body {
-  padding-left: 13px;
-  padding-right: 13px;
+@media (min-width: 992px) {
+  .activity-detail-main-body-wrapper {
+    margin-top: 50px;
+  }
+}
+.activity-detail-main-body-wrapper > .activity-detail-main-body > * .section-wrap,
+.activity-detail-main-body-wrapper > .activity-detail-main-body .section-wrap {
+  padding: 13px;
+}
+.activity-detail-main-body-wrapper > .activity-detail-main-body > * .content-area,
+.activity-detail-main-body-wrapper > .activity-detail-main-body .content-area {
+  padding: 13px;
   background-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
+}
+.activity-detail-main-body-wrapper > .activity-detail-main-body > .content-area {
+  margin-top: 13px;
+}
+.activity-detail-main-body-wrapper > .activity-detail-main-body > * .call-to-action {
+  width: 100%;
+}
+.activity-detail-main-body-wrapper > .activity-detail-main-body > * .call-to-action > div > button {
+  width: 100%;
 }
 .activity-detail-info-box {
   padding-top: 10px;
@@ -5977,12 +5995,6 @@ form[class*='editable'] > .form-group > span.editable-buttons {
   color: #555555;
   font-size: 16px;
   line-height: 1.4;
-}
-.activity-detail-info-box > .call-to-action {
-  width: 100%;
-}
-.activity-detail-info-box > .call-to-action > div > button {
-  width: 100%;
 }
 .activity-detail-area {
   background-color: white;
@@ -6278,8 +6290,6 @@ fieldset[disabled] .jp-btn-link {
 }
 .call-to-action {
   font-size: 16px;
-  text-align: center;
-  padding-top: 20px;
   color: #7f8c8d;
 }
 .social-page {

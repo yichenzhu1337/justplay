@@ -293,7 +293,7 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 				FlashService.show('You have joined the activity', 'success');
 				refreshPage();
 			});
-	}
+	};
 
   $scope.unjoin = function(actId) {
   	API.delete('api/v1/activity-join/'+actId).then(

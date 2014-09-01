@@ -6267,6 +6267,10 @@ fieldset[disabled] .jp-btn-link {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
   }
 }
+.activity-day-wrapper > .call-to-action {
+  margin-top: 10px;
+  text-align: center;
+}
 .activity-day-wrapper > .date-wrapper > * .date-choose-button {
   color: #7f8c8d;
   border-bottom: 1px dotted black;

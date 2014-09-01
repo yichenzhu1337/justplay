@@ -77,11 +77,20 @@
 						  </li>
 						</ul>
 						<!-- ACTIVITY USER ACTIONS -->
-						<div class="call-to-action hidden-md hidden-lg">
+						<div class="call-to-action">
 							<div ng-show='!isLoggedIn'>
-								<button class="btn btn-success" ng-click="toLogin(activity.id)" ng-show="!isParticipant">Login to Join</button>
+								<label>
+									WANT TO JOIN?
+								</label>
+								<button class="btn btn-success" ui-sref="login" ng-show="!isParticipant">Login to Join</button>
 							</div>
 							<div ng-show='!isOwner && isLoggedIn'>
+								<label ng-show="!isParticipant">
+									WANT TO JOIN?
+								</label>
+								<label ng-show="isParticipant">
+									CAN'T GO?
+								</label>
 								<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant">Join</button>
 								<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant">Leave</button>
 							</div>
@@ -89,12 +98,12 @@
 								<button class="btn btn-danger" ng-click="cancel(activity.id)">Cancel Activity</button>
 							</div>
 						</div>
-					</div>
+				</div>
 					<div class="activity-detail-area" >
 						<tabset>
 					    <tab class='hidden-md hidden-lg' active='tabs[0].active' heading="Going">
 					      <tab-heading>
-					        <i class="glyphicon glyphicon-ok"></i>
+					        <i class="glyphicon glyphicon-ok hidden-xs"></i>
 					        Going ({{activity.activityJoined.data.length}})
 					      </tab-heading>
 					    	<jpuserlist  pageLength="6" getUsers="activity.activityJoined.data">
@@ -102,7 +111,7 @@
 					    </tab>
 					    <tab active='tabs[1].active'>
 					      <tab-heading>
-					        <i class="glyphicon glyphicon-align-right"></i>
+					        <i class="glyphicon glyphicon-align-right hidden-xs"></i>
 					        Description
 					      </tab-heading>
 					      <div class="activity-detail-description">
@@ -121,7 +130,7 @@
 					    <tab active='tabs[2].active'>
 					      <tab-heading>
 					        <i class="glyphicon glyphicon-comment hidden-xs"></i>
-					        Comments ({{activity.comments.data.length}})
+					        Discussion ({{activity.comments.data.length}})
 					      </tab-heading>
 								<jpcommentlist list='activity.comments.data' page-length='11'></jpcommentlist>
 								<jpcommentbox list='activity.comments.data' activity-id='activity.id' ng-show="getUser()"></jpcommentbox>
@@ -134,15 +143,21 @@
 				<div class="row">
 					<div class="col-md-12 section-wrap">
 						<div class="content-area">
-							<label >
-								WANT TO JOIN?
-							</label>
 							<!-- ACTIVITY USER ACTIONS -->
 							<div class="call-to-action">
 								<div ng-show='!isLoggedIn'>
-									<button class="btn btn-success" ng-click="toLogin(activity.id)" ng-show="!isParticipant">Login to Join</button>
+									<label>
+										WANT TO JOIN?
+									</label>
+									<button class="btn btn-success" ui-sref="login" ng-show="!isParticipant">Login to Join</button>
 								</div>
 								<div ng-show='!isOwner && isLoggedIn'>
+									<label ng-show="!isParticipant">
+										WANT TO JOIN?
+									</label>
+									<label ng-show="isParticipant">
+										CAN'T GO?
+									</label>
 									<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant">Join</button>
 									<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant">Leave</button>
 								</div>

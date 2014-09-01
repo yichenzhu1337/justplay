@@ -34,11 +34,32 @@
   }
 }
 
+// NOTIF BUTTON
+.notif-wrapper {
+  position: relative;
+  margin-right: 5px;
+
+  > .badge {
+    background-color: @alizarin;
+    color: white;
+    padding: 1px 1px;
+    position: absolute;
+    z-index: 999;
+    top: -7px;
+    right: 0px;
+    border-radius: 0px;
+  }
+
+  > span > i {
+    color: white;
+  }
+}
+
+
 // EDIT BUTTON
 .glyphicon.glyphicon-pencil {
   color: #bdc3c7;
 }
-
 
 .btn-call-to-action {
   margin-top: 10px;

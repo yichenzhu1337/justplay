@@ -6123,6 +6123,23 @@ fieldset[disabled] .jp-btn-link {
   -moz-box-shadow: none;
   box-shadow: none;
 }
+.notif-wrapper {
+  position: relative;
+  margin-right: 5px;
+}
+.notif-wrapper > .badge {
+  background-color: #e74c3c;
+  color: white;
+  padding: 1px 1px;
+  position: absolute;
+  z-index: 999;
+  top: -7px;
+  right: 0px;
+  border-radius: 0px;
+}
+.notif-wrapper > span > i {
+  color: white;
+}
 .glyphicon.glyphicon-pencil {
   color: #bdc3c7;
 }

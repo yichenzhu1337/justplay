@@ -115,8 +115,8 @@ Each of the generator properties (like `name`, `address`, and `lorem`) are calle
     postcode                // '17916'
     address                 // '8888 Cummings Vista Apt. 101, Susanbury, NY 95473'
     country                 // 'Falkland Islands (Malvinas)'
-    latitude                // '77.147489'
-    longitude               // '86.211205'
+    latitude                // 77.147489
+    longitude               // 86.211205
 
 ### `Faker\Provider\en_US\PhoneNumber`
 
@@ -328,7 +328,7 @@ The populator uses name and column type guessers to populate each column with re
 ```php
 <?php
 $populator->addEntity('Book', 5, array(
-  'ISBN' => function() use ($generator) { return $generator->randomNumber(13); }
+  'ISBN' => function() use ($generator) { return $generator->ean13(); }
 ));
 ```
 
@@ -386,6 +386,19 @@ echo $faker->name; // 'Jess Mraz I';
 > $faker->dateTime(); // equivalent to $faker->dateTime($max = 'now')
 > // make sure you fix the $max parameter
 > $faker->dateTime('2014-02-25 08:37:17'); // will return always the same date when seeded
+> ```
+> 
+> **Tip**: Formatters won't reproduce the same fake data if you use the `rand()` php function. Use `$faker` or `mt_rand()` instead:
+>
+> ```php
+> <?php
+> // bad
+> $faker->realText(rand(10,20));
+> // good
+> $faker->realText($faker->numberBetween(10,20));
+> ```
+
+
 
 ## Faker Internals: Understanding Providers
 
@@ -423,7 +436,7 @@ class Book extends \Faker\Provider\Base
 
   public function ISBN()
   {
-    return $this->generator->randomNumber(13);
+    return $this->generator->ean13();
   }
 }
 ```
@@ -719,10 +732,6 @@ echo $faker->siren; // 082 250 104
 
 // Generates a random SIRET number
 echo $faker->siret; // 347 355 708 00224
-
-// Generates a random SIRET number (controlling the number of sequential digits)
-echo $faker->siret(3); // 438 472 611 01513
-
 ```
 
 ### `Faker\Provider\fr_FR\Address`

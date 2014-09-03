@@ -2,7 +2,7 @@
 /**
  * php-token-stream
  *
- * Copyright (c) 2009-2010, Sebastian Bergmann <sebastian@phpunit.de>.
+ * Copyright (c) 2009-2014, Sebastian Bergmann <sebastian@phpunit.de>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -36,30 +36,50 @@
  *
  * @package   PHP_TokenStream
  * @author    Sebastian Bergmann <sebastian@phpunit.de>
- * @copyright 2009-2010 Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright 2009-2014 Sebastian Bergmann <sebastian@phpunit.de>
  * @license   http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
- * @link      http://github.com/sebastianbergmann/php-token-stream/tree
- * @since     File available since Release 1.1.0
+ * @since     File available since Release 1.0.0
  */
 
-spl_autoload_register(
-  function ($class)
-  {
-      static $classes = NULL;
-      static $path = NULL;;
+/**
+ * A caching factory for token stream objects.
+ *
+ * @author    Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright 2009-2014 Sebastian Bergmann <sebastian@phpunit.de>
+ * @license   http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @version   Release: @package_version@
+ * @link      http://github.com/sebastianbergmann/php-token-stream/tree
+ * @since     Class available since Release 1.0.0
+ */
+class PHP_Token_Stream_CachingFactory
+{
+    /**
+     * @var array
+     */
+    protected static $cache = array();
 
-      if ($classes === NULL) {
-          $classes = array(
-            ___CLASSLIST___
-          );
+    /**
+     * @param  string $filename
+     * @return PHP_Token_Stream
+     */
+    public static function get($filename)
+    {
+        if (!isset(self::$cache[$filename])) {
+            self::$cache[$filename] = new PHP_Token_Stream($filename);
+        }
 
-          $path = dirname(dirname(dirname(__FILE__)));
-      }
+        return self::$cache[$filename];
+    }
 
-      $cn = strtolower($class);
-
-      if (isset($classes[$cn])) {
-          require $path . $classes[$cn];
-      }
-  }
-);
+    /**
+     * @param string $filename
+     */
+    public static function clear($filename = NULL)
+    {
+        if (is_string($filename)) {
+            unset(self::$cache[$filename]);
+        } else {
+            self::$cache = array();
+        }
+    }
+}

@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder {
 		DB::table('activities')->truncate();
 		DB::table('comments')->truncate();
 		DB::table('activities_joined')->truncate();
-		DB::table('notifications')->truncate();
+		DB::table('notifications_friends')->truncate();
+        DB::table('notifications_activities')->truncate();
+        DB::table('notifications_comments')->truncate();
 
 		Eloquent::unguard();
 
@@ -27,6 +29,9 @@ class DatabaseSeeder extends Seeder {
 		$this->call('ActivitiesTableSeeder');
 		$this->call('CommentsTableSeeder');
 		$this->call('ActivitiesJoinTableSeeder');
+        $this->call('NotificationsFriendsTableSeeder');
+        $this->call('NotificationsActivitiesTableSeeder');
+        $this->call('NotificationsCommentsTableSeeder');
 	}
 
 }

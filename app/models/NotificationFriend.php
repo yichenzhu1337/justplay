@@ -1,6 +1,6 @@
 <?php
 
-class Notification extends \Eloquent {
+class NotificationFriend extends \Eloquent {
 
     protected $table = 'notifications_friends';
 	// Add your validation rules here

@@ -79,3 +79,15 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| Event Handlers Auto loaded
+|--------------------------------------------------------------------------
+|
+| Load all Event Handlers
+|
+*/
+Event::subscribe('Acme\Handlers\CommentEventHandler');
+Event::subscribe('Acme\Handlers\UserEventHandler');

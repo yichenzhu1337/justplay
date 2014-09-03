@@ -11,4 +11,10 @@ Interface NotificationRepositoryInterface {
 
 	public function getAllAuthNotifications($auth_id);
 
+    public function sendFriendRequest($from_id, $to_id, $details);
+
+    public function sendActivityInviteRequest($from_id, $to_id, $activity_id, $details);
+
+    public function sendCommentNotification($from_id, $to_id, $activity_id, $details);
+
 }

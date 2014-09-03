@@ -28,8 +28,10 @@ class NotificationsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($test)
 	{
+        dd($test);
+
 		$user_id = Input::get('from_id');
 		$to_id = Input::get('to_id');
 		$request_type = Input::get('request_type');
@@ -53,4 +55,35 @@ class NotificationsController extends \BaseController {
 		$this->notification->delete($id);
 	}
 
+    /**
+     * @param $from_id
+     * @param $to_id
+     * @param $request_type
+     * @param $activity_id
+     * @return route api/v1/notifications/{from_id}/{to_id}/{request_type}/{activity_id}/{details}
+     */
+    public function notifications($from_id, $to_id, $request_type, $activity_id)
+    {
+        $details = Input::get('details');
+
+        switch ($request_type) {
+
+            case 'friend_request':
+
+                $this->notification->sendFriendRequest($from_id, $to_id, $details);
+
+                break;
+
+            case 'activity_invite_request':
+
+                $this->notification->sendActivityInviteRequest($from_id, $to_id, $activity_id, $details);
+
+                break;
+
+            default:
+
+                return 'invalid request_type';
+
+        }
+    }
 }

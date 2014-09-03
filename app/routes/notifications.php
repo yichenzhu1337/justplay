@@ -105,4 +105,9 @@ use Swagger\Annotations as SWG;
  *   )
  * )
  */
-Route::resource('notifications', 'NotificationsController');
+//Route::resource('notifications', 'NotificationsController');
+
+Route::post('notifications/{from_id}/{to_id}/{request_type}/{activity_id}', 'NotificationsController@notifications');
+//input details
+
+Route::resource('notificationsActivities', 'NotificationsActivitiesController');

@@ -2,13 +2,95 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05f752a8-d065-4be0-93ea-4ca68724e840" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ActivitiesController.php" afterPath="$PROJECT_DIR$/app/controllers/ActivitiesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php" afterPath="$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Acme/Handlers/UserEventHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Acme/events.php" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\app\controllers\AdminController.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\fzaninotto\faker\test\Faker\PHPUnit\Framework\Constraint\IsValidSiren.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\fzaninotto\faker\test\Faker\PHPUnit\Framework\Constraint\IsValidSirenSiret.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\fzaninotto\faker\test\Faker\PHPUnit\Framework\Constraint\IsValidSiret.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\PHP\Token.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\PHP\Token\Stream.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\PHP\Token\Stream\Autoload.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\PHP\Token\Stream\Autoload.php.in" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\PHP\Token\Stream\CachingFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\classExtendsNamespacedClass.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\classInNamespace.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\classInScopedNamespace.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\closure.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\issue19.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\issue30.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\multipleNamespacesWithOneClassUsingBraces.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\multipleNamespacesWithOneClassUsingNonBraceSyntax.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\source.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\source2.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\source3.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\source4.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\Tests\_files\source5.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\build\PHPCS\Sniffs\ControlStructures\ControlSignatureSniff.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\build\PHPCS\Sniffs\Whitespace\ConcatenationSpacingSniff.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\build\PHPCS\ruleset.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\build\phpmd.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\package.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\phpunit\php-token-stream\phpunit.xml.dist" afterPath="" />
+      <change type="MOVED" beforePath="C:\wamp\www\github\justplay\app\database\migrations\2014_07_04_224525_create_notifications_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2014_07_04_224525_create_notifications_friends_table.php" />
+      <change type="MOVED" beforePath="C:\wamp\www\github\justplay\app\database\seeds\NotificationsTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/NotificationsFriendsTableSeeder.php" />
+      <change type="MOVED" beforePath="C:\wamp\www\github\justplay\app\models\Notification.php" afterPath="$PROJECT_DIR$/app/models/NotificationFriend.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/.gitattributes" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/.gitattributes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/.gitignore" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Address.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_CA/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_CA/Address.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Barcode.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Barcode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Base.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Base.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/BaseTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/BaseTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/ClassTest.php" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/ClassTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/ClosureTest.php" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/ClosureTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/CommentsController.php" afterPath="$PROJECT_DIR$/app/controllers/CommentsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_AT/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_AT/Company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/fr_FR/CompanyTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/fr_FR/CompanyTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php" afterPath="$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Documentor.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Documentor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/File.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/File.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/FunctionTest.php" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/FunctionTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/IncludeTest.php" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/IncludeTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/InterfaceTest.php" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/InterfaceTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Internet.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Internet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_AT/Internet.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_AT/Internet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/InternetTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/InternetTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/de_AT/InternetTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/de_AT/InternetTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/LICENSE" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/NamespaceTest.php" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/Token/NamespaceTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php" afterPath="$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/NotificationsController.php" afterPath="$PROJECT_DIR$/app/controllers/NotificationsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Payment.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Payment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/PaymentTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/PaymentTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ru_RU/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ru_RU/Person.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/sv_SE/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/sv_SE/Person.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/sv_SE/PersonTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/sv_SE/PersonTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/is_IS/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/is_IS/PhoneNumber.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/README.md" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer.php" afterPath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/TokenTest.php" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/tests/TokenTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/UserAgent.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/UserAgent.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/autoload.php" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/build.xml" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/build.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/comments.json" afterPath="$PROJECT_DIR$/docs/comments.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/composer.json" afterPath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/composer.json" afterPath="$PROJECT_DIR$/vendor/phpunit/php-token-stream/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/start/global.php" afterPath="$PROJECT_DIR$/app/start/global.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/html5shiv.min.js" afterPath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/html5shiv.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/include_paths.php" afterPath="$PROJECT_DIR$/vendor/composer/include_paths.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/jquery.min.js" afterPath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/jquery.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/notifications.php" afterPath="$PROJECT_DIR$/app/routes/notifications.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/readme.md" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="justplay.iws" />
@@ -31,7 +113,55 @@
     <favorites_list name="justplay" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="events.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Acme/events.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="-4.2580647" vertical-offset="0" max-vertical-offset="330">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DbNotificationRepository.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="34" selection-start="1839" selection-end="1839" vertical-scroll-proportion="-35.419353" vertical-offset="288" max-vertical-offset="1650">
+              <folding>
+                <element signature="e#36#88#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommentsController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="40" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.83076924" vertical-offset="726" max-vertical-offset="1782">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotificationRepositoryInterface.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="20" selection-start="404" selection-end="470" vertical-scroll-proportion="-12.064516" vertical-offset="0" max-vertical-offset="550">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommentEventHandler.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="44" selection-start="1259" selection-end="1278" vertical-scroll-proportion="-16.67742" vertical-offset="583" max-vertical-offset="1298">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -46,15 +176,40 @@
       <list>
         <option value="$PROJECT_DIR$/public/app/modules/activities/activities.js" />
         <option value="$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php" />
-        <option value="$PROJECT_DIR$/app/controllers/CommentsController.php" />
         <option value="$PROJECT_DIR$/app/routes/comments.php" />
-        <option value="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_07_04_223740_create_comments_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_07_20_052332_create_activities_joined_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php" />
         <option value="$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php" />
         <option value="$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/controllers/ActivitiesController.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/View/Compilers/BladeCompiler.php" />
+        <option value="$PROJECT_DIR$/app/controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/controllers/TestClass.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_09_01_062121_create_NotificationActivities_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_07_04_224525_create_notifications_table.php" />
+        <option value="$PROJECT_DIR$/app/models/Notification.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_07_04_224525_create_notifications_friends_table.php" />
+        <option value="$PROJECT_DIR$/app/models/NotificationFriend.php" />
+        <option value="$PROJECT_DIR$/app/models/NotificationsActivity.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/NotificationsFriendsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_09_02_043529_create_notifications_activities_table.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/NotificationsActivitiesTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/models/NotificationActivity.php" />
+        <option value="$PROJECT_DIR$/app/controllers/NotificationsController.php" />
+        <option value="$PROJECT_DIR$/app/routes/notifications.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/start/global.php" />
+        <option value="$PROJECT_DIR$/app/Acme/events.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Handlers/UserEventHandler.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_09_03_072910_create_notification_comments_table.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/NotificationsCommentsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php" />
+        <option value="$PROJECT_DIR$/app/models/NotificationComment.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php" />
+        <option value="$PROJECT_DIR$/app/controllers/CommentsController.php" />
       </list>
     </option>
   </component>
@@ -119,42 +274,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -169,77 +288,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="start" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -258,6 +311,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -377,28 +448,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Transformers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="justplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Acme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Repositories" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -425,6 +474,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Acme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Handlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -434,8 +505,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SearchEverywhereHistory" value="subscribe&#10;notificationA&#10;file templates&#10;admincontro&#10;blade&#10;activit&#10;activitcontro" />
+    <property name="options.lastSelected" value="fileTemplates" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="recentsLimit" value="5" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.NotificationsController.php">
+    <configuration default="false" name="NotificationsController.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/app/controllers/NotificationsController.php">
+      <method />
+    </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
@@ -449,7 +529,14 @@
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHP Script.NotificationsController.php" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.NotificationsController.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
@@ -478,24 +565,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25051546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2041237" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.184375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -515,157 +602,17 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php</url>
+          <line>2</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/CommentRepositoryInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="39" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="836">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/comments.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="22" selection-start="3556" selection-end="3556" vertical-scroll-proportion="0.0" vertical-offset="2562" max-vertical-offset="3784">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="30" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0" vertical-offset="770" max-vertical-offset="1694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="52" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="462" max-vertical-offset="528">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="52" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="462" max-vertical-offset="528">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbBaseRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbActivityRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="37" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1071" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbProfileRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="1" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="595" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ProfilesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="62" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="918" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/activity-join.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="9" selection-start="1924" selection-end="1924" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1343" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3706" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/activities.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="23" selection-start="5193" selection-end="5193" vertical-scroll-proportion="0.0" vertical-offset="2703" max-vertical-offset="3859" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/lib/bootstrap-3.1.0/dist/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="739" column="1" selection-start="10942" selection-end="10942" vertical-scroll-proportion="0.25745857" vertical-offset="12330" max-vertical-offset="121754" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/css/activity.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="17" selection-start="463" selection-end="465" vertical-scroll-proportion="0.33333334" vertical-offset="68" max-vertical-offset="1122" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/css/playground.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="373" column="14" selection-start="6436" selection-end="6445" vertical-scroll-proportion="0.33333334" vertical-offset="6035" max-vertical-offset="12359" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/modules/activities/activities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="146" selection-end="146" vertical-scroll-proportion="0.108050846" vertical-offset="0" max-vertical-offset="1054" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/modules/activities/partials/body.tmpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="40" selection-start="3584" selection-end="3592" vertical-scroll-proportion="1.1296296" vertical-offset="204" max-vertical-offset="1870" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/ActivityJoinRepositoryInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="33" selection-start="138" selection-end="138" vertical-scroll-proportion="0.12962963" vertical-offset="0" max-vertical-offset="918" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/activities.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="23" selection-start="5193" selection-end="5193" vertical-scroll-proportion="0.44444445" vertical-offset="2703" max-vertical-offset="3859" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/activity-join.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="9" selection-start="1924" selection-end="1924" vertical-scroll-proportion="0.7777778" vertical-offset="425" max-vertical-offset="1343" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ProfilesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="62" selection-start="746" selection-end="746" vertical-scroll-proportion="0.7777778" vertical-offset="0" max-vertical-offset="918" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbProfileRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="1" selection-start="545" selection-end="545" vertical-scroll-proportion="0.46296296" vertical-offset="0" max-vertical-offset="918" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbBaseRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="944" />
@@ -673,119 +620,297 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/CommentTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="52" selection-start="555" selection-end="555" vertical-scroll-proportion="-7.096774" vertical-offset="0" max-vertical-offset="528">
-          <folding />
-        </state>
+        <state line="21" column="52" selection-start="555" selection-end="555" vertical-scroll-proportion="-7.096774" vertical-offset="0" max-vertical-offset="528" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="944">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="944" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/comments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="22" selection-start="3556" selection-end="3556" vertical-scroll-proportion="0.54901963" vertical-offset="2562" max-vertical-offset="3784" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="39" selection-start="457" selection-end="457" vertical-scroll-proportion="0.60181" vertical-offset="129" max-vertical-offset="792" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/CommentRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="791" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_20_052332_create_activities_joined_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="76" selection-start="509" selection-end="509" vertical-scroll-proportion="-14.193548" vertical-offset="0" max-vertical-offset="902" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_04_223740_create_comments_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="61" selection-start="278" selection-end="278" vertical-scroll-proportion="0.47508305" vertical-offset="0" max-vertical-offset="946" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/CommentsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="694" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbActivityRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="37" selection-start="401" selection-end="401" vertical-scroll-proportion="0.36144578" vertical-offset="0" max-vertical-offset="1254" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/ActivityRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="33" selection-start="134" selection-end="134" vertical-scroll-proportion="0.16867469" vertical-offset="0" max-vertical-offset="913" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="46" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.39759037" vertical-offset="1749" max-vertical-offset="3322" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="37" selection-start="545" selection-end="545" vertical-scroll-proportion="0.45783132" vertical-offset="66" max-vertical-offset="1034" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Console/stubs/controller.stub">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1782" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ActivityJoinController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/modules/activities/activities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="16" selection-start="238" selection-end="238" vertical-scroll-proportion="0.36164382" vertical-offset="0" max-vertical-offset="1496" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="23" selection-start="2749" selection-end="2749" vertical-scroll-proportion="0.27038628" vertical-offset="2165" max-vertical-offset="5038" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AuthenticationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="20" selection-start="1877" selection-end="1877" vertical-scroll-proportion="0.40200287" vertical-offset="2073" max-vertical-offset="2772" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="5" selection-start="54" selection-end="54" vertical-scroll-proportion="0.094420604" vertical-offset="0" max-vertical-offset="699" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/node_modules/bower/node_modules/insight/node_modules/configstore/node_modules/js-yaml/node_modules/argparse/lib/action.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3344" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/View/Compilers/BladeCompiler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="40" selection-start="169" selection-end="169" vertical-scroll-proportion="0.22031474" vertical-offset="0" max-vertical-offset="15840" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/FriendsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1606" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/start/artisan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="913" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="949" column="54" selection-start="115360" selection-end="115360" vertical-scroll-proportion="0.22555555" vertical-offset="20675" max-vertical-offset="54890" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/ActivitiesJoinTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="638" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="24" selection-start="789" selection-end="789" vertical-scroll-proportion="0.9235382" vertical-offset="0" max-vertical-offset="902" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbFriendRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="21" selection-start="1341" selection-end="1353" vertical-scroll-proportion="-5.1754384" vertical-offset="739" max-vertical-offset="2090" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_04_224525_create_notifications_friends_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="48" selection-start="419" selection-end="419" vertical-scroll-proportion="-11.709678" vertical-offset="11" max-vertical-offset="924" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/NotificationFriend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="24" selection-start="31" selection-end="31" vertical-scroll-proportion="-1.4193548" vertical-offset="0" max-vertical-offset="528">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_13_010651_add_username_field_to_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="30" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0" vertical-offset="770" max-vertical-offset="1694">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="858" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_09_02_043529_create_notifications_activities_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="39" selection-start="516" selection-end="516" vertical-scroll-proportion="-13.645162" vertical-offset="17" max-vertical-offset="946" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/NotificationActivity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="28" selection-start="166" selection-end="166" vertical-scroll-proportion="0.18696883" vertical-offset="0" max-vertical-offset="706">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/NotificationsFriendsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="260" selection-end="441" vertical-scroll-proportion="0.43076923" vertical-offset="0" max-vertical-offset="715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/BackendServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="25" selection-start="183" selection-end="183" vertical-scroll-proportion="0.2769231" vertical-offset="0" max-vertical-offset="1122">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/NotificationsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="0" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.46293706" vertical-offset="1231" max-vertical-offset="2090">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/notifications.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="0" selection-start="3157" selection-end="3157" vertical-scroll-proportion="0.8013986" vertical-offset="1869" max-vertical-offset="2596">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="45" selection-start="226" selection-end="226" vertical-scroll-proportion="-8.5161295" vertical-offset="0" max-vertical-offset="638">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Events/Subscriber.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.092307694" vertical-offset="0" max-vertical-offset="715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/event-dispatcher/Symfony/Component/EventDispatcher/Tests/Debug/TraceableEventDispatcherTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="0" selection-start="6282" selection-end="6282" vertical-scroll-proportion="4.5754986" vertical-offset="0" max-vertical-offset="3652">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/start/global.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="36" selection-start="2852" selection-end="2852" vertical-scroll-proportion="-21.64516" vertical-offset="1155" max-vertical-offset="1958">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="-4.2580647" vertical-offset="0" max-vertical-offset="330">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/UserEventHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="7" selection-start="295" selection-end="295" vertical-scroll-proportion="-8.16129" vertical-offset="165" max-vertical-offset="880">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/NotificationsActivitiesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="265" selection-end="492" vertical-scroll-proportion="0.44380403" vertical-offset="0" max-vertical-offset="694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_09_03_072910_create_notifications_comments_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="5" selection-start="528" selection-end="528" vertical-scroll-proportion="0.6340058" vertical-offset="66" max-vertical-offset="946">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/NotificationsCommentsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="9" selection-start="227" selection-end="227" vertical-scroll-proportion="0.36923078" vertical-offset="0" max-vertical-offset="715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="34" selection-start="1839" selection-end="1839" vertical-scroll-proportion="-35.419353" vertical-offset="288" max-vertical-offset="1650">
+          <folding>
+            <element signature="e#36#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/NotificationComment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="32" selection-start="191" selection-end="191" vertical-scroll-proportion="0.24615385" vertical-offset="0" max-vertical-offset="715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="44" selection-start="1259" selection-end="1278" vertical-scroll-proportion="-16.67742" vertical-offset="583" max-vertical-offset="1298">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="184" selection-end="184" vertical-scroll-proportion="-8.5161295" vertical-offset="0" max-vertical-offset="836">
+        <state line="33" column="42" selection-start="993" selection-end="993" vertical-scroll-proportion="0.84615386" vertical-offset="121" max-vertical-offset="946">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/comments.php">
+    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="22" selection-start="3556" selection-end="3556" vertical-scroll-proportion="0.54901963" vertical-offset="2562" max-vertical-offset="3784">
+        <state line="17" column="20" selection-start="404" selection-end="470" vertical-scroll-proportion="-12.064516" vertical-offset="0" max-vertical-offset="550">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="39" selection-start="457" selection-end="457" vertical-scroll-proportion="0.60181" vertical-offset="129" max-vertical-offset="792">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/CommentRepositoryInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="791">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_20_052332_create_activities_joined_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="76" selection-start="509" selection-end="509" vertical-scroll-proportion="-14.193548" vertical-offset="0" max-vertical-offset="902">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_04_223740_create_comments_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="61" selection-start="278" selection-end="278" vertical-scroll-proportion="0.47508305" vertical-offset="0" max-vertical-offset="946">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/CommentsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/ActivitiesJoinTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbActivityRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="37" selection-start="401" selection-end="401" vertical-scroll-proportion="0.36144578" vertical-offset="0" max-vertical-offset="1254">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/ActivityRepositoryInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="33" selection-start="134" selection-end="134" vertical-scroll-proportion="0.16867469" vertical-offset="0" max-vertical-offset="913">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="46" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.39759037" vertical-offset="1749" max-vertical-offset="3322">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="37" selection-start="545" selection-end="545" vertical-scroll-proportion="0.45783132" vertical-offset="66" max-vertical-offset="1034">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="24" selection-start="789" selection-end="789" vertical-scroll-proportion="-19.870968" vertical-offset="0" max-vertical-offset="902">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="21" selection-start="2219" selection-end="2219" vertical-scroll-proportion="0.9658385" vertical-offset="1314" max-vertical-offset="5038">
+        <state line="60" column="40" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.83076924" vertical-offset="726" max-vertical-offset="1782">
           <folding />
         </state>
       </provider>

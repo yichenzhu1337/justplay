@@ -17,7 +17,6 @@ class CreateNotificationsFriendsTable extends Migration {
 			$table->increments('id');
 			$table->integer('from_id')->nullable();
 			$table->integer('to_id')->nullabl();
-			$table->string('type')->nullable();
 			$table->string('details')->nullable();
 			$table->boolean('is_read')->nullable();
 			$table->timestamps();

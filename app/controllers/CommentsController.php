@@ -44,6 +44,8 @@ class CommentsController extends \ApiController {
 	{
 		$input = Input::all();
 		$this->comment->store($input);
+
+        Event::fire('user.comment.store', ['input' => $input]);
 	}
 
     /**
@@ -55,6 +57,8 @@ class CommentsController extends \ApiController {
     {
         $input = Input::all();
         $this->comment->update($id, $input);
+
+        Event::fire('user.comment.update', ['input' => $input]);
     }
 
 	/**

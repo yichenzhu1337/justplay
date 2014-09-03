@@ -2,6 +2,7 @@
 
 class Notification extends \Eloquent {
 
+    protected $table = 'notifications_friends';
 	// Add your validation rules here
 	public static $rules = [
 		// 'title' => 'required'
@@ -10,13 +11,9 @@ class Notification extends \Eloquent {
 	// Don't forget to fill this array
 	protected $fillable = [
 		'from_id', 
-		'to_id', 
-		'type', 
+		'to_id',
 		'details', 
-		'is_read', 
-		'response', 
-		'date', 
-		'activity_id'
+		'is_read'
 	];
 
 }

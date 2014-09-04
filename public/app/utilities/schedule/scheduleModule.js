@@ -111,7 +111,14 @@ factories.ScheduleHelpers = function($filter)
 					[{starttime: moment(new Date), endtime: moment(new Date)}], 
 				rawList: list
 			};
-		}
+		},
+/*		constructScheduleRange: function(list)
+		{
+			for (var i = 0; i < list.length; i++)
+			{
+				if (list[i].)
+			}
+		}*/
 	}
 }
 

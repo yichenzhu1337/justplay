@@ -7,6 +7,7 @@ describe('utilities', function()
 	describe('DateRangeService', function(){
 		var DateRangeService;
 		var mockRanges = {};
+
 		var insertIntoMethod = function(obj, fn)
 		{
 			var range1_s, range1_e, range2_s, range2_e;
@@ -71,6 +72,14 @@ describe('utilities', function()
 						range2_e: moment(new Date()).day(1).hour(3).minute(0)
 					}
 				],
+				isOverStartAndEnd: [
+					{
+						range1_s: moment(new Date()).day(1).hour(1).minute(1),
+						range1_e: moment(new Date()).day(1).hour(3).minute(1),
+						range2_s: moment(new Date()).day(1).hour(1).minute(0),
+						range2_e: moment(new Date()).day(1).hour(3).minute(0)	
+					}
+				],
 				isBeforeRange: [
 					{
 						range1_s: moment(new Date()).day(1).hour(3).minute(0),
@@ -103,9 +112,7 @@ describe('utilities', function()
 						range2_e: moment(new Date()).day(1).hour(12).minute(0)
 					}
 				]
-
 			};
-
 		});
 
 		describe('isWithinStartAndEnd', function() {

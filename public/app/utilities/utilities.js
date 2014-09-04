@@ -147,6 +147,20 @@ services.DateRangeService = function()
 		}
 	}
 
+	// Inverse of withinstartandend
+	this.isOverStartAndEnd = function(range1_s, range1_e, range2_s, range2_e)
+	{
+		if (!((range1_s.isSame(range2_s) || range1_s.isBefore(range2_s)) && 
+			(range1_e.isSame(range2_e) || range1_e.isAfter(range2_e))))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	this.isBeforeRange = function(range1_s, range1_e, range2_s, range2_e)
 	{
 		if (range2_e.isBefore(range1_s) && !range1_s.isSame(range2_e))

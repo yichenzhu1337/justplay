@@ -173,7 +173,6 @@ describe('scheduleModule', function(){
 				dayFilter = 2;
 				filteredScheduleBlocks = ScheduleHelpers.filterScheduleBlocks(rawList, sportFilter, dayFilter);
 				filteredList = ScheduleHelpers.createScheduleSummary(filteredScheduleBlocks);
-				console.log(filteredList);
 			});
 
 			it('should be an object and contains 2 fields', function() {

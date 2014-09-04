@@ -5,6 +5,7 @@ module.exports = function(config){
     files : [
       'public/bower_components/angular/angular.js',
       'public/bower_components/angular-mocks/angular-mocks.js',
+      'public/bower_components/angular-sanitize/angular-sanitize.js',
       'public/app/lib/angular-multiselect-master/src/multiselect.js',
       'public/app/modules/**/*.js',
       'public/app/utilities/**/*.js',

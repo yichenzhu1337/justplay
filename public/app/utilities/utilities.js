@@ -104,4 +104,96 @@ services.DateTimeService = function()
 	}
 }
 
+services.DateRangeService = function()
+{
+	var comparisonUnit = 'day';
+
+	this.isWithinStartAndEnd = function(range1_s, range1_e, range2_s, range2_e)
+	{
+ 
+		if (
+			(range1_s.isSame(range2_s) || range1_s.isBefore(range2_s)) && 
+			(range1_e.isSame(range2_e) || range1_e.isAfter(range2_e)))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	this.isWithinStart = function(range1_s, range1_e, range2_s, range2_e)
+	{
+		if ((range1_s.isSame(range2_s) || (range1_s.isBefore(range2_s) && range2_s.isBefore(range1_e))) && (range1_e.isBefore(range2_e) && !range1_e.isSame(range2_e)))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	this.isWithinEnd = function(range1_s, range1_e, range2_s, range2_e)
+	{
+		if ((range1_e.isSame(range2_e) || range1_e.isBefore(range2_s)) && range2_s.isBefore(range1_s))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	this.isBeforeRange = function(range1_s, range1_e, range2_s, range2_e)
+	{
+		if (range2_e.isBefore(range1_s) && !range1_s.isSame(range2_e))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	this.isAfterRange = function(range1_s, range1_e, range2_s, range2_e)
+	{
+		if (range1_e.isBefore(range2_s) && !range1_e.isSame(range2_s))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	this.isExactlyBeforeRange = function(range1_s, range1_e, range2_s, range2_e)
+	{
+		if (range1_s.isSame(range2_e) && range2_s.isBefore(range1_s))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	this.isExactlyAfterRange = function(range1_s, range1_e, range2_s, range2_e)
+	{
+		if (range1_e.isSame(range2_s) && range2_e.isAfter(range1_e))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
 mod.service(services);

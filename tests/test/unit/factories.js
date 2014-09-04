@@ -18,7 +18,6 @@ describe('factoryModule', function(){
 
 		describe('initialization', function(){
 			it("Should get all sports", function(){
-				alert($scope.sports);
 			});
 		});
 	});

@@ -77,8 +77,7 @@ class ActivitiesController extends \ApiController {
         $input = Input::all();
 
         $data = [
-            'id' => $input[''],
-            'owner_id' => $input['owner_id'],
+            'user_id' => Sentry::getUser()->id,
             'location' => $input['location'],
             'date_from' => $input['startingtime'],
             'date_to' => $input['endingtime'],
@@ -100,19 +99,20 @@ class ActivitiesController extends \ApiController {
 	{
         $input = Input::all();
 
-        //dd($input);
         $data = [
-            'id' => $id,
-            'owner_id' => $input['owner_id'],
-            'location' => $input['location'],
-            'date_from' => $input['startingtime'],
-            'date_to' => $input['endingtime'],
-            'capacity' => $input['capacity'],
-            'description' => $input['description'],
-            'sport' => $input['sport']
+            'activity_id' => $id, //dont know if this will work
+            'user_id' => Sentry::getUser()->id,
+            'location' => 'some plaec',//$input['location'],
+            'date_from' => '12/12/12',//$input['startingtime'],
+            'date_to' => '12/12/12',//$input['endingtime'],
+            'capacity' => 1,//$input['capacity'],
+            'description' => 'description',//$input['description'],
+            'sport' => 'tennis'//$input['sport']
         ];
 
         $this->activity->update($id, $data);
+
+        Event::fire('user.activity.update', ['input' => $data]);
 	}
 
 	/**
@@ -123,6 +123,13 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function destroy($id)
 	{
+        $data = [
+            'activity_id' => $id,
+            'description' => 'your activity has been deleted bitch'
+        ];
+
+        Event::fire('user.activity.delete', ['input' => $data]);
+
 		$this->activity->destroy($id);
 	}
 	

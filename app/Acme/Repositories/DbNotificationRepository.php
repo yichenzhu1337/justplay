@@ -66,4 +66,36 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
         ]);
     }
 
+    public function sendSomeoneJoinedActivityNotification($from_id, $to_id, $activity_id, $details)
+    {
+        $this->notificationActivity->create([
+            'activity_id' => $activity_id,
+            'from_id' => $from_id,
+            'to_id' => $to_id,
+            'details' => $details,
+            'is_read' => 0
+        ]);
+    }
+
+    public function sendActivityUpdatedNotification($from_id, $to_id, $activity_id, $details)
+    {
+        $this->notificationActivity->create([
+            'activity_id' => $activity_id,
+            'from_id' => $from_id,
+            'to_id' => $to_id,
+            'details' => $details,
+            'is_read' => 0
+        ]);
+    }
+
+    public function sendActivityDeletedNotification($from_id, $to_id, $activity_id, $details)
+    {
+        $this->notificationActivity->create([
+            'activity_id' => $activity_id,
+            'from_id' => $from_id,
+            'to_id' => $to_id,
+            'details' => $details,
+            'is_read' => 0
+        ]);
+    }
 }

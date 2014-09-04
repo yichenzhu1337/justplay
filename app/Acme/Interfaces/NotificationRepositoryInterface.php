@@ -17,4 +17,10 @@ Interface NotificationRepositoryInterface {
 
     public function sendCommentNotification($from_id, $to_id, $activity_id, $details);
 
+    public function sendSomeoneJoinedActivityNotification($from_id, $to_id, $activity_id, $details);
+
+    public function sendActivityUpdatedNotification($from_id, $to_id, $activity_id, $details);
+
+    public function sendActivityDeletedNotification($from_id, $to_id,  $activity_id, $details);
+
 }

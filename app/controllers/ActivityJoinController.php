@@ -33,6 +33,8 @@ class ActivityJoinController extends \BaseController {
 		];
 
 		$this->activityJoin->store($input);
+
+        Event::fire('user.activityJoin.store', ['input' => $input]);
 	}
 
 	public function destroy($activity_id)

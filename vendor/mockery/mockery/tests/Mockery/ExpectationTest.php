@@ -22,7 +22,7 @@
 class ExpectationTest extends PHPUnit_Framework_TestCase
 {
 
-    public function setup ()
+    public function setup()
     {
         $this->container = new \Mockery\Container(\Mockery::getDefaultGenerator(), \Mockery::getDefaultLoader());
         $this->mock = $this->container->mock('foo');
@@ -125,7 +125,7 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
 
     public function testReturnsValueOfClosure()
     {
-        $this->mock->shouldReceive('foo')->with(5)->andReturnUsing(function($v){return $v+1;});
+        $this->mock->shouldReceive('foo')->with(5)->andReturnUsing(function ($v) {return $v+1;});
         $this->assertEquals(6, $this->mock->foo(5));
     }
 
@@ -184,7 +184,7 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
     }
 
     public function testAndThrowExceptions()
-    {   
+    {
         $this->mock->shouldReceive('foo')->andThrowExceptions(array(
             new OutOfBoundsException,
             new InvalidArgumentException,
@@ -210,7 +210,7 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
      * @expectedExceptionMessage You must pass an array of exception objects to andThrowExceptions
      */
     public function testAndThrowExceptionsCatchNonExceptionArgument()
-    {   
+    {
         $this->mock
             ->shouldReceive('foo')
             ->andThrowExceptions(array('NotAnException'));
@@ -722,7 +722,7 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
     public function testExpectationCastToStringFormatting()
     {
         $exp = $this->mock->shouldReceive('foo')->with(1, 'bar', new stdClass, array('Spam' => 'Ham', 'Bar' => 'Baz'));
-        $this->assertEquals('[foo(1, "bar", stdClass, array(\'Spam\'=>\'Ham\',\'Bar\'=>\'Baz\',))]', (string) $exp);
+        $this->assertEquals('[foo(1, "bar", object(stdClass), array(\'Spam\'=>\'Ham\',\'Bar\'=>\'Baz\',))]', (string) $exp);
     }
 
     public function testLongExpectationCastToStringFormatting()
@@ -925,7 +925,7 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
     public function testCallableConstraintMatchesArgument()
     {
         $this->mock->shouldReceive('foo')->with(Mockery::type('callable'))->once();
-        $this->mock->foo(function(){return 'f';});
+        $this->mock->foo(function () {return 'f';});
         $this->container->mockery_verify();
     }
 
@@ -1411,7 +1411,7 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
 
     public function testOnConstraintMatchesArgument_ClosureEvaluatesToTrue()
     {
-        $function = function($arg){return $arg % 2 == 0;};
+        $function = function ($arg) {return $arg % 2 == 0;};
         $this->mock->shouldReceive('foo')->with(Mockery::on($function))->once();
         $this->mock->foo(4);
         $this->container->mockery_verify();
@@ -1422,7 +1422,7 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
      */
     public function testOnConstraintThrowsExceptionWhenConstraintUnmatched_ClosureEvaluatesToFalse()
     {
-        $function = function($arg){return $arg % 2 == 0;};
+        $function = function ($arg) {return $arg % 2 == 0;};
         $this->mock->shouldReceive('foo')->with(Mockery::on($function))->once();
         $this->mock->foo(5);
         $this->container->mockery_verify();
@@ -1538,13 +1538,14 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
         $string = "Mock: {$this->mock}";
     }
 
-    public function testShouldIgnoreMissingDefaultReturnValue() {
+    public function testShouldIgnoreMissingDefaultReturnValue()
+    {
         $this->mock->shouldIgnoreMissing(1);
         $this->assertEquals(1,$this->mock->a());
     }
 
     /** @issue #253 */
-    public function testShouldIgnoreMissingDefaultSelfAndReturnsSelf() 
+    public function testShouldIgnoreMissingDefaultSelfAndReturnsSelf()
     {
         $this->mock->shouldIgnoreMissing($this->container->self());
         $this->assertSame($this->mock, $this->mock->a()->b());
@@ -1760,24 +1761,6 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
         $this->assertSame('Spam!', $demeter->doitWithArgs());
     }
 
-    /**
-     * @expectedException PHPUnit_Framework_Error_Warning
-     * @runInSeparateProcess
-     */
-    public function testPregMatchThrowsDelimiterWarningWithXdebugScreamTurnedOn()
-    {
-        if (!extension_loaded('xdebug')) {
-            $this->markTestSkipped('ext/xdebug not installed');
-        }
-
-        ini_set('xdebug.scream', 1);
-
-        $mock = $this->container->mock('foo');
-        $mock->shouldReceive('foo')->with('bar', 'baz');
-
-        $mock->foo('spam', 'ham');
-    }
-
     public function testPassthruEnsuresRealMethodCalledForReturnValues()
     {
         $mock = $this->container->mock('MockeryTest_SubjectCall1');
@@ -1823,65 +1806,80 @@ class ExpectationTest extends PHPUnit_Framework_TestCase
     }
 }
 
-class MockeryTest_SubjectCall1 {
-    function foo() {return 'bar';}
+class MockeryTest_SubjectCall1
+{
+    public function foo() {return 'bar';}
 }
 
 class MockeryTest_InterMethod1
 {
-    public function doFirst() {
+    public function doFirst()
+    {
         return $this->doSecond();
     }
 
-    private function doSecond() {
+    private function doSecond()
+    {
         return $this->doThird();
     }
 
-    public function doThird() {
+    public function doThird()
+    {
         return false;
     }
 }
 
 class MyService2
 {
-    public function login($user, $pass){}
-    public function hasBookmarksTagged($tag){}
-    public function addBookmark($uri, $tag){}
+    public function login($user, $pass) {}
+    public function hasBookmarksTagged($tag) {}
+    public function addBookmark($uri, $tag) {}
 }
 
-class Mockery_Duck {
-    function quack(){}
-    function swim(){}
+class Mockery_Duck
+{
+    public function quack() {}
+    public function swim() {}
 }
 
-class Mockery_Duck_Nonswimmer {
-    function quack(){}
+class Mockery_Duck_Nonswimmer
+{
+    public function quack() {}
 }
 
-class Mockery_Demeterowski {
-    public function foo() {
+class Mockery_Demeterowski
+{
+    public function foo()
+    {
         return $this;
     }
-    public function bar() {
+    public function bar()
+    {
         return $this;
     }
-    public function baz() {
+    public function baz()
+    {
         return 'Ham!';
     }
 }
 
-class Mockery_UseDemeter {
-    public function __construct($demeter) {
+class Mockery_UseDemeter
+{
+    public function __construct($demeter)
+    {
         $this->demeter = $demeter;
     }
-    public function doit() {
+    public function doit()
+    {
         return $this->demeter->foo()->bar()->baz();
     }
-    public function doitWithArgs() {
+    public function doitWithArgs()
+    {
         return $this->demeter->foo("foo")->bar("bar")->baz("baz");
     }
 }
 
-class MockeryTest_Foo {
+class MockeryTest_Foo
+{
     public function foo() {}
 }

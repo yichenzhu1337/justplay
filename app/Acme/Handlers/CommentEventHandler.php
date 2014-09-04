@@ -1,42 +1,37 @@
 <?php namespace Acme\Handlers;
 
-
 use Acme\Interfaces\NotificationRepositoryInterface;
-
+use Acme\Interfaces\ActivityJoinRepositoryInterface;
+use Sentry;
 
 class CommentEventHandler {
 
     protected $notification;
+    protected $activityJoin;
 
-    function __construct(NotificationRepositoryInterface $notification)
+    function __construct(NotificationRepositoryInterface $notification, ActivityJoinRepositoryInterface $activityJoin)
     {
         $this->notification = $notification;
+        $this->activityJoin = $activityJoin;
     }
 
     /**
-     * Handle
+     * Sends a notification to all users in a particular activity that a person has commented
      */
     public function onStore($event)
     {
-        $from_id = $event['from_id'];
-        $to_id = $event['to_id'];
         $activity_id = $event['activity_id'];
         $details = $event['description'];
 
-        $this->notification->sendCommentNotification($from_id, $to_id, $activity_id, $details);
-    }
+        $user_ids = $this->activityJoin->getAllUsersInActivity($activity_id);
 
-    /**
-     * Handle
-     */
-    public function onUpdate($event)
-    {
-        $from_id = $event['from_id'];
-        $to_id = $event['to_id'];
-        $activity_id = $event['activity_id'];
-        $details = $event['description'];
+        foreach ($user_ids as $user_id)
+        {
+            $from_id = 1; //Sentry::getUser->id
+            $to_id = $user_id;
+            $this->notification->sendCommentNotification($from_id, $to_id, $activity_id, $details);
+        }
 
-        $this->notification->sendCommentNotification($from_id, $to_id, $activity_id, $details);
     }
 
     /**
@@ -48,7 +43,6 @@ class CommentEventHandler {
     public function subscribe($events)
     {
         $events->listen('user.comment.store', 'Acme\Handlers\CommentEventHandler@onStore');
-        $events->listen('user.comment.update', 'Acme\Handlers\CommentEventHandler@onUpdate');
     }
 
 }

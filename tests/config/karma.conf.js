@@ -3,12 +3,18 @@ module.exports = function(config){
     basePath : '../../',
 
     files : [
-      'public/app/lib/angular/angular.js',
-      'public/app/lib/angular/angular-*.js',
-      'public/app/lib/ui-utils-0.1.1/ui-utils.js',
+      'public/bower_components/angular/angular.js',
+      'public/bower_components/angular-mocks/angular-mocks.js',
       'public/app/lib/angular-multiselect-master/src/multiselect.js',
       'public/app/modules/**/*.js',
+      'public/app/utilities/**/*.js',
+      'public/app/utilities/schedule/scheduleModule.js',
       'tests/test/unit/*.js',
+      // MOMENT
+      'public/bower_components/moment/moment.js',
+      'public/bower_components/moment-timezone/moment-timezone.js',
+      'public/app/lib/moment-timezone-data.js',
+      'public/app/js/non-angular/moment.config.js'
     ],
 
     exclude : [

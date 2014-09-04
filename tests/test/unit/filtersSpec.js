@@ -8,7 +8,7 @@ describe('Filter Unit Tests:', function() {
     angular.mock.module('filterModule', ['ui.multiselect']);
 	});
 
-	describe('exactFilter:', function(){
+/*	describe('exactFilter:', function(){
 		var baseBundles = {
 			filterType: "exact",
 			attribute: "skill",
@@ -156,10 +156,10 @@ describe('Filter Unit Tests:', function() {
 				expect(exactFilter(card, bundles)).toBe(false);
 			}));
 		});
-  });
+  });*/
 
 	
-	describe('propertyFilter:', function(){
+/*	describe('propertyFilter:', function(){
 		var baseBundles = {
 			filterType: "exact",
 			attribute: "skill",
@@ -254,5 +254,5 @@ describe('Filter Unit Tests:', function() {
 			bundles.filterType = 'asdfasfasdf';
 			expect(typeChooser(card, bundles)).toBe(null);
 		});
-	});
+	});*/
 });

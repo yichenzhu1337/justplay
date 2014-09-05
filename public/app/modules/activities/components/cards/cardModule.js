@@ -269,7 +269,7 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
 
 	$scope.currentUserIsOwner = function(activity) {
 		if (angular.isUndefined(IsOwner)) {
-			if (activity.owner_id == $scope.AuthSvc.getUser().numeric_id) {
+			if (activity.user_id == $scope.AuthSvc.getUser().numeric_id) {
 				IsOwner = true;
 				return IsOwner;
 			} else {

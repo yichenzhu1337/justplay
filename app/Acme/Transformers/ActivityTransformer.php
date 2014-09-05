@@ -107,7 +107,7 @@ class ActivityTransformer extends TransformerAbstract {
 	{
 		return [
 			'id' => $activity['id'],
-			'owner_id' => $activity['owner_id'],
+			'user_id' => $activity['user_id'],
 			'location' => $activity['location'],
 			'startingtime' => $activity['date_from'],
 			'endingtime' => $activity['date_to'],

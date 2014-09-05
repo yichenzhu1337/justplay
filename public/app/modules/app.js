@@ -193,7 +193,7 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 			switch (what) {
 				case api_const.profiles:
 					payload = angular.copy(element.profile);
-					break;
+					return Interceptors.Request(payload);
 				case api_const.activities:
 					payload = angular.copy(element);
 					// Set endingtime date to be the same as startingtime
@@ -205,7 +205,7 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 
 					// Serialize Moments and Dates into MySqlFormat
 					payload = DateTimeService.SerializeMomentsToUTC(payload);
-					break;
+					return Interceptors.Request(payload);
 			}
 		}
 		if (operation == 'post' || operation == 'put') {

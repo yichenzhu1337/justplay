@@ -18,7 +18,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 	}
 
 	// Private Methods
-	
+
 	/**
 	 * Validate Data
 	 * @param  {data} data data
@@ -27,7 +27,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 	function validateActivity(data) {
 		if (
 			angular.isUndefined(data.id) ||
-			angular.isUndefined(data.owner_id) ||
+			angular.isUndefined(data.user_id) ||
 			angular.isUndefined(data.sport) ||
 			angular.isUndefined(data.startingtime) ||
 			angular.isUndefined(data.endingtime) ||

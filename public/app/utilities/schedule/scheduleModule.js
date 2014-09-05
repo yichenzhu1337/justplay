@@ -1,4 +1,4 @@
-var mod = angular.module('scheduleModule', []);
+var mod = angular.module('scheduleModule', ['jp.utilities']);
 
 var factories = {};
 
@@ -46,7 +46,7 @@ factories.ScheduleFactory = function(ScheduleHelpers)
 	}
 }
 
-factories.ScheduleHelpers = function($filter)
+factories.ScheduleHelpers = function($filter, DateRangeService)
 {
 	return {
 		createTimeBlock: function(day, s_hour, s_min, e_hour, e_min)
@@ -106,9 +106,7 @@ factories.ScheduleHelpers = function($filter)
 		},
 		sortScheduleBlocks: function(list, key)
 		{
-			console.log('before'+list);
 			var sortedList = $filter('orderBy')(list, 'starttime');
-			console.log('after'+sortedList);
 			return sortedList;
 		},
 		createScheduleSummary: function(list)
@@ -121,12 +119,47 @@ factories.ScheduleHelpers = function($filter)
 		},
 		constructScheduleRange: function(list) 
 		{
-
-			/*for (var i = 0; i < list.length; i++)
+			var finishedList = [];
+			console.log('init' + list.length);
+			if (list.length === 0)
 			{
-				if (list[i].)  
-			}*/
-		} 
+				return [];
+			}
+			else
+			{
+				for (var i = 0; i < list.length; i++)
+				{
+					// Initialize List
+					if (finishedList.length === 0)
+					{
+						finishedList.push({starttime: list[i].starttime, endtime: list[i].endtime});
+					} 
+					else
+					{
+						var latest_item = finishedList[length-1];
+						if (DateRangeService.isWithinStartAndEnd(latest_item.starttime, latest_item.endtime, list[i].starttime, list[i].endtime))
+						{
+							continue;
+						}
+						if (DateRangeService.isWithinStart(latest_item.starttime, latest_item.endtime, list[i].starttime, list[i].endtime))
+						{
+							latest_item.endtime.hour(list[i].endtime.hour);
+							continue;
+						}
+						if (DateRangeService.isAfterRange(latest_item.starttime, latest_item.endtime, list[i].starttime, list[i].endtime))
+						{
+							finishedList.push({starttime: list[i].starttime, endtime: list[i].endtime});
+							continue;
+						}
+						if (DateRangeService.isExactlyAfterRange(latest_item.starttime, latest_item.endtime, list[i].starttime, list[i].endtime))
+						{
+							latest_item.endtime.hour(list[i].endtime.hour);
+						}
+					}
+				}
+			}
+			return finishedList;
+		}
 	}
 }
 

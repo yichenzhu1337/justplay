@@ -213,8 +213,51 @@ describe('scheduleModule', function(){
 					}
 				}
 			});
+		});
 
+		describe('constructScheduleRange', function() {
+			var validation;			
 
+			beforeEach(function() {
+				validation = 
+				{
+					start_no_change: function(old_item, new_item)
+					{
+						return old_item.starttime.isSame(new_item.starttime);
+					},
+					end_no_change: function(old_item, new_item)
+					{
+						return old_item.endtime.isSame(new_item.endtime);
+					},
+					one_item_in_array: function(list)
+					{
+						return list.length === 1;
+					}
+				}
+			});
+
+			describe('TestCase 1: Original contains new', function(){
+				var output;
+				var rawList;
+				var filteredScheduleBlocks;
+				var filteredList;
+				var sortedList;
+				var sportFilter, dayFilter;
+				beforeEach(function() {
+					rawList = ScheduleFactory.getRawList(); // Circle Dependency... but we need this list.
+					sportFilter = 'Basketball';
+					dayFilter = 2;
+					filteredScheduleBlocks = ScheduleHelpers.filterScheduleBlocks(rawList, sportFilter, dayFilter);
+					filteredList = ScheduleHelpers.createScheduleSummary(filteredScheduleBlocks);
+					sortedList = ScheduleHelpers.sortScheduleBlocks(filteredList);
+					console.log(sortedList.rawList);
+					output = ScheduleHelpers.constructScheduleRange(sortedList);
+				});
+
+				it('should have one item in list', function() {
+					console.log('haha');
+				});
+			})
 		});
 	});
 });

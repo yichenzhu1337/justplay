@@ -87,6 +87,7 @@ class ActivitiesController extends \ApiController {
         ];
 
 		$this->activity->store($data);
+		$this->activity->store($data);
 	}
 
 	/**
@@ -108,6 +109,7 @@ class ActivitiesController extends \ApiController {
             'capacity' => 1,//$input['capacity'],
             'description' => 'description',//$input['description'],
             'sport' => 'tennis'//$input['sport']
+        ];
         ];
 
         $this->activity->update($id, $data);

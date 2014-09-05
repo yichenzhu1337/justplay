@@ -104,6 +104,13 @@ factories.ScheduleHelpers = function($filter)
 
 			return sportDaySpecificList;
 		},
+		sortScheduleBlocks: function(list, key)
+		{
+			console.log('before'+list);
+			var sortedList = $filter('orderBy')(list, 'starttime');
+			console.log('after'+sortedList);
+			return sortedList;
+		},
 		createScheduleSummary: function(list)
 		{
 			return {
@@ -112,13 +119,14 @@ factories.ScheduleHelpers = function($filter)
 				rawList: list
 			};
 		},
-/*		constructScheduleRange: function(list)
+		constructScheduleRange: function(list) 
 		{
-			for (var i = 0; i < list.length; i++)
+
+			/*for (var i = 0; i < list.length; i++)
 			{
-				if (list[i].)
-			}
-		}*/
+				if (list[i].)  
+			}*/
+		} 
 	}
 }
 

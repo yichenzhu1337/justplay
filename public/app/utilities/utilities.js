@@ -13,7 +13,7 @@ services.SanitizeService = function($sanitize) {
 				} else {
 					ret[key] = value;
 				}
-			}, ret);
+			}, ret);   
 			return ret;
 	};
 
@@ -128,7 +128,7 @@ services.DateRangeService = function()
 		if ((range1_s.isSame(range2_s) || (range1_s.isBefore(range2_s) && range2_s.isBefore(range1_e))) && (range1_e.isBefore(range2_e) && !range1_e.isSame(range2_e)))
 		{
 			return true;
-		}
+		} 
 		else
 		{
 			return false;
@@ -150,13 +150,12 @@ services.DateRangeService = function()
 	// Inverse of withinstartandend
 	this.isOverStartAndEnd = function(range1_s, range1_e, range2_s, range2_e)
 	{
-		if (!((range1_s.isSame(range2_s) || range1_s.isBefore(range2_s)) && 
-			(range1_e.isSame(range2_e) || range1_e.isAfter(range2_e))))
+		if (range2_s.isBefore(range1_s) && range2_e.isAfter(range1_e))
 		{
 			return true;
 		}
 		else
-		{
+		{ 
 			return false;
 		}
 	}

@@ -181,6 +181,40 @@ describe('scheduleModule', function(){
 				expect(angular.isDefined(filteredList.rawList)).toBe(true);
 				expect(filteredList.rawList).toEqual(filteredScheduleBlocks);
 			});
-		})
+		});
+
+		describe('sortScheduleBlocks', function() {
+			var rawList;
+			var filteredScheduleBlocks;
+			var filteredList;
+			var sortedList;
+			var sportFilter, dayFilter;
+
+			beforeEach(function() {
+				rawList = ScheduleFactory.getRawList(); // Circle Dependency... but we need this list.
+				sportFilter = 'Basketball';
+				dayFilter = 2;
+				filteredScheduleBlocks = ScheduleHelpers.filterScheduleBlocks(rawList, sportFilter, dayFilter);
+				filteredList = ScheduleHelpers.createScheduleSummary(filteredScheduleBlocks);
+				sortedList = ScheduleHelpers.sortScheduleBlocks(filteredList);
+			});
+
+			it('should sort the list correctly', function() {
+				var lastitem;
+				for (var i = 0; i < sortedList.length; i++)
+				{
+					if (angular.isUndefined(lastitem))
+					{
+						lastitem = sortedList[i];
+					}
+					else
+					{
+						expect(sortedList[i].starttime.isBefore(lastitem.starttime)).toBe(false);
+					}
+				}
+			});
+
+
+		});
 	});
 });

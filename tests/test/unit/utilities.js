@@ -56,7 +56,7 @@ describe('utilities', function()
 						range1_e: moment(new Date()).day(1).hour(3).minute(0),
 						range2_s: moment(new Date()).day(1).hour(2).minute(0),
 						range2_e: moment(new Date()).day(1).hour(4).minute(0)					
-					}
+					} 
 				],
 				isWithinEnd: [
 					{
@@ -70,14 +70,6 @@ describe('utilities', function()
 						range1_e: moment(new Date()).day(1).hour(3).minute(0),
 						range2_s: moment(new Date()).day(1).hour(0).minute(0),
 						range2_e: moment(new Date()).day(1).hour(3).minute(0)
-					}
-				],
-				isOverStartAndEnd: [
-					{
-						range1_s: moment(new Date()).day(1).hour(1).minute(1),
-						range1_e: moment(new Date()).day(1).hour(3).minute(1),
-						range2_s: moment(new Date()).day(1).hour(1).minute(0),
-						range2_e: moment(new Date()).day(1).hour(3).minute(0)	
 					}
 				],
 				isBeforeRange: [
@@ -110,6 +102,14 @@ describe('utilities', function()
 						range1_e: moment(new Date()).day(1).hour(6).minute(0),
 						range2_s: moment(new Date()).day(1).hour(6).minute(0),
 						range2_e: moment(new Date()).day(1).hour(12).minute(0)
+					}
+				],
+				isOverStartAndEnd: [
+					{
+						range1_s: moment(new Date()).day(1).hour(1).minute(1),
+						range1_e: moment(new Date()).day(1).hour(3).minute(0),
+						range2_s: moment(new Date()).day(1).hour(1).minute(0),
+						range2_e: moment(new Date()).day(1).hour(3).minute(1)	
 					}
 				]
 			};
@@ -158,6 +158,12 @@ describe('utilities', function()
 					expect(insertIntoMethod(mockRanges.isExactlyAfterRange[i], DateRangeService.isWithinStartAndEnd)).toBe(false);				
 				}
 			});
+			it ('should fail all isOverStartAndEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isOverStartAndEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isOverStartAndEnd[i], DateRangeService.isWithinStartAndEnd)).toBe(false);				
+				}
+			});
 		});
 
 		describe('isWithinStart', function() {
@@ -201,6 +207,12 @@ describe('utilities', function()
 				for (var i = 0; i < mockRanges.isExactlyAfterRange.length; i++)
 				{
 					expect(insertIntoMethod(mockRanges.isExactlyAfterRange[i], DateRangeService.isWithinStart)).toBe(false);				
+				}
+			});
+			it ('should fail all isOverStartAndEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isOverStartAndEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isOverStartAndEnd[i], DateRangeService.isWithinStart)).toBe(false);				
 				}
 			});
 		});
@@ -248,6 +260,12 @@ describe('utilities', function()
 					expect(insertIntoMethod(mockRanges.isExactlyAfterRange[i], DateRangeService.isWithinEnd)).toBe(false);				
 				}
 			});
+			it ('should fail all isOverStartAndEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isOverStartAndEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isOverStartAndEnd[i], DateRangeService.isWithinEnd)).toBe(false);				
+				}
+			});
 		});
 
 		describe('isBeforeRange', function() {
@@ -291,6 +309,12 @@ describe('utilities', function()
 				for (var i = 0; i < mockRanges.isExactlyAfterRange.length; i++)
 				{
 					expect(insertIntoMethod(mockRanges.isExactlyAfterRange[i], DateRangeService.isBeforeRange)).toBe(false);				
+				}
+			});
+			it ('should fail all isOverStartAndEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isOverStartAndEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isOverStartAndEnd[i], DateRangeService.isBeforeRange)).toBe(false);				
 				}
 			});
 		});
@@ -338,6 +362,12 @@ describe('utilities', function()
 					expect(insertIntoMethod(mockRanges.isExactlyAfterRange[i], DateRangeService.isAfterRange)).toBe(false);				
 				}
 			});
+			it ('should fail all isOverStartAndEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isOverStartAndEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isOverStartAndEnd[i], DateRangeService.isAfterRange)).toBe(false);				
+				}
+			});
 		});
 
 		describe('isExactlyBeforeRange', function(){
@@ -381,6 +411,12 @@ describe('utilities', function()
 				for (var i = 0; i < mockRanges.isExactlyAfterRange.length; i++)
 				{
 					expect(insertIntoMethod(mockRanges.isExactlyAfterRange[i], DateRangeService.isExactlyBeforeRange)).toBe(false);				
+				}
+			});
+			it ('should fail all isOverStartAndEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isOverStartAndEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isOverStartAndEnd[i], DateRangeService.isExactlyBeforeRange)).toBe(false);				
 				}
 			});
 		});
@@ -427,6 +463,63 @@ describe('utilities', function()
 				{
 					expect(insertIntoMethod(mockRanges.isExactlyAfterRange[i], DateRangeService.isExactlyAfterRange)).toBe(true);				
 				} 
+			});
+			it ('should fail all isOverStartAndEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isOverStartAndEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isOverStartAndEnd[i], DateRangeService.isExactlyAfterRange)).toBe(false);				
+				}
+			});
+		});
+
+		describe('isOverStartAndEnd', function(){
+			it ('should fail all isWithinStartAndEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isWithinStartAndEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isWithinStartAndEnd[i], DateRangeService.isOverStartAndEnd)).toBe(false);
+				}
+			});
+			it ('should pass all isWithinStart conditions', function() {
+				for (var i = 0; i < mockRanges.isWithinStart.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isWithinStart[i], DateRangeService.isOverStartAndEnd)).toBe(false);				
+				}
+			});
+			it ('should pass all isWithinEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isWithinEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isWithinEnd[i], DateRangeService.isOverStartAndEnd)).toBe(false);				
+				}
+			});
+			it ('should fail all isBeforeRange conditions', function() {
+				for (var i = 0; i < mockRanges.isBeforeRange.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isBeforeRange[i], DateRangeService.isOverStartAndEnd)).toBe(false);				
+				}
+			});
+			it ('should fail all isAfterRange conditions', function() {
+				for (var i = 0; i < mockRanges.isAfterRange.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isAfterRange[i], DateRangeService.isOverStartAndEnd)).toBe(false);				
+				}
+			});
+			it ('should fail all isExactlyBeforeRange conditions', function() {
+				for (var i = 0; i < mockRanges.isExactlyBeforeRange.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isExactlyBeforeRange[i], DateRangeService.isOverStartAndEnd)).toBe(false);				
+				}
+			});
+			it ('should fail all isExactlyAfterRange conditions', function() {
+				for (var i = 0; i < mockRanges.isExactlyAfterRange.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isExactlyAfterRange[i], DateRangeService.isOverStartAndEnd)).toBe(false);				
+				} 
+			});
+			it ('should pass all isOverStartAndEnd conditions', function() {
+				for (var i = 0; i < mockRanges.isOverStartAndEnd.length; i++)
+				{
+					expect(insertIntoMethod(mockRanges.isOverStartAndEnd[i], DateRangeService.isOverStartAndEnd)).toBe(true);				
+				}
 			});
 		});
 	});

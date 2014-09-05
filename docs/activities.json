@@ -243,6 +243,16 @@
     "models": {
         "Activity": {
             "id": "Activity",
+            "required": [
+                "capacity",
+                "description",
+                "endingtime",
+                "id",
+                "location",
+                "owner_id",
+                "sport",
+                "startingtime"
+            ],
             "properties": {
                 "id": {
                     "description": "Unique identifier for the Activity.",
@@ -285,17 +295,7 @@
                     "description": "All the sports that can be selected when played",
                     "type": "string"
                 }
-            },
-            "required": [
-                "capacity",
-                "description",
-                "endingtime",
-                "id",
-                "location",
-                "owner_id",
-                "sport",
-                "startingtime"
-            ]
+            }
         }
     },
     "produces": [

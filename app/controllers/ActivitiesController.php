@@ -87,7 +87,6 @@ class ActivitiesController extends \ApiController {
         ];
 
 		$this->activity->store($data);
-		$this->activity->store($data);
 	}
 
 	/**
@@ -103,13 +102,12 @@ class ActivitiesController extends \ApiController {
         $data = [
             'activity_id' => $id, //dont know if this will work
             'user_id' => Sentry::getUser()->id,
-            'location' => 'some plaec',//$input['location'],
-            'date_from' => '12/12/12',//$input['startingtime'],
-            'date_to' => '12/12/12',//$input['endingtime'],
-            'capacity' => 1,//$input['capacity'],
-            'description' => 'description',//$input['description'],
-            'sport' => 'tennis'//$input['sport']
-        ];
+            'location' => $input['location'],
+            'date_from' => $input['startingtime'],
+            'date_to' => $input['endingtime'],
+            'capacity' => $input['capacity'],
+            'description' => $input['description'],
+            'sport' => $input['sport']
         ];
 
         $this->activity->update($id, $data);

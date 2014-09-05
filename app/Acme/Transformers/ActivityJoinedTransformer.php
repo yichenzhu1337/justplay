@@ -21,8 +21,8 @@ class ActivityJoinedTransformer extends TransformerAbstract
 
 	public function transform(ActivityJoin $activityJoined)
 	{
-
-		$owner_id = Activity::find($activityJoined['activity_id'])->owner_id;
+		//abstract
+		$owner_id = Activity::find($activityJoined['activity_id'])->user_id;
 		$user_id = $activityJoined['user_id'];
 
 		$are_they_friends = "SELECT * FROM friends ";
@@ -30,6 +30,8 @@ class ActivityJoinedTransformer extends TransformerAbstract
 		$are_they_friends.= "user1_id = $owner_id AND user2_id = $user_id "; 
 		$are_they_friends .= "OR ";
 		$are_they_friends .= "user1_id = $user_id AND user2_id = $owner_id";
+
+		//dd($are_they_friends);
 
 		$are_they_friends_query = DB::select($are_they_friends);
 

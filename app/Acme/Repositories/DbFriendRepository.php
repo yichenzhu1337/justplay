@@ -49,13 +49,13 @@ class DbFriendRepository extends DbBaseRepository implements FriendRepositoryInt
 		$are_they_friends .= "OR ";
 		$are_they_friends .= "user1_id = $stranger_id AND user2_id = $user_id";
 
-		$notification_sent = "SELECT * FROM notifications ";
+		$notification_sent = "SELECT * FROM notifications_friends ";
 		$notification_sent .= "WHERE ";
 		$notification_sent .= "from_id = $user_id ";
 		$notification_sent .= "AND ";
 		$notification_sent .= "to_id = $stranger_id ";
 
-		$notification_received = "SELECT * FROM notifications ";
+		$notification_received = "SELECT * FROM notifications_friends ";
 		$notification_received .= "WHERE ";
 		$notification_received .= "from_id = $stranger_id ";
 		$notification_received .= "AND ";

@@ -12,19 +12,19 @@ use League\Fractal\Serializer\JsonApiSerializer;
 
 use User;
 use Activity;
-use Friend;
+use NotificationFriend;
 
-class FriendTransformer extends TransformerAbstract
+class NotificationFriendTransformer extends TransformerAbstract
 {
 
-    public function transform(Friend $friend)
+    public function transform(NotificationFriend $notificationFriend)
     {
 
         return [
-            'from_id' => $friend['from_id'],
-            'from_user' => User::find($friend['from_id'])->username,
-            'to_id' => $friend['to_id'],
-            'to_user' => User::find($friend['to_id'])->username,
+            'from_id' => $notificationFriend['from_id'],
+            'from_user' => User::find($notificationFriend['from_id'])->username,
+            'to_id' => $notificationFriend['to_id'],
+            'to_user' => User::find($notificationFriend['to_id'])->username,
         ];
     }
 

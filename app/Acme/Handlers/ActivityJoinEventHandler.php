@@ -29,7 +29,7 @@ class ActivityJoinEventHandler {
             $from_id = 1; //Sentry::getUser->id
             $to_id = $user_id;
 
-            $this->notification->sendSomeoneJoinedActivityNotification($from_id, $to_id, $activity_id, $details);
+            $this->notification->sendActivityNotification('activity_update', $from_id, $to_id, $activity_id, $details);
         }
 
     }

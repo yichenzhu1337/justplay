@@ -11,8 +11,8 @@ use League\Fractal\Serializer\ArraySerializer;
 use League\Fractal\Serializer\JsonApiSerializer;
 
 use User;
+use Activity;
 use NotificationActivity;
-
 
 class NotificationActivityTransformer extends TransformerAbstract
 {
@@ -21,7 +21,12 @@ class NotificationActivityTransformer extends TransformerAbstract
     {
 
         return [
-            'test' => 'test'
+            'sub_type' => $notificationActivity['sub_type'],
+            'from_id' => $notificationActivity['from_id'],
+            'from_user' => User::find($notificationActivity['from_id'])->username,
+            'to_id' => $notificationActivity['to_id'],
+            'to_user' => User::find($notificationActivity['to_id'])->username,
+            'details' => $notificationActivity['details']
         ];
     }
 
@@ -31,7 +36,7 @@ class NotificationActivityTransformer extends TransformerAbstract
      * @var array
      */
     protected $availableIncludes = [
-        'user'
+        'activity'
     ];
 
     /**
@@ -40,7 +45,7 @@ class NotificationActivityTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [
-        //'author'
+        'activity'
     ];
 
     // ....
@@ -50,11 +55,11 @@ class NotificationActivityTransformer extends TransformerAbstract
      *
      * @return League\Fractal\ItemResource
      */
-    public function includeUser()
+    public function includeActivity()
     {
-        $user = User::find(1);
+        $activity = Activity::find(1);
 
-        return $this->item($user, new UserTransformer);
+        return $this->item($activity, new ActivityTransformer);
     }
 
 }

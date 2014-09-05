@@ -9,7 +9,7 @@ class NotificationsCommentsTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 100) as $index)
 		{
 			NotificationComment::create([
                 'activity_id' => rand(1, 30),

@@ -4,19 +4,17 @@ use Acme\Interfaces\NotificationRepositoryInterface;
 
 use NotificationFriend;
 use NotificationActivity;
-use NotificationComment;
+
 
 class DbNotificationRepository extends DbBaseRepository implements NotificationRepositoryInterface {
 
     protected $notificationFriend;
     protected $notificationActivity;
-    protected $notificationComment;
 
-	function __construct(NotificationFriend $notificationFriend, NotificationActivity $notificationsActivity, NotificationComment $notificationComment)
+	function __construct(NotificationFriend $notificationFriend, NotificationActivity $notificationsActivity)
 	{
 		$this->notificationFriend = $notificationFriend;
         $this->notificationActivity = $notificationsActivity;
-        $this->notificationComment = $notificationComment;
 	}
 
 	public function delete($id)
@@ -34,6 +32,9 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
 		//return $this->model->where('to_id', '=', $auth_id)->get();
 	}
 
+    /**
+     * POST
+     */
     public function sendFriendRequest($from_id, $to_id, $details)
     {
         $this->notificationFriend->create([
@@ -55,10 +56,14 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
         ]);
     }
 
-    public function sendCommentNotification($from_id, $to_id, $activity_id, $details)
+    /**
+     * POST
+     */
+    public function sendActivityNotification($sub_type, $from_id, $to_id, $activity_id, $details)
     {
-        $this->notificationComment->create([
+        $this->notificationActivity->create([
             'activity_id' => $activity_id,
+            'sub_type' => $sub_type,
             'from_id' => $from_id,
             'to_id' => $to_id,
             'details' => $details,
@@ -66,36 +71,17 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
         ]);
     }
 
-    public function sendSomeoneJoinedActivityNotification($from_id, $to_id, $activity_id, $details)
+    /**
+     * GET
+     */
+    public function getAllAuthFriendNotifications($user_id)
     {
-        $this->notificationActivity->create([
-            'activity_id' => $activity_id,
-            'from_id' => $from_id,
-            'to_id' => $to_id,
-            'details' => $details,
-            'is_read' => 0
-        ]);
+        return $this->notificationFriend->where('to_id', '=', $user_id)->get();
     }
 
-    public function sendActivityUpdatedNotification($from_id, $to_id, $activity_id, $details)
+    public function getAllAuthActivityNotifications($user_id)
     {
-        $this->notificationActivity->create([
-            'activity_id' => $activity_id,
-            'from_id' => $from_id,
-            'to_id' => $to_id,
-            'details' => $details,
-            'is_read' => 0
-        ]);
+        return $this->notificationActivity->where('to_id', '=', $user_id)->get();
     }
 
-    public function sendActivityDeletedNotification($from_id, $to_id, $activity_id, $details)
-    {
-        $this->notificationActivity->create([
-            'activity_id' => $activity_id,
-            'from_id' => $from_id,
-            'to_id' => $to_id,
-            'details' => $details,
-            'is_read' => 0
-        ]);
-    }
 }

@@ -2,203 +2,99 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05f752a8-d065-4be0-93ea-4ca68724e840" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Acme/Handlers/ActivityEventHandler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Acme/Handlers/ActivityJoinEventHandler.php" />
-      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\fzaninotto\faker\src\Faker\Provider\File.php.orig" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\vendor\fzaninotto\faker\test\Faker\Provider\InternetTest.php.orig" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/.coveralls.yml" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/.coveralls.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/.gitignore" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/.scrutinizer.yml" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/.scrutinizer.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/.travis.yml" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/01-INSTALLATION.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/01-INSTALLATION.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/02-UPGRADING.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/02-UPGRADING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/03-SIMPLE-EXAMPLE.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/03-SIMPLE-EXAMPLE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/04-PHPUNIT-INTEGRATION.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/04-PHPUNIT-INTEGRATION.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/05-QUICK-REFERENCE.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/05-QUICK-REFERENCE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/06-EXPECTATION DECLARATIONS.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/06-EXPECTATION DECLARATIONS.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/07-ARGUMENT-VALIDATION.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/07-ARGUMENT-VALIDATION.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/08-CREATING-PARTIAL-MOCKS.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/08-CREATING-PARTIAL-MOCKS.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/09-DETECTING-MOCK-OBJECTS.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/09-DETECTING-MOCK-OBJECTS.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/10-DEFAULT-MOCK-EXPECTATIONS.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/10-DEFAULT-MOCK-EXPECTATIONS.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/11-MOCKING-PUBLIC-PROPERTIES.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/11-MOCKING-PUBLIC-PROPERTIES.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/12-MOCKING-PUBLIC-STATIC-METHODS.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/12-MOCKING-PUBLIC-STATIC-METHODS.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/13-INSTANCE-MOCKING.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/13-INSTANCE-MOCKING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/14-PRESERVING-PASS-BY-REFERENCE-PARAMETER-BEHAVIOUR.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/14-PRESERVING-PASS-BY-REFERENCE-PARAMETER-BEHAVIOUR.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/15-MOCKING-DEMETER-CHAINS-AND-FLUENT-INTERFACES.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/15-MOCKING-DEMETER-CHAINS-AND-FLUENT-INTERFACES.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/16-MOCKERY-EXCEPTIONS.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/16-MOCKERY-EXCEPTIONS.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/17-MOCK-OBJECT-RECORDING.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/17-MOCK-OBJECT-RECORDING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/18-DEALING-WITH-FINAL-CLASSES-OR-METHODS.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/18-DEALING-WITH-FINAL-CLASSES-OR-METHODS.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/19-MOCKERY-GLOBAL-CONFIGURATION.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/19-MOCKERY-GLOBAL-CONFIGURATION.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/20-RESERVED-METHOD-NAMES.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/20-RESERVED-METHOD-NAMES.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/21-PHP-MAGIC-METHODS.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/21-PHP-MAGIC-METHODS.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/22-GOTCHAS.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/22-GOTCHAS.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/23-QUICK-EXAMPLES.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/23-QUICK-EXAMPLES.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/process/Symfony/Component/Process/Tests/AbstractProcessTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/process/Symfony/Component/Process/Tests/AbstractProcessTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ActivitiesController.php" afterPath="$PROJECT_DIR$/app/controllers/ActivitiesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Acme/Transformers/NotificationActivityTransformer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Acme/Transformers/NotificationFriendTransformer.php" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\app\Acme\Transformers\FriendTransformer.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\app\Acme\Transformers\NotificationTransformer.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\app\database\migrations\2014_09_03_072910_create_notifications_comments_table.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\github\justplay\app\models\NotificationComment.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/swagger.phar" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/swagger.phar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/.travis.yml" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2014_09_02_043529_create_notifications_activities_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2014_09_02_043529_create_notifications_activities_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/AbstractAnnotation.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/AbstractAnnotation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Handlers/ActivityEventHandler.php" afterPath="$PROJECT_DIR$/app/Acme/Handlers/ActivityEventHandler.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ActivityJoinController.php" afterPath="$PROJECT_DIR$/app/controllers/ActivityJoinController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Interfaces/ActivityJoinRepositoryInterface.php" afterPath="$PROJECT_DIR$/app/Acme/Interfaces/ActivityJoinRepositoryInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_CA/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_CA/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/AddressTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/AddressTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/AdhocTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/AdhocTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Any.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Any.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/AnyOf.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/AnyOf.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/AtLeast.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/AtLeast.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/AtMost.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/AtMost.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Barcode.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Barcode.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/BarcodeTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/BarcodeTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Base.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Base.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/examples/starship/Bootstrap.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/examples/starship/Bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Bootstrap.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/CHANGELOG.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/CONTRIBUTING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/CallTypeHintPass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/CallTypeHintPass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/CallTypeHintPassTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/CallTypeHintPassTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassNamePass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassNamePass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/ClassNamePassTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/ClassNamePassTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassPass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassPass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Closure.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Closure.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Handlers/ActivityJoinEventHandler.php" afterPath="$PROJECT_DIR$/app/Acme/Handlers/ActivityJoinEventHandler.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Api.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/ApiProcessor.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/ApiProcessor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/CHANGELOG.md" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Models/Category.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Models/Category.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php" afterPath="$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/fr_FR/CompanyTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/fr_FR/CompanyTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CompositeExpectation.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CompositeExpectation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Configuration.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Configuration.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Container.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Container.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ContainerTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ContainerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Contains.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Contains.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/CountValidatorAbstract.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/CountValidatorAbstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/dom-crawler/Symfony/Component/DomCrawler/Crawler.php" afterPath="$PROJECT_DIR$/vendor/symfony/dom-crawler/Symfony/Component/DomCrawler/Crawler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/dom-crawler/Symfony/Component/DomCrawler/Tests/CrawlerTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/dom-crawler/Symfony/Component/DomCrawler/Tests/CrawlerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/finder/Symfony/Component/Finder/Iterator/DateRangeFilterIterator.php" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Symfony/Component/Finder/Iterator/DateRangeFilterIterator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/finder/Symfony/Component/Finder/Tests/Iterator/DateRangeFilterIteratorTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Symfony/Component/Finder/Tests/Iterator/DateRangeFilterIteratorTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Repositories/DbActivityJoinRepository.php" afterPath="$PROJECT_DIR$/app/Acme/Repositories/DbActivityJoinRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Consumes.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Consumes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Context.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Context.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Router/Controller.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Router/Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/DataType.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/DataType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php" afterPath="$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/DefinedTargetClass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/DefinedTargetClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Ducktype.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Ducktype.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Fragment/EsiFragmentRenderer.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Fragment/EsiFragmentRenderer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Tests/Fragment/EsiFragmentRendererTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Tests/Fragment/EsiFragmentRendererTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/EvalLoader.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/EvalLoader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/EvalLoaderTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/EvalLoaderTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/Exact.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/Exact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/Exception.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/Exception.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Expectation.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Expectation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ExpectationDirector.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ExpectationDirector.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ExpectationTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ExpectationTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Tests/File/FakeFile.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Tests/File/FakeFile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/File.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/File.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/filesystem/Symfony/Component/Filesystem/Filesystem.php" afterPath="$PROJECT_DIR$/vendor/symfony/filesystem/Symfony/Component/Filesystem/Filesystem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/finder/Symfony/Component/Finder/Tests/FinderTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Symfony/Component/Finder/Tests/FinderTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/dom-crawler/Symfony/Component/DomCrawler/Form.php" afterPath="$PROJECT_DIR$/vendor/symfony/dom-crawler/Symfony/Component/DomCrawler/Form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/dom-crawler/Symfony/Component/DomCrawler/Tests/FormTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/dom-crawler/Symfony/Component/DomCrawler/Tests/FormTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/EventListener/FragmentListener.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/EventListener/FragmentListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Tests/EventListener/FragmentListenerTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Tests/EventListener/FragmentListenerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Generator.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Generator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/HamcrestExpectationTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/HamcrestExpectationTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/HasKey.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/HasKey.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/HasValue.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/HasValue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Inline.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Inline.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Tests/InlineTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Tests/InlineTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/InstanceMockPass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/InstanceMockPass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/InstanceMockPassTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/InstanceMockPassTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/InterfacePass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/InterfacePass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/InterfacePassTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/InterfacePassTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/InternetTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/InternetTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidCountException.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidCountException.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidOrderException.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidOrderException.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Kernel.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Kernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/LICENSE" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/Loader.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/Loader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/LoaderTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/LoaderTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/LoaderTestCase.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/LoaderTestCase.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Calculator/Luhn.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Calculator/Luhn.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Calculator/LuhnTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Calculator/LuhnTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MatcherAbstract.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MatcherAbstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Method.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Method.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/MethodDefinitionPass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/MethodDefinitionPass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Mock.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Mock.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithFinalWakeupTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithFinalWakeupTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithUnknownTypeHintTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithUnknownTypeHintTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockConfigurationBuilder.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockConfigurationBuilder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Test/Generator/MockConfigurationBuilderTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Test/Generator/MockConfigurationBuilderTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/MockConfigurationTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/MockConfigurationTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockDefinition.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockDefinition.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/MockInterface.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/MockInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockeryCanMockMultipleInterfacesWhichOverlapTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockeryCanMockMultipleInterfacesWhichOverlapTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingProtectedMethodsTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingProtectedMethodsTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MustBe.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MustBe.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/NamedMockTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/NamedMockTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/NoMatchingExpectationException.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/NoMatchingExpectationException.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Not.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Not.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/NotAnyOf.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/NotAnyOf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Minimal/Models/Dog.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Minimal/Models/Dog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Examples.md" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Examples.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Models/Facet.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Models/Facet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Resources/FacetResource.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Resources/FacetResource.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Models/FacetResult.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Models/FacetResult.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Models/FacetSet.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Models/FacetSet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Items.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Items.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/LICENSE-2.0.txt" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/LICENSE-2.0.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Logger.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Logger.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Model.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/ModelProcessor.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/ModelProcessor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/NestingProcessor.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/NestingProcessor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/NotificationActivity.php" afterPath="$PROJECT_DIR$/app/models/NotificationActivity.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php" afterPath="$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/console/Symfony/Component/Console/Formatter/OutputFormatter.php" afterPath="$PROJECT_DIR$/vendor/symfony/console/Symfony/Component/Console/Formatter/OutputFormatter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/console/Symfony/Component/Console/Tests/Formatter/OutputFormatterTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/console/Symfony/Component/Console/Tests/Formatter/OutputFormatterTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Parameter.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Parameter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Parser.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Parser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Tests/ParserTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Tests/ParserTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/Pass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/Pass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Payment.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Payment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/PaymentTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/PaymentTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ru_RU/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ru_RU/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/sv_SE/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/sv_SE/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/sv_SE/PersonTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/sv_SE/PersonTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/is_IS/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/is_IS/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/process/Symfony/Component/Process/Process.php" afterPath="$PROJECT_DIR$/vendor/symfony/process/Symfony/Component/Process/Process.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/README.md" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/css-selector/Symfony/Component/CssSelector/README.md" afterPath="$PROJECT_DIR$/vendor/symfony/css-selector/Symfony/Component/CssSelector/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Recorder.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Recorder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/RecorderTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/RecorderTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveBuiltinMethodsThatAreFinalPass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveBuiltinMethodsThatAreFinalPass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Request.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Tests/RequestTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Tests/RequestTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/RequireLoader.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/RequireLoader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/RequireLoaderTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/RequireLoaderTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/RuntimeException.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/RuntimeException.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/ServerBag.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/ServerBag.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Tests/ServerBagTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Tests/ServerBagTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/EventListener/SessionListener.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/EventListener/SessionListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/finder/Symfony/Component/Finder/Shell/Shell.php" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Symfony/Component/Finder/Shell/Shell.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/process/Symfony/Component/Process/Tests/SigchildDisabledProcessTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/process/Symfony/Component/Process/Tests/SigchildDisabledProcessTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/examples/starship/Starship.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/examples/starship/Starship.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/examples/starship/StarshipTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/examples/starship/StarshipTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/security-core/Symfony/Component/Security/Core/Util/StringUtils.php" afterPath="$PROJECT_DIR$/vendor/symfony/security-core/Symfony/Component/Security/Core/Util/StringUtils.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Subset.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Subset.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/TargetClass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/TargetClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/EventListener/TestSessionListener.php" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/EventListener/TestSessionListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/translation/Symfony/Component/Translation/Translator.php" afterPath="$PROJECT_DIR$/vendor/symfony/translation/Symfony/Component/Translation/Translator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Type.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Type.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Undefined.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Undefined.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/UndefinedTargetClass.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/UndefinedTargetClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/UserAgent.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/UserAgent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/security-core/Symfony/Component/Security/Core/Tests/Validator/Constraints/UserPasswordValidatorTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/security-core/Symfony/Component/Security/Core/Tests/Validator/Constraints/UserPasswordValidatorTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/security-core/Symfony/Component/Security/Core/Authorization/Voter/VoterInterface.php" afterPath="$PROJECT_DIR$/vendor/symfony/security-core/Symfony/Component/Security/Core/Authorization/Voter/VoterInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/WithFormatterExpectationTest.php" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/WithFormatterExpectationTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/routing/Symfony/Component/Routing/Loader/XmlFileLoader.php" afterPath="$PROJECT_DIR$/vendor/symfony/routing/Symfony/Component/Routing/Loader/XmlFileLoader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/routing/Symfony/Component/Routing/Tests/Loader/XmlFileLoaderTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/routing/Symfony/Component/Routing/Tests/Loader/XmlFileLoaderTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/NotificationsActivitiesTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/NotificationsActivitiesTableSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/NotificationsCommentsTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/NotificationsCommentsTableSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/NotificationsController.php" afterPath="$PROJECT_DIR$/app/controllers/NotificationsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Operation.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Operation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Minimal/Resources/Operations.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Minimal/Resources/Operations.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Operations.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Operations.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Parameter.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Parameter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Parameters.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Parameters.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Parser.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Parser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Partial.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Partial.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Minimal/Models/Pet.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Minimal/Models/Pet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Models/Pet.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Models/Pet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Resources/Pet.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Resources/Pet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/ProcessorInterface.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/ProcessorInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Produces.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Produces.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Properties.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Properties.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Property.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Property.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/PropertyProcessor.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/PropertyProcessor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Minimal/Resources/ResolveController.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Minimal/Resources/ResolveController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Resource.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/Resource.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/ResourceProcessor.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Processors/ResourceProcessor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/ResponseMessage.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/ResponseMessage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/ResponseMessages.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Annotations/ResponseMessages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Models/Some_Model.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Facet/Models/Some_Model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Swagger.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/library/Swagger/Swagger.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/SwaggerTests/SwaggerTest.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/SwaggerTests/SwaggerTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Models/Tag.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Models/Tag.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Models/User.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Models/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Resources/User.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Petstore/Resources/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/VERSION" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/VERSION" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Minimal/api-docs.json" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Minimal/api-docs.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Petstore/api-docs.json" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Petstore/api-docs.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/autoload.php" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/composer.json" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/composer.json" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/bootstrap.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Router/common.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Router/common.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/scripts/compile.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/scripts/compile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/composer.json" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/composer.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/start/global.php" afterPath="$PROJECT_DIR$/app/start/global.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/include_paths.php" afterPath="$PROJECT_DIR$/vendor/composer/include_paths.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Facet/facet.json" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Facet/facet.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/package.xml" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/package.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/phpunit.xml.dist" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/phpunit.xml.dist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/mockery/mockery/examples/starship/phpunit.xml" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/examples/starship/phpunit.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/readme.md" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Tests/Fixtures/sfComments.yml" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Symfony/Component/Yaml/Tests/Fixtures/sfComments.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Router/logs.json" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Router/logs.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/notifications.php" afterPath="$PROJECT_DIR$/app/routes/notifications.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Minimal/operations.json" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Minimal/operations.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/scripts/package.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/scripts/package.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/package.xml" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/package.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Petstore/pet.json" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Petstore/pet.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/phpunit.xml.dist" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/phpunit.xml.dist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/readme.md" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Minimal/resolve.json" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Minimal/resolve.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Router/routes.php" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Router/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bin/swagger" afterPath="$PROJECT_DIR$/vendor/bin/swagger" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/bin/swagger" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/bin/swagger" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Petstore/user.json" afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/Petstore/user.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="justplay.iws" />
@@ -222,31 +118,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ActivitiesController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="66" selection-start="3032" selection-end="3032" vertical-scroll-proportion="-13.129032" vertical-offset="2079" max-vertical-offset="5192">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityEventHandler.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/ActivityEventHandler.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="5" selection-start="2051" selection-end="2051" vertical-scroll-proportion="0.6764706" vertical-offset="1036" max-vertical-offset="1914">
-              <folding>
-                <element signature="e#32#84#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotificationRepositoryInterface.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="NotificationRepositoryInterface.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="93" selection-start="763" selection-end="763" vertical-scroll-proportion="-16.32258" vertical-offset="0" max-vertical-offset="682">
+            <state line="25" column="7" selection-start="516" selection-end="516" vertical-scroll-proportion="0.5809524" vertical-offset="123" max-vertical-offset="924">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotificationsController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/NotificationsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="121" column="86" selection-start="2977" selection-end="3006" vertical-scroll-proportion="-6.1754384" vertical-offset="2310" max-vertical-offset="3168">
+              <folding>
+                <element signature="e#7#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -254,16 +141,29 @@
       <file leaf-file-name="DbNotificationRepository.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="30" selection-start="2818" selection-end="2818" vertical-scroll-proportion="-18.806452" vertical-offset="1419" max-vertical-offset="2266">
-              <folding />
+            <state line="44" column="11" selection-start="1088" selection-end="1088" vertical-scroll-proportion="-1.032258" vertical-offset="936" max-vertical-offset="2046">
+              <folding>
+                <element signature="e#36#88#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentEventHandler.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php">
+      <file leaf-file-name="NotificationActivityTransformer.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/NotificationActivityTransformer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="8" selection-start="667" selection-end="700" vertical-scroll-proportion="-14.903226" vertical-offset="0" max-vertical-offset="1122">
+            <state line="23" column="60" selection-start="625" selection-end="625" vertical-scroll-proportion="0.5986394" vertical-offset="66" max-vertical-offset="1540">
+              <folding>
+                <element signature="e#36#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotificationFriendTransformer.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/NotificationFriendTransformer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="16" selection-start="387" selection-end="387" vertical-scroll-proportion="-9.935484" vertical-offset="0" max-vertical-offset="792">
               <folding />
             </state>
           </provider>
@@ -298,31 +198,35 @@
         <option value="$PROJECT_DIR$/app/models/NotificationFriend.php" />
         <option value="$PROJECT_DIR$/app/models/NotificationsActivity.php" />
         <option value="$PROJECT_DIR$/app/database/seeds/NotificationsFriendsTableSeeder.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2014_09_02_043529_create_notifications_activities_table.php" />
-        <option value="$PROJECT_DIR$/app/database/seeds/NotificationsActivitiesTableSeeder.php" />
-        <option value="$PROJECT_DIR$/app/models/NotificationActivity.php" />
-        <option value="$PROJECT_DIR$/app/controllers/NotificationsController.php" />
-        <option value="$PROJECT_DIR$/app/routes/notifications.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/Acme/events.php" />
         <option value="$PROJECT_DIR$/app/Acme/Handlers/UserEventHandler.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_09_03_072910_create_notification_comments_table.php" />
-        <option value="$PROJECT_DIR$/app/database/seeds/NotificationsCommentsTableSeeder.php" />
-        <option value="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/models/NotificationComment.php" />
         <option value="$PROJECT_DIR$/app/controllers/CommentsController.php" />
         <option value="$PROJECT_DIR$/app/Acme/Interfaces/ActivityJoinRepositoryInterface.php" />
         <option value="$PROJECT_DIR$/app/Acme/Repositories/DbActivityJoinRepository.php" />
-        <option value="$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php" />
         <option value="$PROJECT_DIR$/app/start/global.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ActivityJoinController.php" />
-        <option value="$PROJECT_DIR$/app/Acme/Handlers/ActivityJoinEventHandler.php" />
         <option value="$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php" />
-        <option value="$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php" />
-        <option value="$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php" />
         <option value="$PROJECT_DIR$/app/controllers/ActivitiesController.php" />
+        <option value="$PROJECT_DIR$/app/routes/notifications.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/NotificationsCommentsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_09_02_043529_create_notifications_activities_table.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/NotificationsActivitiesTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/Acme/Handlers/ActivityEventHandler.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Handlers/ActivityJoinEventHandler.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php" />
+        <option value="$PROJECT_DIR$/app/models/NotificationActivity.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ActivityJoinController.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Transformers/NotificationTransformer.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Transformers/NotificationActivityTransformer.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Transformers/FriendTransformer.php" />
+        <option value="$PROJECT_DIR$/app/controllers/NotificationsController.php" />
+        <option value="$PROJECT_DIR$/app/Acme/Transformers/NotificationFriendTransformer.php" />
       </list>
     </option>
   </component>
@@ -562,6 +466,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Transformers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="justplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Acme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Repositories" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -617,8 +543,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistory" value="subscribe&#10;notificationA&#10;file templates&#10;admincontro&#10;blade&#10;activit&#10;activitcontro" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ping_pong_partners" />
+    <property name="SearchEverywhereHistory" value="&#10;subscribe&#10;notificationA&#10;file templates&#10;admincontro&#10;blade&#10;activit&#10;activitcontro" />
     <property name="options.lastSelected" value="fileTemplates" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -682,11 +608,12 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21340206" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18350515" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2328125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -694,7 +621,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -726,42 +652,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/CommentRepositoryInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="791" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_20_052332_create_activities_joined_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="76" selection-start="509" selection-end="509" vertical-scroll-proportion="-14.193548" vertical-offset="0" max-vertical-offset="902" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/CommentsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="694" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="46" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.39759037" vertical-offset="1749" max-vertical-offset="3322" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Console/stubs/controller.stub">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1782" />
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/modules/activities/activities.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="16" selection-start="238" selection-end="238" vertical-scroll-proportion="0.36164382" vertical-offset="0" max-vertical-offset="1496" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AuthenticationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="20" selection-start="1877" selection-end="1877" vertical-scroll-proportion="0.40200287" vertical-offset="2073" max-vertical-offset="2772" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Blade.php">
@@ -821,36 +714,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="858" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_09_02_043529_create_notifications_activities_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="39" selection-start="516" selection-end="516" vertical-scroll-proportion="-13.645162" vertical-offset="17" max-vertical-offset="946" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/NotificationActivity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="28" selection-start="166" selection-end="166" vertical-scroll-proportion="0.18696883" vertical-offset="0" max-vertical-offset="706">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/NotificationsFriendsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="260" selection-end="441" vertical-scroll-proportion="0.43076923" vertical-offset="0" max-vertical-offset="715" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/BackendServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="25" selection-start="183" selection-end="183" vertical-scroll-proportion="0.2769231" vertical-offset="0" max-vertical-offset="1122" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/NotificationsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.46293706" vertical-offset="1231" max-vertical-offset="2090" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/notifications.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="0" selection-start="3157" selection-end="3157" vertical-scroll-proportion="0.8013986" vertical-offset="1869" max-vertical-offset="2596" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
@@ -868,66 +734,19 @@
         <state line="157" column="0" selection-start="6282" selection-end="6282" vertical-scroll-proportion="4.5754986" vertical-offset="0" max-vertical-offset="3652" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/NotificationsActivitiesTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="265" selection-end="492" vertical-scroll-proportion="0.44380403" vertical-offset="0" max-vertical-offset="694" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_09_03_072910_create_notifications_comments_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="5" selection-start="528" selection-end="528" vertical-scroll-proportion="0.6340058" vertical-offset="66" max-vertical-offset="946" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/NotificationsCommentsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="9" selection-start="227" selection-end="227" vertical-scroll-proportion="0.36923078" vertical-offset="0" max-vertical-offset="715" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/NotificationComment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="32" selection-start="191" selection-end="191" vertical-scroll-proportion="0.24615385" vertical-offset="0" max-vertical-offset="715">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="42" selection-start="993" selection-end="993" vertical-scroll-proportion="0.84615386" vertical-offset="121" max-vertical-offset="946" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/events.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="0.18461539" vertical-offset="0" max-vertical-offset="715">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="38" selection-start="719" selection-end="719" vertical-scroll-proportion="-12.419354" vertical-offset="605" max-vertical-offset="1782">
-          <folding />
-        </state>
+        <state line="6" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="0.18461539" vertical-offset="0" max-vertical-offset="715" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/UserEventHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="360" selection-end="360" vertical-scroll-proportion="0.57060516" vertical-offset="132" max-vertical-offset="880">
-          <folding />
-        </state>
+        <state line="24" column="0" selection-start="360" selection-end="360" vertical-scroll-proportion="0.57060516" vertical-offset="132" max-vertical-offset="880" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/start/global.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="28" selection-start="2651" selection-end="2651" vertical-scroll-proportion="0.5878962" vertical-offset="1264" max-vertical-offset="2002">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/activity-join.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="11" selection-start="56" selection-end="56" vertical-scroll-proportion="-1.2461538" vertical-offset="1023" max-vertical-offset="1738">
-          <folding />
-        </state>
+        <state line="85" column="28" selection-start="2651" selection-end="2651" vertical-scroll-proportion="0.5878962" vertical-offset="1264" max-vertical-offset="2002" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/ActivityJoinRepositoryInterface.php">
@@ -937,55 +756,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbActivityJoinRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="5" selection-start="542" selection-end="542" vertical-scroll-proportion="0.44615385" vertical-offset="187" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ActivityJoinController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="18" selection-start="531" selection-end="531" vertical-scroll-proportion="-14.193548" vertical-offset="198" max-vertical-offset="1144">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/ActivityJoinEventHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="5" selection-start="617" selection-end="617" vertical-scroll-proportion="0.64615387" vertical-offset="0" max-vertical-offset="1166">
-          <folding>
-            <element signature="e#32#84#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/seeds/ActivitiesTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="21" selection-start="551" selection-end="551" vertical-scroll-proportion="0.6855524" vertical-offset="0" max-vertical-offset="902">
-          <folding />
-        </state>
+        <state line="23" column="21" selection-start="551" selection-end="551" vertical-scroll-proportion="0.6855524" vertical-offset="0" max-vertical-offset="902" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_04_223740_create_comments_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="61" selection-start="278" selection-end="278" vertical-scroll-proportion="0.40509915" vertical-offset="0" max-vertical-offset="946">
-          <folding />
-        </state>
+        <state line="14" column="61" selection-start="278" selection-end="278" vertical-scroll-proportion="0.40509915" vertical-offset="0" max-vertical-offset="946" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_06_19_025700_create_activities_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="39" selection-start="481" selection-end="481" vertical-scroll-proportion="0.407932" vertical-offset="152" max-vertical-offset="1254">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="8" selection-start="667" selection-end="700" vertical-scroll-proportion="-14.903226" vertical-offset="0" max-vertical-offset="1122">
-          <folding />
-        </state>
+        <state line="21" column="39" selection-start="481" selection-end="481" vertical-scroll-proportion="0.407932" vertical-offset="152" max-vertical-offset="1254" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/ActivityRepositoryInterface.php">
@@ -995,40 +778,206 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityJoinedTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="946">
+          <folding>
+            <marker date="1407631892426" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..friends..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/NotificationsFriendsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="260" selection-end="441" vertical-scroll-proportion="-9.935484" vertical-offset="0" max-vertical-offset="616">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/NotificationsCommentsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="28" selection-start="212" selection-end="212" vertical-scroll-proportion="0.26506025" vertical-offset="0" max-vertical-offset="913">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbActivityRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="39" selection-start="442" selection-end="442" vertical-scroll-proportion="0.4716714" vertical-offset="63" max-vertical-offset="1254">
+        <state line="24" column="39" selection-start="442" selection-end="442" vertical-scroll-proportion="0.45306122" vertical-offset="63" max-vertical-offset="1254">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbCommentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_09_02_043529_create_notifications_activities_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="27" selection-start="405" selection-end="415" vertical-scroll-proportion="-11.5161295" vertical-offset="17" max-vertical-offset="968">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbActivityJoinRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="5" selection-start="542" selection-end="542" vertical-scroll-proportion="0.4467787" vertical-offset="187" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/NotificationsActivitiesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="114" selection-start="213" selection-end="305" vertical-scroll-proportion="-7.096774" vertical-offset="0" max-vertical-offset="682">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="58" selection-start="893" selection-end="893" vertical-scroll-proportion="0.8473389" vertical-offset="77" max-vertical-offset="902">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/CommentEventHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="741" selection-end="741" vertical-scroll-proportion="-9.580646" vertical-offset="209" max-vertical-offset="1144">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/CommentsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="23" selection-start="866" selection-end="866" vertical-scroll-proportion="0.87815124" vertical-offset="539" max-vertical-offset="1782">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ActivityJoin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/activity-join.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="11" selection-start="56" selection-end="56" vertical-scroll-proportion="27.774193" vertical-offset="993" max-vertical-offset="1738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ActivityJoinController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="21" selection-start="453" selection-end="453" vertical-scroll-proportion="-9.935484" vertical-offset="264" max-vertical-offset="1144">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/ActivityJoinEventHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="57" selection-start="721" selection-end="721" vertical-scroll-proportion="-9.935484" vertical-offset="198" max-vertical-offset="1166">
+          <folding>
+            <element signature="e#32#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/ActivityEventHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="5" selection-start="1620" selection-end="1620" vertical-scroll-proportion="-10.645162" vertical-offset="792" max-vertical-offset="1870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AuthenticationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="20" selection-start="1877" selection-end="1877" vertical-scroll-proportion="0.4312925" vertical-offset="2037" max-vertical-offset="2772">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/UserTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="60" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.38911563" vertical-offset="132" max-vertical-offset="1342">
+          <folding>
+            <marker date="1409816907390" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..friends..." />
+            <marker date="1409816907390" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..notifications..." />
+            <marker date="1409816907390" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..notifications..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="31" selection-start="3388" selection-end="3388" vertical-scroll-proportion="40.451614" vertical-offset="4114" max-vertical-offset="5192">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/NotificationActivity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="6" selection-start="197" selection-end="197" vertical-scroll-proportion="0.23945579" vertical-offset="0" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/ActivityTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="0" selection-start="2410" selection-end="2477" vertical-scroll-proportion="-8.870968" vertical-offset="1749" max-vertical-offset="3322">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/NotificationActivityTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="60" selection-start="625" selection-end="625" vertical-scroll-proportion="0.5986394" vertical-offset="66" max-vertical-offset="1540">
+          <folding>
+            <element signature="e#36#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="11" selection-start="1088" selection-end="1088" vertical-scroll-proportion="-1.032258" vertical-offset="936" max-vertical-offset="2046">
+          <folding>
+            <element signature="e#36#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/notifications.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="83" selection-start="3213" selection-end="3228" vertical-scroll-proportion="-16.612904" vertical-offset="1993" max-vertical-offset="2728">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/NotificationsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="86" selection-start="2977" selection-end="3006" vertical-scroll-proportion="-6.1754384" vertical-offset="2310" max-vertical-offset="3168">
+          <folding>
+            <element signature="e#7#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Acme/Transformers/NotificationFriendTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="16" selection-start="387" selection-end="387" vertical-scroll-proportion="-9.935484" vertical-offset="0" max-vertical-offset="792">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Acme/Interfaces/NotificationRepositoryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="93" selection-start="763" selection-end="763" vertical-scroll-proportion="-16.32258" vertical-offset="0" max-vertical-offset="682">
+        <state line="25" column="7" selection-start="516" selection-end="516" vertical-scroll-proportion="0.5809524" vertical-offset="123" max-vertical-offset="924">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Repositories/DbNotificationRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="30" selection-start="2818" selection-end="2818" vertical-scroll-proportion="-18.806452" vertical-offset="1419" max-vertical-offset="2266">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ActivitiesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="66" selection-start="3032" selection-end="3032" vertical-scroll-proportion="-13.129032" vertical-offset="2079" max-vertical-offset="5192">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Acme/Handlers/ActivityEventHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="5" selection-start="2051" selection-end="2051" vertical-scroll-proportion="0.6764706" vertical-offset="1036" max-vertical-offset="1914">
-          <folding>
-            <element signature="e#32#84#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

@@ -22,6 +22,7 @@ class CommentEventHandler {
     {
         $activity_id = $event['activity_id'];
         $details = $event['description'];
+        $sub_type = 'activity_comment';
 
         $user_ids = $this->activityJoin->getAllUsersInActivity($activity_id);
 
@@ -29,7 +30,7 @@ class CommentEventHandler {
         {
             $from_id = 1; //Sentry::getUser->id
             $to_id = $user_id;
-            $this->notification->sendCommentNotification($from_id, $to_id, $activity_id, $details);
+            $this->notification->sendActivityNotification($sub_type, $from_id, $to_id, $activity_id, $details);
         }
 
     }

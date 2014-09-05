@@ -29,4 +29,13 @@ class DbActivityJoinRepository extends DbBaseRepository implements ActivityJoinR
 	{
 		return $this->model->where('user_id', '=', $auth_id)->get();
 	}
+
+    /**
+     * @param $activity_id
+     * @return [user_id1, user_id2, ... user_idX] of the given activity_id
+     */
+    public function getAllUsersInActivity($activity_id)
+    {
+        return $this->model->where('activity_id', '=', $activity_id)->lists('user_id');
+    }
 }

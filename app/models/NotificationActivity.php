@@ -9,6 +9,6 @@ class NotificationActivity extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['activity_id', 'from_id', 'to_id', 'details', 'is_read'];
+	protected $fillable = ['activity_id', 'sub_type', 'from_id', 'to_id', 'details', 'is_read'];
 
 }

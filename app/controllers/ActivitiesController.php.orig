@@ -77,7 +77,12 @@ class ActivitiesController extends \ApiController {
         $input = Input::all();
 
         $data = [
+<<<<<<< HEAD
             'user_id' => Sentry::getUser()->id,
+=======
+            'id' => $input[''],
+            'owner_id' => $input['owner_id'],
+>>>>>>> 8bd0133a95b757fb78897bc2856d8d4385c2904d
             'location' => $input['location'],
             'date_from' => $input['startingtime'],
             'date_to' => $input['endingtime'],
@@ -86,7 +91,6 @@ class ActivitiesController extends \ApiController {
             'sport' => $input['sport']
         ];
 
-		$this->activity->store($data);
 		$this->activity->store($data);
 	}
 
@@ -100,6 +104,7 @@ class ActivitiesController extends \ApiController {
 	{
         $input = Input::all();
 
+<<<<<<< HEAD
         $data = [
             'activity_id' => $id, //dont know if this will work
             'user_id' => Sentry::getUser()->id,
@@ -110,11 +115,25 @@ class ActivitiesController extends \ApiController {
             'description' => 'description',//$input['description'],
             'sport' => 'tennis'//$input['sport']
         ];
-        ];
 
         $this->activity->update($id, $data);
 
         Event::fire('user.activity.update', ['input' => $data]);
+=======
+        //dd($input);
+        $data = [
+            'id' => $id,
+            'owner_id' => $input['owner_id'],
+            'location' => $input['location'],
+            'date_from' => $input['startingtime'],
+            'date_to' => $input['endingtime'],
+            'capacity' => $input['capacity'],
+            'description' => $input['description'],
+            'sport' => $input['sport']
+        ];
+
+        $this->activity->update($id, $data);
+>>>>>>> 8bd0133a95b757fb78897bc2856d8d4385c2904d
 	}
 
 	/**

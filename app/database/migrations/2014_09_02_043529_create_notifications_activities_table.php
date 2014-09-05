@@ -16,6 +16,7 @@ class CreateNotificationsActivitiesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('activity_id');
+            $table->string('sub_type');
 			$table->integer('from_id');
 			$table->integer('to_id');
             $table->string('details');

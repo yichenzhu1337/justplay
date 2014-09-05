@@ -13,4 +13,6 @@ Interface ActivityJoinRepositoryInterface {
 
 	public function getJoinedActivites($auth_id);
 
+    public function getAllUsersInActivity($activity_id);
+
 }

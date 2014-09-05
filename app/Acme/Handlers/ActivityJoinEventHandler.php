@@ -4,7 +4,7 @@ use Acme\Interfaces\NotificationRepositoryInterface;
 use Acme\Interfaces\ActivityJoinRepositoryInterface;
 use Sentry;
 
-class CommentEventHandler {
+class ActivityJoinEventHandler {
 
     protected $notification;
     protected $activityJoin;
@@ -21,16 +21,15 @@ class CommentEventHandler {
     public function onStore($event)
     {
         $activity_id = $event['activity_id'];
-        $details = $event['description'];
-        $sub_type = 'activity_comment';
-
+        $details = 'this person has joined the activity';
         $user_ids = $this->activityJoin->getAllUsersInActivity($activity_id);
 
         foreach ($user_ids as $user_id)
         {
             $from_id = 1; //Sentry::getUser->id
             $to_id = $user_id;
-            $this->notification->sendActivityNotification($sub_type, $from_id, $to_id, $activity_id, $details);
+
+            $this->notification->sendActivityNotification('activity_update', $from_id, $to_id, $activity_id, $details);
         }
 
     }
@@ -43,7 +42,7 @@ class CommentEventHandler {
      */
     public function subscribe($events)
     {
-        $events->listen('user.comment.store', 'Acme\Handlers\CommentEventHandler@onStore');
+        $events->listen('user.activityJoin.store', 'Acme\Handlers\ActivityJoinEventHandler@onStore');
     }
 
 }

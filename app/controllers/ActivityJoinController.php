@@ -24,7 +24,7 @@ class ActivityJoinController extends \BaseController {
 
 	public function store()
 	{
-		$user_id = Sentry::getUser()->id;
+		$user_id = 1;//Sentry::getUser()->id;
 		$activity_id = Input::get('activity_id');
 
 		$input = [
@@ -33,6 +33,8 @@ class ActivityJoinController extends \BaseController {
 		];
 
 		$this->activityJoin->store($input);
+
+        Event::fire('user.activityJoin.store', ['input' => $input]);
 	}
 
 	public function destroy($activity_id)

@@ -38,11 +38,28 @@ angular.module('jp.friend.status.config', [])
 angular.module('jp.notifications.config', [])
 		.factory('notification_routes', function(){
 			return {
+				post: {
 					friends: {
 						request: 'friend_request/null'
 					},
 					activity: {
 						invite: 'activity_invite_request'
 					}
+				},
+				get: {
+					friends: 'friends',
+					activity: 'activities'
+				}
 			}
-		});
+		})
+		.factory('notification_categories', function() {
+			return {
+				activity: {
+					join: 'activity_join',
+					comment: 'activity_comment',
+					invite: 'activity_invite',
+					delete: 'activity_delete',
+					update: 'activity_update'
+				}
+			}
+		})

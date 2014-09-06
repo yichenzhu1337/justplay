@@ -16,7 +16,8 @@ var app = angular.module('app',
 		'jp.authentication',
 		'jp.api.config',
 		'jp.route.config',
-		'jp.flash'
+		'jp.flash',
+		'jp.notifications'
 	]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -143,6 +144,29 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 					);
 				}
 				return d.promise;
+			}
+		},
+		data: {
+			access: access.auth
+		}
+	})
+	.state('main.notifications', {
+		url: '/notifications/',
+		views: {
+			"header": {
+				templateUrl: "app/modules/activities/partials/detailedheader.tmpl.html"
+			},
+			"body": {
+				templateUrl: "app/modules/notifications/notifications.body.tmpl.html",
+				controller: "notificationsController"
+			}
+		},
+		resolve: {
+			friendNotifications: function(notificationsFactory) {
+				return notificationsFactory.getFriendNotifications();
+			},
+			activityNotifications: function(notificationsFactory) {
+				return notificationsFactory.getActivityNotifications();
 			}
 		},
 		data: {

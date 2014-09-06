@@ -87,11 +87,11 @@
 
 		<!-- justplay activities main page -->
 		<script src="app/modules/activities/activities.js"></script>
-		
 
+		<!-- justplay notifications module -->
+	  <script src="app/modules/notifications/notificationsModule.js"></script>
 
 	  <!-- justPlay login/signup Modules -->
-
 	  <script type="text/javascript" src="app/modules/login/login.js"></script>
 		<script type="text/javascript" src="app/modules/signup/signup.js"></script>
 		

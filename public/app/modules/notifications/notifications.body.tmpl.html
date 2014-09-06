@@ -1,0 +1,15 @@
+<div class="page-container">
+  <div class="content-wrapper no-content">
+  	<div class='social-page'>
+  		<label>Friend Notifications</label>
+  		<span class='text-muted' ng-show='friendNotifications.length === 0'>You have no friend notifications.</span>
+  		<jpnotification ng-repeat='notif in friendNotifications' body='notif.body' timestamp='notif.time_stamp' action='notif.action()'>
+  		</jpnotification>
+
+  		<label>Activity Notifications</label>
+  		<span class='text-muted' ng-show='activityNotifications.length === 0'>You have no activity notifications.</span>
+  		<jpnotification ng-repeat='notif in activityNotifications' body='notif.body' timestamp='notif.time_stamp' action='notif.action()'>
+  		</jpnotification>
+  	</div>
+  </div>
+</div>

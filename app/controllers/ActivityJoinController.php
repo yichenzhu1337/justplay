@@ -24,7 +24,7 @@ class ActivityJoinController extends \BaseController {
 
 	public function store()
 	{
-		$user_id = 1;//Sentry::getUser()->id;
+		$user_id = Sentry::getUser()->id;
 		$activity_id = Input::get('activity_id');
 
 		$input = [

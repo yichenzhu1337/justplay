@@ -122,13 +122,23 @@ class NotificationsController extends \BaseController {
                 $friends = $this->notification->getAllAuthFriendNotifications($auth_id);
                 $resource = new Collection($friends, new NotificationFriendTransformer, 'friends');
                 $array = $fractal->createData($resource)->toArray();
-                return Response::json($array);
+
+                return Response::json(
+                    array(
+                        'errors' => [],
+                        'obj' => $array
+                    ));
 
             case 'activities':
                 $notifications = $this->notification->getAllAuthActivityNotifications($auth_id);
                 $resource = new Collection($notifications, new NotificationActivityTransformer, 'notifications');
                 $array = $fractal->createData($resource)->toArray();
-                return Response::json($array);
+
+                return Response::json(
+                    array(
+                        'errors' => [],
+                        'obj' => $array
+                    ));
 
             default:
                 return 'invalid request_type';

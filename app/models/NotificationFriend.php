@@ -10,6 +10,7 @@ class NotificationFriend extends \Eloquent {
 
 	// Don't forget to fill this array
 	protected $fillable = [
+		'sub_type',
 		'from_id', 
 		'to_id',
 		'details', 

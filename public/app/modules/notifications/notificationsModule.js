@@ -105,7 +105,19 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 						$state.go('main.profile', {username: obj.from_user});
 					}
 				}
-			}
+			},
+			accepted: function(obj) {
+				var body = obj.from_user + ' has accepted your friend request';
+				obj.notification_sent_date = moment(new Date());
+
+				return {
+					body: body,
+					time_stamp: obj.notification_sent_date,
+					action: function() {
+						$state.go('main.profile', {username: obj.from_user});
+					}
+				}
+			} 
 		}
 	};
 

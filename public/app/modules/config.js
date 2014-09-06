@@ -60,6 +60,10 @@ angular.module('jp.notifications.config', [])
 					invite: 'activity_invite',
 					delete: 'activity_delete',
 					update: 'activity_update'
+				},
+				friend: {
+					request: 'want_to_accept',
+					accepted: 'accept_confirmed'
 				}
 			}
 		})

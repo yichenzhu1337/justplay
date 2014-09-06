@@ -35,9 +35,10 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
     /**
      * POST
      */
-    public function sendFriendRequest($from_id, $to_id, $details)
+    public function sendFriendRequest($sub_type, $from_id, $to_id, $details)
     {
         $this->notificationFriend->create([
+            'sub_type' => $sub_type,
             'from_id' => $from_id,
             'to_id' => $to_id,
             'details' => $details,

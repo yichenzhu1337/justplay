@@ -86,7 +86,7 @@ class NotificationsController extends \BaseController {
         switch ($request_type) {
 
             case 'friend_request':
-                $this->notification->sendFriendRequest($from_id, $to_id, $details);
+                $this->notification->sendFriendRequest('want_to_accept', $from_id, $to_id, $details);
                 break;
 
             case 'activity_invite_request':

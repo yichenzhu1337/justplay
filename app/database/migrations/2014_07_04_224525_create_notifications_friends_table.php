@@ -15,6 +15,7 @@ class CreateNotificationsFriendsTable extends Migration {
 		Schema::create('notifications_friends', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('sub_type');
 			$table->integer('from_id')->nullable();
 			$table->integer('to_id')->nullabl();
 			$table->string('details')->nullable();

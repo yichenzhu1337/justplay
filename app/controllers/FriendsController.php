@@ -35,11 +35,13 @@ class FriendsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::only('user1_id', 'user2_id');
+		$input = Input::only('user1_id', 'user2_id', 'sub_type');
+
+		$this->friend->store($input);
 
 		$this->notification->deleteFriendNotification($input['user1_id'], $input['user2_id']);
 
-		$this->friend->store($input);
+		$this->notification->sendFriendRequest('accept_confirmed', $input['user2_id'], $input['user1_id'], $details=null);
 	}
 
 	/**

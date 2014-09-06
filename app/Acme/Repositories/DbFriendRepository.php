@@ -57,9 +57,13 @@ class DbFriendRepository extends DbBaseRepository implements FriendRepositoryInt
 
 		$notification_received = "SELECT * FROM notifications_friends ";
 		$notification_received .= "WHERE ";
+		$notification_received .= "sub_type = 'want_to_accept' ";
+		$notification_received .= "AND ";
 		$notification_received .= "from_id = $stranger_id ";
 		$notification_received .= "AND ";
 		$notification_received .= "to_id = $user_id ";
+
+		
 
 		$are_they_friends_query = DB::select($are_they_friends);
 		$notification_sent_query = DB::select($notification_sent);

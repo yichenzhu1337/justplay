@@ -17,7 +17,7 @@ Interface NotificationRepositoryInterface {
     /**
      * Non-Trigger/Deliberate notifications
      */
-    public function sendFriendRequest($from_id, $to_id, $details);
+    public function sendFriendRequest($sub_type, $from_id, $to_id, $details);
 
     public function sendActivityInviteRequest($from_id, $to_id, $activity_id, $details);
 
@@ -25,7 +25,6 @@ Interface NotificationRepositoryInterface {
      * Trigger notifications
      */
     public function sendActivityNotification($sub_type, $from_id, $to_id, $activity_id, $details);
-
 
     /**
      * GET

@@ -57,6 +57,7 @@ class NotificationsController extends \BaseController {
 		];
 
 		$this->notification->store($input);
+
 	}
 
 	/**

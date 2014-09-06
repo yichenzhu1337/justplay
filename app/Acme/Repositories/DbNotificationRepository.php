@@ -19,7 +19,7 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
 
 	public function delete($id)
 	{
-		//$this->model->destroy($id);
+        $this->model->destroy($id);
 	}
 
 	public function store($input)
@@ -84,4 +84,20 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
         return $this->notificationActivity->where('to_id', '=', $user_id)->get();
     }
 
+    /**
+     * [deleteFriendNotification description]
+     * @param  [type] $from_id [description]
+     * @param  [type] $to_id   [description]
+     * @return [type]          [description]
+     */
+    public function deleteFriendNotification($from_id, $to_id)
+    {
+        $notification = $this->notificationFriend
+                             ->where('from_id', '=', $from_id)
+                             ->where('to_id', '=', $to_id)
+                             ->orWhere('from_id', '=', $to_id)
+                             ->where('to_id', '=', $from_id)
+                             ->delete();
+    }
 }
+

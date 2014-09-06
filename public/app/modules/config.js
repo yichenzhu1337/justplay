@@ -34,3 +34,15 @@ angular.module('jp.friend.status.config', [])
 				not_friends: 'not_friends'
 			}
 		});
+
+angular.module('jp.notifications.config', [])
+		.factory('notification_routes', function(){
+			return {
+					friends: {
+						request: 'friend_request/null'
+					},
+					activity: {
+						invite: 'activity_invite_request'
+					}
+			}
+		});

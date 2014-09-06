@@ -34,4 +34,9 @@ Interface NotificationRepositoryInterface {
 
     public function getAllAuthActivityNotifications($user_id);
 
+    /**
+     * Delete
+     */
+    public function deleteFriendNotification($from_id, $to_id);
+
 }

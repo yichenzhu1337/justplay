@@ -1,15 +1,18 @@
 <?php
 
 use Acme\Interfaces\FriendRepositoryInterface;
+use Acme\Interfaces\NotificationRepositoryInterface;
 
 
 class FriendsController extends \BaseController {
 
 	protected $friend;
+	protected $notification;
 
-	function __construct(FriendRepositoryInterface $friend)
+	function __construct(FriendRepositoryInterface $friend, NotificationRepositoryInterface $notification)
 	{
 		$this->friend = $friend;
+		$this->notification = $notification;
 	}
 
 	/**
@@ -33,6 +36,8 @@ class FriendsController extends \BaseController {
 	public function store()
 	{
 		$input = Input::only('user1_id', 'user2_id');
+
+		$this->notification->deleteFriendNotification($input['user1_id'], $input['user2_id']);
 
 		$this->friend->store($input);
 	}

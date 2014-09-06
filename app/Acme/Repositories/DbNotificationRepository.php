@@ -4,7 +4,7 @@ use Acme\Interfaces\NotificationRepositoryInterface;
 
 use NotificationFriend;
 use NotificationActivity;
-
+use Sentry;
 
 class DbNotificationRepository extends DbBaseRepository implements NotificationRepositoryInterface {
 
@@ -99,6 +99,34 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
                              ->orWhere('from_id', '=', $to_id)
                              ->where('to_id', '=', $from_id)
                              ->delete();
+    }
+
+    public function updateIsRead($request_type, $notification_id, $is_read)
+    {
+        //dd($request_type, $notification_id, $is_read);
+
+        //$request_type = ['friend', 'activity'];
+        $auth_id = Sentry::getUser()->id;
+
+        switch ($request_type) {
+
+            case 'friends':
+                $this->notificationFriend->find($notification_id)->update([
+                    'is_read' => $notification_id
+                ]);
+            break;
+
+            case 'activities':
+                $this->notificationActivity->find($notification_id)->update([
+                    'is_read' => $notification_id
+                ]);
+            break;
+
+            default:
+                return 'invalid request_type';
+
+        }
+
     }
 }
 

@@ -26,7 +26,8 @@ class NotificationActivityTransformer extends TransformerAbstract
             'from_user' => User::find($notificationActivity['from_id'])->username,
             'to_id' => $notificationActivity['to_id'],
             'to_user' => User::find($notificationActivity['to_id'])->username,
-            'details' => $notificationActivity['details']
+            'details' => $notificationActivity['details'],
+            'created_at' => substr(json_encode($notificationActivity['created_at']), 9, 19)
         ];
     }
 

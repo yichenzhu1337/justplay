@@ -27,7 +27,7 @@ class NotificationFriendTransformer extends TransformerAbstract
 	      'from_user' => User::find($notificationFriend['from_id'])->username,
 	      'to_id' => $notificationFriend['to_id'],
 	      'to_user' => User::find($notificationFriend['to_id'])->username,
-	      'create_at' => substr(json_encode($notificationFriend['created_at']), 9, 19)
+	      'created_at' => substr(json_encode($notificationFriend['created_at']), 9, 19)
 	  ];
 
 	}

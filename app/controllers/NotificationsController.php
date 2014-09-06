@@ -60,6 +60,11 @@ class NotificationsController extends \BaseController {
 
 	}
 
+    public function update($id)
+    {
+        $input = Input::all();
+        $this->notification->update($id, $input);
+    }
 	/**
 	 * Remove the specified notification from storage.
 	 *
@@ -114,7 +119,7 @@ class NotificationsController extends \BaseController {
         }
 
         //$request_type = ['friend', 'activity'];
-        $auth_id = 1;//Sentry::getUSer()->id;
+        $auth_id = Sentry::getUSer()->id;
 
         switch ($request_type) {
 
@@ -144,6 +149,11 @@ class NotificationsController extends \BaseController {
                 return 'invalid request_type';
 
         }
+    }
+
+    public function updateIsRead($request_type, $notification_id, $is_read)
+    {
+        $this->notification->updateIsRead($request_type, $notification_id, $is_read);
     }
 
 }

@@ -111,9 +111,8 @@ use Swagger\Annotations as SWG;
 //input details
 Route::post('notifications/{request_type}/{activity_id}', 'NotificationsController@sendNotification');
 
-
 Route::get('notifications/{request_type}', 'NotificationsController@getNotification');
 
+Route::put('notifications/{request_type}/{notification_id}/{is_read}', 'NotificationsController@updateIsRead');
 
-
-Route::resource('notificationsActivities', 'NotificationsActivitiesController');
+Route::resource('notificationsActivities', 'NotificationsActivitiesController', ['only' => ['update']]);

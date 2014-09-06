@@ -132,7 +132,10 @@
 					        <i class="glyphicon glyphicon-comment hidden-xs"></i>
 					        Discussion ({{activity.comments.data.length}})
 					      </tab-heading>
-								<jpcommentlist list='activity.comments.data' page-length='11'></jpcommentlist>
+					      <div class='text-muted' ng-show='activity.comments.data.length === 0'>
+					      	The discussion has not started yet, be the first to comment!
+					      </div>
+								<jpcommentlist list='activity.comments.data' page-length='11' ng-hide='activity.comments.data.length === 0'></jpcommentlist>
 								<jpcommentbox list='activity.comments.data' activity-id='activity.id' enabled='isLoggedIn'></jpcommentbox>
 					    </tab>
 					  </tabset>

@@ -6160,17 +6160,33 @@ fieldset[disabled] .jp-btn-link {
   font-size: 20px;
 }
 .btn-holo {
-  color: #ffffff;
+  color: #e74c3c;
   background-color: transparent;
   border-color: #ffffff;
   border-width: medium;
+}
+@media (min-width: 768px) {
+  .btn-holo {
+    color: #ffffff;
+  }
 }
 .btn-holo:hover,
 .btn-holo:active,
 .btn-holo:focus,
 .btn-holo.active {
-  color: #ffffff;
+  color: #e74c3c;
   border-color: #e74c3c;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
+}
+@media (min-width: 768px) {
+  .btn-holo:hover,
+  .btn-holo:active,
+  .btn-holo:focus,
+  .btn-holo.active {
+    color: #ffffff;
+    border-color: #e74c3c;
+  }
 }
 .header-bg {
   height: 76px;
@@ -6324,17 +6340,23 @@ fieldset[disabled] .jp-btn-link {
   color: #7f8c8d;
 }
 .social-page {
+  width: 100%;
+  max-width: 594;
+  margin: 0 auto;
+}
+.social-page > .btn-wrapper {
+  text-align: center;
+}
+.social-page > .btn-wrapper > button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.social-page > section {
   padding-top: 13px;
   padding-left: 13px;
   padding-right: 13px;
   background-color: white;
-  max-width: 594;
-  width: 100%;
-  margin: 0 auto;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
-}
-.social-page > h4 {
-  font-size: 30px;
 }
 .profile-page {
   max-width: 400px;
@@ -6562,7 +6584,7 @@ a.media-name {
 }
 @media (min-width: 768px) {
   .activitymanager-body-wrapper {
-    margin-top: 80px;
+    margin-top: 0px;
   }
 }
 @media (min-width: 992px) {

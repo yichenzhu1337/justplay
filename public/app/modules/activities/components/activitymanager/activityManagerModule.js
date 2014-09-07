@@ -31,8 +31,7 @@ function($scope, pastActList, upcomingActList, hostedActList, activityManagerSer
 		$scope.selectedCat = 'Upcoming';
 		$scope.activeActList = $scope.activities;
 
-		$scope.$watch(function() { return $scope.activityManagerSvc.getSelectedCategory() }, 
-			function(newVal,oldVal){
+		$scope.$watch(function() { return $scope.activityManagerSvc.getSelectedCategory() }, function(newVal,oldVal){
 				if (newVal !== oldVal)
 				{
 					$scope.selectedCat = newVal;

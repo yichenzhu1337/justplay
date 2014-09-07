@@ -1,9 +1,20 @@
 <div class="page-container">
   <div class="content-wrapper no-content">
   	<div class='social-page'>
-  		<h4>People</h4>
-			<jpuserlist pageLength="8" getUsers="users">
-			</jpuserlist>
+  		<div class='btn-wrapper'>
+				<button class="btn btn-holo btn-call-to-action" ng-model="radioModel" btn-radio="'users'">
+					People
+				</button>
+				<button class="btn btn-holo btn-call-to-action" ng-model="radioModel" btn-radio="'friends'">
+					Friends
+				</button>
+			</div>
+  		<section>
+				<jpuserlist pageLength="7" getUsers="users" ng-show="displayedList === 'users'">
+				</jpuserlist>
+				<jpuserlist pageLength="7" getUsers="friends" ng-show="displayedList === 'friends'">
+				</jpuserlist>
+  		</section>
   	</div>
   </div>
 </div>

@@ -73,19 +73,28 @@
  }
 
 .btn-holo {
-  color: #ffffff;
+  color: @alizarin;
   background-color: transparent;
   border-color: #ffffff;
   border-width: medium;
+
+  @media (min-width: @screen-sm-min) {
+    color: #ffffff;
+  }
 }
 
 .btn-holo:hover,
 .btn-holo:active,
 .btn-holo:focus,
 .btn-holo.active {
-  color: #ffffff;
+  color: @alizarin;
   border-color: @alizarin;
 //  background-color: @alizarin;
-//  -webkit-box-shadow: none;
-//  box-shadow: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
+
+  @media (min-width: @screen-sm-min) {
+    color: #ffffff;
+    border-color: @alizarin;
+  }
 }

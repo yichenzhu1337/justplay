@@ -5,11 +5,38 @@ var directives = {};
 
 
 controllers.socialController = function($scope, peopleusers, UserSvc){
-	init();
 
 	function init() {
-		$scope.users = UserSvc.removeLoggedInUserFromList(peopleusers);
+		$scope.users = angular.copy(UserSvc.removeLoggedInUserFromList(peopleusers));
+		$scope.friends = angular.copy(friendsOnly(UserSvc.removeLoggedInUserFromList(peopleusers)));
+		$scope.displayedList = 'users';
+
+		$scope.radioModel = 'users';
+
+		$scope.$watch(function() { return $scope.radioModel}, function(newVal, oldVal) {
+			if (newVal !== oldVal)
+			{
+				$scope.displayedList = newVal;
+			}
+		})
 	}
+
+	var friendsOnly = function(list)
+	{
+		var finalList = [];
+
+		for (var i = 0; i < list.length; i++)
+		{
+			if (list[i].areFriends === 'friends')
+			{
+				finalList.push(list[i]);
+			}
+		}
+
+		return finalList;
+	}
+
+	init();
 };
 
 directives.jpuserlist = function($filter, UserSvc, FriendService, $state) {

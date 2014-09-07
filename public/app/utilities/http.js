@@ -117,6 +117,9 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 		},
 		delete: function(url) {
 			return $http.delete(url);
+		},
+		put: function(url) {
+			return $http.put(url);
 		}
 	}
 };

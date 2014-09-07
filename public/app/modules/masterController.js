@@ -1,30 +1,21 @@
-var mod = angular.module('jp.masterCtrl', ['jp.authentication', 'xeditable', 'restangular']);
+var mod = angular.module('jp.masterCtrl', ['jp.authentication', 'xeditable', 'restangular','jp.notifications']);
 
 var controllers = {};
 var services = {};
 var factories = {};
 var directives = {};
 
-controllers.masterCtrl = function($scope, $state, authenticationService, loggedIn, Restangular, $http){
+controllers.masterCtrl = function($scope, $state, authenticationService, loggedIn, Restangular, $http, notificationService){
 	init();
 
 	function init()
 	{
 		$scope.isLoggedIn = loggedIn;
 		$scope.authSvc = authenticationService;
+		$scope.notifSvc = notificationService;
+		$scope.notifCount = 0;
+		$scope.notifSvc.activateNotifPoll($scope);
 
-		$scope.getNotificationCount = function()
-		{
-			var count = 5;
-			if (count == 0)
-			{
-				return false;
-			} 
-			else
-			{
-				return count;
-			}
-		}
 	}
 
 	$scope.IsCurrentUser = function(username) {

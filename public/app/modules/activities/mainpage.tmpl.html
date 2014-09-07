@@ -19,9 +19,9 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right" >
-            <li><a ui-sref="main.activities.list" tooltip-placement="bottom" tooltip="Notifications" ng-show="getUser()">
+            <li><a ui-sref="main.notifications" tooltip-placement="bottom" tooltip="Notifications" ng-show="getUser()">
             <span class='notif-wrapper'>
-              <span class="badge" ng-show="getNotificationCount()">{{getNotificationCount()}}</span>
+              <span class="badge" ng-show="notifCount > 0" ng-class="{twodigits: notifCount > 9}">{{notifCount}}</span>
               <span><i class="glyphicon glyphicon-bell side-icon"></i></span>
             </span>
             <span>Notifications</span></a>

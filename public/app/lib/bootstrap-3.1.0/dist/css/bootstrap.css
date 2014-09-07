@@ -6130,12 +6130,15 @@ fieldset[disabled] .jp-btn-link {
 .notif-wrapper > .badge {
   background-color: #e74c3c;
   color: white;
-  padding: 1px 1px;
+  padding: 2px 2px;
   position: absolute;
   z-index: 999;
   top: -7px;
   right: 0px;
   border-radius: 0px;
+}
+.notif-wrapper > .badge.twodigits {
+  right: -10px;
 }
 .notif-wrapper > span > i {
   color: white;

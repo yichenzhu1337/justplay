@@ -3,6 +3,7 @@ var mod = angular.module('jp.notifications', ['jp.api.config','jp.notifications.
 var factories = {};
 var controllers = {};
 var directives = {};
+var services = {};
 
 mod.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
@@ -98,7 +99,7 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 	{
 		for (var i = 0; i < list.length; i++)
 		{
-			API.post(base_route+'/'+type+'/'+list[i]+'/1');		
+			API.put(base_route+'/'+type+'/'+list[i]+'/1');		
 		}
 	}
 
@@ -352,6 +353,53 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 	}
 }
 
+services.notificationService = function(notificationsFactory, $timeout)
+{
+
+	var friendNotifCount;
+	var activityNotifCount;
+
+	var scopee;
+
+	var count = function()
+	{
+		return activityNotifCount + friendNotifCount;
+	}
+
+	var pollFriendNotif = function()
+	{
+		notificationsFactory.getFriendNotifications().then(
+			function(data) {
+				friendNotifCount = data.length;
+				scopee.notifCount = count();
+				$timeout(pollFriendNotif, 5000);
+			});
+	}
+
+	var pollActivityNotif = function()
+	{
+		notificationsFactory.getActivityNotifications().then(
+			function(data) {
+				activityNotifCount = data.length;
+				scopee.notifCount = count();
+				$timeout(pollActivityNotif, 5000);
+			});
+	}
+
+	return {
+		activateNotifPoll: function(scope)
+		{
+			scopee = scope;
+			pollActivityNotif();
+			pollFriendNotif();
+		},
+		count: function()
+		{
+			return friendNotifCount + activityNotifCount;
+		}
+	}
+}
+
 directives.jpnotification = function(API)
 {
 	return {
@@ -397,4 +445,5 @@ directives.jpnotificationlist = function()
 
 mod.factory(factories);
 mod.controller(controllers);
+mod.service(services);
 mod.directive(directives);

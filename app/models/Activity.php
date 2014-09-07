@@ -10,11 +10,14 @@ class Activity extends \Eloquent {
 	// Don't forget to fill this array
 	protected $fillable = ['description', 'user_id', 'capacity', 'sport', 'location', 'date', 'date_from', 'date_to'];
 
-	public function comment(){
+	public function comment()
+	{
 		return $this->hasMany('Comment');
 	}
 
-	public function activityJoined(){
+	public function activityJoined()
+	{
 		return $this->hasMany('ActivityJoin');
 	}
+
 }

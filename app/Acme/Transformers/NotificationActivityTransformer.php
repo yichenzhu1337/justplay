@@ -11,8 +11,12 @@ use League\Fractal\Serializer\ArraySerializer;
 use League\Fractal\Serializer\JsonApiSerializer;
 
 use User;
+use Profile;
 use Activity;
 use NotificationActivity;
+
+use Acme\Transformers\ProfileTransformer;
+
 
 class NotificationActivityTransformer extends TransformerAbstract
 {
@@ -21,13 +25,15 @@ class NotificationActivityTransformer extends TransformerAbstract
     {
 
         return [
+            'id' => $notificationActivity['id'],
             'sub_type' => $notificationActivity['sub_type'],
             'from_id' => $notificationActivity['from_id'],
             'from_user' => User::find($notificationActivity['from_id'])->username,
             'to_id' => $notificationActivity['to_id'],
             'to_user' => User::find($notificationActivity['to_id'])->username,
             'details' => $notificationActivity['details'],
-            'created_at' => substr(json_encode($notificationActivity['created_at']), 9, 19)
+            'created_at' => substr(json_encode($notificationActivity['created_at']), 9, 19),
+            'is_read' => $notificationActivity['is_read']
         ];
     }
 
@@ -46,21 +52,31 @@ class NotificationActivityTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [
-        'activity'
+        'activity', 'profile'
     ];
 
-    // ....
-
     /**
-     * Include Author
+     * Include activity
      *
      * @return League\Fractal\ItemResource
      */
-    public function includeActivity()
+    public function includeActivity(NotificationActivity $notificationActivity)
     {
-        $activity = Activity::find(1);
+        $activity = Activity::where('id', '=', $notificationActivity['activity_id'])->get();
 
-        return $this->item($activity, new ActivityTransformer);
+        return $this->collection($activity, new ActivityTransformer);
+    }
+
+    /**
+     * Include profile
+     *
+     * @return League\Fractal\ItemResource
+     */
+    public function includeProfile(NotificationActivity $notificationActivity)
+    {
+        $profile = Profile::where('id', '=', $notificationActivity['from_id'])->get();
+
+        return $this->collection($profile, new ProfileTransformer);
     }
 
 }

@@ -119,7 +119,7 @@ class NotificationsController extends \BaseController {
         }
 
         //$request_type = ['friend', 'activity'];
-        $auth_id = Sentry::getUSer()->id;
+        $auth_id = Sentry::getUser()->id;
 
         switch ($request_type) {
 

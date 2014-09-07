@@ -22,12 +22,14 @@ class NotificationFriendTransformer extends TransformerAbstract
 	{
 
 	  return [
+	  		'id' => $notificationFriend['id'],
 	  		'sub_type' => $notificationFriend['sub_type'],
 	      'from_id' => $notificationFriend['from_id'],
 	      'from_user' => User::find($notificationFriend['from_id'])->username,
 	      'to_id' => $notificationFriend['to_id'],
 	      'to_user' => User::find($notificationFriend['to_id'])->username,
-	      'created_at' => substr(json_encode($notificationFriend['created_at']), 9, 19)
+	      'created_at' => substr(json_encode($notificationFriend['created_at']), 9, 19),
+	      'is_read' => $notificationFriend['is_read']
 	  ];
 
 	}

@@ -6,6 +6,7 @@
 					<!-- ACTIVITY SUMMARY SECTION -->
 					<div class="activity-detail-info-box">
 						<div class="jp-h1">{{activity.sport}}</div>
+
 						<!-- OVERVIEW OF ACTIVITY -->
 						<ul class="list-group">
 							<!-- DATE -->
@@ -73,6 +74,14 @@
 								</h4>
 							  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
 									{{activity.location}}
+								</h4>
+						  </li>
+						  <!-- OWNER -->
+						  <li class='list-group-item'>
+					  		<i class="glyphicon glyphicon-user pull-left"></i>
+							  <h4 class="list-group-item-heading"> 
+								<a href ui-sref='main.profile({username: activity.user_id})'>{{activity.user_id}}</a>
+								<span class='label label-primary'>Host</span>
 								</h4>
 						  </li>
 						</ul>

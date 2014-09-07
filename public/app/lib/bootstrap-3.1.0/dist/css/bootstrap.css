@@ -5991,6 +5991,13 @@ form[class*='editable'] > .form-group > span.editable-buttons {
   padding-right: 5px;
   margin-right: .3em;
 }
+.activity-detail-info-box > ul > li > * a {
+  color: #555555;
+  text-decoration: underline;
+}
+.activity-detail-info-box > ul > li > * span.label {
+  margin-left: 10px;
+}
 .activity-detail-info-box > ul > li > span h4.list-group-item-heading,
 .activity-detail-info-box > ul > li h4.list-group-item-heading {
   color: #555555;
@@ -6134,7 +6141,7 @@ fieldset[disabled] .jp-btn-link {
   position: absolute;
   z-index: 999;
   top: -7px;
-  right: 0px;
+  right: -2px;
   border-radius: 0px;
 }
 .notif-wrapper > .badge.twodigits {

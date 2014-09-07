@@ -343,8 +343,8 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 		getActivityNotifications: function() {
 			return API.get(base_route+'/'+notification_routes.get.activity).then(
 				function(data) {
-					//var filteredList = $filter('filter')(data.notifications, {is_read: false}, true);
-					var filteredList = data.notifications;		
+					var filteredList = $filter('filter')(data.notifications, {is_read: false}, true);
+					//var filteredList = data.notifications;		
 					var notifListGroupByActId = groupNotificationsByActId(filteredList);
 					var masterNotifList = constructActivityNotificationList(notifListGroupByActId);
 					return masterNotifList;

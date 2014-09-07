@@ -4,6 +4,10 @@ var factories = {};
 var controllers = {};
 var directives = {};
 
+mod.constant('angularMomentConfig', {
+	timezone: 'America/Detroit'
+});
+
 controllers.notificationsController = ['$scope', 'friendNotifications', 'activityNotifications', function($scope, friendNotifications, activityNotifications)
 {
 	function init()
@@ -12,139 +16,302 @@ controllers.notificationsController = ['$scope', 'friendNotifications', 'activit
 		$scope.activityNotifications = activityNotifications;
 	}
 
-	$scope.sample = function()
-	{
-		console.log('goodshit');
-	}
-
 	init();
 }];
 
-factories.notificationsFactory = function(notification_routes, notification_categories, api_const, API, $state) {
+factories.notificationsFactory = function(notification_routes, notification_categories, api_const, API, $filter, $state) {
 	var base_route = api_const.base_url+api_const.base_api_route+'/'+api_const.notifications;
 
+	/// HELPER FUNCTIONS
+	// Parses and formats the activityName
 	var activityName = function(obj)
 	{
-		return moment(new Date()).tz('America/Detroit').format('dddd') +' '+ obj.activity.sport;//obj.activity_date.toDate() + ' ' + obj.activity_sport;
+		return moment.tz(obj.startingtime, 'Etc/UTC').tz('America/Detroit').format('dddd') +' '+ obj.sport;
+	}
+
+	// Parses 1, 0 into true, false
+	var parseIsRead = function(obj)
+	{
+		return obj.is_read === 1;
+	}
+
+	// Iterates through a list of notifications and stores all their ids
+	// into one array
+	var createNotifIdList = function(list)
+	{
+		var idList = [];
+		for (var i = 0; i < list.length; i++)
+		{
+			idList.push(parseIsRead(list[i].id));
+		}
+		return idList;
+	}
+
+	// Translates Mysql time format into America/Detroit format
+	var createMoment = function(stamp)
+	{
+		return moment.tz(stamp, 'Etc/UTC').tz('America/Detroit');
+	}
+
+	// Retrieves the latest created_at timestamp from a list
+	var retrieveLatestDate = function(list)
+	{
+		var latestTime;
+
+		latestTime = createMoment(list[0].created_at);
+		for (var i = 1; i < list.length; i++)
+		{
+			if (createMoment(list[i].created_at).isAfter(latestTime))
+			{
+				latestTime = createMoment(list[i].created_at);
+			}
+		}
+
+		return latestTime;
+	}
+
+	// Takes a list of notifications and aggregates all the names
+	// and returns an appropriate string to represent all these people.
+	var condensePeopleNames = function(list, maxToDisplay)
+	{
+		var peopleNames = list[0].profile.data[0].name;
+		var remainder = list.length - maxToDisplay;
+
+		for (var i = 1; i < list.length; i++)
+		{
+			if (i < maxToDisplay)
+			{
+				peopleNames += ', '+ list[i].profile.data[0].name;
+			}
+			else
+			{
+				break;
+			}
+		}
+		peopleNames += ' and ' + remainder + ' others';
+
+		return peopleNames;
+	}
+
+	var markAsRead = function(list, type)
+	{
+		for (var i = 0; i < list.length; i++)
+		{
+			API.post(base_route+'/'+type+'/'+list[i]+'/1');		
+		}
 	}
 
 	// Prepares notifications by configuring their body, action and timestamp
 	var notification = {
 		activity: {
-			join: function(obj) {
-				var body = obj.from_user + ' has joined ' + activityName(obj);
-				obj.notification_sent_date = moment(new Date());
+			join: function(list) {
+				var body = condensePeopleNames(list, 2) + ' has joined ' + activityName(list[0].activity.data[0]);
 
 				return {
 					body: body,
-					time_stamp: obj.notification_sent_date,
+					time_stamp: retrieveLatestDate(list),
 					action: function() { 
+						markAsRead(createNotifIdList(list), notification_routes.get.activity);
+						$state.go('main.activities.detail', {id: list[0].activity.data[0].id});
+					},
+					id: createNotifIdList(list),
+					is_read: false,
 
-						$state.go('main.activities.detail', {id: obj.activity.id});
-					}
 				}
 			},
-			comment: function(obj) {
-				var body = obj.from_user + ' has commented in ' + activityName(obj);
-				obj.notification_sent_date = moment(new Date());
+			comment: function(list) {
+				var body = condensePeopleNames(list, 2) + ' has commented in ' + activityName(list[0].activity.data[0]);
 
 				return {
 					body: body,
-					time_stamp: obj.notification_sent_date,
+					time_stamp: retrieveLatestDate(list),
 					action: function() { 
-						$state.go('main.activities.detail', {id: obj.activity.id});
-					}
+						markAsRead(createNotifIdList(list), notification_routes.get.activity)
+						$state.go('main.activities.detail', {id: list[0].activity.data[0].id});
+					},
+					id: createNotifIdList(list),
+					is_read: false,
+
 				}
 			},
 			delete: function(obj) {
-				var body = activityName(obj) + ' has been cancelled';
-				obj.notification_sent_date = moment(new Date());
+				var body = activityName(obj.activity.data[0]) + ' has been cancelled';
 
 				return {
 					body: body,
-					time_stamp: obj.notification_sent_date,
+					time_stamp: createMoment(obj.created_at),
 					action: function() {
+						markAsRead([obj.id], notification_routes.get.activity);
+					},
+					id: obj.id,
+					is_read: parseIsRead(obj),
 
-					}
 				}
 			},
 			invite: function(obj) {
-				var body = obj.from_user + 'has invited you to join ' + activityName(obj);
-				obj.notification_sent_date = moment(new Date());
+				var body = obj.from_user + 'has invited you to join ' + activityName(obj.activity.data[0]);
 
 				return {
 					body: body,
-					time_stamp: obj.notification_sent_date,
+					time_stamp: createMoment(obj.created_at),
 					action: function() {
-						$state.go('main.activities.detail', {id: obj.activity.id});
-					}
+						markAsRead([obj.id], notification_routes.get.activity);
+						$state.go('main.activities.detail', {id: obj.activity.data[0].id});
+					},
+					id: obj.id,
+					is_read: parseIsRead(obj),
+
 				}
 			},
 			update: function(obj) {
-				var body = obj.from_user + ' has updated ' + activityName(obj);
-				obj.notification_sent_date = moment(new Date());
+				var body = obj.from_user + ' has updated ' + activityName(obj.activity.data[0]);
 
 				return {
 					body: body,
-					time_stamp: obj.notification_sent_date,
+					time_stamp: createMoment(obj.created_at),
 					action: function() {
-						$state.go('main.activities.detail', {id: obj.activity.id});
-					}
+						markAsRead([obj.id], notification_routes.get.activity);
+						$state.go('main.activities.detail', {id: obj.activity.data[0].id});
+					},
+					id: obj.id,
+					is_read: parseIsRead(obj),
+
 				}
 			}
 		},
 		friend: {
 			request: function(obj) {
 				var body = obj.from_user + ' wants to be friends with you';
-				obj.notification_sent_date = moment(new Date());
 
 				return {
 					body: body,
-					time_stamp: obj.notification_sent_date,
+					time_stamp: createMoment(obj.created_at),
 					action: function() {
+						markAsRead([obj.id], notification_routes.get.friends);
 						$state.go('main.profile', {username: obj.from_user});
-					}
+					},
+					id: obj.id,
+					is_read: parseIsRead(obj),
+
 				}
 			},
 			accepted: function(obj) {
 				var body = obj.from_user + ' has accepted your friend request';
-				obj.notification_sent_date = moment(new Date());
 
 				return {
 					body: body,
-					time_stamp: obj.notification_sent_date,
+					time_stamp: createMoment(obj.created_at),
 					action: function() {
+						markAsRead([obj.id], notification_routes.get.friends);
 						$state.go('main.profile', {username: obj.from_user});
-					}
+					},
+					id: obj.id,
+					is_read: parseIsRead(obj),
+
 				}
 			} 
 		}
 	};
 
-	var listForDisplay = function(list)
+	// Groups and formats notifications according to their activity id
+	var groupNotificationsByActId = function(list)
+	{
+		var finalList = {};
+
+		for (var i = 0; i < list.length; i++)
+		{
+			var curNotificationActivityId = list[i].activity.data[0].id;
+			// Initialize new activityID and its arrays
+			if (angular.isUndefined(finalList[curNotificationActivityId]))
+			{
+				finalList[list[i].activity.data[0].id] = 
+				{
+					join: [],
+					comment: [],
+					invite: [],
+					delete: [],
+					update: []
+				}
+			}
+			switch (list[i].sub_type)
+			{
+				case notification_categories.activity.join:
+					finalList[curNotificationActivityId].join.push(list[i]);
+					break;
+				case notification_categories.activity.comment:
+					finalList[curNotificationActivityId].comment.push(list[i]);
+					break;
+				case notification_categories.activity.invite:
+					finalList[curNotificationActivityId].invite.push(list[i]);
+					break;
+				case notification_categories.activity.delete:
+					finalList[curNotificationActivityId].delete.push(list[i]);
+					break;
+				case notification_categories.activity.update:
+					finalList[curNotificationActivityId].update.push(list[i]);
+					break;
+			}
+		}
+
+		return finalList;
+	}
+
+	// Iterates through a list of activity notifications grouped by activity id
+	// and constructs a list of notifications without any grouping
+	var constructActivityNotificationList = function(list)
+	{
+		var notifList = [];
+		// Replace all comments & joined with just one notif for each activity
+		for (var activity in list)
+		{
+			for (var notif_types in list[activity])
+			{
+				var curNotifList = list[activity][notif_types];
+				
+				switch (notif_types)
+				{
+					case 'join':
+						notifList.push(notification.activity.join(curNotifList))
+						break;
+					case 'comment':
+						notifList.push(notification.activity.comment(curNotifList));
+						break;
+					case 'invite':
+						for (var i = 0; i < curNotifList.length; i++)
+						{
+							notifList.push(notification.activity.invite(curNotifList[i]));
+						}
+						break;
+					case 'delete':
+						for (var i = 0; i < curNotifList.length; i++)
+						{
+							notifList.push(notification.activity.delete(curNotifList[i]));
+						}
+						break;
+					case 'update':
+						for (var i = 0; i < curNotifList.length; i++)
+						{
+							notifList.push(notification.activity.update(curNotifList[i]));
+						}
+						break;
+				}
+			}
+		}
+
+		return notifList;
+	}
+
+	var constructFriendNotificationList = function(list)
 	{
 		var modList = [];
 		for (var i = 0; i < list.length; i++)
 		{
 			switch(list[i].sub_type) {
-				case notification_categories.activity.join:
-					modList.push(notification.activity.join(list[i]));
-					break;
-				case notification_categories.activity.comment:
-					modList.push(notification.activity.comment(list[i]));
-					break;
-				case notification_categories.activity.delete:
-					modList.push(notification.activity.delete(list[i]));
-					break;
-				case notification_categories.activity.invite:
-					modList.push(notification.activity.invite(list[i]));
-					break;
-				case notification_categories.activity.update:
-					modList.push(notification.activity.update(list[i]));
-					break;	
 				case notification_categories.friend.request:
 					modList.push(notification.friend.request(list[i]));
 					break;
+				case notification_categories.friend.accepted:
+					modList.push(notification.friend.accepted(list[i]));
 			}
 		}
 		return modList;
@@ -154,19 +321,23 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 		getFriendNotifications: function() {
 			return API.get(base_route+'/'+notification_routes.get.friends).then(
 				function(data) {
-					return listForDisplay(data.friends);
+					return $filter('filter')(constructFriendNotificationList(data.friends), {is_read: false}, true);
 				});
 		},
 		getActivityNotifications: function() {
 			return API.get(base_route+'/'+notification_routes.get.activity).then(
 				function(data) {
-					return listForDisplay(data.notifications);
+					//var filteredList = $filter('filter')(data.notifications, {is_read: false}, true);
+					var filteredList = data.notifications;		
+					var notifListGroupByActId = groupNotificationsByActId(filteredList);
+					var masterNotifList = constructActivityNotificationList(notifListGroupByActId);
+					return masterNotifList;
 				});
 		}
 	}
 }
 
-directives.jpnotification = function()
+directives.jpnotification = function(API)
 {
 	return {
 		restrict: 'E',
@@ -175,13 +346,20 @@ directives.jpnotification = function()
 		scope: {
 			body: '=',
 			timestamp: '=',
-			action: '&'
+			action: '&',
+			notifid: '=',
+			isread: '='
 		},
 		link: function($scope, $element, $attrs)
 		{
 			$scope.doshit = function()
 			{
 				$scope.action();
+			}
+
+			$scope.markAsRead = function()
+			{
+				API.post('')
 			}
 		}
 	}

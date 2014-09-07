@@ -43,7 +43,7 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 		var idList = [];
 		for (var i = 0; i < list.length; i++)
 		{
-			idList.push(parseIsRead(list[i].id));
+			idList.push(list[i].id);
 		}
 		return idList;
 	}

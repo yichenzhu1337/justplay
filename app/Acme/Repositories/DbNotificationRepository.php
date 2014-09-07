@@ -112,13 +112,13 @@ class DbNotificationRepository extends DbBaseRepository implements NotificationR
 
             case 'friends':
                 $this->notificationFriend->find($notification_id)->update([
-                    'is_read' => $notification_id
+                    'is_read' => $is_read
                 ]);
             break;
 
             case 'activities':
                 $this->notificationActivity->find($notification_id)->update([
-                    'is_read' => $notification_id
+                    'is_read' => $is_read
                 ]);
             break;
 

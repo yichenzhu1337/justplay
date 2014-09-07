@@ -6,7 +6,7 @@
 	'has-error' : signupForm.first_name.$invalid && !signupForm.first_name.$pristine, 
 	'has-success' : !signupForm.first_name.$invalid && !signupForm.first_name.$pristine }">	
 		
-		<input type="text" name="first_name" class="form-control" placeholder="name" ng-model="signup.first_name" ng-minlength="2" ng-maxlength="25" required>
+		<input type="text" name="first_name" class="form-control" placeholder="Name" ng-model="signup.first_name" ng-minlength="2" ng-maxlength="25" required>
 		
 		<!-- first_name Validation Messages -->
 			<p ng-show="!signupForm.first_name.$pristine && signupForm.first_name.$error.required" class="help-block">Your first_name is required</p>

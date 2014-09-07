@@ -118,8 +118,13 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 		delete: function(url) {
 			return $http.delete(url);
 		},
-		put: function(url) {
-			return $http.put(url);
+		put: function(url, data) {
+			if (!data)
+			{
+				data = {};
+			}
+			data = applyDataTransformations(data);
+			return $http.put(url, data);
 		}
 	}
 };

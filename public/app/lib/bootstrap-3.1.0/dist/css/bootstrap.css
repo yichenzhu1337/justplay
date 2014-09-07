@@ -6420,6 +6420,46 @@ fieldset[disabled] .jp-btn-link {
     padding-right: 36.25px;
   }
 }
+.notification-list-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 594;
+}
+.notification-list-wrapper > section {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 13px;
+  padding-left: 13px;
+  padding-right: 13px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
+}
+.notification-list-wrapper > section > .notif-list-container {
+  margin-top: 15px;
+}
+.notification-wrapper > a {
+  margin-top: -1px;
+  display: block;
+  width: 100%;
+  padding: 5px;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d1d8e7;
+  color: black;
+}
+.notification-wrapper > a:hover,
+.notification-wrapper a:focus,
+.notification-wrapper a:active {
+  color: black;
+  background-color: #e6e6e6;
+  text-decoration: none;
+}
+.notification-wrapper > a:hover > div,
+.notification-wrapper a:focus > div,
+.notification-wrapper a:active > div {
+  background-color: #e6e6e6;
+}
 a.media-name {
   display: inline-block;
 }

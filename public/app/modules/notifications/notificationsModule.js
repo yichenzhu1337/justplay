@@ -93,6 +93,7 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 		return peopleNames;
 	}
 
+	// Mark a list of Notification Ids as Read
 	var markAsRead = function(list, type)
 	{
 		for (var i = 0; i < list.length; i++)
@@ -114,7 +115,9 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 						markAsRead(createNotifIdList(list), notification_routes.get.activity);
 						$state.go('main.activities.detail', {id: list[0].activity.data[0].id});
 					},
-					id: createNotifIdList(list),
+					readIt: function(){
+					  markAsRead(createNotifIdList(list), notification_routes.get.activity)
+					},
 					is_read: false,
 
 				}
@@ -129,7 +132,9 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 						markAsRead(createNotifIdList(list), notification_routes.get.activity)
 						$state.go('main.activities.detail', {id: list[0].activity.data[0].id});
 					},
-					id: createNotifIdList(list),
+					readIt: function(){
+					  markAsRead(createNotifIdList(list), notification_routes.get.activity)
+					},
 					is_read: false,
 
 				}
@@ -143,7 +148,9 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 					action: function() {
 						markAsRead([obj.id], notification_routes.get.activity);
 					},
-					id: obj.id,
+					readIt: function(){
+					  markAsRead([obj.id], notification_routes.get.activity)
+					},
 					is_read: parseIsRead(obj),
 
 				}
@@ -158,7 +165,9 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 						markAsRead([obj.id], notification_routes.get.activity);
 						$state.go('main.activities.detail', {id: obj.activity.data[0].id});
 					},
-					id: obj.id,
+					readIt: function(){
+					  markAsRead([obj.id], notification_routes.get.activity)
+					},
 					is_read: parseIsRead(obj),
 
 				}
@@ -173,7 +182,9 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 						markAsRead([obj.id], notification_routes.get.activity);
 						$state.go('main.activities.detail', {id: obj.activity.data[0].id});
 					},
-					id: obj.id,
+					readIt: function(){
+					  markAsRead([obj.id], notification_routes.get.activity)
+					},
 					is_read: parseIsRead(obj),
 
 				}
@@ -190,7 +201,9 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 						markAsRead([obj.id], notification_routes.get.friends);
 						$state.go('main.profile', {username: obj.from_user});
 					},
-					id: obj.id,
+					readIt: function() {
+					  markAsRead([obj.id], notification_routes.get.friends)
+					},
 					is_read: parseIsRead(obj),
 
 				}
@@ -205,7 +218,9 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 						markAsRead([obj.id], notification_routes.get.friends);
 						$state.go('main.profile', {username: obj.from_user});
 					},
-					id: obj.id,
+					readIt: function() {
+					 	markAsRead([obj.id], notification_routes.get.friends)
+					},
 					is_read: parseIsRead(obj),
 
 				}
@@ -348,19 +363,34 @@ directives.jpnotification = function(API)
 			timestamp: '=',
 			action: '&',
 			notifid: '=',
-			isread: '='
+			isread: '=',
+			markAsRead: '&'
 		},
 		link: function($scope, $element, $attrs)
 		{
-			$scope.doshit = function()
-			{
-				$scope.action();
+		}
+	}
+}
+
+directives.jpnotificationlist = function()
+{
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'app/modules/notifications/notificationlist.tmpl.html',
+		scope: {
+			pagelength: "=",
+			notifications: "="
+		},
+		link: function($scope, $element, $attrs)
+		{
+			function init() {
+				$scope.currentPage = 1;
+				$scope.pl = $scope.pagelength;
+				$scope.totalItems = $scope.notifications.length;
 			}
 
-			$scope.markAsRead = function()
-			{
-				API.post('')
-			}
+			init();
 		}
 	}
 }

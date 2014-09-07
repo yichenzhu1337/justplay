@@ -1,0 +1,51 @@
+@jp-notification-list-padding: 30px;
+@jp-notification-card-padding: 5px;
+@jp-notification-card-border-color: #d1d8e7;
+
+.notification-list-wrapper
+{
+	width: 100%;
+	margin: 0 auto;
+	max-width: @jp-sm-width;
+
+	> section {
+		margin-top: @jp-notification-list-padding;
+		margin-bottom: @jp-notification-list-padding;
+		padding-top: @jp-activity-content-padding;
+		padding-left: @jp-activity-content-padding;
+		padding-right: @jp-activity-content-padding;
+		background-color: white;		
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.13);
+
+		> .notif-list-container {
+			margin-top: 15px;
+		}
+	}
+}
+
+.notification-wrapper
+{
+	> a {
+		margin-top: -1px;
+		display: block;
+		width: 100%;
+		padding: @jp-notification-card-padding;
+		background-color: white;
+		border-style: solid;
+    border-width: 1px;
+		border-color: @jp-notification-card-border-color;
+		color: black;
+	}
+
+	> a:hover,
+	a:focus,
+	a:active {
+		color: black;
+		background-color: darken(white, 10%);
+		text-decoration: none;
+
+		> div {
+			background-color: darken(white, 10%);
+		}
+	}
+}

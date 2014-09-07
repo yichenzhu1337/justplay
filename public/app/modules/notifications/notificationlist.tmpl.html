@@ -1,0 +1,3 @@
+<jpnotification ng-repeat="notif in notifications | orderBy: '-time_stamp' | startFrom: (currentPage-1)*pl | limitTo: pl" body='notif.body' timestamp='notif.time_stamp' action='notif.action()' notifid='notif.id' isread='notif.is_read' mark-as-read='notif.readIt()'>
+</jpnotification>
+<pagination total-items="totalItems" items-per-page="pagelength" page="currentPage" ng-model="yo"></pagination>

@@ -1,15 +1,21 @@
 <div class="page-container">
   <div class="content-wrapper no-content">
-  	<div class='social-page'>
-  		<label>Friend Notifications</label>
-  		<span class='text-muted' ng-show='friendNotifications.length === 0'>You have no friend notifications.</span>
-  		<jpnotification ng-repeat='notif in friendNotifications' body='notif.body' timestamp='notif.time_stamp' action='notif.action()' notifid='notif.id' isread='notif.is_read'>
-  		</jpnotification>
+  	<div class='notification-list-wrapper'>
+      <section>
+    		<label class='text-muted'>Friend Notifications</label>
+    		<span class='text-muted' ng-show='friendNotifications.length === 0'>You have no friend notifications.</span>
+        <div class="notif-list-container">
+          <jpnotificationlist notifications='friendNotifications' pagelength='8' ng-hide='friendNotifications.length === 0'></jpnotificationlist>        
+        </div>
+      </section>
 
-  		<label>Activity Notifications</label>
-  		<span class='text-muted' ng-show='activityNotifications.length === 0'>You have no activity notifications.</span>
-  		<jpnotification ng-repeat='notif in activityNotifications' body='notif.body' timestamp='notif.time_stamp' action='notif.action()' notifid='notif.id' isread='notif.is_read'>
-  		</jpnotification>
+      <section>
+    		<label class='text-muted'>Activity Notifications</label>
+    		<span class='text-muted' ng-show='activityNotifications.length === 0'>You have no activity notifications.</span>
+        <div class='notif-list-container'>
+          <jpnotificationlist notifications='activityNotifications' pagelength='8' ng-hide='activityNotifications.length === 0'></jpnotificationlist>        
+        </div>
+      </section>
   	</div>
   </div>
 </div>

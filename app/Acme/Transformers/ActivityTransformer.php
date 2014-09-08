@@ -16,6 +16,8 @@ use User;
 use Activity;
 use Comment;
 use ActivityJoin;
+use Profile;
+
 use Swagger\Annotations as SWG;
 
 /**
@@ -108,6 +110,8 @@ class ActivityTransformer extends TransformerAbstract {
 		return [
 			'id' => $activity['id'],
 			'user_id' => $activity['user_id'],
+            'username' => User::find($activity['user_id'])->username,
+            'name' => Profile::find($activity['user_id'])->name,
 			'location' => $activity['location'],
 			'startingtime' => $activity['date_from'],
 			'endingtime' => $activity['date_to'],

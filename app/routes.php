@@ -18,6 +18,10 @@ Route::group(array('prefix' => 'api/v1/'), function()
 
 
 Route::get('/test', function(){
-    Event::fire('user.comment.store');
+    				return Response::json(
+					array(
+						'errors' => [["message" => "activity does not exist"]],
+						'obj' => array('faliure' => '1337')
+					));
 });
 

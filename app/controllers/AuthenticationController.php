@@ -1,6 +1,6 @@
 <?php
 
-class AuthenticationController extends BaseController {
+class AuthenticationController extends \ApiController {
 
 	public function __construct()
 	{
@@ -32,8 +32,13 @@ class AuthenticationController extends BaseController {
 
 	public function postRegister()
 	{
+
+
+
 		try
 		{
+			////////////////////////////////////////////////
+			///need to fix
 			$user = Sentry::createUser(array(
 				'username' => Input::get('first_name'),
 				'email' => Input::get('email'),
@@ -41,24 +46,44 @@ class AuthenticationController extends BaseController {
 				'activated' => true,
 				));
 
-			if ($user) {
+			$rules = [
+				'username' => 'unique:users',
+			];
+
+			$input = [
+				'username' => Input::get('first_name')
+			];
+			$validator = Validator::make($input, $rules);
+
+			if ($validator->fails())
+			{
+
+				return Response::json(
+					array(
+						'errors' => [["message" => "username already in use"]],
+						'obj' => array('faliure' => '1337')
+					));
+
+			}
+			else
+			{
 				Profile::create([
 					"user_id" => $user->id,
 					'first_name' => Input::get('first_name')
 				]);
 			}
-
-			return Response::json(
-				array(
-					'errors' => [],
-					'obj' => array('success' => true)
-				));
 		}
 
 		catch (Cartalyst\Sentry\Users\UserExistsException $e)
 		{
-			return 'Error in inserting user to the database:'+e;
+				return Response::json(
+					array(
+						'errors' => [["message" => "email already in use"]],
+						'obj' => array('faliure' => '1337')
+					));
+
 		}
+
 	}
 
 	public function postLogin()

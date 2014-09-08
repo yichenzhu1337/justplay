@@ -60,7 +60,7 @@ factories.API = function($http, $q, SanitizeService, FlashService, CSRF_TOKEN){
 				},
 				function(InternalError) {
 					FlashService.show(InternalError, 'error');
-					d.reject();
+					d.reject(InternalError);
 				});
 
 			return d.promise;

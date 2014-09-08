@@ -52,8 +52,8 @@ class ActivitiesController extends \ApiController {
 
 		if (!$activity) {
 
-			App::abort(404);
-			//return $this->respondNotFound('activity does not exist');
+			//App::abort(404);
+			return $this->respondNotFound('activity does not exist');
 		}
 		
 		$fractal = new Manager();

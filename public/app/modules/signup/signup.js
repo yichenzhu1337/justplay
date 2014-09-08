@@ -15,9 +15,8 @@ controllers.signupCtrl = function($scope, $state, registerSvc, FlashService, API
 					// Edit FirstName
 					FlashService.show('Successful Registration', 'success');
 					$state.go('login');
-				},
-				function(resp) {
-					FlashService.show('Incorrect', 'error');		
+				},function(d)
+				{
 				});
 		} else {
 			$scope.registeredEmail = false;
@@ -25,7 +24,7 @@ controllers.signupCtrl = function($scope, $state, registerSvc, FlashService, API
 	}
 }
 
-factories.registerSvc = function(API, api_const) {
+factories.registerSvc = function(API, api_const, FlashService) {
 	return {
 		register: function(regForm) {
 			var reg = API.post(api_const.base_api_route+"/register", regForm)
@@ -34,6 +33,18 @@ factories.registerSvc = function(API, api_const) {
 					API.put(api_const.base_api_route+'/'+api_const.profiles+'/'+regForm.first_name, {
 						name: regForm.first_name
 					});
+				},
+				function(data) {
+					if (data[0].message === 'email already in use')
+					{
+						FlashService.show('Email already in use', 'error');
+						$q.reject();
+					}
+					else if (data[0].message === 'username already in use')
+					{
+						FlashService.show('Username already in use', 'error');
+						$q.reject();
+					}
 				});
 			return reg;
 		}

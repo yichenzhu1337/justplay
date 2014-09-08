@@ -31,20 +31,17 @@ factories.User = function() {
 
 factories.MinimalUser = function()
 {
-	function MinimalUser(id, name, username, areFriends) {
+	function MinimalUser(id, name, username, areFriends, dp) {
 		this.id = id;
-		if (name == null) {
-			this.first_name = username;
-		} else {
-			this.first_name = name;
-		}
+		this.name = name;
 		this.username = username;
 		this.areFriends = areFriends;
+		this.profile_picture = dp
 	}
 
 	MinimalUser.build = function(userJSON) {
 		if (angular.isDefined(userJSON.name) && angular.isDefined(userJSON.username) && angular.isDefined(userJSON.areFriends)) {
-			return new MinimalUser(userJSON.id,userJSON.name,userJSON.username,userJSON.areFriends);
+			return new MinimalUser(userJSON.id,userJSON.name,userJSON.username,userJSON.areFriends,userJSON.dp);
 		}
 	}
 	return MinimalUser;

@@ -16,6 +16,7 @@ class CreateProfilesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unique();
+			$table->string('image');
 			$table->string('name')->nullable();
 			$table->boolean('gender')->nullable();
 			$table->text('bio')->nullable();

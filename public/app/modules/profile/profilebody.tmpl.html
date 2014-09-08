@@ -4,7 +4,7 @@
 	  	<div class="profile-content-area">
 	  		<div class="profile-banner">
 					<div class="img-container">
-						<img class="img-thumbnail profile-pic" src="app/img/jack-yiu-dp.jpg" alt="dp">
+						<img class="img-thumbnail profile-pic" ng-src="{{user.profile.image}}" alt="dp">
 					</div>
 					<div class="profile-header">
 						<a href="#" ng-show="IsCurrentUser(user.username)" e-required editable-text="user.profile.name">

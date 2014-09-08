@@ -12,6 +12,7 @@ use League\Fractal\Serializer\JsonApiSerializer;
 
 use User;
 use Comment;
+use Profile;
 
 class CommentTransformer extends TransformerAbstract{
 
@@ -20,6 +21,8 @@ class CommentTransformer extends TransformerAbstract{
 		return [
 			'id' => $comment['id'],
 			'username' => User::find($comment['user_id'])->username,
+			'name' => Profile::find($comment['user_id'])->name,
+			'profile_picture' => Profile::find($comment['user_id'])->image,
 			'activity_id' => $comment['activity_id'],
 			'user_id' => $comment['user_id'],
 			'description' => $comment['description'],

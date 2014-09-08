@@ -351,7 +351,7 @@ directives.jppeoplegoingicon = function() {
 					}
 					$scope.displayedExtras = "";
 
-					$scope.displayedExtras = $scope.extraList[0].first_name;
+					$scope.displayedExtras = $scope.extraList[0].name;
 
 					var extraNotListed = $scope.extraList.length - $scope.maxextras
 					for (var i = 1; i < $scope.extraList.length; i++) {
@@ -363,7 +363,7 @@ directives.jppeoplegoingicon = function() {
 							break;
 						} else {
 							$scope.displayedExtras += "</br>"
-							$scope.displayedExtras += $scope.extraList[i].first_name;
+							$scope.displayedExtras += $scope.extraList[i].name;
 						}
 					}
 				} else {

@@ -13,6 +13,7 @@ class ProfileTableSeeder extends Seeder {
 		{
 			Profile::create([
 				'user_id' => $index,
+				'image' => 'app/img/profile.png', //asset('app/img/profile.png')
 				'name' => $faker->firstName,
 				'gender' => rand(0, 1),
 				'bio' => $faker->paragraph(rand(2, 5)),

@@ -9,14 +9,14 @@
 		</div>
 	</div>  
 	<ul class="list-group">
-	  <li class="list-group-item" ng-repeat="user in users | filter:{first_name:asyncSelectedUser} | startFrom: (currentPage-1)*pl | limitTo: pl">
+	  <li class="list-group-item" ng-repeat="user in users | filter:{name:asyncSelectedUser} | startFrom: (currentPage-1)*pl | limitTo: pl">
       <div class="media comment">
 			  <a class="pull-left" ui-sref="main.profile({username:user.username})">
-			    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+			    <img class="media-object" ng-src="{{user.profile_picture}}" alt="dp" width="50px">
 			  </a>
 			  <div class="media-body">
 		  		<a class="media-name" ui-sref="main.profile({username:user.username})">
-		  		<h5 class="media-heading">{{user.first_name}}</h5></a>
+		  		<h5 class="media-heading">{{user.name}}</h5></a>
 				  	
 				  <div class="user-action-box">
 						<friendactions user-id='user.id' friend-status='user.areFriends'/>

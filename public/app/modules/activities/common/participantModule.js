@@ -4,12 +4,13 @@ var factories = {};
 
 factories.Participant = function(){
 
-	function Participant(user_id, areFriends, username) {
+	function Participant(user_id, areFriends, username, name, dp) {
 		// Initialize Values
 		this.user_id = user_id;
 		this.areFriends = areFriends;
 		this.username = username;
-		this.first_name = username;
+		this.name = name;
+		this.profile_picture = dp;
 	}
 
 	function isValidParticipant(participant) {
@@ -28,7 +29,7 @@ factories.Participant = function(){
 	Participant.build = function(data) {
 		// Check if each one is defined
 		if (isValidParticipant(data)) {
-			return new Participant(data.user_id, data.areFriends, data.username);
+			return new Participant(data.user_id, data.areFriends, data.username, data.name, data.profile_picture);
 		} else {
 			return false;
 		}

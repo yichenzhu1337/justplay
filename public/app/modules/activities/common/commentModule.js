@@ -4,20 +4,22 @@ var factories = {};
 
 factories.Comment = function($filter){
 
-	function Comment(senderName, description, username, date) {
+	function Comment(senderName, description, username, date, dp) {
 		// Initialize Values
 		this.senderName = senderName;
 		this.message = description;
 		this.username = username;
 		this.first_name = username; 
 		this.date = moment.tz(date, 'Etc/UTC').tz('America/Detroit');
+		this.profile_picture = dp;
 	}
 
 	function isValidComment(comment) {
 		if (
 			angular.isUndefined(comment.username) ||
 			angular.isUndefined(comment.description) ||
-			angular.isUndefined(comment.date)
+			angular.isUndefined(comment.date) ||
+			angular.isUndefined(comment.profile_picture)
 			)
 		{
 			return false;
@@ -28,7 +30,7 @@ factories.Comment = function($filter){
 
 	Comment.build = function(data) {
 		if (isValidComment(data)) {
-			return new Comment(data.username, data.description, data.username, data.date);
+			return new Comment(data.username, data.description, data.username, data.date, data.profile_picture);
 		} else {
 			return false;
 		}

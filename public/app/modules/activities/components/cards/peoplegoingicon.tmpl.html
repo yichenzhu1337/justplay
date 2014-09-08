@@ -1,6 +1,6 @@
 <div class="going-friend-icons">
-    <a ui-sref="main.profile({username:user.username})" class="person" ng-repeat="user in users | limitTo:maxShownUsers" tooltip-placement="top" tooltip="{{user.username}}">
-      <img class="img-responsive" src="app/img/jack-yiu-dp.jpg" alt="dp" >
+    <a ui-sref="main.profile({username:user.username})" class="person" ng-repeat="user in users | limitTo:maxShownUsers" tooltip-placement="top" tooltip="{{user.name}}">
+      <img class="img-responsive" ng-src="{{user.profile_picture}}" alt="dp" >
     </a>
     
     <div class="more-people" ng-show="showExtra" tooltip-placement="top" tooltip-html-unsafe="{{displayedExtras}}">

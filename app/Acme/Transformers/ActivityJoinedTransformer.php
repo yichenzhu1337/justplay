@@ -15,6 +15,7 @@ use Comment;
 use Activity;
 use ActivityJoin;
 use DB;
+use Profile;
 
 class ActivityJoinedTransformer extends TransformerAbstract
 {
@@ -47,6 +48,8 @@ class ActivityJoinedTransformer extends TransformerAbstract
 			'activity_id' => $activityJoined['activity_id'],
 			'user_id' => $activityJoined['user_id'],
 			'username' => User::find($activityJoined['user_id'])->username,
+			'name' => Profile::find($activityJoined['user_id'])->name,
+			'profile_picture' => Profile::find($activityJoined['user_id'])->image,
 			'areFriends' => $areFriends
 		];
 	}

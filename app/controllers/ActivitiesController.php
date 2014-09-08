@@ -244,10 +244,11 @@ class ActivitiesController extends \ApiController {
 
 	public function getAllAuthActivities()
 	{
-		$activities_today = Activity::join('activities_joined', function($join) {
-	      					$join->on('activities.id', '=', 'activities_joined.activity_id')
-	      						 ->where('activities_joined.user_id', '=', Sentry::getUser()->id);
-	    				})->get();
+		$activities_today = Activity::join('activities_joined', function($join) 
+												{
+	      									$join->on('activities.id', '=', 'activities_joined.activity_id')
+	      						 					 ->where('activities_joined.user_id', '=', Sentry::getUser()->id);
+	    									})->get();
 
 	   // $d = Activity::join('activity_join', 'activity.id', '=','activity_join.id')
 		//					->select('activity_join.*','modules.module_name')
@@ -255,5 +256,9 @@ class ActivitiesController extends \ApiController {
 		return $activities_today;
 	}
 
+	public function getAllAuthHostedActivities()
+	{
+		return Activity::where('user_id', '=', Sentry::getUser()->id)->get();
+	}
 }
 

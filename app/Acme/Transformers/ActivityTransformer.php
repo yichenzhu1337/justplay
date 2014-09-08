@@ -107,11 +107,13 @@ class ActivityTransformer extends TransformerAbstract {
 
 	public function transform(Activity $activity)
 	{
+        $user_id = $activity['user_id'];
+
 		return [
 			'id' => $activity['id'],
-			'user_id' => $activity['user_id'],
-            'username' => User::find($activity['user_id'])->username,
-            'name' => Profile::find($activity['user_id'])->name,
+            'user_id' => $user_id,
+            'name' => User::find($user_id),
+            'username' => Profile::find($user_id),
 			'location' => $activity['location'],
 			'startingtime' => $activity['date_from'],
 			'endingtime' => $activity['date_to'],

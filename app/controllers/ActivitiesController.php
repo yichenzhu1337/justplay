@@ -15,14 +15,19 @@ use Acme\Transformer\PostTransformer;
 use Acme\Transformer\UserTransformer;
 
 use Acme\Interfaces\ActivityRepositoryInterface;
+use Acme\Interfaces\ActivityJoinRepositoryInterface;
+
 
 class ActivitiesController extends \ApiController {
 
 	protected $activityTransformer;
+	protected $activity;
+	protected $activityJoin;
 
-	function __construct(ActivityRepositoryInterface $activity) 
+	function __construct(ActivityRepositoryInterface $activity, ActivityJoinRepositoryInterface $activityJoin) 
 	{
 		$this->activity = $activity;
+		$this->activityJoin = $activityJoin;
 	}
 
 	/**
@@ -74,19 +79,27 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function store()
 	{
-        $input = Input::all();
+	  $input = Input::all();
 
-        $data = [
-            'user_id' => Sentry::getUser()->id,
-            'location' => $input['location'],
-            'date_from' => $input['startingtime'],
-            'date_to' => $input['endingtime'],
-            'capacity' => $input['capacity'],
-            'description' => $input['description'],
-            'sport' => $input['sport']
-        ];
+	  $data = [
+	      'user_id' => Sentry::getUser()->id,
+	      'location' => $input['location'],
+	      'date_from' => $input['startingtime'],
+	      'date_to' => $input['endingtime'],
+	      'capacity' => $input['capacity'],
+	      'description' => $input['description'],
+	      'sport' => $input['sport']
+	  ];
 
 		$this->activity->store($data);
+
+		// gets the most recent activity id
+		$activity_count = Activity::orderBy('id', 'DESC')->first()->id;
+
+		$this->activityJoin->store([
+				'activity_id' => $activity_count,
+				'user_id' => Sentry::getUser()->id
+		]);
 	}
 
 	/**

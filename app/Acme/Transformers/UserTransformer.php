@@ -69,6 +69,7 @@ class UserTransformer extends TransformerAbstract
 			'id' => $user['id'],
             'name' => Profile::find($user['id'])->name,
             'username' => $user['username'],
+            'profile_picture' => Profile::find($user['id'])->image,
             'areFriends' => $areFriends
 		];
 	}

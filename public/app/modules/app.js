@@ -241,7 +241,7 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 	// RESPONSE INTERCEPTOR
 	// ----------------------------------------------------------------------------
 	Restangular.addResponseInterceptor(function(data,operation,what,response,deferred){
-		if (what == api_const.activities) {
+		if (what == api_const.activities && operation != 'post') {
 			return data.obj.data;
 		}
 		return data.obj;

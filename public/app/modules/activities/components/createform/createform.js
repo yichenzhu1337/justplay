@@ -54,9 +54,10 @@ controllers.activityController = function($scope, sportFactory, FlashService, Ac
 
       $scope.ActivitySvc.post($scope.create).then(
         function() {
+          FlashService.show('You have succesfully created an activity!', 'success');
+          //$state.go('main.activities.detail({id: })');
+          $state.go('main.activities.manager');
         });;
-      FlashService.show('You have succesfully created an activity!', 'success');
-      $state.go('main.activities.list');
       
     } else {
       FlashService.show('There were errors with your input', 'error');

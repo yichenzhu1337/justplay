@@ -16,7 +16,7 @@
           close-text="Close">{{dateobj.date | date:filterFormat}}</a>
         </div>
       </div>
-      <div class='call-to-action' ng-show='dateobj.obj.length == 0'>
+      <div class='call-to-action' ng-show='checkFilteredCollectionLength(dateobj.obj, activityFilter) < 1'>
         <p>Hey, there doesn't seem to be anyone playing yet.</p>
         <p>Want to try hosting an activity?</p>
         <button 

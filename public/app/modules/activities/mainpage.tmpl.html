@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand brand" href="">
+          <a class="navbar-brand brand" href ui-sref='main.activities.list'>
             <img src="app/img/justPlayVector.png" class="img-responsive" alt="">
           </a>
         </div>
@@ -26,8 +26,8 @@
             </span>
             <span>Notifications</span></a>
             </li>
-            <li><a ui-sref="main.activities.list" tooltip-placement="bottom" tooltip="Browse Activities">
-            <i class="glyphicon glyphicon-list side-icon"></i><span>Activities</span></a>
+            <li ng-show="getUser()"><a ui-sref="main.activities.manager" tooltip-placement="bottom" tooltip="Manage your activities">
+            <i class="glyphicon glyphicon-list-alt side-icon"></i><span>Activity Manager</span></a>
             </li>
             <li><a ui-sref="main.activities.create" tooltip-placement="bottom" tooltip="Create"><i class="glyphicon glyphicon-plus side-icon"></i><span>Create Activity</span></a></li>
             <li>
@@ -38,12 +38,6 @@
             <li ng-show="getUser()" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">{{user.username}}</a>
               <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a ui-sref="main.activities.manager">
-                    <i class="glyphicon glyphicon-list-alt"></i>
-                    <span class="hidden text">a</span>Activity Manager
-                  </a>
-                </li>
                 <li>
                   <a ui-sref="main.profile({username: user.username})">
                     <i class="glyphicon glyphicon-user"></i>

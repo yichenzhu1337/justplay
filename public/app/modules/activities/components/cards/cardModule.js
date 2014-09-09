@@ -81,6 +81,25 @@ function($scope, watching, filterService, activityList, $state) {
 
 	};
 
+	$scope.checkFilteredCollectionLength = function(curList, filter) {
+		if (filter === '' || angular.isUndefined(filter))
+		{
+			return curList.length
+		} else if (angular.isDefined(filter))
+		{
+			var list = [];
+
+			for (var i = 0; i < curList.length; i ++)
+			{
+				if (curList[i].sport === filter)
+				{
+					list.push(curList[i]);
+				}
+			}
+			return list.length;
+		}
+	}
+
 	$scope.createActivity = function(date, sport)
 	{
 		$state.go('main.activities.create', {startingtime: date, sport: sport});

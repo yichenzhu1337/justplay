@@ -21,7 +21,7 @@ class ActivitiesTableSeeder extends Seeder {
 			$end_date = $start_date->addDays(rand(1, 2));
 
 			Activity::create([
-				'user_id' => rand(1, 100),
+				'user_id' => rand(1, 25),
 				'description' => $faker->sentence(rand(10, 20)),
 				'capacity' => rand(2, 20),
 				'sport' => $sports_list[rand(0, 3)],

@@ -64,7 +64,7 @@ jpactivitiespage
 				return ActivitySvc.getPastList();
 			},
 			upcomingActList: function(ActivitySvc) {
-				return ActivitySvc.getPastList();
+				return ActivitySvc.getUpcomingList();
 			},
 			hostedActList: function(ActivitySvc) {
 				return ActivitySvc.getHostedList();

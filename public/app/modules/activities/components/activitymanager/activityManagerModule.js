@@ -25,7 +25,7 @@ function($scope, pastActList, upcomingActList, hostedActList, activityManagerSer
 		{
 			Past: $filter('orderBy')(pastActList,'-starttime'),
 			Upcoming: $filter('orderBy')(upcomingActList,'+starttime'),
-			Hosted: $filter('orderBy')(hostedActList,'+starttime')
+			Hosted: $filter('orderBy')(hostedActList,'-starttime')
 		};
 		$scope.activityManagerSvc = activityManagerService;
 		$scope.selectedCat = 'Upcoming';

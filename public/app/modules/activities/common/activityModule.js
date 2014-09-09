@@ -183,6 +183,21 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Re
 		return list;
 	}
 
+	var sortActivityByDate = function(sortingFn, list)
+	{
+		var mlist = [];
+
+		for (var i = 0; i < list.length; i++)
+		{
+			if (sortingFn(list[i]))
+			{
+				mlist.push(list[i]);
+			}
+		}
+
+		return mlist;
+	}
+
 	return {
 		getList: function() {
 			return getAll();
@@ -199,8 +214,42 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Re
 		getPastList: function() {
 			return API.get('api/v1/activities/activities-all-auth?include=comments,activityJoined')
 			.then(function(data) {
-				return buildArrayOfActivity(data.data);
+				var arr = buildArrayOfActivity(data.data);
+
+				var fn = function(activity) {
+					if (moment(activity.date).isBefore(moment(new Date()).tz('America/Detroit'), 'day'))
+					{
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				}
+
+				var sorted = sortActivityByDate(fn, arr);
+				return sorted;
 			});
+		},
+		getUpcomingList: function() {
+			return API.get('api/v1/activities/activities-all-auth?include=comments,activityJoined')
+				.then(function(data) {
+					var arr = buildArrayOfActivity(data.data);
+
+					var fn = function(activity) {
+						if (moment(activity.date).isAfter(moment(new Date()).tz('America/Detroit'), 'day') || moment(activity.date).isSame(moment(new Date()).tz('America/Detroit'), 'day'))
+						{
+							return true;
+						}
+						else
+						{
+							return false;
+						}
+					}
+					
+					var sorted = sortActivityByDate(fn, arr);
+					return sorted;
+				});
 		},
 		post: function(activityForm) {
 			var payload = {};

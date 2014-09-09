@@ -23,9 +23,9 @@ function($scope, pastActList, upcomingActList, hostedActList, activityManagerSer
 	function init() {
 		$scope.activities = 
 		{
-			Past: $filter('orderBy')(constructOneArray(pastActList),'-starttime'),
-			Upcoming: $filter('orderBy')(constructOneArray(upcomingActList),'+starttime'),
-			Hosted: $filter('orderBy')(constructOneArray(hostedActList),'+starttime')
+			Past: $filter('orderBy')(pastActList,'-starttime'),
+			Upcoming: $filter('orderBy')(upcomingActList,'+starttime'),
+			Hosted: $filter('orderBy')(hostedActList,'+starttime')
 		};
 		$scope.activityManagerSvc = activityManagerService;
 		$scope.selectedCat = 'Upcoming';
@@ -39,7 +39,7 @@ function($scope, pastActList, upcomingActList, hostedActList, activityManagerSer
 			});
 	}
 
-	var constructOneArray = function(list)
+/*	var constructOneArray = function(list)
 	{
 		var masterarray = [];
 		for (var i = 0; i < list.length; i++)
@@ -50,7 +50,7 @@ function($scope, pastActList, upcomingActList, hostedActList, activityManagerSer
 			}
 		}
 		return masterarray;
-	}
+	}*/
 
 	init();
 }];

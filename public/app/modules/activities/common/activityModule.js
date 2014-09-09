@@ -173,12 +173,34 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Re
 		return activity;
 	}
 
+	var buildArrayOfActivity = function(data)
+	{
+		var list = [];
+		for (var i = 0; i < data.length; i++)
+		{
+			list.push(Activity.build(data[i]));
+		}
+		return list;
+	}
+
 	return {
 		getList: function() {
 			return getAll();
 		},
 		get: function(id) {
 			return Restangular.one(api_const.activities, id).get({include: 'comments,activityJoined'});
+		},
+		getHostedList: function() {
+			return API.get('api/v1/activities/activities-all-hosted?include=comments,activityJoined')
+			.then(function(data) {
+				return buildArrayOfActivity(data.data);
+			});
+		},
+		getPastList: function() {
+			return API.get('api/v1/activities/activities-all-auth?include=comments,activityJoined')
+			.then(function(data) {
+				return buildArrayOfActivity(data.data);
+			});
 		},
 		post: function(activityForm) {
 			var payload = {};

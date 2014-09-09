@@ -61,13 +61,13 @@ jpactivitiespage
 		},
 		resolve: {
 			pastActList: function(ActivitySvc) {
-				return ActivitySvc.getList();
+				return ActivitySvc.getPastList();
 			},
 			upcomingActList: function(ActivitySvc) {
-				return ActivitySvc.getList();
+				return ActivitySvc.getPastList();
 			},
 			hostedActList: function(ActivitySvc) {
-				return ActivitySvc.getList();
+				return ActivitySvc.getHostedList();
 			}
 		},
 		data: {

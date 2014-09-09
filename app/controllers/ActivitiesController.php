@@ -265,8 +265,11 @@ class ActivitiesController extends \ApiController {
 		//					->select('activity_join.*','modules.module_name')
 			//				->get‌​();
 
-
-		return $array;
+		return Response::json(
+			array(
+				'errors' => [],
+				'obj' => $array
+			));
 	}
 
 	public function getAllAuthHostedActivities()
@@ -283,7 +286,11 @@ class ActivitiesController extends \ApiController {
         $resource = new Collection($activities_today, new ActivityTransformer);
         $array = $fractal->createData($resource)->toArray();
 
-        return $array;
+		return Response::json(
+			array(
+				'errors' => [],
+				'obj' => $array
+			));
 	}
 }
 

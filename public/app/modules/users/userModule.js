@@ -41,7 +41,7 @@ factories.MinimalUser = function()
 
 	MinimalUser.build = function(userJSON) {
 		if (angular.isDefined(userJSON.name) && angular.isDefined(userJSON.username) && angular.isDefined(userJSON.areFriends)) {
-			return new MinimalUser(userJSON.id,userJSON.name,userJSON.username,userJSON.areFriends,userJSON.dp);
+			return new MinimalUser(userJSON.id,userJSON.name,userJSON.username,userJSON.areFriends,userJSON.profile_picture);
 		}
 	}
 	return MinimalUser;

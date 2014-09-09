@@ -1,3 +1,4 @@
+/vendor
 /.idea
 /bootstrap/compiled.php
 composer.phar

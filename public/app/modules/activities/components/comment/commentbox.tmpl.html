@@ -1,6 +1,6 @@
 <div class="media comment" >
   <a class="pull-left" href="">
-    <img class="media-object" src="app/img/jack-yiu-dp.jpg" alt="dp" width="50px">
+    <img class="media-object" ng-src="{{AuthSvc.getUser().profile.image}}" alt="dp" width="50px">
   </a>
   <div class="media-body">
 		<textarea class="form-control" name="comment" ng-model="newcomment" rows="2" placeholder="Comment here" ng-disabled='!enabled'></textarea>

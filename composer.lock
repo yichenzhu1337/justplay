@@ -376,12 +376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "4c3e635f8f5f31e889a4fa0d38f729f36b383697"
+                "reference": "01109315e2bca979d2bb1c88260fde036864c0c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4c3e635f8f5f31e889a4fa0d38f729f36b383697",
-                "reference": "4c3e635f8f5f31e889a4fa0d38f729f36b383697",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/01109315e2bca979d2bb1c88260fde036864c0c6",
+                "reference": "01109315e2bca979d2bb1c88260fde036864c0c6",
                 "shasum": ""
             },
             "require": {
@@ -418,7 +418,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-09-03 15:46:27"
+            "time": "2014-09-09 17:33:15"
         },
         {
             "name": "ircmaxell/password-compat",

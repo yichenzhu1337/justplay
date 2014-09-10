@@ -17,7 +17,7 @@
             'DB_HOST' => '107.170.116.126',
             'DB_NAME' => 'justplay',
             'DB_USERNAME' => 'forge',
-            'DB_PASSWORD' => 'Khd9hJxJQSiDIFu40v9e'
+            'DB_PASSWORD' => '85uA7bVEGlbaqgplvB04'
         ];
     }
     else

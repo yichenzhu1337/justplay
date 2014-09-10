@@ -19,11 +19,11 @@ controllers.activityController = function($scope, sportFactory, FlashService, Ac
 
     // Fill our form object.
     $scope.create = {};
-    if ($state.params.startingtime !== null)
+    if ($state.params.startingtime !== null && angular.isDefined($state.params.startingtime))
     {
       $scope.create.date = new Date($state.params.startingtime);    
     }
-    if ($scope.create.sport !== '' && $state.params.sport !== null)
+    if ($scope.create.sport !== '' && $state.params.sport !== null && angular.isDefined($state.params.sport))
     {
       $scope.create.sport = $state.params.sport;
     }
@@ -53,10 +53,9 @@ controllers.activityController = function($scope, sportFactory, FlashService, Ac
       $scope.create.endingtime = m_endingtime.tz("Etc/UTC").toDate();
 
       $scope.ActivitySvc.post($scope.create).then(
-        function() {
+        function(id) {
           FlashService.show('You have succesfully created an activity!', 'success');
-          //$state.go('main.activities.detail({id: })');
-          $state.go('main.activities.manager');
+          $state.go('main.activities.detail', {id: id});
         });;
       
     } else {

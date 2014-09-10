@@ -102,6 +102,14 @@ class ActivitiesController extends \ApiController {
 				'activity_id' => $activity_count,
 				'user_id' => Sentry::getUser()->id
 		]);
+
+		return Response::json(
+			array(
+				'errors' => [],
+				'obj' => [
+					'activity_id' => $activity_count
+				]
+			));
 	}
 
 	/**

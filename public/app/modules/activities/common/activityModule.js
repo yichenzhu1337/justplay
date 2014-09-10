@@ -260,7 +260,9 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Re
       payload.startingtime = payload.startingtime.toMysqlFormat();
       payload.endingtime = payload.endingtime.toMysqlFormat();
 
-      return Restangular.all(api_const.activities).post(payload);
+      return API.post('api/v1/activities', payload).then(function(data) {
+      	return data.activity_id;
+      });
 		}
 	}
 }]

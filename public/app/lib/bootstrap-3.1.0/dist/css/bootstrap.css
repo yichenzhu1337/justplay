@@ -6592,6 +6592,10 @@ a.media-name {
     margin-top: 0px;
   }
 }
+.activitymanager-body-wrapper > * .call-to-action {
+  padding-top: 20px;
+  text-align: center;
+}
 .media,
 .media-body {
   overflow: visible;

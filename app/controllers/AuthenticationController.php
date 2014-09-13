@@ -67,10 +67,15 @@ class AuthenticationController extends \ApiController {
 
 				Profile::create([
 					"user_id" => $user->id,
-					'name' => Input::get('name')
+					'name' => Input::get('name'),
+					'image' => 'app/img/profile.png'
 				]);
 
-
+				return Response::json(
+					array(
+						'errors' => [],
+						'obj' => array('success' => 'true')
+					));
 			}
 		}
 

@@ -12,8 +12,9 @@ class Profile extends \Eloquent {
 	protected $fillable = [
 				'user_id', 
 				'name',
+				'image',
 				'gender',
-				'bio"',
+				'bio',
 				'age',
 				'email',
 				'preferences',

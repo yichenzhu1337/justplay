@@ -24,29 +24,29 @@ controllers.signupCtrl = function($scope, $state, registerSvc, FlashService, API
 	}
 }
 
-factories.registerSvc = function(API, api_const, FlashService) {
+factories.registerSvc = function(API, api_const, FlashService, $q) {
 	return {
 		register: function(regForm) {
+			var d = $q.defer();
+
 			var reg = API.post(api_const.base_api_route+"/register", regForm)
-			.then(function(data)
+			.then(function()
 				{
-					API.put(api_const.base_api_route+'/'+api_const.profiles+'/'+regForm.first_name, {
-						name: regForm.first_name
-					});
+					d.resolve();
 				},
 				function(data) {
 					if (data[0].message === 'email already in use')
 					{
 						FlashService.show('Email already in use', 'error');
-						$q.reject();
+						d.reject();
 					}
 					else if (data[0].message === 'username already in use')
 					{
 						FlashService.show('Username already in use', 'error');
-						$q.reject();
+						d.reject();
 					}
 				});
-			return reg;
+			return d.promise;
 		}
 	}
 }

@@ -11,6 +11,7 @@ use League\Fractal\Serializer\ArraySerializer;
 use League\Fractal\Serializer\JsonApiSerializer;
 
 use Acme\Transformers\ActivityTransformer;
+use Acme\Transformers\ActivityAscendedTransformer;
 use Acme\Transformer\PostTransformer;
 use Acme\Transformer\UserTransformer;
 
@@ -231,7 +232,7 @@ class ActivitiesController extends \ApiController {
 					        ->get();
 			*/
 
-			$resource = new Collection($activities_today, new ActivityTransformer);
+			$resource = new Collection($activities_today, new ActivityAscendedTransformer);
 			$array = $fractal->createData($resource)->toArray();
 
 			array_push($current_layer, $today);
@@ -253,52 +254,50 @@ class ActivitiesController extends \ApiController {
 	public function getAllAuthActivities()
 	{
 
-	  $fractal = new Manager();
-	  $fractal->setSerializer(new DataArraySerializer());
-
-	  if (isset($_GET['include'])) {
-	      $fractal->parseIncludes($_GET['include']);
-	  }
-
-		$activities_today = Activity::join('activities_joined', function($join) 
-										{
-	  									$join->on('activities.id', '=', 'activities_joined.activity_id')
-	  						 					 ->where('activities_joined.user_id', '=', Sentry::getUser()->id);
-										})->get();
-		
-	  $resource = new Collection($activities_today, new ActivityTransformer);
-	  $array = $fractal->createData($resource)->toArray();
-
-		// $d = Activity::join('activity_join', 'activity.id', '=','activity_join.id')
-		//								->select('activity_join.*','modules.module_name')
-		//				  			->get‌​();
-
-		return Response::json(
-			array(
-				'errors' => [],
-				'obj' => $array
-			));
-	}
-
-	public function getAllAuthHostedActivities()
-	{
         $fractal = new Manager();
         $fractal->setSerializer(new DataArraySerializer());
 
         if (isset($_GET['include'])) {
-            $fractal->parseIncludes($_GET['include']);
+          $fractal->parseIncludes($_GET['include']);
         }
 
-        $activities_today =  Activity::where('user_id', '=', Sentry::getUser()->id)->get();
+		$activities_today = Activity::join('activities_joined', function($join)
+										{
+	  									$join->on('activities.id', '=', 'activities_joined.activity_id')
+	  						 					 ->where('activities_joined.user_id', '=', Sentry::getUser()->id);
+										})->get();
 
-        $resource = new Collection($activities_today, new ActivityTransformer);
+
+        $resource = new Collection($activities_today, new ActivityAscendedTransformer);
         $array = $fractal->createData($resource)->toArray();
 
-		return Response::json(
-			array(
-				'errors' => [],
-				'obj' => $array
-			));
-	}
+        return Response::json(
+            array(
+                'errors' => [],
+                'obj' => $array
+            ));
+
+    }
+
+    public function getAllAuthHostedActivities()
+    {
+    $fractal = new Manager();
+    $fractal->setSerializer(new DataArraySerializer());
+
+    if (isset($_GET['include'])) {
+        $fractal->parseIncludes($_GET['include']);
+    }
+
+    $activities_today =  Activity::where('user_id', '=', Sentry::getUser()->id)->get();
+
+    $resource = new Collection($activities_today, new ActivityTransformer);
+    $array = $fractal->createData($resource)->toArray();
+
+    return Response::json(
+        array(
+            'errors' => [],
+            'obj' => $array
+        ));
+    }
 }
 

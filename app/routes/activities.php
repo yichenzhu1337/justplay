@@ -77,6 +77,32 @@ Route::get('activities/activities-all-this-week', 'ActivitiesController@getAllAc
 
 /**
  * @SWG\Api(
+ *   path="/activities/activities-all-auth-this-week",
+ *   @SWG\Operation(
+ *     method="GET",
+ *     summary="Find an activity by activity_id",
+ *     notes="Returns an activity based on activity_id",
+ *     type="Activity",
+ *     nickname="getActivityById",
+ *     @SWG\Parameter(
+ *       name="activity_id",
+ *       description="id of activity that needs to be fetched",
+ *       required=true,
+ *       type="integer",
+ *       format="int64",
+ *       paramType="path",
+ *       minimum="1.0",
+ *       maximum="100000.0"
+ *     ),
+ *     @SWG\ResponseMessage(code=400, message="Invalid activity_id supplied"),
+ *     @SWG\ResponseMessage(code=404, message="Activity not found")
+ *   )
+ * )
+ */
+Route::get('activities/activities-all-auth-this-week', 'ActivitiesController@getAllAuthActivitiesThisWeek');
+
+/**
+ * @SWG\Api(
  *   path="/activities",
  *   @SWG\Operation(
  *     method="GET",
@@ -198,29 +224,5 @@ Route::get('activities/activities-all-this-week', 'ActivitiesController@getAllAc
 
 Route::resource('activities', 'ActivitiesController', ['only' => ['index', 'show', 'store', 'update','destroy']]);
 
-/**
- * @SWG\Api(
- *   path="/activities/activities-all-auth-this-week",
- *   @SWG\Operation(
- *     method="GET",
- *     summary="Find an activity by activity_id",
- *     notes="Returns an activity based on activity_id",
- *     type="Activity",
- *     nickname="getActivityById",
- *     @SWG\Parameter(
- *       name="activity_id",
- *       description="id of activity that needs to be fetched",
- *       required=true,
- *       type="integer",
- *       format="int64",
- *       paramType="path",
- *       minimum="1.0",
- *       maximum="100000.0"
- *     ),
- *     @SWG\ResponseMessage(code=400, message="Invalid activity_id supplied"),
- *     @SWG\ResponseMessage(code=404, message="Activity not found")
- *   )
- * )
- */
-Route::get('activities/activities-all-auth-this-week', 'ActivitiesController@getAllAuthActivitiesThisWeek');
+
 

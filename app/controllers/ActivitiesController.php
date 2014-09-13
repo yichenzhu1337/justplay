@@ -147,9 +147,14 @@ class ActivitiesController extends \ApiController {
 	 */
 	public function destroy($id)
 	{
+        $activity = Activity::find($id);
+
+        $s = $activity['date_from'];
+        $date = strtotime($s);
+
         $data = [
             'activity_id' => $id,
-            'description' => 'your activity has been deleted bitch'
+            'description' => date('l', $date) . ' ' . $activity['sport']
         ];
 
         Event::fire('user.activity.delete', ['input' => $data]);

@@ -5,10 +5,10 @@
         <div class="card-container">
           <div class='call-to-action' 
           ng-show="activeActList[selectedCat].length == 0 && (selectedCat === 'Hosted' || selectedCat === 'Upcoming')">
-            <p>Hey, there doesn't seem to be anyone playing yet.</p>
+            <p>You have no activities.</p>
             <p>Want to try hosting an activity?</p>
             <button 
-            ng-click="createActivity(dateobj.date, activityFilter)" 
+            ui-sref='main.activities.create'
             class='btn btn-primary btn-call-to-action'>Host Activity</button>
           </div>
           <div class='call-to-action' ng-show="activeActList[selectedCat].length == 0 && selectedCat === 'Past'">

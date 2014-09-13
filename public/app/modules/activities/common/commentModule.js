@@ -1,4 +1,4 @@
-var mod = angular.module('commentModule', []);
+var mod = angular.module('commentModule', ['jp.authentication']);
 
 var factories = {};
 
@@ -61,7 +61,7 @@ factories.CommentSvc = ['Comment', function(Comment) {
 }]
 
 // Single Comment
-mod.directive('jpcomment', [function(){
+mod.directive('jpcomment', ['authenticationService', function(AuthSvc){
 	return {
 		restrict: 'E',
 		transclude: true,
@@ -72,12 +72,19 @@ mod.directive('jpcomment', [function(){
 		replace: true,
 		link: function($scope, element, attrs) {
 			function init() {
+				$scope.AuthSvc = AuthSvc;
+
 				$scope.$watchCollection(function () { return $scope.commentobj }, function(newVal,oldVal) {
 					if (newVal!=oldVal)
 					{
 						$scope.commentobj.put();
 					}
 				});
+			}
+
+			$scope.IsCurrentUser = function(username)
+			{
+				return $scope.AuthSvc.isCurrentUser(username);
 			}
 
 			init();

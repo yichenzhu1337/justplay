@@ -323,7 +323,7 @@ app.run(['$rootScope','$state','authenticationService', 'access', 'FlashService'
   			return;
   		}
   	}
-  	if (fromState.name == 'login')
+  	if (fromState.name == 'login' && toState.name != 'signup')
   	{
   		var prop = angular.copy(AuthSvc.getAttemptStateAndParams());
   		if (prop) {

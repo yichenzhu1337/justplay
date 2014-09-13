@@ -40,6 +40,10 @@ services.DateTimeService = function()
 		for (var key in element)
 		{
 			console.log('Key: ' + key +' element: ' + element[key]);
+			if (element[key] === null || angular.isUndefined(element[key]))
+			{
+				continue;
+			}
 			if (element[key] instanceof Date)
 			{
 				element[key] = moment(element[key]);

@@ -178,26 +178,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
 app.config(function($httpProvider) {
 
-  var logsOutUserOn401 = function($location, $q, SessionService, FlashService) {
-    var success = function(response) {
-      return response;
-    };
-
-    var error = function(response) {
-      if(response.status === 401) {
-        SessionService.unset('authenticated');
-        $location.path('/login');
-        FlashService.show(response.data.flash);
-      }
-      return $q.reject(response);
-    };
-
-    return function(promise) {
-      return promise.then(success, error);
-    };
-  };
-
-  $httpProvider.responseInterceptors.push(logsOutUserOn401);
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 });
 
@@ -327,7 +309,7 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, In
 app.run(['$rootScope','$state','authenticationService', 'access', 'FlashService', 
 	function($rootScope, $state, AuthSvc, access, FlashService){
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
-  	if (toState.name == 'login')
+  	if (toState.name == 'login' && fromState.name != 'signup')
   	{
   		var prop = angular.copy(AuthSvc.getAttemptStateAndParams());
   		if (prop) 

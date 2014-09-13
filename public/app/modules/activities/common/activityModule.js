@@ -237,7 +237,7 @@ function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Re
 					var arr = buildArrayOfActivity(data.data);
 
 					var fn = function(activity) {
-						if (moment(activity.date).isAfter(moment(new Date()).tz('America/Detroit'), 'day') || moment(activity.date).isSame(moment(new Date()).tz('America/Detroit'), 'day'))
+						if (moment(activity.date).isAfter(moment(new Date()).tz('America/Detroit'), 'day') || moment.tz(activity.date, 'America/Detroit').isSame(moment(new Date()).tz('America/Detroit'), 'day'))
 						{
 							return true;
 						}

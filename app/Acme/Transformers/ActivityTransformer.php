@@ -119,7 +119,8 @@ class ActivityTransformer extends TransformerAbstract {
 			'endingtime' => $activity['date_to'],
 			'capacity' => $activity['capacity'],
 			'description' => $activity['description'],
-            'sport' => $activity['sport']
+            'sport' => $activity['sport'],
+            'activity_id' => $activity['activity_id']
 		];
 	}
 

@@ -14,7 +14,7 @@ class AddUsernameFieldToUsersTable extends Migration {
 	{
 		Schema::table('users', function($table)
 		{
-			$table->string('username')->after('id');
+			$table->string('username')->after('id')->unique();
 		});
 	}
 

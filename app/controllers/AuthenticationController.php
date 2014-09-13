@@ -37,21 +37,12 @@ class AuthenticationController extends \ApiController {
 
 		try
 		{
-			////////////////////////////////////////////////
-			///need to fix
-			$user = Sentry::createUser(array(
-				'username' => Input::get('first_name'),
-				'email' => Input::get('email'),
-				'password' => Input::get('password'),
-				'activated' => true,
-				));
-
 			$rules = [
-				'username' => 'unique:users',
+				'username' => 'unique:users'
 			];
 
 			$input = [
-				'username' => Input::get('first_name')
+				'username' => Input::get('username')
 			];
 			$validator = Validator::make($input, $rules);
 
@@ -67,10 +58,19 @@ class AuthenticationController extends \ApiController {
 			}
 			else
 			{
+				$user = Sentry::createUser(array(
+					'username' => Input::get('username'),
+					'email' => Input::get('email'),
+					'password' => Input::get('password'),
+					'activated' => true,
+					));
+
 				Profile::create([
 					"user_id" => $user->id,
-					'first_name' => Input::get('first_name')
+					'name' => Input::get('name')
 				]);
+
+
 			}
 		}
 

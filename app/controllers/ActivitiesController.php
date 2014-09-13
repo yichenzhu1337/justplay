@@ -253,25 +253,25 @@ class ActivitiesController extends \ApiController {
 	public function getAllAuthActivities()
 	{
 
-        $fractal = new Manager();
-        $fractal->setSerializer(new DataArraySerializer());
+	  $fractal = new Manager();
+	  $fractal->setSerializer(new DataArraySerializer());
 
-        if (isset($_GET['include'])) {
-            $fractal->parseIncludes($_GET['include']);
-        }
+	  if (isset($_GET['include'])) {
+	      $fractal->parseIncludes($_GET['include']);
+	  }
 
 		$activities_today = Activity::join('activities_joined', function($join) 
-												{
-	      									$join->on('activities.id', '=', 'activities_joined.activity_id')
-	      						 					 ->where('activities_joined.user_id', '=', Sentry::getUser()->id);
-	    									})->get();
+										{
+	  									$join->on('activities.id', '=', 'activities_joined.activity_id')
+	  						 					 ->where('activities_joined.user_id', '=', Sentry::getUser()->id);
+										})->get();
+		
+	  $resource = new Collection($activities_today, new ActivityTransformer);
+	  $array = $fractal->createData($resource)->toArray();
 
-        $resource = new Collection($activities_today, new ActivityTransformer);
-        $array = $fractal->createData($resource)->toArray();
-
-	   // $d = Activity::join('activity_join', 'activity.id', '=','activity_join.id')
-		//					->select('activity_join.*','modules.module_name')
-			//				->get‌​();
+		// $d = Activity::join('activity_join', 'activity.id', '=','activity_join.id')
+		//								->select('activity_join.*','modules.module_name')
+		//				  			->get‌​();
 
 		return Response::json(
 			array(

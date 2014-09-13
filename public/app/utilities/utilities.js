@@ -39,7 +39,6 @@ services.DateTimeService = function()
 		// Deserialize Moments and Dates into MySqlFormat
 		for (var key in element)
 		{
-			console.log('Key: ' + key +' element: ' + element[key]);
 			if (element[key] === null || angular.isUndefined(element[key]))
 			{
 				continue;

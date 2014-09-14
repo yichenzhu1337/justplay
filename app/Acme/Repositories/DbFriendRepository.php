@@ -51,6 +51,8 @@ class DbFriendRepository extends DbBaseRepository implements FriendRepositoryInt
 
 		$notification_sent = "SELECT * FROM notifications_friends ";
 		$notification_sent .= "WHERE ";
+		$notification_sent .= "sub_type = 'want_to_accept' ";
+		$notification_sent .= "AND ";		
 		$notification_sent .= "from_id = $user_id ";
 		$notification_sent .= "AND ";
 		$notification_sent .= "to_id = $stranger_id ";

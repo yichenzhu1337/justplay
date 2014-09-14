@@ -105,7 +105,7 @@ mod.directive('jpcommentlist', [function(){
 		link: function($scope, element, attrs) {
 			function init()
 			{
-				$scope.currentPage = 1;
+				$scope.currentPage = Math.ceil($scope.list.length/$scope.pageLength);
 				$scope.totalComments = $scope.list.length;
 
 				$scope.$watch(function() { return $scope.list.length }, function(newVal, oldVal) {
@@ -147,9 +147,11 @@ mod.directive('jpcommentbox', ['authenticationService', function(AuthSvc){
 					date: moment.tz(new Date(), 'America/Detroit'),
 					profile_picture: $scope.AuthSvc.getUser().profile.image
 				}
-				parent.post(commentData);
-				parent.push(commentData);
-				$scope.newcomment = "";
+				parent.post(commentData).then(function() {
+					$state.go($state.$current, null, { reload: true });
+				});
+/*				parent.push(commentData);
+				$scope.newcomment = "";*/
 			}
 
 			init();

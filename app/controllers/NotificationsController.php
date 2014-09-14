@@ -92,16 +92,27 @@ class NotificationsController extends \BaseController {
 
             case 'friend_request':
                 $this->notification->sendFriendRequest('want_to_accept', $from_id, $to_id, $details);
+                return Response::json(
+                    array(
+                        'errors' => [],
+                        'obj' => ['success'=>'true']
+                    ));
                 break;
 
             case 'activity_invite_request':
                 $this->notification->sendActivityInviteRequest($from_id, $to_id, $activity_id, $details);
+                return Response::json(
+                    array(
+                        'errors' => [],
+                        'obj' => ['success'=>'true']
+                    ));
                 break;
 
             default:
                 return 'invalid request_type';
 
         }
+
     }
 
     /**

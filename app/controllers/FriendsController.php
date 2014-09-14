@@ -42,6 +42,12 @@ class FriendsController extends \BaseController {
 		$this->notification->deleteFriendNotification($input['user1_id'], $input['user2_id']);
 
 		$this->notification->sendFriendRequest('accept_confirmed', $input['user1_id'], $input['user2_id'], $details=null);
+	
+    return Response::json(
+      array(
+          'errors' => [],
+          'obj' => ['success'=>'true']
+      ));
 	}
 
 	/**

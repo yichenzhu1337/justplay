@@ -43,7 +43,7 @@
           <div class="col-xs-4 friend-list-tooltip">
             <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Left'">
               <div class="card-number">
-                {{activity.participants.totalFriends}}
+                {{friendList.length}}
               </div>
               <div class="description-text">
                 FRIENDS
@@ -63,10 +63,10 @@
           <div class="col-xs-4">
             <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Right'">                        
               <div class="card-number">
-                {{ activity.participants.totalParticipants }}
+                {{ goingList.length }}
               </div>
               <div class="description-text">
-                GOING
+                NON-FRIENDS
               </div>
             </button>
           </div>

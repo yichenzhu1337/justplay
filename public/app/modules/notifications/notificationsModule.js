@@ -89,7 +89,11 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 				break;
 			}
 		}
-		peopleNames += ' and ' + remainder + ' others';
+		
+		if (list.length > 1)
+		{
+			peopleNames += ' and ' + remainder + ' others';		
+		}
 
 		return peopleNames;
 	}

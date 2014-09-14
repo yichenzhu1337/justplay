@@ -16,7 +16,7 @@ class ActivityJoinEventHandler {
     }
 
     /**
-     * Sends a notification to all users in a particular activity that a person has commented
+     * Sends a notification to all users in a particular activity that a person has joined
      */
     public function onStore($event)
     {
@@ -26,10 +26,13 @@ class ActivityJoinEventHandler {
 
         foreach ($user_ids as $user_id)
         {
-            $from_id = 1; //Sentry::getUser->id
-            $to_id = $user_id;
+            if ($user_id != Sentry::getUser->id)
+            {
+                $from_id = Sentry::getUser->id;
+                $to_id = $user_id;
 
-            $this->notification->sendActivityNotification('activity_join', $from_id, $to_id, $activity_id, $details);
+                $this->notification->sendActivityNotification('activity_join', $from_id, $to_id, $activity_id, $details);
+            }
         }
 
     }

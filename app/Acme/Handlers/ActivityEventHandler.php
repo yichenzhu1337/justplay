@@ -40,9 +40,12 @@ class ActivityEventHandler {
 
         foreach ($user_ids as $user_id)
         {
+          if ($user_id != Sentry::getUser()->id)
+          {
             $from_id = Sentry::getUser()->id;
             $to_id = $user_id;
             $this->notification->sendActivityNotification('activity_update', $from_id, $to_id, $activity_id, $details);
+          }
         }
 
     }
@@ -61,9 +64,12 @@ class ActivityEventHandler {
 
         foreach ($user_ids as $user_id)
         {
+          if ($user_id != Sentry::getUser()->id)
+          {
             $from_id = Sentry::getUser()->id;
             $to_id = $user_id;
             $this->notification->sendActivityNotification('activity_delete', $from_id, $to_id, $activity_id, $details);
+          }
         }
 
     }

@@ -14,7 +14,7 @@ var jpactivitiespage = angular.module('jp.activitiespage',
 
 jpactivitiespage
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-		var access = 
+	var access = 
 	{
 		auth: 'auth',
 		anon: 'anon'
@@ -36,6 +36,9 @@ jpactivitiespage
 			activityList: function(ActivitySvc) {
 				return ActivitySvc.getList();
 			}
+		},
+		data: {
+			access: access.auth
 		}
 	})
 	.state('main.activities.create', {
@@ -45,6 +48,9 @@ jpactivitiespage
 			"body": {
 				templateUrl: "app/modules/activities/partials/createform.tmpl.html"
 			}
+		},
+		data: {
+			access: access.auth
 		}
 	})
 	.state('main.activities.manager', {
@@ -96,6 +102,9 @@ jpactivitiespage
 						$state.go('main.activities.list');
 					});
 			}
+		},
+		data: {
+			access: access.auth
 		}
 	});
 }]);

@@ -177,20 +177,20 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 
 				}
 			},
-			update: function(obj) {
-				var body = obj.from_user + ' has updated ' + activityName(obj.activity.data[0]);
+			update: function(list) {
+				var body = activityName(list[0].activity.data[0]) + ' has been updated';
 
 				return {
 					body: body,
-					time_stamp: createMoment(obj.created_at),
+					time_stamp: retrieveLatestDate(list),
 					action: function() {
-						markAsRead([obj.id], notification_routes.get.activity);
-						$state.go('main.activities.detail', {id: obj.activity.data[0].id});
+						markAsRead(createNotifIdList(list), notification_routes.get.activity);
+						$state.go('main.activities.detail', {id: list[0].activity.data[0].id});
 					},
 					readIt: function(){
-					  markAsRead([obj.id], notification_routes.get.activity)
+					  markAsRead(createNotifIdList(list), notification_routes.get.activity)
 					},
-					is_read: parseIsRead(obj),
+					is_read: false,
 
 				}
 			}
@@ -311,10 +311,7 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 							}
 							break;
 						case 'update':
-							for (var i = 0; i < curNotifList.length; i++)
-							{
-								notifList.push(notification.activity.update(curNotifList[i]));
-							}
+							notifList.push(notification.activity.update(curNotifList));
 							break;
 					}
 				}

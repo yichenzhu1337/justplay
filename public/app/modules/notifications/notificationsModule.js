@@ -337,22 +337,31 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 		return modList;
 	}
 
+	var getFriendNotifs = function()
+	{
+		return API.get(base_route+'/'+notification_routes.get.friends).then(
+			function(data) {
+				return $filter('filter')(constructFriendNotificationList(data.friends), {is_read: false}, true);
+			});
+	}
+
+	var getActivityNotifs = function()
+	{
+		return API.get(base_route+'/'+notification_routes.get.activity).then(
+			function(data) {
+				var filteredList = $filter('filter')(data.notifications, {is_read: 0}, true);
+				//var filteredList = data.notifications;		
+				var notifListGroupByActId = groupNotificationsByActId(filteredList);
+				var masterNotifList = constructActivityNotificationList(notifListGroupByActId);
+				return masterNotifList;
+			});
+	}
 	return {
 		getFriendNotifications: function() {
-			return API.get(base_route+'/'+notification_routes.get.friends).then(
-				function(data) {
-					return $filter('filter')(constructFriendNotificationList(data.friends), {is_read: 0}, true);
-				});
+			return getFriendNotifs();
 		},
 		getActivityNotifications: function() {
-			return API.get(base_route+'/'+notification_routes.get.activity).then(
-				function(data) {
-					var filteredList = $filter('filter')(data.notifications, {is_read: 0}, true);
-					//var filteredList = data.notifications;		
-					var notifListGroupByActId = groupNotificationsByActId(filteredList);
-					var masterNotifList = constructActivityNotificationList(notifListGroupByActId);
-					return masterNotifList;
-				});
+			return getActivityNotifs();
 		}
 	}
 }

@@ -142,7 +142,7 @@ mod.directive('jpcommentbox', ['authenticationService', function(AuthSvc){
 					activity_id: $scope.activityId, 
 					user_id: $scope.AuthSvc.getUser().numeric_id,
 					username: $scope.AuthSvc.getUser().username,
-					name: $scope.AuthSvc.getUser().name,
+					name: $scope.AuthSvc.getUser().profile.name,
 					description: comment,
 					date: moment.tz(new Date(), 'America/Detroit'),
 					profile_picture: $scope.AuthSvc.getUser().profile.image

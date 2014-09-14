@@ -90,7 +90,7 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 			}
 		}
 		
-		if (list.length > 1)
+		if (list.length > maxToDisplay)
 		{
 			peopleNames += ' and ' + remainder + ' others';		
 		}

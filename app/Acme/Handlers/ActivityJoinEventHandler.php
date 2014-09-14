@@ -26,9 +26,9 @@ class ActivityJoinEventHandler {
 
         foreach ($user_ids as $user_id)
         {
-            if ($user_id != Sentry::getUser->id)
+            if ($user_id != Sentry::getUser()->id)
             {
-                $from_id = Sentry::getUser->id;
+                $from_id = Sentry::getUser()->id;
                 $to_id = $user_id;
 
                 $this->notification->sendActivityNotification('activity_join', $from_id, $to_id, $activity_id, $details);

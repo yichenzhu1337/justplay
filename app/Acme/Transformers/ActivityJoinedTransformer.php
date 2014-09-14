@@ -16,6 +16,7 @@ use Activity;
 use ActivityJoin;
 use DB;
 use Profile;
+use Sentry;
 
 class ActivityJoinedTransformer extends TransformerAbstract
 {

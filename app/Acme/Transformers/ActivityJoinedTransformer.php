@@ -23,7 +23,7 @@ class ActivityJoinedTransformer extends TransformerAbstract
 	public function transform(ActivityJoin $activityJoined)
 	{
 		//abstract
-		$owner_id = Activity::find($activityJoined['activity_id'])->user_id;
+		$owner_id = Sentry::getUser()->id;//Activity::find($activityJoined['activity_id'])->user_id;
 		$user_id = $activityJoined['user_id'];
 
 		$are_they_friends = "SELECT * FROM friends ";
@@ -39,7 +39,8 @@ class ActivityJoinedTransformer extends TransformerAbstract
 		if (count($are_they_friends_query)) {
 			$areFriends	= true;
 		}
-		else{
+		else
+		{
 			$areFriends	= false;
 		}
 	

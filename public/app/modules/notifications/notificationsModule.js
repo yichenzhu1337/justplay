@@ -141,7 +141,7 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 				}
 			},
 			delete: function(obj) {
-				var body = activityName(obj.activity.data[0]) + ' has been cancelled';
+				var body = obj.description + ' has been cancelled';
 
 				return {
 					body: body,
@@ -284,33 +284,37 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 			{
 				var curNotifList = list[activity][notif_types];
 				
-				switch (notif_types)
+				if (curNotifList.length > 0)
 				{
-					case 'join':
-						notifList.push(notification.activity.join(curNotifList))
-						break;
-					case 'comment':
-						notifList.push(notification.activity.comment(curNotifList));
-						break;
-					case 'invite':
-						for (var i = 0; i < curNotifList.length; i++)
-						{
-							notifList.push(notification.activity.invite(curNotifList[i]));
-						}
-						break;
-					case 'delete':
-						for (var i = 0; i < curNotifList.length; i++)
-						{
-							notifList.push(notification.activity.delete(curNotifList[i]));
-						}
-						break;
-					case 'update':
-						for (var i = 0; i < curNotifList.length; i++)
-						{
-							notifList.push(notification.activity.update(curNotifList[i]));
-						}
-						break;
+					switch (notif_types)
+					{
+						case 'join':
+							notifList.push(notification.activity.join(curNotifList))
+							break;
+						case 'comment':
+							notifList.push(notification.activity.comment(curNotifList));
+							break;
+						case 'invite':
+							for (var i = 0; i < curNotifList.length; i++)
+							{
+								notifList.push(notification.activity.invite(curNotifList[i]));
+							}
+							break;
+						case 'delete':
+							for (var i = 0; i < curNotifList.length; i++)
+							{
+								notifList.push(notification.activity.delete(curNotifList[i]));
+							}
+							break;
+						case 'update':
+							for (var i = 0; i < curNotifList.length; i++)
+							{
+								notifList.push(notification.activity.update(curNotifList[i]));
+							}
+							break;
+					}
 				}
+
 			}
 		}
 

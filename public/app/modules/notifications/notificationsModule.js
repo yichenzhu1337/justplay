@@ -90,7 +90,7 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 			}
 		}
 		
-		if (list.length > maxToDisplay)
+		if (list.length > maxToDisplay && remainder > 0)
 		{
 			peopleNames += ' and ' + remainder + ' others';		
 		}
@@ -293,7 +293,7 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 					switch (notif_types)
 					{
 						case 'join':
-							notifList.push(notification.activity.join(curNotifList))
+							notifList.push(notification.activity.join(curNotifList));
 							break;
 						case 'comment':
 							notifList.push(notification.activity.comment(curNotifList));

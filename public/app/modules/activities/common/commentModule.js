@@ -121,7 +121,7 @@ mod.directive('jpcommentlist', [function(){
 }]);
 
 // Comment Box
-mod.directive('jpcommentbox', ['authenticationService', function(AuthSvc){
+mod.directive('jpcommentbox', ['authenticationService', '$state', function(AuthSvc, $state){
 	return {
 		restrict: 'E',
 		transclude: true,

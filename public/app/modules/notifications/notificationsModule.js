@@ -237,48 +237,49 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 	var groupNotificationsByActId = function(list)
 	{
 		var finalList = {};
-
+		var deleteList = [];
 		for (var i = 0; i < list.length; i++)
 		{
-			var curNotificationActivityId = list[i].activity.data[0].id;
-			// Initialize new activityID and its arrays
-			if (angular.isUndefined(finalList[curNotificationActivityId]))
+			if (list[i].sub_type === notification_categories.activity.delete)
 			{
-				finalList[list[i].activity.data[0].id] = 
+				deleteList.push(list[i]);
+			} else {
+				var curNotificationActivityId = list[i].activity.data[0].id;
+				// Initialize new activityID and its arrays
+				if (angular.isUndefined(finalList[curNotificationActivityId]))
 				{
-					join: [],
-					comment: [],
-					invite: [],
-					delete: [],
-					update: []
+					finalList[list[i].activity.data[0].id] = 
+					{
+						join: [],
+						comment: [],
+						invite: [],
+						update: []
+					}
 				}
-			}
-			switch (list[i].sub_type)
-			{
-				case notification_categories.activity.join:
-					finalList[curNotificationActivityId].join.push(list[i]);
-					break;
-				case notification_categories.activity.comment:
-					finalList[curNotificationActivityId].comment.push(list[i]);
-					break;
-				case notification_categories.activity.invite:
-					finalList[curNotificationActivityId].invite.push(list[i]);
-					break;
-				case notification_categories.activity.delete:
-					finalList[curNotificationActivityId].delete.push(list[i]);
-					break;
-				case notification_categories.activity.update:
-					finalList[curNotificationActivityId].update.push(list[i]);
-					break;
+				switch (list[i].sub_type)
+				{
+					case notification_categories.activity.join:
+						finalList[curNotificationActivityId].join.push(list[i]);
+						break;
+					case notification_categories.activity.comment:
+						finalList[curNotificationActivityId].comment.push(list[i]);
+						break;
+					case notification_categories.activity.invite:
+						finalList[curNotificationActivityId].invite.push(list[i]);
+						break;
+					case notification_categories.activity.update:
+						finalList[curNotificationActivityId].update.push(list[i]);
+						break;
+				}
 			}
 		}
 
-		return finalList;
+		return {'nonDeletedList': finalList, 'deletedList':deleteList};
 	}
 
 	// Iterates through a list of activity notifications grouped by activity id
 	// and constructs a list of notifications without any grouping
-	var constructActivityNotificationList = function(list)
+	var constructActivityNonDeletedNotificationList = function(list)
 	{
 		var notifList = [];
 		// Replace all comments & joined with just one notif for each activity
@@ -322,6 +323,16 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 		return notifList;
 	}
 
+	var constructActivityDeletedNotificationList = function(list)
+	{
+		var finalList = [];
+		for (var i = 0; i < list.length; i++)
+		{
+			finalList.push(notification.activity.delete(list[i]));
+		}
+		return finalList;
+	}
+
 	var constructFriendNotificationList = function(list)
 	{
 		var modList = [];
@@ -353,8 +364,10 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 				var filteredList = $filter('filter')(data.notifications, {is_read: 0}, true);
 				//var filteredList = data.notifications;		
 				var notifListGroupByActId = groupNotificationsByActId(filteredList);
-				var masterNotifList = constructActivityNotificationList(notifListGroupByActId);
-				return masterNotifList;
+				var nonDeletedList = constructActivityNonDeletedNotificationList(notifListGroupByActId.nonDeletedList);
+				var deletedList = constructActivityDeletedNotificationList(notifListGroupByActId.deletedList);		
+				var activityNotifList = nonDeletedList.concat(deletedList);
+				return activityNotifList;
 			});
 	}
 	return {

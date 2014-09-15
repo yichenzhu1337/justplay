@@ -145,7 +145,7 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 				}
 			},
 			delete: function(obj) {
-				var body = obj.description + ' has been cancelled';
+				var body = obj.details + ' has been cancelled';
 
 				return {
 					body: body,

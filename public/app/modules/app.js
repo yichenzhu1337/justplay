@@ -44,6 +44,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		url: "/signup",
 		templateUrl: "app/modules/signup/signup.html"	
 	})
+	.state('terms', {
+		url: "/terms",
+		templateUrl: "app/modules/terms/terms.html"
+	})
 	.state('main', {
 		abstract: true,
 		templateUrl: "app/modules/activities/mainpage.tmpl.html",

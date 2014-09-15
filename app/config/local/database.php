@@ -14,10 +14,10 @@
     elseif ($env == "db")
     {
         $ENV =[
-            'DB_HOST' => '107.170.116.126',
+            'DB_HOST' => '107.170.174.220',
             'DB_NAME' => 'justplay',
             'DB_USERNAME' => 'forge',
-            'DB_PASSWORD' => '85uA7bVEGlbaqgplvB04'
+            'DB_PASSWORD' => 'bRUcUvVJfVIH9KmnpqdT'
         ];
     }
     else

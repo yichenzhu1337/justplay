@@ -5803,6 +5803,13 @@ td.visible-print {
   color: rgba(255, 255, 255, 0.4);
   font-weight: 700;
 }
+.more > p > a.major-form-actions {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: underline;
+}
+.more > .terms-message {
+  padding-bottom: 5px;
+}
 form.createActForm {
   max-width: 366px;
   text-align: left;

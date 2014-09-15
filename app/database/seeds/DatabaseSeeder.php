@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder {
 		$this->call('ActivitiesTableSeeder');
 		$this->call('CommentsTableSeeder');
 		$this->call('ActivitiesJoinTableSeeder');
-    $this->call('NotificationsFriendsTableSeeder');
-    $this->call('NotificationsActivitiesTableSeeder');
+        $this->call('NotificationsFriendsTableSeeder');
+        $this->call('NotificationsActivitiesTableSeeder');
 	}
 
 }

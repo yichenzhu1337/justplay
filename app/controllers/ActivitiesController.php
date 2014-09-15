@@ -148,18 +148,20 @@ class ActivitiesController extends \ApiController {
 	public function destroy($id)
 	{
         $activity = Activity::find($id);
+        $user_ids = $this->activityJoin->getAllUsersInActivity($id);
 
         $s = $activity['date_from'];
         $date = strtotime($s);
 
         $data = [
             'activity_id' => $id,
-            'description' => date('l', $date) . ' ' . $activity['sport']
+            'description' => date('l', $date) . ' ' . $activity['sport'],
+            'user_ids' => $user_ids
         ];
 
-        Event::fire('user.activity.delete', ['input' => $data]);
-
 		$this->activity->destroy($id);
+
+        Event::fire('user.activity.delete', ['input' => $data]);
 	}
 	
 	public function getAllActivitiesThisWeek()

@@ -55,12 +55,11 @@ class ActivityEventHandler {
      */
     public function onDelete($event)
     {
-        //dd($event);
 
         $activity_id = $event['activity_id'];
         $details = $event['description'];
 
-        $user_ids = $this->activityJoin->getAllUsersInActivity($activity_id);
+        $user_ids = $event['user_ids'];
 
         foreach ($user_ids as $user_id)
         {
@@ -68,7 +67,8 @@ class ActivityEventHandler {
           {
             $from_id = Sentry::getUser()->id;
             $to_id = $user_id;
-            $this->notification->sendActivityNotification('activity_delete', $from_id, $to_id, $activity_id, $details);
+
+            $this->notification->sendActivityNotification('activity_delete', $from_id, $to_id, null, $details);
           }
         }
 

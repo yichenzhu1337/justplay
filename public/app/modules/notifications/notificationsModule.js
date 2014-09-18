@@ -21,7 +21,7 @@ controllers.notificationsController = ['$scope', 'friendNotifications', 'activit
 }];
 
 factories.notificationsFactory = function(notification_routes, notification_categories, api_const, API, $filter, $state) {
-	var base_route = api_const.base_url+api_const.base_api_route+'/'+api_const.notifications;
+	var base_route = api_const.base_api_route+'/'+api_const.notifications;
 
 	/// HELPER FUNCTIONS
 	// Parses and formats the activityName

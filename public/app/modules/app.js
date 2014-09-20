@@ -192,7 +192,7 @@ app.constant('angularMomentConfig', {
 });
 
 app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, Interceptors, api_const) {
-	Restangular.setBaseUrl(BASE_URL+BASE_API_ROUTE);
+	Restangular.setBaseUrl('/'+BASE_API_ROUTE);
 	Restangular.setParentless([api_const.comments,api_const.participants]);
 	// REQUEST INTERCEPTOR
 	// ----------------------------------------------------------------------------

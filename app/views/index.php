@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
   <head>
 	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,7 +23,7 @@
 
   <body ng-app="app">
   	<div growl></div>
-		<div ui-view></div>
+		<div class='body-view' ui-view></div>
 
 		<!-- JS DEPENDENCIES -->
 		<!-- NON ANGULAR -->

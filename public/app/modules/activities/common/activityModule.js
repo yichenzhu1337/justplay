@@ -81,7 +81,7 @@ factories.ActivityCollection = function(){
 	 * @param {Object} obj  Array of objects its holding
 	 */
 	function ActivityCollection(date, obj) {
-		this.date = new Date(date);
+		this.date = moment.tz(date, 'Etc/UTC').tz('America/Detroit').toDate();
 		this.obj = obj;
 	}
 

@@ -5829,13 +5829,6 @@ form.createActForm > .form-group > select {
   height: 48px;
   background: rgba(255, 255, 255, 0.9);
 }
-form.createActForm > button {
-  width: 100%;
-  background: linear-gradient(to bottom, #76d926, #6ac322);
-  height: 50px;
-  font-weight: 700;
-  font-size: 20px;
-}
 @media (min-width: 768px) {
   form.createActForm {
     max-width: 560px;
@@ -5863,14 +5856,6 @@ form.signup .form-group > input {
 form.login .form-group p.help-block,
 form.signup .form-group p.help-block {
   color: white;
-}
-form.login > button,
-form.signup > button {
-  width: 100%;
-  background: linear-gradient(to bottom, #76d926, #6ac322);
-  height: 50px;
-  font-weight: 700;
-  font-size: 20px;
 }
 form[class^='editable'],
 form[class*='editable'] {
@@ -6165,6 +6150,23 @@ fieldset[disabled] .jp-btn-link {
   margin-bottom: 10px;
   height: 50px;
   font-size: 20px;
+}
+.btn-big-green {
+  width: 100%;
+  background-color: #76d926;
+  background-image: linear-gradient(top bottom, #76d926, #6ac322);
+  background: #76d926;
+  background: -webkit-gradient(linear, left top, left bottom, from(#76d926), to(#6ac322));
+  background: -webkit-linear-gradient(top, #76d926, #6ac322);
+  background: -moz-linear-gradient(top, #76d926, #6ac322);
+  background: -ms-linear-gradient(top, #76d926, #6ac322);
+  background: -o-linear-gradient(top, #76d926, #6ac322);
+  background: linear-gradient(top, #76d926, #6ac322);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#76d926', endColorstr='#6ac322', GradientType=0);
+  height: 50px;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
 }
 .btn-holo {
   color: #e74c3c;

@@ -6168,6 +6168,11 @@ fieldset[disabled] .jp-btn-link {
   font-size: 20px;
   color: white;
 }
+.btn-big-green:hover,
+.btn-big-green:active,
+.btn-big-green:focus {
+  color: white;
+}
 .btn-holo {
   color: #e74c3c;
   background-color: transparent;

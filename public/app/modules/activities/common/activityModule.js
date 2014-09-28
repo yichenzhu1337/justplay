@@ -1,5 +1,5 @@
 var mod = angular.module('activityModule', 
-	['jp.errorHandling','jp.http','participantModule','commentModule','restangular','jp.api.config']);
+	['jp.http','participantModule','commentModule','restangular','jp.api.config']);
 
 var factories = {};
 

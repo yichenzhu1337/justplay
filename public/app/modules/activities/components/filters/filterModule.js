@@ -1,11 +1,6 @@
-var mod = angular.module('filterModule', [
-	'ui.multiselect'
-	])
+var mod = angular.module('filterModule', []);
 
-var factories = {};
 var services = {};
-var controllers = {};
-var directives = {};
 var filters = {};
 
 filters.arrayContains = function($filter) {
@@ -18,7 +13,7 @@ filters.arrayContains = function($filter) {
 		}
 		return array;
 	}
-},
+};
 filters.property = function($filter){
 	return function(cards, bundle, flag) {
 		var filtered = [];
@@ -97,122 +92,7 @@ services.filterService = function(){
 	this.setFilterFlag = function(bool){
 		filterFlag = bool;
 	}
-
-}
-factories.filterFactory = function(){
-	factory = {};
-	var bundles = {
-		Skill: {
-			filterType: "exact",
-			attribute: "skill",
-			options: [
-				{value: "1", label: "Beginner"},
-				{value: "2", label: "Intermediate"},
-				{value: "3", label: "Advanced"}
-			],
-			selected: [],
-			placeholder: "Skill",
-			maxString: "skills",
-			maxLength: 3,
-			maxLengthString: "Any skill level"
-		},
-		Competition: {
-			filterType: "exact",
-			attribute: "competition",
-			options: [
-				{value: "Recreational", label: "Recreational"}, 
-				{value: "Practice", label: "Practice"},
-				{value: "Competition", label: "Friendly Competition"}
-			],
-			selected: [],
-			placeholder: "Competitiveness",
-			maxString: "levels of competition",
-			maxLength: 3,
-			maxLengthString: "Any level of competition"
-		},
-		Racquet: {
-			filterType: "exact",
-			attribute: "typeOfMatch",
-			options: [
-				{value: "Singles", label: "Singles"},
-				{value: "Doubles", label: "Doubles"}
-			],
-			selected: [],
-			placeholder: "Singles or Doubles",
-			maxString: "types of match",
-			maxLength: 2,
-			maxLengthString: "Singles or doubles"
-		}
-	};
-
-
-	factory.getFilters = function(keys){
-		var filters = [];
-		for (var i = 0; i < keys.length; i++) {
-			var key = keys[i];
-			bundles[key].id = i;
-			filters.push(angular.copy(bundles[key]));
-		};
-		return filters;
-	};
-
-	factory.getDefault = function() {
-		var keys = ['Skill','Competition'];
-		return factory.getFilters(keys);
-	};
-
-	return factory;
-}
-controllers.filterController = function($scope, $rootScope, filterService, filterFactory){
-	init();
-
-	function init(){
-		$scope.filterServ = filterService;
-
-		// Initializing the filters used
-		if (filterService.getFilters().length == 0) { // Use default if no filters used
-			$scope.bundles = angular.copy(filterFactory.getDefault());
-			$scope.filterServ.setFilters(angular.copy($scope.bundles));
-		} else { // Use the previously used filter
-			$scope.bundles = filterService.getFilters();
-		}
-
-		$scope.$watch('bundles', function (newVal, oldVal){
-			if (newVal === oldVal) {
-				return;
-			}
-			$scope.filterServ.setFilters(angular.copy($scope.bundles));
-		}, true);		
-
-		$scope.$watch('filterServ.getFilterFlag()', function (newVal, oldVal){
-			if (newVal === oldVal) {
-				return;
-			}
-			if (newVal == false) {
-					$scope.bundles = filterFactory.getDefault();			
-			}
-		}, true);	
-	};
-
-	$scope.resetFilters = function(){
-		$scope.filterServ.setFilterFlag(false);
-	}
-
-	$scope.allowFilter = function(){
-		$scope.filterServ.setFilterFlag(true);
-	}
 };
 
-directives.jpactivityfilter = function() {
-	return {
-		restrict: 'E',
-		replace: true,
-		templateUrl: 'app/modules/activities/components/filters/filters.tmpl.html'
-	}
-};
-
-module.factory(factories);
-module.controller(controllers);
 module.service(services);
-module.directive(directives);
 module.filter(filters);

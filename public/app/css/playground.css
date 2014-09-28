@@ -125,15 +125,6 @@ html {
     width: 100%;
   }
 
-  .activity-filter-wrapper {
-    margin-left: -5px;
-    display: inline-block;
-    margin-top: 5px;
-    padding: 5px 5px 5px 0px;
-    background-color: rgba(57,60,61,0.8);
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  }
-
   .filter-wrap {
     margin-left: 5px;
     display: inline-block;
@@ -150,15 +141,6 @@ html {
   .filter {
     display: inline-block;
     height: 
-  }
-
-  .activity-filter-wrapper > select {
-    width: 150px;
-  }
-
-  .activity-filter-wrapper > .filter-reset {
-    margin-left: 2px;
-    display: inline-block;
   }
 
   .filter-wrapper{

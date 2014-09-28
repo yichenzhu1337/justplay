@@ -1,4 +1,4 @@
-var module = angular.module('createform', ['activityModule','utilityDirectives','jp.http','jp.flash','jp.utilities','restangular','jp.api.config'])
+var module = angular.module('createform', ['activityModule','jp.http','jp.flash','jp.utilities','restangular','jp.api.config'])
 .value("filterRegex", 'EEEE, MMM d');
 
 var factories = {};
@@ -84,6 +84,18 @@ controllers.activityCreateDateController = function($scope, $filter, filterRegex
     $scope.opened = true;
   };
 }
+
+// Directive used to parse floats
+directives.toNumber = function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elem, attrs, ctrl) {
+            ctrl.$parsers.push(function (value) {
+                return parseFloat(value || '');
+            });
+        }
+    };
+};
 
 directives.jpcreateform = function() {
 	return {

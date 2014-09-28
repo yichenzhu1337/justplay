@@ -1,4 +1,4 @@
-var mod = angular.module('jp.authentication', ['jp.http', 'jp.errorHandling','userModule','restangular', 'jp.flash']);
+var mod = angular.module('jp.authentication', ['jp.http','userModule','restangular', 'jp.flash']);
 
 var factories = {};
 

@@ -2,11 +2,9 @@ var mod = angular.module('cardModule',
 	[
 	'activityModule',
 	'angularMoment', 
-	'sortModule',
 	'filterModule',
 	'searchbar',
 	'friendModule',
-	'skillModule', 
 	'ui.bootstrap',
 	'jp.utilities',
 	'jp.authentication',
@@ -52,33 +50,6 @@ function($scope, watching, filterService, activityList, $state) {
 		$scope.filterFlag = $scope.filterServ.getFilterFlag();
 
 		$scope.searchFilter = [];
-
-		/* WATCH FOR ANY CHANGES IN DATA FOR FILTERING */
-
-		$scope.$watch('filterServ.getResetFilter()', function(newVal, oldVal){
-			if (newVal === oldVal){
-				return
-			}
-			setFilterFlag(false);
-		});
-		
-		$scope.$watch('filterServ.getFilters()', function(newVal, oldVal){
-			// console.log("outer filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
-			if (newVal === oldVal){
-				return;
-			}
-			// console.log("inner filter New Val: " + newVal[0].selected.length + " Old:" + oldVal[0].selected.length);
-			$scope.searchFilter = $scope.filterServ.getFilters();
-		}, true);
-
-		$scope.$watch('filterServ.getFilterFlag()', function(newVal, oldVal) {
-			console.log("outer FilterFlag New Val: " + newVal + " Old:" + oldVal);
-			if (newVal === oldVal) {
-				return;
-			}
-			$scope.filterFlag = newVal;
-		});
-
 	};
 
 	$scope.checkFilteredCollectionLength = function(curList, filter) {
@@ -112,16 +83,13 @@ function($scope, watching, filterService, activityList, $state) {
 	init();
 }];
 
-factories.watching = function(strategyData, searchbarData) {
+factories.watching = function(searchbarData) {
 
 	/**
 	 * Gets the data from a service
 	 * @type {Object}
 	 */
 	var get = {
-		sort: function() {
-			return strategyData.getSortStrategy()
-		},
 		activity: function() {
 			return searchbarData.getData();
 		}
@@ -133,43 +101,27 @@ factories.watching = function(strategyData, searchbarData) {
 	 * @type {Object}
 	 */
 	var watch = {
-		sort: function(scope) {
-			scope.$watch(get.sort, function(newVal, oldVal){
-				if (newVal === oldVal) {
-					return;
-				} else {
-					scope.sortStrategy = strategyData.getSortStrategy();
-				}
-			});
-		},
 		activity: function(scope, setFilterFlag) {
 			scope.$watch(get.activity, function (newVal, oldVal){
 				if (newVal === oldVal){
 					return
 				}
-				console.log("activity newVal:" + newVal +" oldVal:"+oldVal);
 				scope.activityFilter = newVal;
 				setFilterFlag(false);
 			});
 		}
-
-	}
+	};
 
 	return {
-		sort: function(scope) {
-			watch.sort(scope);
-			return get.sort();
-		},
 		activity: function(scope, setFilterFlag) {
 			watch.activity(scope, setFilterFlag);
 			return get.activity();
 		}
 	}
-
-}
+};
 
 /// CONTROLER FOR DIRECTIVE:activitycard
-controllers.cardController = function($scope, $filter, friendService, activitySkillFactory, $state) {
+controllers.cardController = function($scope, $filter, friendService, $state) {
 	$scope.peopleneeded;
 	$scope.neededorfree;
 	$scope.stars = [];

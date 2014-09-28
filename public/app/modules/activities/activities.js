@@ -1,8 +1,6 @@
 var jpactivitiespage = angular.module('jp.activitiespage', 
 	[
 	'ui.router',
-	'sortModule',
-	'filterModule', 
   'searchbar',
   'cardModule',
   'activityManagerModule',

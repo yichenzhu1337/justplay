@@ -6439,7 +6439,7 @@ fieldset[disabled] .jp-btn-link {
 }
 .profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-icon {
   position: absolute;
-  left: 0;
+  left: 0px;
   width: 25px;
 }
 .profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .form-icon > i {
@@ -6458,7 +6458,7 @@ fieldset[disabled] .jp-btn-link {
 }
 .profile-page > .profile-content-area > .profile-body > ul.list-group > li.list-group-item > .list-group-item-field > .edit-icon {
   position: absolute;
-  top: 0;
+  top: 0px;
   right: -10px;
 }
 @media (min-width: 480px) {
@@ -6563,8 +6563,8 @@ a.media-name {
 }
 .searchbar-wrapper form > a {
   position: absolute;
-  right: 10;
-  top: 14;
+  right: 10px;
+  top: 14px;
   color: #7f8c8d;
   font-size: 17px;
 }

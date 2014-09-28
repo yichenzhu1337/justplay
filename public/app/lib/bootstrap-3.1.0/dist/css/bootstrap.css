@@ -6201,7 +6201,7 @@ fieldset[disabled] .jp-btn-link {
   background-color: #ecf0f1;
 }
 .header-bg > .header-content-wrapper {
-  max-width: 284;
+  max-width: 284px;
   margin: 0 auto;
 }
 .header-bg > .header-content-wrapper > .activity-chooser-wrapper {
@@ -6220,22 +6220,22 @@ fieldset[disabled] .jp-btn-link {
 }
 @media (min-width: 480px) {
   .header-bg > .header-content-wrapper {
-    max-width: 310;
+    max-width: 310px;
   }
 }
 @media (min-width: 768px) {
   .header-bg > .header-content-wrapper {
-    max-width: 594;
+    max-width: 594px;
   }
 }
 @media (min-width: 992px) {
   .header-bg > .header-content-wrapper {
-    max-width: 878;
+    max-width: 878px;
   }
 }
 @media (min-width: 1200px) {
   .header-bg > .header-content-wrapper {
-    max-width: 1162;
+    max-width: 1162px;
   }
 }
 @media (min-width: 768px) {
@@ -6251,12 +6251,13 @@ fieldset[disabled] .jp-btn-link {
   position: relative;
 }
 .page-container > .content-wrapper {
-  max-width: 284;
+  max-width: 284px;
   margin: 0 auto;
   min-height: 100%;
   height: auto;
   margin-top: 50px;
   background-color: transparent;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .page-container > .content-wrapper.search-content {
@@ -6273,22 +6274,22 @@ fieldset[disabled] .jp-btn-link {
 }
 @media (min-width: 480px) {
   .page-container > .content-wrapper {
-    max-width: 310;
+    max-width: 310px;
   }
 }
 @media (min-width: 768px) {
   .page-container > .content-wrapper {
-    max-width: 594;
+    max-width: 594px;
   }
 }
 @media (min-width: 992px) {
   .page-container > .content-wrapper {
-    max-width: 878;
+    max-width: 878px;
   }
 }
 @media (min-width: 1200px) {
   .page-container > .content-wrapper {
-    max-width: 1162;
+    max-width: 1162px;
   }
 }
 .activity-day-wrapper {
@@ -6348,7 +6349,7 @@ fieldset[disabled] .jp-btn-link {
 }
 .social-page {
   width: 100%;
-  max-width: 594;
+  max-width: 594px;
   margin: 0 auto;
 }
 .social-page > .btn-wrapper {
@@ -6462,7 +6463,7 @@ fieldset[disabled] .jp-btn-link {
 .notification-list-wrapper {
   width: 100%;
   margin: 0 auto;
-  max-width: 594;
+  max-width: 594px;
 }
 .notification-list-wrapper > section {
   margin-top: 30px;

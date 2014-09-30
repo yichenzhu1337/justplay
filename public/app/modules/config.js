@@ -1,7 +1,8 @@
 angular.module('jp.config', [])
     .constant('BASE_URL','http://www.just-play.ca/')
     //.constant('BASE_URL','http://localhost/justplay/public/')
-    .constant('BASE_URL_DIRECTORY', '/justplayv1/justplay/public')
+    //.constant('BASE_URL_DIRECTORY', '/justplayv1/justplay/public')
+    .constant('BASE_URL_DIRECTORY', '')
     .constant('BASE_API_ROUTE', 'api/v1')
     .constant('APP_VERSION','0.3');
 

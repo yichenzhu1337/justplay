@@ -18,7 +18,7 @@
     
   <!-- LOCATION -->
   <div class="form-group" ng-class="{ 'has-error' : createActForm.location.$invalid && !createActForm.location.$pristine, 'has-success' : !createActForm.location.$invalid && !createActForm.email.$pristine }" required>
-      <label for="location">Location <a href="" class="text-muted">(Click here to find out how to get there!)</a></label>
+      <label for="location">Location <a href="http://www.utsc.utoronto.ca/athletics/calendar-node-field-date-time/month" class="text-muted" target='_blank'>(If you're hosting a dropin event at TPASC, click here to find the dropin schedule.)</a></label>
       <input type="text" class="form-control" name="location" ng-model="create.location" placeholder="Location" required>
 
       <!-- Activity Validation Messages -->
@@ -82,8 +82,8 @@
   <div class="form-group"
   ng-class="{ 'has-error' : createActForm.description.$invalid && !createActForm.description.$pristine, 'has-success' : !createActForm.description.$invalid && !createActForm.description.$pristine }">
     <div class="input-group">
-    <label for="description">Description <span class="text-muted">Who is this activity for? Who are you looking to play with? Any particular skill level in mind?</span></label>
-      <textarea name="description" ng-model="create.description" class="form-control"  rows="5" placeholder="i.e. Looking to play with people during midterms! Screw the exams, lets just chill and play." required></textarea>
+    <label for="description">Description <span class="text-muted">Who are you looking to play with? Any particular skill level in mind?</span></label>
+      <textarea name="description" ng-model="create.description" class="form-control"  rows="5" placeholder="i.e. Anyone down to play some badminton during midterms?" required></textarea>
       <span class="help-block" ng-show="!createActForm.description.$pristine && createActForm.description.$error.required">Select Description</span>
     </div>
   </div>

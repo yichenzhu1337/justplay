@@ -1,5 +1,5 @@
 var module = angular.module('friendModule', [])
-.service('friendService', function(){
+.service('friendService', [function(){
 	this.getFriendList = function(list) {
 		var retList = [];
 		for (var i = 0; i < list.length; i ++){
@@ -9,4 +9,4 @@ var module = angular.module('friendModule', [])
 		}
 		return retList;
 	};
-});
+}]);

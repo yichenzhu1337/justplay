@@ -2,7 +2,7 @@ var mod = angular.module('userModule', ['jp.http','jp.authentication']);
 
 var factories = {};
 
-factories.User = function() {
+factories.User = [function() {
 	function User(id, username, name, email, last_login, created_at, profile) {
 		this.id = id;
 		this.username = username;
@@ -27,9 +27,9 @@ factories.User = function() {
 	}
 
 	return User;
-};
+}];
 
-factories.MinimalUser = function()
+factories.MinimalUser = [function()
 {
 	function MinimalUser(id, name, username, areFriends, dp) {
 		this.id = id;
@@ -45,7 +45,7 @@ factories.MinimalUser = function()
 		}
 	}
 	return MinimalUser;
-}
+}];
 
 factories.UserSvc = ['$q', '$timeout', 'User', 'MinimalUser', 'API', 'authenticationService', 
 function($q, $timeout, User, MinimalUser, API, AuthSvc){

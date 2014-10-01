@@ -21,7 +21,7 @@ var services = {};
 var controllers = {};
 var directives = {};
 
-factories.sportFactory = function(SportValue) {
+factories.sportFactory = ['SportValue', function(SportValue) {
 	var factory = {};
 	// Sports should be arranged in 5s
 	
@@ -35,6 +35,7 @@ factories.sportFactory = function(SportValue) {
 			['Ice Hockey', 'Lacrosse', 'Quidditch', 'Rugby']
 		]
 	};
+	
 	factory.getSports = function () {
 		var i;
 		var cat;
@@ -63,9 +64,9 @@ factories.sportFactory = function(SportValue) {
 		return allSports;
 	}
 	return factory;
-};
+}];
 
-services.searchbarData = function(){
+services.searchbarData = [function(){
 	var activity;
 	/**
 	 * Sets current activity
@@ -83,46 +84,47 @@ services.searchbarData = function(){
 	this.getData = function() {
 		return activity;
 	};
-}
+}];
 
-controllers.sportController = function($scope, sportFactory, searchbarData) {
-	$scope.sports = {};
-	$scope.toggleIcon;
-	$scope.savedSport;
-	init();
-	function init() {
-		$scope.sports = sportFactory.getSports();
-		searchbarData.setData("");
-		$scope.toggleIcon = false;
-		$scope.savedSport = "";
-	};
-	$scope.setValue = function(sport){
-		$scope.currentsport = sport.label;
-		searchbarData.setData($scope.currentsport);
-		if ($scope.currentsport == ""){
+controllers.sportController = ['$scope','sportFactory','searchbarData',
+	function($scope, sportFactory, searchbarData) {
+		$scope.sports = {};
+		$scope.toggleIcon;
+		$scope.savedSport;
+		init();
+		function init() {
+			$scope.sports = sportFactory.getSports();
+			searchbarData.setData("");
 			$scope.toggleIcon = false;
-		} else {
-			$scope.toggleIcon = true;
+			$scope.savedSport = "";
+		};
+		$scope.setValue = function(sport){
+			$scope.currentsport = sport.label;
+			searchbarData.setData($scope.currentsport);
+			if ($scope.currentsport == ""){
+				$scope.toggleIcon = false;
+			} else {
+				$scope.toggleIcon = true;
+			}
+		};
+		$scope.resetActivity = function(){
+			$scope.setValue("");
+			$scope.toggleIcon = false;
+		};
+		$scope.clickSearchBox = function(curSport){
+			// Make it seem empty
+			$scope.savedSport = curSport;
+			$scope.currentsport = "";
 		}
-	};
-	$scope.resetActivity = function(){
-		$scope.setValue("");
-		$scope.toggleIcon = false;
-	};
-	$scope.clickSearchBox = function(curSport){
-		// Make it seem empty
-		$scope.savedSport = curSport;
-		$scope.currentsport = "";
-	}
-};
+	}];
 
-directives.jpsearchbar = function() {
+directives.jpsearchbar = [function() {
 	return {
 		restrict: 'E',
 		replace: true,
 		templateUrl: 'app/modules/activities/components/searchbar/search-bar.tmpl.html'
 	}
-};
+}];
 
 module.factory(factories);
 module.controller(controllers);

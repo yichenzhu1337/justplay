@@ -2,7 +2,7 @@ var mod = angular.module('commentModule', ['jp.authentication']);
 
 var factories = {};
 
-factories.Comment = function($filter){
+factories.Comment = ['$filter', function($filter){
 
 	function Comment(senderName, description, username, date, dp) {
 		// Initialize Values
@@ -37,7 +37,7 @@ factories.Comment = function($filter){
 	}
 
 	return Comment;
-}
+}];
 
 factories.CommentSvc = ['Comment', function(Comment) {
 	var createCollection = function(comments) {

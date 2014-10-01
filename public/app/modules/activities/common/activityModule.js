@@ -74,7 +74,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 	return Activity;
 }]
 
-factories.ActivityCollection = function(){
+factories.ActivityCollection = [function(){
 	/**
 	 * Constructor for ActivityCollection
 	 * @param {date} date date
@@ -111,7 +111,7 @@ factories.ActivityCollection = function(){
 	}
 
 	return ActivityCollection;
-};
+}];
 
 factories.ActivitySvc = ['$q', '$timeout', '$http', 'cardFactory', 'Activity', 'ActivityCollection', 'API', 'Restangular', 'api_const',
 function($q, $timeout, $http, cardFactory, Activity, ActivityCollection, API, Restangular, api_const) {

@@ -20,7 +20,8 @@ controllers.notificationsController = ['$scope', 'friendNotifications', 'activit
 	init();
 }];
 
-factories.notificationsFactory = function(notification_routes, notification_categories, api_const, API, $filter, $state) {
+factories.notificationsFactory = ['notification_routes','notification_categories','api_const','API','$filter','$state',
+function(notification_routes, notification_categories, api_const, API, $filter, $state) {
 	var base_route = api_const.base_api_route+'/'+api_const.notifications;
 
 	/// HELPER FUNCTIONS
@@ -378,56 +379,56 @@ factories.notificationsFactory = function(notification_routes, notification_cate
 			return getActivityNotifs();
 		}
 	}
-}
+}];
 
-services.notificationService = function(notificationsFactory, $timeout)
-{
+services.notificationService = ['notificationsFactory','$timeout', 
+	function(notificationsFactory, $timeout) {
 
-	var friendNotifCount;
-	var activityNotifCount;
+		var friendNotifCount;
+		var activityNotifCount;
 
-	var scopee;
+		var scopee;
 
-	var count = function()
-	{
-		return activityNotifCount + friendNotifCount;
-	}
-
-	var pollFriendNotif = function()
-	{
-		notificationsFactory.getFriendNotifications().then(
-			function(data) {
-				friendNotifCount = data.length;
-				scopee.notifCount = count();
-				$timeout(pollFriendNotif, 5000);
-			});
-	}
-
-	var pollActivityNotif = function()
-	{
-		notificationsFactory.getActivityNotifications().then(
-			function(data) {
-				activityNotifCount = data.length;
-				scopee.notifCount = count();
-				$timeout(pollActivityNotif, 5000);
-			});
-	}
-
-	return {
-		activateNotifPoll: function(scope)
+		var count = function()
 		{
-			scopee = scope;
-			pollActivityNotif();
-			pollFriendNotif();
-		},
-		count: function()
-		{
-			return friendNotifCount + activityNotifCount;
+			return activityNotifCount + friendNotifCount;
 		}
-	}
-}
 
-directives.jpnotification = function(API)
+		var pollFriendNotif = function()
+		{
+			notificationsFactory.getFriendNotifications().then(
+				function(data) {
+					friendNotifCount = data.length;
+					scopee.notifCount = count();
+					$timeout(pollFriendNotif, 5000);
+				});
+		}
+
+		var pollActivityNotif = function()
+		{
+			notificationsFactory.getActivityNotifications().then(
+				function(data) {
+					activityNotifCount = data.length;
+					scopee.notifCount = count();
+					$timeout(pollActivityNotif, 5000);
+				});
+		}
+
+		return {
+			activateNotifPoll: function(scope)
+			{
+				scopee = scope;
+				pollActivityNotif();
+				pollFriendNotif();
+			},
+			count: function()
+			{
+				return friendNotifCount + activityNotifCount;
+			}
+		}
+	}];
+
+directives.jpnotification = ['API', function(API)
 {
 	return {
 		restrict: 'E',
@@ -445,9 +446,9 @@ directives.jpnotification = function(API)
 		{
 		}
 	}
-}
+}];
 
-directives.jpnotificationlist = function()
+directives.jpnotificationlist = [function()
 {
 	return {
 		restrict: 'E',
@@ -468,7 +469,7 @@ directives.jpnotificationlist = function()
 			init();
 		}
 	}
-}
+}];
 
 mod.factory(factories);
 mod.controller(controllers);

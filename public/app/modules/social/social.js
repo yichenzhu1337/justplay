@@ -4,40 +4,41 @@ var controllers = {};
 var directives = {};
 
 
-controllers.socialController = function($scope, peopleusers, UserSvc){
+controllers.socialController = ['$scope', 'peopleusers', 'UserSvc',
+	function($scope, peopleusers, UserSvc){
 
-	function init() {
-		$scope.users = angular.copy(UserSvc.removeLoggedInUserFromList(peopleusers));
-		$scope.friends = angular.copy(friendsOnly(UserSvc.removeLoggedInUserFromList(peopleusers)));
-		$scope.displayedList = 'users';
+		function init() {
+			$scope.users = angular.copy(UserSvc.removeLoggedInUserFromList(peopleusers));
+			$scope.friends = angular.copy(friendsOnly(UserSvc.removeLoggedInUserFromList(peopleusers)));
+			$scope.displayedList = 'users';
 
-		$scope.radioModel = 'users';
+			$scope.radioModel = 'users';
 
-		$scope.$watch(function() { return $scope.radioModel}, function(newVal, oldVal) {
-			if (newVal !== oldVal)
-			{
-				$scope.displayedList = newVal;
-			}
-		})
-	}
-
-	var friendsOnly = function(list)
-	{
-		var finalList = [];
-
-		for (var i = 0; i < list.length; i++)
-		{
-			if (list[i].areFriends === 'friends')
-			{
-				finalList.push(list[i]);
-			}
+			$scope.$watch(function() { return $scope.radioModel}, function(newVal, oldVal) {
+				if (newVal !== oldVal)
+				{
+					$scope.displayedList = newVal;
+				}
+			})
 		}
 
-		return finalList;
-	}
+		var friendsOnly = function(list)
+		{
+			var finalList = [];
 
-	init();
-};
+			for (var i = 0; i < list.length; i++)
+			{
+				if (list[i].areFriends === 'friends')
+				{
+					finalList.push(list[i]);
+				}
+			}
+
+			return finalList;
+		}
+
+		init();
+	}];
 
 directives.jpuserlist = function($filter, UserSvc, FriendService, $state) {
 	return {

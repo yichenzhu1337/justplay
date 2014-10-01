@@ -2,7 +2,7 @@ var mod = angular.module('participantModule', []);
 
 var factories = {};
 
-factories.Participant = function(){
+factories.Participant = [function(){
 
 	function Participant(user_id, areFriends, username, name, dp) {
 		// Initialize Values
@@ -36,7 +36,7 @@ factories.Participant = function(){
 	}
 
 	return Participant;
-}
+}];
 
 factories.ParticipantSvc = ['Participant', function(Participant) {
 	var createCollection = function(participants) {

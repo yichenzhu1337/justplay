@@ -121,7 +121,7 @@ factories.watching = function(searchbarData) {
 };
 
 /// CONTROLER FOR DIRECTIVE:activitycard
-controllers.cardController = function($scope, $filter, friendService, $state) {
+controllers.cardController = ['$scope', '$filter', 'friendService', '$state', function($scope, $filter, friendService, $state) {
 	$scope.peopleneeded;
 	$scope.neededorfree;
 	$scope.stars = [];
@@ -154,9 +154,10 @@ controllers.cardController = function($scope, $filter, friendService, $state) {
 		}
 		return friendListString;
 	}
-};
+}];
 
-controllers.detailedCardController = function($scope, $state, DateTimeService, FlashService, $http, $filter, activity, API, authenticationService, Comment){
+controllers.detailedCardController = 
+['$scope','$state', 'DateTimeService', 'FlashService', '$http', '$filter', 'activity', 'API', 'authenticationService', 'Comment', function($scope, $state, DateTimeService, FlashService, $http, $filter, activity, API, authenticationService, Comment){
 	var IsParticipant;
 	var IsOwner;
 
@@ -285,9 +286,9 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
   }
 
 	init();
-};
+}];
 
-directives.activitycard = function() {
+directives.activitycard = [function() {
 	return {
 		restrict: 'E',
 		transclude: true,
@@ -297,9 +298,9 @@ directives.activitycard = function() {
 		},
 		controller: 'cardController'
 	}
-}
+}];
 
-directives.jppeoplegoingicon = function() {
+directives.jppeoplegoingicon = [function() {
 	return {
 		restrict: 'E',
 		transclude: true,
@@ -346,7 +347,7 @@ directives.jppeoplegoingicon = function() {
 			init();
 		}
 	}
-}
+}];
 
 mod.controller(controllers);
 mod.factory(factories);

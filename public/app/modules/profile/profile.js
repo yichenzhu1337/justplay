@@ -4,32 +4,33 @@ var controllers = {};
 var directives = {};
 
 
-controllers.profileController = function($scope, authenticationService, FriendService, payload){
-	init();
+controllers.profileController = ['$scope', 'authenticationService','FriendService','payload',
+	function($scope, authenticationService, FriendService, payload){
+		init();
 
-	var username;
+		var username;
 
-	function init() {
-		// Services
-		$scope.AuthSvc = authenticationService;
-		$scope.FriendService = FriendService;
-		$scope.user = payload.user;
-		username = $scope.user.username;
+		function init() {
+			// Services
+			$scope.AuthSvc = authenticationService;
+			$scope.FriendService = FriendService;
+			$scope.user = payload.user;
+			username = $scope.user.username;
 
-		// Get the Friend status if this is not our account
-		if (angular.isDefined(payload.friendStatus))
-		{
-			$scope.friendStatus = payload.friendStatus;
-		}
-
-		// Watch for puts
-		$scope.$watch(function() { return $scope.user }, function(newVal, oldVal) {
-			if (newVal != oldVal) {
-				$scope.user.save();
+			// Get the Friend status if this is not our account
+			if (angular.isDefined(payload.friendStatus))
+			{
+				$scope.friendStatus = payload.friendStatus;
 			}
-		}, true);
-	}
-};
+
+			// Watch for puts
+			$scope.$watch(function() { return $scope.user }, function(newVal, oldVal) {
+				if (newVal != oldVal) {
+					$scope.user.save();
+				}
+			}, true);
+		}
+	}];
 
 mod.controller(controllers);
 mod.directive(directives);

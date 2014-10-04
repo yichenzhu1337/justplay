@@ -1,0 +1,106 @@
+{
+    "basePath": "http://localhost:8000",
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0.0",
+    "resourcePath": "/notifications",
+    "apis": [
+        {
+            "path": "/api/v1/notifications",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Gets All notifications",
+                    "nickname": "getAllNotification",
+                    "type": "Notification",
+                    "notes": "Returns all of the authenticated user"
+                },
+                {
+                    "method": "POST",
+                    "summary": "A notification is created",
+                    "nickname": "postNotification",
+                    "type": "Notification",
+                    "parameters": [
+                        {
+                            "paramType": "body",
+                            "name": "from_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of the the person sending the request, most likely an authenticated user",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "to_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of the person receiving the request",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "request_type",
+                            "type": "string",
+                            "required": true,
+                            "description": "type of request is either a friend, activity, or message request"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "A notification is created from the send to a receiver with a request type (friend, activty, message)"
+                }
+            ]
+        },
+        {
+            "path": "/api/v1/notifications/{id}",
+            "operations": [
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes the notification by id",
+                    "nickname": "deleteNotificationById",
+                    "type": "Notification",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of the notification that will be deleted",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Deletes the notification based on id"
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/plain",
+        "text/html"
+    ]
+}

@@ -15,6 +15,7 @@ class UserEventHandler {
     {
         dd($event);
     }
+
     /**
      * Handle user logout events.
      */
@@ -23,13 +24,14 @@ class UserEventHandler {
         //
     }
 
+    /**
+     * @param $events
+     */
     public function subscribe($events)
     {
         $events->listen('test', 'Acme\Handlers\UserEventHandler@test');
         $events->listen('user.signup', 'Acme\Handlers\UserEventHandler@onUSerSignUp');
-
         $events->listen('auth.login', 'Acme\Handlers\UserEventHandler@onUserLogin');
-
         $events->listen('auth.logout', 'Acme\Handlers\UserEventHandler@onUserLogout');
     }
 } 

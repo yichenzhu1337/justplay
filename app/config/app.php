@@ -123,7 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
-		'Jlapp\Swaggervel\SwaggervelServiceProvider',
+        'Laracasts\Flash\FlashServiceProvider',
 		'Acme\BackendServiceProvider'
 		
 	),
@@ -193,7 +193,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Sentry' 		  => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
-		'Carbon' 		  => 'Carbon\Carbon'
+		'Carbon' 		  => 'Carbon\Carbon',
+        'Flash'           => 'Laracasts\Flash\Flash'
 		
 	),
 

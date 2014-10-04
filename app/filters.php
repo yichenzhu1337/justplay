@@ -32,12 +32,16 @@ App::after(function($request, $response)
 | integrates HTTP Basic authentication for quick, simple checking.
 |
 */
-
 Route::filter('auth', function()
 {
-	if (!Sentry::check())
+	if (! Sentry::check())
 	{
-		return Response::make('Unauthorized', 401);
+		return Response::json([
+            'error' => [[
+                'message' => 'user is not logged in',
+                'status_code' => 404
+            ]]
+        ], 401);
 	}
 });
 

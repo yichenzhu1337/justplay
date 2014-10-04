@@ -4,28 +4,27 @@ use League\Fractal;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
 use League\Fractal\Resource\Collection;
-use League\Fractal\TransformerAbstract;
-
 use League\Fractal\Serializer\DataArraySerializer;
-use League\Fractal\Serializer\ArraySerializer;
-use League\Fractal\Serializer\JsonApiSerializer;
 
-use Acme\Transformers\ActivityTransformer;
 use Acme\Transformers\ActivityAscendedTransformer;
-use Acme\Transformer\PostTransformer;
-use Acme\Transformer\UserTransformer;
-
+use Acme\Transformers\ActivityTransformer;
 use Acme\Interfaces\ActivityRepositoryInterface;
 use Acme\Interfaces\ActivityJoinRepositoryInterface;
 
 
 class ActivitiesController extends \ApiController {
 
-	protected $activityTransformer;
-	protected $activity;
+    /**
+     * @var Acme\Interfaces\ActivityRepositoryInterface
+     */
+    protected $activity;
 	protected $activityJoin;
 
-	function __construct(ActivityRepositoryInterface $activity, ActivityJoinRepositoryInterface $activityJoin) 
+    /**
+     * @param ActivityRepositoryInterface $activity
+     * @param ActivityJoinRepositoryInterface $activityJoin
+     */
+    function __construct(ActivityRepositoryInterface $activity, ActivityJoinRepositoryInterface $activityJoin)
 	{
 		$this->activity = $activity;
 		$this->activityJoin = $activityJoin;
@@ -51,66 +50,50 @@ class ActivitiesController extends \ApiController {
 	{
 		$activity = $this->activity->getById($id);
 
-		if (!$activity) {
-
-			//App::abort(404);
-			return $this->respondNotFound('activity does not exist');
-		}
-		
-		$fractal = new Manager();
-		$fractal->setSerializer(new DataArraySerializer());
-
-		if (isset($_GET['include'])) {
-		    $fractal->parseIncludes($_GET['include']);
+		if (! $activity) {
+			return $this->respondError('activity does not exist', 404);
 		}
 
-		$resource = new Item($activity, new ActivityTransformer);
-		$array = $fractal->createData($resource)->toArray();
+        $array = $this->transformerItem($activity, new ActivityTransformer);
 
-		return Response::json(
-			array(
-				'errors' => [],
-				'obj' => $array
-			));
+		return $this->respond($array, 200);
 	}
 
 	/**
-	 * Update the specified activity in storage.
+	 * Store the specified activity in storage.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
 	public function store()
 	{
-	  $input = Input::all();
+        $input = Input::all();
 
-	  $data = [
-	      'user_id' => Sentry::getUser()->id,
-	      'location' => $input['location'],
-	      'date_from' => $input['startingtime'],
-	      'date_to' => $input['endingtime'],
-	      'capacity' => $input['capacity'],
-	      'description' => $input['description'],
-	      'sport' => $input['sport']
-	  ];
+        $data = [
+          'user_id' => Sentry::getUser()->id,
+          'location' => $input['location'],
+          'date_from' => $input['startingtime'],
+          'date_to' => $input['endingtime'],
+          'capacity' => $input['capacity'],
+          'description' => $input['description'],
+          'sport' => $input['sport']
+        ];
 
-		$this->activity->store($data);
+        $this->activity->store($data);
 
-		// gets the most recent activity id
-		$activity_count = Activity::orderBy('id', 'DESC')->first()->id;
+        // gets the most recent activity id
+        $activity_count = Activity::orderBy('id', 'DESC')->first()->id;
 
-		$this->activityJoin->store([
-				'activity_id' => $activity_count,
-				'user_id' => Sentry::getUser()->id
-		]);
+        $this->activityJoin->store([
+                'activity_id' => $activity_count,
+                'user_id' => Sentry::getUser()->id
+        ]);
 
-		return Response::json(
-			array(
-				'errors' => [],
-				'obj' => [
-					'activity_id' => $activity_count
-				]
-			));
+        return $this->respond([
+            'data' => [
+                'activity_id' => $activity_count
+            ]
+        ], 200);
+
 	}
 
 	/**
@@ -163,44 +146,46 @@ class ActivitiesController extends \ApiController {
 
         Event::fire('user.activity.delete', ['input' => $data]);
 	}
-	
-	public function getAllActivitiesThisWeek()
-	{
-		$fractal = new Manager();
-		$fractal->setSerializer(new ArraySerializer());
 
-		if (isset($_GET['include'])) {
-		    $fractal->parseIncludes($_GET['include']);
-		}
+    public function activities($user_id, $number_of)
+    {
 
-		$activities_array = [];
-		$current_layer = [];
-		$final_activities = [];
+        $fractal = new Manager();
+        $fractal->setSerializer(new DataArraySerializer);
 
-		for ($i = 0; $i < 7; $i++) { 
+        if (isset($_GET['include'])) {
+            $fractal->parseIncludes($_GET['include']);
+        }
 
-			$today = Carbon::now('America/Toronto')->addDays($i)->toDateTimeString();
-			$tomorrow = Carbon::now('America/Toronto')->addDays($i + 1)->toDateTimeString();
+        $current_layer = [];
+        $final_activities = [];
 
-			$activities_today = $this->activity->activitiesBetweenTodayAndTomorrow('date_from', $today, $tomorrow);
+        for ($i = 0; $i < 7; $i++) {
 
-			$resource = new Collection($activities_today, new ActivityTransformer);
-			$array = $fractal->createData($resource)->toArray();
+            $today = Carbon::now('America/Toronto')->addDays($i)->toDateTimeString();
+            $tomorrow = Carbon::now('America/Toronto')->addDays($i + 1)->toDateTimeString();
 
-			array_push($current_layer, $today);
-			array_push($current_layer, (object) ['obj' => $array]);
-			array_push($final_activities, $current_layer);
+            $activities_today = $this->activity->activitiesBetweenTodayAndTomorrow('date_from', $today, $tomorrow);
 
-			$current_layer = [];
+            $resource = new Collection($activities_today, new ActivityTransformer);
+            $array = $fractal->createData($resource)->toArray();
 
-		}
+            array_push($current_layer, $today);
+            array_push($current_layer, (object) ['obj' => $array]);
+            array_push($final_activities, $current_layer);
 
-		return Response::json(
-			array(
-				'errors' => [],
-				'obj' => $final_activities
-			));
-	}
+            $current_layer = [];
+
+        }
+
+        return Response::json(
+            array(
+                'errors' => [],
+                'obj' => $final_activities
+            ));
+    }
+
+
 
 	public function getAllAuthActivitiesThisWeek()
 	{	

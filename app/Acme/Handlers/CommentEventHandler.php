@@ -9,6 +9,10 @@ class CommentEventHandler {
     protected $notification;
     protected $activityJoin;
 
+    /**
+     * @param NotificationRepositoryInterface $notification
+     * @param ActivityJoinRepositoryInterface $activityJoin
+     */
     function __construct(NotificationRepositoryInterface $notification, ActivityJoinRepositoryInterface $activityJoin)
     {
         $this->notification = $notification;
@@ -41,12 +45,12 @@ class CommentEventHandler {
     /**
      * Register the listeners for the subscriber.
      *
-     * @param  Illuminate\Events\Dispatcher  $events
+     * @param  Illuminate\Events\Dispatcher $events
      * @return array
      */
     public function subscribe($events)
     {
-        $events->listen('user.comment.store', 'Acme\Handlers\CommentEventHandler@onStore');
+        $events->listen('notification.comment.store', 'Acme\Handlers\CommentEventHandler@onStore');
     }
 
 }

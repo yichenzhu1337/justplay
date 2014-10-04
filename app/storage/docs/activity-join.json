@@ -1,0 +1,77 @@
+{
+    "basePath": "http://localhost:8000",
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0.0",
+    "resourcePath": "/activity-join",
+    "apis": [
+        {
+            "path": "/api/v1/activity-join/{activity_id}",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Join an activity with an id of {activity_id}",
+                    "nickname": "postActivityJoinByActivityId",
+                    "type": "ActivityJoin",
+                    "parameters": [
+                        {
+                            "paramType": "body",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "The authenticated user will join an activity with an id of {activity_id}"
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Unjoins the activity by activity_id",
+                    "nickname": "deleteActivityByActivityId",
+                    "type": "ActivityJoin",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that the authenticated user will unjoin from",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "The authenticated user will unjoin the activity based on activity_id"
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/plain",
+        "text/html"
+    ]
+}

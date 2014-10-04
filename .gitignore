@@ -10,3 +10,5 @@ composer.lock
 Thumbs.db
 tests/node_modules/
 /public/bower_components
+
+tests/_output/*

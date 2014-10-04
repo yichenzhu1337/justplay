@@ -89,7 +89,8 @@ require app_path().'/filters.php';
 | Load all Event Handlers
 |
 */
-Event::subscribe('Acme\Handlers\CommentEventHandler');
-Event::subscribe('Acme\Handlers\ActivityJoinEventHandler');
+
 Event::subscribe('Acme\Handlers\ActivityEventHandler');
+Event::subscribe('Acme\Handlers\ActivityJoinEventHandler');
+Event::subscribe('Acme\Handlers\CommentEventHandler');
 Event::subscribe('Acme\Handlers\UserEventHandler');

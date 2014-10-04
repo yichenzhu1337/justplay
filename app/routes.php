@@ -14,14 +14,3 @@ Route::group(array('prefix' => 'api/v1/', 'after' => 'allowOrigin'), function()
 	}
 
 });
-
-
-
-Route::get('/test', function(){
-    				return Response::json(
-					array(
-						'errors' => [["message" => "activity does not exist"]],
-						'obj' => array('faliure' => '1337')
-					));
-});
-

@@ -2,24 +2,22 @@
 
 use Acme\Transformers\UserTransformer;
 
-use League\Fractal;
-use League\Fractal\Manager;
-use League\Fractal\Resource\Item;
-use League\Fractal\Resource\Collection;
-use League\Fractal\TransformerAbstract;
 
-use League\Fractal\Serializer\DataArraySerializer;
-use League\Fractal\Serializer\ArraySerializer;
-use League\Fractal\Serializer\JsonApiSerializer;
+class UsersController extends ApiController {
 
-class UsersController extends \BaseController {
+    /**
+     * @var User
+     */
+    protected $user;
 
-	protected $user;
-	
-	public function __construct(User $user)
+    /**
+     * @param User $user
+     */
+    public function __construct(User $user)
 	{
 		$this->user = $user;
 	}
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /users
@@ -28,71 +26,11 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = $this->user->all();
+        $users = $this->user->all();
 
-		$fractal = new Manager();
-		$fractal->setSerializer(new ArraySerializer());
+        $array = $this->transformerCollection($users, new UserTransformer);
 
-		if (isset($_GET['include'])) {
-		    $fractal->parseIncludes($_GET['include']);
-		}
-
-		$resource = new Collection($users, new UserTransformer, 'users');
-
-		$array = $fractal->createData($resource)->toArray();
-
-		return Response::json(
-			array(
-				'errors' => [],
-				'obj' => $array
-			));
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /users
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /users/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /users/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /users/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+        return $this->respond($array, 200);
 	}
 
 }

@@ -1,0 +1,60 @@
+=======================================
+            API Endpoints 24
+=======================================
+
+activities 4
+=======================================
+Route::get('activities/activities-all-hosted', 'ActivitiesController@getAllAuthHostedActivities');
+Route::get('activities/activities-all-auth', 'ActivitiesController@getAllAuthActivities');
+Route::get('activities/user_id/{user_id}/weeks/{number_of}', 'ActivitiesController@activities');
+//getAllActivitiesThisWeek
+Route::get('activities/activities-all-auth-this-week', 'ActivitiesController@getAllAuthActivitiesThisWeek');
+Route::resource('activities', 'ActivitiesController', ['only' => ['index', 'show', 'store', 'update', 'destroy']]);
+
+
+activities-join 4
+=======================================
+Route::resource('activity-join', 'ActivityJoinController', ['only' => ['index', 'show', 'store', 'destroy']]);
+
+
+authentication 3
+=======================================
+Route::group(array('before' => 'json_csrf'), function()
+{
+	Route::post('login', 'AuthenticationController@postLogin');
+	Route::post('register', 'AuthenticationController@postRegister');
+
+	Route::group(array('before' => 'auth'), function()
+	{
+		Route::post('logout', 'AuthenticationController@logout');
+	});
+});
+
+
+comments 1
+=======================================
+Route::resource('comments', 'CommentsController', ['only' => ['show', 'store', 'update', 'destroy']]);
+
+
+friends 4
+=======================================
+Route::resource('friends', 'FriendsController', ['only' => ['index', 'store','destroy']]);
+Route::post('friends/check-if-friends', 'FriendsController@checkIfFriends');
+
+
+notifications 3
+=======================================
+Route::post('notifications/{request_type}/{activity_id}', 'NotificationsController@sendNotification');
+Route::get('notifications/{request_type}', 'NotificationsController@getNotification');
+Route::put('notifications/{request_type}/{notification_id}/{is_read}', 'NotificationsController@updateIsRead');
+
+
+profiles 3
+=======================================
+Route::resource('profiles', 'ProfilesController', ['only' => ['index', 'show', 'update']]);
+
+
+users 2
+=======================================
+Route::get('users/get-auth', 'ApiController@getAuth');
+Route::resource('users', 'UsersController', ['only' => ['index']]);

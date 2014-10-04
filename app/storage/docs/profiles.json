@@ -1,0 +1,131 @@
+{
+    "basePath": "http://localhost:8000",
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0.0",
+    "resourcePath": "/profiles",
+    "apis": [
+        {
+            "path": "/api/v1/profiles",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Gets All users as will as their profiles",
+                    "nickname": "getAllProfiles",
+                    "type": "Profile",
+                    "notes": "Returns all activities Not transformed"
+                }
+            ]
+        },
+        {
+            "path": "/api/v1/profiles/{username}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Gets the profile of a user",
+                    "nickname": "getProfileByUsername",
+                    "type": "Profile",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "username",
+                            "type": "string",
+                            "required": true,
+                            "description": "Desired user's username, not email, not first name, nor last name"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns the profile of the {username}"
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a user's profile if they are authenticated",
+                    "nickname": "updateProfileByUsername",
+                    "type": "Profile",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "username",
+                            "type": "string",
+                            "description": "{username} needs to already exist"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "name",
+                            "type": "string",
+                            "description": "Name of {username}"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "gender",
+                            "type": "boolean",
+                            "required": true,
+                            "description": "Gender of {username}"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "bio",
+                            "type": "text",
+                            "description": "Bio of {username}"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "age",
+                            "type": "integer",
+                            "description": "Age of {username}"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "email",
+                            "type": "string",
+                            "description": "Email of {username}"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "preferences",
+                            "type": "text",
+                            "description": "Preferences {username}"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "phone number",
+                            "type": "string",
+                            "description": "Phone number of {username}"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "link",
+                            "type": "string",
+                            "description": "Social link of {username}"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Updates a user's profile linked with {username}"
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/plain",
+        "text/html"
+    ]
+}

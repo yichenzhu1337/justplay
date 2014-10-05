@@ -180,18 +180,19 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
 }]);
 
-app.config(function($httpProvider) {
+app.config(['$httpProvider', function($httpProvider) {
 
   $httpProvider.defaults.useXDomain = true;
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-});
+}]);
 
 app.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
 });
 
-app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, BASE_URL_DIRECTORY, Interceptors, api_const) {
+app.run(['Restangular','API','DateTimeService','BASE_URL','BASE_API_ROUTE','BASE_URL_DIRECTORY','Interceptors','api_const',
+	function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, BASE_URL_DIRECTORY, Interceptors, api_const) {
 	Restangular.setBaseUrl(BASE_URL_DIRECTORY+'/'+BASE_API_ROUTE);
 	Restangular.setParentless([api_const.comments,api_const.participants]);
 	// REQUEST INTERCEPTOR
@@ -308,7 +309,7 @@ app.run(function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, BA
 
 		return element;
 	});
-})
+}]);
 
 app.run(['$rootScope','$state','authenticationService', 'access', 'FlashService', 
 	function($rootScope, $state, AuthSvc, access, FlashService){
@@ -352,9 +353,9 @@ app.run(['$rootScope','$state','authenticationService', 'access', 'FlashService'
 			}
 		}
 	});
-}])
+}]);
 
-app.directive('navCollapse', function() {
+app.directive('navCollapse', [function() {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
@@ -375,9 +376,9 @@ app.directive('navCollapse', function() {
             });
         }
     };
-});
+}]);
 
-app.directive('autoFillSync', function($timeout) {
+app.directive('autoFillSync', ['$timeout', function($timeout) {
    return {
       require: 'ngModel',
       link: function(scope, elem, attrs, ngModel) {
@@ -390,4 +391,4 @@ app.directive('autoFillSync', function($timeout) {
           }, 500);
       }
    }
-});
+}]);

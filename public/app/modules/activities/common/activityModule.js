@@ -3,7 +3,7 @@ var mod = angular.module('activityModule',
 
 var factories = {};
 
-factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, CommentSvc){
+factories.Activity = ['ParticipantCollection', 'CommentSvc', function(ParticipantCollection, CommentSvc){
 
 	function Activity(activity_id, owner_id, sport, startingtime, endingtime, location, description) {
 		// Initialize Values
@@ -62,7 +62,7 @@ factories.Activity = ['ParticipantSvc', 'CommentSvc', function(ParticipantSvc, C
 				data.description
 			);
 			if (angular.isArray(data.activityJoined.data)) {
-				activity.participants = ParticipantSvc.createObj(data.activityJoined.data);
+				activity.participants = new ParticipantCollection(data.activityJoined.data);
 			}
 			if (angular.isArray(data.comments.data)) {
 				activity.comments = CommentSvc.createObj(data.comments.data);

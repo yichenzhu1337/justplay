@@ -24,6 +24,7 @@
     "angular-xeditable": "~0.1.8",
     "moment-timezone": "~0.2.1",
     "restangular": "~1.4.0",
-    "angular-mocks": "~1.2.23"
+    "angular-mocks": "~1.2.23",
+    "validator.js": "~1.0.1"
   }
 }

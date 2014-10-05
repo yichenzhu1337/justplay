@@ -25,13 +25,13 @@
   	<div growl></div>
 		<div class='body-view' ui-view></div>
 
-		<!-- JS DEPENDENCIES -->
 		<!-- NON ANGULAR -->
 	  <script src="app/js/non-angular/polyfills.js"></script>
 	  <script src="bower_components/moment/moment.js"></script>
 	  <script src="app/js/non-angular/moment.config.js"></script>
 		<script src="bower_components/moment-timezone/moment-timezone.js"></script>
 		<script src="app/lib/moment-timezone-data.js"></script>	
+		<script src="bower_components/validator.js/dist/validator.js"></script>
 
 	  <!-- BOWER DEPENDENCIES -->
 	  <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -45,11 +45,13 @@
 		<script src="bower_components/lodash/dist/lodash.js"></script>
 		<script src="bower_components/restangular/src/restangular.js"></script>
 
+
 		<!-- CUSTOM SCRIPTS -->
 	  <script src="app/lib/bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
 	  <script src="app/lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 	  <link href="app/lib/angular-multiselect-master/src/style.css" rel="stylesheet" type="text/css" media="all"  />
 	  <script src="app/lib/angular-multiselect-master/src/multiselect.js"></script> 
+		<script src="app/lib/validator/validator-service.js"></script>
 	  <!-- Modules -->
 
 		<!-- Utilities -->

@@ -5,16 +5,17 @@ var services = {};
 var factories = {};
 var directives = {};
 
-controllers.masterCtrl = function($scope, $state, authenticationService, loggedIn, Restangular, $http, notificationService){
+controllers.masterCtrl = ['$scope', '$state', 'authenticationService', 'loggedIn', 'Restangular', '$http', 'notificationService',
+function(Validator, $scope, $state, authenticationService, loggedIn, Restangular, $http, notificationService){
 	init();
 
 	function init()
 	{
-		$scope.isLoggedIn = loggedIn;
-		$scope.authSvc = authenticationService;
-		$scope.notifSvc = notificationService;
-		$scope.notifCount = 0;
-		$scope.notifSvc.activateNotifPoll($scope);
+				$scope.isLoggedIn = loggedIn;
+				$scope.authSvc = authenticationService;
+				$scope.notifSvc = notificationService;
+				$scope.notifCount = 0;
+				$scope.notifSvc.activateNotifPoll($scope);
 
 	}
 
@@ -38,7 +39,7 @@ controllers.masterCtrl = function($scope, $state, authenticationService, loggedI
 	{
 		$scope.authSvc.logout();
 	}
-};
+}];
 
 mod.run(function(editableOptions, editableThemes) {
   editableThemes.bs3.inputClass = 'input-sm';

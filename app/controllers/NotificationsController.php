@@ -1,31 +1,25 @@
 <?php
 
 use Acme\Interfaces\NotificationRepositoryInterface;
-
 use Acme\Transformers\NotificationActivityTransformer;
 use Acme\Transformers\NotificationFriendTransformer;
 
-use League\Fractal;
-use League\Fractal\Manager;
-use League\Fractal\Resource\Item;
-use League\Fractal\Resource\Collection;
-use League\Fractal\TransformerAbstract;
 
-use League\Fractal\Serializer\DataArraySerializer;
-use League\Fractal\Serializer\ArraySerializer;
-use League\Fractal\Serializer\JsonApiSerializer;
+class NotificationsController extends ApiController {
 
-use Swagger\Annotations as SWG;
+    /**
+     * @var Acme\Interfaces\NotificationRepositoryInterface
+     */
+    protected $notification;
 
-
-class NotificationsController extends \BaseController {
-
-	protected $notification;
-
-	function __construct(NotificationRepositoryInterface $notification)
+    /**
+     * @param NotificationRepositoryInterface $notification
+     */
+    function __construct(NotificationRepositoryInterface $notification)
 	{
 		$this->notification = $notification;
 	}
+
 	/**
 	 * Display a listing of notifications of the authenticated user
 	 *
@@ -33,38 +27,9 @@ class NotificationsController extends \BaseController {
 	 */
 	public function index()
 	{
-		// return $this->notification->getAll();
-		$auth_id = Sentry::getUser()->id;
-		return $this->notification->getAllAuthNotifications($auth_id);
+		return $this->notification->getAllAuthNotifications(entry::getUser()->id);
 	}
 
-	/**
-	 * Store a newly created notification in storage.
-	 *
-	 * @return Response
-	 */
-	public function store($test)
-	{
-        dd($test);
-
-		$user_id = Input::get('from_id');
-		$to_id = Input::get('to_id');
-		$request_type = Input::get('request_type');
-		$input = [
-			'from_id' => $user_id,
-			'to_id' => $to_id,
-			'type' => $request_type
-		];
-
-		$this->notification->store($input);
-
-	}
-
-    public function update($id)
-    {
-        $input = Input::all();
-        $this->notification->update($id, $input);
-    }
 	/**
 	 * Remove the specified notification from storage.
 	 *
@@ -88,31 +53,19 @@ class NotificationsController extends \BaseController {
         $to_id = Input::get('to_id');
         $details = Input::get('details');
 
-        switch ($request_type) {
-
+        switch ($request_type)
+        {
             case 'friend_request':
                 $this->notification->sendFriendRequest('want_to_accept', $from_id, $to_id, $details);
-                return Response::json(
-                    array(
-                        'errors' => [],
-                        'obj' => ['success'=>'true']
-                    ));
                 break;
 
             case 'activity_invite_request':
                 $this->notification->sendActivityInviteRequest($from_id, $to_id, $activity_id, $details);
-                return Response::json(
-                    array(
-                        'errors' => [],
-                        'obj' => ['success'=>'true']
-                    ));
                 break;
 
             default:
                 return 'invalid request_type';
-
         }
-
     }
 
     /**
@@ -121,47 +74,30 @@ class NotificationsController extends \BaseController {
      */
     public function getNotification($request_type)
     {
-
-        $fractal = new Manager();
-        $fractal->setSerializer(new ArraySerializer());
-
-        if (isset($_GET['include'])) {
-            $fractal->parseIncludes($_GET['include']);
-        }
-
-        //$request_type = ['friend', 'activity'];
         $auth_id = Sentry::getUser()->id;
 
-        switch ($request_type) {
-
+        switch ($request_type)
+        {
             case 'friends':
                 $friends = $this->notification->getAllAuthFriendNotifications($auth_id);
-                $resource = new Collection($friends, new NotificationFriendTransformer, 'friends');
-                $array = $fractal->createData($resource)->toArray();
-
-                return Response::json(
-                    array(
-                        'errors' => [],
-                        'obj' => $array
-                    ));
+                $array = $this->transformerCollection($friends, new NotificationFriendTransformer);
+                return $array;
 
             case 'activities':
                 $notifications = $this->notification->getAllAuthActivityNotifications($auth_id);
-                $resource = new Collection($notifications, new NotificationActivityTransformer, 'notifications');
-                $array = $fractal->createData($resource)->toArray();
-
-                return Response::json(
-                    array(
-                        'errors' => [],
-                        'obj' => $array
-                    ));
+                $array = $this->transformerCollection($notifications, new NotificationActivityTransformer);
+                return $array;
 
             default:
                 return 'invalid request_type';
-
         }
     }
 
+    /**
+     * @param $request_type
+     * @param $notification_id
+     * @param $is_read
+     */
     public function updateIsRead($request_type, $notification_id, $is_read)
     {
         $this->notification->updateIsRead($request_type, $notification_id, $is_read);

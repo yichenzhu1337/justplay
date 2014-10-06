@@ -4,14 +4,27 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*",
-		"cartalyst/sentry": "2.1.*",
-		"fzaninotto/faker": "1.5.*@dev",
-		"league/fractal": "0.9.*",
-		"phpunit/phpunit": "4.1.*",
-		"jlapp/swaggervel": "dev-master",
-		"mockery/mockery": "0.9.*"
+		"laravel/framework": "4.2.*"
 	},
+    "require-dev": {
+        "way/generators": "~2.0",
+        "phpunit/phpunit": "4.2.*",
+        "mockery/mockery": "0.9.*",
+        "behat/behat": "3.0.*@dev",
+        "codeception/codeception": "dev-master",
+        "cartalyst/sentry": "2.1",
+        "artdarek/oauth-4-laravel": "dev-master",
+        "intervention/image": "dev-master",
+        "barryvdh/laravel-ide-helper": "1.11.*@dev",
+        "barryvdh/laravel-debugbar": "1.*",
+        "league/fractal": "0.9.*@dev",
+        "fzaninotto/faker": "1.5.*@dev",
+        "laracasts/flash": "~1.0",
+        "laracasts/validation": "~1.0",
+        "laracasts/testdummy": "~1.0",
+        "laracasts/commander": "~1.0",
+        "stripe/stripe-php": "dev-master"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",
@@ -46,9 +59,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable",
-	"require-dev": {
-		"way/generators": "2.*",
-		"cartalyst/sentry": "2.1.*"
-	}
+	"minimum-stability": "stable"
 }

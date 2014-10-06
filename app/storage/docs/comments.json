@@ -1,0 +1,165 @@
+{
+    "basePath": "http://localhost:8000",
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0.0",
+    "resourcePath": "/comments",
+    "apis": [
+        {
+            "path": "/api/v1/comments",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Gets all comments",
+                    "nickname": "getAllComment",
+                    "type": "Comment",
+                    "notes": "Returns all comments in the current database"
+                },
+                {
+                    "method": "POST",
+                    "summary": "A comment is created by a user",
+                    "nickname": "postComment",
+                    "type": "Comment",
+                    "parameters": [
+                        {
+                            "paramType": "body",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "user_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "description",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "A comment is created by a user, most likely it will be the authenticated user posting a comment"
+                }
+            ]
+        },
+        {
+            "path": "/api/v1/comments/{comment_id}",
+            "operations": [
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a comment by the comment_id",
+                    "nickname": "deleteCommentById",
+                    "type": "Comment",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "comment_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Deletes a comment based on comment_id"
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a comment by the comment_id",
+                    "nickname": "updateCommentById",
+                    "type": "Comment",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "comment_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of the comment that needs to be update",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of the activity",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "user_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id the user who has made the comment",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        },
+                        {
+                            "paramType": "body",
+                            "name": "description",
+                            "type": "string",
+                            "required": true,
+                            "description": "description that the user has made a comment about"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Updates a comment based on comment_id"
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/plain",
+        "text/html"
+    ]
+}

@@ -8,7 +8,7 @@ class UserMailer extends Mailer {
 	
 	public function welcome($user)
 	{
-		$subject = 'Welcome to Musbe!';
+		$subject = 'Welcome to justPlay!';
 		$view = 'emails.welcome';
 		$data = [];
 		

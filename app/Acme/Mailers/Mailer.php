@@ -1,7 +1,7 @@
 <?php namespace Acme\Mailers;
 
-
 use Mail;
+
 
 abstract class Mailer {
 	

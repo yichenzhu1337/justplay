@@ -1,7 +1,6 @@
 <?php namespace Acme\Repositories;
 
 use Acme\Interfaces\CommentRepositoryInterface;
-
 use Comment;
 
 

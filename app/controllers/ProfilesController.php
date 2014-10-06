@@ -6,10 +6,12 @@ use Acme\Interfaces\ProfileRepositoryInterface;
 class ProfilesController extends \BaseController {
 
 	protected $profile;
+    protected $user;
 
-	function __construct(ProfileRepositoryInterface $profile)
+	function __construct(ProfileRepositoryInterface $profile, User $user)
 	{
 		$this->profile = $profile;
+        $this->user = $user;
 	}
 
 	/**
@@ -21,27 +23,29 @@ class ProfilesController extends \BaseController {
 	{
 		$profiles = User::with('profile')->get();
 
-		return Response::json($profiles);
+		return $profiles;
 	}
 
 	/**
-	 * Display the specified userprofile.
+	 * Display the specified user's profile.
 	 *
-	 * @param  int  $id
+	 * @param  int  $username
 	 * @return Response
 	 */
 	public function show($username)
 	{
-		return Response::json([
- 					'errors' => [],
- 					'obj' => $this->profile->show($username)
- 				]);
+		return $this->profile->show($username);
 	}
 
-	public function update($username)
+    /**
+     * @param $username
+     */
+    public function update($username)
 	{
 		$user = User::whereUsername($username)->firstOrFail();
+
 		$input = Input::only('name', 'gender', 'bio', 'age', 'email', 'preferences', 'phone_number', 'social_link');
+
 		$this->profile->update($user->id, $input);
 	}
 

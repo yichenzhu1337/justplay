@@ -4,28 +4,40 @@ use Acme\Interfaces\FriendRepositoryInterface;
 use Acme\Interfaces\NotificationRepositoryInterface;
 
 
-class FriendsController extends \BaseController {
+/**
+ * Class FriendsController
+ */
+class FriendsController extends \ApiController {
 
-	protected $friend;
-	protected $notification;
+    /**
+     * Variables
+     *
+     * @var Acme\Interfaces\FriendRepositoryInterface
+     * @var Acme\Interfaces\NotificationRepositoryInterface
+     */
+    protected $friend;
+    protected $notification;
 
-	function __construct(FriendRepositoryInterface $friend, NotificationRepositoryInterface $notification)
+    /**
+     * FriendsController Constructor
+     *
+     * @param FriendRepositoryInterface $friend
+     * @param NotificationRepositoryInterface $notification
+     */
+    function __construct(FriendRepositoryInterface $friend, NotificationRepositoryInterface $notification)
 	{
 		$this->friend = $friend;
 		$this->notification = $notification;
 	}
 
 	/**
-	 * Display a listing of friends of $user_id = Auth::id();
+	 * Display a listing of friends of the currently authenticated user;
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$auth_id = Sentry::getUser()->id;
-		$this->friend->getAllAuthFriends($auth_id);
-
-		return $this->friend->getAllAuthFriends($auth_id);
+		return $this->friend->getAllAuthFriends(Sentry::getUser()->id);
 	}
 
 	/**
@@ -42,39 +54,28 @@ class FriendsController extends \BaseController {
 		$this->notification->deleteFriendNotification($input['user1_id'], $input['user2_id']);
 
 		$this->notification->sendFriendRequest('accept_confirmed', $input['user1_id'], $input['user2_id'], $details=null);
-	
-    return Response::json(
-      array(
-          'errors' => [],
-          'obj' => ['success'=>'true']
-      ));
 	}
 
 	/**
-	 * Remove the specified friend from storage.
-	 * deletes friend from his personal list
-	 * @param  int  $id
+	 * Remove the friend from his personal list
+     *
+	 * @param int $stranger_id
 	 * @return Response
 	 */
 	public function destroy($stranger_id)
 	{
-		$auth_id = Sentry::getUser()->id;
-
-		$this->friend->destroy($auth_id, $stranger_id);
+		$this->friend->destroy(Sentry::getUser()->id, $stranger_id);
 	}
 
 	/**
-	 * Remove the specified friend from storage.
-	 * deletes friend from his personal list
-	 * @param  int  $id
-	 * @return Response   get response that returns already friends, not friends, or friend request sent
+     * Check to see if two people are friends
+     * get response that returns already friends, not friends, or friend request sent
+     *
+	 * @return Response
 	 */
 	public function checkIfFriends()
-	{	
-		$user_id = Sentry::getUser()->id;
-		$stranger_id = Input::get('stranger_id');
-		
-		return $this->friend->checkIfFriends($user_id, $stranger_id);
+	{
+		return $this->friend->checkIfFriends(Sentry::getUser()->id, Input::get('stranger_id'));
 	}
 
 }

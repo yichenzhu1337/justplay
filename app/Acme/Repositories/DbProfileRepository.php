@@ -1,9 +1,9 @@
 <?php namespace Acme\Repositories;
 
 use Acme\Interfaces\ProfileRepositoryInterface;
-
 use Profile;
 use User;
+
 
 class DbProfileRepository extends DbBaseRepository implements ProfileRepositoryInterface {
 

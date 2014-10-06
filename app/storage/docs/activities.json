@@ -1,0 +1,307 @@
+{
+    "basePath": "http://localhost:8000/api/v1",
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0.0",
+    "resourcePath": "/activities",
+    "apis": [
+        {
+            "path": "/activities",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Gets All activities in the database",
+                    "nickname": "getAllActivities",
+                    "type": "Activity",
+                    "notes": "Returns all activities Not transformed"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Find an activity by activity_id",
+                    "nickname": "getActivityById",
+                    "type": "Activity",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns an activity based on activity_id"
+                }
+            ]
+        },
+        {
+            "path": "/activities-all-auth",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Find an activity by activity_id",
+                    "nickname": "getActivityById",
+                    "type": "Activity",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns an activity based on activity_id"
+                }
+            ]
+        },
+        {
+            "path": "/activities/activities-all-auth-this-week",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Find an activity by activity_id",
+                    "nickname": "getActivityById",
+                    "type": "Activity",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns an activity based on activity_id"
+                }
+            ]
+        },
+        {
+            "path": "/activities/activities-all-this-week",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Find an activity by activity_id",
+                    "nickname": "getActivityById",
+                    "type": "Activity",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns an activity based on activity_id"
+                }
+            ]
+        },
+        {
+            "path": "/activities/{activity_id}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Find an activity by activity_id",
+                    "nickname": "getActivityById",
+                    "type": "Activity",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns an activity based on activity_id"
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Find an activity by activity_id",
+                    "nickname": "getActivityById",
+                    "type": "Activity",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns an activity based on activity_id"
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Find an activity by activity_id",
+                    "nickname": "getActivityById",
+                    "type": "Activity",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "activity_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "id of activity that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid activity_id supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Activity not found"
+                        }
+                    ],
+                    "notes": "Returns an activity based on activity_id"
+                }
+            ]
+        }
+    ],
+    "models": {
+        "Activity": {
+            "id": "Activity",
+            "required": [
+                "capacity",
+                "description",
+                "endingtime",
+                "id",
+                "location",
+                "owner_id",
+                "sport",
+                "startingtime"
+            ],
+            "properties": {
+                "id": {
+                    "description": "Unique identifier for the Activity.",
+                    "type": "integer",
+                    "format": "int64",
+                    "minimum": "0.0",
+                    "maximum": "100.0"
+                },
+                "owner_id": {
+                    "description": "Unique identifier for the owner who created the Activity.",
+                    "type": "integer",
+                    "format": "int64",
+                    "minimum": "0.0",
+                    "maximum": "100.0"
+                },
+                "location": {
+                    "description": "The location at which the Activity will be held at.",
+                    "type": "string"
+                },
+                "startingtime": {
+                    "description": "The starting time for the Activity.",
+                    "$ref": "date-format"
+                },
+                "endingtime": {
+                    "description": "The ending time for the Activity.",
+                    "$ref": "date-format"
+                },
+                "capacity": {
+                    "description": "The maximum participants that can join the Activity",
+                    "type": "integer",
+                    "format": "int64",
+                    "minimum": "0.0",
+                    "maximum": "100.0"
+                },
+                "description": {
+                    "description": "The description of the Activity an owner makes and edits.",
+                    "type": "string"
+                },
+                "sport": {
+                    "description": "All the sports that can be selected when played",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/plain",
+        "text/html"
+    ]
+}

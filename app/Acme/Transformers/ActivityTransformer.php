@@ -1,109 +1,14 @@
 <?php namespace Acme\Transformers;
 
-use League\Fractal;
-use League\Fractal\Manager;
-use League\Fractal\Resource\Item;
-use League\Fractal\Resource\Collection;
 use League\Fractal\TransformerAbstract;
-use League\Fractal\Serializer\DataArraySerializer;
-use League\Fractal\Serializer\ArraySerializer;
-use League\Fractal\Serializer\JsonApiSerializer;
-
-use Acme\Transformers\CommentTransformer;
-use Acme\Transformers\ActivityJoinedTransformer;
-
 use User;
 use Activity;
 use Comment;
 use ActivityJoin;
 use Profile;
 
-use Swagger\Annotations as SWG;
 
-/**
- * @package
- * @category
- * @subpackage
- *
- * @SWG\Model(
- *   id="Activity",
- *   required="id, owner_id, location, startingtime, endingtime, capacity, description, sport"
- * )
- */
 class ActivityTransformer extends TransformerAbstract {
-
-    /**
-     * @SWG\Property(
-     *   name="id",
-     *   type="integer",
-     *   format="int64",
-     *   description="Unique identifier for the Activity.",
-     *   minimum="0.0",
-     *   maximum="100.0"
-     * )
-     */
-
-    /**
-     * @SWG\Property(
-     *   name="owner_id",
-     *   type="integer",
-     *   format="int64",
-     *   description="Unique identifier for the owner who created the Activity.",
-     *   minimum="0.0",
-     *   maximum="100.0"
-     * )
-     */
-
-    /**
-     * @SWG\Property(
-     *   name="location",
-     *   type="string",
-     *   description="The location at which the Activity will be held at."
-     * )
-     */
-
-    /**
-     * @SWG\Property(
-     *   name="startingtime",
-     *   type="date-format",
-     *   description="The starting time for the Activity."
-     * )
-     */
-
-    /**
-     * @SWG\Property(
-     *   name="endingtime",
-     *   type="date-format",
-     *   description="The ending time for the Activity."
-     * )
-     */
-
-    /**
-     * @SWG\Property(
-     *   name="capacity",
-     *   type="integer",
-     *   format="int64",
-     *   description="The maximum participants that can join the Activity",
-     *   minimum="0.0",
-     *   maximum="100.0"
-     * )
-     */
-
-    /**
-     * @SWG\Property(
-     *   name="description",
-     *   type="string",
-     *   description="The description of the Activity an owner makes and edits."
-     * )
-     */
-
-    /**
-     * @SWG\Property(
-     *   name="sport",
-     *   type="string",
-     *   description="All the sports that can be selected when played"
-     * )
-     */
 
 	public function transform(Activity $activity)
 	{
@@ -145,7 +50,8 @@ class ActivityTransformer extends TransformerAbstract {
     /**
      * Include Comment
      *
-     * @return League\Fractal\ItemResource
+     * @param $activity
+     * @return collection
      */
     public function includeComments(Activity $activity)
     {
@@ -155,9 +61,10 @@ class ActivityTransformer extends TransformerAbstract {
     }
 
     /**
-     * Include Comment
+     * Include Poeple who have joined the activity
      *
-     * @return League\Fractal\ItemResource
+     * @param $activity
+     * @return collection
      */
     public function includeActivityJoined(Activity $activity)
     {

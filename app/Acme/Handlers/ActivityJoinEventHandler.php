@@ -34,7 +34,6 @@ class ActivityJoinEventHandler {
                 $this->notification->sendActivityNotification('activity_join', $from_id, $to_id, $activity_id, $details);
             }
         }
-
     }
 
     /**

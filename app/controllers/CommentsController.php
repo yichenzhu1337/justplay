@@ -3,24 +3,26 @@
 use Acme\Interfaces\CommentRepositoryInterface;
 
 
+/**
+ * Class CommentsController
+ */
 class CommentsController extends \ApiController {
 
-	protected $comment;
+    /**
+     * Variables
+     *
+     * @var Acme\Interfaces\CommentRepositoryInterface
+     */
+    protected $comment;
 
-	function __construct(CommentRepositoryInterface $comment)
+    /**
+     * CommentsController Constructor
+     *
+     * @param CommentRepositoryInterface $comment
+     */
+    function __construct(CommentRepositoryInterface $comment)
 	{
 		$this->comment = $comment;
-	}
-
-	/**
-	 * Display a listing of comments
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		$comments = Comment::all();
-		return $comments;
 	}
 
 	/**
@@ -31,13 +33,13 @@ class CommentsController extends \ApiController {
 	 */
 	public function show($id)
 	{
-		$comment = Comment::find($id);
-		return $comment;
+		return $this->comment->getById($id);
 	}
 
 	/**
 	 * Store a newly created comment in storage.
-	 *
+	 * Event fires
+     *
 	 * @return Response
 	 */
 	public function store()
@@ -50,7 +52,9 @@ class CommentsController extends \ApiController {
 
     /**
      * Updates the comment in storage.
+     * Event fires
      *
+     * @param int $id
      * @return Response
      */
     public function update($id)

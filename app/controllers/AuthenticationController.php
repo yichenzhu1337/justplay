@@ -65,6 +65,8 @@ class AuthenticationController extends ApiController {
 			{
                 User::with('profile')->where('id', '=', $user->id)->first();
 			}
+
+            return Response::json(['login' => 'success']);
 		}
 		catch (\Exception $e)
 		{

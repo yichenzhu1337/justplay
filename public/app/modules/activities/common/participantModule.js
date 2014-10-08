@@ -1,8 +1,8 @@
-var mod = angular.module('participantModule', []);
+var mod = angular.module('participantModule', ['validator']);
 
 var factories = {};
 
-factories.Participant = [function(){
+factories.Participant = ['Validator',function(Validator){
 
 	/**
 	 * Corresponds to a Participant Object
@@ -13,40 +13,48 @@ factories.Participant = [function(){
 	 * @param {string} name       Name
 	 * @param {string} dp         Url of person's display picture
 	 */
-	function Participant(user_id, areFriends, username, name, dp) {
-		// Initialize Values
-		this.user_id = user_id;
-		this.areFriends = areFriends;
-		this.username = username;
-		this.name = name;
-		this.profile_picture = dp;
+	function Participant(obj) {
+		if (Specification.check(obj)===true)
+		{
+			// Initialize Values
+			this.user_id = obj.user_id;
+			this.areFriends = obj.areFriends;
+			this.username = obj.username;
+			this.name = obj.name;
+			this.profile_picture = obj.dp;
+		}
+		else
+		{
+			console.log(Specification.check(obj));
+		}
 	}
 
+	var Assert = Validator.Assert;
+	var Constraint = Validator.Constraint;
+
 	/**
-	 * Participant validation test
-	 * @param  {object}  participant JSON representation of a participant
-	 * @return {Boolean}             Whether the person is a valid participant
+	 * Participant Specification
+	 * @type {Constraint}
 	 */
-	function isValidParticipant(participant) {
-		if (
-			angular.isUndefined(participant.user_id) ||
-			(participant.areFriends != true && participant.areFriends != false) ||
-			angular.isUndefined(participant.username)
-			)
+	var Specification = new Constraint( 
 		{
-			return false;
-		} else {
-			return true;
-		}
+			user_id: [ new Assert().NotBlank(), new Assert().GreaterThan(0) ],
+			areFriends: [ new Assert().NotBlank()  ],
+			username: [ new Assert().NotBlank() ],
+			name: [ new Assert().NotBlank() ],
+			profile_picture: [ new Assert().NotBlank() ]
+		},
+		{
+			strict: true
+		});
+
+	function ParticipantConstructorException(undefinedList) {
+		this.message = undefinedList.toString() + ' is undefined.';
+		this.name = 'ParticipantConstructorException';
 	}
 
 	Participant.build = function(data) {
-		// Check if each one is defined
-		if (isValidParticipant(data)) {
-			return new Participant(data.user_id, data.areFriends, data.username, data.name, data.profile_picture);
-		} else {
-			return false;
-		}
+		return new Participant(data);
 	}
 
 	return Participant;
@@ -60,7 +68,7 @@ factories.ParticipantCollection = ['Participant', function(Participant) {
 	 * @constructor
 	 * @param {array} participants array of JSON participants
 	 */
-	function ParticipantCollection = function(participants)
+	function ParticipantCollection(participants)
 	{
 		this.list = createCollection(participants);
 		this.totalFriends = countParticipants(this.list, true);

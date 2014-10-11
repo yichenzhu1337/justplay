@@ -6,7 +6,7 @@ var factories = {};
 var directives = {};
 
 controllers.masterCtrl = ['$scope', '$state', 'authenticationService', 'loggedIn', 'Restangular', '$http', 'notificationService',
-function(Validator, $scope, $state, authenticationService, loggedIn, Restangular, $http, notificationService){
+function($scope, $state, authenticationService, loggedIn, Restangular, $http, notificationService){
 	init();
 
 	function init()

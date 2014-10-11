@@ -2,7 +2,7 @@ var mod = angular.module('participantModule', ['validator']);
 
 var factories = {};
 
-factories.Participant = ['Validator',function(Validator){
+factories.Participant = ['Validator', function(Validator){
 
 	/**
 	 * Corresponds to a Participant Object
@@ -39,7 +39,7 @@ factories.Participant = ['Validator',function(Validator){
 	var Specification = new Constraint( 
 		{
 			user_id: [ new Assert().NotBlank(), new Assert().GreaterThan(0) ],
-			areFriends: [ new Assert().NotBlank()  ],
+			areFriends: [ new Assert().InstanceOf(Boolean) ],
 			username: [ new Assert().NotBlank() ],
 			name: [ new Assert().NotBlank() ],
 			profile_picture: [ new Assert().NotBlank() ]

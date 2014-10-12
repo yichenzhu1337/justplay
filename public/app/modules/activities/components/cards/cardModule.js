@@ -329,7 +329,7 @@ controllers.detailedCardController = function($scope, $state, DateTimeService, F
   $scope.cancel = function(actId) {
   	FlashService.show('You have successfully deleted the activity', 'success');
   	API.delete('api/v1/activities/'+actId);
-  	$state.go('main.activities.list');
+  	$state.go('main.activities.list', null, { reload: true });
   }
 
 	init();

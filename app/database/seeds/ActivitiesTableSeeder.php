@@ -8,7 +8,6 @@ class ActivitiesTableSeeder extends Seeder {
 
 	public function run()
 	{
-
 		$sports_list = ['Tennis', 'Badminton', 'Table Tennis', 'Squash'];
 		$location_list = ['Valley', 'Attic', 'Gym', 'Weight room', 'Teaching studio', 'TPASC'];
 		
@@ -16,7 +15,6 @@ class ActivitiesTableSeeder extends Seeder {
 
 		foreach(range(1, 100) as $index)
 		{
-
 			$start_date = Carbon::now('America/Toronto')->addDays(rand(1, 3));
 			$end_date = $start_date->addDays(rand(1, 2));
 

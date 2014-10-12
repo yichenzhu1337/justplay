@@ -27,7 +27,7 @@ class NotificationsController extends ApiController {
 	 */
 	public function index()
 	{
-		return $this->notification->getAllAuthNotifications(entry::getUser()->id);
+		return $this->notification->getAllAuthNotifications(Sentry::getUser()->id);
 	}
 
 	/**
@@ -42,10 +42,12 @@ class NotificationsController extends ApiController {
 	}
 
     /**
-     * POST
+     * /POST
      * @param $request_type
      * @param $activity_id = null
      * @return route api/v1/notifications/{request_type}/{activity_id}
+     * request_type = {friend_request, activity_invite_request}
+     * activity_id = int or null if it's a friend request
      */
     public function sendNotification($request_type, $activity_id)
     {

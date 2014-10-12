@@ -55,7 +55,7 @@ Route::filter('auth.basic', function()
 // Access-Control-Allow-Origin: *
 Route::filter('allowOrigin', function($route, $request, $response) 
 {
-    $response->header('access-control-allow-origin','*');
+    $response->header('Access-Control-Allow-Origin','*');
 });
 
 /*

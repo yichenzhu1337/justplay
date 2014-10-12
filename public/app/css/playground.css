@@ -15,6 +15,12 @@
   }
 /* Imported Fonts */  
 
+.terms-container {
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+}
+
 /* Dependency on angular ui bootstrap */
 .pagination, .carousel, .panel-title a { cursor: pointer; }
 

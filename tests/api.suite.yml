@@ -1,0 +1,10 @@
+class_name: ApiTester
+modules:
+    enabled: [PhpBrowser, REST, ApiHelper, Laravel4, Db]
+    config:
+      Laravel4:
+        cleanup: false
+      PhpBrowser:
+          url: http://www.just-play.ca/
+      REST:
+          url: http://localhost/github/justplay/public/api/v1/

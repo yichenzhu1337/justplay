@@ -26,17 +26,6 @@ class CommentsController extends \ApiController {
 	}
 
 	/**
-	 * Display the specified comment.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		return $this->comment->getById($id);
-	}
-
-	/**
 	 * Store a newly created comment in storage.
 	 * Event fires
      *

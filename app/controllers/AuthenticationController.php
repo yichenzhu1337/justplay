@@ -24,7 +24,7 @@ class AuthenticationController extends ApiController {
                 return $this->respondError('duplicate users in users database', 400);
 			}
 			else
-			{
+            {
 				$user = Sentry::createUser(array(
 					'username' => Input::get('username'),
 					'email' => Input::get('email'),

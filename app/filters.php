@@ -39,7 +39,7 @@ Route::filter('auth', function()
 		return Response::json([
             'error' => [[
                 'message' => 'user is not logged in',
-                'status_code' => 404
+                'status_code' => 401
             ]]
         ], 401);
 	}

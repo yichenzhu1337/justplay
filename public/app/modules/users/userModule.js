@@ -3,14 +3,21 @@ var mod = angular.module('userModule', ['jp.http','jp.authentication']);
 var factories = {};
 
 factories.User = [function() {
+
+	/**
+	 * Corresponds to a User Object with all profile details
+	 * @param {int} id         id of user
+	 * @param {string} username   username
+	 * @param {string} name       name
+	 * @param {string} email      email
+	 * @param {mysql_date} last_login Last login date
+	 * @param {mysql_date} created_at Account Created Date
+	 * @param {object} profile    Profile object
+	 */
 	function User(id, username, name, email, last_login, created_at, profile) {
 		this.id = id;
 		this.username = username;
-		if (name == null) {
-			this.first_name = username;
-		} else {
-			this.first_name = name;		
-		}
+		this.first_name = name;		
 		this.email = email;
 		if (last_login == null) {
 			this.last_login = new Date(created_at);

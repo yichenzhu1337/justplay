@@ -11,7 +11,7 @@ Route::get('activities/user_id/{user_id}/weeks/{number_of}', 'ActivitiesControll
 Route::get('activities/activities-all-auth-this-week', 'ActivitiesController@getAllAuthActivitiesThisWeek');
 Route::resource('activities', 'ActivitiesController', ['only' => ['index', 'show', 'store', 'update', 'destroy']]);
 
-
+activities/id?pre_weeks
 activities-join 4
 =======================================
 Route::resource('activity-join', 'ActivityJoinController', ['only' => ['index', 'show', 'store', 'destroy']]);

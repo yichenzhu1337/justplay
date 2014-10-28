@@ -7,10 +7,8 @@ Route::get('/', function()
 
 Route::group(array('prefix' => 'api/v1/', 'after' => 'allowOrigin'), function()
 {
-
 	foreach (File::allFiles(__DIR__.'/routes') as $partial)
 	{
 		require_once $partial->getPathname();
 	}
-
 });

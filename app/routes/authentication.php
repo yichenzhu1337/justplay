@@ -1,7 +1,5 @@
 <?php
 
-
-
 	Route::post('login', 'AuthenticationController@postLogin');
 	Route::post('register', 'AuthenticationController@postRegister');	
 

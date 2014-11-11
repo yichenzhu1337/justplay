@@ -5,7 +5,7 @@ Route::get('/', function()
 	return View::make("index");
 });
 
-Route::group(array('prefix' => 'api/v1/', 'after' => 'allowOrigin'), function()
+Route::group(['prefix' => 'api/v1/', 'after' => 'allowOrigin'], function()
 {
 	foreach (File::allFiles(__DIR__.'/routes') as $partial)
 	{

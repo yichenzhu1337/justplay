@@ -44,6 +44,8 @@
 		<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
 		<script src="bower_components/lodash/dist/lodash.js"></script>
 		<script src="bower_components/restangular/src/restangular.js"></script>
+		<script src="bower_components/angulartics/dist/angulartics.min.js"></script>
+		<script src="bower_components/angulartics/dist/angulartics-ga.min.js"></script>
 
 
 		<!-- CUSTOM SCRIPTS -->
@@ -109,7 +111,6 @@
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 		  ga('create', 'UA-54553612-1', 'auto');
-		  ga('send', 'pageview');
 
 		</script>
 	</body>

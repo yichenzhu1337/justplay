@@ -12,7 +12,8 @@
 		<button 
 		class="btn-link edit"
 		ng-click="formDescription.$show()" ng-hide="formDescription.$visible"
-    analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.COMMENT}}">
+    analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.COMMENT.action}}"
+    analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.COMMENT.category}}" analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.COMMENT.label}}">
 			<i class="glyphicon glyphicon-pencil pull-right"></i>
 		</button>
   </span>

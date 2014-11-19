@@ -15,7 +15,9 @@
           data-toggle="dropdown"
           close-text="Close"
           analytics-on="click" 
-          analytics-event="{{ANGULARTIC_EVENT.ACTIVITY_LIST.DATE_PICKER}}">{{dateobj.date | date:filterFormat}}</a>
+          analytics-event="{{ANGULARTIC_EVENT.ACTIVITY_LIST.DATE_PICKER.action}}"
+          analytics-category="{{ANGULARTIC_EVENT.ACTIVITY_LIST.DATE_PICKER.category}}" 
+          analytics-label="{{ANGULARTIC_EVENT.ACTIVITY_LIST.DATE_PICKER.label}}">{{dateobj.date | date:filterFormat}}</a>
         </div>
       </div>
       <div class='call-to-action' ng-show='checkFilteredCollectionLength(dateobj.obj, activityFilter) < 1'>

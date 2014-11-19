@@ -41,7 +41,9 @@
       <div class="card-metrics">
         <div class="row">
           <div class="col-xs-4 friend-list-tooltip">
-            <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Left'" analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY_CARD.FRIENDS}}">
+            <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Left'" analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY_CARD.FRIENDS.action}}"
+            analytics-category="{{ANGULARTIC_EVENT.ACTIVITY_CARD.FRIENDS.category}}" 
+            analytics-label="{{ANGULARTIC_EVENT.ACTIVITY_CARD.FRIENDS.label}}">>
               <div class="card-number">
                 {{friendList.length}}
               </div>
@@ -61,7 +63,9 @@
             </button>
           </div>                           
           <div class="col-xs-4">
-            <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Right'" analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY_CARD.OTHERS}}" >                        
+            <button class="btn jp-btn-link" ng-model="radioModel" btn-radio="'Right'" analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY_CARD.OTHERS.action}}"
+            analytics-category="{{ANGULARTIC_EVENT.ACTIVITY_CARD.category}}" 
+            analytics-label="{{ANGULARTIC_EVENT.ACTIVITY_CARD.label}}"> >                        
               <div class="card-number">
                 {{ goingList.length }}
               </div>

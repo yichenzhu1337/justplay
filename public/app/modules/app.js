@@ -25,33 +25,193 @@ var app = angular.module('app',
 // ANGULARTICS EVENT CONFIGURATION
 // -------------------------------
 app.constant('ANGULARTIC_EVENT', {
-	LOGIN: 'Login',
-	SIGN_UP: 'Sign Up',
-	TERMS_OF_SERVICE: 'Terms of Service',
+	LOGIN: {
+		action: {
+			'Login'
+		},
+		category: {
+			'Login'
+		},
+		label: {
+			'Login'
+		}
+	},
+	SIGN_UP: {
+		action: {
+			'Sign up'
+		},
+		category: {
+			'Sign up'
+		},
+		label: {
+			'Sign up'
+		}
+	},
+	TERMS_OF_SERVICE: {
+		action: {
+			'Terms of Service'
+		},
+		category: {
+			'misc'
+		},
+		label: {
+			'Terms of Service'
+		}
+	},
 	NAV_BAR: {
-		PROFILE: 'Self profile page'
+		PROFILE: {
+			action: {
+				'Profile Page'
+			},
+			category: {
+				'Navigation'
+			},
+			label: {
+				'Clicking on their own profile page'
+			}
+		}
 	},
 	ACTIVITY: {
-		COMMENT: 'Activity comment',
-		JOIN: 'Activity join',
-		CANCEL: 'Activity cancel',
-		LEAVE: 'Activity leave',
+		COMMENT: {
+			action: {
+				'Activity comment'
+			},
+			category: {
+				'Activity'
+			},
+			label: {
+				'User created new comment'
+			}
+		},
+		JOIN: {
+			action: {
+				'Activity join'
+			},
+			category: {
+				'Activity'
+			},
+			label: {
+				'User has joined an activity'
+			}
+		},
+		CANCEL: {
+			action: {
+				'Activity cancel'
+			},
+			category: {
+				'Activity'
+			},
+			label: {
+				'Host has canceled activity'
+			}
+		},
+		LEAVE: {
+			action: {
+				'Activity leave'
+			},
+			category: {
+				'Activity'
+			},
+			label: {
+				'User has left activity'
+			}
+		},
 		CHANGE: {
-			DATE: 'Activity change date',
-			TIME: 'Activity change time',
-			LOCATION: 'Activity change location'
+			DATE: {
+				action: {
+					'Activity change date'
+				},
+				category: {
+					'Activity.modification'
+				},
+				label: {
+					'Host changed date of activity'
+				}
+			},
+			TIME: {
+				action: {
+					'Activity change time'
+				},
+				category: {
+					'Activity.modification'
+				},
+				label: {
+					'Host changed time of activity'
+				}
+			},
+			LOCATION: {
+				action: {
+					'Activity change location'
+				},
+				category: {
+					'Activity.modification'
+				},
+				label: {
+					'Host changed location of activity'
+				}
+			}
 		}
 	},
 	ACTIVITY_CARD: {
-		OTHERS: 'Activity card others indicator',
-		FRIENDS: 'Activity card friends indicator',
-		OVERVIEW: 'Activity card overview indicator'
+		OTHERS: {
+			action: {
+				'Activity Card Others'
+			},
+			category: {
+				'Activity.Card'
+			},
+			label: {
+				'User clicked on Others on an Activitys card'
+			}
+		},
+		FRIENDS: {
+			action: {
+				'Activity Card Friends'
+			},
+			category: {
+				'Activity.Card'
+			},
+			label: {
+				'User clicked on Friends on an Activitys card'
+			}
+		},
+		OVERVIEW: {
+			action: {
+				'Activity Card Overview'
+			},
+			category: {
+				'Activity.Card'
+			},
+			label: {
+				'User clicked on Overview on an Activitys card'
+			}
+		}
 	},
 	ACTIVITY_LIST: {
-		DATE_PICKER: 'Activity list date picker' 
+		DATE_PICKER: {
+			action: {
+				'Activity Card Date Picker'
+			},
+			category: {
+				'Activity.List'
+			},
+			label: {
+				'User clicked on Date Picker in Activity list'
+			}
+		}
 	},
 	ACTIVITY_CREATE_FORM: {
-		SUBMIT: 'Activity create form submit'
+		SUBMIT: {
+			action: {
+				'Activity Hosted'
+			},
+			category: {
+				'Activity.Hosted'
+			},
+			label: {
+				'User hosted a new activity'
+			}
+		}
 	}
 })
 

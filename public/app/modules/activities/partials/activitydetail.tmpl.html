@@ -24,7 +24,9 @@
 							  e-form="formDate"
 							  ng-click='formDate.$show()'
 							  analytics-on="click" 
-							  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.DATE}}"> 
+							  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.DATE.action}}"
+							  analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.DATE.category}}" 
+							  analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.DATE.label}}">
 									{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
 								</h4>
 								<h4 class="list-group-item-heading" ng-show="!isOwner">
@@ -46,7 +48,9 @@
 								  e-form="formStartingTime" 
 								  ng-click='formStartingTime.$show()'
 								  analytics-on="click" 
-								  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME}}"> 
+								  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME.action}}"
+								  analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME.category}}" 
+								  analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME.label}}">
 										{{activity.startingtime | amDateFormat: 'HH:mm'}}
 									</h4>
 								</span>
@@ -64,7 +68,9 @@
 								  e-form="formEndingTime" 
 								  ng-click='formEndingTime.$show()'
 								  analytics-on="click" 
-								  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME}}">
+								  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME.action}}"
+								  analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME.category}}" 
+								  analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME.label}}">
 									{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 								</h4>
 								</span>
@@ -78,7 +84,9 @@
 								<label ng-show="formLocation.$visible"> Location</label>
 							  <h4 class="list-group-item-heading inline-edit editable-click" editable-text="activity.location" ng-show="isOwner" e-form="formLocation" ng-click='formLocation.$show()'
 							  analytics-on="click" 
-							  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.LOCATION}}"> 
+							  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.LOCATION.action}}"
+							  analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.LOCATION.category}}" 
+							  analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.LOCATION.label}}"> 
 									{{activity.location}}
 								</h4>
 							  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
@@ -109,14 +117,27 @@
 								<label ng-show="isParticipant">
 									CAN'T GO?
 								</label>
-								<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant"
-								analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.JOIN}}">Join</button>
-								<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant"
-								analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE}}">Leave</button>
+								<button class="btn btn-success" 
+								ng-click="join(activity.id)" 
+								ng-show="!isParticipant"
+								analytics-on="click" 
+								analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.JOIN.action}}"
+								analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.JOIN.category}}" 
+								analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.JOIN.label}}">Join</button>
+								<button class="btn btn-danger" 
+								ng-click="unjoin(activity.id)" 
+								ng-show="isParticipant"
+								analytics-on="click" 
+								analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE.action}}"
+								analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE.category}}" 
+								analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE.label}}">Leave</button>
 							</div>
 							<div ng-show="isOwner && isLoggedIn">
 								<button class="btn btn-danger" ng-click="cancel(activity.id)"
-								analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CANCEL}}">Cancel Activity</button>
+								analytics-on="click" 
+								analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CANCEL.action}}"
+								analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.COMMENT.category}}" 
+								analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.COMMENT.label}}">Cancel Activity</button>
 							</div>
 						</div>
 					</div>
@@ -182,14 +203,26 @@
 									<label ng-show="isParticipant">
 										CAN'T GO?
 									</label>
-									<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant"
-									analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.JOIN}}">Join</button>
-									<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant"
-									analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE}}">Leave</button>
+									<button class="btn btn-success" 
+									ng-click="join(activity.id)" 
+									ng-show="!isParticipant"
+									analytics-on="click" 
+									analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.JOIN.action}}"
+									analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.JOIN.category}}" 
+									analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.JOIN.label}}">Join</button>
+									<button class="btn btn-danger" 
+									ng-click="unjoin(activity.id)" 
+									ng-show="isParticipant"
+									analytics-on="click" 
+									analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE.action}}"
+									analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE.category}}" 
+									analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE.label}}">Leave</button>
 								</div>
 								<div ng-show="isOwner && isLoggedIn">
 									<button class="btn btn-danger" ng-click="cancel(activity.id)"
-									analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CANCEL}}">Cancel Activity</button>
+									analytics-on="click" 
+									analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CANCEL.action}}"
+									analytics-category="{{ANGULARTIC_EVENT.ACTIVITY.CANCEL.category}}" analytics-label="{{ANGULARTIC_EVENT.ACTIVITY.CANCEL.label}}">Cancel Activity</button>
 								</div>
 							</div>
 						</div>

@@ -9,7 +9,10 @@
 
 		<div class="more">
 			<p class='terms-message'>
-				By signing up, you agree to our <a analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.TERMS_OF_SERVICE}}" ui-sref="terms">terms and service</a>
+				By signing up, you agree to our <a analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.TERMS_OF_SERVICE.action}}" 
+				analytics-category="{{ANGULARTIC_EVENT.TERMS_OF_SERVICE.category}}" 
+				analytics-label="{{ANGULARTIC_EVENT.TERMS_OF_SERVICE.label}}"
+				ui-sref="terms">terms and service</a>
 			</p>
 			<p>
 				Got an account already?

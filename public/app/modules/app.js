@@ -22,6 +22,48 @@ var app = angular.module('app',
 		'jp.notifications'
 	]);
 
+// ANGULARTICS EVENT CONFIGURATION
+// -------------------------------
+app.constant('ANGULARTIC_EVENT', {
+	LOGIN: 'Login',
+	SIGN_UP: 'Sign Up',
+	TERMS_OF_SERVICE: 'Terms of Service',
+	NAV_BAR: {
+		PROFILE: 'Self profile page'
+	},
+	ACTIVITY: {
+		COMMENT: 'Activity comment',
+		JOIN: 'Activity join',
+		CANCEL: 'Activity cancel',
+		LEAVE: 'Activity leave',
+		CHANGE: {
+			DATE: 'Activity change date',
+			TIME: 'Activity change time',
+			LOCATION: 'Activity change location'
+		}
+	},
+	ACTIVITY_CARD: {
+		OTHERS: 'Activity card others indicator',
+		FRIENDS: 'Activity card friends indicator',
+		OVERVIEW: 'Activity card overview indicator'
+	},
+	ACTIVITY_LIST: {
+		DATE_PICKER: 'Activity list date picker' 
+	},
+	ACTIVITY_CREATE_FORM: {
+		SUBMIT: 'Activity create form submit'
+	}
+})
+
+// ROOT SCOPE CONSTANT DEFINITION
+// ------------------------------
+app.run(['ANGULARTIC_EVENT', '$rootScope', function(ANGULARTIC_EVENT, $rootScope) {
+	$rootScope.ANGULARTIC_EVENT = ANGULARTIC_EVENT;
+}]);
+	
+
+// STATE (UI-ROUTER) PROVIDER CONFIGURATION
+// ----------------------------
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	var access = 
 	{
@@ -182,6 +224,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
 }]);
 
+// CROSS DOMAIN CONFIGURATION
+// --------------------------
 app.config(['$httpProvider', function($httpProvider) {
 
   $httpProvider.defaults.useXDomain = true;
@@ -189,10 +233,14 @@ app.config(['$httpProvider', function($httpProvider) {
 
 }]);
 
+// ANGULAR MOMENT TIMEZONE CONFIGURATION
+// -------------------------------------
 app.constant('angularMomentConfig', {
 	timezone: 'America/Detroit'
 });
 
+// RESTANGULAR CONFIGURATION
+// -------------------------
 app.run(['Restangular','API','DateTimeService','BASE_URL','BASE_API_ROUTE','BASE_URL_DIRECTORY','Interceptors','api_const',
 	function(Restangular, API, DateTimeService, BASE_URL, BASE_API_ROUTE, BASE_URL_DIRECTORY, Interceptors, api_const) {
 	Restangular.setBaseUrl(BASE_URL_DIRECTORY+'/'+BASE_API_ROUTE);
@@ -313,6 +361,8 @@ app.run(['Restangular','API','DateTimeService','BASE_URL','BASE_API_ROUTE','BASE
 	});
 }]);
 
+// STATE-DRIVEN REROUTING
+// ----------------------
 app.run(['$rootScope','$state','authenticationService', 'access', 'FlashService', 
 	function($rootScope, $state, AuthSvc, access, FlashService){
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {

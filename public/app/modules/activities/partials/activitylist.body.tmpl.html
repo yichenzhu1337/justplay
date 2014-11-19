@@ -13,7 +13,9 @@
           max="maxDate"
           ng-required="true" 
           data-toggle="dropdown"
-          close-text="Close">{{dateobj.date | date:filterFormat}}</a>
+          close-text="Close"
+          analytics-on="click" 
+          analytics-event="{{ANGULARTIC_EVENT.ACTIVITY_LIST.DATE_PICKER}}">{{dateobj.date | date:filterFormat}}</a>
         </div>
       </div>
       <div class='call-to-action' ng-show='checkFilteredCollectionLength(dateobj.obj, activityFilter) < 1'>

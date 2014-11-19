@@ -13,15 +13,18 @@
 						  <li class="list-group-item">
 								<i class="fa fa-calendar-o pull-left"></i>
 								<label ng-show="formDate.$visible"> Date <span class="text-muted">(Now -> End of next week)</span></label>
-							  <h4 class="list-group-item-heading inline-edit editable-click" 
+							  <h4 
+							  ng-show="isOwner"
+							  class="list-group-item-heading inline-edit editable-click" 
 			 				  editable-bsdate="activity.startingtime" 
 			 				  e-type='datetime'
 							  e-datepicker-popup="EEEE, MMM d"
 							  e-min='minDate'
 							  e-max='maxDate'
-							  ng-show="isOwner"
 							  e-form="formDate"
-							  ng-click='formDate.$show()'> 
+							  ng-click='formDate.$show()'
+							  analytics-on="click" 
+							  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.DATE}}"> 
 									{{activity.startingtime | amDateFormat: 'dddd, MMM Do' }}
 								</h4>
 								<h4 class="list-group-item-heading" ng-show="!isOwner">
@@ -41,7 +44,9 @@
 								  e-show-meridian="false" 
 								  e-minute-step="10" 
 								  e-form="formStartingTime" 
-								  ng-click='formStartingTime.$show()'> 
+								  ng-click='formStartingTime.$show()'
+								  analytics-on="click" 
+								  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME}}"> 
 										{{activity.startingtime | amDateFormat: 'HH:mm'}}
 									</h4>
 								</span>
@@ -57,7 +62,9 @@
 								  e-show-meridian="false" 
 								  e-minute-step="10" 
 								  e-form="formEndingTime" 
-								  ng-click='formEndingTime.$show()'>
+								  ng-click='formEndingTime.$show()'
+								  analytics-on="click" 
+								  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.TIME}}">
 									{{activity.endingtime | amDateFormat: 'HH:mm'}}  
 								</h4>
 								</span>
@@ -69,7 +76,9 @@
 						  <li class="list-group-item">
 								<i class="glyphicon glyphicon-map-marker pull-left"></i>
 								<label ng-show="formLocation.$visible"> Location</label>
-							  <h4 class="list-group-item-heading inline-edit editable-click" editable-text="activity.location" ng-show="isOwner" e-form="formLocation" ng-click='formLocation.$show()'> 
+							  <h4 class="list-group-item-heading inline-edit editable-click" editable-text="activity.location" ng-show="isOwner" e-form="formLocation" ng-click='formLocation.$show()'
+							  analytics-on="click" 
+							  analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CHANGE.LOCATION}}"> 
 									{{activity.location}}
 								</h4>
 							  <h4 class="list-group-item-heading inline-edit-disabled" ng-show="!isOwner"> 
@@ -100,11 +109,14 @@
 								<label ng-show="isParticipant">
 									CAN'T GO?
 								</label>
-								<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant">Join</button>
-								<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant">Leave</button>
+								<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant"
+								analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.JOIN}}">Join</button>
+								<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant"
+								analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE}}">Leave</button>
 							</div>
 							<div ng-show="isOwner && isLoggedIn">
-								<button class="btn btn-danger" ng-click="cancel(activity.id)">Cancel Activity</button>
+								<button class="btn btn-danger" ng-click="cancel(activity.id)"
+								analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CANCEL}}">Cancel Activity</button>
 							</div>
 						</div>
 					</div>
@@ -170,11 +182,14 @@
 									<label ng-show="isParticipant">
 										CAN'T GO?
 									</label>
-									<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant">Join</button>
-									<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant">Leave</button>
+									<button class="btn btn-success" ng-click="join(activity.id)" ng-show="!isParticipant"
+									analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.JOIN}}">Join</button>
+									<button class="btn btn-danger" ng-click="unjoin(activity.id)" ng-show="isParticipant"
+									analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.LEAVE}}">Leave</button>
 								</div>
 								<div ng-show="isOwner && isLoggedIn">
-									<button class="btn btn-danger" ng-click="cancel(activity.id)">Cancel Activity</button>
+									<button class="btn btn-danger" ng-click="cancel(activity.id)"
+									analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.CANCEL}}">Cancel Activity</button>
 								</div>
 							</div>
 						</div>

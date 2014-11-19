@@ -11,7 +11,8 @@
   <span ng-show="IsCurrentUser(commentobj.username)">
 		<button 
 		class="btn-link edit"
-		ng-click="formDescription.$show()" ng-hide="formDescription.$visible">
+		ng-click="formDescription.$show()" ng-hide="formDescription.$visible"
+    analytics-on="click" analytics-event="{{ANGULARTIC_EVENT.ACTIVITY.COMMENT}}">
 			<i class="glyphicon glyphicon-pencil pull-right"></i>
 		</button>
   </span>

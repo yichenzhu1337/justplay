@@ -9,7 +9,6 @@
 		"fzaninotto/faker": "1.5.*@dev",
 		"league/fractal": "0.9.*",
 		"phpunit/phpunit": "4.1.*",
-		"jlapp/swaggervel": "dev-master",
 		"mockery/mockery": "0.9.*"
 	},
 	"autoload": {

@@ -2,8 +2,6 @@
 
 justPlay is a web application that enables students to play more and plan less. We believe that there are often too many obstacles to simply play a game that requires multiple human beings to participate (Badminton, Basketball, Table Tennis, Tennis etc...). justPlay attempts to take the pain out of organizing and finding others to play with by providing an intelligent match making system that groups people together based on their availability and preferences.
 
-We have a live Alpha Version at www.just-play.ca, feel free to create an account and play around (Let us know if there are any bugs by posting an issue and labeling it with bug)
-
 <h3> Frontend build guide </h3>
 <p> Make sure you have bower installed, go to public and type bower install</p>
 

@@ -11,7 +11,11 @@ class DatabaseSeeder extends Seeder {
 	{
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
-		DB::table('users')->truncate();
+
+	
+	DB::table('users')->truncate();
+
+	
 		DB::table('profiles')->truncate();
 		DB::table('friends')->truncate();
 		DB::table('activities')->truncate();
@@ -22,8 +26,13 @@ class DatabaseSeeder extends Seeder {
 
 		Eloquent::unguard();
 
+	
 		$this->call('UsersTableSeeder');
+
+
 		$this->call('ProfileTableSeeder');
+
+//		dd("exited");
 		$this->call('FriendsTableSeeder');
 		$this->call('ActivitiesTableSeeder');
 		$this->call('CommentsTableSeeder');

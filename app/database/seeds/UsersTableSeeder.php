@@ -27,6 +27,7 @@ class UsersTableSeeder extends Seeder {
 			"last_name" => "Yiu"
 		]);
 
+
 		foreach(range(1, 30) as $index)
 		{
 			User::create([
@@ -34,10 +35,11 @@ class UsersTableSeeder extends Seeder {
 				"email" => $faker->email,
 				"password" => Hash::make('password'),
 				"activated" => 1,
-				"first_name" => $faker->firstName($gender = null|'male'|'female'),
+				"first_name" => $faker->firstName($gender = 'male'|'female'),
 				"last_name" => $faker->lastName
 			]);
 		}
+
 	}
 
 }

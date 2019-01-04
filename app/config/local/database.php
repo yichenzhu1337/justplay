@@ -1,6 +1,9 @@
 <?php
 
-    $env = "db"; //p - production, d - development, db - migrate db
+//$env = "db"; //p - production, d - development, db - migrate db
+$env = "other";
+
+
 
     if($env == "p")
     {
@@ -26,10 +29,18 @@
             'DB_HOST' => 'localhost',
             'DB_NAME' => 'justplay',
             'DB_USERNAME' => 'root',
-            'DB_PASSWORD' => 'root'
+            'DB_PASSWORD' => 'rootroot'
         ];
     }
 
+
+
+        $application_env_variables = [
+            'DB_HOST' => 'localhost',
+            'DB_NAME' => 'justplay',
+            'DB_USERNAME' => 'root',
+            'DB_PASSWORD' => 'rootroot'
+        ];
     return [
 
         'default' => 'mysql',
@@ -38,15 +49,18 @@
 
             'mysql' => [
                 'driver'    => 'mysql',
-                'host'      => $ENV['DB_HOST'],
-                'database'  => $ENV['DB_NAME'],
-                'username'  => $ENV['DB_USERNAME'],
-                'password'  => $ENV['DB_PASSWORD'],
+                'host'      => $application_env_variables['DB_HOST'],
+                'database'  => $application_env_variables['DB_NAME'],
+                'username'  => $application_env_variables['DB_USERNAME'],
+                'password'  => $application_env_variables['DB_PASSWORD'],
                 'charset'   => 'utf8',
                 'collation' => 'utf8_unicode_ci',
-                'prefix'    => '',
+		'prefix'    => '',
+		'strict' => false,
             ]
 
-        ],
+    ],
 
-    ];
+];
+
+
